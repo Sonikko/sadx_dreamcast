@@ -18,103 +18,106 @@ extern "C"
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
 		{
-			if (LevelFrameCount % 41 == 1)
+			if (CurrentLevel == 3 && CurrentAct == 1)
 			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 74;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 74;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 74;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 74;
-			}
-			if (LevelFrameCount % 41 == 4) 
-			{ 
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 75; 
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 75;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 75;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 75;
-			}
-			if (LevelFrameCount % 41 == 7)
-			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 76;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 76;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 76;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 76;
-			}
-			if (LevelFrameCount % 41 == 10)
-			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 77;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 77;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 77;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 77;
-			}
-			if (LevelFrameCount % 41 == 13) 
-			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 78;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 78;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 78;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 78;
-			}
-			if (LevelFrameCount % 41 == 16)
-			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 79;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 79;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 79;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 79;
-			}
-			if (LevelFrameCount % 41 == 19)
-			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 80;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 80;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 80;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 80;
-			}
-			if (LevelFrameCount % 41 == 22)
-			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 81;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 81;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 81;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 81;
-			}
-			if (LevelFrameCount % 41 == 25)
-			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 82;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 82;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 82;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 82;
-			}
-			if (LevelFrameCount % 41 == 28)
-			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 83;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 83;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 83;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 83;
-			}
-			if (LevelFrameCount % 41 == 31)
-			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 84;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 84;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 84;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 84;
-			}
-			if (LevelFrameCount % 41 == 34)
-			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 85;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 85;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 85;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 85;
-			}
-			if (LevelFrameCount % 41 == 37)
-			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 86;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 86;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 86;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 86;
-			}
-			if (LevelFrameCount % 41 == 0)
-			{
-				((NJS_OBJECT *)&object_000660E0)->basicdxmodel->mats[0].attr_texId = 87;
-				((NJS_OBJECT *)&object_0001A994)->basicdxmodel->mats[0].attr_texId = 87;
-				((NJS_OBJECT *)&object_00065A08)->basicdxmodel->mats[0].attr_texId = 87;
-				((NJS_OBJECT *)&object_00065D58)->basicdxmodel->mats[0].attr_texId = 87;
+				if (LevelFrameCount % 41 == 1)
+				{
+					matlist_00065D8C[0].attr_texId = 74;
+					matlist_0001A3A8[0].attr_texId = 74;
+					matlist_000657A0[0].attr_texId = 74;
+					matlist_00065A3C[0].attr_texId = 74;
+				}
+				if (LevelFrameCount % 41 == 4)
+				{
+					matlist_00065D8C[0].attr_texId = 75;
+					matlist_0001A3A8[0].attr_texId = 75;
+					matlist_000657A0[0].attr_texId = 75;
+					matlist_00065A3C[0].attr_texId = 75;
+				}
+				if (LevelFrameCount % 41 == 7)
+				{
+					matlist_00065D8C[0].attr_texId = 76;
+					matlist_0001A3A8[0].attr_texId = 76;
+					matlist_000657A0[0].attr_texId = 76;
+					matlist_00065A3C[0].attr_texId = 76;
+				}
+				if (LevelFrameCount % 41 == 10)
+				{
+					matlist_00065D8C[0].attr_texId = 77;
+					matlist_0001A3A8[0].attr_texId = 77;
+					matlist_000657A0[0].attr_texId = 77;
+					matlist_00065A3C[0].attr_texId = 77;
+				}
+				if (LevelFrameCount % 41 == 13)
+				{
+					matlist_00065D8C[0].attr_texId = 78;
+					matlist_0001A3A8[0].attr_texId = 78;
+					matlist_000657A0[0].attr_texId = 78;
+					matlist_00065A3C[0].attr_texId = 78;
+				}
+				if (LevelFrameCount % 41 == 16)
+				{
+					matlist_00065D8C[0].attr_texId = 79;
+					matlist_0001A3A8[0].attr_texId = 79;
+					matlist_000657A0[0].attr_texId = 79;
+					matlist_00065A3C[0].attr_texId = 79;
+				}
+				if (LevelFrameCount % 41 == 19)
+				{
+					matlist_00065D8C[0].attr_texId = 80;
+					matlist_0001A3A8[0].attr_texId = 80;
+					matlist_000657A0[0].attr_texId = 80;
+					matlist_00065A3C[0].attr_texId = 80;
+				}
+				if (LevelFrameCount % 41 == 22)
+				{
+					matlist_00065D8C[0].attr_texId = 81;
+					matlist_0001A3A8[0].attr_texId = 81;
+					matlist_000657A0[0].attr_texId = 81;
+					matlist_00065A3C[0].attr_texId = 81;
+				}
+				if (LevelFrameCount % 41 == 25)
+				{
+					matlist_00065D8C[0].attr_texId = 82;
+					matlist_0001A3A8[0].attr_texId = 82;
+					matlist_000657A0[0].attr_texId = 82;
+					matlist_00065A3C[0].attr_texId = 82;
+				}
+				if (LevelFrameCount % 41 == 28)
+				{
+					matlist_00065D8C[0].attr_texId = 83;
+					matlist_0001A3A8[0].attr_texId = 83;
+					matlist_000657A0[0].attr_texId = 83;
+					matlist_00065A3C[0].attr_texId = 83;
+				}
+				if (LevelFrameCount % 41 == 31)
+				{
+					matlist_00065D8C[0].attr_texId = 84;
+					matlist_0001A3A8[0].attr_texId = 84;
+					matlist_000657A0[0].attr_texId = 84;
+					matlist_00065A3C[0].attr_texId = 84;
+				}
+				if (LevelFrameCount % 41 == 34)
+				{
+					matlist_00065D8C[0].attr_texId = 85;
+					matlist_0001A3A8[0].attr_texId = 85;
+					matlist_000657A0[0].attr_texId = 85;
+					matlist_00065A3C[0].attr_texId = 85;
+				}
+				if (LevelFrameCount % 41 == 37)
+				{
+					matlist_00065D8C[0].attr_texId = 86;
+					matlist_0001A3A8[0].attr_texId = 86;
+					matlist_000657A0[0].attr_texId = 86;
+					matlist_00065A3C[0].attr_texId = 86;
+				}
+				if (LevelFrameCount % 41 == 0)
+				{
+					matlist_00065D8C[0].attr_texId = 87;
+					matlist_0001A3A8[0].attr_texId = 87;
+					matlist_000657A0[0].attr_texId = 87;
+					matlist_00065A3C[0].attr_texId = 87;
+				}
 			}
 		}
 	};
