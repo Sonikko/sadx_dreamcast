@@ -1,0 +1,13 @@
+﻿  stdafx.cpp
+  dllmain.cpp
+  Heri.cpp
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\heri.cpp(12): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\heri.cpp(38): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\heri.cpp(73): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\heri.cpp(105): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\heri.cpp(1333): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\heri.cpp(1333): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\heri.cpp(1333): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+     Creating library C:\Users\PkR\Documents\Visual Studio 2015\Projects\Heri\Debug\Heri.lib and object C:\Users\PkR\Documents\Visual Studio 2015\Projects\Heri\Debug\Heri.exp
+  Heri.vcxproj -> C:\Users\PkR\Documents\Visual Studio 2015\Projects\Heri\Debug\Heri.dll
+  Heri.vcxproj -> C:\Users\PkR\Documents\Visual Studio 2015\Projects\Heri\Debug\Heri.pdb (Full PDB)

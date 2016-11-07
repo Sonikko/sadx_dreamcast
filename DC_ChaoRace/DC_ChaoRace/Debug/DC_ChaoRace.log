@@ -1,0 +1,411 @@
+﻿  stdafx.cpp
+  DC_ChaoRace.cpp
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(19): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(229): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(229): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(229): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(235): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(300): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(300): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(300): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(309): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(333): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(333): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(333): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(342): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(346): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(354): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(358): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(511): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(511): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(511): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(513): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(519): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(523): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(531): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(646): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(646): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(646): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(648): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(654): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(714): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(714): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(714): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(720): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(752): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(752): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(752): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(778): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(778): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(778): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(786): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(790): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(798): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(913): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(913): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(913): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(915): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(939): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(939): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(939): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(941): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(975): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(975): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(975): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1013): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1013): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1013): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1019): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1023): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1088): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1088): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1088): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1096): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1103): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1107): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1111): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1278): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1278): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1278): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1285): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1299): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1534): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1534): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1534): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1540): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1548): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1636): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1636): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1636): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1642): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1649): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1746): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1746): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1746): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1752): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1758): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1823): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1823): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1823): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1829): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1835): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1900): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1900): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1900): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1906): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1912): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1977): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1977): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1977): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1983): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(1989): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2054): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2054): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2054): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2060): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2066): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2131): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2131): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2131): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2137): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2143): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2208): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2208): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2208): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2214): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2220): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2285): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2285): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2285): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2287): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2291): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2297): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2362): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2362): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2362): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2369): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2443): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2443): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2443): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2445): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2449): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2516): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2516): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2516): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2518): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2522): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2589): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2589): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2589): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2591): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2595): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2601): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2666): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2666): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2666): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2668): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2678): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2688): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2696): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2701): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(2705): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3031): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3031): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3031): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3041): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3045): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3050): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3055): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3185): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3185): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3185): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3195): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3199): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3204): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3209): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3339): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3339): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3339): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3345): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3395): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3395): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3395): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3401): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3457): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3457): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3457): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3464): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3476): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3578): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3578): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3578): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3584): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3615): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3615): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3615): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3629): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3772): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3772): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3772): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3778): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(3803): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(4278): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(4278): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(4278): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(4290): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(4294): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(4319): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(4781): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(4781): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(4781): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(4788): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(4799): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5109): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5109): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5109): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5116): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5371): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5371): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5371): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5378): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5418): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5843): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5843): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5843): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5845): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(5849): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6083): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6083): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6083): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6089): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6267): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6267): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6267): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6275): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6283): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6360): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6360): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6360): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6368): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(6412): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7077): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7077): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7077): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7084): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7092): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7206): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7206): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7206): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7212): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7224): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7336): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7336): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7336): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7342): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7354): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7526): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7526): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7526): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7532): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7542): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7650): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7650): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7650): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7656): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7667): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7874): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7874): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7874): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7880): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7934): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7934): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7934): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7940): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7994): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7994): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(7994): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8000): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8054): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8054): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8054): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8060): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8114): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8114): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8114): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8120): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8174): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8174): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8174): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8180): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8234): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8234): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8234): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8240): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8294): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8294): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8294): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8300): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8354): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8354): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8354): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8360): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8414): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8414): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8414): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8420): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8463): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8463): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8463): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8469): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8531): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8531): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8531): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8537): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8587): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8587): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8587): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8593): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8643): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8643): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8643): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8650): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8766): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8766): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8766): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8774): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8784): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8969): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8969): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8969): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8976): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(8985): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(9205): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(9205): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(9205): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(9218): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(9238): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(9259): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(9265): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(9274): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10301): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10301): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10301): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10311): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10354): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10361): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10776): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10776): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10776): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10785): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10793): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10797): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(10805): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11011): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11011): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11011): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11020): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11030): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11035): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11233): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11233): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11233): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11241): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11249): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11390): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11390): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11390): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11398): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11406): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11530): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11530): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11530): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11541): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11553): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11563): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(11570): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12201): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12201): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12201): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12209): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12226): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12728): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12728): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12728): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12736): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12742): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12915): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12915): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12915): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12923): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(12930): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13105): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13105): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13105): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13114): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13134): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13142): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13174): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13714): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13714): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13714): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13720): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13727): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13813): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13813): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13813): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13819): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13826): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13923): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13923): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13923): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13927): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(13929): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(14026): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(14028): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\chaorace.h(14028): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_chaorace\dc_chaorace\dc_chaorace.cpp(8): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+  dllmain.cpp
+     Creating library c:\users\pkr\documents\visual studio 2015\Projects\DC_ChaoRace\Debug\DC_ChaoRace.lib and object c:\users\pkr\documents\visual studio 2015\Projects\DC_ChaoRace\Debug\DC_ChaoRace.exp
+  DC_ChaoRace.vcxproj -> c:\users\pkr\documents\visual studio 2015\Projects\DC_ChaoRace\Debug\DC_ChaoRace.dll
+  DC_ChaoRace.vcxproj -> c:\users\pkr\documents\visual studio 2015\Projects\DC_ChaoRace\Debug\DC_ChaoRace.pdb (Full PDB)

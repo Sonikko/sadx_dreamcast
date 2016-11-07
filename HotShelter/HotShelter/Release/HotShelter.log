@@ -1,0 +1,642 @@
+﻿  stdafx.cpp
+  hotshelter.cpp
+..\hotshelter.cpp(13): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(510): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(510): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(510): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(519): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(1016): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(1016): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(1016): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(1025): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(1522): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(1522): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(1522): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(1533): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(2044): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(2044): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(2044): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(2053): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(2550): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(2550): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(2550): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(2559): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(2880): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(2880): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(2880): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(2889): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(3386): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(3386): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(3386): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(3397): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(3908): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(3908): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(3908): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(3916): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(4406): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(4406): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(4406): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(4415): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(4912): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(4912): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(4912): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(4921): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(5418): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(5418): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(5418): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(5427): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(5660): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(5660): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(5660): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(5669): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(6166): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(6166): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(6166): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(6175): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(6414): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(6414): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(6414): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(6423): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(6738): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(6738): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(6738): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(6747): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(7244): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(7244): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(7244): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(7253): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(7750): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(7750): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(7750): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(7759): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(8256): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(8256): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(8256): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(8265): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(8498): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(8498): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(8498): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(8508): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(8924): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(8924): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(8924): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(8935): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(9288): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(9288): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(9288): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(9297): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(9600): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(9600): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(9600): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(9608): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(10046): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(10046): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(10046): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(10055): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(10618): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(10618): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(10618): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(10629): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(11134): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(11134): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(11134): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(11148): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(11740): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(11740): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(11740): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(11755): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(12512): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(12512): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(12512): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(12524): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(13010): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(13010): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(13010): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(13022): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(13508): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(13508): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(13508): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(13520): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(14084): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(14084): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(14084): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(14096): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(14484): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(14484): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(14484): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(14497): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(15010): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(15010): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(15010): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(15021): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(15174): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(15174): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(15174): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(15185): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(15672): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(15672): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(15672): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(15681): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(16148): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(16148): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(16148): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(16157): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(16706): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(16706): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(16706): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(16717): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(17280): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(17280): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(17280): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(17297): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(18078): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(18078): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(18078): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(18094): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(18862): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(18862): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(18862): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(18878): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(19646): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(19646): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(19646): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(19657): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(20086): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(20086): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(20086): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(20101): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(20738): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(20738): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(20738): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(20750): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(21186): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(21186): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(21186): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(21200): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(21826): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(21826): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(21826): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(21833): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(21958): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(21958): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(21958): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(21971): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(22734): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(22734): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(22734): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(22745): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(23102): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(23102): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(23102): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(23119): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(23948): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(23948): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(23948): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(23965): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(24856): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(24856): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(24856): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(24872): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(25568): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(25568): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(25568): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(25580): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(26108): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(26108): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(26108): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(26123): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(26782): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(26782): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(26782): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(26795): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(27370): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(27370): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(27370): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(27380): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(27514): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(27514): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(27514): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(27521): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(27696): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(27696): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(27696): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(27702): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(27742): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(27742): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(27742): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(27748): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(27934): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(27934): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(27934): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(27941): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(28052): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(28052): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(28052): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(28076): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(28081): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+..\hotshelter.cpp(28094): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+..\hotshelter.cpp(28149): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+..\hotshelter.cpp(28161): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+..\hotshelter.cpp(28200): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+..\hotshelter.cpp(28205): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+..\hotshelter.cpp(28975): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(28975): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(28975): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(28977): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+..\hotshelter.cpp(28995): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(30047): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(30047): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(30047): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(30049): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+..\hotshelter.cpp(30056): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(30441): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(30441): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(30441): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(30450): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(30835): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(30835): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(30835): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(30844): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(31393): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(31393): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(31393): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(31402): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(31787): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(31787): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(31787): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(31794): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(32001): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(32001): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(32001): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(32010): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(32559): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(32559): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(32559): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(32576): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(33823): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(33823): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(33823): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(33837): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(34601): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(34601): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(34601): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(34613): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(34905): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(34905): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(34905): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(34914): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(35217): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(35217): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(35217): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(35227): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(35540): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(35540): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(35540): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(35556): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(36426): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(36426): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(36426): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(36441): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(37274): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(37274): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(37274): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(37288): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(37766): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(37766): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(37766): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(37778): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(38004): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(38004): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(38004): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(38011): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(38122): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(38122): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(38122): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(38134): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(38814): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(38814): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(38814): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(38823): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(39378): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(39378): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(39378): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(39388): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(39864): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(39864): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(39864): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(39872): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(40298): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(40298): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(40298): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(40306): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(40666): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(40666): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(40666): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(40673): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(40834): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(40834): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(40834): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(40842): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(40930): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(40930): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(40930): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(40942): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(41372): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(41372): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(41372): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(41381): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(41692): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(41692): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(41692): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(41700): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(42004): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(42004): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(42004): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(42014): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(42592): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(42592): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(42592): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(42602): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(43180): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(43180): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(43180): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(43191): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(43694): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(43694): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(43694): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(43702): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(43918): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(43918): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(43918): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(43928): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(44278): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(44278): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(44278): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(44287): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(44726): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(44726): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(44726): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(44734): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(45126): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(45126): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(45126): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(45135): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(45550): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(45550): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(45550): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(45560): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(45918): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(45918): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(45918): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(45928): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(46218): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(46218): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(46218): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(46227): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(46548): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(46548): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(46548): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(46556): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(46880): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(46880): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(46880): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(46889): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(47154): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(47154): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(47154): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(47162): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(47460): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(47460): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(47460): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(47468): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(47772): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(47772): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(47772): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(47781): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(48086): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(48086): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(48086): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(48093): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(48170): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(48170): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(48170): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(48179): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(48502): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(48502): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(48502): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(48508): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(48798): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(48798): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(48798): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(48805): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(49102): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(49102): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(49102): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(49109): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(49406): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(49406): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(49406): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(49415): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(49726): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(49726): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(49726): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(49734): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(50038): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(50038): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(50038): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(50045): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(50342): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(50342): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(50342): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(50349): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(50438): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(50438): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(50438): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(50446): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(50750): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(50750): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(50750): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(50756): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(51046): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(51046): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(51046): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(51054): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(51368): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(51368): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(51368): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(51377): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(51698): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(51698): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(51698): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(51709): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(52058): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(52058): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(52058): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(52069): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(52384): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(52384): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(52384): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(52392): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(52690): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(52690): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(52690): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(52698): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(52810): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(52810): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(52810): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(52820): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(53152): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(53152): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(53152): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(53159): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(53456): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(53456): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(53456): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(53465): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(53788): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(53788): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(53788): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(53797): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(54128): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(54128): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(54128): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(54135): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(54438): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(54438): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(54438): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(54444): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(54734): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(54734): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(54734): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(54743): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(55008): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(55008): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(55008): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(55014): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(55096): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(55096): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(55096): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(55106): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(55438): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(55438): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(55438): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(55446): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(55758): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(55758): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(55758): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(55766): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(56094): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(56094): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(56094): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(56101): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(56414): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(56414): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(56414): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(56422): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(56742): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(56742): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(56742): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(56750): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(57080): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(57080): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(57080): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(57086): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(57376): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(57376): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(57376): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(57385): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(57488): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(57488): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(57488): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(57497): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(57640): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(57640): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(57640): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(57649): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(57864): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(57864): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(57864): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(57873): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(58088): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(58088): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(58088): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(58097): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(58304): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(58304): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(58304): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(58313): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(58538): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(58538): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(58538): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(58546): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(58756): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(58756): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(58756): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(58764): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(58938): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(58938): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(58938): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(58945): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(58992): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(58992): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(58992): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(59002): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(59188): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(59188): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(59188): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(59198): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(59486): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(59486): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(59486): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(59497): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(59690): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(59690): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(59690): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(59700): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(59982): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(59982): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(59982): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(59992): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(60220): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(60220): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(60220): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(60229): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(60404): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(60404): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(60404): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(60415): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(60650): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(60650): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(60650): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(60659): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(60834): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(60834): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(60834): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(60843): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(61018): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(61018): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(61018): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(61029): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(61264): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(61264): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(61264): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(61273): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(61448): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(61448): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(61448): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(61458): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+..\hotshelter.cpp(61686): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+..\hotshelter.cpp(61686): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+..\hotshelter.cpp(61686): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+..\hotshelter.cpp(61848): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+..\hotshelter.cpp(62326): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+..\hotshelter.cpp(62328): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+..\hotshelter.cpp(62328): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+..\hotshelter.cpp(62342): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+  dllmain.cpp
+     Creating library C:\Users\PkR\Documents\Visual Studio 2015\Projects\HotShelter\Release\HotShelter.lib and object C:\Users\PkR\Documents\Visual Studio 2015\Projects\HotShelter\Release\HotShelter.exp
+  Generating code
+  All 246 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  HotShelter.vcxproj -> C:\Users\PkR\Documents\Visual Studio 2015\Projects\HotShelter\Release\HotShelter.dll
+  HotShelter.vcxproj -> C:\Users\PkR\Documents\Visual Studio 2015\Projects\HotShelter\Release\HotShelter.pdb (Full PDB)

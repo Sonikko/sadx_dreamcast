@@ -1,0 +1,9 @@
+﻿  stdafx.cpp
+  hotshelter.cpp
+c:\users\pkr\documents\visual studio 2015\projects\hotshelter\hotshelter.cpp(20): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\hotshelter\hotshelter.cpp(20): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\hotshelter\hotshelter.cpp(26): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+  dllmain.cpp
+     Creating library C:\Users\PkR\Documents\Visual Studio 2015\Projects\HotShelter\Debug\HotShelter.lib and object C:\Users\PkR\Documents\Visual Studio 2015\Projects\HotShelter\Debug\HotShelter.exp
+  HotShelter.vcxproj -> C:\Users\PkR\Documents\Visual Studio 2015\Projects\HotShelter\Debug\HotShelter.dll
+  HotShelter.vcxproj -> C:\Users\PkR\Documents\Visual Studio 2015\Projects\HotShelter\Debug\HotShelter.pdb (Full PDB)

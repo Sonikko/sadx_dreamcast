@@ -1,0 +1,829 @@
+﻿  stdafx.cpp
+  DC_EggCarrierExteior.cpp
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(35): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(441): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(441): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(441): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(447): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(483): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(909): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(909): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(909): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(916): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(931): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1112): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1112): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1112): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1121): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1141): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1149): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1155): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1388): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1388): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1388): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1420): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1447): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1457): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1465): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1475): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1490): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1510): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1523): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1530): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1537): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1547): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1568): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1580): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1602): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1609): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(1635): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(3544): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(3544): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(3544): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(3562): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(3590): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(3601): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(3645): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(3653): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(3662): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(3672): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(3697): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5467): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5467): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5467): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5514): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5529): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5545): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5575): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5580): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5613): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5633): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5653): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5659): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5668): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5676): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5682): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(5702): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7247): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7247): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7247): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7278): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7294): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7311): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7326): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7331): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7361): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7378): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7389): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7414): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7423): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7429): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7440): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(7467): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9021): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9021): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9021): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9027): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9034): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9072): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9072): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9072): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9078): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9084): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9122): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9122): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9122): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9128): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9135): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9173): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9173): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9173): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9179): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9267): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9267): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9267): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9273): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9303): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9397): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9397): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9397): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9403): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9435): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9529): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9529): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9529): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9535): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9543): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9623): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9623): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9623): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9629): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9642): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9714): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9714): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9714): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9752): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9752): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9752): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9786): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9786): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9786): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9792): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9824): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9824): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9824): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9830): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9858): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9858): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9858): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9864): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9868): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9892): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9892): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9892): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9900): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(9913): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10061): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10061): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10061): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10067): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10072): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10131): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10131): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10131): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10137): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10142): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10201): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10201): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10201): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10208): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10227): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10235): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10472): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10472): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10472): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10478): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10548): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10548): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10548): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10559): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10565): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10609): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(10618): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11035): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11035): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11035): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11051): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11055): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11104): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11123): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11133): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11643): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11643): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11643): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11659): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11666): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11674): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11719): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(11730): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12242): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12242): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12242): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12253): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12268): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12275): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12289): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12297): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12670): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12670): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12670): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12680): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12693): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12706): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12715): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12723): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(12729): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13090): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13090): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13090): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13096): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13102): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13189): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13189): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13189): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13195): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13201): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13288): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13288): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13288): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13297): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13302): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13308): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13318): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13727): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13727): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13727): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13734): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13903): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13903): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13903): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13910): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13915): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13999): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13999): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(13999): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14006): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14177): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14177): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14177): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14183): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14315): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14315): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14315): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14321): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14415): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14415): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14415): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14422): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14572): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14572): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14572): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14578): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14584): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14675): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14675): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14675): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14797): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14797): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14797): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14895): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14895): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(14895): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15029): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15029): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15029): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15151): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15151): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15151): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15249): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15249): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15249): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15383): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15383): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15383): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15390): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15399): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15466): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15466): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15466): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15468): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15472): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15477): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15522): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15522): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15522): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15533): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(15561): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16242): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16242): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16242): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16249): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16537): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16537): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16537): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16545): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16569): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16734): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16734): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16734): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(16741): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17119): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17119): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17119): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17126): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17135): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17282): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17282): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17282): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17289): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17298): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17381): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17381): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17381): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17388): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17399): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17562): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17562): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17562): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17569): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17578): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17661): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17661): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17661): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17677): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17684): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17701): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17735): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17740): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(17746): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18318): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18318): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18318): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18331): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18348): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18360): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18377): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18386): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18398): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18897): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18897): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18897): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18904): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18959): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18959): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18959): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(18966): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19075): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19075): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19075): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19082): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19137): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19137): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19137): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19144): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19199): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19199): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19199): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19206): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19261): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19261): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19261): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19268): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19275): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19283): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19443): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19443): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19443): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19454): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19460): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19473): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19659): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19659): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19659): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19670): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19676): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19691): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19881): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19881): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19881): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(19890): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20020): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20020): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20020): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20029): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20039): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20162): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20162): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20162): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20173): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20177): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20184): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20193): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20203): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20373): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20373): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20373): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20384): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20388): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20395): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20404): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20415): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20587): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20587): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20587): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20594): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20600): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20606): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20687): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20687): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20687): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20694): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20700): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20706): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20787): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20787): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20787): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20793): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20801): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20860): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20860): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20860): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20879): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20893): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20919): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20940): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20954): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20978): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(20986): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(21614): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(21614): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(21614): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(21625): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(21653): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(21659): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(21664): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(21990): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(21990): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(21990): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(21999): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22004): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22015): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22021): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22026): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22219): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22219): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22219): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22226): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22441): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22441): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22441): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22448): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22663): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22663): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22663): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22672): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22678): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22685): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22694): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22857): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22857): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22857): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22867): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22875): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22982): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22982): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22982): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22989): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(22995): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23001): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23110): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23110): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23110): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23119): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23124): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23249): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23249): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23249): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23259): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23272): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23281): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23295): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23307): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23820): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23820): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23820): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23830): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23840): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23848): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23862): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(23879): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24382): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24382): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24382): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24392): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24399): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24407): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24638): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24638): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24638): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24649): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24655): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24666): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24674): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24678): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24865): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24865): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24865): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24876): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24882): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24893): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24902): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(24906): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25095): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25095): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25095): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25102): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25107): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25112): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25175): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25175): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25175): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25181): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25222): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25222): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25222): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25229): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25278): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25278): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25278): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25287): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25291): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25301): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25411): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25411): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25411): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25419): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25433): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25524): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25524): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25524): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25530): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25535): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25571): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25571): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25571): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25579): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25592): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25822): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25822): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25822): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25831): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25849): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25860): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(25869): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26202): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26202): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26202): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26211): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26251): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26614): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26614): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26614): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26620): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26664): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26664): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26664): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26670): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26678): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26783): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26783): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26783): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26789): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26795): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26896): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26896): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26896): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26902): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(26909): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27008): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27008): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27008): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27014): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27019): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27114): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27114): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27114): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27126): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27175): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27186): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27590): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27590): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27590): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27596): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27601): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27678): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27678): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27678): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27684): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27689): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27766): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27766): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27766): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27779): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27786): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27827): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27842): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27850): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27855): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27860): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(27865): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(28611): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(28611): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(28611): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(28627): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(28661): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(28667): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(28681): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(28687): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(28699): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(28709): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(28714): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29387): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29387): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29387): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29393): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29395): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29397): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29401): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29403): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29405): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29407): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29409): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29411): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29425): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29427): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29429): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29433): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29435): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29437): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29439): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29441): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29443): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29481): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29483): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29489): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29495): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29497): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29505): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29509): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29513): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29517): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29521): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29523): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29527): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29529): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29535): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29537): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29543): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29549): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29551): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29555): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29559): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29565): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29567): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29571): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29575): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29581): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29583): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29589): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29591): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29595): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29601): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29605): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29607): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29609): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29619): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29621): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29623): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29629): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29631): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29637): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29641): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29645): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29647): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29651): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29655): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29661): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29665): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29669): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29673): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29677): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29679): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29683): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29689): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29693): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29699): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29701): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29705): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29709): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29711): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29713): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29721): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29723): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29729): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29733): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29735): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29737): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29739): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29793): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29806): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29811): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(29815): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30000): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30000): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30000): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30010): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30015): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30024): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30029): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30033): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30220): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30220): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30220): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30230): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30243): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30248): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30252): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30437): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30437): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30437): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30448): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30470): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30837): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30837): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30837): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30845): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30849): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30855): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(30862): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31031): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31031): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31031): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31042): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31064): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31431): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31431): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31431): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31439): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31443): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31449): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31456): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31625): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31625): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31625): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31636): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(31658): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32006): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32006): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32006): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32014): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32018): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32024): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32031): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32200): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32200): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32200): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32206): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32224): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32405): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32405): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32405): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32411): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32429): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32610): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32610): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32610): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32616): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32634): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32815): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32815): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32815): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32821): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32845): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32845): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32845): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32863): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32887): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32938): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32956): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(32996): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(33000): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(34114): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(34114): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(34114): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(34125): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(34175): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(34710): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(34710): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(34710): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(34717): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(35018): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(35018): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(35018): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(35026): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(35046): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(35796): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(35796): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(35796): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(35807): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(35812): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(37014): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(37014): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(37014): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(37020): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(37042): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(37042): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(37042): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(37233): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(37296): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(37359): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(37422): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(37485): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(38197): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(38206): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_eggcarrierexteior\dc_eggcarrierexteior\egg1.h(38206): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+  dllmain.cpp
+     Creating library c:\users\pkr\documents\visual studio 2015\Projects\DC_EggCarrierExteior\Debug\DC_EggCarrierExteior.lib and object c:\users\pkr\documents\visual studio 2015\Projects\DC_EggCarrierExteior\Debug\DC_EggCarrierExteior.exp
+  DC_EggCarrierExteior.vcxproj -> c:\users\pkr\documents\visual studio 2015\Projects\DC_EggCarrierExteior\Debug\DC_EggCarrierExteior.dll
+  DC_EggCarrierExteior.vcxproj -> c:\users\pkr\documents\visual studio 2015\Projects\DC_EggCarrierExteior\Debug\DC_EggCarrierExteior.pdb (Full PDB)

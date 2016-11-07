@@ -1,0 +1,209 @@
+﻿  stdafx.cpp
+  dllmain.cpp
+  Main.cpp
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(8): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(15): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(20): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(159): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(159): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(159): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(166): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(173): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(179): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(320): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(320): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(320): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(333): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(339): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(352): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(361): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(382): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(393): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(927): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(927): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bus.h(927): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(8): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(15): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(159): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(159): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(159): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(166): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(173): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(317): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(317): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(317): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(330): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(357): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(365): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(376): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(382): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(778): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(778): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_yellowcar.h(778): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(8): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(13): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(20): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(171): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(171): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(171): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(178): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(183): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(188): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(323): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(323): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(323): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(337): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(378): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(386): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(1024): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(1024): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_bluecar.h(1024): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(8): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(13): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(18): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(153): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(153): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(153): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(160): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(165): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(170): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(305): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(305): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(305): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(319): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(344): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(353): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(363): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(886): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(886): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_redcar.h(886): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_helicopter.h(16): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_helicopter.h(36): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_helicopter.h(73): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_helicopter.h(77): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_helicopter.h(89): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_helicopter.h(96): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_helicopter.h(106): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_helicopter.h(1066): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_helicopter.h(1066): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_helicopter.h(1066): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(11): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(32): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(264): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(264): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(264): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(272): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(279): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(286): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(457): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(457): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(457): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(465): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(472): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(488): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(643): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(643): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_turnasi.h(643): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\icicle.h(7): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\icicle.h(21): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\icicle.h(276): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\icicle.h(276): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\icicle.h(276): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\icicle.h(282): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\icicle.h(294): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\icicle.h(449): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\icicle.h(449): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\icicle.h(449): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(8): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(13): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(20): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(171): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(171): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(171): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(178): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(183): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(188): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(323): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(323): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(323): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(337): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(381): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(389): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(1052): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(1052): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_bluecar.h(1052): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(8): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(13): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(20): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(171): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(171): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(171): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(178): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(183): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(188): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(323): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(323): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(323): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(337): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(361): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(370): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(379): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(898): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(898): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_redcar.h(898): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(38): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(38): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(38): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(75): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(75): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(75): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(82): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(87): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(92): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(227): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(227): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(227): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(234): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(239): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(244): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(379): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(379): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(379): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(398): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(421): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(428): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(446): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(478): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(483): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(1220): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(1220): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_police.h(1220): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(8): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(13): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(18): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(153): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(153): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(153): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(160): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(165): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(170): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(305): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(305): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(305): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(320): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(345): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(364): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(397): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(1267): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(1267): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SS_taxi.h(1267): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_glass.h(8): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_glass.h(67): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_glass.h(67): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\heri\heri\SH_glass.h(67): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+     Creating library C:\Users\PkR\Documents\Visual Studio 2015\Projects\Heri\Release\Heri.lib and object C:\Users\PkR\Documents\Visual Studio 2015\Projects\Heri\Release\Heri.exp
+  Generating code
+  All 67 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  Heri.vcxproj -> C:\Users\PkR\Documents\Visual Studio 2015\Projects\Heri\Release\Heri.dll
+  Heri.vcxproj -> C:\Users\PkR\Documents\Visual Studio 2015\Projects\Heri\Release\Heri.pdb (Full PDB)

@@ -1,0 +1,252 @@
+﻿  stdafx.cpp
+  DC_TwinklePark.cpp
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(377): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(377): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(377): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(385): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(808): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(808): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(808): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(816): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(1239): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(1239): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(1239): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(1247): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(1724): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(1724): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(1724): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(1732): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2101): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2101): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2101): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2111): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2119): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2130): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2135): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2140): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2320): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2320): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2320): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2332): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2360): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2371): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2377): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2754): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2754): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2754): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2762): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2771): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2776): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(2781): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3002): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3002): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3002): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3013): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3277): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3277): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3277): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3289): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3313): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3326): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3344): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3936): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3936): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3936): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3946): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3954): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3959): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3968): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(3972): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4157): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4157): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4157): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4167): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4174): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4183): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4192): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4480): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4480): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4480): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4498): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4504): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4510): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4516): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4526): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4532): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4543): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4547): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4554): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4567): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4571): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(4581): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(5224): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(5224): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(5224): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(5233): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(5246): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(5561): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(5561): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(5561): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(5570): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(7029): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(7029): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(7029): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(7038): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(7054): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(7065): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(7076): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(7615): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(7615): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(7615): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(7623): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8262): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8262): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8262): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8271): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8917): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8917): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8917): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8919): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8929): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8942): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8949): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8959): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8964): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(8974): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(9476): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(9476): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(9476): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(9485): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(9490): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(9500): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(9628): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(9628): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(9628): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(9637): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(10289): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(10289): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(10289): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(10291): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(10298): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(10950): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(10950): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(10950): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(10958): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(12623): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(12623): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(12623): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(12642): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(12659): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(12690): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(12715): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(13437): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(13437): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(13437): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(13447): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(13941): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(13941): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(13941): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(13950): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(13961): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(14291): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(14291): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(14291): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(14301): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(14652): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(14652): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(14652): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(14662): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15013): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15013): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15013): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15022): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15035): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15376): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15376): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15376): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15391): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15395): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15402): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15407): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15422): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15431): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15435): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15837): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15837): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15837): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15853): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15857): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15867): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15882): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15891): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15895): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(15905): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16306): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16306): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16306): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16323): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16333): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16347): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16360): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16374): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16378): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16697): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16697): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16697): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16713): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16718): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16734): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16758): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16763): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16780): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16795): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(16810): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18023): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18023): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18023): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18036): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18063): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18074): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18080): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18476): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18476): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18476): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18480): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18482): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18484): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18486): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18488): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18490): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18492): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18494): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18496): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18498): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18502): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18504): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18524): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18538): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18540): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18542): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18544): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18554): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18556): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18558): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18560): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18562): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18578): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18580): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18582): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18584): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18586): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18588): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18634): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18636): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18758): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18763): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\twinkle1.h(18763): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_twinklepark\dc_twinklepark\dc_twinklepark.cpp(10): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+  dllmain.cpp
+     Creating library c:\users\pkr\documents\visual studio 2015\Projects\DC_TwinklePark\Debug\DC_TwinklePark.lib and object c:\users\pkr\documents\visual studio 2015\Projects\DC_TwinklePark\Debug\DC_TwinklePark.exp
+  DC_TwinklePark.vcxproj -> c:\users\pkr\documents\visual studio 2015\Projects\DC_TwinklePark\Debug\DC_TwinklePark.dll
+  DC_TwinklePark.vcxproj -> c:\users\pkr\documents\visual studio 2015\Projects\DC_TwinklePark\Debug\DC_TwinklePark.pdb (Full PDB)

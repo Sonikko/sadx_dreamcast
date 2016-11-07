@@ -1,0 +1,533 @@
+﻿  stdafx.cpp
+  DC_Bosses.cpp
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(7): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(15): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(93): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(93): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(93): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(99): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(112): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(242): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(242): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(242): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(248): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(254): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(307): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(307): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(307): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(309): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(313): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(320): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(375): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(375): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(375): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(381): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(398): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1047): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1047): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1047): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1054): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1060): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1080): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1534): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1534): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1534): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1541): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1547): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1552): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1805): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1805): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1805): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1812): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1817): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(1821): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2000): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2000): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2000): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2007): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2015): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2229): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2229): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2229): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2231): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2235): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2357): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2357): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2357): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2364): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2398): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2742): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2742): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2742): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2744): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2746): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2748): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2750): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2752): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2754): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2756): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2792): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2794): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2802): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2808): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2810): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2816): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2818): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2820): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2822): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2828): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2830): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2832): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2834): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2836): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2842): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2848): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2862): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2864): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2866): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2901): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2901): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2901): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2903): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2938): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2938): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2938): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2940): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2975): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2975): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2975): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(2977): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3012): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3012): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3012): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3014): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3049): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3049): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3049): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3051): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3086): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3086): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3086): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3088): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3123): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3123): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3123): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3125): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3160): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3160): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3160): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3162): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3197): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3197): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3197): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3199): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3234): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3234): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3234): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3236): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3271): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3271): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3271): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3273): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3308): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3308): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3308): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3310): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3345): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3345): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3345): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3347): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3382): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3382): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3382): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3384): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3419): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3419): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3419): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3421): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3456): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3456): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3456): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3458): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3493): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3493): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3493): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3495): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3530): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3530): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3530): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3532): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3567): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3567): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3567): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3569): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3604): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3604): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3604): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3606): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3641): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3641): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3641): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3643): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3678): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3678): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3678): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3680): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3715): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3715): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3715): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3717): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3752): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3752): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3752): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3754): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3789): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3789): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3789): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3791): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3826): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3826): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3826): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3828): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3863): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3863): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3863): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3865): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3887): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3887): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3887): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(3996): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(4140): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(4284): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(4427): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(4572): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(4716): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(4845): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(4978): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(5116): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(5259): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(5402): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(5545): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(5688): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(5824): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(5960): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(6096): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(6232): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(6368): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(6504): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(6640): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(6775): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(6912): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(7048): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(7184): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(7320): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(7456): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(7594): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(7740): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(7749): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos4.h(7749): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(51): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(60): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(81): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(86): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(100): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(107): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(112): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(144): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(152): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(164): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(176): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(183): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(197): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(222): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(242): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(255): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(262): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(271): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(280): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(285): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(304): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(331): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(337): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(352): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(371): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(375): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(385): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(407): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(420): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(427): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(432): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4017): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4017): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4017): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4032): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4041): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4051): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4058): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4074): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4083): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4105): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4538): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4538): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4538): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4544): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4573): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4745): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4745): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4745): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4751): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4781): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4875): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4875): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4875): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4881): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(4913): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5007): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5007): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5007): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5013): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5020): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5199): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5199): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5199): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5206): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5292): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5292): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5292): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5299): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5385): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5385): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5385): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5396): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5404): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5416): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5430): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5678): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5678): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5678): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5693): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5697): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5703): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5733): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(5743): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6222): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6222): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6222): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6237): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6253): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6261): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6267): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6277): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6788): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6788): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6788): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6798): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6809): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6993): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6993): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(6993): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7003): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7009): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7015): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7021): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7035): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7210): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7210): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7210): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7216): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7220): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7265): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7265): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7265): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7271): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7277): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7326): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7326): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7326): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7334): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7339): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7444): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7444): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7444): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7451): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7456): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7462): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7531): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7531): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7531): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7540): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7550): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7555): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7561): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7970): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7970): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7970): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(7977): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8146): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8146): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8146): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8157): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8236): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8726): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8726): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8726): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8734): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8741): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8923): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8923): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8923): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8930): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(8939): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9086): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9086): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9086): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9093): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9102): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9185): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9185): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9185): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9192): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9198): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9366): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9366): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9366): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9373): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9382): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9465): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9465): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9465): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9471): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9473): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9475): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9485): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9487): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9489): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9493): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9495): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9497): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9499): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9501): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9503): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9531): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9531): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9531): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9541): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9550): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9554): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9559): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9748): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9748): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9748): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9758): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9767): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9771): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9776): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9781): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9968): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9968): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9968): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9978): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9987): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9991): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(9996): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10185): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10185): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10185): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10196): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10203): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10551): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10551): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10551): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10559): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10566): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10572): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10576): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10745): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10745): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10745): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10756): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(10763): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11111): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11111): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11111): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11119): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11126): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11132): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11136): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11305): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11305): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11305): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11316): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11323): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11671): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11671): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11671): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11679): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11686): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11692): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11696): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11865): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11865): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11865): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11871): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(11889): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12070): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12070): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12070): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12076): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12094): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12275): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12275): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12275): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12281): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12299): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12480): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12480): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12480): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12506): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12506): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12506): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12524): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12548): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12599): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12617): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12657): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(12661): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(13775): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(13775): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(13775): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(13785): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(13838): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(14280): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(14280): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(14280): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(14287): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(14504): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(14504): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(14504): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(14512): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(14532): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(15222): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(15222): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(15222): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(15233): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(15238): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(16380): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(16380): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(16380): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(16404): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(16404): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(16404): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(16595): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(16658): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(16721): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(16784): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(16847): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(17300): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(17309): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\chaos6_sonic.h(17309): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+c:\users\pkr\documents\visual studio 2015\projects\dc_bosses\dc_bosses\dc_bosses.cpp(11): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+  dllmain.cpp
+     Creating library c:\users\pkr\documents\visual studio 2015\Projects\DC_Bosses\Debug\DC_Bosses.lib and object c:\users\pkr\documents\visual studio 2015\Projects\DC_Bosses\Debug\DC_Bosses.exp
+  DC_Bosses.vcxproj -> c:\users\pkr\documents\visual studio 2015\Projects\DC_Bosses\Debug\DC_Bosses.dll
+  DC_Bosses.vcxproj -> c:\users\pkr\documents\visual studio 2015\Projects\DC_Bosses\Debug\DC_Bosses.pdb (Full PDB)

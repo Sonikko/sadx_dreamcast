@@ -1,0 +1,8 @@
+﻿  stdafx.cpp
+  DC_Fog.cpp
+DC_Fog.cpp(12): error C2446: '!=': no conversion from 'int' to 'void (__cdecl *)(int &)'
+  DC_Fog.cpp(12): note: Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
+DC_Fog.cpp(17): error C2446: '==': no conversion from 'int' to 'void (__cdecl *)(int &)'
+  DC_Fog.cpp(17): note: Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
+DC_Fog.cpp(18): error C2446: '==': no conversion from 'int' to 'void (__cdecl *)(int &)'
+  DC_Fog.cpp(18): note: Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast

@@ -1,0 +1,4 @@
+﻿  stdafx.cpp
+  DC_Fog.cpp
+c:\users\pkr\documents\visual studio 2015\projects\dc_fog\dc_fog\dc_fog.cpp(14): error C2059: syntax error: '}'
+c:\users\pkr\documents\visual studio 2015\projects\dc_fog\dc_fog\dc_fog.cpp(14): error C2143: syntax error: missing ';' before '}'
