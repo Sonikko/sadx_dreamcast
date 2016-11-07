@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Casino1.h" />
+    <ClInclude Include="Casino2 Fixes.h" />
     <ClInclude Include="Casino2.h" />
     <ClInclude Include="Casino3.h" />
     <ClInclude Include="Casino4.h" />
