@@ -1,8 +1,8 @@
-﻿  stdafx.cpp
-  DC_Fog.cpp
-DC_Fog.cpp(12): error C2446: '!=': no conversion from 'int' to 'void (__cdecl *)(int &)'
-  DC_Fog.cpp(12): note: Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
-DC_Fog.cpp(17): error C2446: '==': no conversion from 'int' to 'void (__cdecl *)(int &)'
-  DC_Fog.cpp(17): note: Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
-DC_Fog.cpp(18): error C2446: '==': no conversion from 'int' to 'void (__cdecl *)(int &)'
-  DC_Fog.cpp(18): note: Conversion from integral type to pointer type requires reinterpret_cast, C-style cast or function-style cast
+﻿  DC_Fog.cpp
+  dllmain.cpp
+     Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Fog\Release\DC_Fog.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Fog\Release\DC_Fog.exp
+  Generating code
+  All 4 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  Finished generating code
+  DC_Fog.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Fog\Release\DC_Fog.dll
+  DC_Fog.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Fog\Release\DC_Fog.pdb (Full PDB)

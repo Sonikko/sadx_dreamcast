@@ -33,6 +33,12 @@
     <ClInclude Include="SADXModLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="FinalEgg2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FinalEgg3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
