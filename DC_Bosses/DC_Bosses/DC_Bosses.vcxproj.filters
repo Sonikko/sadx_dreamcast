@@ -36,6 +36,18 @@
     <ClInclude Include="Chaos6_Sonic.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EggWalker.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EggViper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EggHornet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chaos7.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

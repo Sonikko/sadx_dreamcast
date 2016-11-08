@@ -147,6 +147,10 @@
   <ItemGroup>
     <ClInclude Include="Chaos4.h" />
     <ClInclude Include="Chaos6_Sonic.h" />
+    <ClInclude Include="Chaos7.h" />
+    <ClInclude Include="EggHornet.h" />
+    <ClInclude Include="EggViper.h" />
+    <ClInclude Include="EggWalker.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="SADXModLoader.h" />
     <ClInclude Include="stdafx.h" />
