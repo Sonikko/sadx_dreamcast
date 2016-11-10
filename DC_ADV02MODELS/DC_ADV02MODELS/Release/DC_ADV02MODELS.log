@@ -1,4 +1,5 @@
-﻿  stdafx.cpp
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\release\dc_adv02models.ipdb' because it is being used by another process.
+  stdafx.cpp
   DC_ADV02MODELS.cpp
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR00 (Station area).h(6): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR00 (Station area).h(103): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion

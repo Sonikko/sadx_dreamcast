@@ -7,11 +7,20 @@
 #include "ADVSS03 (StationMainArea).h"
 #include "ADVSS04 (Hotel).h"
 #include "ADVSS05 (Twinkle Park Entrance).h"
+#include "textures.h"
+#include "SS_bluecar.h"
+#include "SS_redcar.h"
+#include "SS_police.h"
+#include "SS_taxi.h"
 
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		memcpy((void*)0x02AF4FC0, &object_0019F390, sizeof(object_0019F390)); // SS Police
+		memcpy((void*)0x02AF1974, &object_0019CBD8, sizeof(object_0019CBD8)); // SS Red Car
+		memcpy((void*)0x02AF8400, &object_001A17C4, sizeof(object_001A17C4)); // SS Blue Car
+		memcpy((void*)0x02AFBA64, &object_001A4268, sizeof(object_001A4268)); // SS Taxi
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 		LandTable **___LANDTABLESS = (LandTable **)GetProcAddress(handle, "___LANDTABLESS");
 		___LANDTABLESS[0] = &landtable_000157F4;

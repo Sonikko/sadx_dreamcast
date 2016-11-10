@@ -3,6 +3,7 @@
 #include "IceCap1.h"
 #include "IceCap2.h"
 #include "IceCap3.h"
+#include "Icicle.h"
 
 NJS_TEXNAME textures_icecap4[55];
 NJS_TEXLIST texlist_icecap4 = { arrayptrandlength(textures_icecap4) };
@@ -28,5 +29,6 @@ extern "C"
 	{
 		memcpy((void*)0x00D6B39C, &object_0007F6C4, sizeof(object_0007F6C4));
 		memcpy((void*)0x00DD3A5C, &object_000C50AC, sizeof(object_000C50AC));
+		memcpy((void*)0x0E537D8, &object_00162694, sizeof(object_00162694));  // Icicle
 	};
 }

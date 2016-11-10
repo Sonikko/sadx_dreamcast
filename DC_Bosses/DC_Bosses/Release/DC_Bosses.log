@@ -2002,9 +2002,14 @@ g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(36341): war
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(36341): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(36341): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(36343): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(36652): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(36657): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(36657): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(36348): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(36352): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(36698): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(36698): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(36698): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(37010): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(37015): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(37015): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggViper.h(7): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggViper.h(102): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggViper.h(102): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
@@ -3526,7 +3531,7 @@ DC_Bosses.cpp(19): warning C4838: conversion from 'std::size_t' to 'int' require
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.exp
   Generating code
-  All 857 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 858 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_Bosses.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.dll
   DC_Bosses.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.pdb (Full PDB)

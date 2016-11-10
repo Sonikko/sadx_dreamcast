@@ -849,9 +849,19 @@ g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(327
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(32747): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(32749): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(32753): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(33011): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(33016): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(33016): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(32781): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(32791): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(32892): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(32892): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(32892): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(32899): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(32916): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(33055): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(33055): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(33055): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(33297): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(33302): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino1.h(33302): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino2 Fixes.h(15): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino2 Fixes.h(22): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino2 Fixes.h(75): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
@@ -2864,7 +2874,7 @@ DC_Casinopolis.cpp(17): warning C4838: conversion from 'std::size_t' to 'int' re
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.exp
   Generating code
-  All 725 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 727 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_Casinopolis.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.dll
   DC_Casinopolis.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.pdb (Full PDB)

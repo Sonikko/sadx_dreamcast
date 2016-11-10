@@ -42,6 +42,30 @@
     <ClInclude Include="Highway2 Fixes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SH_bluecar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SH_bus.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SH_yellowcar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SH_redcar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SH_helicopter.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SH_turnasi.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="textures.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SH_Glass.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

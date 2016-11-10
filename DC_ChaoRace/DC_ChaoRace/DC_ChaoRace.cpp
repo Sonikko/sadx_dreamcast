@@ -4,7 +4,7 @@
 #include "ChaoRaceEntry.h"
 PointerInfo pointers[] = {
 	ptrdecl(0x719DC9, &landtable_00000E64),
-	ptrdecl(0x7199C9, &landtable_00000270)
+	//ptrdecl(0x7199C9, &landtable_00000270)
 };
 
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };

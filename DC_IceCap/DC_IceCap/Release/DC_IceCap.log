@@ -1376,13 +1376,23 @@ g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\IceCap3.h(67556): warni
 g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\IceCap3.h(67854): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\IceCap3.h(67859): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\IceCap3.h(67859): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-DC_IceCap.cpp(14): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-DC_IceCap.cpp(14): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-DC_IceCap.cpp(26): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(111): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(125): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(380): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(380): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(380): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(386): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(398): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(553): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(553): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(553): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+DC_IceCap.cpp(15): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+DC_IceCap.cpp(15): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+DC_IceCap.cpp(27): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_IceCap\Release\DC_IceCap.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_IceCap\Release\DC_IceCap.exp
   Generating code
-  All 423 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 427 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_IceCap.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_IceCap\Release\DC_IceCap.dll
   DC_IceCap.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_IceCap\Release\DC_IceCap.pdb (Full PDB)

@@ -2,6 +2,13 @@
 #include "Highway1.h"
 #include "Highway2.h"
 #include "Highway3.h"
+#include "SH_bus.h"
+#include "SH_yellowcar.h"
+#include "SH_bluecar.h"
+#include "SH_redcar.h"
+#include "SH_helicopter.h"
+#include "SH_turnasi.h"
+#include "SH_glass.h"
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA88, &landtable_0001853C),
@@ -9,7 +16,24 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DA90, &landtable_0001B08C)
 };
 
-extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 
-extern "C" __declspec(dllexport) const ModInfo SADXModInfo = { ModLoaderVer };
 
+extern "C"
+{
+	__declspec(dllexport) PointerList Pointers = { arrayptrandlength(pointers) };
+	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
+
+	__declspec(dllexport) void __cdecl Init()
+	{
+		memcpy((void*)0x267DC14, &object_0227DC14, sizeof(object_0227DC14)); // Turnasi part 1
+		memcpy((void*)0x267D3B4, &object_0014ABC8, sizeof(object_0014ABC8)); // Turnasi part 2
+		memcpy((void*)0x267C7AC, &object_0014A5B0, sizeof(object_0014A5B0)); // Turnasi part 3
+		memcpy((void*)0x0268C058, &object_0228C058, sizeof(object_0228C058)); // SH Helicopter
+		memcpy((void*)0x0266D90C, &object_0013D068, sizeof(object_0013D068)); // SH Bus
+		memcpy((void*)0x0266B484, &object_0013B15C, sizeof(object_0013B15C)); // SH Red Car
+		memcpy((void*)0x026682B8, &object_0013949C, sizeof(object_0013949C)); // SH Blue Car
+		memcpy((void*)0x0266FC8C, &object_0013E9CC, sizeof(object_0013E9CC)); // SH Yellow Car
+		memcpy((void*)0x0267A1A0, &attach_00148B24, sizeof(attach_00148B24)); //SH Glass
+	}
+
+}
