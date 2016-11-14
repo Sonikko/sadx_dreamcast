@@ -33,19 +33,22 @@
     <ClInclude Include="ninja.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Chaos6_Sonic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EggWalker.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="EggViper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EggHornet.h">
+    <ClInclude Include="Chaos6_Act1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Chaos7.h">
+    <ClInclude Include="Chaos6_Act1_PC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chaos2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chaos6_Act2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

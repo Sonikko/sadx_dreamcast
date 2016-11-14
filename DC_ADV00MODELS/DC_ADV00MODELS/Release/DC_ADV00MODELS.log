@@ -1013,30 +1013,29 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(45882): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(45884): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(45957): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(45995): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(45995): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(45995): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(45997): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46003): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46012): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46120): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46120): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46120): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46132): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46783): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46783): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46783): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46790): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46991): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46991): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46991): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47001): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47171): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47171): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47171): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47450): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47452): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47452): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(45988): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(45988): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(45988): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(45990): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(45996): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46052): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46052): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46052): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46064): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46715): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46715): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46715): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46722): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46923): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46923): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46923): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(46933): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47103): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47103): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47103): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47382): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47384): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(47384): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS01 (Casino Area).h(10): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS01 (Casino Area).h(17): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS01 (Casino Area).h(98): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
@@ -2603,10 +2602,14 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(6883): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(6889): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(6902): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(7036): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(7036): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(7036): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(7038): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(7000): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(7000): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(7000): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(7002): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(7008): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(7112): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(7112): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 Fixes.h(7112): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (StationMainArea).h(10): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (StationMainArea).h(41): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (StationMainArea).h(41): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
@@ -4424,7 +4427,7 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_taxi.h(126
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV00MODELS\Release\DC_ADV00MODELS.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV00MODELS\Release\DC_ADV00MODELS.exp
   Generating code
-  All 1047 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1048 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_ADV00MODELS.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV00MODELS\Release\DC_ADV00MODELS.dll
   DC_ADV00MODELS.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV00MODELS\Release\DC_ADV00MODELS.pdb (Full PDB)

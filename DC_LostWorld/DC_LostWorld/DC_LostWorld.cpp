@@ -18,7 +18,7 @@ extern "C"
 		{
 
 			{
-				if (CurrentLevel == 7 && CurrentAct == 1)
+				if (CurrentLevel == 7 && CurrentAct == 1 && GameState == 15)
 				{
 					if (LevelFrameCount % 41 == 1)
 					{
@@ -30,6 +30,7 @@ extern "C"
 						matlist_000EF078[0].attr_texId = 81;
 						matlist_000ECF80[0].attr_texId = 81;
 						matlist_000EABDC[0].attr_texId = 81;
+						matlist_000EBB3C[0].attr_texId = 81;
 					}
 					if (LevelFrameCount % 41 == 4)
 					{
@@ -41,6 +42,7 @@ extern "C"
 						matlist_000EF078[0].attr_texId = 82;
 						matlist_000ECF80[0].attr_texId = 82;
 						matlist_000EABDC[0].attr_texId = 82;
+						matlist_000EBB3C[0].attr_texId = 82;
 					}
 					if (LevelFrameCount % 41 == 7)
 					{
@@ -52,6 +54,7 @@ extern "C"
 						matlist_000EF078[0].attr_texId = 83;
 						matlist_000ECF80[0].attr_texId = 83;
 						matlist_000EABDC[0].attr_texId = 83;
+						matlist_000EBB3C[0].attr_texId = 83;
 					}
 					if (LevelFrameCount % 41 == 10)
 					{
@@ -63,6 +66,7 @@ extern "C"
 						matlist_000EF078[0].attr_texId = 84;
 						matlist_000ECF80[0].attr_texId = 84;
 						matlist_000EABDC[0].attr_texId = 84;
+						matlist_000EBB3C[0].attr_texId = 84;
 					}
 					if (LevelFrameCount % 41 == 13)
 					{
@@ -74,6 +78,7 @@ extern "C"
 						matlist_000EF078[0].attr_texId = 85;
 						matlist_000ECF80[0].attr_texId = 85;
 						matlist_000EABDC[0].attr_texId = 85;
+						matlist_000EBB3C[0].attr_texId = 85;
 					}
 				}
 				if (LevelFrameCount % 41 == 16)
@@ -86,6 +91,7 @@ extern "C"
 					matlist_000EF078[0].attr_texId = 86;
 					matlist_000ECF80[0].attr_texId = 86;
 					matlist_000EABDC[0].attr_texId = 86;
+					matlist_000EBB3C[0].attr_texId = 86;
 				}
 				if (LevelFrameCount % 41 == 19)
 				{
@@ -97,6 +103,7 @@ extern "C"
 					matlist_000EF078[0].attr_texId = 87;
 					matlist_000ECF80[0].attr_texId = 87;
 					matlist_000EABDC[0].attr_texId = 87;
+					matlist_000EBB3C[0].attr_texId = 87;
 				}
 
 				if (LevelFrameCount % 41 == 22)
@@ -109,6 +116,7 @@ extern "C"
 					matlist_000EF078[0].attr_texId = 88;
 					matlist_000ECF80[0].attr_texId = 88;
 					matlist_000EABDC[0].attr_texId = 88;
+					matlist_000EBB3C[0].attr_texId = 88;
 				}
 				if (LevelFrameCount % 41 == 25)
 				{
@@ -120,6 +128,7 @@ extern "C"
 					matlist_000EF078[0].attr_texId = 89;
 					matlist_000ECF80[0].attr_texId = 89;
 					matlist_000EABDC[0].attr_texId = 89;
+					matlist_000EBB3C[0].attr_texId = 89;
 				}
 				if (LevelFrameCount % 41 == 28)
 				{
@@ -131,6 +140,7 @@ extern "C"
 					matlist_000EF078[0].attr_texId = 90;
 					matlist_000ECF80[0].attr_texId = 90;
 					matlist_000EABDC[0].attr_texId = 90;
+					matlist_000EBB3C[0].attr_texId = 90;
 				}
 				if (LevelFrameCount % 41 == 31)
 				{
@@ -142,6 +152,7 @@ extern "C"
 					matlist_000EF078[0].attr_texId = 91;
 					matlist_000ECF80[0].attr_texId = 91;
 					matlist_000EABDC[0].attr_texId = 91;
+					matlist_000EBB3C[0].attr_texId = 91;
 				}
 				if (LevelFrameCount % 41 == 34)
 				{
@@ -153,6 +164,7 @@ extern "C"
 					matlist_000EF078[0].attr_texId = 92;
 					matlist_000ECF80[0].attr_texId = 92;
 					matlist_000EABDC[0].attr_texId = 92;
+					matlist_000EBB3C[0].attr_texId = 92;
 				}
 				if (LevelFrameCount % 41 == 37)
 				{
@@ -164,6 +176,7 @@ extern "C"
 					matlist_000EF078[0].attr_texId = 93;
 					matlist_000ECF80[0].attr_texId = 93;
 					matlist_000EABDC[0].attr_texId = 93;
+					matlist_000EBB3C[0].attr_texId = 93;
 				}
 				if (LevelFrameCount % 41 == 0)
 				{
@@ -175,9 +188,10 @@ extern "C"
 					matlist_000EF078[0].attr_texId = 94;
 					matlist_000ECF80[0].attr_texId = 94;
 					matlist_000EABDC[0].attr_texId = 94;
+					matlist_000EBB3C[0].attr_texId = 94;
 				}
 			}
-			if (CurrentLevel == 7 && CurrentAct == 0)
+			if (CurrentLevel == 7 && CurrentAct == 0 && GameState == 15)
 			{
 				if (LevelFrameCount % 41 == 1)
 				{
