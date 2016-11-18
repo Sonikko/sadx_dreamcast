@@ -2,7 +2,6 @@
 #include "SADXModLoader.h"
 #include "ADVSS00 (City Hall).h"
 #include "ADVSS01 (Casino Area).h"
-//#include "ADVSS02 (Sewers).h"
 #include "ADVSS02_PC.h"
 #include "ADVSS03 (StationMainArea).h"
 #include "ADVSS04 (Hotel).h"
@@ -12,37 +11,36 @@
 #include "SS_redcar.h"
 #include "SS_police.h"
 #include "SS_taxi.h"
+#include "SS_TPBall.h"
 
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		//Objects
 		memcpy((void*)0x02AF4FC0, &object_0019F390, sizeof(object_0019F390)); // SS Police
 		memcpy((void*)0x02AF1974, &object_0019CBD8, sizeof(object_0019CBD8)); // SS Red Car
 		memcpy((void*)0x02AF8400, &object_001A17C4, sizeof(object_001A17C4)); // SS Blue Car
 		memcpy((void*)0x02AFBA64, &object_001A4268, sizeof(object_001A4268)); // SS Taxi
+		memcpy((void*)0x02AD362C, &object_00185A20, sizeof(object_00185A20)); // SS Twinkle Park Ball
+		//Landtables
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 		LandTable **___LANDTABLESS = (LandTable **)GetProcAddress(handle, "___LANDTABLESS");
 		___LANDTABLESS[0] = &landtable_000157F4;
 		___LANDTABLESS[1] = &landtable_000738F4;
 		___LANDTABLESS[2] = &landtable_001D5ABC; //PC
-//		___LANDTABLESS[2] = &landtable_000C21F0; //DC
 		___LANDTABLESS[3] = &landtable_000DCEBC;
 		___LANDTABLESS[4] = &landtable_00135A90;
 		___LANDTABLESS[5] = &landtable_001573CC;
+		//Sewers water
 		NJS_OBJECT **___ADV00SS02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV00SS02_OBJECTS");
 		___ADV00SS02_OBJECTS[119] = &object_0010F2F4; //PC
-//		___ADV00SS02_OBJECTS[119] = &object_000DA934; //DC
-		NJS_OBJECT **___ADV00SS03_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV00SS03_OBJECTS");
-			
 	}
-
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
-
 		//Water animation in Act 2 (Sewers)
 		NJS_OBJECT **___ADV00SS02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV00SS02_OBJECTS");
 		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 1 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 47;
@@ -54,10 +52,6 @@ extern "C"
 		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 19 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 53;
 		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 22 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 54;
 		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 0 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 55;
-
-		//Water animation in Act 3 (Main area)
-		NJS_OBJECT **___ADV00SS03_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV00SS03_OBJECTS");
-		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 1 && GameState == 15)	___ADV00SS03_OBJECTS[147]->basicdxmodel->mats[0].attr_texId = 5;
 
 		//Night reflections Act 0
 		if (CurrentLevel == 26 && CurrentAct == 0 && GetTimeOfDay() == 2)

@@ -1,4 +1,5 @@
-﻿  DC_Fog.cpp
+﻿  stdafx.cpp
+  DC_Fog.cpp
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Fog\Release\DC_Fog.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Fog\Release\DC_Fog.exp
   Generating code

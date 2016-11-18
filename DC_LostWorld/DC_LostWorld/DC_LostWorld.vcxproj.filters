@@ -42,6 +42,9 @@
     <ClInclude Include="LostWorld3_PC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="LostWorld_platform.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

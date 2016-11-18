@@ -66,6 +66,9 @@
     <ClInclude Include="SS_police.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SS_TPBall.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

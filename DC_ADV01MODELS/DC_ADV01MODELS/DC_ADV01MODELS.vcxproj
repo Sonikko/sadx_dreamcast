@@ -146,6 +146,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADV01_0.h" />
+    <ClInclude Include="ADV01_0_animlist.h" />
     <ClInclude Include="ADV01_0_PC.h" />
     <ClInclude Include="ADV01_1.h" />
     <ClInclude Include="ADV01_2.h" />

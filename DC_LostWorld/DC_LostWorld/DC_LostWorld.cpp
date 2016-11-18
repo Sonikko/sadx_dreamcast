@@ -2,6 +2,7 @@
 #include "SADXModLoader.h"
 #include "LostWorld1.h"
 #include "LostWorld2.h"
+#include "LostWorld_platform.h"
 #include "LostWorld3.h"
 
 PointerInfo pointers[] = {

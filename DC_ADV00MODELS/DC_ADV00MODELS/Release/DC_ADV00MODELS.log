@@ -4424,10 +4424,41 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_taxi.h(396
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_taxi.h(1266): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_taxi.h(1266): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_taxi.h(1266): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(187): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(193): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(246): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(246): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(246): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(248): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(252): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(258): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(311): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(311): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(311): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(317): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(323): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(376): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(376): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(376): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(378): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(382): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(466): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(466): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(466): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(472): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(556): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(556): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(556): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(558): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(562): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(573): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(728): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(728): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_TPBall.h(728): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV00MODELS\Release\DC_ADV00MODELS.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV00MODELS\Release\DC_ADV00MODELS.exp
   Generating code
-  All 1048 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1054 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_ADV00MODELS.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV00MODELS\Release\DC_ADV00MODELS.dll
   DC_ADV00MODELS.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV00MODELS\Release\DC_ADV00MODELS.pdb (Full PDB)

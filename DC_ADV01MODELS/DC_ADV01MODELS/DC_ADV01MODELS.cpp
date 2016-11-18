@@ -1,7 +1,7 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
+#include "ADV01_0_animlist.h"
 #include "ADV01_0.h"
-#include "ADV01_0_PC.h"
 #include "ADV01_1.h"
 #include "ADV01_2.h"
 #include "ADV01_3.h"
@@ -15,7 +15,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	WriteData((char *)GetProcAddress(handle2, "SetClip_EC00"), 0xC3u, sizeof(char *));
 	WriteData((char *)GetProcAddress(handle2, "SetClip_EC01"), 0xC3u, sizeof(char *));
 	LandTable **___LANDTABLEEC = (LandTable **)GetProcAddress(handle2, "___LANDTABLEEC");
-	___LANDTABLEEC[0] = &landtable_001ECEE4;
+	___LANDTABLEEC[0] = &landtable_00162260;
 	___LANDTABLEEC[1] = &landtable_001631F0;
 	___LANDTABLEEC[2] = &landtable_00163CE8;
 	___LANDTABLEEC[3] = &landtable_001650C8;
