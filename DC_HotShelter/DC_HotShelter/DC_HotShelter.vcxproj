@@ -147,7 +147,9 @@
   <ItemGroup>
     <ClInclude Include="HotShelter1.h" />
     <ClInclude Include="HotShelter2.h" />
+    <ClInclude Include="HotShelter2_fixes.h" />
     <ClInclude Include="HotShelter3.h" />
+    <ClInclude Include="HotShelter3_Fixes.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="SADXModLoader.h" />
     <ClInclude Include="stdafx.h" />
