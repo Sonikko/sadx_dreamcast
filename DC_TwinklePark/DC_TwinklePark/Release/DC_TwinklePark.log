@@ -1,5 +1,4 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\release\dc_twinklepark.pch' because it is being used by another process.
-  stdafx.cpp
+﻿  stdafx.cpp
   DC_TwinklePark.cpp
 g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\Twinkle1.h(8): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\Twinkle1.h(377): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
@@ -1372,7 +1371,7 @@ DC_TwinklePark.cpp(16): warning C4838: conversion from 'std::size_t' to 'int' re
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_TwinklePark\Release\DC_TwinklePark.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_TwinklePark\Release\DC_TwinklePark.exp
   Generating code
-  All 339 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 340 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_TwinklePark.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_TwinklePark\Release\DC_TwinklePark.dll
   DC_TwinklePark.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_TwinklePark\Release\DC_TwinklePark.pdb (Full PDB)

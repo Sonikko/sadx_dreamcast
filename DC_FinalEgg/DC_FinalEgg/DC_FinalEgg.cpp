@@ -22,8 +22,12 @@ extern "C"
 		for (int i = 0; i < 3; i++)
 		{
 			FinalEgg1Fog[i].Color = 0xFF000000;
-			//FinalEgg1Fog[i].Layer = 1300.0f;
-			//FinalEgg1Fog[i].Distance = 3200.0f;
+			HMODULE palettelighting = GetModuleHandle(L"sadx-dc-lighting");
+			if (palettelighting != 0)
+			{
+			FinalEgg1Fog[i].Layer = 1300.0f;
+			FinalEgg1Fog[i].Distance = 3200.0f;
+			}
 		}
 		DataArray(FogData, FinalEgg2Fog, 0x019C9020, 3);
 		for (int i = 0; i < 3; i++)

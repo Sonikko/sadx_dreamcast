@@ -15,6 +15,18 @@ extern "C"
 {
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
+	__declspec(dllexport) void __cdecl Init()
+	{
+		DataArray(FogData, TwinklePark3Fog, 0x026B342C, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			TwinklePark3Fog[i].Color = 0xFF000000;
+			TwinklePark3Fog[i].Layer = 400.0f;
+			TwinklePark3Fog[i].Distance = 1200.0f;
+			TwinklePark3Fog[i].Toggle = 1;
+		}
+
+	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
 		{
