@@ -45,6 +45,12 @@
     <ClInclude Include="EmeraldCoast3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="EmeraldCoast3_fixes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EmeraldCoast3_PC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

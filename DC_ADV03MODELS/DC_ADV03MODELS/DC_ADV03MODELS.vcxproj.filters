@@ -39,6 +39,18 @@
     <ClInclude Include="ADV03_02.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ADV03_00_PC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADV03_01_fixes.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADV03_01_PC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ADV03_02_PC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

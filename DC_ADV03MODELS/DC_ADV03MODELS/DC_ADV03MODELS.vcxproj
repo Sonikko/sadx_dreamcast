@@ -146,8 +146,12 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="ADV03_00.h" />
+    <ClInclude Include="ADV03_00_PC.h" />
     <ClInclude Include="ADV03_01.h" />
+    <ClInclude Include="ADV03_01_fixes.h" />
+    <ClInclude Include="ADV03_01_PC.h" />
     <ClInclude Include="ADV03_02.h" />
+    <ClInclude Include="ADV03_02_PC.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="SADXModLoader.h" />
     <ClInclude Include="stdafx.h" />
