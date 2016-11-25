@@ -150,6 +150,7 @@
     <ClInclude Include="Mountain3.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="SADXModLoader.h" />
+    <ClInclude Include="Skull.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

@@ -150,12 +150,18 @@
     <ClInclude Include="Chaos6_Act1.h" />
     <ClInclude Include="Chaos6_Act1_PC.h" />
     <ClInclude Include="Chaos6_Act2.h" />
+    <ClInclude Include="Chaos7.h" />
+    <ClInclude Include="Chaos7_PC.h" />
+    <ClInclude Include="E101.h" />
+    <ClInclude Include="EggHornet.h" />
     <ClInclude Include="EggViper.h" />
     <ClInclude Include="EggWalker.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="SADXModLoader.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="Zero.h" />
+    <ClInclude Include="Zero_PC.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DC_Bosses.cpp" />

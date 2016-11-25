@@ -51,6 +51,24 @@
     <ClInclude Include="Chaos6_Act2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="E101.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Zero.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Zero_PC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="EggHornet.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chaos7.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Chaos7_PC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
