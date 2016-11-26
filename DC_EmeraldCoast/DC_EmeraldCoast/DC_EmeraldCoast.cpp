@@ -15,8 +15,9 @@ PointerInfo pointers[] = {
 
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 
-/*extern "C" __declspec(dllexport) void __cdecl Init()
+extern "C" __declspec(dllexport) void __cdecl Init()
 {
+/*
 	memcpy((void*)0x00EE96F8, &matlist_00AE96F8, sizeof(matlist_00AE96F8));
 	memcpy((void*)0x00EEAC00, &matlist_00AEAC00, sizeof(matlist_00AEAC00));
 	memcpy((void*)0x00EE5CF4, &matlist_00AE5CF4, sizeof(matlist_00AE5CF4));
@@ -27,8 +28,33 @@ extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlengt
 	memcpy((void*)0x00EE1750, &matlist_00AE1750, sizeof(matlist_00AE1750));
 	memcpy((void*)0x00EE3EE4, &matlist_00AE3EE4, sizeof(matlist_00AE3EE4));
 	memcpy((void*)0x00EE2898, &matlist_00AE2898, sizeof(matlist_00AE2898));
-}
 */
+	DataArray(FogData, EmeraldCoast1Fog, 0x00E99DDC, 1);
+	for (int i = 0; i < 3; i++)
+	{
+		EmeraldCoast1Fog[i].Layer = -1500.0f;
+		EmeraldCoast1Fog[i].Toggle = 1;
+	}
+
+	DataArray(DrawDistance, DrawDist_EmeraldCoast1, 0x00E99D94, 3);
+	for (int i = 0; i < 3; i++)
+	{
+		DrawDist_EmeraldCoast1[i].Maximum = -6000.0;
+	}
+	DataArray(FogData, EmeraldCoast2Fog, 0x00E99E0C, 1);
+	for (int i = 0; i < 3; i++)
+	{
+		EmeraldCoast2Fog[i].Layer = -1500.0f;
+		EmeraldCoast2Fog[i].Toggle = 1;
+	}
+
+	DataArray(DrawDistance, DrawDist_EmeraldCoast2, 0x00E99DAC, 3);
+	for (int i = 0; i < 3; i++)
+	{
+		DrawDist_EmeraldCoast2[i].Maximum = -4000.0;
+	}
+}
+
 
 extern "C" __declspec(dllexport) void __cdecl OnFrame()
 {

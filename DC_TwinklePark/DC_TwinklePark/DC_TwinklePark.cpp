@@ -17,6 +17,11 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		DataArray(FogData, TwinklePark1Fog, 0x026B339C, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			TwinklePark1Fog[i].Layer = 1500.0f;
+		}
 		DataArray(FogData, TwinklePark3Fog, 0x026B342C, 3);
 		for (int i = 0; i < 3; i++)
 		{

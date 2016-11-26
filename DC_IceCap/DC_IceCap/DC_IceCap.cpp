@@ -46,14 +46,7 @@ extern "C"
 			IceCap2Fog[i].Distance = 3800.0f;
 			IceCap2Fog[i].Toggle = 1;
 		}
-		DataArray(FogData, IceCap4Fog, 0x00C67F30, 1);
-		for (int i = 0; i < 3; i++)
-		{
-			IceCap4Fog[i].Color = 0xFF000000;
-			IceCap4Fog[i].Layer = 800.0f;
-			IceCap4Fog[i].Distance = 3800.0f;
-			IceCap4Fog[i].Toggle = 1;
-		}
+	
 		DataArray(DrawDistance, DrawDist_IceCap1, 0x00C67E40, 3);
 		for (int i = 0; i < 3; i++)
 		{

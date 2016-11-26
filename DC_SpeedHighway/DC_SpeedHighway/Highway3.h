@@ -1,9 +1,6 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
 
-NJS_TEXNAME textures_highway3[107];
-NJS_TEXLIST texlist_hw3 = { arrayptrandlength(textures_highway3) };
-
 NJS_MATERIAL matlist_000AA23C[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 6, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 4, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -74248,5 +74245,8 @@ COL collist_0001919C[] = {
 	{ { -902.5f, 184.5f, -1345 }, 137.4827f, 0, 0, &object_00133DB0, 4, 0x80000000 },
 	{ { -974.9991f, 56.66666f, -1345 }, 101.9537f, 0, 0, &object_00133DE4, 4, 0xA0000001 }
 };
+
+NJS_TEXNAME textures_highway3[107];
+NJS_TEXLIST texlist_hw3 = { arrayptrandlength(textures_highway3) };
 
 LandTable landtable_0001B08C = { LengthOfArray(collist_0001919C), 0, 0xC, 1400, collist_0001919C, NULL, "HIGHWAY03", (NJS_TEXLIST *)&texlist_hw3, 0, 0 };

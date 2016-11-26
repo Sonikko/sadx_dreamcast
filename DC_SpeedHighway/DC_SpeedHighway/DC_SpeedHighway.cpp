@@ -16,8 +16,6 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DA90, &landtable_0001B08C)
 };
 
-
-
 extern "C"
 {
 	__declspec(dllexport) PointerList Pointers = { arrayptrandlength(pointers) };
@@ -34,6 +32,14 @@ extern "C"
 		memcpy((void*)0x026682B8, &object_0013949C, sizeof(object_0013949C)); // SH Blue Car
 		memcpy((void*)0x0266FC8C, &object_0013E9CC, sizeof(object_0013E9CC)); // SH Yellow Car
 		memcpy((void*)0x0267A1A0, &attach_00148B24, sizeof(attach_00148B24)); //SH Glass
+		DataArray(FogData, SpeedHighway3Fog, 0x024CA544, 1);
+		for (int i = 0; i < 3; i++)
+		{
+			SpeedHighway3Fog[i].Color = 0xFF6497C8;
+			SpeedHighway3Fog[i].Layer = 1200.0f;
+			SpeedHighway3Fog[i].Distance = 2900.0f;
+			SpeedHighway3Fog[i].Toggle = 1;
+		}
 	}
 
 }
