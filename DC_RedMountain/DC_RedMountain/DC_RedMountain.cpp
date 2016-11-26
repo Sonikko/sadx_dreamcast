@@ -18,6 +18,34 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 		memcpy((void*)0x024364C0, &attach_0014E8FC, sizeof(attach_0014E8FC));  // Skull
+		DataArray(FogData, RedMountain1Fog, 0x02240700, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			RedMountain1Fog[i].Color = 0xFFFFFFFF;
+			RedMountain1Fog[i].Layer = 2000.0f;
+			RedMountain1Fog[i].Distance = 17000.0f;
+			RedMountain1Fog[i].Toggle = 1;
+		}
+		DataArray(FogData, RedMountain3Fog, 0x02240760, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			RedMountain3Fog[i].Color = 0xFFFFFFFF;
+			RedMountain3Fog[i].Layer = 2000.0f;
+			RedMountain3Fog[i].Distance = 17000.0f;
+			RedMountain3Fog[i].Toggle = 1;
+		}
+		DataArray(DrawDistance, DrawDist_RedMountain1, 0x022406B8, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			DrawDist_RedMountain1[i].Maximum = -4000.0;
+		}
+		DataArray(DrawDistance, DrawDist_RedMountain3, 0x022406E8, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			DrawDist_RedMountain3[i].Maximum = -4000.0;
+		}
+
+
 	}
 
 }

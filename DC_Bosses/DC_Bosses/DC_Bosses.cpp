@@ -59,9 +59,9 @@ extern "C"
 		for (int i = 0; i < 3; i++)
 		{
 			Chaos4Fog[i].Color = 0xFF000000;
-			Chaos4Fog[i].Layer = 200.0f;
-			Chaos4Fog[i].Distance = 1000.0f;
-			Chaos4Fog[i].Toggle = 1;
+			Chaos4Fog[i].Layer = 1.0f;
+			Chaos4Fog[i].Distance = 2000.0f;
+			Chaos4Fog[i].Toggle = 0;
 		}
 		DataArray(FogData, Chaos7Fog, 0x01420E30, 1);
 		for (int i = 0; i < 3; i++)
