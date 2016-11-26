@@ -15,6 +15,31 @@ extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
+	__declspec(dllexport) void __cdecl Init()
+	{
+		DataArray(FogData, LostWorld1Fog, 0x01E79AAC, 1);
+		for (int i = 0; i < 3; i++)
+		{
+			LostWorld1Fog[i].Color = 0xFFFFFFFF;
+			LostWorld1Fog[i].Layer = 150.0f;
+			LostWorld1Fog[i].Distance = 3200.0f;
+			LostWorld1Fog[i].Toggle = 1;
+		}
+		DataArray(FogData, LostWorld2Fog, 0x01E79ADC, 1);
+		for (int i = 0; i < 3; i++)
+		{
+			LostWorld2Fog[i].Color = 0xFFFFFFFF;
+			LostWorld2Fog[i].Layer = 150.0f;
+			LostWorld2Fog[i].Distance = 3200.0f;
+			LostWorld2Fog[i].Toggle = 1;
+		}
+		DataArray(DrawDistance, DrawDist_LostWorld2, 0x01E79A7C, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			DrawDist_LostWorld2[i].Maximum = -2700.0;
+		}
+
+	}
 	__declspec(dllexport) void __cdecl OnFrame()
 		{
 

@@ -30,5 +30,39 @@ extern "C"
 		memcpy((void*)0x00D6B39C, &object_0007F6C4, sizeof(object_0007F6C4));
 		memcpy((void*)0x00DD3A5C, &object_000C50AC, sizeof(object_000C50AC));
 		memcpy((void*)0x0E537D8, &object_00162694, sizeof(object_00162694));  // Icicle
+		DataArray(FogData, IceCap1Fog, 0x00C67EA0, 1);
+		for (int i = 0; i < 3; i++)
+		{
+			IceCap1Fog[i].Color = 0xFFFFFFFF;
+			IceCap1Fog[i].Layer = 1500.0f;
+			IceCap1Fog[i].Distance = 3800.0f;
+			IceCap1Fog[i].Toggle = 1;
+		}
+		DataArray(FogData, IceCap2Fog, 0x00C67ED0, 1);
+		for (int i = 0; i < 3; i++)
+		{
+			IceCap2Fog[i].Color = 0xFFFFFFFF;
+			IceCap2Fog[i].Layer = 800.0f;
+			IceCap2Fog[i].Distance = 3800.0f;
+			IceCap2Fog[i].Toggle = 1;
+		}
+		DataArray(FogData, IceCap4Fog, 0x00C67F30, 1);
+		for (int i = 0; i < 3; i++)
+		{
+			IceCap4Fog[i].Color = 0xFF000000;
+			IceCap4Fog[i].Layer = 800.0f;
+			IceCap4Fog[i].Distance = 3800.0f;
+			IceCap4Fog[i].Toggle = 1;
+		}
+		DataArray(DrawDistance, DrawDist_IceCap1, 0x00C67E40, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			DrawDist_IceCap1[i].Maximum = -4000.0;
+		}
+		DataArray(DrawDistance, DrawDist_IceCap2, 0x00C67E58, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			DrawDist_IceCap1[i].Maximum = -4000.0;
+		}
 	};
 }

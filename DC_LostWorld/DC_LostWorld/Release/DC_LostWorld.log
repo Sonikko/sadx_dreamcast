@@ -1599,7 +1599,7 @@ DC_LostWorld.cpp(17): warning C4838: conversion from 'std::size_t' to 'int' requ
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_LostWorld\Release\DC_LostWorld.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_LostWorld\Release\DC_LostWorld.exp
   Generating code
-  All 496 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 497 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_LostWorld.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_LostWorld\Release\DC_LostWorld.dll
   DC_LostWorld.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_LostWorld\Release\DC_LostWorld.pdb (Full PDB)
