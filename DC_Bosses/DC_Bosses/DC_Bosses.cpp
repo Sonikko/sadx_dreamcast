@@ -47,13 +47,39 @@ extern "C"
 		memcpy((void*)0x0118440C, &object_0006B890, sizeof(object_0006B890)); // Chaos2 2
 		object_0006B890.basicdxmodel->mats[0].attr_texId = 11; //Chaos2 BG object fixes
 		object_0006B438.basicdxmodel->mats[0].attr_texId = 0; //Chaos2 BG object fixes
-		DataArray(FogData, Chaos2Fog, 0x00D205DD, 3);
+		DataArray(FogData, Chaos2Fog, 0x01120638, 1);
 		for (int i = 0; i < 3; i++)
 		{
 			Chaos2Fog[i].Color = 0xFF000000;
 			Chaos2Fog[i].Layer = 700.0f;
 			Chaos2Fog[i].Distance = 1700.0f;
 			Chaos2Fog[i].Toggle = 0;
+		}
+		DataArray(FogData, Chaos4Fog, 0x0118FA00, 1);
+		for (int i = 0; i < 3; i++)
+		{
+			Chaos4Fog[i].Color = 0xFF000000;
+			Chaos4Fog[i].Layer = 200.0f;
+			Chaos4Fog[i].Distance = 1000.0f;
+			Chaos4Fog[i].Toggle = 1;
+		}
+		DataArray(FogData, Chaos7Fog, 0x01420E30, 1);
+		for (int i = 0; i < 3; i++)
+		{
+			Chaos7Fog[i].Color = 0xFF000000;
+			Chaos7Fog[i].Layer = -4000.0f;
+			Chaos7Fog[i].Distance = 9000.0f;
+			Chaos7Fog[i].Toggle = 1;
+		}
+		DataArray(DrawDistance, DrawDist_Chaos7, 0x01420E00, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			DrawDist_Chaos7[i].Maximum = -6500.0;
+		}
+		DataArray(FogData, EggWalkerFog, 0x015E87F4, 1);
+		for (int i = 0; i < 3; i++)
+		{
+			EggWalkerFog[i].Toggle = 0;
 		}
 	}
 
