@@ -3864,6 +3864,10 @@ NJS_MODEL_SADX attach_000085C8 = { vertex_00008568, normal_00008598, LengthOfArr
 
 NJS_OBJECT object_000085F0 = { NJD_EVAL_BREAK, &attach_000085C8, -1.476875f, 251.3866f, -44.38574f, 0x242B, 0xFFFFCDB8, 0xFFFFDAB0, 1.272588f, 0.743198f, 0.356045f, NULL, &object_000084EC };
 
+NJS_MATERIAL matlist_00[] = {
+	{ { 0xFF000500 },{ 0xFFFFFFFF }, 11, 7, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
 Sint16 poly_00008624[] = {
 	3, 1, 0, 2
 };
@@ -3884,7 +3888,7 @@ NJS_VECTOR normal_00008668[] = {
 	{ 0, 1, 0 }
 };
 
-NJS_MODEL_SADX attach_0000868C = { vertex_00008644, normal_00008668, LengthOfArray(vertex_00008644), meshlist_0000862C, NULL, LengthOfArray(meshlist_0000862C), 0,{ 0 }, 0.786973f, NULL };
+NJS_MODEL_SADX attach_0000868C = { vertex_00008644, normal_00008668, LengthOfArray(vertex_00008644), meshlist_0000862C, matlist_00, LengthOfArray(meshlist_0000862C), 0,{ 0 }, 0.786973f, NULL };
 
 NJS_OBJECT object_000086B4 = { NJD_EVAL_UNIT_SCL, &attach_0000868C, -121.3549f, 0, -324.5795f, 0, 0xC39, 0, 1, 1, 1, &object_000085F0, NULL };
 
@@ -7746,4 +7750,6 @@ GeoAnimData animlist_00045AB8[] = {
 NJS_TEXNAME textures_chaos4dc[17];
 NJS_TEXLIST texlist_chaos4dc = { arrayptrandlength(textures_chaos4dc) };
 
-LandTable landtable_00000238 = { LengthOfArray(collist_00045098), 0, 0xC, 20000, collist_00045098, NULL, "CHAOS4_TIKEI", (NJS_TEXLIST *)&texlist_chaos4dc, 0, 0 };
+LandTable landtable_00000238 = { LengthOfArray(collist_00045098), LengthOfArray(animlist_00045AB8), 0xD, 20000, collist_00045098, animlist_00045AB8, "CHAOS4_TIKEI", (NJS_TEXLIST *)&texlist_chaos4dc, 0, 0 };
+//LandTable landtable_00000238 = { LengthOfArray(collist_00045098), NULL, 0xC, 20000, collist_00045098, NULL, "CHAOS4_TIKEI", (NJS_TEXLIST *)&texlist_chaos4dc, 0, 0 };
+//LandTable landtable_00000238 = { LengthOfArray(collist_00045098), LengthOfArray(animlist_00045AB8), 0xD, 20000, collist_00045098, animlist_00045AB8, "CHAOS4_TIKEI", (NJS_TEXLIST *)0xC945090, 0, 0 };

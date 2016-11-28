@@ -1367,11 +1367,15 @@ g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\Twinkle3.h(93
 g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\Twinkle3.h(9432): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\Twinkle3.h(9437): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\Twinkle3.h(9437): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-DC_TwinklePark.cpp(16): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(109): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(166): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(166): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(166): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+DC_TwinklePark.cpp(17): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_TwinklePark\Release\DC_TwinklePark.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_TwinklePark\Release\DC_TwinklePark.exp
   Generating code
-  All 340 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 342 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_TwinklePark.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_TwinklePark\Release\DC_TwinklePark.dll
   DC_TwinklePark.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_TwinklePark\Release\DC_TwinklePark.pdb (Full PDB)

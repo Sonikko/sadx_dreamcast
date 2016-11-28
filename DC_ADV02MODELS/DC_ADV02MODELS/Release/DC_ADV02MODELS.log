@@ -3271,10 +3271,103 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR03 (Fin
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR03 (Final Egg entrance).h(21110): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR03 (Final Egg entrance).h(21122): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR03 (Final Egg entrance).h(21122): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(38): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(82): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(82): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(82): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(84): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(88): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(132): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(132): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(132): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(134): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(141): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(150): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(161): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(256): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(256): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(256): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(262): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(306): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(306): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(306): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(308): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(312): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(356): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(356): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(356): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(358): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(365): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(374): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(385): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(480): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(480): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(480): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(486): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(530): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(530): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(530): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(532): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(536): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(580): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(580): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(580): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(589): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(598): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(609): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(704): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(704): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(704): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(710): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(754): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(754): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(754): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(756): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(760): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(804): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(804): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(804): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(806): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(813): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(822): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(833): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(928): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(928): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(928): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(934): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1075): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1075): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1075): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1081): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1099): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1286): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1286): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1286): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1299): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1305): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1310): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1315): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1329): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(1334): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(2056): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(2056): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(2056): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(2075): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(2079): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(2086): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(2096): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(2112): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(2121): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(2134): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(2141): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(2176): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(3901): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(3901): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\OFinalEgg2.h(3901): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV02MODELS\Release\DC_ADV02MODELS.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV02MODELS\Release\DC_ADV02MODELS.exp
   Generating code
-  All 792 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 811 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_ADV02MODELS.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV02MODELS\Release\DC_ADV02MODELS.dll
   DC_ADV02MODELS.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV02MODELS\Release\DC_ADV02MODELS.pdb (Full PDB)

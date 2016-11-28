@@ -149,6 +149,7 @@
     <ClInclude Include="FinalEgg2.h" />
     <ClInclude Include="FinalEgg2_PC.h" />
     <ClInclude Include="FinalEgg3.h" />
+    <ClInclude Include="FinalEgg_objects.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="SADXModLoader.h" />
     <ClInclude Include="stdafx.h" />

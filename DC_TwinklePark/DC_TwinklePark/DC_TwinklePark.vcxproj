@@ -153,6 +153,7 @@
     <ClInclude Include="Twinkle1.h" />
     <ClInclude Include="Twinkle2.h" />
     <ClInclude Include="Twinkle3.h" />
+    <ClInclude Include="TwinklePark_objects.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DC_TwinklePark.cpp" />

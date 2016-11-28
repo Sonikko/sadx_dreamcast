@@ -35,6 +35,23 @@ extern "C"
 		//Sewers water
 		NJS_OBJECT **___ADV00SS02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV00SS02_OBJECTS");
 		___ADV00SS02_OBJECTS[119] = &object_0010F2F4; //PC
+		//Fog data
+		DataArray(FogData, StationSquare1Fog, 0x02AA3D10, 3);
+		DataArray(FogData, StationSquare2Fog, 0x02AA3D40, 3);
+		DataArray(FogData, StationSquare3Fog, 0x02AA3D70, 3);
+		DataArray(FogData, StationSquare4Fog, 0x02AA3DA0, 3);
+		DataArray(FogData, StationSquare5Fog, 0x02AA3DD0, 3);
+		DataArray(FogData, StationSquare6Fog, 0x02AA3E00, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			StationSquare1Fog[i].Toggle = 0;
+			StationSquare2Fog[i].Toggle = 0;
+			StationSquare3Fog[i].Toggle = 0;
+			StationSquare4Fog[i].Toggle = 0;
+			StationSquare5Fog[i].Toggle = 0;
+			StationSquare6Fog[i].Toggle = 0;
+		}
+
 	}
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 
@@ -43,15 +60,16 @@ extern "C"
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 		//Water animation in Act 2 (Sewers)
 		NJS_OBJECT **___ADV00SS02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV00SS02_OBJECTS");
-		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 1 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 47;
-		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 4 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 48;
-		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 7 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 49;
-		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 10 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 50;
-		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 13 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 51;
-		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 16 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 52;
-		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 19 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 53;
-		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 22 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 54;
-		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 25 == 0 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 55;
+		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 30 == 1 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 47;
+		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 30 == 4 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 48;
+		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 30 == 7 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 49;
+		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 30 == 10 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 50;
+		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 30 == 13 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 51;
+		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 30 == 16 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 52;
+		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 30 == 19 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 53;
+		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 30 == 22 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 54;
+		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 30 == 25 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 55;
+		if (CurrentLevel == 26 && CurrentAct == 2 && FrameCounter % 30 == 28 && GameState == 15)	___ADV00SS02_OBJECTS[119]->basicdxmodel->mats[0].attr_texId = 46;
 
 		//Night reflections Act 0
 		if (CurrentLevel == 26 && CurrentAct == 0 && GetTimeOfDay() == 2)

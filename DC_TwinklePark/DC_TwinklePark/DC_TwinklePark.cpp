@@ -3,6 +3,7 @@
 #include "Twinkle1.h"
 #include "Twinkle2.h"
 #include "Twinkle3.h"
+#include "TwinklePark_objects.h"
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA68, &landtable_0001788C),
@@ -17,6 +18,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		memcpy((void*)0x038C3C70, &attach_000F13F8, sizeof(attach_000F13F8));  // Light
 		DataArray(FogData, TwinklePark1Fog, 0x026B339C, 3);
 		for (int i = 0; i < 3; i++)
 		{

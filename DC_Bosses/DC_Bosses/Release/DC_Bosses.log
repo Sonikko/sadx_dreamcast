@@ -2048,6 +2048,15 @@ g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos2.h(3603): warning
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos2.h(3682): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos2.h(3687): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos2.h(3687): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4_water.h(15): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4_water.h(63): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4_water.h(872): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4_water.h(872): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4_water.h(872): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4_water.h(902): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4_water.h(992): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4_water.h(992): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4_water.h(992): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(15): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(93): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
@@ -2241,39 +2250,40 @@ g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(3863): warning
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(3863): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(3863): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(3865): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(3887): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(3887): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(3887): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(3996): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4140): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4284): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4427): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4572): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4716): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4845): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4978): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5116): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5259): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5402): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5545): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5688): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5824): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5960): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6096): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6232): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6368): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6504): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6640): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6775): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6912): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7048): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7184): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7320): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7456): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7594): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7740): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7749): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7749): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(3869): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(3891): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(3891): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(3891): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4000): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4144): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4288): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4431): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4576): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4720): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4849): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(4982): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5120): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5263): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5406): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5549): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5692): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5828): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(5964): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6100): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6236): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6372): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6508): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6644): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6779): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(6916): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7052): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7188): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7324): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7460): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7598): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7744): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7753): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos4.h(7753): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1_PC.h(8): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1_PC.h(17): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1_PC.h(164): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
@@ -5330,11 +5340,11 @@ g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggHornet.h(36535): war
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggHornet.h(36746): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggHornet.h(36758): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggHornet.h(36758): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-DC_Bosses.cpp(31): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+DC_Bosses.cpp(32): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.exp
   Generating code
-  All 1184 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1187 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_Bosses.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.dll
   DC_Bosses.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.pdb (Full PDB)

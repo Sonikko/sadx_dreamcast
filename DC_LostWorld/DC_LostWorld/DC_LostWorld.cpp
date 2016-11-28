@@ -17,6 +17,7 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//((NJS_OBJECT *)0x01FFE9A4)->basicdxmodel->mats[1].attr_texId = 76;
 		DataArray(FogData, LostWorld1Fog, 0x01E79AAC, 1);
 		for (int i = 0; i < 3; i++)
 		{
