@@ -16,6 +16,23 @@ extern "C"
 {
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
+	__declspec(dllexport) void __cdecl Init()
+	{
+		DataArray(FogData, Casino2Fog, 0x01C469C0, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			Casino2Fog[i].Color = 0xFF646400;
+			Casino2Fog[i].Layer = 1.0f;
+			Casino2Fog[i].Distance = 4000.0f;
+			Casino2Fog[i].Toggle = 1;
+		}
+		DataArray(DrawDistance, DrawDist_Casino2, 0x01C46948, 3);
+		for (int i = 0; i < 3; i++)
+		{
+			DrawDist_Casino2[i].Maximum = -2000.0;
+		}
+
+	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
 		if (CurrentLevel == 9 && CurrentAct == 0)

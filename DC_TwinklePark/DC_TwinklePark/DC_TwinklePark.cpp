@@ -11,6 +11,11 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DA70, &landtable_00019F5C)
 };
 
+NJS_MATERIAL matlist_034C3AD0[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 5, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_ONE | NJD_SA_SRC }
+};
+
+NJS_TEXNAME textures_tpobjects[97];
 
 extern "C"
 {
@@ -18,7 +23,10 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		memcpy((void*)0x038C3C70, &attach_000F13F8, sizeof(attach_000F13F8));  // Light
+		ResizeTextureList((NJS_TEXLIST*)0x38AEB70, textures_tpobjects);
+		((NJS_OBJECT *)0x038C234C)->basicdxmodel->mats[0].attr_texId = 96;
+		((NJS_OBJECT *)0x038BFC74)->basicdxmodel->mats[0].attr_texId = 96;
+		//memcpy((void*)0x038C3AD0, &matlist_034C3AD0, sizeof(matlist_034C3AD0));  // Light
 		DataArray(FogData, TwinklePark1Fog, 0x026B339C, 3);
 		for (int i = 0; i < 3; i++)
 		{

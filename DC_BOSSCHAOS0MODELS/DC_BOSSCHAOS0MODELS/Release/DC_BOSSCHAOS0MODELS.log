@@ -1,378 +1,378 @@
 ﻿  stdafx.cpp
   chaos0.cpp
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(69): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(69): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(69): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(75): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(111): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(111): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(111): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(117): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(125): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(183): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(183): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(183): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(190): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(194): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(199): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(265): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(265): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(265): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(272): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(276): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(282): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(350): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(350): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(350): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(357): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(364): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(371): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(502): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(502): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(502): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(508): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(516): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(631): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(631): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(631): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(637): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(668): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(668): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(668): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(674): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(691): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1048): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1048): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1048): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1054): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1923): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1923): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1923): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1925): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1929): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(2798): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(2798): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(2798): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(2800): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(2804): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(3166): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(3166): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(3166): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(3168): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(3172): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4041): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4041): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4041): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4043): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4053): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4057): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4061): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4070): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4074): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4079): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4083): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4087): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4362): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4362): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4362): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4368): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4374): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4421): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4421): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4421): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4432): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4451): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4457): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4743): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4743): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4743): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4754): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4773): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4779): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5065): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5065): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5065): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5072): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5084): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5093): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5376): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5376): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5376): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5378): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5383): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5395): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5404): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5687): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5687): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5687): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5689): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5695): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5737): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6105): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6105): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6105): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6113): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6136): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6523): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6523): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6523): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6533): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6540): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6553): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6557): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6570): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6793): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6793): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6793): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6803): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6810): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6823): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6827): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6840): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7063): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7063): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7063): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7070): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7090): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7247): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7247): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7247): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7253): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7323): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7323): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7323): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7333): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7351): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7358): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7651): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7651): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7651): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7661): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7679): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7686): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7979): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7979): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7979): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7989): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8006): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8151): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8151): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8151): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8161): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8178): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8323): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8323): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8323): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8330): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8351): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8727): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8727): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8727): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8735): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8765): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9151): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9151): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9151): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9157): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9194): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9194): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9194): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9200): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9237): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9237): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9237): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9243): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9250): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9305): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9305): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9305): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9315): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9445): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9445): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9445): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9455): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9585): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9585): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9585): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9591): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9622): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9622): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9622): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9628): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9659): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9659): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9659): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9668): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9681): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9688): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9695): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9858): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9858): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9858): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9867): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9871): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9876): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9883): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9915): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10250): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10250): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10250): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10259): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10263): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10268): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10275): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10307): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10642): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10642): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10642): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10648): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10679): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10679): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10679): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10689): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10701): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10705): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10714): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10947): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10947): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10947): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10953): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10962): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11073): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11073): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11073): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11077): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11079): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11115): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11184): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11184): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11184): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11252): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11261): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11261): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11271): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11271): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(46): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(77): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(77): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(77): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(83): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(114): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(114): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(114): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(116): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(120): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(125): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(174): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(174): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(174): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(180): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(224): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(224): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(224): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(231): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(286): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(286): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(286): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(293): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(348): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(348): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(348): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(355): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(359): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(405): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(405): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(405): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(407): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(411): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(455): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(455): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(455): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(461): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(468): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(508): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(508): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(508): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(514): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(521): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(561): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(561): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(561): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(569): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(575): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(579): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(585): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(706): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(706): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(706): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(714): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(722): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(846): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(846): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(846): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(852): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(883): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(883): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(883): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(951): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(951): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(951): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(957): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(966): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1045): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1045): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1045): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1051): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1060): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1139): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1139): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1139): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1146): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1595): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1595): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1595): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1601): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1608): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1719): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1719): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1719): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1725): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1769): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1769): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1769): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1775): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1819): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1819): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1819): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1825): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1869): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1869): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1869): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1876): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1932): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1932): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1932): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1938): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1982): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1982): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1982): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1989): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1998): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2110): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2110): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2110): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2118): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2136): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2149): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2162): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2643): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2643): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-c:\users\pkr\documents\visual studio 2015\projects\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2643): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(69): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(69): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(69): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(75): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(111): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(111): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(111): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(117): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(125): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(183): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(183): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(183): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(190): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(194): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(199): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(265): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(265): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(265): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(272): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(276): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(282): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(350): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(350): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(350): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(357): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(364): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(371): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(502): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(502): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(502): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(508): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(516): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(631): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(631): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(631): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(637): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(668): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(668): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(668): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(674): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(691): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1048): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1048): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1048): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1054): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1923): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1923): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1923): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1925): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(1929): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(2798): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(2798): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(2798): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(2800): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(2804): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(3166): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(3166): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(3166): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(3168): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(3172): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4041): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4041): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4041): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4043): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4053): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4057): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4061): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4070): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4074): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4079): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4083): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4087): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4362): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4362): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4362): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4368): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4374): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4421): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4421): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4421): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4432): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4451): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4457): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4743): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4743): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4743): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4754): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4773): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(4779): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5065): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5065): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5065): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5072): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5084): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5093): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5376): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5376): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5376): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5378): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5383): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5395): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5404): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5687): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5687): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5687): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5689): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5695): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(5737): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6105): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6105): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6105): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6113): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6136): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6523): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6523): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6523): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6533): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6540): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6553): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6557): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6570): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6793): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6793): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6793): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6803): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6810): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6823): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6827): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(6840): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7063): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7063): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7063): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7070): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7090): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7247): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7247): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7247): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7253): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7323): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7323): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7323): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7333): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7351): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7358): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7651): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7651): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7651): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7661): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7679): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7686): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7979): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7979): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7979): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(7989): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8006): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8151): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8151): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8151): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8161): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8178): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8323): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8323): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8323): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8330): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8351): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8727): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8727): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8727): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8735): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(8765): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9151): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9151): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9151): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9157): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9194): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9194): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9194): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9200): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9237): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9237): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9237): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9243): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9250): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9305): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9305): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9305): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9315): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9445): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9445): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9445): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9455): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9585): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9585): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9585): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9591): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9622): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9622): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9622): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9628): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9659): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9659): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9659): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9668): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9681): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9688): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9695): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9858): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9858): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9858): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9867): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9871): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9876): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9883): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(9915): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10250): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10250): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10250): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10259): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10263): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10268): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10275): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10307): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10642): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10642): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10642): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10648): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10679): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10679): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10679): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10689): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10701): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10705): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10714): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10947): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10947): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10947): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10953): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(10962): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11073): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11073): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11073): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11077): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11079): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11115): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11184): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11184): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11184): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11252): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11261): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11261): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11271): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_Landtable.h(11271): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(108): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(108): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(108): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(114): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(145): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(145): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(145): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(151): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(182): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(182): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(182): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(184): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(188): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(193): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(242): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(242): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(242): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(248): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(292): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(292): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(292): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(299): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(354): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(354): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(354): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(363): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(418): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(418): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(418): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(425): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(429): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(475): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(475): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(475): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(477): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(481): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(525): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(525): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(525): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(531): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(538): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(578): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(578): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(578): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(584): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(591): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(631): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(631): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(631): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(639): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(645): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(649): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(655): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(776): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(776): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(776): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(784): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(792): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(916): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(916): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(916): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(922): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(953): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(953): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(953): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(961): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(970): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1049): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1049): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1049): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1055): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1064): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1143): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1143): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1143): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1150): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1599): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1599): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1599): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1605): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1612): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1723): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1723): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1723): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1729): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1773): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1773): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1773): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1779): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1823): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1823): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1823): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1829): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1873): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1873): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1873): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1880): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1936): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1936): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1936): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1942): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1986): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1986): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1986): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(1993): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2002): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2114): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2114): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2114): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2122): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2140): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2153): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2166): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2647): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2647): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosschaos0models\dc_bosschaos0models\Chaos0_PoliceCar.h(2647): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
   dllmain.cpp
-     Creating library C:\Users\PkR\Documents\Visual Studio 2015\Projects\DC_BOSSCHAOS0MODELS\Release\DC_BOSSCHAOS0MODELS.lib and object C:\Users\PkR\Documents\Visual Studio 2015\Projects\DC_BOSSCHAOS0MODELS\Release\DC_BOSSCHAOS0MODELS.exp
+     Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_BOSSCHAOS0MODELS\Release\DC_BOSSCHAOS0MODELS.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_BOSSCHAOS0MODELS\Release\DC_BOSSCHAOS0MODELS.exp
   Generating code
-  All 125 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 127 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
-  DC_BOSSCHAOS0MODELS.vcxproj -> C:\Users\PkR\Documents\Visual Studio 2015\Projects\DC_BOSSCHAOS0MODELS\Release\DC_BOSSCHAOS0MODELS.dll
-  DC_BOSSCHAOS0MODELS.vcxproj -> C:\Users\PkR\Documents\Visual Studio 2015\Projects\DC_BOSSCHAOS0MODELS\Release\DC_BOSSCHAOS0MODELS.pdb (Full PDB)
+  DC_BOSSCHAOS0MODELS.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_BOSSCHAOS0MODELS\Release\DC_BOSSCHAOS0MODELS.dll
+  DC_BOSSCHAOS0MODELS.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_BOSSCHAOS0MODELS\Release\DC_BOSSCHAOS0MODELS.pdb (Full PDB)

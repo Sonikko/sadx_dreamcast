@@ -17,6 +17,7 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 		memcpy((void*)0x0183C594, &attach_0012AB9C, sizeof(attach_0012AB9C));  // Bridge
+		memcpy((void*)0x0187201C, &object_0015CC48, sizeof(object_0015CC48));  // Light
 		DataArray(DrawDistance, DrawDist_HotShelter1, 0x017C3408, 3);
 		for (int i = 0; i < 3; i++)
 		{
