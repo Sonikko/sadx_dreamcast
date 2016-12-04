@@ -149,6 +149,8 @@
     <ClInclude Include="ADV_MR01 (Angel Island).h" />
     <ClInclude Include="ADV_MR02 (Jungle area).h" />
     <ClInclude Include="ADV_MR03 (Final Egg entrance).h" />
+    <ClInclude Include="ADV_MR03_PC.h" />
+    <ClInclude Include="MetalSonic.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="OFinalEgg.h" />
     <ClInclude Include="SADXModLoader.h" />

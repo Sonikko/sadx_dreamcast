@@ -45,6 +45,12 @@
     <ClInclude Include="OFinalEgg.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="ADV_MR03_PC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MetalSonic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
