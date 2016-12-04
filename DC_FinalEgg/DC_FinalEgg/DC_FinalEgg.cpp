@@ -60,6 +60,7 @@ extern "C"
 			FinalEgg2Fog[i].Toggle = 1;
 		}
 		memcpy((void*)0x19FEFE4, &object_001AEDFC, sizeof(object_001AEDFC));  // Light
+		//memcpy((void*)0x1C28564, &object_0021B58C, sizeof(object_0021B58C));  // Light2
 		memcpy(&object_016C3004, &object_000E0558Z, sizeof(object_000E0558Z));  // BG 1
 		memcpy(&object_016C2FD0, &object_000E058CZ, sizeof(object_000E058CZ));  // BG 2
 		memcpy(&object_016C3038, &object_000E0524Z, sizeof(object_000E0524Z));  // BG 3

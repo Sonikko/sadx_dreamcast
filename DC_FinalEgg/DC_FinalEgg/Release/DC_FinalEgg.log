@@ -4014,12 +4014,19 @@ g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(
 g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(467): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(467): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(467): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(490): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(494): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(516): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(672): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(672): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(672): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(674): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
 DC_FinalEgg.cpp(37): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
 DC_FinalEgg.cpp(40): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.exp
   Generating code
-  All 1096 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1097 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_FinalEgg.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.dll
   DC_FinalEgg.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.pdb (Full PDB)
