@@ -51,6 +51,9 @@
     <ClInclude Include="ADV03_02_PC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Palm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

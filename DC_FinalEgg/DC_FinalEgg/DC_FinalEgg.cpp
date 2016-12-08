@@ -14,7 +14,6 @@ PointerInfo pointers[] = {
 };
 
 //Final Egg 2 clip function
-
 void __cdecl SetClip_FEgg2_r(signed int a1)
 {
 	if (a1 >= 2)
@@ -37,9 +36,13 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		ResizeTextureList((NJS_TEXLIST*)0x19CC1C0, 183);
 		((LandTable *)0x19C8ED0)->COLCount = LengthOfArray(collist_015C7D60);
 		((LandTable *)0x19C8ED0)->COLList = collist_015C7D60;
 		WriteJump((void*)0x5ADC40, SetClip_FEgg2_r);
+		*(NJS_OBJECT*)0x1A4583C = object_001EDFBC; //cylinder
+		WriteData((void*)0x005B47A1, 0x90i8, 5); // cylinder texlist
+		WriteData((void*)0x005B475B, 0x90i8, 3); //kill cylinder animation
 		DataArray(FogData, FinalEgg1Fog, 0x019C8FF0, 3);
 		for (int i = 0; i < 3; i++)
 		{
@@ -60,7 +63,7 @@ extern "C"
 			FinalEgg2Fog[i].Toggle = 1;
 		}
 		memcpy((void*)0x19FEFE4, &object_001AEDFC, sizeof(object_001AEDFC));  // Light
-		//memcpy((void*)0x1C28564, &object_0021B58C, sizeof(object_0021B58C));  // Light2
+		memcpy((void*)0x19D8BC0, &attach_015D8BC0, sizeof(attach_015D8BC0));  // Lazzer!
 		memcpy(&object_016C3004, &object_000E0558Z, sizeof(object_000E0558Z));  // BG 1
 		memcpy(&object_016C2FD0, &object_000E058CZ, sizeof(object_000E058CZ));  // BG 2
 		memcpy(&object_016C3038, &object_000E0524Z, sizeof(object_000E0524Z));  // BG 3
@@ -73,7 +76,13 @@ extern "C"
 		memcpy(&matlist_01695858, &matlist_01695858Z, sizeof(matlist_01695858Z));  // Trans 4
 		memcpy(&matlist_01695D50, &matlist_01695D50Z, sizeof(matlist_01695D50Z));  // Trans 5
 	}
-		
+	__declspec(dllexport) void __cdecl OnFrame()
+	{
+		if (CurrentLevel == 10 && GameState == 15)
+		{
+			if (LevelFrameCount % 41 == 1)	matlist_001EDDF0[0].attr_texId = 176;
+		}
+	}
 }
 
 /*BK

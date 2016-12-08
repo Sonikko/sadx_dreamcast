@@ -4,7 +4,9 @@
 #include "ADV03_00_PC.h"
 #include "ADV03_00.h"
 #include "ADV03_01.h"
+#include "Palm.h"
 #include "ADV03_02.h"
+
 //#include "ADV03_01_PC.h"
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
@@ -33,6 +35,8 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV03PAST02_OBJECTS[209] = &object_000C6F40;
 	___ADV03PAST02_OBJECTS[210] = &object_000C71B4;
 	___ADV03PAST02_OBJECTS[211] = &object_000FB49C;
+	//NJS_ACTION **___ADV03_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV03_ACTIONS");
+	//___ADV03_ACTIONS[10]->object = &object_00122F30;
 }
 
 extern "C" __declspec(dllexport) const ModInfo SADXModInfo = { ModLoaderVer };

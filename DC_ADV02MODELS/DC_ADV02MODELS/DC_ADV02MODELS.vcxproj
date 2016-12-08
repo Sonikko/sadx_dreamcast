@@ -150,6 +150,7 @@
     <ClInclude Include="ADV_MR02 (Jungle area).h" />
     <ClInclude Include="ADV_MR03 (Final Egg entrance).h" />
     <ClInclude Include="ADV_MR03_PC.h" />
+    <ClInclude Include="button.h" />
     <ClInclude Include="MetalSonic.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="OFinalEgg.h" />

@@ -22,7 +22,7 @@ PointerInfo pointers[] = {
 	ptrdecl(0x7D1D32, &landtable_0000022C), //Egg Walker
 	ptrdecl(0x7D1D48, &landtable_000580F4), //Egg Viper
 	ptrdecl(0x7D1D7F, &landtable_00000068), //E-101
-	ptrdecl(0x7D1D06, &landtable_00001214), //Perfect Chaos DC
+	//ptrdecl(0x7D1D06, &landtable_00001214), //Perfect Chaos DC
 //	ptrdecl(0x7D1D06, &landtable_0102478C), //Perfect Chaos PC
 };
 
@@ -33,7 +33,7 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 		ResizeTextureList((NJS_TEXLIST*)0x1557064, textures_egm1land);
-		ResizeTextureList((NJS_TEXLIST*)0x1494FBC, textures_chaos7);
+		//ResizeTextureList((NJS_TEXLIST*)0x1494FBC, textures_chaos7);
 		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 water
 		memcpy((void*)0x011EDE20, &animlist_00DEDE20, sizeof(animlist_00DEDE20)); // Chaos6 animlist
 		memcpy((void*)0x016B4D20, &animlist_012B4D20, sizeof(animlist_012B4D20)); // Zero animlist

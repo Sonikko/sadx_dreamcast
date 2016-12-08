@@ -1,24 +1,39 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
+#include "button.h"
 #include "ADV_MR00 (Station area).h"
 #include "ADV_MR01 (Angel Island).h"
 #include "ADV_MR02 (Jungle area).h"
-//#include "ADV_MR03_PC.h"
 #include "MetalSonic.h"
 #include "ADV_MR03 (Final Egg entrance).h"
 #include "OFinalEgg.h"
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	DataArray(FogData, MR1Fog, 0x01103448, 3);
-	DataArray(FogData, MR2Fog, 0x01103478, 3);
-	DataArray(FogData, MR3Fog, 0x011034A8, 3);
-	DataArray(FogData, MR4Fog, 0x011034D8, 3);
+	DataArray(FogData, MR1FogDay, 0x01103448, 3);
+	DataArray(FogData, MR2FogDay, 0x01103478, 3);
+	DataArray(FogData, MR3FogDay, 0x011034A8, 3);
+	DataArray(FogData, MR4FogDay, 0x011034D8, 3);
+	DataArray(FogData, MR1FogEvening, 0x01103508, 3);
+	DataArray(FogData, MR2FogEvening, 0x01103538, 3);
+	DataArray(FogData, MR1FogNight, 0x01103568, 3);
+	DataArray(FogData, MR3FogNight, 0x01103598, 3);
 	for (int i = 0; i < 3; i++)
 	{
-		MR2Fog[i].Distance = 8000.0f;
-		MR2Fog[i].Layer = 3000.0f;
-		MR3Fog[i].Toggle = 0;
+		MR1FogDay[i].Distance = 9000.0f;
+		MR1FogDay[i].Layer = 3500.0f;
+		MR2FogDay[i].Distance = 9000.0f;
+		MR2FogDay[i].Layer = 3000.0f;
+		MR3FogDay[i].Toggle = 0;
+		MR1FogEvening[i].Distance = 9000.0f;
+		MR1FogEvening[i].Layer = 3500.0f;
+		MR2FogEvening[i].Distance = 9000.0f;
+		MR2FogEvening[i].Layer = 3000.0f;
+		MR1FogNight[i].Distance = 9000.0f;
+		MR1FogNight[i].Layer = 3500.0f;
+		MR3FogNight[i].Distance = 9000; 
+		MR3FogNight[i].Layer = 3500;
+		//Either some of these are shared for night, or I'm too dumb to understand the disassembly
 	}
 	DataArray(DrawDistance, MR1DrawDist, 0x011033E8, 3);
 	DataArray(DrawDistance, MR2DrawDist, 0x01103400, 3);
@@ -35,6 +50,8 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___LANDTABLEMR[2] = &landtable_00000178;
 	___LANDTABLEMR[3] = &landtable_0000019C;
 	//___LANDTABLEMR[3] = &landtable_00293FE8;
+	NJS_OBJECT **___ADV02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02_OBJECTS");
+	___ADV02_OBJECTS[68] = &object_002145D4;
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	___ADV02MR02_OBJECTS[141] = &object_001615BC;
 	___ADV02MR02_OBJECTS[142] = &object_00161B8C;

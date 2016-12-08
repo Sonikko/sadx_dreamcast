@@ -5344,7 +5344,7 @@ DC_Bosses.cpp(32): warning C4838: conversion from 'std::size_t' to 'int' require
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.exp
   Generating code
-  All 1187 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1186 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_Bosses.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.dll
   DC_Bosses.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.pdb (Full PDB)
