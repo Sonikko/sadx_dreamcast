@@ -2522,7 +2522,7 @@ DC_SpeedHighway.cpp(21): warning C4838: conversion from 'std::size_t' to 'int' r
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_SpeedHighway\Release\DC_SpeedHighway.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_SpeedHighway\Release\DC_SpeedHighway.exp
   Generating code
-  All 648 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 646 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_SpeedHighway.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_SpeedHighway\Release\DC_SpeedHighway.dll
   DC_SpeedHighway.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_SpeedHighway\Release\DC_SpeedHighway.pdb (Full PDB)

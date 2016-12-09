@@ -23,7 +23,6 @@ extern "C"
 
 	__declspec(dllexport) void __cdecl Init()
 	{
-		ResizeTextureList((NJS_TEXLIST*)0x26FEA54, textures_highway3);
 		memcpy((void*)0x267DC14, &object_0227DC14, sizeof(object_0227DC14)); // Turnasi part 1
 		memcpy((void*)0x267D3B4, &object_0014ABC8, sizeof(object_0014ABC8)); // Turnasi part 2
 		memcpy((void*)0x267C7AC, &object_0014A5B0, sizeof(object_0014A5B0)); // Turnasi part 3
