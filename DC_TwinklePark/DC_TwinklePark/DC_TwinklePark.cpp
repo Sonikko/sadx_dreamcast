@@ -26,7 +26,6 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x38AEB70, textures_tpobjects);
 		((NJS_OBJECT *)0x038C234C)->basicdxmodel->mats[0].attr_texId = 96;
 		((NJS_OBJECT *)0x038BFC74)->basicdxmodel->mats[0].attr_texId = 96;
-		//memcpy((void*)0x038C3AD0, &matlist_034C3AD0, sizeof(matlist_034C3AD0));  // Light
 		DataArray(FogData, TwinklePark1Fog, 0x026B339C, 3);
 		for (int i = 0; i < 3; i++)
 		{
