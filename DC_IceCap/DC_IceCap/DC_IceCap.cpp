@@ -3,6 +3,7 @@
 #include "IceCap1.h"
 #include "IceCap2.h"
 #include "IceCap3.h"
+//#include "IceCap4.h"
 #include "Icicle.h"
 
 NJS_TEXNAME textures_icecap4[55];
@@ -18,6 +19,7 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DB08, &landtable_00014B44),
 	ptrdecl(0x97DB0C, &landtable_00015714),
 	ptrdecl(0x97DB10, &landtable_000180B4),
+	//ptrdecl(0x97DB14, &landtable_00019950)
 	ptrdecl(0x90F070, &IceCap4Textures)
 };
 

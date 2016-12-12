@@ -21149,7 +21149,7 @@ NJS_MODEL_SADX attach_0008385C = { vertex_000837FC, normal_0008382C, LengthOfArr
 NJS_OBJECT object_00083884 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0008385C, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_MATERIAL matlist_000838B8[] = {
-	{ { 0xFFB2B2B2},{ 0xFFFFFFFF }, 11, 2, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 2, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
 Sint16 poly_000838CC[] = {
@@ -27613,7 +27613,7 @@ COL collist_00014B68[] = {
 	{ { 1499.149f, 426.136f, 262.9609f }, 264.2964f, 0, 0, &object_00084840, 0, 0xA0000041 },
 	{ { 1231.422f, 90.96944f, -265.5267f }, 229.2332f, 0, 0, &object_00085000, 0, 0xA0000041 }
 };
-NJS_TEXNAME textures_icecap2[54];
+NJS_TEXNAME textures_icecap2[55];
 NJS_TEXLIST texlist_icecap2 = { arrayptrandlength(textures_icecap2) };
 
 LandTable landtable_00015714 = { LengthOfArray(collist_00014B68), 0, 8, 0, collist_00014B68, NULL, "ICECAP02", (NJS_TEXLIST *)&texlist_icecap2, 0, 0 };

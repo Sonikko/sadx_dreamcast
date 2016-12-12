@@ -42,6 +42,9 @@
     <ClInclude Include="Icicle.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="IceCap4.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
