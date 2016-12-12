@@ -1371,12 +1371,41 @@ g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_o
 g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(166): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(166): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(166): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(183): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(194): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(200): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(207): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(402): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(402): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(402): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(412): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(417): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(442): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(856): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(856): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(856): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(866): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(871): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(896): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1310): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1310): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1310): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1327): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1350): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1361): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1731): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1731): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1731): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1742): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1744): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1744): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_twinklepark\dc_twinklepark\TwinklePark_objects.h(1744): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 DC_TwinklePark.cpp(16): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 DC_TwinklePark.cpp(22): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_TwinklePark\Release\DC_TwinklePark.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_TwinklePark\Release\DC_TwinklePark.exp
   Generating code
-  All 344 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 350 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_TwinklePark.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_TwinklePark\Release\DC_TwinklePark.dll
   DC_TwinklePark.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_TwinklePark\Release\DC_TwinklePark.pdb (Full PDB)

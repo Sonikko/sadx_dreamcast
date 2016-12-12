@@ -23,21 +23,33 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		ResizeTextureList((NJS_TEXLIST*)0x38AEB70, textures_tpobjects);
-		((NJS_OBJECT *)0x038C234C)->basicdxmodel->mats[0].attr_texId = 96;
-		((NJS_OBJECT *)0x038BFC74)->basicdxmodel->mats[0].attr_texId = 96;
+		ResizeTextureList((NJS_TEXLIST*)0x38AEB70, textures_tpobjects); //OBJ_TWINKLE
+		((NJS_OBJECT *)0x038C234C)->basicdxmodel->mats[0].attr_texId = 96; //Light
+		((NJS_OBJECT *)0x038BFC74)->basicdxmodel->mats[0].attr_texId = 96;  //Light 2
+		*(NJS_OBJECT*)0x0279D364 = object_000A0E58; // barrel
+		/**(NJS_OBJECT*)0x027B6170 = object_000B4F1C; // yellow flower pot
+		*(NJS_OBJECT*)0x027B80C4 = object_000B4F1C; // yellow flower pot 2
+		*(NJS_OBJECT*)0x027B6A58 = object_000B5EE8; // pink flower pot
+		*(NJS_OBJECT*)0x027B972C = object_000B5EE8; // pink flower pot 2
+		*(NJS_OBJECT*)0x027BAC54 = object_000B6CF8; // yellow flower bed
+		*(NJS_OBJECT*)0x027BC1C4 = object_000B6CF8_2; // pink flower bed*/
 		DataArray(FogData, TwinklePark1Fog, 0x026B339C, 3);
+		DataArray(FogData, TwinklePark2Fog, 0x026B33CC, 3);
+		DataArray(FogData, TwinklePark3Fog, 0x026B33FC, 3);
+		DataArray(FogData, TwinklePark4Fog, 0x026B342C, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			TwinklePark1Fog[i].Layer = 1500.0f;
-		}
-		DataArray(FogData, TwinklePark3Fog, 0x026B342C, 3);
-		for (int i = 0; i < 3; i++)
-		{
-			TwinklePark3Fog[i].Color = 0xFF000000;
-			TwinklePark3Fog[i].Layer = 400.0f;
-			TwinklePark3Fog[i].Distance = 1200.0f;
-			TwinklePark3Fog[i].Toggle = 1;
+			TwinklePark2Fog[i].Layer = -800.0f;
+			TwinklePark2Fog[i].Distance = -2200.0f;
+			TwinklePark2Fog[i].Color = 0xFF100428;
+			TwinklePark3Fog[i].Layer = -800.0f;
+			TwinklePark3Fog[i].Distance = -2200.0f;
+			TwinklePark3Fog[i].Color = 0xFF100428;
+			TwinklePark4Fog[i].Color = 0xFF000000;
+			TwinklePark4Fog[i].Layer = 400.0f;
+			TwinklePark4Fog[i].Distance = 1200.0f;
+			TwinklePark4Fog[i].Toggle = 1;
 		}
 
 	}
