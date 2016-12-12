@@ -40,9 +40,9 @@ extern "C"
 		((LandTable *)0x19C8ED0)->COLCount = LengthOfArray(collist_015C7D60);
 		((LandTable *)0x19C8ED0)->COLList = collist_015C7D60;
 		WriteJump((void*)0x5ADC40, SetClip_FEgg2_r);
-		*(NJS_OBJECT*)0x1A4583C = object_001EDFBC; //cylinder
-		WriteData((void*)0x005B47A1, 0x90i8, 5); // cylinder texlist
-		WriteData((void*)0x005B475B, 0x90i8, 3); //kill cylinder animation
+		//*(NJS_OBJECT*)0x1A4583C = object_001EDFBC; //cylinder
+		//WriteData((void*)0x005B47A1, 0x90i8, 5); // cylinder texlist
+		//WriteData((void*)0x005B475B, 0x90i8, 3); //kill cylinder animation
 		DataArray(FogData, FinalEgg1Fog, 0x019C8FF0, 3);
 		for (int i = 0; i < 3; i++)
 		{
@@ -50,15 +50,15 @@ extern "C"
 			HMODULE palettelighting = GetModuleHandle(L"sadx-dc-lighting");
 			if (palettelighting != 0)
 			{
-			FinalEgg1Fog[i].Layer = 1300.0f;
-			FinalEgg1Fog[i].Distance = 3200.0f;
+			FinalEgg1Fog[i].Layer = 1200.0f;
+			FinalEgg1Fog[i].Distance = 3000.0f;
 			}
 		}
 		DataArray(FogData, FinalEgg2Fog, 0x019C9020, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			FinalEgg2Fog[i].Color = 0xFF000000;
-			FinalEgg2Fog[i].Layer = 800.0f;
+			FinalEgg2Fog[i].Layer = 650.0f;
 			FinalEgg2Fog[i].Distance = 2000.0f;
 			FinalEgg2Fog[i].Toggle = 1;
 		}
@@ -76,13 +76,15 @@ extern "C"
 		memcpy(&matlist_01695858, &matlist_01695858Z, sizeof(matlist_01695858Z));  // Trans 4
 		memcpy(&matlist_01695D50, &matlist_01695D50Z, sizeof(matlist_01695D50Z));  // Trans 5
 	}
-	__declspec(dllexport) void __cdecl OnFrame()
+	/*__declspec(dllexport) void __cdecl OnFrame()
 	{
 		if (CurrentLevel == 10 && GameState == 15)
 		{
 			if (LevelFrameCount % 41 == 1)	matlist_001EDDF0[0].attr_texId = 176;
+			if (LevelFrameCount % 41 == 4)	matlist_001EDDF0[0].attr_texId = 177;
+			if (LevelFrameCount % 41 == 7)	matlist_001EDDF0[0].attr_texId = 178;
 		}
-	}
+	}*/
 }
 
 /*BK

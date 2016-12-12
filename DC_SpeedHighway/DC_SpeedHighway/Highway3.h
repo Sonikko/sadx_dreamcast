@@ -74249,4 +74249,4 @@ COL collist_0001919C[] = {
 NJS_TEXNAME textures_highway3[107];
 NJS_TEXLIST texlist_hw3 = { arrayptrandlength(textures_highway3) };
 
-LandTable landtable_0001B08C = { LengthOfArray(collist_0001919C), 0, 0xC, 1400, collist_0001919C, NULL, "HIGHWAY03", (NJS_TEXLIST *)0x26FEA54, 0, 0 };
+LandTable landtable_0001B08C = { LengthOfArray(collist_0001919C), 0, 0xC, 1400, collist_0001919C, NULL, "HIGHWAY03", (NJS_TEXLIST *)&texlist_hw3, 0, 0 };

@@ -7,6 +7,10 @@
 #include "MetalSonic.h"
 #include "ADV_MR03 (Final Egg entrance).h"
 #include "OFinalEgg.h"
+#include "MR_train.h"
+
+NJS_TEXNAME textures_mrtrain[31];
+NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
@@ -18,6 +22,9 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	DataArray(FogData, MR2FogEvening, 0x01103538, 3);
 	DataArray(FogData, MR1FogNight, 0x01103568, 3);
 	DataArray(FogData, MR3FogNight, 0x01103598, 3);
+	DataArray(DrawDistance, MR1DrawDist, 0x011033E8, 3);
+	DataArray(DrawDistance, MR2DrawDist, 0x01103400, 3);
+	DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
 	for (int i = 0; i < 3; i++)
 	{
 		MR1FogDay[i].Distance = 9000.0f;
@@ -33,23 +40,18 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		MR1FogNight[i].Layer = 3500.0f;
 		MR3FogNight[i].Distance = 9000; 
 		MR3FogNight[i].Layer = 3500;
-		//Either some of these are shared for night, or I'm too dumb to understand the disassembly
-	}
-	DataArray(DrawDistance, MR1DrawDist, 0x011033E8, 3);
-	DataArray(DrawDistance, MR2DrawDist, 0x01103400, 3);
-	DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
-	for (int i = 0; i < 3; i++)
-	{
 		MR1DrawDist[i].Maximum = -12000.0f;
 		MR3DrawDist[i].Maximum = -12000.0f;
+		//Either some of these are shared for night, or I'm too dumb to understand the disassembly
 	}
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
+	NJS_TEXLIST **___ADV002_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
+	___ADV002_TEXLISTS[4] = &texlist_mrtrain;
 	LandTable **___LANDTABLEMR = (LandTable **)GetProcAddress(handle, "___LANDTABLEMR");
 	___LANDTABLEMR[0] = &landtable_00017960;
 	___LANDTABLEMR[1] = &landtable_0009E7B0;
 	___LANDTABLEMR[2] = &landtable_00000178;
 	___LANDTABLEMR[3] = &landtable_0000019C;
-	//___LANDTABLEMR[3] = &landtable_00293FE8;
 	NJS_OBJECT **___ADV02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02_OBJECTS");
 	___ADV02_OBJECTS[68] = &object_002145D4;
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
@@ -71,6 +73,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
 	___ADV02_ACTIONS[0]->object = &object_0020C3B0;
 	___ADV02_ACTIONS[0]->motion = &animation_000862E8;
+	___ADV02_ACTIONS[10]->object = &object_00201C18;
 }
 
 extern "C"  __declspec(dllexport) void __cdecl OnFrame()

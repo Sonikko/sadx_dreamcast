@@ -12,12 +12,15 @@
 #include "SS_police.h"
 #include "SS_taxi.h"
 #include "SS_TPBall.h"
+#include "SS_train.h"
 
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		//Objects
+		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31);
+		memcpy((void*)0x02AE8674, &object_00195DC0, sizeof(object_00195DC0)); // SS train
 		memcpy((void*)0x02AF4FC0, &object_0019F390, sizeof(object_0019F390)); // SS Police
 		memcpy((void*)0x02AF1974, &object_0019CBD8, sizeof(object_0019CBD8)); // SS Red Car
 		memcpy((void*)0x02AF8400, &object_001A17C4, sizeof(object_001A17C4)); // SS Blue Car
@@ -189,105 +192,105 @@ extern "C"
 		//Sea animations Act 3 (Main area)
 		if (CurrentLevel == 26 && CurrentAct == 3)
 		{
-			if (FrameCounter % 43 == 1 && GameState == 15)
+			if (FrameCounter % 60 == 0 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 183;
 				matlist_00123620[0].attr_texId = 183;
 				matlist_000E7180[2].attr_texId = 29;
 				matlist_00122894[3].attr_texId = 29;
 			}
-			if (FrameCounter % 43 == 4 && GameState == 15)
+			if (FrameCounter % 60 == 4 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 242;
 				matlist_00123620[0].attr_texId = 242;
 				matlist_000E7180[2].attr_texId = 228;
 				matlist_00122894[3].attr_texId = 228;
 			}
-			if (FrameCounter % 43 == 7 && GameState == 15)
+			if (FrameCounter % 60 == 8 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 243;
 				matlist_00123620[0].attr_texId = 243;
 				matlist_000E7180[2].attr_texId = 229;
 				matlist_00122894[3].attr_texId = 229;
 			}
-			if (FrameCounter % 43 == 10 && GameState == 15)
+			if (FrameCounter % 60 == 12 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 244;
 				matlist_00123620[0].attr_texId = 244;
 				matlist_000E7180[2].attr_texId = 230;
 				matlist_00122894[3].attr_texId = 230;
 			}
-			if (FrameCounter % 43 == 13 && GameState == 15)
+			if (FrameCounter % 60 == 16 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 245;
 				matlist_00123620[0].attr_texId = 245;
 				matlist_000E7180[2].attr_texId = 231;
 				matlist_00122894[3].attr_texId = 231;
 			}
-			if (FrameCounter % 43 == 16 && GameState == 15)
+			if (FrameCounter % 60 == 20 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 246;
 				matlist_00123620[0].attr_texId = 246;
 				matlist_000E7180[2].attr_texId = 232;
 				matlist_00122894[3].attr_texId = 232;
 			}
-			if (FrameCounter % 43 == 19 && GameState == 15)
+			if (FrameCounter % 60 == 24 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 247;
 				matlist_00123620[0].attr_texId = 247;
 				matlist_000E7180[2].attr_texId = 233;
 				matlist_00122894[3].attr_texId = 233;
 			}
-			if (FrameCounter % 43 == 22 && GameState == 15)
+			if (FrameCounter % 60 == 28 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 248;
 				matlist_00123620[0].attr_texId = 248;
 				matlist_000E7180[2].attr_texId = 234;
 				matlist_00122894[3].attr_texId = 234;
 			}
-			if (FrameCounter % 43 == 25 && GameState == 15)
+			if (FrameCounter % 60 == 32 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 249;
 				matlist_00123620[0].attr_texId = 249;
 				matlist_000E7180[2].attr_texId = 235;
 				matlist_00122894[3].attr_texId = 235;
 			}
-			if (FrameCounter % 43 == 28 && GameState == 15)
+			if (FrameCounter % 60 == 36 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 250;
 				matlist_00123620[0].attr_texId = 250;
 				matlist_000E7180[2].attr_texId = 236;
 				matlist_00122894[3].attr_texId = 236;
 			}
-			if (FrameCounter % 43 == 31 && GameState == 15)
+			if (FrameCounter % 60 == 40 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 251;
 				matlist_00123620[0].attr_texId = 251;
 				matlist_000E7180[2].attr_texId = 237;
 				matlist_00122894[3].attr_texId = 237;
 			}
-			if (FrameCounter % 43 == 34 && GameState == 15)
+			if (FrameCounter % 60 == 44 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 252;
 				matlist_00123620[0].attr_texId = 252;
 				matlist_000E7180[2].attr_texId = 238;
 				matlist_00122894[3].attr_texId = 238;
 			}
-			if (FrameCounter % 43 == 37 && GameState == 15)
+			if (FrameCounter % 60 == 48 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 253;
 				matlist_00123620[0].attr_texId = 253;
 				matlist_000E7180[2].attr_texId = 239;
 				matlist_00122894[3].attr_texId = 239;
 			}
-			if (FrameCounter % 43 == 40 && GameState == 15)
+			if (FrameCounter % 60 == 52 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 254;
 				matlist_00123620[0].attr_texId = 254;
 				matlist_000E7180[2].attr_texId = 240;
 				matlist_00122894[3].attr_texId = 240;
 			}
-			if (FrameCounter % 43 == 0 && GameState == 15)
+			if (FrameCounter % 60 == 56 && GameState == 15)
 			{
 				matlist_0012231C[0].attr_texId = 255;
 				matlist_00123620[0].attr_texId = 255;
@@ -299,91 +302,91 @@ extern "C"
 		//Sea animations Act 4 (Hotel)
 		if (CurrentLevel == 26 && CurrentAct == 4)
 		{
-			if (FrameCounter % 43 == 1 && GameState == 15)
+			if (FrameCounter % 60 == 0 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 59;
 				matlist_00150A50[1].attr_texId = 59;
 				matlist_00148688[0].attr_texId = 60;
 			}
-			if (FrameCounter % 43 == 4 && GameState == 15)
+			if (FrameCounter % 60 == 4 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 87;
 				matlist_00150A50[1].attr_texId = 87;
 				matlist_00148688[0].attr_texId = 101;
 		}
-			if (FrameCounter % 43 == 7 && GameState == 15)
+			if (FrameCounter % 60 == 8 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 88;
 				matlist_00150A50[1].attr_texId = 88;
 				matlist_00148688[0].attr_texId = 102;
 			}
-			if (FrameCounter % 43 == 10 && GameState == 15)
+			if (FrameCounter % 60 == 12 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 89;
 				matlist_00150A50[1].attr_texId = 89;
 				matlist_00148688[0].attr_texId = 103;
 			}
-			if (FrameCounter % 43 == 13 && GameState == 15)
+			if (FrameCounter % 60 == 16 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 90;
 				matlist_00150A50[1].attr_texId = 90;
 				matlist_00148688[0].attr_texId = 104;
 			}
-			if (FrameCounter % 43 == 16 && GameState == 15)
+			if (FrameCounter % 60 == 20 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 91;
 				matlist_00150A50[1].attr_texId = 91;
 				matlist_00148688[0].attr_texId = 105;
 			}
-			if (FrameCounter % 43 == 19 && GameState == 15)
+			if (FrameCounter % 60 == 24 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 92;
 				matlist_00150A50[1].attr_texId = 92;
 				matlist_00148688[0].attr_texId = 106;
 			}
-			if (FrameCounter % 43 == 22 && GameState == 15)
+			if (FrameCounter % 60 == 28 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 93;
 				matlist_00150A50[1].attr_texId = 93;
 				matlist_00148688[0].attr_texId = 107;
 			}
-			if (FrameCounter % 43 == 25 && GameState == 15)
+			if (FrameCounter % 60 == 32 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 94;
 				matlist_00150A50[1].attr_texId = 94;
 				matlist_00148688[0].attr_texId = 108;
 			}
-			if (FrameCounter % 43 == 28 && GameState == 15)
+			if (FrameCounter % 60 == 36 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 95;
 				matlist_00150A50[1].attr_texId = 95;
 				matlist_00148688[0].attr_texId = 109;
 			}
-			if (FrameCounter % 43 == 31 && GameState == 15)
+			if (FrameCounter % 60 == 40 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 96;
 				matlist_00150A50[1].attr_texId = 96;
 				matlist_00148688[0].attr_texId = 110;
 			}
-			if (FrameCounter % 43 == 34 && GameState == 15)
+			if (FrameCounter % 60 == 44 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 97;
 				matlist_00150A50[1].attr_texId = 97;
 				matlist_00148688[0].attr_texId = 111; 
 			}
-			if (FrameCounter % 43 == 37 && GameState == 15)
+			if (FrameCounter % 60 == 48 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 98;
 				matlist_00150A50[1].attr_texId = 98;
 				matlist_00148688[0].attr_texId = 112;
 			}
-			if (FrameCounter % 43 == 40 && GameState == 15)
+			if (FrameCounter % 60 == 52 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 99;
 				matlist_00150A50[1].attr_texId = 99;
 				matlist_00148688[0].attr_texId = 113;
 			}
-			if (FrameCounter % 43 == 0 && GameState == 15)
+			if (FrameCounter % 60 == 56 && GameState == 15)
 			{
 				matlist_00147958[2].attr_texId = 100;
 				matlist_00150A50[1].attr_texId = 100;
