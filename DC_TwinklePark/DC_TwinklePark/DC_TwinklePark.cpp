@@ -40,8 +40,8 @@ extern "C"
 		for (int i = 0; i < 3; i++)
 		{
 			TwinklePark1Fog[i].Layer = 1500.0f;
-			TwinklePark2Fog[i].Layer = -800.0f;
-			TwinklePark2Fog[i].Distance = -2200.0f;
+			TwinklePark2Fog[i].Layer = -1400.0f;
+			TwinklePark2Fog[i].Distance = -3200.0f;
 			TwinklePark2Fog[i].Color = 0xFF100428;
 			TwinklePark3Fog[i].Layer = -800.0f;
 			TwinklePark3Fog[i].Distance = -2200.0f;
@@ -58,98 +58,98 @@ extern "C"
 		{
 			if (CurrentLevel == 3 && CurrentAct == 1)
 			{
-				if (LevelFrameCount % 41 == 1)
+				if (LevelFrameCount % 56 == 0)
 				{
 					matlist_00065D8C[0].attr_texId = 74;
 					matlist_0001A3A8[0].attr_texId = 74;
 					matlist_000657A0[0].attr_texId = 74;
 					matlist_00065A3C[0].attr_texId = 74;
 				}
-				if (LevelFrameCount % 41 == 4)
+				if (LevelFrameCount % 56 == 4)
 				{
 					matlist_00065D8C[0].attr_texId = 75;
 					matlist_0001A3A8[0].attr_texId = 75;
 					matlist_000657A0[0].attr_texId = 75;
 					matlist_00065A3C[0].attr_texId = 75;
 				}
-				if (LevelFrameCount % 41 == 7)
+				if (LevelFrameCount % 56 == 8)
 				{
 					matlist_00065D8C[0].attr_texId = 76;
 					matlist_0001A3A8[0].attr_texId = 76;
 					matlist_000657A0[0].attr_texId = 76;
 					matlist_00065A3C[0].attr_texId = 76;
 				}
-				if (LevelFrameCount % 41 == 10)
+				if (LevelFrameCount % 56 == 12)
 				{
 					matlist_00065D8C[0].attr_texId = 77;
 					matlist_0001A3A8[0].attr_texId = 77;
 					matlist_000657A0[0].attr_texId = 77;
 					matlist_00065A3C[0].attr_texId = 77;
 				}
-				if (LevelFrameCount % 41 == 13)
+				if (LevelFrameCount % 56 == 16)
 				{
 					matlist_00065D8C[0].attr_texId = 78;
 					matlist_0001A3A8[0].attr_texId = 78;
 					matlist_000657A0[0].attr_texId = 78;
 					matlist_00065A3C[0].attr_texId = 78;
 				}
-				if (LevelFrameCount % 41 == 16)
+				if (LevelFrameCount % 56 == 20)
 				{
 					matlist_00065D8C[0].attr_texId = 79;
 					matlist_0001A3A8[0].attr_texId = 79;
 					matlist_000657A0[0].attr_texId = 79;
 					matlist_00065A3C[0].attr_texId = 79;
 				}
-				if (LevelFrameCount % 41 == 19)
+				if (LevelFrameCount % 56 == 24)
 				{
 					matlist_00065D8C[0].attr_texId = 80;
 					matlist_0001A3A8[0].attr_texId = 80;
 					matlist_000657A0[0].attr_texId = 80;
 					matlist_00065A3C[0].attr_texId = 80;
 				}
-				if (LevelFrameCount % 41 == 22)
+				if (LevelFrameCount % 56 == 28)
 				{
 					matlist_00065D8C[0].attr_texId = 81;
 					matlist_0001A3A8[0].attr_texId = 81;
 					matlist_000657A0[0].attr_texId = 81;
 					matlist_00065A3C[0].attr_texId = 81;
 				}
-				if (LevelFrameCount % 41 == 25)
+				if (LevelFrameCount % 56 == 32)
 				{
 					matlist_00065D8C[0].attr_texId = 82;
 					matlist_0001A3A8[0].attr_texId = 82;
 					matlist_000657A0[0].attr_texId = 82;
 					matlist_00065A3C[0].attr_texId = 82;
 				}
-				if (LevelFrameCount % 41 == 28)
+				if (LevelFrameCount % 56 == 36)
 				{
 					matlist_00065D8C[0].attr_texId = 83;
 					matlist_0001A3A8[0].attr_texId = 83;
 					matlist_000657A0[0].attr_texId = 83;
 					matlist_00065A3C[0].attr_texId = 83;
 				}
-				if (LevelFrameCount % 41 == 31)
+				if (LevelFrameCount % 56 == 40)
 				{
 					matlist_00065D8C[0].attr_texId = 84;
 					matlist_0001A3A8[0].attr_texId = 84;
 					matlist_000657A0[0].attr_texId = 84;
 					matlist_00065A3C[0].attr_texId = 84;
 				}
-				if (LevelFrameCount % 41 == 34)
+				if (LevelFrameCount % 56 == 44)
 				{
 					matlist_00065D8C[0].attr_texId = 85;
 					matlist_0001A3A8[0].attr_texId = 85;
 					matlist_000657A0[0].attr_texId = 85;
 					matlist_00065A3C[0].attr_texId = 85;
 				}
-				if (LevelFrameCount % 41 == 37)
+				if (LevelFrameCount % 56 == 48)
 				{
 					matlist_00065D8C[0].attr_texId = 86;
 					matlist_0001A3A8[0].attr_texId = 86;
 					matlist_000657A0[0].attr_texId = 86;
 					matlist_00065A3C[0].attr_texId = 86;
 				}
-				if (LevelFrameCount % 41 == 0)
+				if (LevelFrameCount % 56 == 52)
 				{
 					matlist_00065D8C[0].attr_texId = 87;
 					matlist_0001A3A8[0].attr_texId = 87;
