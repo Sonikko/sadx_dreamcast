@@ -1,9 +1,0 @@
-﻿  stdafx.cpp
-  DC_Fog.cpp
-  dllmain.cpp
-     Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Fog\Release\DC_Fog.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Fog\Release\DC_Fog.exp
-  Generating code
-  All 4 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
-  Finished generating code
-  DC_Fog.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Fog\Release\DC_Fog.dll
-  DC_Fog.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Fog\Release\DC_Fog.pdb (Full PDB)
