@@ -6242,8 +6242,6 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___SONIC_OBJECTS[44] = &object_001CF864;
 	___SONIC_OBJECTS[67] = &object_001CF864;
 	___SONIC_OBJECTS[66] = &object_001CA044;
-	___SONIC_ACTIONS[14]->object = &object_001CA044;
-	___SONIC_ACTIONS[21]->object = &object_001CF864;
 	___SONIC_OBJECTS[45] = &object_0056998C;
 	___SONIC_OBJECTS[46] = &object_00569594;
 	___SONIC_OBJECTS[48] = &object_00569DEC;
@@ -6266,12 +6264,14 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___SONIC_ACTIONS[11]->object = &object_0056AF50;
 	___SONIC_ACTIONS[12]->object = &object_0056AF50;
 	___SONIC_ACTIONS[13]->object = &object_0056AF50;
+	___SONIC_ACTIONS[14]->object = &object_001CA044;
 	___SONIC_ACTIONS[15]->object = &object_0056AF50;
 	___SONIC_ACTIONS[16]->object = &object_0056AF50;
 	___SONIC_ACTIONS[17]->object = &object_0056AF50;
 	___SONIC_ACTIONS[18]->object = &object_0056AF50;
 	___SONIC_ACTIONS[19]->object = &object_0056AF50;
 	___SONIC_ACTIONS[20]->object = &object_0056AF50;
+	___SONIC_ACTIONS[21]->object = &object_001CF864;
 	___SONIC_ACTIONS[22]->object = &object_0056AF50;
 	___SONIC_ACTIONS[23]->object = &object_0056AF50;
 	___SONIC_ACTIONS[27]->object = &object_0056AF50;
