@@ -770,24 +770,27 @@ g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fix
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2310): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2321): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2345): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2634): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2634): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2634): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2638): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2638): warning C4305: 'initializing': truncation from 'double' to 'Float'
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2639): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2639): warning C4305: 'initializing': truncation from 'double' to 'Float'
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2640): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2640): warning C4305: 'initializing': truncation from 'double' to 'Float'
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2641): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2641): warning C4305: 'initializing': truncation from 'double' to 'Float'
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2662): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2705): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2767): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2776): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(3954): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(3954): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(3954): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2644): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2644): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2644): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2645): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2645): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2645): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2649): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2649): warning C4305: 'initializing': truncation from 'double' to 'Float'
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2650): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2650): warning C4305: 'initializing': truncation from 'double' to 'Float'
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2651): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2651): warning C4305: 'initializing': truncation from 'double' to 'Float'
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2652): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2652): warning C4305: 'initializing': truncation from 'double' to 'Float'
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2673): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2716): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2778): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(2787): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(3965): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(3965): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(3965): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2.h(12): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2.h(124): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2.h(124): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
@@ -3379,7 +3382,7 @@ DC_HotShelter.cpp(16): warning C4838: conversion from 'std::size_t' to 'int' req
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_HotShelter\Release\DC_HotShelter.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_HotShelter\Release\DC_HotShelter.exp
   Generating code
-  All 800 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 801 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_HotShelter.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_HotShelter\Release\DC_HotShelter.dll
   DC_HotShelter.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_HotShelter\Release\DC_HotShelter.pdb (Full PDB)
