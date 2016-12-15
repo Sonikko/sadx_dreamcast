@@ -152,6 +152,7 @@
     <ClInclude Include="Chaos6_Act1_PC.h" />
     <ClInclude Include="Chaos6_Act2.h" />
     <ClInclude Include="Chaos7.h" />
+    <ClInclude Include="Chaos7_fixes.h" />
     <ClInclude Include="Chaos7_PC.h" />
     <ClInclude Include="E101.h" />
     <ClInclude Include="EggHornet.h" />

@@ -63583,4 +63583,3 @@ GeoAnimData animlist_015C8E88[] = {
 };
 
 LandTable landtable_015C8ED0 = { LengthOfArray(collist_015C7D60), LengthOfArray(animlist_015C8E88), 0xD, 1750, collist_015C7D60, animlist_015C8E88, "FINALEGG2", (NJS_TEXLIST *)0x1A60488, 0, 0 };
-

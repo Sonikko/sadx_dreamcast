@@ -147,7 +147,11 @@
   <ItemGroup>
     <ClInclude Include="FinalEgg1.h" />
     <ClInclude Include="FinalEgg2.h" />
+    <ClInclude Include="FinalEgg2_old.h" />
+    <ClInclude Include="FinalEgg2_DC.h" />
+    <ClInclude Include="FinalEgg2_fixes.h" />
     <ClInclude Include="FinalEgg2_PC.h" />
+    <ClInclude Include="FinalEgg2_PC_new.h" />
     <ClInclude Include="FinalEgg3.h" />
     <ClInclude Include="FinalEgg_objects.h" />
     <ClInclude Include="ninja.h" />
