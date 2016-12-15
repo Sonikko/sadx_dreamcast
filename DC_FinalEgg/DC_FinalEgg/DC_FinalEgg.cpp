@@ -7,10 +7,10 @@
 #include "FinalEgg_objects.h"
 
 PointerInfo pointers[] = {
-ptrdecl(0x97DB48, &landtable_0001D108), //Act 1
-//ptrdecl(0x97DB4C, &landtable_00083CCC), // Act 2 DC
-//ptrdecl(0x97DB4C, &landtable_015C8ED0), //Act 2 PC
-ptrdecl(0x97DB50, &landtable_000E67D0) //Act 3
+	ptrdecl(0x97DB48, &landtable_0001D108), //Act 1
+	//ptrdecl(0x97DB4C, &landtable_00083CCC), // Act 2 DC
+	//ptrdecl(0x97DB4C, &landtable_015C8ED0), //Act 2 PC
+	ptrdecl(0x97DB50, &landtable_000E67D0) //Act 3
 };
 
 //Final Egg 2 clip function
