@@ -25,7 +25,6 @@ PointerInfo pointers[] = {
 	ptrdecl(0x7D1D48, &landtable_000580F4), //Egg Viper
 	ptrdecl(0x7D1D7F, &landtable_00000068), //E-101
 	ptrdecl(0x7D1D06, &landtable_00001214), //Perfect Chaos DC
-//	ptrdecl(0x7D1D06, &landtable_0102478C), //Perfect Chaos PC
 };
 
 extern "C"
@@ -53,6 +52,14 @@ extern "C"
 		memcpy((void*)0x0118440C, &object_0006B890, sizeof(object_0006B890)); // Chaos2 2
 		object_0006B890.basicdxmodel->mats[0].attr_texId = 11; //Chaos2 BG object fixes
 		object_0006B438.basicdxmodel->mats[0].attr_texId = 0; //Chaos2 BG object fixes
+		((NJS_OBJECT *)0x016E3994)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2;
+		((NJS_OBJECT *)0x016E3994)->basicdxmodel->mats[1].diffuse.color = 0x99B2B2B2;
+		((NJS_OBJECT *)0x016E3CCC)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2;
+		((NJS_OBJECT *)0x016E3CCC)->basicdxmodel->mats[1].diffuse.color = 0x99B2B2B2;
+		((NJS_OBJECT *)0x016E301C)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2;
+		((NJS_OBJECT *)0x016E301C)->basicdxmodel->mats[1].diffuse.color = 0x99B2B2B2;
+		((NJS_OBJECT *)0x016E3354)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2;
+		((NJS_OBJECT *)0x016E3354)->basicdxmodel->mats[1].diffuse.color = 0x99B2B2B2;
 		DataArray(FogData, Chaos2Fog, 0x01120638, 1);
 		for (int i = 0; i < 3; i++)
 		{
