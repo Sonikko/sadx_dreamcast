@@ -1,5 +1,4 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'g:\sonic\sadx project\sadx_dreamcast\dc_bosses\release\dc_bosses.ipdb' because it is being used by another process.
-  stdafx.cpp
+﻿  stdafx.cpp
   DC_Bosses.cpp
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(9): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(24): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion

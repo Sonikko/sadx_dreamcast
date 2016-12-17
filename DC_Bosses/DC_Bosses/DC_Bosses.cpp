@@ -60,38 +60,26 @@ extern "C"
 		((NJS_OBJECT *)0x016E301C)->basicdxmodel->mats[1].diffuse.color = 0x99B2B2B2;
 		((NJS_OBJECT *)0x016E3354)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2;
 		((NJS_OBJECT *)0x016E3354)->basicdxmodel->mats[1].diffuse.color = 0x99B2B2B2;
-		DataArray(FogData, Chaos2Fog, 0x01120638, 1);
+		DataArray(FogData, Chaos2Fog, 0x01120638, 3);
+		DataArray(FogData, Chaos4Fog, 0x0118FA00, 3);
+		DataArray(FogData, Chaos7Fog, 0x01420E30, 3);
+		DataArray(DrawDistance, DrawDist_Chaos7, 0x01420E00, 3);
+		DataArray(FogData, EggWalkerFog, 0x015E87F4, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			Chaos2Fog[i].Color = 0xFF000000;
 			Chaos2Fog[i].Layer = 700.0f;
 			Chaos2Fog[i].Distance = 1700.0f;
 			Chaos2Fog[i].Toggle = 0;
-		}
-		DataArray(FogData, Chaos4Fog, 0x0118FA00, 1);
-		for (int i = 0; i < 3; i++)
-		{
 			Chaos4Fog[i].Color = 0xFF000000;
 			Chaos4Fog[i].Layer = 1.0f;
 			Chaos4Fog[i].Distance = 2000.0f;
 			Chaos4Fog[i].Toggle = 0;
-		}
-		DataArray(FogData, Chaos7Fog, 0x01420E30, 1);
-		for (int i = 0; i < 3; i++)
-		{
 			//Chaos7Fog[i].Color = 0xFF000000;
 			Chaos7Fog[i].Layer = -4000.0f;
 			Chaos7Fog[i].Distance = 11000.0f;
 			Chaos7Fog[i].Toggle = 1;
-		}
-		DataArray(DrawDistance, DrawDist_Chaos7, 0x01420E00, 3);
-		for (int i = 0; i < 3; i++)
-		{
 			DrawDist_Chaos7[i].Maximum = -6500.0;
-		}
-		DataArray(FogData, EggWalkerFog, 0x015E87F4, 1);
-		for (int i = 0; i < 3; i++)
-		{
 			EggWalkerFog[i].Toggle = 0;
 		}
 	}

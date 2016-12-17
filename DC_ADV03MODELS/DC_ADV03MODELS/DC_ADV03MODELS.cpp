@@ -1,13 +1,10 @@
 #include "stdafx.h"
-#include "ninja.h"
 #include "SADXModLoader.h"
+#include "Palm.h"
 #include "ADV03_00_PC.h"
 #include "ADV03_00.h"
 #include "ADV03_01.h"
-#include "Palm.h"
 #include "ADV03_02.h"
-
-//#include "ADV03_01_PC.h"
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
@@ -20,11 +17,9 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	}
 	HMODULE handle = GetModuleHandle(L"ADV03MODELS");
 	LandTable **___LANDTABLEPAST = (LandTable **)GetProcAddress(handle, "___LANDTABLEPAST");
-	___LANDTABLEPAST[0] = &landtable_00000278; //dc
-	//___LANDTABLEPAST[1] = &landtable_00101B5C; //pc
-	//___LANDTABLEPAST[2] = &landtable_00103974; //pc
-	___LANDTABLEPAST[1] = &landtable_0000029C; //dc
-	___LANDTABLEPAST[2] = &landtable_000002C0; //dc
+	___LANDTABLEPAST[0] = &landtable_00000278;
+	___LANDTABLEPAST[1] = &landtable_0000029C;
+	___LANDTABLEPAST[2] = &landtable_000002C0;
 	NJS_OBJECT **___ADV03PAST01_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV03PAST01_OBJECTS");
 	___ADV03PAST01_OBJECTS[211] = &object_000953F8;
 	___ADV03PAST01_OBJECTS[212] = &object_0009566C;
@@ -35,8 +30,6 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV03PAST02_OBJECTS[209] = &object_000C6F40;
 	___ADV03PAST02_OBJECTS[210] = &object_000C71B4;
 	___ADV03PAST02_OBJECTS[211] = &object_000FB49C;
-	//NJS_ACTION **___ADV03_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV03_ACTIONS");
-	//___ADV03_ACTIONS[10]->object = &object_00122F30;
 }
 
 extern "C" __declspec(dllexport) const ModInfo SADXModInfo = { ModLoaderVer };

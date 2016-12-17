@@ -23821,6 +23821,14 @@ NJS_MODEL_SADX attach_000FB470 = { vertex_000FB110, normal_000FB2C0, LengthOfArr
 NJS_OBJECT object_000FB49C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000FB470, 0, 0, 0, 0, 0xAAA, 0, 1, 1, 1, NULL, NULL };
 
 COL collist_000976C0[] = {
+	{ { -104, 0, 223 }, 0, 0, 0, &palm1_2, 0, 0x80000000 }, //palm1
+	{ { -231, 0, 87 }, 0, 0, 0, &palm2_2, 0, 0x80000000 }, //palm2
+	{ { -226, 0, -96 }, 0, 0, 0, &palm3_2, 0, 0x80000000 }, //palm3
+	{ { -89, 0, -228 }, 0, 0, 0, &palm4_2, 0, 0x80000000 }, //palm4
+	{ { 95, 0, -225 }, 0, 0, 0, &palm5_2, 0, 0x80000000 }, //palm5
+	{ { 232, 0, -88 }, 0, 0, 0, &palm6_2, 0, 0x80000000 }, //palm6
+	{ { 227, 0, 95 }, 0, 0, 0, &palm7_2, 0, 0x80000000 }, //palm7
+	{ { 93, 0, 226 }, 0, 0, 0, &palm8_2, 0, 0x80000000 }, //palm8
 	{ { -557.4172f, 361.3719f, 247.6629f }, 193.6107f, 0, 0, &object_00099AE0, 0, 0x20200001 },
 	{ { -479.877f, 362.7543f, -103.188f }, 228.1082f, 0, 0, &object_00099CFC, 0, 0x20200001 },
 	{ { -471.7552f, 393.5562f, -513.1024f }, 262.7399f, 0, 0, &object_00099F18, 0, 0x20200001 },
@@ -24044,7 +24052,7 @@ COL collist_000976C0[] = {
 	
 };
 
-NJS_TEXNAME textures_past2[85];
+NJS_TEXNAME textures_past2[89];
 NJS_TEXLIST texlist_past02 = { arrayptrandlength(textures_past2) };
 
 LandTable landtable_000002C0 = { LengthOfArray(collist_000976C0), 0, 8, 0, collist_000976C0, NULL, "PAST02", (NJS_TEXLIST *)&texlist_past02, 0, 0 };
