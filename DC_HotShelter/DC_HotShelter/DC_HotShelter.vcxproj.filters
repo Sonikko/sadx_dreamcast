@@ -42,9 +42,6 @@
     <ClInclude Include="HotShelter2_fixes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HotShelter3_Fixes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

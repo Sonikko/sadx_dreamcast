@@ -44235,4 +44235,4 @@ NJS_TEXNAME textures_finalegg2[79];
 NJS_TEXLIST texlist_finalegg2 = { arrayptrandlength(textures_finalegg2) };
 
 LandTable landtable_00083CCC = { LengthOfArray(collist_00081980), LengthOfArray(animlist_00083C84), 0xD, 1750, collist_00081980, animlist_00083C84, "FINALEGG2", (NJS_TEXLIST *)&texlist_finalegg2, 0, 0 };
-
+*/

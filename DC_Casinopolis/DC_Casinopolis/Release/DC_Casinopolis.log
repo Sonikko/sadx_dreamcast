@@ -1572,8 +1572,6 @@ g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino2.h(331
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino2.h(33106): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino2.h(33106): warning C4305: 'initializing': truncation from 'double' to 'Float'
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino2.h(33329): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino2.h(33329): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino2.h(33329): warning C4305: 'initializing': truncation from 'double' to 'Float'
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino2.h(33334): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino2.h(33334): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(7): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
