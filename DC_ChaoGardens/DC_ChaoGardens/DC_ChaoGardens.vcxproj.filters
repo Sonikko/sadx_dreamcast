@@ -36,6 +36,9 @@
     <ClInclude Include="ECGarden.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MRGarden_Day.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
