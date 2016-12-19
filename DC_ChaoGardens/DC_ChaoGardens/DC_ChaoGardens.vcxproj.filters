@@ -39,15 +39,21 @@
     <ClInclude Include="MRGarden_Day.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MRGarden_Evening.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MRGarden_Night.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DC_ChaoGardens.cpp">
+    <ClCompile Include="dllmain.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="dllmain.cpp">
+    <ClCompile Include="ChaoGardensPalettized.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

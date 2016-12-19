@@ -28011,7 +28011,7 @@ NJS_MODEL_SADX attach_00033168 = { vertex_00032F28, normal_00033048, LengthOfArr
 NJS_OBJECT object_00033194 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00033168, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_MATERIAL matlist_000331C8[] = {
-	{ { 0xFFB2B2B2 },{ 0x00FFFFFF }, 11, 41, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC | 0x40 }
+	{ { 0xFFB2B2B2 },{ 0x00FFFFFF }, 11, 41, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_IGNORE_LIGHT | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC | 0x40 }
 };
 
 Sint16 poly_000331E0[] = {
@@ -28734,7 +28734,7 @@ COL collist_000348E0[] = {
 	{ { -17.19085f, -0.078675f, -31.32835f }, 178.0887f, 0, 0, &object_000340F4, 0, 0xA0000002 }
 };
 
-NJS_TEXNAME textures_mrday[45];
-NJS_TEXLIST texlist_mrday = { arrayptrandlength(textures_mrday) };
+NJS_TEXNAME textures_mrgarden[45];
+NJS_TEXLIST texlist_mrgarden = { arrayptrandlength(textures_mrgarden) };
 
-LandTable landtable_00035780 = { LengthOfArray(collist_000348E0), 0, 0xC, 5000, collist_000348E0, NULL, "garden02mr_daytime", (NJS_TEXLIST *)&texlist_mrday, 0, 0 };
+LandTable landtable_00035780 = { LengthOfArray(collist_000348E0), 0, 0xC, 5000, collist_000348E0, NULL, "garden02mr_daytime", (NJS_TEXLIST *)&texlist_mrgarden, 0, 0 };
