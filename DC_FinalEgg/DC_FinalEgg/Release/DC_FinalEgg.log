@@ -3686,12 +3686,38 @@ g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(
 g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(831): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(831): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(831): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-DC_FinalEgg.cpp(34): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
-DC_FinalEgg.cpp(38): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(855): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(860): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(865): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(869): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(878): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(895): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(900): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1199): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1199): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1199): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1217): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1227): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1231): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1240): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1471): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1471): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1471): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1477): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1534): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1534): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1534): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1540): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1597): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1597): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(1597): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+DC_FinalEgg.cpp(86): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+DC_FinalEgg.cpp(130): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+DC_FinalEgg.cpp(134): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.exp
   Generating code
-  All 1029 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1035 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_FinalEgg.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.dll
   DC_FinalEgg.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.pdb (Full PDB)

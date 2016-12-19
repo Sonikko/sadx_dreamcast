@@ -39,22 +39,7 @@
     <ClInclude Include="FinalEgg_objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FinalEgg2_DC.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FinalEgg2_fixes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FinalEgg2_PC_new.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FinalEgg2_old.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="FinalEgg2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FinalEgg2_PC.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

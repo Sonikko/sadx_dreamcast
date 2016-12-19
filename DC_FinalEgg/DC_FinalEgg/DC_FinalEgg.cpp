@@ -27,6 +27,102 @@ void __cdecl SetClip_FEgg2_r(signed int a1)
 	((LandTable *)0x19C8ED0)->COLCount -= 3;
 }
 
+//O Tatekan
+
+FunctionPointer(void, sub_408530, (NJS_OBJECT*), 0x408530);
+DataPointer(NJS_TEXLIST, dword_1AC3F30, 0x1AC3F30);
+DataPointer(int, WhatIsThisAndWhyIsItAlmostAlwaysZero, 0x03B1117C);
+DataPointer(int, LastRenderFlags, 0x03D08498);
+
+static Angle angle = 0;
+static NJS_MATRIX backup;
+
+void __cdecl sub_5B4690(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi@1
+	int v2; // eax@2
+	int v3; // eax@4
+	float YDist; // ST04_4@6
+	int v5; // eax@6
+	float scale; // [sp+10h] [bp+4h]@9
+
+	v1 = a1->Data1;
+
+	if (!WhatIsThisAndWhyIsItAlmostAlwaysZero)
+	{
+		// backup environment map matrix
+		memcpy(&backup, (NJS_MATRIX*)0x038A5DD0, sizeof(NJS_MATRIX));
+
+		// make & apply our transformation matrix
+		njPushMatrix(nullptr);
+
+		angle = (angle + 1024) % 65536; // <- rotate by 5.625 degrees every frame, and don't go above 360 degrees.
+		njUnitMatrix(nullptr);
+		njRotateZ(nullptr, angle);
+		njGetMatrix((NJS_MATRIX*)0x038A5DD0);
+
+		njPopMatrix(1);
+
+		SetTextureToLevelObj();
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+
+		v2 = v1->Rotation.y;
+		if (v2)
+		{
+			njRotateY(0, (unsigned __int16)v2);
+		}
+
+		njPushMatrix(0);
+		v3 = v1->Rotation.x;
+		if (v3)
+		{
+			njRotateY(0, (unsigned __int16)v3);
+		}
+
+		sub_408530((NJS_OBJECT*)0x1A45500);
+		njPopMatrix(1u);
+		njPushMatrix(0);
+		YDist = v1->Scale.y * 22.0;
+		njTranslate(0, 0.0, YDist, 0.0);
+		v5 = v1->Rotation.z;
+
+		if (v5)
+		{
+			njRotateY(0, (unsigned __int16)v5);
+		}
+
+		ProcessModelNode_AB_Wrapper(&object_01644A40, 1.0);
+		njPopMatrix(1u);
+		((NJS_OBJECT*)0x01A4583C)->basicdxmodel->mats[0].attr_texId = 0;
+		((NJS_OBJECT*)0x01A4583C)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ENV;
+		((NJS_OBJECT*)0x01A4425C)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ENV;
+		njPushMatrix(0);
+		njTranslate(0, 0.0, 4.0, 0.0);
+		njScale(0, 1.0, v1->Scale.y, 1.0);
+		sub_408530((NJS_OBJECT*)0x01A4425C);
+		njSetTexture(&dword_1AC3F30);
+
+		if (v1->Scale.y >= 1.0)
+		{
+			scale = v1->Scale.y;
+		}
+		else
+		{
+			scale = 1.0;
+		}
+
+		LastRenderFlags &= ~1;
+		ProcessModelNode_AB_Wrapper(&object_0164583C, scale);
+
+		njPopMatrix(1u);
+		njPopMatrix(1u);
+
+		// restore environment map matrix
+		memcpy((NJS_MATRIX*)0x038A5DD0, &backup, sizeof(NJS_MATRIX));
+		LastRenderFlags &= ~1;
+	}
+}
 
 extern "C"
 {
@@ -38,8 +134,10 @@ extern "C"
 		((LandTable *)0x19C8ED0)->COLCount = LengthOfArray(collist_00081980); //Final Egg 2 COL list
 		((LandTable *)0x19C8ED0)->COLList = collist_00081980; //Final Egg 2 COL list
 		WriteJump((void*)0x5ADC40, SetClip_FEgg2_r);
+		WriteJump((void*)0x5B4690, sub_5B4690);
 		DataArray(FogData, FinalEgg1Fog, 0x019C8FF0, 3);
 		DataArray(FogData, FinalEgg2Fog, 0x019C9020, 3);
+		DataArray(FogData, FinalEgg3Fog, 0x019C9050, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			FinalEgg1Fog[i].Color = 0xFF000000;
@@ -53,8 +151,13 @@ extern "C"
 			FinalEgg2Fog[i].Layer = 650.0f;
 			FinalEgg2Fog[i].Distance = 2000.0f;
 			FinalEgg2Fog[i].Toggle = 1;
+			FinalEgg3Fog[i].Color = 0xFF000000;
+			FinalEgg3Fog[i].Layer = 650.0f;
+			FinalEgg3Fog[i].Distance = 2000.0f;
 		}
 		memcpy((void*)0x19FEFE4, &object_001AEDFC, sizeof(object_001AEDFC));  // Light
 		memcpy((void*)0x19D8BC0, &attach_015D8BC0, sizeof(attach_015D8BC0));  // Laser
+		memcpy((void*)0x1A44230, &attach_01644230, sizeof(attach_01644230));  // Cylinder
+		memcpy((void*)0x01A45810, &attach_01645810, sizeof(attach_01645810));  // Cylinder
 	}
 }
