@@ -18,6 +18,7 @@ extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		WriteData((void*)0x00630AE0, 0x90, 4);
 		//Objects
 		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31);
 		memcpy((void*)0x02AE8674, &object_00195DC0, sizeof(object_00195DC0)); // SS train

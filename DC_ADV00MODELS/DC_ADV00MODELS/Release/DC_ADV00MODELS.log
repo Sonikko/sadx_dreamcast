@@ -4554,10 +4554,11 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_train.h(48
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_train.h(5081): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_train.h(5081): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\SS_train.h(5081): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+DC_ADV00MODELS.cpp(21): warning C4309: 'argument': truncation of constant value
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV00MODELS\Release\DC_ADV00MODELS.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV00MODELS\Release\DC_ADV00MODELS.exp
   Generating code
-  All 1077 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1080 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_ADV00MODELS.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV00MODELS\Release\DC_ADV00MODELS.dll
   DC_ADV00MODELS.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV00MODELS\Release\DC_ADV00MODELS.pdb (Full PDB)

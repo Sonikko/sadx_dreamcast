@@ -43869,5 +43869,3 @@ COL collist_000DA99C[] = {
 };
 
 LandTable landtable_000DCEBC = { LengthOfArray(collist_000DA99C), 0, 0xC, 1500, collist_000DA99C, NULL, "ADVSS03", (NJS_TEXLIST *)&texlist4 , 0, 0 };
-
-#pragma once
