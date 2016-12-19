@@ -12477,7 +12477,7 @@ NJS_VECTOR normal_0001BCC4[] = {
 	{ 0, 1, 0 }
 };
 
-NJS_MODEL_SADX attach_0001BCF4V = { vertex_0001BC94, normal_0001BCC4, LengthOfArray(vertex_0001BC94), meshlist_0001BC7C, NULL, LengthOfArray(meshlist_0001BC7C), 0,{ 0 }, 0.9659269f, NULL };
+NJS_MODEL_SADX attach_0001BCF4V = { vertex_0001BC94, normal_0001BCC4, LengthOfArray(vertex_0001BC94), meshlist_0001BC7C, matlist_00, LengthOfArray(meshlist_0001BC7C), 0,{ 0 }, 0.9659269f, NULL };
 
 NJS_OBJECT object_0001BD1CV = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attach_0001BCF4V, -0.00032f, -103.2964f, 0.00009199999f, 0, 0, 0, 1, 1, 1, &object_000175A4, &object_0001BC3C };
 
@@ -16375,7 +16375,7 @@ NJS_VECTOR normal_000209B0[] = {
 	{ 0, 1, 0 }
 };
 
-NJS_MODEL_SADX attach_000209D4 = { vertex_0002098C, normal_000209B0, LengthOfArray(vertex_0002098C), meshlist_00020974V, NULL, LengthOfArray(meshlist_00020974V), 0,{ 0 }, 0.7071069f, NULL };
+NJS_MODEL_SADX attach_000209D4 = { vertex_0002098C, normal_000209B0, LengthOfArray(vertex_0002098C), meshlist_00020974V, matlist_00, LengthOfArray(meshlist_00020974V), 0,{ 0 }, 0.7071069f, NULL };
 
 NJS_OBJECT object_000209FC = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attach_000209D4, 0, 0, 0, 0, 0, 0, 1, 1, 1, &object_00020938, NULL };
 
@@ -17276,8 +17276,7 @@ GeoAnimData animlist_00009D30[] = {
 	{ 0, 0.09999999f, 60, &object_000209FC, &action_animation_00023C20, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_e101r[77];
+NJS_TEXNAME textures_e101r[81];
 NJS_TEXLIST texlist_e101r = { arrayptrandlength(textures_e101r) };
 
-//LandTable landtable_00000110 = { LengthOfArray(collist_000096DC), LengthOfArray(animlist_00009D30), 9, 0, collist_000096DC, animlist_00009D30, "E101R_TIKEI", (NJS_TEXLIST *)&texlist_e101r, 0, 0 };
-LandTable landtable_00000110 = { LengthOfArray(collist_000096DC), NULL, 0xD, 0, collist_000096DC, NULL, "E101R_TIKEI", (NJS_TEXLIST *)&texlist_e101r, 0, 0 };
+LandTable landtable_00000110 = { LengthOfArray(collist_000096DC), LengthOfArray(animlist_00009D30), 9, 0, collist_000096DC, animlist_00009D30, "E101R_TIKEI", (NJS_TEXLIST *)&texlist_e101r, 0, 0 };
