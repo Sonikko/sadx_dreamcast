@@ -8,7 +8,7 @@
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA28, &landtable_00081554),
 	ptrdecl(0x97DA2C, &landtable_000DEB60),
-	ptrdecl(0x97DA30, &landtable_0011DD58)
+	ptrdecl(0x97DA30, &landtable_0011DD58),
 };
 
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
