@@ -150,6 +150,7 @@
     <ClInclude Include="Highway2.h" />
     <ClInclude Include="Highway3.h" />
     <ClInclude Include="ninja.h" />
+    <ClInclude Include="OLmpa.h" />
     <ClInclude Include="SADXModLoader.h" />
     <ClInclude Include="SH_bluecar.h" />
     <ClInclude Include="SH_bus.h" />
