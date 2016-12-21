@@ -3427,11 +3427,11 @@ g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3.h(40480): wa
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3.h(40865): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3.h(40867): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3.h(40867): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-DC_SkyDeck.cpp(13): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+DC_SkyDeck.cpp(30): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_SkyDeck\Release\DC_SkyDeck.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_SkyDeck\Release\DC_SkyDeck.exp
   Generating code
-  All 889 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 890 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_SkyDeck.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_SkyDeck\Release\DC_SkyDeck.dll
   DC_SkyDeck.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_SkyDeck\Release\DC_SkyDeck.pdb (Full PDB)

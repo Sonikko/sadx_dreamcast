@@ -48,9 +48,6 @@
     <ClInclude Include="ADVSS03 Fixes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ADVSS02_PC.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="SS_taxi.h">
       <Filter>Header Files</Filter>
     </ClInclude>

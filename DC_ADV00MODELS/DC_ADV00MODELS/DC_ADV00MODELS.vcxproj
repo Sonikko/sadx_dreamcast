@@ -148,7 +148,6 @@
     <ClInclude Include="ADVSS00 (City Hall).h" />
     <ClInclude Include="ADVSS01 (Casino Area).h" />
     <ClInclude Include="ADVSS02 (Sewers).h" />
-    <ClInclude Include="ADVSS02_PC.h" />
     <ClInclude Include="ADVSS03 (StationMainArea).h" />
     <ClInclude Include="ADVSS04 (Hotel).h" />
     <ClInclude Include="ADVSS05 (Twinkle Park Entrance).h" />
