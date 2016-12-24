@@ -139,6 +139,7 @@ extern "C"
 		if (palettelighting == 0)
 		{
 			WriteJump((void*)0x5B4690, sub_5B4690); //Cylinder function
+			WriteData((void*)0x005B47A1, 0x90i8, 5); //Kill specialized texlist for cylinder
 			memcpy((void*)0x1A44230, &attach_01644230, sizeof(attach_01644230));  // Cylinder
 			memcpy((void*)0x01A45810, &attach_01645810, sizeof(attach_01645810));  // Cylinder
 		}
@@ -146,7 +147,6 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);
 		ResizeTextureList((NJS_TEXLIST*)0x1AC5780, textures_finalegg3);
 		ResizeTextureList((NJS_TEXLIST*)0x19CC1C0, 177); //Final Egg object texture list
-		//WriteData((void*)0x005B47A1, 0x90i8, 5); //Kill specialized texlist for cylinder
 		((LandTable *)0x19C8ED0)->COLCount = LengthOfArray(collist_00081980); //Final Egg 2 COL list
 		((LandTable *)0x19C8ED0)->COLList = collist_00081980; //Final Egg 2 COL list
 		WriteJump((void*)0x5ADC40, SetClip_FEgg2_r); //Final Egg 2 clip function

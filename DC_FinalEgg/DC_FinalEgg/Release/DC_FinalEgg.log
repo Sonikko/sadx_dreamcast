@@ -3717,7 +3717,7 @@ DC_FinalEgg.cpp(150): warning C4267: '=': conversion from 'size_t' to 'int16_t',
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.exp
   Generating code
-  All 1039 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1041 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_FinalEgg.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.dll
   DC_FinalEgg.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.pdb (Full PDB)
