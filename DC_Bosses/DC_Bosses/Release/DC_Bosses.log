@@ -1,4 +1,5 @@
-﻿  stdafx.cpp
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\release\dc_bosses.pch' because it is being used by another process.
+  stdafx.cpp
   DC_Bosses.cpp
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(9): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggWalker.h(24): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
@@ -5745,11 +5746,11 @@ g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggHornet.h(36758): war
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\EggHornet.h(36758): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 DC_Bosses.cpp(88): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
 DC_Bosses.cpp(91): warning C4309: 'argument': truncation of constant value
-DC_Bosses.cpp(97): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
+DC_Bosses.cpp(103): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.exp
   Generating code
-  All 1271 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1276 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_Bosses.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.dll
   DC_Bosses.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.pdb (Full PDB)

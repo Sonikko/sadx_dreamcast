@@ -89,13 +89,19 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 		WriteData((void*)0x00557009, 0x90, 16);
+		ResizeTextureList((NJS_TEXLIST*)0x118FF08, textures_chaos4dc);
+		ResizeTextureList((NJS_TEXLIST*)0x121FF28, textures_chaos6);
+		ResizeTextureList((NJS_TEXLIST*)0x11F04A0, textures_chaos6_2);
+		ResizeTextureList((NJS_TEXLIST*)0x1494FBC, textures_chaos7);
 		ResizeTextureList((NJS_TEXLIST*)0x1557064, textures_egm1land);
+		ResizeTextureList((NJS_TEXLIST*)0x15E99F8, textures_eggwalker);
+		ResizeTextureList((NJS_TEXLIST*)0x167E5CC, textures_eggviper);
+		ResizeTextureList((NJS_TEXLIST*)0x14FBFB4, textures_e101);
 		//ResizeTextureList((NJS_TEXLIST*)0x16B460C, 81); //Zero texlist
-		//ResizeTextureList((NJS_TEXLIST*)0x1494FBC, textures_chaos7);
 		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 water
 		((LandTable *)0x11EDE38)->COLList = collist_0014AFB4; //Chaos6 COL list
 		((LandTable *)0x11EDE38)->COLCount = LengthOfArray(collist_0014AFB4); //Chaos6 COL list
-		ResizeTextureList((NJS_TEXLIST *)0x121FF28, 79); //Chaos 6 texlist
+		//ResizeTextureList((NJS_TEXLIST *)0x121FF28, 79); //Chaos 6 texlist
 		memcpy((void*)0x011EDE20, &animlist_0014B62C, sizeof(animlist_0014B62C)); // Chaos6 animlist
 		memcpy((void*)0x016B4D20, &animlist_012B4D20, sizeof(animlist_012B4D20)); // Zero animlist
 		memcpy((void*)0x01522560, &animlist_012B4D20, sizeof(animlist_012B4D20)); // E101R animlist
