@@ -2,7 +2,6 @@
 #include "SADXModLoader.h"
 #include "LostWorld1.h"
 #include "LostWorld2.h"
-#include "LostWorld_platform.h"
 #include "LostWorld3.h"
 
 PointerInfo pointers[] = {
@@ -17,6 +16,9 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		ResizeTextureList((NJS_TEXLIST*)0x1F6F02C, textures_lw1);
+		ResizeTextureList((NJS_TEXLIST*)0x1E9B9AC, textures_lw2);
+		ResizeTextureList((NJS_TEXLIST*)0x1E79D80, textures_lw3);
 		DataArray(FogData, LostWorld1Fog, 0x01E79AAC, 1);
 		DataArray(FogData, LostWorld2Fog, 0x01E79ADC, 1);
 		DataArray(DrawDistance, DrawDist_LostWorld2, 0x01E79A7C, 3);

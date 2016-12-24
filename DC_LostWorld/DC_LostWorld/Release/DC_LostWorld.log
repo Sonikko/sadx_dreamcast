@@ -1128,12 +1128,6 @@ g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld2.h(7492
 g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld2.h(75292): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld2.h(75297): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld2.h(75297): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld_platform.h(141): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld_platform.h(156): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld_platform.h(164): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld_platform.h(586): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld_platform.h(586): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld_platform.h(586): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3_PC.h(27): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3_PC.h(27): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3_PC.h(27): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
@@ -1467,139 +1461,139 @@ g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3_PC.h(4
 g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3_PC.h(44485): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3_PC.h(44485): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3_PC.h(44496): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(70): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(70): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(70): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(79): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(123): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(123): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(123): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(136): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(208): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(208): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(208): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(215): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(251): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(251): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(251): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(260): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(445): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(445): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(445): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(447): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(480): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(480): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(480): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(530): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(530): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(530): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(536): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(564): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(564): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(564): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(594): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(594): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(594): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(624): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(624): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(624): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(631): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(727): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(727): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(727): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(745): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(752): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(761): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(770): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(775): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(781): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(786): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(795): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(816): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(842): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1943): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1943): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1943): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1960): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1965): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1972): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1993): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2011): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2601): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2601): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2601): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2617): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2632): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2649): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2654): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2669): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2713): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(6250): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(6250): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(6250): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(6262): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(6279): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11745): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11745): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11745): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11751): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11800): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11800): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11800): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11806): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11850): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11850): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11850): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11862): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(13131): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(13131): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(13131): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(13142): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(13164): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(14555): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(14555): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(14555): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(14566): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(14581): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(14586): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18669): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18669): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18669): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18675): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18706): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18706): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18706): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18712): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18743): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18743): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18743): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18749): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18753): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18786): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18786): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18786): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18792): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18839): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(21750): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(21750): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(21750): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(21756): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(21783): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22838): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22838): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22838): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22875): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22875): warning C4305: 'initializing': truncation from 'double' to 'float'
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22875): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22875): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22875): warning C4305: 'initializing': truncation from 'double' to 'Float'
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22880): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22880): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-DC_LostWorld.cpp(17): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(68): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(68): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(68): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(77): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(121): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(121): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(121): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(134): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(206): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(206): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(206): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(213): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(249): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(249): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(249): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(258): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(443): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(443): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(443): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(445): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(478): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(478): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(478): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(528): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(528): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(528): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(534): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(562): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(562): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(562): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(592): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(592): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(592): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(622): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(622): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(622): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(629): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(725): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(725): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(725): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(743): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(750): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(759): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(768): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(773): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(779): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(784): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(793): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(814): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(840): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1941): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1941): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1941): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1958): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1963): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1970): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(1991): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2009): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2599): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2599): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2599): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2615): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2630): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2647): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2652): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2667): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2711): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(6248): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(6248): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(6248): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(6260): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(6277): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11743): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11743): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11743): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11749): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11798): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11798): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11798): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11804): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11848): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11848): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11848): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(11860): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(13129): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(13129): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(13129): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(13140): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(13162): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(14553): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(14553): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(14553): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(14564): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(14579): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(14584): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18667): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18667): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18667): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18673): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18704): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18704): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18704): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18710): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18741): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18741): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18741): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18747): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18751): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18784): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18784): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18784): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18790): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(18837): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(21748): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(21748): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(21748): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(21754): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(21781): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22836): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22836): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22836): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22873): warning C4838: conversion from 'double' to 'float' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22873): warning C4305: 'initializing': truncation from 'double' to 'float'
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22873): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22873): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22873): warning C4305: 'initializing': truncation from 'double' to 'Float'
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22878): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22878): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+DC_LostWorld.cpp(16): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_LostWorld\Release\DC_LostWorld.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_LostWorld\Release\DC_LostWorld.exp
   Generating code
-  All 497 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 500 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_LostWorld.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_LostWorld\Release\DC_LostWorld.dll
   DC_LostWorld.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_LostWorld\Release\DC_LostWorld.pdb (Full PDB)
