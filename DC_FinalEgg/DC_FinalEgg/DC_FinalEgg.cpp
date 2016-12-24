@@ -28,10 +28,9 @@ void __cdecl SetClip_FEgg2_r(signed int a1)
 }
 
 //O Tatekan
-
 FunctionPointer(void, sub_408530, (NJS_OBJECT*), 0x408530);
 DataPointer(NJS_TEXLIST, dword_1AC3F30, 0x1AC3F30);
-DataPointer(int, WhatIsThisAndWhyIsItAlmostAlwaysZero, 0x03B1117C);
+DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, LastRenderFlags, 0x03D08498);
 
 static Angle angle = 0;
@@ -49,7 +48,7 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 
 	v1 = a1->Data1;
 
-	if (!WhatIsThisAndWhyIsItAlmostAlwaysZero)
+	if (!DroppedFrames)
 	{
 		if (trans > 1.0f) trans = 0;
 		// backup environment map matrix
@@ -136,20 +135,27 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		ResizeTextureList((NJS_TEXLIST*)0x1A60488, 68); //Final Egg 2 texture list
+		HMODULE palettelighting = GetModuleHandle(L"sadx-dc-lighting");
+		if (palettelighting == 0)
+		{
+			WriteJump((void*)0x5B4690, sub_5B4690); //Cylinder function
+			memcpy((void*)0x1A44230, &attach_01644230, sizeof(attach_01644230));  // Cylinder
+			memcpy((void*)0x01A45810, &attach_01645810, sizeof(attach_01645810));  // Cylinder
+		}
+		ResizeTextureList((NJS_TEXLIST*)0x1B98518, textures_finalegg1);
+		ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);
+		ResizeTextureList((NJS_TEXLIST*)0x1AC5780, textures_finalegg3);
 		ResizeTextureList((NJS_TEXLIST*)0x19CC1C0, 177); //Final Egg object texture list
-		WriteData((void*)0x005B47A1, 0x90i8, 5); //Kill specialized texlist for cylinder
+		//WriteData((void*)0x005B47A1, 0x90i8, 5); //Kill specialized texlist for cylinder
 		((LandTable *)0x19C8ED0)->COLCount = LengthOfArray(collist_00081980); //Final Egg 2 COL list
 		((LandTable *)0x19C8ED0)->COLList = collist_00081980; //Final Egg 2 COL list
-		WriteJump((void*)0x5ADC40, SetClip_FEgg2_r);
-		WriteJump((void*)0x5B4690, sub_5B4690);
+		WriteJump((void*)0x5ADC40, SetClip_FEgg2_r); //Final Egg 2 clip function
 		DataArray(FogData, FinalEgg1Fog, 0x019C8FF0, 3);
 		DataArray(FogData, FinalEgg2Fog, 0x019C9020, 3);
 		DataArray(FogData, FinalEgg3Fog, 0x019C9050, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			FinalEgg1Fog[i].Color = 0xFF000000;
-			HMODULE palettelighting = GetModuleHandle(L"sadx-dc-lighting");
 			if (palettelighting != 0)
 			{
 				FinalEgg1Fog[i].Layer = 1200.0f;
@@ -165,7 +171,5 @@ extern "C"
 		}
 		memcpy((void*)0x19FEFE4, &object_001AEDFC, sizeof(object_001AEDFC));  // Light
 		memcpy((void*)0x19D8BC0, &attach_015D8BC0, sizeof(attach_015D8BC0));  // Laser
-		memcpy((void*)0x1A44230, &attach_01644230, sizeof(attach_01644230));  // Cylinder
-		memcpy((void*)0x01A45810, &attach_01645810, sizeof(attach_01645810));  // Cylinder
 	}
 }
