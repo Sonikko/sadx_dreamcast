@@ -151,7 +151,6 @@
     <ClInclude Include="EmeraldCoast2_Fixes.h" />
     <ClInclude Include="EmeraldCoast3.h" />
     <ClInclude Include="EmeraldCoast3_fixes.h" />
-    <ClInclude Include="EmeraldCoast3_PC.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="SADXModLoader.h" />
     <ClInclude Include="stdafx.h" />

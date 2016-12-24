@@ -15,6 +15,9 @@ extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlengt
 
 extern "C" __declspec(dllexport) void __cdecl Init()
 {
+	ResizeTextureList((NJS_TEXLIST*)0xF812AC, textures_ecoast1);
+	ResizeTextureList((NJS_TEXLIST*)0xEF553C, textures_ecoast2);
+	ResizeTextureList((NJS_TEXLIST*)0xE9A4CC, textures_ecoast3);
 	DataArray(DrawDistance, DrawDist_EmeraldCoast1, 0x00E99D94, 3);
 	DataArray(DrawDistance, DrawDist_EmeraldCoast2, 0x00E99DAC, 3);
 	//DataArray(DrawDistance, DrawDist_EmeraldCoast3, 0x00E99DC4, 3);
@@ -1001,7 +1004,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 			matlist_000D7D64[0].attr_texId = 85;
 		}
 	}
-	if (CurrentLevel == 1 && CurrentAct == 2 && GameState == 15)
+	if (CurrentLevel == 1 && CurrentAct == 2 && GameState != 16)
 	{
 		if (LevelFrameCount % 60 == 0)
 		{
