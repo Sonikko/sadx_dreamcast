@@ -19,10 +19,10 @@ extern "C"
 	__declspec(dllexport) PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
-//		memcpy((void*)0x00D6B39C, &object_0007F6C4, sizeof(object_0007F6C4));
-//		memcpy((void*)0x00DD3A5C, &object_000C50AC, sizeof(object_000C50AC));
+		ResizeTextureList((NJS_TEXLIST*)0xDE3A74, textures_icecap1);
+		ResizeTextureList((NJS_TEXLIST*)0xD39744, textures_icecap2);
+		ResizeTextureList((NJS_TEXLIST*)0xC68408, textures_icecap3);
 		memcpy((void*)0x0E537D8, &object_00162694, sizeof(object_00162694));  // Icicle
-		//memcpy((void*)0x0E76598, &object_00A76598, sizeof(object_00A76598));  // Crystal1
 		DataArray(FogData, IceCap1Fog, 0x00C67EA0, 1);
 		DataArray(FogData, IceCap2Fog, 0x00C67ED0, 1);
 		DataArray(FogData, IceCap4Fog, 0x00C67F30, 1);
@@ -48,13 +48,6 @@ extern "C"
 	};
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		/*if (CurrentLevel == 8 && CurrentAct == 0)
-		{
-			((NJS_OBJECT*)0x00E76598)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-			((NJS_OBJECT*)0x00E76E78)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-			((NJS_OBJECT*)0x00E773D8)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-		}*/
-
 		if (CurrentLevel == 8 && CurrentAct == 3 && GameState == 15)
 		{
 			if (LevelFrameCount % 60 == 0)

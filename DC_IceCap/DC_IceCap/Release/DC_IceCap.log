@@ -2146,7 +2146,7 @@ DC_IceCap.cpp(19): warning C4838: conversion from 'std::size_t' to 'int' require
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_IceCap\Release\DC_IceCap.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_IceCap\Release\DC_IceCap.exp
   Generating code
-  All 583 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 587 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_IceCap.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_IceCap\Release\DC_IceCap.dll
   DC_IceCap.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_IceCap\Release\DC_IceCap.pdb (Full PDB)
