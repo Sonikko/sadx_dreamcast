@@ -1,4 +1,4 @@
-﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\release\dc_adv00models.dll' because it is being used by another process.
+﻿C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V140\Microsoft.CppClean.targets(76,5): warning : The process cannot access the file 'g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\release\vc140.pdb' because it is being used by another process.
   stdafx.cpp
   DC_ADV00MODELS.cpp
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS00 (City Hall).h(9): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
@@ -3736,9 +3736,9 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (Stat
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (StationMainArea).h(43591): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (StationMainArea).h(43591): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (StationMainArea).h(43591): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (StationMainArea).h(43869): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (StationMainArea).h(43871): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (StationMainArea).h(43871): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (StationMainArea).h(43868): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (StationMainArea).h(43870): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS03 (StationMainArea).h(43870): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 Collision.h(3): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 Collision.h(9): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 Collision.h(82): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion

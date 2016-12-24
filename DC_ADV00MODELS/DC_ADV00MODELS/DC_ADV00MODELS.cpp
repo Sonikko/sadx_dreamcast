@@ -50,6 +50,7 @@ extern "C"
 		DataArray(FogData, StationSquare4Fog, 0x02AA3DA0, 3);
 		DataArray(FogData, StationSquare5Fog, 0x02AA3DD0, 3);
 		DataArray(FogData, StationSquare6Fog, 0x02AA3E00, 3);
+		DataArray(DrawDistance, StationSquare6DrawDist, 0x02AA3CF8, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			StationSquare1Fog[i].Toggle = 0;
@@ -58,6 +59,7 @@ extern "C"
 			StationSquare4Fog[i].Toggle = 0;
 			StationSquare5Fog[i].Toggle = 0;
 			StationSquare6Fog[i].Toggle = 0;
+			StationSquare6DrawDist[i].Maximum = -600.0f;
 		}
 
 	}
