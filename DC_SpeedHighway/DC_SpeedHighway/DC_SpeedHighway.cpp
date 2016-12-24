@@ -22,6 +22,9 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		ResizeTextureList((NJS_TEXLIST*)0x2592E8C, textures_highway1);
+		ResizeTextureList((NJS_TEXLIST*)0x2581310, textures_highway2);
+		ResizeTextureList((NJS_TEXLIST*)0x24CAC94, textures_highway3);
 		((NJS_OBJECT *)0x02671A20)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA; //O Crane platform alpha fix
 		memcpy((void*)0x267DC14, &object_0227DC14, sizeof(object_0227DC14)); // Turnasi part 1
 		memcpy((void*)0x267D3B4, &object_0014ABC8, sizeof(object_0014ABC8)); // Turnasi part 2
@@ -32,7 +35,6 @@ extern "C"
 		memcpy((void*)0x026682B8, &object_0013949C, sizeof(object_0013949C)); // SH Blue Car
 		memcpy((void*)0x0266FC8C, &object_0013E9CC, sizeof(object_0013E9CC)); // SH Yellow Car
 		memcpy((void*)0x0267A1A0, &attach_00148B24, sizeof(attach_00148B24)); //SH Glass
-
 		DataArray(FogData, SpeedHighway3Fog, 0x024CA544, 1);
 		for (int i = 0; i < 3; i++)
 		{
