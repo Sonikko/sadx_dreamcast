@@ -28,14 +28,14 @@ extern "C"
 		{
 			RedMountain1Fog[i].Color = 0xFFFFFFFF;
 			RedMountain1Fog[i].Layer = 2000.0f;
-			RedMountain1Fog[i].Distance = 17000.0f;
+			RedMountain1Fog[i].Distance = 16000.0f;
 			RedMountain1Fog[i].Toggle = 1;
 			RedMountain3Fog[i].Color = 0xFFFFFFFF;
 			RedMountain3Fog[i].Layer = 2000.0f;
-			RedMountain3Fog[i].Distance = 17000.0f;
+			RedMountain3Fog[i].Distance = 16000.0f;
 			RedMountain3Fog[i].Toggle = 1;
-			DrawDist_RedMountain1[i].Maximum = -4000.0;
-			DrawDist_RedMountain3[i].Maximum = -4000.0;
+			DrawDist_RedMountain1[i].Maximum = -16000.0;
+			DrawDist_RedMountain3[i].Maximum = -16000.0;
 		}
 	}
 

@@ -30,6 +30,13 @@ extern "C"
 		//Landtables
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 		LandTable **___LANDTABLESS = (LandTable **)GetProcAddress(handle, "___LANDTABLESS");
+		NJS_TEXLIST **___ADV00_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV00_TEXLISTS");
+		___ADV00_TEXLISTS[0] = &texlist1;
+		___ADV00_TEXLISTS[1] = &texlist2;
+		___ADV00_TEXLISTS[2] = &texlist3;
+		___ADV00_TEXLISTS[3] = &texlist4;
+		___ADV00_TEXLISTS[4] = &texlist5;
+		___ADV00_TEXLISTS[5] = &texlist6;
 		___LANDTABLESS[0] = &landtable_000157F4;
 		___LANDTABLESS[1] = &landtable_000738F4;
 		___LANDTABLESS[2] = &landtable_000C21F0;
