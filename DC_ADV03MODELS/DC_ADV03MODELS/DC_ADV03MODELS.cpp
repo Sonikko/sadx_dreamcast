@@ -16,6 +16,10 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		DrawDist_Past3[i].Maximum = -20000.0;
 	}
 	HMODULE handle = GetModuleHandle(L"ADV03MODELS");
+	NJS_TEXLIST **___ADV03_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV03_TEXLISTS");
+	___ADV03_TEXLISTS[4] = &texlist_past0;
+	___ADV03_TEXLISTS[5] = &texlist_past01;
+	___ADV03_TEXLISTS[6] = &texlist_past02;
 	LandTable **___LANDTABLEPAST = (LandTable **)GetProcAddress(handle, "___LANDTABLEPAST");
 	___LANDTABLEPAST[0] = &landtable_00000278;
 	___LANDTABLEPAST[1] = &landtable_0000029C;
