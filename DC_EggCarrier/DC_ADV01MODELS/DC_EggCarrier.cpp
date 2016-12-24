@@ -20,6 +20,13 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
 	WriteData((char *)GetProcAddress(handle2, "SetClip_EC00"), 0xC3u, sizeof(char *));
 	WriteData((char *)GetProcAddress(handle2, "SetClip_EC01"), 0xC3u, sizeof(char *));
+	NJS_TEXLIST **___ADV01_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle2, "___ADV01_TEXLISTS");
+	___ADV01_TEXLISTS[0] = &texlist_ec00;
+	___ADV01_TEXLISTS[1] = &texlist_ec01;
+	___ADV01_TEXLISTS[2] = &texlist_ec02;
+	___ADV01_TEXLISTS[3] = &texlist_ec03;
+	___ADV01_TEXLISTS[4] = &texlist_ec04;
+	___ADV01_TEXLISTS[5] = &texlist_ec05;
 	LandTable **___LANDTABLEEC = (LandTable **)GetProcAddress(handle2, "___LANDTABLEEC");
 	___LANDTABLEEC[0] = &landtable_00162260;
 	___LANDTABLEEC[1] = &landtable_001631F0;
@@ -29,6 +36,13 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___LANDTABLEEC[5] = &landtable_001666F4;
 	HMODULE handle3 = GetModuleHandle(L"ADV01CMODELS");
 	LandTable **___LANDTABLEECC = (LandTable **)GetProcAddress(handle3, "___LANDTABLEEC");
+	NJS_TEXLIST **___ADV01C_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle3, "___ADV01C_TEXLISTS");
+	___ADV01C_TEXLISTS[51] = &texlist_ec30;
+	___ADV01C_TEXLISTS[52] = &texlist_ec31;
+	___ADV01C_TEXLISTS[53] = &texlist_ec32;
+	___ADV01C_TEXLISTS[54] = &texlist_ec33;
+	___ADV01C_TEXLISTS[55] = &texlist_ec34;
+	___ADV01C_TEXLISTS[56] = &texlist_ec35;
 	___LANDTABLEECC[0] = &landtable_0000C64C;
 	___LANDTABLEECC[1] = &landtable_0000D7B0;
 	___LANDTABLEECC[2] = &landtable_0000E1D0;
