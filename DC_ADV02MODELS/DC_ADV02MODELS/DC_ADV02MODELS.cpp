@@ -45,8 +45,12 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		//Either some of these are shared for night, or I'm too dumb to understand the disassembly
 	}
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
-	NJS_TEXLIST **___ADV002_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
-	___ADV002_TEXLISTS[4] = &texlist_mrtrain;
+	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
+	___ADV02_TEXLISTS[4] = &texlist_mrtrain;
+	___ADV02_TEXLISTS[38] = &texlist_mr00;
+	___ADV02_TEXLISTS[39] = &texlist_mr01;
+	___ADV02_TEXLISTS[40] = &texlist_mr02;
+	___ADV02_TEXLISTS[41] = &texlist_mr03;
 	LandTable **___LANDTABLEMR = (LandTable **)GetProcAddress(handle, "___LANDTABLEMR");
 	___LANDTABLEMR[0] = &landtable_00017960;
 	___LANDTABLEMR[1] = &landtable_0009E7B0;
