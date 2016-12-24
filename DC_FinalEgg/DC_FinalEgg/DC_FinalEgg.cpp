@@ -35,6 +35,7 @@ DataPointer(int, WhatIsThisAndWhyIsItAlmostAlwaysZero, 0x03B1117C);
 DataPointer(int, LastRenderFlags, 0x03D08498);
 
 static Angle angle = 0;
+static float trans = 0;
 static NJS_MATRIX backup;
 
 void __cdecl sub_5B4690(ObjectMaster *a1)
@@ -50,15 +51,20 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 
 	if (!WhatIsThisAndWhyIsItAlmostAlwaysZero)
 	{
+		if (trans > 1.0f) trans = 0;
 		// backup environment map matrix
 		memcpy(&backup, (NJS_MATRIX*)0x038A5DD0, sizeof(NJS_MATRIX));
 
 		// make & apply our transformation matrix
 		njPushMatrix(nullptr);
 
-		angle = (angle + 1024) % 65536; // <- rotate by 5.625 degrees every frame, and don't go above 360 degrees.
+		angle = (angle + 128) % 65536; // <- rotate
 		njUnitMatrix(nullptr);
-		njRotateZ(nullptr, angle);
+		//njRotateZ(nullptr, angle);
+		njRotateY(nullptr, angle);
+		njTranslate(nullptr, trans, trans, 0.0f);
+		trans = trans + 0.005f;
+
 		njGetMatrix((NJS_MATRIX*)0x038A5DD0);
 
 		njPopMatrix(1);
@@ -94,14 +100,14 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 
 		ProcessModelNode_AB_Wrapper(&object_01644A40, 1.0);
 		njPopMatrix(1u);
-		((NJS_OBJECT*)0x01A4583C)->basicdxmodel->mats[0].attr_texId = 0;
+		((NJS_OBJECT*)0x01A4583C)->basicdxmodel->mats[0].attr_texId = 176;
 		((NJS_OBJECT*)0x01A4583C)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ENV;
 		((NJS_OBJECT*)0x01A4425C)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ENV;
 		njPushMatrix(0);
 		njTranslate(0, 0.0, 4.0, 0.0);
 		njScale(0, 1.0, v1->Scale.y, 1.0);
 		sub_408530((NJS_OBJECT*)0x01A4425C);
-		njSetTexture(&dword_1AC3F30);
+		//njSetTexture(&dword_1AC3F30);
 
 		if (v1->Scale.y >= 1.0)
 		{
@@ -131,6 +137,8 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 		ResizeTextureList((NJS_TEXLIST*)0x1A60488, 68); //Final Egg 2 texture list
+		ResizeTextureList((NJS_TEXLIST*)0x19CC1C0, 177); //Final Egg object texture list
+		WriteData((void*)0x005B47A1, 0x90i8, 5); //Kill specialized texlist for cylinder
 		((LandTable *)0x19C8ED0)->COLCount = LengthOfArray(collist_00081980); //Final Egg 2 COL list
 		((LandTable *)0x19C8ED0)->COLList = collist_00081980; //Final Egg 2 COL list
 		WriteJump((void*)0x5ADC40, SetClip_FEgg2_r);

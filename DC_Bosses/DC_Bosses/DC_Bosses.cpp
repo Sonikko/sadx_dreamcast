@@ -2,6 +2,8 @@
 #include "SADXModLoader.h"
 #include "EggWalker.h"
 #include "EggViper.h"
+#include "Chaos0_Landtable.h"
+#include "Chaos0_PoliceCar.h"
 #include "Chaos2.h"
 #include "Chaos4_water.h"
 #include "Chaos4.h"
@@ -13,6 +15,58 @@
 #include "Zero.h"
 #include "Zero_PC.h"
 #include "EggHornet.h"
+
+NJS_MKEY_A animation_0004CEA0_15_rot[] = {
+	{ 0, 0, 0, 0 },
+	{ 1, 0, 0x1FFF, 0 },
+	{ 2, 0, 0x3FFF, 0 },
+	{ 3, 0, 0x5FFF, 0 },
+	{ 4, 0, 0x7FFF, 0 },
+	{ 5, 0, 0x9FFF, 0 },
+	{ 6, 0, 0xBFFF, 0 },
+	{ 7, 0, 0xDFFF, 0 }
+};
+
+NJS_MKEY_A animation_0004CEA0_16_rot[] = {
+	{ 0, 0, 0, 0xFFFF },
+	{ 1, 0, 0x1FFF, 0xFFFF },
+	{ 2, 0, 0x3FFF, 0xFFFF },
+	{ 3, 0, 0x5FFF, 0xFFFF },
+	{ 4, 0, 0x7FFF, 0xFFFF },
+	{ 5, 0, 0x9FFF, 0xFFFF },
+	{ 6, 0, 0xBFFF, 0xFFFF },
+	{ 7, 0, 0xDFFF, 0xFFFF }
+};
+
+NJS_MDATA2 animation_0004CEA0_mdat[] = {
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, animation_0004CEA0_15_rot, 0, LengthOfArray(animation_0004CEA0_15_rot) },
+	{ NULL, animation_0004CEA0_16_rot, 0, LengthOfArray(animation_0004CEA0_16_rot) },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 }
+};
+
+NJS_MOTION animation_0004CEA0 = { animation_0004CEA0_mdat, 8, NJD_MTYPE_POS_0 | NJD_MTYPE_ANG_1, 2 };
 
 PointerInfo pointers[] = {
 	//ptrdecl(0x7D1CC0, &landtable_0000028C), //Chaos 2
@@ -68,8 +122,11 @@ extern "C"
 		DataArray(FogData, Chaos2Fog, 0x01120638, 3);
 		DataArray(FogData, Chaos4Fog, 0x0118FA00, 3);
 		DataArray(FogData, Chaos7Fog, 0x01420E30, 3);
-		DataArray(DrawDistance, DrawDist_Chaos7, 0x01420E00, 3);
+		DataArray(FogData, EggHornetFog, 0x01556B34, 3);
 		DataArray(FogData, EggWalkerFog, 0x015E87F4, 3);
+		DataArray(FogData, EggViperFog, 0x0165D334, 3);
+		DataArray(DrawDistance, DrawDist_Chaos7, 0x01420E00, 3);
+		DataArray(DrawDistance, DrawDist_EggHornet, 0x01556B1C, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			Chaos2Fog[i].Color = 0xFF000000;
@@ -85,8 +142,18 @@ extern "C"
 			Chaos7Fog[i].Distance = 11000.0f;
 			Chaos7Fog[i].Toggle = 1;
 			DrawDist_Chaos7[i].Maximum = -6500.0;
+			DrawDist_EggHornet[i].Maximum = -12500.0;
+			EggHornetFog[i].Layer = -2000.0f;
+			EggHornetFog[i].Distance= -8000.0f;
 			EggWalkerFog[i].Toggle = 0;
+			EggViperFog[i].Toggle = 0;
 		}
+		HMODULE handle = GetModuleHandle(L"BOSSCHAOS0MODELS");
+		LandTable **___LANDTABLEBOSSCHAOS0 = (LandTable **)GetProcAddress(handle, "___LANDTABLEBOSSCHAOS0");
+		___LANDTABLEBOSSCHAOS0[0] = &landtable_000001D8;
+		NJS_ACTION **___BOSSCHAOS0_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___BOSSCHAOS0_ACTIONS");
+		___BOSSCHAOS0_ACTIONS[18]->object = &object_0005D234;
+		___BOSSCHAOS0_ACTIONS[18]->motion = &animation_0004CEA0;
 	}
 
 }

@@ -2877,7 +2877,7 @@ g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(281
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28322): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28335): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28335): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-DC_Casinopolis.cpp(17): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+DC_Casinopolis.cpp(18): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.exp
   Generating code

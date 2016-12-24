@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
+//#include "Billboard.h"
 #include "Casino1.h"
 #include "Casino2.h"
 #include "Casino3.h"
@@ -18,6 +19,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//memcpy((void*)0x1E74A94, &object_01A74A94, sizeof(object_01A74A94));
 		DataArray(FogData, Casino2Fog, 0x01C469C0, 3);
 		for (int i = 0; i < 3; i++)
 		{

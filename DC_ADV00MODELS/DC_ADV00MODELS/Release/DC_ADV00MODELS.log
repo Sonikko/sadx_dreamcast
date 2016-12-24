@@ -3822,419 +3822,421 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 Colli
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 Collision.h(2511): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 Collision.h(2511): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 Collision.h(2511): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(25): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(212): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(212): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(212): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(218): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(251): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(251): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(251): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(257): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(261): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(283): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(283): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(283): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(289): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(317): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(317): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(317): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(323): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(334): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(410): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(410): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(410): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(416): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(421): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(449): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(449): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(449): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(455): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(460): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(490): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(490): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(490): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(496): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(524): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(524): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(524): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(530): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(534): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(562): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(562): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(562): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(564): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(575): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(587): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(595): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(602): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(606): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(610): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(614): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(973): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(973): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(973): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(987): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(999): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1007): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1013): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1017): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1021): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1025): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1029): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1392): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1392): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1392): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1405): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1416): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1424): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1428): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1434): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1439): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1443): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1790): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1790): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1790): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1792): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1798): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1803): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1887): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1887): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1887): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1895): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1899): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1904): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1909): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2050): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2050): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2050): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2060): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2067): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2083): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2103): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2378): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2378): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2378): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2387): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2404): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2421): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2455): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(127): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1171): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1171): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1171): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1179): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1185): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1193): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1380): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1380): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1380): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1386): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1419): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1419): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1419): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1425): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1429): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1451): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1451): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1451): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1457): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1485): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1485): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1485): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1491): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1502): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1578): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1578): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1578): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1584): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1589): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1617): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1617): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1617): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1623): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1628): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1658): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1658): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1658): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1664): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1692): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1692): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1692): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1698): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1702): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1730): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1730): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1730): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1732): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1743): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1755): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1763): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1770): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1774): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1778): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(1782): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2141): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2141): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2141): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2155): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2167): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2175): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2181): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2185): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2189): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2193): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2197): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2560): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2560): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2560): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2573): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2584): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2592): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2596): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2602): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2607): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2611): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2958): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2958): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2958): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2960): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2966): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2975): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2984): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2994): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3289): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3289): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3289): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3295): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3319): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3319): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3319): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3325): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3330): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3366): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3366): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3366): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3372): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3377): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3417): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3417): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3417): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3423): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3455): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3455): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3455): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3464): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3590): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3590): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3590): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3592): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3604): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3616): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3624): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3630): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3634): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3638): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3642): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3646): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4009): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4009): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4009): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4015): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4046): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4046): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4046): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4054): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4062): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4165): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4165): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4165): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4173): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4236): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4236): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4236): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4244): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4307): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4307): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4307): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4313): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4337): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4337): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4337): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4343): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4348): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4378): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4378): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4378): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4380): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4389): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4394): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4403): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4413): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4843): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4843): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4843): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4849): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4886): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4886): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4886): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4893): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4985): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4985): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4985): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4996): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5005): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5185): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5185): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5185): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5193): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5256): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5256): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5256): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5258): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5264): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5327): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5327): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5327): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5329): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(2971): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3055): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3055): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3055): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3063): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3067): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3072): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3077): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3218): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3218): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3218): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3228): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3235): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3251): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3271): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3546): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3546): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3546): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3555): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3572): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3589): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(3623): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4126): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4126): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4126): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4134): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4143): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4152): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4162): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4457): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4457): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4457): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4463): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4487): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4487): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4487): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4493): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4498): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4534): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4534): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4534): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4540): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4545): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4585): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4585): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4585): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4591): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4623): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4623): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4623): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4632): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4758): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4758): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4758): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4760): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4772): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4784): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4792): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4798): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4802): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4806): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4810): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(4814): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5177): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5177): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5177): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5183): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5214): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5214): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5214): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5222): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5230): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5333): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5333): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5333): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5341): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5369): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5661): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5661): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5661): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5663): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5671): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5786): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5786): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5786): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5796): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5802): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5812): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5823): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6090): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6090): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6090): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6106): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6114): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6123): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6127): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6140): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6154): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6161): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6168): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6925): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6925): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6925): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6934): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6943): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6952): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7145): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7145): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7145): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7162): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7227): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7744): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7744): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7744): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7760): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7777): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7793): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7818): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8245): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8245): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8245): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8257): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8261): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8277): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8289): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8333): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8919): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8919): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8919): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8927): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9018): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9018): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9018): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9024): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9055): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9055): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9055): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9064): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9073): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9448): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9448): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9448): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9454): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9595): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9595): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9595): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9605): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9676): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10562): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10562): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10562): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10574): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10588): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10792): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10792): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10792): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10798): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10805): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11014): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11014): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11014): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11024): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11165): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11165): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11165): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11172): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11182): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11355): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11355): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11355): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11378): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11401): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11461): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11471): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11939): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11939): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11939): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11954): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11961): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11975): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11992): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12022): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12441): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12441): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12441): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12453): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12467): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12671): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12671): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12671): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12679): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12685): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12690): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12695): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12788): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12788): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12788): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12796): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12887): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12887): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12887): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12889): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12899): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13627): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13627): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13627): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13636): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13640): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13644): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13648): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13660): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14212): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14212): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14212): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14218): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14249): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14249): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14249): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14256): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14260): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14305): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14305): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14305): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14311): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14315): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14360): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14360): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14360): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14362): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14368): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14476): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14485): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15542): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15542): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15542): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15544): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15551): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15657): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15657): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15657): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15665): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15676): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16095): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16095): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16095): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16101): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16151): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16151): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16151): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16157): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16174): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16351): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16351): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16351): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16357): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16361): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16394): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16394): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16394): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16400): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16437): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16437): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16437): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16443): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16480): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16480): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16480): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16486): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16492): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16539): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16539): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16539): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16546): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16610): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16610): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16610): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16648): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16650): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16652): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16654): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16656): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16658): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16660): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16778): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16778): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16778): warning C4305: 'initializing': truncation from 'double' to 'Float'
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16780): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16780): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5404): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5404): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5404): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5412): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5475): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5475): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5475): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5481): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5505): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5505): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5505): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5511): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5516): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5546): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5546): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5546): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5548): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5557): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5562): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5571): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(5581): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6011): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6011): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6011): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6017): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6054): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6054): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6054): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6061): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6153): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6153): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6153): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6164): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6173): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6353): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6353): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6353): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6361): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6424): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6424): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6424): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6426): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6432): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6495): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6495): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6495): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6497): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6509): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6537): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6829): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6829): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6829): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6831): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6839): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6954): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6954): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6954): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6964): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6970): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6980): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(6991): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7258): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7258): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7258): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7274): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7282): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7291): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7295): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7308): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7322): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7329): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(7336): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8093): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8093): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8093): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8102): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8111): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8120): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8313): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8313): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8313): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8330): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8395): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8912): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8912): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8912): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8928): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8945): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8961): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(8986): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9413): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9413): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9413): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9425): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9429): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9445): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9457): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(9501): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10087): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10087): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10087): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10095): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10186): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10186): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10186): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10192): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10223): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10223): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10223): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10232): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10241): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10616): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10616): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10616): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10622): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10763): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10763): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10763): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10773): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(10844): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11742): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11756): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11960): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11960): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11960): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11966): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(11973): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12182): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12182): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12182): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12192): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12333): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12333): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12333): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12340): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12350): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12523): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12523): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12523): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12546): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12569): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12629): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(12639): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13107): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13107): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13107): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13122): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13129): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13143): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13160): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13190): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13609): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13609): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13609): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13621): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13635): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13839): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13839): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13839): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13847): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13853): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13858): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13863): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13956): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13956): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13956): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(13964): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14055): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14055): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14055): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14057): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14067): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14795): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14795): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14795): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14804): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14808): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14812): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14816): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(14828): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15380): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15380): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15380): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15386): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15417): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15417): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15417): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15424): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15428): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15473): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15473): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15473): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15479): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15483): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15528): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15528): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15528): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15530): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15536): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15644): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(15653): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16710): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16710): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16710): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16712): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16719): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16825): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16825): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16825): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16833): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(16844): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17263): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17263): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17263): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17269): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17319): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17319): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17319): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17325): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17342): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17519): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17519): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17519): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17525): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17529): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17562): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17562): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17562): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17568): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17605): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17605): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17605): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17611): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17648): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17648): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17648): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17654): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17660): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17707): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17707): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17707): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17714): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17778): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17778): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17778): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17816): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17818): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17820): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17822): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17824): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17826): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17828): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17946): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17946): warning C4838: conversion from 'double' to 'Float' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17946): warning C4305: 'initializing': truncation from 'double' to 'Float'
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17948): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS04 (Hotel).h(17948): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS05 (Twinkle Park Entrance).h(9): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS05 (Twinkle Park Entrance).h(40): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv00models\dc_adv00models\ADVSS05 (Twinkle Park Entrance).h(40): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion

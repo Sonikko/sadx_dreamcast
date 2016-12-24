@@ -2561,12 +2561,12 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jun
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(59936): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60112): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60307): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60478): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60488): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60488): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60500): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60502): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60502): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60479): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60489): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60489): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60501): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60503): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(60503): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MetalSonic.h(11): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MetalSonic.h(15): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MetalSonic.h(28): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
