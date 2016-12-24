@@ -2881,7 +2881,7 @@ DC_Casinopolis.cpp(18): warning C4838: conversion from 'std::size_t' to 'int' re
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.exp
   Generating code
-  All 730 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 735 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_Casinopolis.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.dll
   DC_Casinopolis.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.pdb (Full PDB)
