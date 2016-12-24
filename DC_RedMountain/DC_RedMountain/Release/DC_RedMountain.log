@@ -3194,16 +3194,11 @@ g:\sonic\sadx project\sadx_dreamcast\dc_redmountain\dc_redmountain\Mountain3.h(2
 g:\sonic\sadx project\sadx_dreamcast\dc_redmountain\dc_redmountain\Mountain3.h(27435): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_redmountain\dc_redmountain\Mountain3.h(27440): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_redmountain\dc_redmountain\Mountain3.h(27440): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_redmountain\dc_redmountain\Skull.h(104): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_redmountain\dc_redmountain\Skull.h(148): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_redmountain\dc_redmountain\Skull.h(687): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_redmountain\dc_redmountain\Skull.h(687): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_redmountain\dc_redmountain\Skull.h(687): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 DC_RedMountain.cpp(17): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_RedMountain\Release\DC_RedMountain.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_RedMountain\Release\DC_RedMountain.exp
   Generating code
-  All 650 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 653 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_RedMountain.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_RedMountain\Release\DC_RedMountain.dll
   DC_RedMountain.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_RedMountain\Release\DC_RedMountain.pdb (Full PDB)
