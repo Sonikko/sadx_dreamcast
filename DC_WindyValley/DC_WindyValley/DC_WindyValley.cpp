@@ -15,4 +15,11 @@ PointerInfo pointers[] = {
 
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 
+extern "C" __declspec(dllexport) void cdecl Init()
+{
+	ResizeTextureList((NJS_TEXLIST *)0xB98BF8, textures_windy1);
+	ResizeTextureList((NJS_TEXLIST *)0xB81304, textures_windy2);
+	ResizeTextureList((NJS_TEXLIST *)0xAFEC30, textures_windy3);
+};
+
 extern "C" __declspec(dllexport) const ModInfo SADXModInfo = { ModLoaderVer };
