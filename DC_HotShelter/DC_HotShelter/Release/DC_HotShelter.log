@@ -3417,7 +3417,7 @@ DC_HotShelter.cpp(16): warning C4838: conversion from 'std::size_t' to 'int' req
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_HotShelter\Release\DC_HotShelter.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_HotShelter\Release\DC_HotShelter.exp
   Generating code
-  All 806 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 810 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_HotShelter.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_HotShelter\Release\DC_HotShelter.dll
   DC_HotShelter.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_HotShelter\Release\DC_HotShelter.pdb (Full PDB)
