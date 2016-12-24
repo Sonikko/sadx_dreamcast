@@ -12,6 +12,9 @@ PointerInfo pointers[] = {
 
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	ResizeTextureList((NJS_TEXLIST*)0x20E0BB0, textures_skydeck1);
+	ResizeTextureList((NJS_TEXLIST*)0x20AA63C, textures_skydeck2);
+	ResizeTextureList((NJS_TEXLIST*)0x203ACE0, textures_skydeck3);
 	DataArray(FogData, SkyDeck1Fog, 0x0203A094, 3);
 	DataArray(FogData, SkyDeck2Fog, 0x0203A0C4, 3);
 	DataArray(FogData, SkyDeck3Fog, 0x0203A0F4, 3);
@@ -23,7 +26,6 @@ extern "C" __declspec(dllexport) void cdecl Init()
 		SkyDeck2Fog[i].Distance = 6000.0f;
 		SkyDeck3Fog[i].Layer = 4000.0f;
 		SkyDeck3Fog[i].Distance = 12000.0f;
-
 	}
 }
 
