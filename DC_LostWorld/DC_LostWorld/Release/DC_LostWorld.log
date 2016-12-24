@@ -1590,10 +1590,12 @@ g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(2287
 g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22878): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_lostworld\dc_lostworld\LostWorld3.h(22878): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 DC_LostWorld.cpp(16): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+DC_LostWorld.cpp(19): warning C4305: 'argument': truncation from 'unsigned int' to 'char'
+DC_LostWorld.cpp(19): warning C4309: 'argument': truncation of constant value
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_LostWorld\Release\DC_LostWorld.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_LostWorld\Release\DC_LostWorld.exp
   Generating code
-  All 500 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 503 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_LostWorld.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_LostWorld\Release\DC_LostWorld.dll
   DC_LostWorld.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_LostWorld\Release\DC_LostWorld.pdb (Full PDB)

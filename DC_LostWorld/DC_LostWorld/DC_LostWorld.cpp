@@ -16,6 +16,7 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteData((void*)0x814CB4, 0xc1c80000, 4); //LW2 fog stuff
 		ResizeTextureList((NJS_TEXLIST*)0x1F6F02C, textures_lw1);
 		ResizeTextureList((NJS_TEXLIST*)0x1E9B9AC, textures_lw2);
 		ResizeTextureList((NJS_TEXLIST*)0x1E79D80, textures_lw3);
@@ -39,7 +40,7 @@ extern "C"
 		{
 
 			{
-				if (CurrentLevel == 7 && CurrentAct == 1 && GameState == 15)
+				if (CurrentLevel == 7 && CurrentAct == 1 && GameState != 16)
 				{
 					if (LevelFrameCount % 41 == 1)
 					{
