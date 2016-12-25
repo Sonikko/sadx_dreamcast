@@ -57,9 +57,6 @@
     <ClInclude Include="Zero.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Zero_PC.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EggHornet.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -79,6 +76,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Chaos0_policecar.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="E101R.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

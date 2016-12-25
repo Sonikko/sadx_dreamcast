@@ -33052,6 +33052,57 @@ NJS_MODEL_SADX attach_01923C10 = { vertex_01923910, normal_01923A90, LengthOfArr
 
 NJS_OBJECT object_01923C3C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_01923C10, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
+//water
+
+NJS_MATERIAL matlist_01979784[] = {
+	{ { 0xB2B2B2B2 },{ 0x00FFFFFF }, 11, 68, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_01979798[] = {
+	8, 2, 3, 1, 0, 4, 5, 7, 6
+};
+
+NJS_TEX uv_019797AC[] = {
+	{ 0, -1275 },
+	{ 0, 255 },
+	{ 2719, -1275 },
+	{ 2720, 255 },
+	{ 5439, -1275 },
+	{ 5440, 255 },
+	{ 8160, -1275 },
+	{ 8160, 255 }
+};
+
+NJS_MESHSET_SADX meshlist_019797CC[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_01979798, NULL, NULL, NULL, uv_019797AC, NULL }
+};
+
+NJS_VECTOR vertex_019797E8[] = {
+	{ -591.6961f, -11.99956f, 0 },
+	{ -297.3857f, -11.99952f, 0 },
+	{ -209.1621f, -11.99952f, -213.1621f },
+	{ -417.2709f, -11.99956f, -421.2709f },
+	{ -211.1621f, -11.99952f, 211.1621f },
+	{ -419.2709f, -11.99956f, 419.2709f },
+	{ 3, -11.99956f, 594.6961f },
+	{ 3, -11.99952f, 300.3857f }
+};
+
+NJS_VECTOR normal_01979848[] = {
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 }
+};
+
+NJS_MODEL_SADX attach_019798A8 = { vertex_019797E8, normal_01979848, LengthOfArray(vertex_019797E8), meshlist_019797CC, matlist_01979784, LengthOfArray(meshlist_019797CC), LengthOfArray(matlist_01979784),{ -294.3481f, -11.99954f, 86.71259f }, 588.6112f, NULL };
+
+NJS_OBJECT object_019798D4 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_019798A8, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
 COL collist_00023DA0[] = {
 	{ { 470.9504f, 150, -232.9498f }, 357.6902f, 0, 0, &object_000272D8, 0, 0xA0000001 },
 	{ { -152.5815f, -3.727999f, 44.77512f }, 302.3602f, 0, 0, &object_00027770, 0, 0xA0000001 },
@@ -33290,9 +33341,18 @@ COL collist_00023DA0[] = {
 	{ { -166.0308f, -185, -328.9656f }, 18.41908f, 0, 0, &object_0005EA44, 0, 0x80000000 },
 	{ { -140.6171f, -158.95f, -339.4796f }, 39.08908f, 0, 0, &object_0005E92C, 0, 0x80000000 },
 	{ { -114.3962f, -185, -350.3435f }, 17.93f, 0, 0, &object_0005EB5C, 0, 0x80000000 },
+	{ { -294.3481f, -11.99954f, 86.71259f }, 589.6112f, 0, 0, &object_019798D4, 0, 0x80000000 }, //water under ship
+	{ { -329.67, -166.7, 137.12 }, 0, 0, 0, &object_01A47B1C, 0, 0x80040000 }, //Mizu B
+	{ { -367.47, -152.7, 150.38 }, 0, 0, 0, &object_01A47CA4, 0, 0x80040000 }, //Mizu A
+	{ { -284.63, -195.7, 156.06 }, 0, 0, 0, &light1, 0, 0xA1000000 },
+	{ { -312.79, -156.3, 143.76 }, 0, 0, 0, &light2, 0, 0xA1000000 },
+	{ { -313.35, -195.7, 88.93 }, 0, 0, 0, &light3, 0, 0xA1000000 },
+	{ { -324.39, -156.3, 117.89 }, 0, 0, 0, &light4, 0, 0xA1000000 },
+	{ { -336.57, -195.7, 176.35 }, 0, 0, 0, &light5, 0, 0xA1000000 },
+	{ { -363.88, -195.7, 109.72 }, 0, 0, 0, &light6, 0, 0xA1000000 },
 };
 
-NJS_TEXNAME textures_casino1[131];
+NJS_TEXNAME textures_casino1[134];
 NJS_TEXLIST texlist_casino1 = { arrayptrandlength(textures_casino1) };
 
 LandTable landtable_00025EAC = { LengthOfArray(collist_00023DA0), 0, 0xC, 800, collist_00023DA0, NULL, "CASINO01", (NJS_TEXLIST *)&texlist_casino1, 0, 0 };

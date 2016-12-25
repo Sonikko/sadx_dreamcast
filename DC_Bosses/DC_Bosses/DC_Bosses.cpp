@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
+#include "EggHornet.h"
 #include "EggWalker.h"
 #include "EggViper.h"
 #include "Chaos0_Landtable.h"
@@ -7,14 +8,12 @@
 #include "Chaos2.h"
 #include "Chaos4_water.h"
 #include "Chaos4.h"
-//#include "Chaos6_Act1_PC.h"
 #include "Chaos6_Act1.h"
 #include "Chaos6_Act2.h"
 #include "Chaos7.h"
 #include "E101.h"
 #include "Zero.h"
-#include "Zero_PC.h"
-#include "EggHornet.h"
+#include "E101R.h"
 
 NJS_MKEY_A animation_0004CEA0_15_rot[] = {
 	{ 0, 0, 0, 0 },
@@ -78,8 +77,8 @@ PointerInfo pointers[] = {
 	ptrdecl(0x7D1D48, &landtable_000580F4), //Egg Viper
 	ptrdecl(0x7D1D7F, &landtable_00000068), //E-101
 	ptrdecl(0x7D1D06, &landtable_00001214), //Perfect Chaos DC
-	//ptrdecl(0x7D1D64, &landtable_00000110) //Zero
-
+	ptrdecl(0x7D1D64, &landtable_00000110), //Zero
+	ptrdecl(0x7D1DD1, &landtable_00000180) //E101R
 };
 
 extern "C"
@@ -97,22 +96,22 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x15E99F8, textures_eggwalker);
 		ResizeTextureList((NJS_TEXLIST*)0x167E5CC, textures_eggviper);
 		ResizeTextureList((NJS_TEXLIST*)0x14FBFB4, textures_e101);
-		//ResizeTextureList((NJS_TEXLIST*)0x16B460C, 81); //Zero texlist
+		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 81); //Zero texlist
 		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 water
 		((LandTable *)0x11EDE38)->COLList = collist_0014AFB4; //Chaos6 COL list
 		((LandTable *)0x11EDE38)->COLCount = LengthOfArray(collist_0014AFB4); //Chaos6 COL list
 		//ResizeTextureList((NJS_TEXLIST *)0x121FF28, 79); //Chaos 6 texlist
 		memcpy((void*)0x011EDE20, &animlist_0014B62C, sizeof(animlist_0014B62C)); // Chaos6 animlist
-		memcpy((void*)0x016B4D20, &animlist_012B4D20, sizeof(animlist_012B4D20)); // Zero animlist
-		memcpy((void*)0x01522560, &animlist_012B4D20, sizeof(animlist_012B4D20)); // E101R animlist
-		memcpy((void*)0x016E3994, &object_0001C9EC, sizeof(object_0001C9EC));  // Zero 1 
-		memcpy((void*)0x01550FD4, &object_0001C9EC, sizeof(object_0001C9EC));  // E101MK2 1
-		memcpy((void*)0x016E3CCC, &object_0001CD18, sizeof(object_0001CD18));  // Zero 2 
-		memcpy((void*)0x0155130C, &object_0001CD18, sizeof(object_0001CD18));  // E101MK2 2
-		memcpy((void*)0x016E301C, &object_0001C090, sizeof(object_0001C090));  // Zero 3
-		memcpy((void*)0x0155065C, &object_0001C090, sizeof(object_0001C090));  // E101MK2 3
-		memcpy((void*)0x016E3354, &object_0001C3BC, sizeof(object_0001C3BC));  // Zero 4
-		memcpy((void*)0x01550994, &object_0001C3BC, sizeof(object_0001C3BC));  // E101MK2 
+		//memcpy((void*)0x016B4D20, &animlist_012B4D20, sizeof(animlist_012B4D20)); // Zero animlist
+		//memcpy((void*)0x01522560, &animlist_012B4D20, sizeof(animlist_012B4D20)); // E101R animlist
+		//memcpy((void*)0x016E3994, &object_0001C9EC, sizeof(object_0001C9EC));  // Zero 1 
+		//memcpy((void*)0x01550FD4, &object_0001C9EC, sizeof(object_0001C9EC));  // E101MK2 1
+		//memcpy((void*)0x016E3CCC, &object_0001CD18, sizeof(object_0001CD18));  // Zero 2 
+		//memcpy((void*)0x0155130C, &object_0001CD18, sizeof(object_0001CD18));  // E101MK2 2
+		//memcpy((void*)0x016E301C, &object_0001C090, sizeof(object_0001C090));  // Zero 3
+		//memcpy((void*)0x0155065C, &object_0001C090, sizeof(object_0001C090));  // E101MK2 3
+		//memcpy((void*)0x016E3354, &object_0001C3BC, sizeof(object_0001C3BC));  // Zero 4
+		//memcpy((void*)0x01550994, &object_0001C3BC, sizeof(object_0001C3BC));  // E101MK2 
 		memcpy((void*)0x01183F04, &object_0006B438, sizeof(object_0006B438)); // Chaos2 1 
 		memcpy((void*)0x0118440C, &object_0006B890, sizeof(object_0006B890)); // Chaos2 2
 		object_0006B890.basicdxmodel->mats[0].attr_texId = 11; //Chaos2 BG object fixes

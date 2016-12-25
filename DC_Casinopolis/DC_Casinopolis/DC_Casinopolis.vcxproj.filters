@@ -45,7 +45,7 @@
     <ClInclude Include="Casino2 Fixes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Billboard.h">
+    <ClInclude Include="Casino_objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

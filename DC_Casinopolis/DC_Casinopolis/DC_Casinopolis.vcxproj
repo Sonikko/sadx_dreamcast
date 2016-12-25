@@ -145,7 +145,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Billboard.h" />
+    <ClInclude Include="Casino_objects.h" />
     <ClInclude Include="Casino1.h" />
     <ClInclude Include="Casino2 Fixes.h" />
     <ClInclude Include="Casino2.h" />

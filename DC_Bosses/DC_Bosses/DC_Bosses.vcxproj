@@ -157,6 +157,7 @@
     <ClInclude Include="Chaos7_fixes.h" />
     <ClInclude Include="Chaos7_PC.h" />
     <ClInclude Include="E101.h" />
+    <ClInclude Include="E101R.h" />
     <ClInclude Include="EggHornet.h" />
     <ClInclude Include="EggViper.h" />
     <ClInclude Include="EggWalker.h" />
@@ -165,7 +166,6 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Zero.h" />
-    <ClInclude Include="Zero_PC.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DC_Bosses.cpp" />

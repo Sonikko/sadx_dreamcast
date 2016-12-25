@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
-//#include "Billboard.h"
+#include "Casino_objects.h"
 #include "Casino1.h"
 #include "Casino2.h"
 #include "Casino3.h"
@@ -10,7 +10,7 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DB28, &landtable_00025EAC),
 	ptrdecl(0x97DB2C, &landtable_0006C0B4),
 	ptrdecl(0x97DB30, &landtable_000AF120),
-	ptrdecl(0x97DB34, &landtable_000D8440)
+	ptrdecl(0x97DB34, &landtable_000D8440),
 };
 
 extern "C"
@@ -23,7 +23,8 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x1CBD1C4, textures_casino2);
 		ResizeTextureList((NJS_TEXLIST*)0x1C8AF04, textures_casino3);
 		ResizeTextureList((NJS_TEXLIST*)0x1C47004, textures_casino4);
-		//memcpy((void*)0x1E74A94, &object_01A74A94, sizeof(object_01A74A94)); //billboard
+		//memcpy((void*)0x1E74A94, &object_001D98C8, sizeof(object_001D98C8)); //billboard
+		memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //light
 		DataArray(FogData, Casino2Fog, 0x01C469C0, 3);
 		DataArray(DrawDistance, DrawDist_Casino2, 0x01C46948, 3);
 		for (int i = 0; i < 3; i++)
@@ -42,58 +43,72 @@ extern "C"
 			if (LevelFrameCount % 41 == 1)
 			{
 				matlist_00066F5C[1].attr_texId = 75;
+				matlist_01979784[0].attr_texId = 75;
 			}
 			if (LevelFrameCount % 41 == 4)
 			{
 				matlist_00066F5C[1].attr_texId = 68;
+				matlist_01979784[0].attr_texId = 68;
 			}
 			if (LevelFrameCount % 41 == 7)
 			{
 				matlist_00066F5C[1].attr_texId = 69;
+				matlist_01979784[0].attr_texId = 69;
 			}
 			if (LevelFrameCount % 41 == 10)
 			{
 				matlist_00066F5C[1].attr_texId = 70;
+				matlist_01979784[0].attr_texId = 70;
 			}
 			if (LevelFrameCount % 41 == 13)
 			{
 				matlist_00066F5C[1].attr_texId = 71;
+				matlist_01979784[0].attr_texId = 71;
 			}
 			if (LevelFrameCount % 41 == 16)
 			{
 				matlist_00066F5C[1].attr_texId = 72;
+				matlist_01979784[0].attr_texId = 72;
 			}
 			if (LevelFrameCount % 41 == 19)
 			{
 				matlist_00066F5C[1].attr_texId = 73;
+				matlist_01979784[0].attr_texId = 73;
 			}
 			if (LevelFrameCount % 41 == 22)
 			{
 				matlist_00066F5C[1].attr_texId = 74;
+				matlist_01979784[0].attr_texId = 74;
 			}
 			if (LevelFrameCount % 41 == 25)
 			{
 				matlist_00066F5C[1].attr_texId = 67;
+				matlist_01979784[0].attr_texId = 67;
 			}
 			if (LevelFrameCount % 41 == 28)
 			{
 				matlist_00066F5C[1].attr_texId = 76;
+				matlist_01979784[0].attr_texId = 76;
 			}
 			if (LevelFrameCount % 41 == 31)
 			{
 				matlist_00066F5C[1].attr_texId = 77;
+				matlist_01979784[0].attr_texId = 77;
 			}
 			if (LevelFrameCount % 41 == 34)
 			{
 				matlist_00066F5C[1].attr_texId = 78;
+				matlist_01979784[0].attr_texId = 78;
 			}
 			if (LevelFrameCount % 41 == 37)
 			{
 				matlist_00066F5C[1].attr_texId = 79;
+				matlist_01979784[0].attr_texId = 79;
 			}
 			if (LevelFrameCount % 41 == 0)
 			{
 				matlist_00066F5C[1].attr_texId = 80;
+				matlist_01979784[0].attr_texId = 80;
 			}
 		}
 		if (CurrentLevel == 9 && CurrentAct == 1)
