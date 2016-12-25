@@ -6,6 +6,8 @@
 #include "Casino3.h"
 #include "Casino4.h"
 
+static short CurrentPlayer = -1;
+
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB28, &landtable_00025EAC),
 	ptrdecl(0x97DB2C, &landtable_0006C0B4),
@@ -23,7 +25,7 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x1CBD1C4, textures_casino2);
 		ResizeTextureList((NJS_TEXLIST*)0x1C8AF04, textures_casino3);
 		ResizeTextureList((NJS_TEXLIST*)0x1C47004, textures_casino4);
-		//memcpy((void*)0x1E74A94, &object_001D98C8, sizeof(object_001D98C8)); //billboard
+		*(NJS_OBJECT*)0x1E74A94 = object_01A74A94; //billboard
 		memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //light
 		DataArray(FogData, Casino2Fog, 0x01C469C0, 3);
 		DataArray(DrawDistance, DrawDist_Casino2, 0x01C46948, 3);
@@ -38,6 +40,20 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		if (CurrentLevel == 9 && CurrentAct == 0 && CurrentPlayer != CurrentCharacter)
+		{
+			if (CurrentCharacter == 0)
+			{
+				landtable_00025EAC.COLList = collist_00023DA0S;
+				landtable_00025EAC.COLCount = LengthOfArray(collist_00023DA0S);
+			}
+			if (CurrentCharacter == 3)
+			{
+			landtable_00025EAC.COLList = collist_00023DA0K;
+			landtable_00025EAC.COLCount = LengthOfArray(collist_00023DA0K);
+			}
+			CurrentPlayer = CurrentCharacter;
+		}
 		if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
 		{
 			for (int q = 0; q < LengthOfArray(uv_01A47B78); q++)
