@@ -38,8 +38,20 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		if (CurrentLevel == 9 && CurrentAct == 0)
+		if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
 		{
+			for (int q = 0; q < LengthOfArray(uv_01A47B78); q++)
+			{
+				uv_01A47B78[q].v = uv_01A47B78[q].v - 10;
+			}
+			for (int q2 = 0; q2 < LengthOfArray(uv_01A47468); q2++)
+			{
+				uv_01A47468[q2].v = uv_01A47468[q2].v - 10;
+			}
+			for (int q3 = 0; q3 < LengthOfArray(uv_01A474F8); q3++)
+			{
+				uv_01A474F8[q3].v = uv_01A474F8[q3].v - 10;
+			}
 			if (LevelFrameCount % 41 == 1)
 			{
 				matlist_00066F5C[1].attr_texId = 75;

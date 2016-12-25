@@ -2999,10 +2999,13 @@ g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(283
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28335): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28335): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 DC_Casinopolis.cpp(18): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+DC_Casinopolis.cpp(43): warning C4018: '<': signed/unsigned mismatch
+DC_Casinopolis.cpp(47): warning C4018: '<': signed/unsigned mismatch
+DC_Casinopolis.cpp(51): warning C4018: '<': signed/unsigned mismatch
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.exp
   Generating code
-  All 754 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 757 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_Casinopolis.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.dll
   DC_Casinopolis.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.pdb (Full PDB)
