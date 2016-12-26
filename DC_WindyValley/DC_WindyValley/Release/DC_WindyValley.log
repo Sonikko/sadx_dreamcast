@@ -1036,11 +1036,11 @@ g:\sonic\sadx project\sadx_dreamcast\dc_windyvalley\dc_windyvalley\windy3.h(3932
 g:\sonic\sadx project\sadx_dreamcast\dc_windyvalley\dc_windyvalley\windy3.h(39496): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_windyvalley\dc_windyvalley\windy3.h(39500): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_windyvalley\dc_windyvalley\windy3.h(39500): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-DC_WindyValley.cpp(15): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+DC_WindyValley.cpp(18): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_WindyValley\Release\DC_WindyValley.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_WindyValley\Release\DC_WindyValley.exp
   Generating code
-  All 298 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 299 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_WindyValley.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_WindyValley\Release\DC_WindyValley.dll
   DC_WindyValley.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_WindyValley\Release\DC_WindyValley.pdb (Full PDB)
