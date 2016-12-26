@@ -23,10 +23,12 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+
 		ResizeTextureList((NJS_TEXLIST*)0x26B9960, textures_twinkle1);
 		ResizeTextureList((NJS_TEXLIST*)0x2721A8C, textures_twinkle2);
 		ResizeTextureList((NJS_TEXLIST*)0x26FEA54, textures_twinkle3);
 		ResizeTextureList((NJS_TEXLIST*)0x38AEB70, textures_tpobjects); //OBJ_TWINKLE
+		((NJS_OBJECT *)0x038C214C)->basicdxmodel->mats[6].attr_texId = 96; //Neon panel
 		((NJS_OBJECT *)0x038C234C)->basicdxmodel->mats[0].attr_texId = 96; //Light
 		((NJS_OBJECT *)0x038BFC74)->basicdxmodel->mats[0].attr_texId = 96;  //Light 2
 		*(NJS_OBJECT*)0x0279D364 = object_000A0E58; // barrel

@@ -1744,4 +1744,3 @@ NJS_MATERIAL matlist_000B5F1C_2[] = {
 NJS_MODEL_SADX attach_000B6CD0_2 = { vertex_000B6310, normal_000B67F0, LengthOfArray(vertex_000B6310), meshlist_000B62B0, matlist_000B5F1C_2, LengthOfArray(meshlist_000B62B0), LengthOfArray(matlist_000B5F1C_2),{ 0.000002f, 6.800001f, 0 }, 25.0988f, NULL };
 
 NJS_OBJECT object_000B6CF8_2 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000B6CD0_2, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
-
