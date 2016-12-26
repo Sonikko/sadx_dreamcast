@@ -8,38 +8,44 @@
 #include "ADV_MR03 (Final Egg entrance).h"
 #include "OFinalEgg.h"
 #include "MR_train.h"
+DataArray(FogData, MR1FogDay, 0x01103448, 3);
+DataArray(FogData, MR2FogDay, 0x01103478, 3);
+DataArray(FogData, MR3FogDay, 0x011034A8, 3);
+DataArray(FogData, MR4FogDay, 0x011034D8, 3);
+DataArray(FogData, MR1FogEvening, 0x01103508, 3);
+DataArray(FogData, MR2FogEvening, 0x01103538, 3);
+DataArray(FogData, MR1FogNight, 0x01103568, 3);
+DataArray(FogData, MR3FogNight, 0x01103598, 3);
+DataArray(DrawDistance, MR1DrawDist, 0x011033E8, 3);
+DataArray(DrawDistance, MR2DrawDist, 0x01103400, 3);
+DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
+DataPointer(float, CurrentFogDist, 0x03ABDC64);
+DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 
 NJS_TEXNAME textures_mrtrain[31];
 NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
+static bool InsideTemple = 0;
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	DataArray(FogData, MR1FogDay, 0x01103448, 3);
-	DataArray(FogData, MR2FogDay, 0x01103478, 3);
-	DataArray(FogData, MR3FogDay, 0x011034A8, 3);
-	DataArray(FogData, MR4FogDay, 0x011034D8, 3);
-	DataArray(FogData, MR1FogEvening, 0x01103508, 3);
-	DataArray(FogData, MR2FogEvening, 0x01103538, 3);
-	DataArray(FogData, MR1FogNight, 0x01103568, 3);
-	DataArray(FogData, MR3FogNight, 0x01103598, 3);
-	DataArray(DrawDistance, MR1DrawDist, 0x011033E8, 3);
-	DataArray(DrawDistance, MR2DrawDist, 0x01103400, 3);
-	DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
 	for (int i = 0; i < 3; i++)
 	{
 		MR1FogDay[i].Distance = 9000.0f;
 		MR1FogDay[i].Layer = 3500.0f;
-		MR2FogDay[i].Distance = 9000.0f;
-		MR2FogDay[i].Layer = 3000.0f;
-		MR3FogDay[i].Toggle = 0;
 		MR1FogEvening[i].Distance = 9000.0f;
 		MR1FogEvening[i].Layer = 3500.0f;
-		MR2FogEvening[i].Distance = 9000.0f;
-		MR2FogEvening[i].Layer = 3000.0f;
 		MR1FogNight[i].Distance = 9000.0f;
 		MR1FogNight[i].Layer = 3500.0f;
-		MR3FogNight[i].Distance = 9000; 
-		MR3FogNight[i].Layer = 3500;
+		MR2FogDay[i].Layer = 3000.0f;
+		MR2FogDay[i].Distance = 9000.0f;
+		MR2FogEvening[i].Distance = 9000.0f;
+		MR2FogEvening[i].Layer = 3000.0f;
+		MR3FogDay[i].Layer = -5000.0f;
+		MR3FogDay[i].Distance = -10000.0f;
+		MR3FogDay[i].Color = 0xFF8F9672;
+		MR3FogNight[i].Distance = -12000;
+		MR3FogNight[i].Color = 0xFF000F53;
+		MR3FogNight[i].Layer = -5000;
 		MR1DrawDist[i].Maximum = -12000.0f;
 		MR3DrawDist[i].Maximum = -12000.0f;
 		//Either some of these are shared for night, or I'm too dumb to understand the disassembly
@@ -82,6 +88,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 
 extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 {
+	auto entity = CharObj1Ptrs[0];
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 0)
 	{
@@ -327,6 +334,26 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 2)
 	{
+		if (entity != nullptr && entity->Position.z < -725 && entity->Position.z > -1560 && entity->Position.x < -100 && entity->Position.x > -900)
+		{
+			InsideTemple = 1;
+		}
+		else InsideTemple = 0;
+		if (entity != nullptr && entity->Position.y < 300.0f && InsideTemple == 0)
+		{
+				if (CurrentFogLayer < -350.0f) CurrentFogLayer = CurrentFogLayer + 32.0f;
+				if (CurrentFogDist < -2200.0f) CurrentFogDist = CurrentFogDist + 32.0f;
+		}
+		if (entity != nullptr && entity->Position.y > 300.0f)
+		{
+			if (CurrentFogLayer > -5000.0f) CurrentFogLayer = CurrentFogLayer - 16.0f;
+			if (CurrentFogDist > -12000.0f) CurrentFogDist = CurrentFogDist - 32.0f;
+		}
+		if (InsideTemple == 1)
+		{
+			if (CurrentFogLayer > -5000.0f) CurrentFogLayer = CurrentFogLayer - 16.0f;
+			if (CurrentFogDist > -12000.0f) CurrentFogDist = CurrentFogDist - 32.0f;
+		}
 		if (FrameCounter % 128 == 2) ___ADV02MR02_OBJECTS[145]->basicdxmodel->mats[1].attr_texId = 125;
 		if (FrameCounter % 128 == 4) ___ADV02MR02_OBJECTS[145]->basicdxmodel->mats[1].attr_texId = 126;
 		if (FrameCounter % 128 == 6) ___ADV02MR02_OBJECTS[145]->basicdxmodel->mats[1].attr_texId = 127;
