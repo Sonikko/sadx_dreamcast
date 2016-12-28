@@ -87,7 +87,10 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		WriteData((void*)0x00557009, 0x90, 16);
+		WriteData((void*)0x00557009, 0x90, 16); //Kill Chaos 6 skybox animation
+		WriteData((void*)0x00557073, 0x0, 2); // Kill Chaos 6 skybox scale 1
+		WriteData((void*)0x00557078, 0x0, 2); // Kill Chaos 6 skybox scale 2
+		WriteData((void*)0x0055707D, 0x0, 2); // Kill Chaos 6 skybox scale 3
 		ResizeTextureList((NJS_TEXLIST*)0x118FF08, textures_chaos4dc);
 		ResizeTextureList((NJS_TEXLIST*)0x121FF28, textures_chaos6);
 		ResizeTextureList((NJS_TEXLIST*)0x11F04A0, textures_chaos6_2);
@@ -97,6 +100,7 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x167E5CC, textures_eggviper);
 		ResizeTextureList((NJS_TEXLIST*)0x14FBFB4, textures_e101);
 		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 81); //Zero texlist
+		
 		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 water
 		((LandTable *)0x11EDE38)->COLList = collist_0014AFB4; //Chaos6 COL list
 		((LandTable *)0x11EDE38)->COLCount = LengthOfArray(collist_0014AFB4); //Chaos6 COL list
@@ -125,6 +129,8 @@ extern "C"
 		((NJS_OBJECT *)0x016E3354)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2;
 		((NJS_OBJECT *)0x016E3354)->basicdxmodel->mats[1].diffuse.color = 0x99B2B2B2;
 		DataArray(FogData, Chaos2Fog, 0x01120638, 3);
+		DataArray(FogData, Chaos6SFog, 0x011EF0E8, 3);
+		DataArray(FogData, Chaos6KFog, 0x011EF118, 3);
 		DataArray(FogData, Chaos4Fog, 0x0118FA00, 3);
 		DataArray(FogData, Chaos7Fog, 0x01420E30, 3);
 		DataArray(FogData, EggHornetFog, 0x01556B34, 3);
@@ -142,6 +148,8 @@ extern "C"
 			Chaos4Fog[i].Layer = 1.0f;
 			Chaos4Fog[i].Distance = 2000.0f;
 			Chaos4Fog[i].Toggle = 0;
+			Chaos6SFog[i].Distance = 12000.0f;	
+			Chaos6KFog[i].Distance = 12000.0f;
 			//Chaos7Fog[i].Color = 0xFF000000;
 			Chaos7Fog[i].Layer = -4000.0f;
 			Chaos7Fog[i].Distance = 11000.0f;

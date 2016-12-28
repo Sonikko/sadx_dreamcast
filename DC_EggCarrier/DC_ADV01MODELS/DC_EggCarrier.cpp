@@ -13,7 +13,7 @@
 #include "ADV01C_03.h"
 #include "ADV01C_04.h"
 #include "ADV01C_05.h"
-
+#include "EC_Objects.h"
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
@@ -49,9 +49,17 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___LANDTABLEECC[3] = &landtable_0000EDB8;
 	___LANDTABLEECC[4] = &landtable_0000F7A8;
 	___LANDTABLEECC[5] = &landtable_0000FE44;
+	NJS_OBJECT **___ADV01C_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle3, "___ADV01C_OBJECTS");
+	//___ADV01C_OBJECTS[7] = &object_00111964;
+	___ADV01C_OBJECTS[7]->basicdxmodel->mats = matlist_0011154C;
+	___ADV01C_OBJECTS[7]->basicdxmodel->meshsets = meshlist_001116A0;
+	___ADV01C_OBJECTS[7]->child->basicdxmodel->mats = matlist_00111440;
+	//___ADV01C_OBJECTS[7]->sibling = &object_00111964Z;
+	//___ADV01C_OBJECTS[7]->child->evalflags
 	DataArray(FogData, EggCarrierOutside4Fog, 0x010F239C, 3);
 	DataArray(FogData, EggCarrierOutside5Fog, 0x010F23CC, 3);
 	DataArray(FogData, EggCarrierOutside6Fog, 0x010F23FC, 3);
+	DataArray(FogData, EggCarrierOutside7Fog, 0x010F242C, 3);
 	DataArray(FogData, EggCarrierInside1Fog, 0x01100C18, 3);
 	DataArray(FogData, EggCarrierInside2Fog, 0x01100C48, 3);
 	DataArray(FogData, EggCarrierInside3Fog, 0x01100C78, 3);
@@ -63,10 +71,18 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		EggCarrierOutside4Fog[i].Toggle = 0;
 		EggCarrierOutside5Fog[i].Toggle = 0;
 		EggCarrierOutside6Fog[i].Toggle = 0;
+		EggCarrierOutside7Fog[i].Toggle = 1;
+		//EggCarrierOutside7Fog[i].Distance = 800;
 		EggCarrierInside1Fog[i].Toggle = 0;
-		EggCarrierInside2Fog[i].Toggle = 0;
+		EggCarrierInside2Fog[i].Toggle = 1;
+		EggCarrierInside2Fog[i].Distance = 4000.0f;
+		EggCarrierInside2Fog[i].Layer = 800.0f;
+		EggCarrierInside2Fog[i].Color = 0xFFC6C9A8;
 		EggCarrierInside3Fog[i].Toggle = 0;
-		EggCarrierInside4Fog[i].Toggle = 0;
+		EggCarrierInside4Fog[i].Toggle = 1;
+		EggCarrierInside4Fog[i].Distance = 1216.0f;
+		EggCarrierInside4Fog[i].Layer = 139.0f;
+		EggCarrierInside4Fog[i].Color = 0xFFC8C864;
 		EggCarrierInside5Fog[i].Toggle = 0;
 		EggCarrierInside6Fog[i].Toggle = 0;
 	}

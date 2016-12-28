@@ -160,6 +160,7 @@
     <ClInclude Include="ADV01_3.h" />
     <ClInclude Include="ADV01_4.h" />
     <ClInclude Include="ADV01_5.h" />
+    <ClInclude Include="EC_Objects.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="SADXModLoader.h" />
     <ClInclude Include="stdafx.h" />

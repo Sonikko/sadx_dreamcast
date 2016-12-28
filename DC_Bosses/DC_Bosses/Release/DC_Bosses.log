@@ -3607,6 +3607,12 @@ g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1.h(16847): w
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1.h(17304): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1.h(17313): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1.h(17313): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1.h(17327): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1.h(17355): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1.h(17362): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1.h(17807): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1.h(17807): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act1.h(17807): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act2.h(7): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act2.h(36): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\Chaos6_Act2.h(208): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
@@ -5912,11 +5918,11 @@ g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\E101R.h(17279): warning
 g:\sonic\sadx project\sadx_dreamcast\dc_bosses\dc_bosses\E101R.h(17279): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 DC_Bosses.cpp(87): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
 DC_Bosses.cpp(90): warning C4309: 'argument': truncation of constant value
-DC_Bosses.cpp(102): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
+DC_Bosses.cpp(106): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.exp
   Generating code
-  All 1295 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1297 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_Bosses.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.dll
   DC_Bosses.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Bosses\Release\DC_Bosses.pdb (Full PDB)
