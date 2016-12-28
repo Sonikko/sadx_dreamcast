@@ -15,6 +15,9 @@
 #include "Zero.h"
 #include "E101R.h"
 
+DataPointer(float, Chaos4Hitpoints, 0x03C58158);
+static bool Chaos4Defeated = 0;
+
 NJS_MKEY_A animation_0004CEA0_15_rot[] = {
 	{ 0, 0, 0, 0 },
 	{ 1, 0, 0x1FFF, 0 },
@@ -100,11 +103,9 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x167E5CC, textures_eggviper);
 		ResizeTextureList((NJS_TEXLIST*)0x14FBFB4, textures_e101);
 		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 81); //Zero texlist
-		
-		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 water
+		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 swamp water
 		((LandTable *)0x11EDE38)->COLList = collist_0014AFB4; //Chaos6 COL list
 		((LandTable *)0x11EDE38)->COLCount = LengthOfArray(collist_0014AFB4); //Chaos6 COL list
-		//ResizeTextureList((NJS_TEXLIST *)0x121FF28, 79); //Chaos 6 texlist
 		memcpy((void*)0x011EDE20, &animlist_0014B62C, sizeof(animlist_0014B62C)); // Chaos6 animlist
 		memcpy((void*)0x01183F04, &object_0006B438, sizeof(object_0006B438)); // Chaos2 1 
 		memcpy((void*)0x0118440C, &object_0006B890, sizeof(object_0006B890)); // Chaos2 2
@@ -159,4 +160,35 @@ extern "C"
 		___BOSSCHAOS0_ACTIONS[18]->motion = &animation_0004CEA0;
 	}
 
+	__declspec(dllexport) void __cdecl OnFrame()
+	{
+		//water animation
+		if (CurrentLevel == 17 && GameState == 15)
+		{
+			if (LevelFrameCount % 56 == 0) matlist_000429E8[0].attr_texId = 27;
+			if (LevelFrameCount % 56 == 4) matlist_000429E8[0].attr_texId = 26;
+			if (LevelFrameCount % 56 == 8) matlist_000429E8[0].attr_texId = 25;
+			if (LevelFrameCount % 56 == 12) matlist_000429E8[0].attr_texId = 24;
+			if (LevelFrameCount % 56 == 16) matlist_000429E8[0].attr_texId = 23;
+			if (LevelFrameCount % 56 == 20) matlist_000429E8[0].attr_texId = 22;
+			if (LevelFrameCount % 56 == 24) matlist_000429E8[0].attr_texId = 21;
+			if (LevelFrameCount % 56 == 28) matlist_000429E8[0].attr_texId = 20;
+			if (LevelFrameCount % 56 == 32) matlist_000429E8[0].attr_texId = 19;
+			if (LevelFrameCount % 56 == 36) matlist_000429E8[0].attr_texId = 18;
+			if (LevelFrameCount % 56 == 40) matlist_000429E8[0].attr_texId = 17;
+			if (LevelFrameCount % 56 == 44) matlist_000429E8[0].attr_texId = 16;
+			if (LevelFrameCount % 56 == 48) matlist_000429E8[0].attr_texId = 15;
+			if (LevelFrameCount % 56 == 52) matlist_000429E8[0].attr_texId = 14;
+		}
+		if (CurrentLevel == 17 && LevelFrameCount < 70)
+		{
+			matlist_000429E8[0].diffuse.argb.a = 0xBF; //set water alpha back to normal if level is restarted
+			object_000425F8.basicdxmodel->mats[0].diffuse.argb.a = 0x65;
+			Chaos4Defeated = 0;
+		}
+		if (CurrentLevel == 17 && GameState == 15 && Chaos4Hitpoints > 4 && LevelFrameCount > 70 && matlist_000429E8[0].diffuse.argb.a>3)matlist_000429E8[0].diffuse.argb.a= matlist_000429E8[0].diffuse.argb.a-4; //make water invisible when Chaos4 gets in there
+		if (CurrentLevel == 17 && GameState == 15 && Chaos4Hitpoints < 1) Chaos4Defeated = 1;
+		if (CurrentLevel == 17 && Chaos4Defeated == 1 && object_000425F8.basicdxmodel->mats[0].diffuse.argb.a > 0) object_000425F8.basicdxmodel->mats[0].diffuse.argb.a--;
+		if (CurrentLevel == 17 && Chaos4Defeated == 1 && matlist_000429E8[0].diffuse.argb.a < 0xBF) matlist_000429E8[0].diffuse.argb.a = matlist_000429E8[0].diffuse.argb.a + 4;
+	}
 }

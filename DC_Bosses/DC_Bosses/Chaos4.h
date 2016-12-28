@@ -7740,14 +7740,15 @@ COL collist_00045098[] = {
 	{ { 306.7904f, 122.1681f, 99.5808f }, 66.38384f, 0, 0, &object_0004DEB0, 0, 0x80000000 },
 	{ { 85.50972f, 163.6453f, 329.5077f }, 151.9134f, 0, 0, &object_0004DEE4, 0, 0x80000000 },
 	{ { -300.962f, 146.7567f, 58.61369f }, 151.9134f, 0, 0, &object_0004DF18, 0, 0x80000000 },
-	{ { 14.91382f, 138.3999f, -264.9746f }, 151.9134f, 0, 0, &object_0004DF4C, 0, 0x80000000 }
+	{ { 14.91382f, 138.3999f, -264.9746f }, 151.9134f, 0, 0, &object_0004DF4C, 0, 0x80000000 },
+	{ { -7.3974f, -18.81778f, 77.26566f }, 532.6468f, 0, 0, &object_0004476C, 0, 0x84000000 },
 };
 
 GeoAnimData animlist_00045AB8[] = {
 	{ 0, 0.5f, 60, &object_000086B4, &action_animation_00016428, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_chaos4dc[17];
+NJS_TEXNAME textures_chaos4dc[28];
 NJS_TEXLIST texlist_chaos4dc = { arrayptrandlength(textures_chaos4dc) };
 
 LandTable landtable_00000238 = { LengthOfArray(collist_00045098), LengthOfArray(animlist_00045AB8), 0xD, 20000, collist_00045098, animlist_00045AB8, "CHAOS4_TIKEI", (NJS_TEXLIST *)&texlist_chaos4dc, 0, 0 };
