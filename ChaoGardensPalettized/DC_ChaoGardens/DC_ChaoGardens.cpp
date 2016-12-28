@@ -47,18 +47,19 @@ void __cdecl sub_72A8B0()
 	objLandTableGarden02_Night = (LandTable *)&landtableN_00035928;
 	sub_745A20((NJS_TEX*)&uv_0000EC54, 48);
 }
-PointerInfo pointers[] = {
-	ptrdecl(0x719619, &landtable_0300E738), //SS
-	ptrdecl(0x7191E9, &landtable_03005E54) //EC
-};
+//PointerInfo pointers[] = {
+	//ptrdecl(0x719619, &landtable_0300E738), //SS
+	//ptrdecl(0x7191E9, &landtable_03005E54) //EC
+//};
 
 extern "C"
 
 {
-	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
+	//__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		((LandTable *)0x3405E54)->COLList[74].Flags = 0x84000002; //EC garden ocean animation
 		WriteJump((void*)0x0072A790, sub_72A790);
 		WriteJump((void*)0x0072A820, sub_72A820);
 		WriteJump((void*)0x0072A8B0, sub_72A8B0);

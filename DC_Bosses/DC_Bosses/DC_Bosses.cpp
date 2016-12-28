@@ -106,16 +106,6 @@ extern "C"
 		((LandTable *)0x11EDE38)->COLCount = LengthOfArray(collist_0014AFB4); //Chaos6 COL list
 		//ResizeTextureList((NJS_TEXLIST *)0x121FF28, 79); //Chaos 6 texlist
 		memcpy((void*)0x011EDE20, &animlist_0014B62C, sizeof(animlist_0014B62C)); // Chaos6 animlist
-		//memcpy((void*)0x016B4D20, &animlist_012B4D20, sizeof(animlist_012B4D20)); // Zero animlist
-		//memcpy((void*)0x01522560, &animlist_012B4D20, sizeof(animlist_012B4D20)); // E101R animlist
-		//memcpy((void*)0x016E3994, &object_0001C9EC, sizeof(object_0001C9EC));  // Zero 1 
-		//memcpy((void*)0x01550FD4, &object_0001C9EC, sizeof(object_0001C9EC));  // E101MK2 1
-		//memcpy((void*)0x016E3CCC, &object_0001CD18, sizeof(object_0001CD18));  // Zero 2 
-		//memcpy((void*)0x0155130C, &object_0001CD18, sizeof(object_0001CD18));  // E101MK2 2
-		//memcpy((void*)0x016E301C, &object_0001C090, sizeof(object_0001C090));  // Zero 3
-		//memcpy((void*)0x0155065C, &object_0001C090, sizeof(object_0001C090));  // E101MK2 3
-		//memcpy((void*)0x016E3354, &object_0001C3BC, sizeof(object_0001C3BC));  // Zero 4
-		//memcpy((void*)0x01550994, &object_0001C3BC, sizeof(object_0001C3BC));  // E101MK2 
 		memcpy((void*)0x01183F04, &object_0006B438, sizeof(object_0006B438)); // Chaos2 1 
 		memcpy((void*)0x0118440C, &object_0006B890, sizeof(object_0006B890)); // Chaos2 2
 		object_0006B890.basicdxmodel->mats[0].attr_texId = 11; //Chaos2 BG object fixes

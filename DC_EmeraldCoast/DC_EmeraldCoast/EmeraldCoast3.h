@@ -27969,7 +27969,7 @@ NJS_MODEL_SADX attach_0011C11C = { vertex_0011B78C, normal_0011BC54, LengthOfArr
 NJS_OBJECT object_0011C144 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0011C11C, 6228.5f, -182.181f, 1827.567f, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_MATERIAL matlist_00114D08[] = {
-	{ { 0x99B2B2B2 },{ 0xFFFFFFFF }, 11, 79, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
+	{ { 0x99B2B2B2 },{ 0xFFFFFFFF }, 11, 80, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
 Sint16 poly_00114D1C[] = {
@@ -29887,8 +29887,8 @@ COL collist_0011C2A0[] = {
 	{ { 6043.442f, 40.5f, 1174.875f }, 136.3576f, 0, 0, &object_000F6C90, 0, 0xC0000001 },
 	{ { 6228.086f, -132, 2073.674f }, 35.68558f, 0, 0, &object_000F6FE4, 0, 0xC0000001 },
 	{ { 6223.088f, -6.611206f, 1658.512f }, 194.9413f, 0, 0, &object_000F8F38, 0, 0x80000000 },
-	//{ { 6155.514f, -115.0057f, 2386.457f }, 39.93245f, 0, 0, &object_000F95BC, 0, 0x80000000 }, //overlay2
-	//{ { 6154.842f, -132.5f, 2385.563f }, 444.714f, 0, 0, &object_000F9CDC, 0, 0x80000000 }, //transparent overlay in secret area
+	{ { 6155.514f, -115.0057f, 2386.457f }, 39.93245f, 0, 0, &object_000F95BC, 0, 0x80000000 }, //overlay2
+	{ { 6154.842f, -132.5f, 2385.563f }, 444.714f, 0, 0, &object_000F9CDC, 0, 0x80000000 }, //transparent overlay in secret area
 	{ { 6224.36f, -143, 1659.281f }, 278.1348f, 0, 0, &object_000FAFD0, 0, 0x80000000 },
 	{ { 6154.993f, -136.4742f, 2385.884f }, 230.5834f, 0, 0, &object_000FCDA0, 0, 0x80000000 },
 	{ { 6298.339f, 406, 1028.852f }, 3, 0, 0, &object_000FCF28, 0, 0x80000000 },
@@ -30043,7 +30043,7 @@ COL collist_0011C2A0[] = {
 	{ { 6178.073f, -67.87634f, 1498.94f }, 295.3845f, 0, 0, &object_000FFD14, 0, 0x80000000 },
 	{ { 6229.104f, -67.98711f, 1788.28f }, 316.1186f, 0, 0, &object_00101E68, 0, 0x80000000 },
 	{ { 6223.088f, -77.02789f, 1658.512f }, 149.4798f, 0, 0, &object_001012EC, 0, 0x80000000 },
-	{ { 6142.32f, -109, 2373.32f }, 497.1809f, 0, 0, &object_001172DC, 0, 0x00000002 }, //water in secret area
+	{ { 6142.32f, -109, 2373.32f }, 497.1809f, 0, 0, &object_001172DC, 0, 0x80000002 }, //water in secret area
 };
 
 NJS_TEXNAME textures_ecoast3[95];
