@@ -3700,13 +3700,13 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MR_train.h(48
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MR_train.h(5075): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MR_train.h(5075): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MR_train.h(5075): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-DC_ADV02MODELS.cpp(123): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(128): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(187): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(188): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(189): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(190): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(191): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(214): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(219): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(278): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(279): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(280): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(281): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(282): warning C4018: '<': signed/unsigned mismatch
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV02MODELS\Release\DC_ADV02MODELS.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV02MODELS\Release\DC_ADV02MODELS.exp
   Generating code

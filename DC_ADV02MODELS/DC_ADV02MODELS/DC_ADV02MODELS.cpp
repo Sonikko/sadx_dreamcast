@@ -92,8 +92,8 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 0)
 	{
-		if (FrameCounter % 30 == 1) matlist_0007523C[0].attr_texId = 133;
-		if (FrameCounter % 30 == 4) matlist_0007523C[0].attr_texId = 134;
+		if (FrameCounter % 30 == 1)	matlist_0007523C[0].attr_texId = 133;
+		if (FrameCounter % 30 == 4)	matlist_0007523C[0].attr_texId = 134;
 		if (FrameCounter % 30 == 7) matlist_0007523C[0].attr_texId = 135;
 		if (FrameCounter % 30 == 10) matlist_0007523C[0].attr_texId = 136;
 		if (FrameCounter % 30 == 13) matlist_0007523C[0].attr_texId = 137;
@@ -102,21 +102,112 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		if (FrameCounter % 30 == 22) matlist_0007523C[0].attr_texId = 140;
 		if (FrameCounter % 30 == 25) matlist_0007523C[0].attr_texId = 141;
 		if (FrameCounter % 30 == 28) matlist_0007523C[0].attr_texId = 142;
-		/*if (FrameCounter % 60 == 0) matlist_00053510[0].attr_texId = 143;
-		if (FrameCounter % 60 == 4) matlist_00053510[0].attr_texId = 144;
-		if (FrameCounter % 60 == 8) matlist_00053510[0].attr_texId = 145;
-		if (FrameCounter % 60 == 12) matlist_00053510[0].attr_texId = 146;
-		if (FrameCounter % 60 == 16) matlist_00053510[0].attr_texId = 147;
-		if (FrameCounter % 60 == 20) matlist_00053510[0].attr_texId = 148;
-		if (FrameCounter % 60 == 24) matlist_00053510[0].attr_texId = 149;
-		if (FrameCounter % 60 == 28) matlist_00053510[0].attr_texId = 150;
-		if (FrameCounter % 60 == 32) matlist_00053510[0].attr_texId = 151;
-		if (FrameCounter % 60 == 36) matlist_00053510[0].attr_texId = 152;
-		if (FrameCounter % 60 == 40) matlist_00053510[0].attr_texId = 153;
-		if (FrameCounter % 60 == 44) matlist_00053510[0].attr_texId = 154;
-		if (FrameCounter % 60 == 48) matlist_00053510[0].attr_texId = 155;
-		if (FrameCounter % 60 == 52) matlist_00053510[0].attr_texId = 156;
-		if (FrameCounter % 60 == 56) matlist_00053510[0].attr_texId = 157;*/
+
+		if (FrameCounter % 60 == 0)
+		{
+			matlist_00053510[0].attr_texId = 143;
+			matlist_00053010[0].attr_texId = 143;
+			matlist_00059768[0].attr_texId = 143;
+			matlist_000594C0[0].attr_texId = 143;
+		}
+		if (FrameCounter % 60 == 4)
+		{
+			matlist_00053510[0].attr_texId = 144;
+			matlist_00053010[0].attr_texId = 144;
+			matlist_00059768[0].attr_texId = 144;
+			matlist_000594C0[0].attr_texId = 144;
+		}
+		if (FrameCounter % 60 == 8) 
+		{
+			matlist_00053510[0].attr_texId = 145; 
+			matlist_00053010[0].attr_texId = 145;
+			matlist_00059768[0].attr_texId = 145;
+			matlist_000594C0[0].attr_texId = 145;
+		}
+		if (FrameCounter % 60 == 12) 
+		{ 
+			matlist_00053510[0].attr_texId = 146; 
+			matlist_00053010[0].attr_texId = 146;
+			matlist_00059768[0].attr_texId = 146;
+			matlist_000594C0[0].attr_texId = 146;
+		}
+		if (FrameCounter % 60 == 16)
+		{
+			matlist_00053510[0].attr_texId = 147; 
+			matlist_00053010[0].attr_texId = 147;
+			matlist_00059768[0].attr_texId = 147;
+			matlist_000594C0[0].attr_texId = 147;
+		}
+		if (FrameCounter % 60 == 20)
+		{
+			matlist_00053510[0].attr_texId = 148;
+			matlist_00053010[0].attr_texId = 148;
+			matlist_00059768[0].attr_texId = 148;
+			matlist_000594C0[0].attr_texId = 148;
+		}
+		if (FrameCounter % 60 == 24)
+		{
+			matlist_00053510[0].attr_texId = 149;
+			matlist_00053010[0].attr_texId = 149;
+			matlist_00059768[0].attr_texId = 149;
+			matlist_000594C0[0].attr_texId = 149;
+		}
+		if (FrameCounter % 60 == 28) 
+		{
+			matlist_00053510[0].attr_texId = 150;
+			matlist_00053010[0].attr_texId = 150;
+			matlist_00059768[0].attr_texId = 150;
+			matlist_000594C0[0].attr_texId = 150;
+		}
+		if (FrameCounter % 60 == 32)
+		{
+			matlist_00053510[0].attr_texId = 151;
+			matlist_00053010[0].attr_texId = 151;
+			matlist_00059768[0].attr_texId = 151;
+			matlist_000594C0[0].attr_texId = 151;
+		}
+		if (FrameCounter % 60 == 36)
+		{
+			matlist_00053510[0].attr_texId = 152;
+			matlist_00053010[0].attr_texId = 152;
+			matlist_00059768[0].attr_texId = 152;
+			matlist_000594C0[0].attr_texId = 152;
+		}
+		if (FrameCounter % 60 == 40)
+		{
+			matlist_00053510[0].attr_texId = 153;
+			matlist_00053010[0].attr_texId = 153;
+			matlist_00059768[0].attr_texId = 153;
+			matlist_000594C0[0].attr_texId = 153;
+		}
+		if (FrameCounter % 60 == 44)
+		{
+			matlist_00053510[0].attr_texId = 154;
+			matlist_00053010[0].attr_texId = 154;
+			matlist_00059768[0].attr_texId = 154;
+			matlist_000594C0[0].attr_texId = 154;
+		}
+		if (FrameCounter % 60 == 48)
+		{
+			matlist_00053510[0].attr_texId = 155;
+			matlist_00053010[0].attr_texId = 155;
+			matlist_00059768[0].attr_texId = 155;
+			matlist_000594C0[0].attr_texId = 155;
+		}
+		if (FrameCounter % 60 == 52)
+		{
+			matlist_00053510[0].attr_texId = 156;
+			matlist_00053010[0].attr_texId = 156;
+			matlist_00059768[0].attr_texId = 156;
+			matlist_000594C0[0].attr_texId = 156;
+		}
+		if (FrameCounter % 60 == 56)
+		{
+			matlist_00053510[0].attr_texId = 157;
+			matlist_00053010[0].attr_texId = 157;
+			matlist_00059768[0].attr_texId = 157;
+			matlist_000594C0[0].attr_texId = 157;
+		}
 	}
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 0)
 	{
