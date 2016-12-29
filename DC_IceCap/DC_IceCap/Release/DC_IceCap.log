@@ -2935,7 +2935,9 @@ g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(969): warning 
 g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(969): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_icecap\dc_icecap\Icicle.h(969): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 DC_IceCap.cpp(20): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+DC_IceCap.cpp(28): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
 DC_IceCap.cpp(33): warning C4018: '<': signed/unsigned mismatch
+DC_IceCap.cpp(37): warning C4018: '<': signed/unsigned mismatch
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_IceCap\Release\DC_IceCap.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_IceCap\Release\DC_IceCap.exp
   Generating code

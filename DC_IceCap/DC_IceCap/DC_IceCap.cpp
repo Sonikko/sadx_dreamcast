@@ -23,9 +23,9 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0xDE3A74, textures_icecap1);
 		ResizeTextureList((NJS_TEXLIST*)0xD39744, textures_icecap2);
 		ResizeTextureList((NJS_TEXLIST*)0xC68408, textures_icecap3);
-		LandTable *lt = (LandTable *)0x0E3E024; COL *tmp = new COL[345];
+		LandTable *lt = (LandTable *)0x0E3E024; COL *tmp = new COL[171+LengthOfArray(collist_000180D8)];
 		memcpy(tmp, lt->COLList, sizeof(COL) * lt->COLCount);
-		lt->COLList = tmp; lt->COLCount = 345;
+		lt->COLList = tmp; lt->COLCount = 171 + LengthOfArray(collist_000180D8);
 		for (int inv = 0; inv < 170; inv++)
 		{
 			((LandTable *)0x0E3E024)->COLList[inv].Flags &= ~ColFlags_Visible;
@@ -33,6 +33,10 @@ extern "C"
 		for (int c = 171; c < LengthOfArray(collist_000180D8)+171; c++)
 		{
 			((LandTable *)0x0E3E024)->COLList[c] = collist_000180D8[c-171];
+		}
+		for (int inv2 = 171; inv2 < 171 + LengthOfArray(collist_000180D8); inv2++)
+		{
+			((LandTable *)0x0E3E024)->COLList[inv2].Flags &= ~ColFlags_Solid;
 		}
 		memcpy((void*)0x0E537D8, &object_00162694, sizeof(object_00162694));  // Icicle
 		DataArray(FogData, IceCap1Fog, 0x00C67EA0, 1);
