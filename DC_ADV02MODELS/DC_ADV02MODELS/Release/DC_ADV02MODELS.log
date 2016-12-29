@@ -1786,38 +1786,38 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Ang
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34648): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34648): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34648): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34667): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34688): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34699): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34703): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34714): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34718): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34722): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34727): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34731): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34735): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35183): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35183): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35183): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35305): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35315): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35317): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35319): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35353): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35373): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35391): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35393): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35395): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35401): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35405): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35407): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35429): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35439): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35449): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35453): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35673): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35678): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35678): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34666): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34687): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34698): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34702): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34713): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34717): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34721): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34726): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34730): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(34734): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35182): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35182): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35182): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35304): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35314): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35316): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35318): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35352): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35372): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35390): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35392): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35394): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35400): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35404): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35406): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35428): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35438): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35448): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35452): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35672): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35677): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR01 (Angel Island).h(35677): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(6): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(15): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\ADV_MR02 (Jungle area).h(77): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
@@ -3700,13 +3700,13 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MR_train.h(48
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MR_train.h(5075): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MR_train.h(5075): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MR_train.h(5075): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-DC_ADV02MODELS.cpp(214): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(219): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(278): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(279): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(280): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(281): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(218): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(223): warning C4018: '<': signed/unsigned mismatch
 DC_ADV02MODELS.cpp(282): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(283): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(284): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(285): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(286): warning C4018: '<': signed/unsigned mismatch
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV02MODELS\Release\DC_ADV02MODELS.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV02MODELS\Release\DC_ADV02MODELS.exp
   Generating code

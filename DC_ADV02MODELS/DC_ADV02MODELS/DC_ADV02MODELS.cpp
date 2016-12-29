@@ -14,6 +14,7 @@ DataArray(FogData, MR3FogDay, 0x011034A8, 3);
 DataArray(FogData, MR4FogDay, 0x011034D8, 3);
 DataArray(FogData, MR1FogEvening, 0x01103508, 3);
 DataArray(FogData, MR2FogEvening, 0x01103538, 3);
+DataArray(FogData, MR3FogEvening, 0x01103568, 3);
 DataArray(FogData, MR1FogNight, 0x01103568, 3);
 DataArray(FogData, MR3FogNight, 0x01103598, 3);
 DataArray(DrawDistance, MR1DrawDist, 0x011033E8, 3);
@@ -30,23 +31,26 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 {
 	for (int i = 0; i < 3; i++)
 	{
-		MR1FogDay[i].Distance = 9000.0f;
-		MR1FogDay[i].Layer = 3500.0f;
-		MR1FogEvening[i].Distance = 9000.0f;
-		MR1FogEvening[i].Layer = 3500.0f;
-		MR1FogNight[i].Distance = 9000.0f;
-		MR1FogNight[i].Layer = 3500.0f;
-		MR2FogDay[i].Layer = 3000.0f;
-		MR2FogDay[i].Distance = 9000.0f;
-		MR2FogEvening[i].Distance = 9000.0f;
-		MR2FogEvening[i].Layer = 3000.0f;
+		MR1FogDay[i].Distance = -9000.0f;
+		MR1FogDay[i].Layer = -3500.0f;
+		MR1FogEvening[i].Distance = -9000.0f;
+		MR1FogEvening[i].Layer = -3500.0f;
+		MR1FogNight[i].Distance = -9000.0f;
+		MR1FogNight[i].Layer = -3500.0f;
+		MR2FogDay[i].Layer = -5000.0f;
+		MR2FogDay[i].Distance = -12000.0f;
+		MR2FogEvening[i].Distance = -12000.0f;
+		MR2FogEvening[i].Layer = -5000.0f;
 		MR3FogDay[i].Layer = -5000.0f;
-		MR3FogDay[i].Distance = -10000.0f;
+		MR3FogDay[i].Distance = -12000.0f;
 		MR3FogDay[i].Color = 0xFF8F9672;
 		MR3FogNight[i].Distance = -12000;
 		MR3FogNight[i].Color = 0xFF000F53;
 		MR3FogNight[i].Layer = -5000;
-		MR1DrawDist[i].Maximum = -12000.0f;
+		MR3FogEvening[i].Layer = -5000;
+		MR3FogEvening[i].Distance = -12000;
+		MR1DrawDist[i].Maximum = -10000.0f;
+		MR2DrawDist[i].Maximum = -10000.0f;
 		MR3DrawDist[i].Maximum = -12000.0f;
 		//Either some of these are shared for night, or I'm too dumb to understand the disassembly
 	}
