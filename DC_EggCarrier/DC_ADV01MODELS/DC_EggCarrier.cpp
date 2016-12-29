@@ -15,6 +15,9 @@
 #include "ADV01C_05.h"
 #include "EC_Objects.h"
 
+static bool PinkMonitorMode = 0;
+static bool CurrentlyPink = 0;
+
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
@@ -85,6 +88,32 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		EggCarrierInside4Fog[i].Color = 0xFFC8C864;
 		EggCarrierInside5Fog[i].Toggle = 0;
 		EggCarrierInside6Fog[i].Toggle = 0;
+	}
+}
+
+extern "C" __declspec(dllexport)  void __cdecl OnFrame()
+{
+	if (CurrentLevel == 32 | CurrentLevel == 12) PinkMonitorMode = 1;
+	if (CurrentLevel != 32 && CurrentLevel != 12) PinkMonitorMode = 0;
+	if (PinkMonitorMode == 1 && CurrentlyPink == 0)
+	{
+		for (int p = 0; p < 17; p++)
+		{
+			((NJS_OBJECT*)0x38F4F04)->basicdxmodel->mats[p].diffuse.color = 0xFFFF40FF;
+			((NJS_OBJECT*)0x38F4F04)->basicdxmodel->mats[p].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			CurrentlyPink = 1;
+		}
+	}
+	if (PinkMonitorMode == 0 && CurrentlyPink == 1)
+	{
+		for (int p = 0; p < 17; p++)
+		{
+			((NJS_OBJECT*)0x38F4F04)->basicdxmodel->mats[p].diffuse.color = 0xFFB2B2B2;
+			((NJS_OBJECT*)0x38F4F04)->basicdxmodel->mats[p].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			CurrentlyPink = 0;
+		}
+		((NJS_OBJECT*)0x38F4F04)->basicdxmodel->mats[10].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_OBJECT*)0x38F4F04)->basicdxmodel->mats[16].diffuse.color = 0x7FB2B2B2;
 	}
 }
 
