@@ -3,6 +3,7 @@
 #include "IceCap1.h"
 #include "IceCap2.h"
 #include "IceCap3.h"
+#include "IceCap4_PC.h"
 #include "IceCap4.h"
 #include "Icicle.h"
 
@@ -10,7 +11,7 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DB08, &landtable_00014B44),
 	ptrdecl(0x97DB0C, &landtable_00015714),
 	ptrdecl(0x97DB10, &landtable_000180B4),
-	ptrdecl(0x97DB14, &landtable_00019950)
+	//ptrdecl(0x97DB14, &landtable_00019950)
 };
 
 extern "C"
@@ -22,6 +23,17 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0xDE3A74, textures_icecap1);
 		ResizeTextureList((NJS_TEXLIST*)0xD39744, textures_icecap2);
 		ResizeTextureList((NJS_TEXLIST*)0xC68408, textures_icecap3);
+		LandTable *lt = (LandTable *)0x0E3E024; COL *tmp = new COL[345];
+		memcpy(tmp, lt->COLList, sizeof(COL) * lt->COLCount);
+		lt->COLList = tmp; lt->COLCount = 345;
+		for (int inv = 0; inv < 170; inv++)
+		{
+			((LandTable *)0x0E3E024)->COLList[inv].Flags &= ~ColFlags_Visible;
+		}
+		for (int c = 171; c < LengthOfArray(collist_000180D8)+171; c++)
+		{
+			((LandTable *)0x0E3E024)->COLList[c] = collist_000180D8[c-171];
+		}
 		memcpy((void*)0x0E537D8, &object_00162694, sizeof(object_00162694));  // Icicle
 		DataArray(FogData, IceCap1Fog, 0x00C67EA0, 1);
 		DataArray(FogData, IceCap2Fog, 0x00C67ED0, 1);
@@ -506,3 +518,5 @@ extern "C"
 		}
 	}
 }
+//memcpy((void*)0x00D6B39C, &object_0007F6C4, sizeof(object_0007F6C4)); //Env map 1
+//memcpy((void*)0x00DD3A5C, &object_000C50AC, sizeof(object_000C50AC)); //Env map 1
