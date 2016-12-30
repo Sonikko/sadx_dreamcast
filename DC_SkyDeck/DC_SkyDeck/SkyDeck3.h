@@ -6,7 +6,7 @@ NJS_TEXNAME textures_skydeck3[65];
 NJS_TEXLIST texlist_skydeck3 = { arrayptrandlength(textures_skydeck3) };
 
 NJS_MATERIAL matlist_000AC95C[] = {
-	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 55, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+	{ { 0xFFB2B2B2 },{ 0x00FFFFFF }, 11, 55, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
 Sint16 poly_000AC970[] = {
@@ -40528,7 +40528,6 @@ NJS_OBJECT object_000FB0CC = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_
 NJS_OBJECT object_000FB100 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000F6F38, -1400, 0, 0, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
 
 COL collist_000210B8[] = {
-	{ { -701.75f, -200, 117 }, 109.3484f, 0, 0, &object_000ACA68, 0, 0xA0000001 },
 	{ { -1138.813f, 379.5f, 250 }, 371.4205f, 0, 0, &object_000ACDA0, 0, 0x20200001 },
 	{ { -1138.813f, 379.5f, -250 }, 371.4205f, 0, 0, &object_000AD0D8, 0, 0x20200001 },
 	{ { -589.4375f, 379.5f, 250 }, 371.4205f, 0, 0, &object_000AD410, 0, 0x20200001 },
@@ -40767,8 +40766,6 @@ COL collist_000210B8[] = {
 	{ { 300.4999f, -100.0002f, -182.5f }, 351.5771f, 0, 0, &object_000F9A3C, 0, 0xA0000001 },
 	{ { 300.4999f, -100.0002f, 182.4999f }, 351.5771f, 0, 0, &object_000F9DE4, 0, 0xA0000001 },
 	{ { -883.5f, -110, -237.5f }, 61.07577f, 0, 0, &object_000F9FBC, 0, 0xA0000001 },
-	{ { -701.75f, -200, -1.5f }, 109.3484f, 0, 0, &object_000F9FF0, 0, 0xA0000001 },
-	{ { -701.75f, -200, -117 }, 109.3484f, 0, 0, &object_000FA024, 0, 0xA0000001 },
 	{ { 229.9999f, 300, -422.875f }, 43.76088f, 0, 0, &object_000FA058, 0, 0xC0000001 },
 	{ { -10, 299.9997f, 423.8748f }, 43.12499f, 0, 0, &object_000FA08C, 0, 0xC0000001 },
 	{ { 230, 299.9997f, 423.8748f }, 43.12499f, 0, 0, &object_000FA0C0, 0, 0xC0000001 },
@@ -40860,6 +40857,9 @@ COL collist_000210B8[] = {
 	{ { 430.0001f, 59.24999f, -0.000075f }, 122.1152f, 0, 0, &object_000BDFA0, 0, 0xC0000001 },
 	{ { 671.0001f, 168.45f, -248.5f }, 113.8958f, 0, 0, &object_000C566C, 0, 0xC0000001 }, //glass thing 1
 	{ { 671.0001f, 168.45f, 248.5f }, 113.8958f, 0, 0, &object_000FA8AC, 0, 0xC0000001 }, //glass thing 2
+	{ { -701.75f, -200, 117 }, 109.3484f, 0, 0, &object_000ACA68, 0, 0xA0000001 },
+	{ { -701.75f, -200, -1.5f }, 109.3484f, 0, 0, &object_000F9FF0, 0, 0xA0000001 },
+	{ { -701.75f, -200, -117 }, 109.3484f, 0, 0, &object_000FA024, 0, 0xA0000001 },
 };
 
 LandTable landtable_00023EB4 = { LengthOfArray(collist_000210B8), 0, 0xC, 2000, collist_000210B8, NULL, "SKYDECK03", (NJS_TEXLIST *)&texlist_skydeck3, 0, 0 };

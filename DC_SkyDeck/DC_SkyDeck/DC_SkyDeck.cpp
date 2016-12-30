@@ -12,6 +12,14 @@ PointerInfo pointers[] = {
 
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	((NJS_OBJECT *)0x21FE8EC)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Decal
+	((NJS_OBJECT *)0x21FE9F8)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Decal
+	((NJS_OBJECT *)0x21FEB04)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Decal
+	((NJS_OBJECT *)0x21FEC10)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Decal
+	((NJS_OBJECT *)0x21FED1C)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Decal
+	((NJS_OBJECT *)0x21FEE28)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Decal
+	((NJS_OBJECT *)0x21FEF34)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Decal
+	((NJS_OBJECT *)0x21FF040)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Decal
 	ResizeTextureList((NJS_TEXLIST*)0x20E0BB0, textures_skydeck1);
 	ResizeTextureList((NJS_TEXLIST*)0x20AA63C, textures_skydeck2);
 	ResizeTextureList((NJS_TEXLIST*)0x203ACE0, textures_skydeck3);
