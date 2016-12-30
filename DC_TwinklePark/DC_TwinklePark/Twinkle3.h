@@ -1629,7 +1629,11 @@ NJS_OBJECT object_00090F90 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_
 NJS_MATERIAL matlist_00090FC4[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 19, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 10, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
-	{ { 0x00000000 },{ 0x00000000}, 0, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_DA_INV_SRC | NJD_SA_SRC }
+//	{ { 0x32B2B2B2 },{ 0xFFFFFFFF }, 11, 29, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+NJS_MATERIAL matlist_00090FC4_2[] = {
+	{ { 0x32B2B2B2 },{ 0xFFFFFFFF }, 11, 29, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
 Sint16 poly_00091000[] = {
@@ -1640,6 +1644,10 @@ Sint16 poly_0009101A[] = {
 	0x8000u | 12, 11, 8, 10, 9, 17, 16, 5, 2, 4, 3, 14, 13
 };
 
+Sint16 poly_00091034[] = {
+	0x8000u | 12, 31, 30, 21, 18, 20, 19, 34, 33, 27, 24, 26, 25,
+	0x8000u | 12, 29, 25, 28, 24, 35, 33, 23, 19, 22, 18, 32, 30
+};
 
 NJS_TEX uv_00091068[] = {
 	{ 25500, 255 },
@@ -1671,9 +1679,41 @@ NJS_TEX uv_00091098[] = {
 	{ 0 }
 };
 
+NJS_TEX uv_000910C8[] = {
+	{ 255, 0 },
+	{ 255, 127 },
+	{ 204, 0 },
+	{ 204, 127 },
+	{ 153, 0 },
+	{ 153, 127 },
+	{ 102, 0 },
+	{ 102, 127 },
+	{ 51, 0 },
+	{ 51, 127 },
+	{ 0 },
+	{ 0, 127 },
+	{ 0, 255 },
+	{ 0, 127 },
+	{ 51, 255 },
+	{ 51, 127 },
+	{ 102, 255 },
+	{ 102, 127 },
+	{ 153, 255 },
+	{ 153, 127 },
+	{ 204, 255 },
+	{ 204, 127 },
+	{ 255, 255 },
+	{ 255, 127 }
+};
+
 NJS_MESHSET_SADX meshlist_00091128[] = {
 	{ NJD_MESHSET_TRIMESH | 0, 1, poly_00091000, NULL, NULL, NULL, uv_00091068, NULL },
 	{ NJD_MESHSET_TRIMESH | 1, 1, poly_0009101A, NULL, NULL, NULL, uv_00091098, NULL },
+	//{ NJD_MESHSET_TRIMESH | 2, 2, poly_00091034, NULL, NULL, NULL, uv_000910C8, NULL }
+};
+
+NJS_MESHSET_SADX meshlist_00091128_2[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_00091034, NULL, NULL, NULL, uv_000910C8, NULL }
 };
 
 NJS_VECTOR vertex_00091170[] = {
@@ -1755,12 +1795,20 @@ NJS_VECTOR normal_00091320[] = {
 };
 
 NJS_MODEL_SADX attach_000914D0 = { vertex_00091170, normal_00091320, LengthOfArray(vertex_00091170), meshlist_00091128, matlist_00090FC4, LengthOfArray(meshlist_00091128), LengthOfArray(matlist_00090FC4),{ 0 }, 250.002f, NULL };
+NJS_MODEL_SADX attach_000914D0_2 = { vertex_00091170, normal_00091320, LengthOfArray(vertex_00091170), meshlist_00091128_2, matlist_00090FC4_2, LengthOfArray(meshlist_00091128_2), LengthOfArray(matlist_00090FC4_2),{ 0 }, 250.002f, NULL };
 
 NJS_OBJECT object_000914F8 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000914D0, 550, 157.5f, -124.5f, 0, 0, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT object_000914F8_2 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000914D0_2, 550, 157.5f, -124.5f, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
 
 NJS_MATERIAL matlist_0009152C[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 19, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 10, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
+	//{ { 0x32B2B2B2 },{ 0xFFFFFFFF }, 11, 29, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+NJS_MATERIAL matlist_0009152C_2[] = {
+	{ { 0x32B2B2B2 },{ 0xFFFFFFFF }, 11, 29, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
 Sint16 poly_00091568[] = {
@@ -1769,6 +1817,11 @@ Sint16 poly_00091568[] = {
 
 Sint16 poly_00091582[] = {
 	0x8000u | 12, 8, 11, 9, 10, 16, 17, 2, 5, 3, 4, 13, 14
+};
+
+Sint16 poly_0009159C[] = {
+	0x8000u | 12, 26, 25, 27, 24, 34, 33, 20, 19, 21, 18, 31, 30,
+	0x8000u | 12, 25, 29, 24, 28, 33, 35, 19, 23, 18, 22, 30, 32
 };
 
 NJS_TEX uv_000915D0[] = {
@@ -1801,9 +1854,41 @@ NJS_TEX uv_00091600[] = {
 	{ 0, 255 }
 };
 
+NJS_TEX uv_00091630[] = {
+	{ 0 },
+	{ 0, 127 },
+	{ 51, 0 },
+	{ 51, 127 },
+	{ 102, 0 },
+	{ 102, 127 },
+	{ 153, 0 },
+	{ 153, 127 },
+	{ 204, 0 },
+	{ 204, 127 },
+	{ 255, 0 },
+	{ 255, 127 },
+	{ 0, 127 },
+	{ 0, 255 },
+	{ 51, 127 },
+	{ 51, 255 },
+	{ 102, 127 },
+	{ 102, 255 },
+	{ 153, 127 },
+	{ 153, 255 },
+	{ 204, 127 },
+	{ 204, 255 },
+	{ 255, 127 },
+	{ 255, 255 }
+};
+
 NJS_MESHSET_SADX meshlist_00091690[] = {
 	{ NJD_MESHSET_TRIMESH | 0, 1, poly_00091568, NULL, NULL, NULL, uv_000915D0, NULL },
 	{ NJD_MESHSET_TRIMESH | 1, 1, poly_00091582, NULL, NULL, NULL, uv_00091600, NULL },
+	//{ NJD_MESHSET_TRIMESH | 2, 2, poly_0009159C, NULL, NULL, NULL, uv_00091630, NULL }
+};
+
+NJS_MESHSET_SADX meshlist_00091690_2[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_0009159C, NULL, NULL, NULL, uv_00091630, NULL }
 };
 
 NJS_VECTOR vertex_000916D8[] = {
@@ -1886,7 +1971,10 @@ NJS_VECTOR normal_00091888[] = {
 
 NJS_MODEL_SADX attach_00091A38 = { vertex_000916D8, normal_00091888, LengthOfArray(vertex_000916D8), meshlist_00091690, matlist_0009152C, LengthOfArray(meshlist_00091690), LengthOfArray(matlist_0009152C),{ 0 }, 250.002f, NULL };
 
+NJS_MODEL_SADX attach_00091A38_2 = { vertex_000916D8, normal_00091888, LengthOfArray(vertex_000916D8), meshlist_00091690_2, matlist_0009152C_2, LengthOfArray(meshlist_00091690_2), LengthOfArray(matlist_0009152C_2),{ 0 }, 250.002f, NULL };
+
 NJS_OBJECT object_00091A60 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091A38, 550, 157.5f, -74.5f, 0, 0, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT object_00091A60_2 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091A38_2, 550, 157.5f, -74.5f, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_MATERIAL matlist_00091A94[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 18, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
@@ -9307,7 +9395,17 @@ NJS_OBJECT object_0009FFFC = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091
 NJS_OBJECT object_000A0030 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000914D0, 400, 122.5f, -500, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
 
 NJS_OBJECT object_000A0064 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000914D0, 400, 122.5f, -450, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
+//mirror parts 2
+NJS_OBJECT object_0009FF94_2 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000914D0_2, 550, 157.5f, -174.5f, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
+NJS_OBJECT object_0009FFC8_2 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000914D0_2, 550, 157.5f, -224.5f, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_0009FFFC_2 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000914D0_2, 400, 122.5f, -550, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_000A0030_2 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000914D0_2, 400, 122.5f, -500, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_000A0064_2 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000914D0_2, 400, 122.5f, -450, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
+//mirror parts 2 end
 NJS_OBJECT object_000A0098 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091A38, 550, 157.5f, -24.5f, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_OBJECT object_000A00CC = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091A38, 550, 157.5f, 25.5f, 0, 0, 0, 1, 1, 1, NULL, NULL };
@@ -9317,8 +9415,21 @@ NJS_OBJECT object_000A0100 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091
 NJS_OBJECT object_000A0134 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091A38, 400, 122.5f, -650, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
 
 NJS_OBJECT object_000A0168 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091A38, 400, 122.5f, -700, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
+//mirror parts
+NJS_OBJECT object_000A0098_2 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091A38_2, 550, 157.5f, -24.5f, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_000A00CC_2 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091A38_2, 550, 157.5f, 25.5f, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_000A0100_2 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091A38_2, 400, 122.5f, -600, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_000A0134_2 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091A38_2, 400, 122.5f, -650, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_000A0168_2 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00091A38_2, 400, 122.5f, -700, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
+
+//end mirror parts
 
 NJS_OBJECT object_000A019C = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00093A38, 400, 122.5f, -575, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
+
 
 NJS_OBJECT object_000A01D0 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00093B3C, -80, 55, 195, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
@@ -9341,8 +9452,7 @@ COL collist_00019368[] = {
 	{ { 75, 40, -300 }, 114.8913f, 0, 0, &object_00090014, 0, 0xA0000001 },
 	{ { 105, 40, -130 }, 106.7708f, 0, 0, &object_00090E50, 0, 0xC0000001 },
 	{ { -80.00008f, 215, 410 }, 86.0233f, 0, 0, &object_00090F90, 0, 0xA0000001 },
-	{ { 550, 157.5f, -124.5f }, 295.478f, 0, 0, &object_000914F8, 0, 0xA0000001 },
-	{ { 550, 157.5f, -74.5f }, 295.478f, 0, 0, &object_00091A60, 0, 0xA0000001 },
+
 	{ { -80, 165, -450 }, 130, 0, 0, &object_00091C0C, 0, 0xA0000001 },
 	{ { -79.99992f, 142.5f, -255 }, 241.5186f, 0, 0, &object_00091ED8, 0, 0x80000001 },
 	{ { -80.00007f, 142.5f, 175 }, 274.8295f, 0, 0, &object_000925E8, 0, 0xA0000001 },
@@ -9400,17 +9510,6 @@ COL collist_00019368[] = {
 	{ { 809.9999f, 20.5f, -49.5f }, 33.84154f, 0, 0, &object_0009FEF8, 0, 0xC0000001 },
 	{ { 229.8604f, 140, 620.0527f }, 114.8913f, 0, 0, &object_0009FF2C, 0, 0xA0000001 },
 	{ { 67.9474f, 140, 679.9205f }, 106.7708f, 0, 0, &object_0009FF60, 0, 0xC0000001 },
-	//Mirrors
-	{ { 550, 157.5f, -174.5f }, 295.478f, 0, 0, &object_0009FF94, 0, 0xA0000001 },
-	{ { 550, 157.5f, -224.5f }, 295.478f, 0, 0, &object_0009FFC8, 0, 0xA0000001 },
-	{ { 400, 122.5f, -550 }, 295.478f, 0, 0, &object_0009FFFC, 0, 0xA0000001 },
-	{ { 400, 122.5f, -500 }, 295.478f, 0, 0, &object_000A0030, 0, 0xA0000001 },
-	{ { 400, 122.5f, -450 }, 295.478f, 0, 0, &object_000A0064, 0, 0xA0000001 },
-	{ { 550, 157.5f, -24.5f }, 295.478f, 0, 0, &object_000A0098, 0, 0xA0000001 },
-	{ { 550, 157.5f, 25.5f }, 295.478f, 0, 0, &object_000A00CC, 0, 0xA0000001 },
-	{ { 400, 122.5f, -600 }, 295.478f, 0, 0, &object_000A0100, 0, 0xA0000001 },
-	{ { 400, 122.5f, -650 }, 295.478f, 0, 0, &object_000A0134, 0, 0xA0000001 },
-	{ { 400, 122.5f, -700 }, 295.478f, 0, 0, &object_000A0168, 0, 0xA0000001 },
 	//End mirrors
 	{ { 400, 122.5f, -575 }, 343.4112f, 0, 0, &object_000A019C, 0, 0xA0000001 },
 	{ { -80.00001f, 37.5f, 194 }, 60.46693f, 0, 0, &object_000A01D0, 0, 0xA0000001 },
@@ -9418,7 +9517,35 @@ COL collist_00019368[] = {
 	{ { -19.75912f, 140, 589.2902f }, 77.17674f, 0, 0, &object_000A0238, 0, 0xC0000001 },
 	{ { 318.3585f, 142.549f, 568.3386f }, 61.98117f, 0, 0, &object_000A026C, 0, 0xC0000001 },
 	{ { 685, -15, -575 }, 35.35534f, 0, 0, &object_000A02A0, 0, 0xC0000001 },
-	//FIXES
+	//mirrors new
+	{ { 550, 157.5f, 25.5f }, 295.478f, 0, 0, &object_000A00CC, 0, 0xC0000001 },
+	{ { 550, 157.5f, -224.5f }, 295.478f, 0, 0, &object_0009FFC8, 0, 0xC0000001 },
+	{ { 550, 157.5f, -174.5f }, 295.478f, 0, 0, &object_0009FF94, 0, 0xC0000001 },
+	{ { 550, 157.5f, -24.5f }, 295.478f, 0, 0, &object_000A0098, 0, 0xC0000001 },
+	{ { 550, 157.5f, -74.5f }, 295.478f, 0, 0, &object_00091A60, 0, 0xC0000001 },//end left
+	{ { 550, 157.5f, -124.5f }, 295.478f, 0, 0, &object_000914F8, 0, 0xC0000001 },//end right
+	//Mirrors new 2
+	{ { 400, 122.5f, -450 }, 295.478f, 0, 0, &object_000A0064, 0, 0xC0000001 },
+	{ { 400, 122.5f, -700 }, 295.478f, 0, 0, &object_000A0168, 0, 0xC0000001 },
+	{ { 400, 122.5f, -500 }, 295.478f, 0, 0, &object_000A0030, 0, 0xC0000001 },
+	{ { 400, 122.5f, -650 }, 295.478f, 0, 0, &object_000A0134, 0, 0xC0000001 },
+	{ { 400, 122.5f, -550 }, 295.478f, 0, 0, &object_0009FFFC, 0, 0xC0000001 },
+	{ { 400, 122.5f, -600 }, 295.478f, 0, 0, &object_000A0100, 0, 0xC0000001 },
+	//Mirror glass 1
+	{ { 550, 157.5f, 25.5f }, 295.478f, 0, 0, &object_000A00CC_2, 0, 0xC1000001 },
+	{ { 550, 157.5f, -224.5f }, 295.478f, 0, 0, &object_0009FFC8_2, 0, 0xC1000001 },
+	{ { 550, 157.5f, -174.5f }, 295.478f, 0, 0, &object_0009FF94_2, 0, 0xC1000001 },
+	{ { 550, 157.5f, -24.5f }, 295.478f, 0, 0, &object_000A0098_2, 0, 0xC1000001 },
+	{ { 550, 157.5f, -74.5f }, 295.478f, 0, 0, &object_00091A60_2, 0, 0xC1000001 },//end left
+	{ { 550, 157.5f, -124.5f }, 295.478f, 0, 0, &object_000914F8_2, 0, 0xC1000001 },//end right
+	//Mirror glass 2
+	{ { 400, 122.5f, -450 }, 295.478f, 0, 0, &object_000A0064_2, 0, 0xC1000001 },
+	{ { 400, 122.5f, -700 }, 295.478f, 0, 0, &object_000A0168_2, 0, 0xC1000001 },
+	{ { 400, 122.5f, -500 }, 295.478f, 0, 0, &object_000A0030_2, 0, 0xC1000001 },
+	{ { 400, 122.5f, -650 }, 295.478f, 0, 0, &object_000A0134_2, 0, 0xC1000001 },
+	{ { 400, 122.5f, -550 }, 295.478f, 0, 0, &object_0009FFFC_2, 0, 0xC1000001 },
+	{ { 400, 122.5f, -600 }, 295.478f, 0, 0, &object_000A0100_2, 0, 0xC1000001 },
+	/*//FIXES
 	{ { 550, 160, -74.5f }, 295.1513f, 0, 0, &object_02320DA4, 0, 0x80000001 }, //Central 1
 	{ { 550, 160, -124.5f }, 295.1513f, 0, 0, &object_023207F4, 0, 0x80000001 }, //Central 2
 	{ { 550, 160, -26.49163f }, 295.1513f, 0, 0, &object_02320ACC, 0, 0x80000001 },
@@ -9428,7 +9555,7 @@ COL collist_00019368[] = {
 	//{ { 559.3859f, 57.82105f, 297.3894f }, 592.4707f, 0, 0, &object_02308140, 0, 0x80000001 },
 	{ { 400, 125, -499.9998f }, 294.1513f, 0, 0, &object_02321528, 0, 0x80000001 },
 	{ { 400.0001f, 125, -650 }, 294.1513f, 0, 0, &object_02321590, 0, 0x80000001 },
-	{ { 549.9999f, 70.71428f, 75.83928f }, 349.5362f, 0, 0, &object_000A00CCZ, 0, 0xA0000001 }
+	{ { 549.9999f, 70.71428f, 75.83928f }, 349.5362f, 0, 0, &object_000A00CCZ, 0, 0xA0000001 }*/
 };
 
 NJS_TEXNAME textures_twinkle3[30];
