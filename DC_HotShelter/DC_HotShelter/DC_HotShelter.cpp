@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
+#include "WaterStuff.h"
 #include "HotShelter1.h"
 #include "HotShelter2.h"
 #include "HotShelter3.h"
@@ -43,5 +44,110 @@ extern "C"
 			FogData_HotShelter3[i].Distance = 1800.0f;
 		}
 	}
-
+	__declspec(dllexport) void __cdecl OnFrame()
+	{
+		{
+			if (CurrentLevel == 12 && CurrentAct == 0 && GameState != 16)
+			{
+				if (LevelFrameCount % 56 == 0)
+				{
+					matlist_0140FBE8[0].attr_texId = 78;
+					matlist_0140F824[0].attr_texId = 78;
+					matlist_0140F608[0].attr_texId = 78;
+					matlist_0140FA60[0].attr_texId = 78;
+				}
+				if (LevelFrameCount % 56 == 4)
+				{
+					matlist_0140FBE8[0].attr_texId = 79;
+					matlist_0140F824[0].attr_texId = 79;
+					matlist_0140F608[0].attr_texId = 79;
+					matlist_0140FA60[0].attr_texId = 79;
+				}
+				if (LevelFrameCount % 56 == 8)
+				{
+					matlist_0140FBE8[0].attr_texId = 80;
+					matlist_0140F824[0].attr_texId = 80;
+					matlist_0140F608[0].attr_texId = 80;
+					matlist_0140FA60[0].attr_texId = 80;
+				}
+				if (LevelFrameCount % 56 == 12)
+				{
+					matlist_0140FBE8[0].attr_texId = 81;
+					matlist_0140F824[0].attr_texId = 81;
+					matlist_0140F608[0].attr_texId = 81;
+					matlist_0140FA60[0].attr_texId = 81;
+				}
+				if (LevelFrameCount % 56 == 16)
+				{
+					matlist_0140FBE8[0].attr_texId = 82;
+					matlist_0140F824[0].attr_texId = 82;
+					matlist_0140F608[0].attr_texId = 82;
+					matlist_0140FA60[0].attr_texId = 82;
+				}
+				if (LevelFrameCount % 56 == 20)
+				{
+					matlist_0140FBE8[0].attr_texId = 83;
+					matlist_0140F824[0].attr_texId = 83;
+					matlist_0140F608[0].attr_texId = 83;
+					matlist_0140FA60[0].attr_texId = 83;
+				}
+				if (LevelFrameCount % 56 == 24)
+				{
+					matlist_0140FBE8[0].attr_texId = 84;
+					matlist_0140F824[0].attr_texId = 84;
+					matlist_0140F608[0].attr_texId = 84;
+					matlist_0140FA60[0].attr_texId = 84;
+				}
+				if (LevelFrameCount % 56 == 28)
+				{
+					matlist_0140FBE8[0].attr_texId = 85;
+					matlist_0140F824[0].attr_texId = 85;
+					matlist_0140F608[0].attr_texId = 85;
+					matlist_0140FA60[0].attr_texId = 85;
+				}
+				if (LevelFrameCount % 56 == 32)
+				{
+					matlist_0140FBE8[0].attr_texId = 86;
+					matlist_0140F824[0].attr_texId = 86;
+					matlist_0140F608[0].attr_texId = 86;
+					matlist_0140FA60[0].attr_texId = 86;
+				}
+				if (LevelFrameCount % 56 == 36)
+				{
+					matlist_0140FBE8[0].attr_texId = 87;
+					matlist_0140F824[0].attr_texId = 87;
+					matlist_0140F608[0].attr_texId = 87;
+					matlist_0140FA60[0].attr_texId = 87;
+				}
+				if (LevelFrameCount % 56 == 40)
+				{
+					matlist_0140FBE8[0].attr_texId = 88;
+					matlist_0140F824[0].attr_texId = 88;
+					matlist_0140F608[0].attr_texId = 88;
+					matlist_0140FA60[0].attr_texId = 88;
+				}
+				if (LevelFrameCount % 56 == 44)
+				{
+					matlist_0140FBE8[0].attr_texId = 89;
+					matlist_0140F824[0].attr_texId = 89;
+					matlist_0140F608[0].attr_texId = 89;
+					matlist_0140FA60[0].attr_texId = 89;
+				}
+				if (LevelFrameCount % 56 == 48)
+				{
+					matlist_0140FBE8[0].attr_texId = 90;
+					matlist_0140F824[0].attr_texId = 90;
+					matlist_0140F608[0].attr_texId = 90;
+					matlist_0140FA60[0].attr_texId = 90;
+				}
+				if (LevelFrameCount % 56 == 52)
+				{
+					matlist_0140FBE8[0].attr_texId = 91;
+					matlist_0140F824[0].attr_texId = 91;
+					matlist_0140F608[0].attr_texId = 91;
+					matlist_0140FA60[0].attr_texId = 91;
+				}
+			}
+		}
+	}
 }

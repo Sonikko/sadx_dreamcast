@@ -1,5 +1,32 @@
 ﻿  stdafx.cpp
   DC_HotShelter.cpp
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(5): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(36): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(36): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(36): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(42): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(103): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(103): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(103): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(110): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(114): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(168): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(168): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(168): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(176): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(180): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(219): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(219): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(219): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(228): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(233): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(283): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(283): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(283): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(292): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(323): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(323): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\WaterStuff.h(323): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(9): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(46): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(46): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
@@ -724,9 +751,9 @@ g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(2
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(25674): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(25674): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(25674): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(25881): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(25889): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(25889): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(25887): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(25895): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter1.h(25895): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(8): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(12): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter2_fixes.h(200): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
@@ -3413,11 +3440,11 @@ g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter3.h(4
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter3.h(44710): warning C4305: 'initializing': truncation from 'double' to 'Float'
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter3.h(44721): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_hotshelter\dc_hotshelter\HotShelter3.h(44721): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-DC_HotShelter.cpp(16): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+DC_HotShelter.cpp(17): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_HotShelter\Release\DC_HotShelter.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_HotShelter\Release\DC_HotShelter.exp
   Generating code
-  All 810 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 817 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_HotShelter.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_HotShelter\Release\DC_HotShelter.dll
   DC_HotShelter.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_HotShelter\Release\DC_HotShelter.pdb (Full PDB)
