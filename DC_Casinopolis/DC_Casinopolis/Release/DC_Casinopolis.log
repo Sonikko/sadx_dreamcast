@@ -1977,409 +1977,417 @@ g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(106
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10698): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10698): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10706): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10711): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10716): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10936): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10936): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10936): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10944): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10959): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11058): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11058): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11058): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11066): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11071): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11076): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11296): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11296): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11296): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11304): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11319): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11418): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11418): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11418): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11424): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11428): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11481): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11481): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11481): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11489): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11498): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11601): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11601): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11601): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11607): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11612): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11671): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11671): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11671): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11677): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11681): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11738): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11738): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11738): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11744): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11748): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11805): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11805): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11805): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11811): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11816): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11875): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11875): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11875): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11881): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11885): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11938): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11938): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11938): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11944): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11948): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12001): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12001): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12001): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12007): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12011): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12064): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12064): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12064): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12070): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12074): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12127): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12127): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12127): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12134): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12138): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12212): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12212): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12212): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12221): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12296): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12296): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12296): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12303): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12307): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12311): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12368): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12368): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12368): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12375): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12379): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12383): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12440): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12440): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12440): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12446): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12515): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12515): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12515): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12528): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12538): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12555): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12859): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12859): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12859): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12872): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12879): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12892): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12898): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13209): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13209): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13209): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13222): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13238): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13454): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13454): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13454): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13460): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13529): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13529): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13529): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13537): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13544): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13548): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13552): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13687): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13687): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13687): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13696): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13708): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13835): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13835): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13835): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13841): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13872): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13872): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13872): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13878): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13909): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13909): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13909): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13916): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13988): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13988): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13988): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13994): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14004): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14089): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14089): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14089): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14095): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14099): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14138): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14138): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14138): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14144): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14175): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14175): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14175): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14182): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14186): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14191): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14250): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14250): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14250): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14257): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14262): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14266): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14323): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14323): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14323): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14330): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14335): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14339): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14446): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14446): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14446): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14453): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14457): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14531): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14531): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14531): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14538): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14605): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14605): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14605): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14613): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14622): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14630): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14723): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14723): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14723): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14731): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14738): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14742): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14746): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14893): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14893): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14893): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14902): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14977): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14977): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14977): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14983): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14987): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15038): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15038): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15038): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15045): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15050): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15055): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15120): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15120): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15120): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15130): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15139): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15147): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15152): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15157): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15355): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15355): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15355): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15364): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15369): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15376): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15594): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15594): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15594): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15600): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15669): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15669): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15669): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15675): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15744): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15744): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15744): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15750): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15781): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15781): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15781): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15787): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15818): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15818): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15818): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15824): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15905): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15905): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15905): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15913): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15917): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15980): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15980): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15980): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15986): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16067): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16067): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16067): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16073): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16080): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16191): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16191): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16191): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16197): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16204): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16315): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16315): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16315): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16323): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16330): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16334): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16338): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16485): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16485): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16485): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16491): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16519): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16519): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16519): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16526): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16633): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16633): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16633): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16664): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16664): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16664): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16670): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16701): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16701): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16701): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16708): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16713): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16800): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16800): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16800): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16806): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16811): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16864): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16864): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16864): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16872): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16877): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16885): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16993): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16993): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16993): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17005): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17027): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17037): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17041): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17601): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17601): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17601): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17607): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17677): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17677): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17677): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17683): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17690): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17809): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17809): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17809): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17815): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17822): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17941): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17941): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17941): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17947): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18028): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18028): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18028): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18034): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18115): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18115): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18115): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18122): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18133): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18230): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18230): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18230): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18237): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18248): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18253): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18438): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18438): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18438): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18445): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18457): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18462): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18649): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18649): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18649): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18660): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18689): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18693): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19240): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19240): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19240): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19246): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19256): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19385): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19385): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19385): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19392): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19410): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19713): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19713): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19713): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19719): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19724): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19787): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19787): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19787): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19793): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19798): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19861): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19861): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19861): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19867): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19898): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19898): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19898): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19904): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19935): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19935): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19935): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19941): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19972): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19972): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19972): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19978): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19982): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20021): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20021): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20021): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20027): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20058): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20058): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20058): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20064): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20068): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20107): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20107): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20107): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20260): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20265): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20265): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10710): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10715): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10720): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10944): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10944): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10944): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10945): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10945): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10945): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10954): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(10969): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11068): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11068): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11068): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11076): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11080): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11085): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11090): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11314): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11314): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11314): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11316): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11316): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11316): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11325): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11340): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11439): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11439): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11439): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11445): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11449): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11502): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11502): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11502): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11510): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11519): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11622): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11622): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11622): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11628): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11633): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11692): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11692): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11692): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11698): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11702): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11759): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11759): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11759): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11765): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11769): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11826): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11826): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11826): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11832): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11837): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11896): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11896): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11896): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11902): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11906): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11959): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11959): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11959): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11965): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(11969): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12022): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12022): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12022): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12028): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12032): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12085): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12085): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12085): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12091): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12095): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12148): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12148): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12148): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12155): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12159): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12233): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12233): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12233): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12242): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12317): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12317): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12317): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12324): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12328): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12332): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12389): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12389): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12389): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12396): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12400): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12404): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12461): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12461): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12461): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12467): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12536): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12536): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12536): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12549): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12559): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12576): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12880): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12880): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12880): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12893): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12900): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12913): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(12919): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13230): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13230): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13230): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13243): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13259): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13475): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13475): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13475): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13481): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13550): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13550): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13550): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13558): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13565): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13569): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13573): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13708): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13708): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13708): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13717): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13729): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13856): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13856): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13856): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13862): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13893): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13893): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13893): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13899): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13930): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13930): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13930): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(13937): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14009): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14009): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14009): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14015): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14025): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14110): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14110): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14110): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14116): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14120): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14159): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14159): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14159): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14165): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14196): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14196): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14196): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14203): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14207): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14212): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14271): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14271): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14271): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14278): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14283): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14287): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14344): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14344): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14344): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14351): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14356): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14360): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14467): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14467): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14467): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14474): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14478): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14552): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14552): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14552): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14559): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14626): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14626): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14626): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14634): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14643): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14651): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14744): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14744): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14744): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14752): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14759): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14763): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14767): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14914): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14914): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14914): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14923): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14998): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14998): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(14998): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15004): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15008): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15059): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15059): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15059): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15066): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15071): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15076): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15141): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15141): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15141): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15151): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15160): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15168): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15173): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15178): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15376): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15376): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15376): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15385): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15390): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15397): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15615): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15615): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15615): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15621): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15690): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15690): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15690): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15696): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15765): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15765): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15765): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15771): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15802): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15802): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15802): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15808): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15839): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15839): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15839): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15845): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15926): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15926): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15926): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15934): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(15938): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16001): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16001): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16001): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16007): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16088): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16088): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16088): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16094): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16101): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16212): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16212): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16212): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16218): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16225): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16336): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16336): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16336): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16344): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16351): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16355): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16359): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16506): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16506): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16506): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16512): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16540): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16540): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16540): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16547): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16654): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16654): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16654): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16685): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16685): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16685): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16691): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16722): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16722): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16722): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16729): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16734): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16821): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16821): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16821): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16827): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16832): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16885): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16885): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16885): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16893): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16898): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(16906): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17014): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17014): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17014): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17026): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17048): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17058): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17062): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17622): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17622): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17622): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17628): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17698): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17698): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17698): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17704): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17711): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17830): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17830): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17830): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17836): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17843): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17962): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17962): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17962): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(17968): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18049): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18049): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18049): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18055): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18136): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18136): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18136): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18143): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18154): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18251): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18251): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18251): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18258): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18269): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18274): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18459): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18459): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18459): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18466): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18478): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18483): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18670): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18670): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18670): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18681): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18710): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(18714): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19261): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19261): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19261): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19267): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19277): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19406): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19406): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19406): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19413): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19431): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19734): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19734): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19734): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19740): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19745): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19808): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19808): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19808): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19814): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19819): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19882): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19882): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19882): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19888): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19919): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19919): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19919): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19925): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19956): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19956): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19956): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19962): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19993): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19993): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19993): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(19999): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20003): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20042): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20042): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20042): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20048): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20079): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20079): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20079): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20085): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20089): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20128): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20128): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20128): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20283): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20288): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino3.h(20288): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(7): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(70): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(70): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
@@ -2929,42 +2937,46 @@ g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(269
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27059): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27059): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27059): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27070): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27408): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27408): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27408): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27416): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27529): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27529): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27529): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27549): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27580): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27580): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27580): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27587): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27677): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27677): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27677): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27687): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27708): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28006): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28006): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28006): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28012): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28036): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28036): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28036): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28057): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28089): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28102): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28121): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28134): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28153): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28166): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28185): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28322): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28335): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28335): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27069): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27073): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27415): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27415): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27415): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27416): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27416): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27416): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27425): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27538): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27538): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27538): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27558): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27589): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27589): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27589): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27596): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27686): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27686): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27686): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27696): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(27717): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28015): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28015): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28015): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28021): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28045): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28045): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28045): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28066): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28098): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28111): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28130): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28143): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28162): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28175): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28194): warning C4838: conversion from 'unsigned int' to 'Angle' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28332): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28345): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_casinopolis\dc_casinopolis\Casino4.h(28345): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 DC_Casinopolis.cpp(20): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
 DC_Casinopolis.cpp(48): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
 DC_Casinopolis.cpp(53): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
@@ -2974,7 +2986,7 @@ DC_Casinopolis.cpp(67): warning C4018: '<': signed/unsigned mismatch
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.exp
   Generating code
-  All 754 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 757 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_Casinopolis.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.dll
   DC_Casinopolis.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_Casinopolis\Release\DC_Casinopolis.pdb (Full PDB)
