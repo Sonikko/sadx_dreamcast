@@ -129,12 +129,46 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 	}
 }
 
+FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
+FunctionPointer(void, sub_4094D0, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x4094D0);
+
+void __cdecl OStandLight_DisplayFixed(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi@1
+	int v2; // eax@2
+	NJS_OBJECT* v3; // eax@4
+	NJS_OBJECT* v4; // eax@4
+	v1 = a1->Data1;
+	if (!DroppedFrames)
+	{
+		SetTextureToLevelObj();
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		v2 = v1->Rotation.y;
+		if (v2)
+		{
+			njRotateY(0, (unsigned __int16)v2);
+		}
+		sub_407A00(((NJS_MODEL_SADX*)0x1C28C4C), 1.0);
+		v3 = ((NJS_OBJECT*)0x1C28C78)->child;
+		njTranslate(0, ((NJS_OBJECT*)0x1C28C78)->child->pos[0], ((NJS_OBJECT*)0x1C28C78)->child->pos[1], ((NJS_OBJECT*)0x1C28C78)->child->pos[2]);
+		njRotateXYZ(0, v3->ang[0] + *(int*)&v1->CharIndex, v3->ang[1], v3->ang[2]);
+		sub_4094D0((NJS_MODEL_SADX*)v3->model, 4, 1.0f);
+		v4 = ((NJS_OBJECT*)0x1C28C78)->child->child;
+		//njTranslate(0, ((NJS_OBJECT*)0x1C28C78)->child->child->pos[0], ((NJS_OBJECT*)0x1C28C78)->child->child->pos[1], ((NJS_OBJECT*)0x1C28C78)->child->child->pos[2]);
+		njScale(nullptr, 1.0f + a1->SETData->SETEntry->Properties.z / 10, 1.0f+ a1->SETData->SETEntry->Properties.y / 12, 1.0f + a1->SETData->SETEntry->Properties.x / 12);
+		sub_4094D0((NJS_MODEL_SADX*)v4->model, 4, 1.0f);
+		njPopMatrix(1u);
+	}
+}
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//*(NJS_OBJECT*)0x01C28C78 = object_01828C78; // O Stand Light
+		//WriteJump(OStandLight_Display, OStandLight_DisplayFixed); //O Stand Light function
 		HMODULE palettelighting = GetModuleHandle(L"sadx-dc-lighting");
 		if (palettelighting == 0)
 		{
