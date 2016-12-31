@@ -129,7 +129,7 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 	}
 }
 
-FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
+/*FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 FunctionPointer(void, sub_4094D0, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x4094D0);
 
 void __cdecl OStandLight_DisplayFixed(ObjectMaster *a1)
@@ -160,7 +160,7 @@ void __cdecl OStandLight_DisplayFixed(ObjectMaster *a1)
 		sub_4094D0((NJS_MODEL_SADX*)v4->model, 4, 1.0f);
 		njPopMatrix(1u);
 	}
-}
+}*/
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
