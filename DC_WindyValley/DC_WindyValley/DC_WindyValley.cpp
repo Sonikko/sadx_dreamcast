@@ -37,7 +37,7 @@ extern "C" __declspec(dllexport) void cdecl Init()
 extern "C" __declspec(dllexport) void cdecl OnFrame()
 {
 auto entity = CharObj1Ptrs[0];
-if (CurrentLevel == 2 && CurrentAct == 0 && GameState !=16)
+if (CurrentCharacter == 0 && CurrentLevel == 2 && CurrentAct == 0 && GameState !=16)
 {
 	if (entity != nullptr && entity->Position.x > 2950 && entity->Position.z > -1520 && entity->Position.y < -512)
 	{
