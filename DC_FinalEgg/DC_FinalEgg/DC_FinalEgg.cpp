@@ -169,14 +169,10 @@ extern "C"
 	{
 		//*(NJS_OBJECT*)0x01C28C78 = object_01828C78; // O Stand Light
 		//WriteJump(OStandLight_Display, OStandLight_DisplayFixed); //O Stand Light function
-		HMODULE palettelighting = GetModuleHandle(L"sadx-dc-lighting");
-		if (palettelighting == 0)
-		{
-			WriteJump((void*)0x5B4690, sub_5B4690); //Cylinder function
-			WriteData((void*)0x005B47A1, 0x90i8, 5); //Kill specialized texlist for cylinder
-			memcpy((void*)0x1A44230, &attach_01644230, sizeof(attach_01644230));  // Cylinder
-			memcpy((void*)0x01A45810, &attach_01645810, sizeof(attach_01645810));  // Cylinder
-		}
+		WriteJump((void*)0x5B4690, sub_5B4690); //Cylinder function
+		WriteData((void*)0x005B47A1, 0x90i8, 5); //Kill specialized texlist for cylinder
+		memcpy((void*)0x1A44230, &attach_01644230, sizeof(attach_01644230));  // Cylinder
+		memcpy((void*)0x01A45810, &attach_01645810, sizeof(attach_01645810));  // Cylinder
 		ResizeTextureList((NJS_TEXLIST*)0x1B98518, textures_finalegg1);
 		ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);
 		ResizeTextureList((NJS_TEXLIST*)0x1AC5780, textures_finalegg3);
@@ -190,11 +186,8 @@ extern "C"
 		for (int i = 0; i < 3; i++)
 		{
 			FinalEgg1Fog[i].Color = 0xFF000000;
-			if (palettelighting != 0)
-			{
-				FinalEgg1Fog[i].Layer = 1200.0f;
-				FinalEgg1Fog[i].Distance = 3000.0f;
-			}
+			FinalEgg1Fog[i].Layer = 1200.0f;
+			FinalEgg1Fog[i].Distance = 3000.0f;
 			FinalEgg2Fog[i].Color = 0xFF000000;
 			FinalEgg2Fog[i].Layer = 650.0f;
 			FinalEgg2Fog[i].Distance = 2000.0f;

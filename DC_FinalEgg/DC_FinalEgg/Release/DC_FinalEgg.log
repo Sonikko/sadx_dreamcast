@@ -3731,7 +3731,7 @@ g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(
 g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(2036): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 DC_FinalEgg.cpp(91): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
 DC_FinalEgg.cpp(167): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
-DC_FinalEgg.cpp(184): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
+DC_FinalEgg.cpp(180): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.exp
   Generating code

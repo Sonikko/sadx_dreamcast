@@ -90,6 +90,22 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+	/*	((LandTable *)0x112136C)->COLList[2].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[3].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[4].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[5].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[6].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[7].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[8].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[9].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[10].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[11].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[12].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[13].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[14].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[15].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[16].Flags = 0x00040000;
+		((LandTable *)0x112136C)->COLList[17].Flags = 0x00040000;*/
 		WriteData((void*)0x00557009, 0x90, 16); //Kill Chaos 6 skybox animation
 		WriteData((void*)0x00557073, 0x0, 2); // Kill Chaos 6 skybox scale 1
 		WriteData((void*)0x00557078, 0x0, 2); // Kill Chaos 6 skybox scale 2
