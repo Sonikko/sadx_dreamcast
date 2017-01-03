@@ -18,8 +18,55 @@
 static bool PinkMonitorMode = 0;
 static bool CurrentlyPink = 0;
 
+void __cdecl sub_52B9A0(ObjectMaster *a1)
+{
+	HMODULE handle3 = GetModuleHandle(L"ADV01CMODELS");
+	DataPointer(int, MissedFrames, 0x03B1117C);
+	DataPointer(int, dword_1102B28, 0x1102B28);
+	DataPointer(NJS_VECTOR*, stru_1102AE0, 0x01102AE0);
+	FunctionPointer(void, sub_408530, (NJS_OBJECT*), 0x408530);
+	FunctionPointer(void, Direct3D_SetZFunc, (Uint8 index), 0x0077ED00);
+	FunctionPointer(void, Direct3D_ResetZFunc, (), 0x00401420);
+	NJS_OBJECT **___ADV01C_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle3, "___ADV01C_OBJECTS");
+	EntityData1 *v1; // esi@1
+	int v2; // eax@2
+	NJS_VECTOR *v3; // esi@5
+	DataPointer(NJS_TEXLIST, EC_TARAI_TEXLIST, 0x01101330);
+
+	v1 = a1->Data1;
+	if (!MissedFrames)
+	{
+		Direct3D_SetZFunc(3u);
+		njSetTexture(&EC_TARAI_TEXLIST);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		v2 = v1->Rotation.y;
+		if (v2)
+		{
+			njRotateY(0, (unsigned __int16)v2);
+		}
+		ProcessModelNode_AB_Wrapper(___ADV01C_OBJECTS[8], 1.0);
+		if (ObjectSelectedDebug(a1))
+		{
+			v3 = stru_1102AE0;
+			do
+			{
+				njPushMatrix(0);
+				njTranslateV(0, v3);
+				//ProcessModelNode_AB_Wrapper(___ADV01C_OBJECTS[7], 1.0);
+				njPopMatrix(1u);
+				++v3;
+
+			} while ((signed int)v3 < (signed int)dword_1102B28);
+		}
+		njPopMatrix(1u);
+		Direct3D_ResetZFunc();
+	}
+}
+
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	//WriteJump((void*)0x52B9A0, sub_52B9A0);
 	HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
 	WriteData((char *)GetProcAddress(handle2, "SetClip_EC00"), 0xC3u, sizeof(char *));
 	WriteData((char *)GetProcAddress(handle2, "SetClip_EC01"), 0xC3u, sizeof(char *));
@@ -54,11 +101,11 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___LANDTABLEECC[5] = &landtable_0000FE44;
 	NJS_OBJECT **___ADV01C_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle3, "___ADV01C_OBJECTS");
 	//___ADV01C_OBJECTS[7] = &object_00111964;
-	___ADV01C_OBJECTS[7]->basicdxmodel->mats = matlist_0011154C;
-	___ADV01C_OBJECTS[7]->basicdxmodel->meshsets = meshlist_001116A0;
-	___ADV01C_OBJECTS[7]->child->basicdxmodel->mats = matlist_00111440;
 	//___ADV01C_OBJECTS[7]->sibling = &object_00111964Z;
-	//___ADV01C_OBJECTS[7]->child->evalflags
+	//___ADV01C_OBJECTS[7]->child->child = &object_00111964Z;
+	//___ADV01C_OBJECTS[7]->basicdxmodel->mats = matlist_0011154C;
+	//___ADV01C_OBJECTS[7]->basicdxmodel->meshsets = meshlist_001116A0;
+	//___ADV01C_OBJECTS[7]->child->basicdxmodel->mats = matlist_00111440;
 	DataArray(FogData, EggCarrierOutside4Fog, 0x010F239C, 3);
 	DataArray(FogData, EggCarrierOutside5Fog, 0x010F23CC, 3);
 	DataArray(FogData, EggCarrierOutside6Fog, 0x010F23FC, 3);
