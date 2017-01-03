@@ -2172,135 +2172,139 @@ g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19235): wa
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19235): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19235): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19243): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19253): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19273): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19560): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19560): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19560): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19575): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21309): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21309): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21309): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21318): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21325): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21343): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21516): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21516): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21516): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21523): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21617): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21617): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21617): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21624): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21751): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21751): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21751): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21761): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21963): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21963): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21963): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21974): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22268): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22268): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22268): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22275): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22341): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22341): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22341): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22348): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22406): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22406): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22406): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22414): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22426): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22517): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22517): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22517): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22525): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22593): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22593): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22593): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22599): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22630): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22630): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22630): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22636): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22682): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22682): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22682): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22688): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22719): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22719): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22719): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22725): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22786): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22786): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22786): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22792): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22841): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22841): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22841): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22847): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22908): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22908): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22908): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22914): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22987): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22987): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22987): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22993): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23060): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23060): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23060): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23066): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23133): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23133): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23133): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23141): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23404): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23404): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23404): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23410): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23459): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23459): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23459): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23465): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23514): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23514): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23514): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23520): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23569): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23569): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23569): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23575): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23624): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23624): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23624): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23633): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23641): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19247): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19257): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19277): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19568): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19568): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19568): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19569): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19569): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19569): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(19584): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21318): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21318): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21318): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21327): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21334): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21352): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21525): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21525): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21525): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21532): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21626): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21626): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21626): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21633): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21760): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21760): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21760): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21770): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21972): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21972): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21972): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(21983): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22277): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22277): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22277): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22284): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22350): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22350): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22350): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22357): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22415): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22415): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22415): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22423): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22435): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22526): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22526): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22526): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22534): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22602): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22602): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22602): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22608): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22639): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22639): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22639): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22645): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22691): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22691): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22691): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22697): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22728): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22728): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22728): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22734): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22795): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22795): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22795): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22801): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22850): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22850): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22850): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22856): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22917): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22917): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22917): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22923): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22996): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22996): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(22996): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23002): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23069): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23069): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23069): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23075): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23142): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23142): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23142): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23150): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23413): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23413): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23413): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23419): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23468): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23468): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23468): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23474): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23523): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23523): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23523): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23529): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23578): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23578): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23578): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23584): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23633): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23633): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23633): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23642): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23650): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23785): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23785): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23785): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23793): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24126): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24126): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24126): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24134): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24384): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24384): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24384): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24392): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24642): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24642): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24642): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24650): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24983): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24983): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24983): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(25303): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(25308): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
-g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(25308): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23659): warning C4838: conversion from 'unsigned int' to 'Sint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23794): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23794): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23794): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(23802): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24135): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24135): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24135): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24143): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24393): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24393): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24393): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24401): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24651): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24651): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24651): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24659): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24992): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24992): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(24992): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(25314): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(25319): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck2.h(25319): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(7): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(224): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(224): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
@@ -3431,7 +3435,7 @@ DC_SkyDeck.cpp(40): warning C4838: conversion from 'std::size_t' to 'int' requir
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_SkyDeck\Release\DC_SkyDeck.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_SkyDeck\Release\DC_SkyDeck.exp
   Generating code
-  All 893 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 894 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_SkyDeck.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_SkyDeck\Release\DC_SkyDeck.dll
   DC_SkyDeck.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_SkyDeck\Release\DC_SkyDeck.pdb (Full PDB)
