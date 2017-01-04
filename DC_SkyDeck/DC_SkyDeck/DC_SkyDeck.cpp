@@ -24,8 +24,8 @@ extern "C" __declspec(dllexport) void cdecl Init()
 		SkyDeck1Fog[i].Distance = 8000.0f;
 		SkyDeck2Fog[i].Layer = 2500.0f;
 		SkyDeck2Fog[i].Distance = 6000.0f;
-		//SkyDeck3Fog[i].Layer = 4000.0f;
-		//SkyDeck3Fog[i].Distance = 12000.0f;
+		SkyDeck3Fog[i].Layer = 4000.0f;
+		SkyDeck3Fog[i].Distance = 12000.0f;
 	}
 }
 
