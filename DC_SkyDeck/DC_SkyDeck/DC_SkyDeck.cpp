@@ -15,6 +15,7 @@ DataPointer(float, CurrentSkyBoxScaleX, 0x03ABDC94);
 DataPointer(float, CurrentSkyBoxScaleY, 0x03ABDC98);
 DataPointer(float, CurrentSkyBoxScaleZ, 0x03ABDC9C);
 DataPointer(NJS_VECTOR, SkyDeck_SkyPosition, 0x03C7F038);
+DataPointer(NJS_COLOR, CurrentFogColor, 0x03ABDC68);
 
 extern "C" __declspec(dllexport) void cdecl Init()
 {
@@ -50,7 +51,6 @@ extern "C" __declspec(dllexport) void cdecl Init()
 
 extern "C" __declspec(dllexport) void cdecl OnFrame()
 {
-	((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.a = 0x00;
 	if (CurrentLevel == 6 && CurrentAct == 2)
 	{
 		CurrentSkyBoxScaleX = 1.0f;
@@ -59,6 +59,24 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 	}
 	if (CurrentLevel == 6 && GameState != 16)
 	{
+		if (SkyDeckAltitude >= 300.0f)
+		{
+			CurrentFogColor.argb.r = 80;
+			CurrentFogColor.argb.g = 80;
+			CurrentFogColor.argb.b = 112;
+			((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r = 0;
+			((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.g = 0;
+			((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.b = 0;
+		}
+		if (SkyDeckAltitude < 300.0f)
+		{
+			CurrentFogColor.argb.r = 104;
+			CurrentFogColor.argb.g = 104;
+			CurrentFogColor.argb.b = 128;
+			((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r = 178;
+			((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.g = 178;
+			((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.b = 178;
+		}
 		for (int q = 0; q < LengthOfArray(uv_01D4BE68); q++)
 		{
 			uv_01D4BE68[q].u = uv_01D4BE68[q].u - 2;
