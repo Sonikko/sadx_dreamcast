@@ -1712,3 +1712,317 @@ NJS_VECTOR normal_01C78C90[] = {
 NJS_MODEL_SADX attach_01C78D50 = { vertex_01C78BD0, normal_01C78C90, LengthOfArray(vertex_01C78BD0), meshlist_01C78BB0, matlist_01C789C8, LengthOfArray(meshlist_01C78BB0), LengthOfArray(matlist_01C789C8),{ 430, 57.64999f, 0.220001f }, 114.8917f, NULL };
 
 NJS_OBJECT object_01C78D7C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_01C78D50, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+
+
+enum OBJ_SKYDECKTexName
+{
+	OBJ_SKYDECKTexName_sky_t_tanku,
+	OBJ_SKYDECKTexName_b_hook_b,
+	OBJ_SKYDECKTexName_b_liftsita,
+	OBJ_SKYDECKTexName_b_liftue,
+	OBJ_SKYDECKTexName_b_liftyoko,
+	OBJ_SKYDECKTexName_b_tk_b,
+	OBJ_SKYDECKTexName_black,
+	OBJ_SKYDECKTexName_canopy_rep,
+	OBJ_SKYDECKTexName_cloud02,
+	OBJ_SKYDECKTexName_danhuti,
+	OBJ_SKYDECKTexName_eca_s_banal,
+	OBJ_SKYDECKTexName_eca_s_banb,
+	OBJ_SKYDECKTexName_eca_s_bwa,
+	OBJ_SKYDECKTexName_eca_s_bwb,
+	OBJ_SKYDECKTexName_eca_s_cona,
+	OBJ_SKYDECKTexName_eca_s_drill,
+	OBJ_SKYDECKTexName_eca_s_gra,
+	OBJ_SKYDECKTexName_eca_s_grb,
+	OBJ_SKYDECKTexName_eca_s_grd,
+	OBJ_SKYDECKTexName_eca_s_gre,
+	OBJ_SKYDECKTexName_eca_s_gry,
+	OBJ_SKYDECKTexName_eca_s_gya,
+	OBJ_SKYDECKTexName_eca_s_kikb,
+	OBJ_SKYDECKTexName_eca_s_whi,
+	OBJ_SKYDECKTexName_eca_s_whib,
+	OBJ_SKYDECKTexName_eca_s_whta,
+	OBJ_SKYDECKTexName_ecf_funa,
+	OBJ_SKYDECKTexName_ecf_s_aka,
+	OBJ_SKYDECKTexName_ecf_s_egga,
+	OBJ_SKYDECKTexName_ecf_s_eggb,
+	OBJ_SKYDECKTexName_ecf_s_gla,
+	OBJ_SKYDECKTexName_ecf_s_glb,
+	OBJ_SKYDECKTexName_ecf_s_glc,
+	OBJ_SKYDECKTexName_ecf_s_gld,
+	OBJ_SKYDECKTexName_ecf_s_gle,
+	OBJ_SKYDECKTexName_ecf_s_glf,
+	OBJ_SKYDECKTexName_ecf_s_glg,
+	OBJ_SKYDECKTexName_ecf_s_glh,
+	OBJ_SKYDECKTexName_ecf_s_gra,
+	OBJ_SKYDECKTexName_ecf_s_gya,
+	OBJ_SKYDECKTexName_ecf_s_inta,
+	OBJ_SKYDECKTexName_ecf_s_kia,
+	OBJ_SKYDECKTexName_ecf_s_kib,
+	OBJ_SKYDECKTexName_ecf_s_kic,
+	OBJ_SKYDECKTexName_ecsc_s_bkca,
+	OBJ_SKYDECKTexName_ecsc_s_bkcb,
+	OBJ_SKYDECKTexName_ecsc_s_bkcc,
+	OBJ_SKYDECKTexName_ecsc_s_bkcd,
+	OBJ_SKYDECKTexName_edb_tokei01,
+	OBJ_SKYDECKTexName_edc_f_wakib,
+	OBJ_SKYDECKTexName_edc_k_jrokalight,
+	OBJ_SKYDECKTexName_edc_k_kabe8,
+	OBJ_SKYDECKTexName_edc_n_hasi,
+	OBJ_SKYDECKTexName_edc_n_kabe12,
+	OBJ_SKYDECKTexName_edc_n_kabe15,
+	OBJ_SKYDECKTexName_edc_n_kabe4,
+	OBJ_SKYDECKTexName_edc_n_kabe6,
+	OBJ_SKYDECKTexName_edc_n_osoujia,
+	OBJ_SKYDECKTexName_edc_n_osoujib,
+	OBJ_SKYDECKTexName_edc_n_osoujic,
+	OBJ_SKYDECKTexName_edc_n_osoujid,
+	OBJ_SKYDECKTexName_edc_n_osoujie,
+	OBJ_SKYDECKTexName_edc_n_osoujif,
+	OBJ_SKYDECKTexName_edc_n_osoujij,
+	OBJ_SKYDECKTexName_edc_n_osoujik,
+	OBJ_SKYDECKTexName_edc_n_osoujil,
+	OBJ_SKYDECKTexName_edc_n_osoujim,
+	OBJ_SKYDECKTexName_edc_n_tank10,
+	OBJ_SKYDECKTexName_edc_n_tank2,
+	OBJ_SKYDECKTexName_edc_n_tank3,
+	OBJ_SKYDECKTexName_edc_n_tank6,
+	OBJ_SKYDECKTexName_edc_n_tank9,
+	OBJ_SKYDECKTexName_edc_n_tobiraa,
+	OBJ_SKYDECKTexName_edc_n_tobiraf,
+	OBJ_SKYDECKTexName_edc_n_uturi,
+	OBJ_SKYDECKTexName_edc_n_yuka1,
+	OBJ_SKYDECKTexName_edv_n_kabe06,
+	OBJ_SKYDECKTexName_era_s_a,
+	OBJ_SKYDECKTexName_era_s_covd,
+	OBJ_SKYDECKTexName_era_s_covh,
+	OBJ_SKYDECKTexName_era_s_enmd,
+	OBJ_SKYDECKTexName_era_s_guna,
+	OBJ_SKYDECKTexName_era_s_inta,
+	OBJ_SKYDECKTexName_era_s_intc,
+	OBJ_SKYDECKTexName_era_s_knpb,
+	OBJ_SKYDECKTexName_era_s_okb,
+	OBJ_SKYDECKTexName_era_s_oke,
+	OBJ_SKYDECKTexName_era_s_okg,
+	OBJ_SKYDECKTexName_h_64wa02,
+	OBJ_SKYDECKTexName_k_hkabe002,
+	OBJ_SKYDECKTexName_k_hkabe003,
+	OBJ_SKYDECKTexName_k_hkabe004,
+	OBJ_SKYDECKTexName_k_hkabe006,
+	OBJ_SKYDECKTexName_ken08_hd09,
+	OBJ_SKYDECKTexName_ken08_hd27,
+	OBJ_SKYDECKTexName_ken08_kk01,
+	OBJ_SKYDECKTexName_ken08_sg07,
+	OBJ_SKYDECKTexName_ken128_bk02,
+	OBJ_SKYDECKTexName_ken128_bk03,
+	OBJ_SKYDECKTexName_ken128_hd14,
+	OBJ_SKYDECKTexName_ken128_hd15,
+	OBJ_SKYDECKTexName_ken128_hd16,
+	OBJ_SKYDECKTexName_ken128_hd17,
+	OBJ_SKYDECKTexName_ken128_hd23,
+	OBJ_SKYDECKTexName_ken128_n_lv07,
+	OBJ_SKYDECKTexName_ken32_bk04,
+	OBJ_SKYDECKTexName_ken32_bk05,
+	OBJ_SKYDECKTexName_ken32_bk06,
+	OBJ_SKYDECKTexName_ken32_hd30,
+	OBJ_SKYDECKTexName_ken32_hd32,
+	OBJ_SKYDECKTexName_ken32_lv04,
+	OBJ_SKYDECKTexName_ken32_lv05,
+	OBJ_SKYDECKTexName_ken32_lv06,
+	OBJ_SKYDECKTexName_ken32_n_lv05,
+	OBJ_SKYDECKTexName_ken32_ob01,
+	OBJ_SKYDECKTexName_ken32_ob03,
+	OBJ_SKYDECKTexName_ken32_ob04,
+	OBJ_SKYDECKTexName_ken32_ob05,
+	OBJ_SKYDECKTexName_ken32_ob06,
+	OBJ_SKYDECKTexName_ken32_sg02,
+	OBJ_SKYDECKTexName_ken32_sg05,
+	OBJ_SKYDECKTexName_ken32_sg06,
+	OBJ_SKYDECKTexName_ken32_tm02,
+	OBJ_SKYDECKTexName_ken32_tm03,
+	OBJ_SKYDECKTexName_ken64_bk01,
+	OBJ_SKYDECKTexName_ken64_bk04,
+	OBJ_SKYDECKTexName_ken64_hd01,
+	OBJ_SKYDECKTexName_ken64_hd02,
+	OBJ_SKYDECKTexName_ken64_hd03,
+	OBJ_SKYDECKTexName_ken64_hd04,
+	OBJ_SKYDECKTexName_ken64_hd05,
+	OBJ_SKYDECKTexName_ken64_hd06,
+	OBJ_SKYDECKTexName_ken64_hd07,
+	OBJ_SKYDECKTexName_ken64_hd08,
+	OBJ_SKYDECKTexName_ken64_hd18,
+	OBJ_SKYDECKTexName_ken64_hd19,
+	OBJ_SKYDECKTexName_ken64_hd20,
+	OBJ_SKYDECKTexName_ken64_hd21,
+	OBJ_SKYDECKTexName_ken64_hd22,
+	OBJ_SKYDECKTexName_ken64_hd24,
+	OBJ_SKYDECKTexName_ken64_hd25,
+	OBJ_SKYDECKTexName_ken64_hd26,
+	OBJ_SKYDECKTexName_ken64_hd28,
+	OBJ_SKYDECKTexName_ken64_hd31,
+	OBJ_SKYDECKTexName_ken64_kk02,
+	OBJ_SKYDECKTexName_ken64_lv01,
+	OBJ_SKYDECKTexName_ken64_n_lv01,
+	OBJ_SKYDECKTexName_ken64_n_lv02,
+	OBJ_SKYDECKTexName_ken64_n_lv03,
+	OBJ_SKYDECKTexName_ken64_ob02,
+	OBJ_SKYDECKTexName_ken64_sg01,
+	OBJ_SKYDECKTexName_ken64_sg04,
+	OBJ_SKYDECKTexName_ken64_sg08,
+	OBJ_SKYDECKTexName_ken64_sp01,
+	OBJ_SKYDECKTexName_ken64_tm01,
+	OBJ_SKYDECKTexName_sky_b_yuka,
+	OBJ_SKYDECKTexName_sky_bg01,
+	OBJ_SKYDECKTexName_sky_bg02,
+	OBJ_SKYDECKTexName_sky_bg03,
+	OBJ_SKYDECKTexName_sky_bg04,
+	OBJ_SKYDECKTexName_sky_esk,
+	OBJ_SKYDECKTexName_sky_h_tama04,
+	OBJ_SKYDECKTexName_sky_h_tama11,
+	OBJ_SKYDECKTexName_sky_h_tama12,
+	OBJ_SKYDECKTexName_sky_h_tama13,
+	OBJ_SKYDECKTexName_sky_h_tamao02,
+	OBJ_SKYDECKTexName_sky_kiryuu,
+	OBJ_SKYDECKTexName_sky_t_16_ki,
+	OBJ_SKYDECKTexName_sky_t_16kk,
+	OBJ_SKYDECKTexName_sky_t_32yajirusi,
+	OBJ_SKYDECKTexName_sky_t_64ti,
+	OBJ_SKYDECKTexName_sky_t_8mid,
+	OBJ_SKYDECKTexName_sky_t_ami,
+	OBJ_SKYDECKTexName_sky_t_dai,
+	OBJ_SKYDECKTexName_sky_t_efuti,
+	OBJ_SKYDECKTexName_sky_t_ere,
+	OBJ_SKYDECKTexName_sky_t_fensu,
+	OBJ_SKYDECKTexName_sky_t_futi,
+	OBJ_SKYDECKTexName_sky_t_gki,
+	OBJ_SKYDECKTexName_sky_t_green,
+	OBJ_SKYDECKTexName_sky_t_kankyou,
+	OBJ_SKYDECKTexName_sky_t_kk,
+	OBJ_SKYDECKTexName_sky_t_knt,
+	OBJ_SKYDECKTexName_sky_t_memori,
+	OBJ_SKYDECKTexName_sky_t_mizu,
+	OBJ_SKYDECKTexName_sky_t_no0,
+	OBJ_SKYDECKTexName_sky_t_no1,
+	OBJ_SKYDECKTexName_sky_t_no2,
+	OBJ_SKYDECKTexName_sky_t_no3,
+	OBJ_SKYDECKTexName_sky_t_no4,
+	OBJ_SKYDECKTexName_sky_t_no5,
+	OBJ_SKYDECKTexName_sky_t_no6,
+	OBJ_SKYDECKTexName_sky_t_no7,
+	OBJ_SKYDECKTexName_sky_t_no8,
+	OBJ_SKYDECKTexName_sky_t_no9,
+	OBJ_SKYDECKTexName_sky_t_rail,
+	OBJ_SKYDECKTexName_sky_t_tai,
+	OBJ_SKYDECKTexName_sky_t_taiyac,
+	OBJ_SKYDECKTexName_sky_t_taiyae,
+	OBJ_SKYDECKTexName_b_hook_a,
+	OBJ_SKYDECKTexName_sky_t_tankua,
+	OBJ_SKYDECKTexName_sky_t_zoukin,
+	OBJ_SKYDECKTexName_sky_tetualpha,
+	OBJ_SKYDECKTexName_sky_tlp,
+	OBJ_SKYDECKTexName_tkroom_tile,
+	OBJ_SKYDECKTexName_sky_t_danger,
+	OBJ_SKYDECKTexName_sky_t_hg,
+	OBJ_SKYDECKTexName_sky_t_mark,
+	OBJ_SKYDECKTexName_sky_t_mark2,
+	OBJ_SKYDECKTexName_sky_t_warning,
+	OBJ_SKYDECKTexName_sky_t_yajir,
+	OBJ_SKYDECKTexName_sky_t_yajiy,
+	OBJ_SKYDECKTexName_sky_yajiw,
+	OBJ_SKYDECKTexName_ken64_hd29
+};
+
+NJS_MATERIAL matlist_01D4BE48[] = {
+	{ { 0xB2FFFFFF },{ 0x00000000 }, 0, OBJ_SKYDECKTexName_sky_bg02, NJD_D_100 | NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ALPHA | NJD_FLAG_DOUBLE_SIDE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_01D4BE5C[] = {
+	4, 3, 2, 1, 0
+};
+
+NJS_TEX uv_01D4BE68[] = {
+	{ 2040, 255 },
+	{ 2040, -1785 },
+	{ 0, 255 },
+	{ 0, -1785 }
+};
+
+NJS_MESHSET_SADX meshlist_01D4BE78[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_01D4BE5C, NULL, NULL, NULL, uv_01D4BE68, NULL }
+};
+
+NJS_VECTOR vertex_01D4BE94[] = {
+	{ -4000, -1350, -4000 },
+	{ -4000, -1350, 4000 },
+	{ 4000, -1350, -4000 },
+	{ 4000, -1350, 4000 }
+};
+
+NJS_VECTOR normal_01D4BEC4[] = {
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 }
+};
+
+NJS_MODEL_SADX attach_01D4BEF4 = { vertex_01D4BE94, normal_01D4BEC4, LengthOfArray(vertex_01D4BE94), meshlist_01D4BE78, matlist_01D4BE48, LengthOfArray(meshlist_01D4BE78), LengthOfArray(matlist_01D4BE48),{ 0, -1350, 0 }, 5656.854f, NULL };
+
+NJS_OBJECT object_01D4BF20 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_01D4BEF4, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_TEX uv_01D4E2F4_2[] = {
+	{ 2040, 255 },
+	{ 2040, -1785 },
+	{ 0, 255 },
+	{ 0, -1785 }
+};
+
+
+NJS_MATERIAL matlist_01D4E2D4[] = {
+	{ { 0xB2FFFFFF },{ 0x00000000 }, 0, OBJ_SKYDECKTexName_ecsc_s_bkcc, NJD_D_100 | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_01D4E2E8[] = {
+	4, 3, 2, 1, 0
+};
+
+NJS_TEX uv_01D4E2F4[] = {
+	{ 2040, 255 },
+	{ 2040, -1785 },
+	{ 0, 255 },
+	{ 0, -1785 }
+};
+
+NJS_TEX uv_01D4E2F4_3[] = {
+	{ 2040, 255 },
+	{ 2040, -1785 },
+	{ 0, 255 },
+	{ 0, -1785 }
+};
+
+NJS_MESHSET_SADX meshlist_01D4E304[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_01D4E2E8, NULL, NULL, NULL, uv_01D4E2F4, NULL }
+};
+
+NJS_MESHSET_SADX meshlist_01D4E304_2[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_01D4E2E8, NULL, NULL, NULL, uv_01D4E2F4_3, NULL }
+};
+
+NJS_VECTOR vertex_01D4E320[] = {
+	{ -4000, -1350, -4000 },
+	{ -4000, -1350, 4000 },
+	{ 4000, -1350, -4000 },
+	{ 4000, -1350, 4000 }
+};
+
+NJS_VECTOR normal_01D4E350[] = {
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 }
+};
+
+NJS_MODEL_SADX attach_01D4E380 = { vertex_01D4E320, normal_01D4E350, LengthOfArray(vertex_01D4E320), meshlist_01D4E304, matlist_01D4E2D4, LengthOfArray(meshlist_01D4E304), LengthOfArray(matlist_01D4E2D4),{ 0, -1350, 0 }, 5656.854f, NULL };
+NJS_MODEL_SADX attach_01D4E380_2 = { vertex_01D4E320, normal_01D4E350, LengthOfArray(vertex_01D4E320), meshlist_01D4E304_2, matlist_01D4E2D4, LengthOfArray(meshlist_01D4E304_2), LengthOfArray(matlist_01D4E2D4),{ 0, -1350, 0 }, 5656.854f, NULL };
+NJS_OBJECT object_01D4E3AC_2 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_01D4E380_2, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT object_01D4E3AC = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_01D4E380, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };

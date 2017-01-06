@@ -2330,6 +2330,17 @@ g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(1561
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(1712): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(1712): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(1712): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(1938): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(1969): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(1969): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(1969): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(1983): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(2025): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(2025): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(2025): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(2026): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(2026): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
+g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3_Fixes.h(2026): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3.h(10): warning C4838: conversion from 'int' to 'Uint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3.h(47): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3.h(47): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
@@ -3435,11 +3446,12 @@ g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3.h(40475): wa
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3.h(40860): warning C4838: conversion from 'unsigned int' to 'int' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3.h(40862): warning C4838: conversion from 'std::size_t' to 'int16_t' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_skydeck\dc_skydeck\SkyDeck3.h(40862): warning C4267: 'initializing': conversion from 'size_t' to 'int16_t', possible loss of data
-DC_SkyDeck.cpp(32): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+DC_SkyDeck.cpp(62): warning C4018: '<': signed/unsigned mismatch
+DC_SkyDeck.cpp(88): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_SkyDeck\Release\DC_SkyDeck.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_SkyDeck\Release\DC_SkyDeck.exp
   Generating code
-  All 895 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 904 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_SkyDeck.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_SkyDeck\Release\DC_SkyDeck.dll
   DC_SkyDeck.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_SkyDeck\Release\DC_SkyDeck.pdb (Full PDB)

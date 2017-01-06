@@ -10,22 +10,78 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DAD0, &landtable_00023EB4)
 };
 
+DataPointer(float, SkyDeckAltitude, 0x03C80610); //0 to 700
+DataPointer(float, CurrentSkyBoxScaleX, 0x03ABDC94);
+DataPointer(float, CurrentSkyBoxScaleY, 0x03ABDC98);
+DataPointer(float, CurrentSkyBoxScaleZ, 0x03ABDC9C);
+DataPointer(NJS_VECTOR, SkyDeck_SkyPosition, 0x03C7F038);
+
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	((NJS_OBJECT *)0x214BF20)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_2;
+	((NJS_OBJECT *)0x214E3AC)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_3;
+	WriteData((NJS_OBJECT**)0x005ED3AC, (NJS_OBJECT*)&object_01D4BF20); //sky normal
+	WriteData((NJS_OBJECT**)0x005ED3A5, (NJS_OBJECT*)&object_01D4E3AC_2); //sky dark top 2 
+	WriteData((NJS_OBJECT**)0x005ED46D, (NJS_OBJECT*)&object_01D4E3AC); //sky dark top 1
+	WriteData((NJS_OBJECT**)0x005ED4FC, (NJS_OBJECT*)&object_01D4E3AC); //sky dark bottom 1 
 	ResizeTextureList((NJS_TEXLIST*)0x20E0BB0, textures_skydeck1);
 	//ResizeTextureList((NJS_TEXLIST*)0x20AA63C, textures_skydeck2);
 	ResizeTextureList((NJS_TEXLIST*)0x203ACE0, textures_skydeck3);
 	DataArray(FogData, SkyDeck1Fog, 0x0203A094, 3);
 	DataArray(FogData, SkyDeck2Fog, 0x0203A0C4, 3);
 	DataArray(FogData, SkyDeck3Fog, 0x0203A0F4, 3);
+	DataArray(SkyboxScale, SkyDeck3SkyboxScale, 0x02039FE0, 3);
+	DataArray(DrawDistance, SkyDeck1DrawDist, 0x0203A04C, 3);
+	DataArray(DrawDistance, SkyDeck2DrawDist, 0x0203A064, 3);
+	DataArray(DrawDistance, SkyDeck3DrawDist, 0x0203A07C, 3);
 	for (int i = 0; i < 3; i++)
 	{
-		SkyDeck1Fog[i].Layer = 2500.0f;
-		SkyDeck1Fog[i].Distance = 8000.0f;
-		SkyDeck2Fog[i].Layer = 2500.0f;
-		SkyDeck2Fog[i].Distance = 6000.0f;
+		SkyDeck1Fog[i].Layer = 4000.0f;
+		SkyDeck1Fog[i].Distance = 12000.0f;
+		SkyDeck2Fog[i].Layer = 4000.0f;
+		SkyDeck2Fog[i].Distance = 12000.0f;
 		SkyDeck3Fog[i].Layer = 4000.0f;
 		SkyDeck3Fog[i].Distance = 12000.0f;
+		SkyDeck1DrawDist[i].Maximum = -20000.0f;
+		SkyDeck2DrawDist[i].Maximum = -20000.0f;
+		SkyDeck3DrawDist[i].Maximum = -16000.0f;
+	}
+}
+
+extern "C" __declspec(dllexport) void cdecl OnFrame()
+{
+	((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.a = 0x00;
+	if (CurrentLevel == 6 && CurrentAct == 2)
+	{
+		CurrentSkyBoxScaleX = 1.0f;
+		CurrentSkyBoxScaleY = 1.0f;
+		CurrentSkyBoxScaleZ = 1.0f;
+	}
+	if (CurrentLevel == 6 && GameState != 16)
+	{
+		for (int q = 0; q < LengthOfArray(uv_01D4BE68); q++)
+		{
+			uv_01D4BE68[q].u = uv_01D4BE68[q].u - 2;
+			uv_01D4E2F4[q].u = uv_01D4E2F4[q].u - 2;
+			uv_01D4E2F4_2[q].u = uv_01D4E2F4_2[q].u - 4;
+			uv_01D4E2F4_3[q].u = uv_01D4E2F4_3[q].u - 4;
+		}
+		if (uv_01D4E2F4_2[0].u <= 0) uv_01D4E2F4_2[0].u = 2040;
+		if (uv_01D4E2F4_2[1].u <= 0) uv_01D4E2F4_2[1].u = 2040;
+		if (uv_01D4E2F4_2[2].u <= -2040) uv_01D4E2F4_2[2].u = 0;
+		if (uv_01D4E2F4_2[3].u <= -2040) uv_01D4E2F4_2[3].u = 0;
+		if (uv_01D4E2F4_3[0].u <= 0) uv_01D4E2F4_3[0].u = 2040;
+		if (uv_01D4E2F4_3[1].u <= 0) uv_01D4E2F4_3[1].u = 2040;
+		if (uv_01D4E2F4_3[2].u <= -2040) uv_01D4E2F4_3[2].u = 0;
+		if (uv_01D4E2F4_3[3].u <= -2040) uv_01D4E2F4_3[3].u = 0;
+		if (uv_01D4BE68[0].u <= 0) uv_01D4BE68[0].u = 2040;
+		if (uv_01D4BE68[1].u <= 0) uv_01D4BE68[1].u = 2040;
+		if (uv_01D4BE68[2].u <= -2040) uv_01D4BE68[2].u = 0;
+		if (uv_01D4BE68[3].u <= -2040) uv_01D4BE68[3].u = 0;
+		if (uv_01D4E2F4[0].u <= 0) uv_01D4E2F4[0].u = 2040;
+		if (uv_01D4E2F4[1].u <= 0) uv_01D4E2F4[1].u = 2040;
+		if (uv_01D4E2F4[2].u <= -2040) uv_01D4E2F4[2].u = 0;
+		if (uv_01D4E2F4[3].u <= -2040) uv_01D4E2F4[3].u = 0;
 	}
 }
 
