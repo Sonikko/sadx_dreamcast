@@ -29,7 +29,6 @@ static bool InsideTemple = 0;
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	WriteData((void*)0x0053881F, 0x90u, 2);
 	for (int i = 0; i < 3; i++)
 	{
 		MR1FogDay[i].Distance = -9000.0f;

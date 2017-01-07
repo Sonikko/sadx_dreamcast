@@ -3700,17 +3700,17 @@ g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MR_train.h(48
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MR_train.h(5075): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MR_train.h(5075): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_adv02models\dc_adv02models\MR_train.h(5075): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-DC_ADV02MODELS.cpp(219): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(224): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(218): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(223): warning C4018: '<': signed/unsigned mismatch
+DC_ADV02MODELS.cpp(282): warning C4018: '<': signed/unsigned mismatch
 DC_ADV02MODELS.cpp(283): warning C4018: '<': signed/unsigned mismatch
 DC_ADV02MODELS.cpp(284): warning C4018: '<': signed/unsigned mismatch
 DC_ADV02MODELS.cpp(285): warning C4018: '<': signed/unsigned mismatch
 DC_ADV02MODELS.cpp(286): warning C4018: '<': signed/unsigned mismatch
-DC_ADV02MODELS.cpp(287): warning C4018: '<': signed/unsigned mismatch
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV02MODELS\Release\DC_ADV02MODELS.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV02MODELS\Release\DC_ADV02MODELS.exp
   Generating code
-  All 888 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 885 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_ADV02MODELS.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV02MODELS\Release\DC_ADV02MODELS.dll
   DC_ADV02MODELS.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_ADV02MODELS\Release\DC_ADV02MODELS.pdb (Full PDB)
