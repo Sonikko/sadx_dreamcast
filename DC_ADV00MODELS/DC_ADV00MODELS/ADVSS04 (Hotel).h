@@ -17941,8 +17941,8 @@ COL collist_00134D10[] = {
 	{ { -421.7067f, 34.07793f, 2047.35f }, 39.3541f, 0, 0, &object_00156DCC, 0, 0x80040100 },
 	{ { -445.7067f, 34.07793f, 2085.35f }, 39.3541f, 0, 0, &object_00156E00, 0, 0x80040100 },
 	{ { -477.7067f, 34.07793f, 2121.35f }, 39.3541f, 0, 0, &object_00156E34, 0, 0x80040100 },
-	//{ { -340, -2, 1920 }, 125.2996f, 0, 0, &object_001567F0, 0, 0xC0010002 }, //this messes up Gamma for some reason
-	{ { -274.8817f, -7.434998f, 1889.982f }, 40.98962f, 0, 0, &object_0014C4E8, 0, 0xC0010000 },
+	{ { -340, -2, 1920 }, 125.2996f, 0, 0, &object_001567F0, 0, 0xC0000002 }, //this messes up Gamma for some reason
+	{ { -274.8817f, -7.434998f, 1889.982f }, 40.98962f, 0, 0, &object_0014C4E8, 0, 0xC0000000 },
 };
 
 LandTable landtable_00135A90 = { LengthOfArray(collist_00134D10), 0, 0xC, 1500, collist_00134D10, NULL, "ADVSS04", (NJS_TEXLIST *)&texlist5 , 0, 0 };
