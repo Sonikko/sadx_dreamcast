@@ -70,6 +70,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
 	WriteData((char *)GetProcAddress(handle2, "SetClip_EC00"), 0xC3u, sizeof(char *));
 	WriteData((char *)GetProcAddress(handle2, "SetClip_EC01"), 0xC3u, sizeof(char *));
+	WriteData((void *)0x0051BB8C, 0x90, 5);
 	NJS_TEXLIST **___ADV01_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle2, "___ADV01_TEXLISTS");
 	___ADV01_TEXLISTS[0] = &texlist_ec00;
 	___ADV01_TEXLISTS[1] = &texlist_ec01;
@@ -122,7 +123,9 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		EggCarrierOutside5Fog[i].Toggle = 0;
 		EggCarrierOutside6Fog[i].Toggle = 0;
 		EggCarrierOutside7Fog[i].Toggle = 1;
-		//EggCarrierOutside7Fog[i].Distance = 800;
+		EggCarrierOutside7Fog[i].Layer = 3000;
+		EggCarrierOutside7Fog[i].Color = 0xFF000000;
+		EggCarrierOutside7Fog[i].Distance = 21500;
 		EggCarrierInside1Fog[i].Toggle = 0;
 		EggCarrierInside2Fog[i].Toggle = 1;
 		EggCarrierInside2Fog[i].Distance = 4000.0f;
