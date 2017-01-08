@@ -4,7 +4,9 @@
 #include "FinalEgg2.h"
 #include "FinalEgg3.h"
 #include "FinalEgg_objects.h"
-
+#include "stdlib.h"
+#include "math.h"
+DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB48, &landtable_0001D108), //Act 1
 	ptrdecl(0x97DB50, &landtable_000E67D0) //Act 3
@@ -129,18 +131,30 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 	}
 }
 
-/*FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
+FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 FunctionPointer(void, sub_4094D0, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x4094D0);
 
 void __cdecl OStandLight_DisplayFixed(ObjectMaster *a1)
 {
+	DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 	EntityData1 *v1; // esi@1
 	int v2; // eax@2
 	NJS_OBJECT* v3; // eax@4
 	NJS_OBJECT* v4; // eax@4
 	v1 = a1->Data1;
+	int angle2;
+	int angle3;
+	int angle4;
+	int cam3;
 	if (!DroppedFrames)
 	{
+		cam3 = NJM_ANG_DEG(Camera_Data1->Rotation.y);
+		cam3 = cam3 % 360;
+		if (cam3 < 0) cam3 = cam3 + 360;
+		angle2 = NJM_ANG_DEG(16384 + (Camera_Data1->Rotation.y) * 4);
+		angle2 = angle2 % 360;
+		if (angle2 < 0) angle2 = angle2 + 360;
+		angle3 = angle2;
 		SetTextureToLevelObj();
 		njPushMatrix(0);
 		njTranslateV(0, &v1->Position);
@@ -154,21 +168,25 @@ void __cdecl OStandLight_DisplayFixed(ObjectMaster *a1)
 		njTranslate(0, ((NJS_OBJECT*)0x1C28C78)->child->pos[0], ((NJS_OBJECT*)0x1C28C78)->child->pos[1], ((NJS_OBJECT*)0x1C28C78)->child->pos[2]);
 		njRotateXYZ(0, v3->ang[0] + *(int*)&v1->CharIndex, v3->ang[1], v3->ang[2]);
 		sub_4094D0((NJS_MODEL_SADX*)v3->model, 4, 1.0f);
-		v4 = ((NJS_OBJECT*)0x1C28C78)->child->child;
-		//njTranslate(0, ((NJS_OBJECT*)0x1C28C78)->child->child->pos[0], ((NJS_OBJECT*)0x1C28C78)->child->child->pos[1], ((NJS_OBJECT*)0x1C28C78)->child->child->pos[2]);
-		njScale(nullptr, 1.0f + a1->SETData->SETEntry->Properties.z / 10, 1.0f+ a1->SETData->SETEntry->Properties.y / 12, 1.0f + a1->SETData->SETEntry->Properties.x / 12);
-		sub_4094D0((NJS_MODEL_SADX*)v4->model, 4, 1.0f);
+		((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[23].y = v1->Scale.z + v1->Scale.x;
+		((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[23].z = v1->Scale.y;
+		((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[24].y = -1.0f*(v1->Scale.z) + v1->Scale.x;
+		((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[24].z = v1->Scale.y;
+		if (cam3 >= 160 && cam3 <= 200 && v1->Scale.y < 40) ((NJS_OBJECT*)0x1C28C78)->child->ang[2] = NJM_DEG_ANG(angle3);
+//		PrintDebug("%d\n", angle4);
 		njPopMatrix(1u);
 	}
-}*/
+}
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		//*(NJS_OBJECT*)0x01C28C78 = object_01828C78; // O Stand Light
-		//WriteJump(OStandLight_Display, OStandLight_DisplayFixed); //O Stand Light function
+		*(NJS_OBJECT*)0x19FEFE4 = object_001AEDFC;  // Light
+		*(NJS_MODEL_SADX*)0x19D8BC0 = attach_015D8BC0;  // Laser
+		*(NJS_OBJECT*)0x01C28C78 = object_01828C78; // O Stand Light
+		WriteJump(OStandLight_Display, OStandLight_DisplayFixed); //O Stand Light function
 		WriteJump((void*)0x5B4690, sub_5B4690); //Cylinder function
 		WriteData((void*)0x005B47A1, 0x90i8, 5); //Kill specialized texlist for cylinder
 		memcpy((void*)0x1A44230, &attach_01644230, sizeof(attach_01644230));  // Cylinder
@@ -196,7 +214,16 @@ extern "C"
 			FinalEgg3Fog[i].Layer = 650.0f;
 			FinalEgg3Fog[i].Distance = 2000.0f;
 		}
-		memcpy((void*)0x19FEFE4, &object_001AEDFC, sizeof(object_001AEDFC));  // Light
-		memcpy((void*)0x19D8BC0, &attach_015D8BC0, sizeof(attach_015D8BC0));  // Laser
+	}
+	__declspec(dllexport) void __cdecl OnFrame()
+	{
+		if (Camera_Data1 != nullptr)
+		{
+			int x = NJM_ANG_DEG(Camera_Data1->Rotation.y);
+			x = x % 360;
+			if (x < 0) x = x + 360;
+			//PrintDebug("%d\n", x);
+		}
+			
 	}
 }
