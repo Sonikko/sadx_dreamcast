@@ -27,6 +27,13 @@ DataArray(FogData, EggCarrierInside5Fog, 0x01100CD8, 3);
 DataArray(FogData, EggCarrierInside6Fog, 0x01100D08, 3);
 HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
 HMODULE handle3 = GetModuleHandle(L"ADV01CMODELS");
+NJS_TEXLIST **___ADV01_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle2, "___ADV01_TEXLISTS");
+NJS_TEXLIST **___ADV01C_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle3, "___ADV01C_TEXLISTS");
+LandTable **___LANDTABLEEC = (LandTable **)GetProcAddress(handle2, "___LANDTABLEEC");
+LandTable **___LANDTABLEECC = (LandTable **)GetProcAddress(handle3, "___LANDTABLEEC");
+NJS_OBJECT **___ADV01C_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle3, "___ADV01C_OBJECTS");
+NJS_OBJECT **___ADV01_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01_OBJECTS");
+NJS_MODEL_SADX **___ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle3, "___ADV01C_MODELS");
 static bool PinkMonitorMode = 0;
 static bool CurrentlyPink = 0;
 
@@ -36,22 +43,18 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	WriteData((char *)GetProcAddress(handle2, "SetClip_EC00"), 0xC3u, sizeof(char *));
 	WriteData((char *)GetProcAddress(handle2, "SetClip_EC01"), 0xC3u, sizeof(char *));
 	WriteData((void *)0x0051BB8C, 0x90, 5); //disable that stupid DisableFog thing
-	NJS_TEXLIST **___ADV01_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle2, "___ADV01_TEXLISTS");
 	___ADV01_TEXLISTS[0] = &texlist_ec00;
 	___ADV01_TEXLISTS[1] = &texlist_ec01;
 	___ADV01_TEXLISTS[2] = &texlist_ec02;
 	___ADV01_TEXLISTS[3] = &texlist_ec03;
 	___ADV01_TEXLISTS[4] = &texlist_ec04;
 	___ADV01_TEXLISTS[5] = &texlist_ec05;
-	LandTable **___LANDTABLEEC = (LandTable **)GetProcAddress(handle2, "___LANDTABLEEC");
 	___LANDTABLEEC[0] = &landtable_00162260;
 	___LANDTABLEEC[1] = &landtable_001631F0;
 	___LANDTABLEEC[2] = &landtable_00163CE8;
 	___LANDTABLEEC[3] = &landtable_001650C8;
 	___LANDTABLEEC[4] = &landtable_00165830;
 	___LANDTABLEEC[5] = &landtable_001666F4;
-	LandTable **___LANDTABLEECC = (LandTable **)GetProcAddress(handle3, "___LANDTABLEEC");
-	NJS_TEXLIST **___ADV01C_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle3, "___ADV01C_TEXLISTS");
 	___ADV01C_TEXLISTS[51] = &texlist_ec30;
 	___ADV01C_TEXLISTS[52] = &texlist_ec31;
 	___ADV01C_TEXLISTS[53] = &texlist_ec32;
@@ -64,8 +67,6 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___LANDTABLEECC[3] = &landtable_0000EDB8;
 	___LANDTABLEECC[4] = &landtable_0000F7A8;
 	___LANDTABLEECC[5] = &landtable_0000FE44;
-	NJS_OBJECT **___ADV01C_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle3, "___ADV01C_OBJECTS");
-	NJS_MODEL_SADX **___ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle3, "___ADV01C_MODELS");
 	___ADV01C_MODELS[28] = &attach_00111938;
 	___ADV01C_MODELS[27] = &attach_001114EC;
 	___ADV01C_OBJECTS[7] = &object_00111964;
