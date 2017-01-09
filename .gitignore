@@ -46,7 +46,9 @@ dlldata.c
 project.lock.json
 artifacts/
 
+.suo
 *.suo
+*.db
 *.VC.db
 *.vc.db
 *_i.c
