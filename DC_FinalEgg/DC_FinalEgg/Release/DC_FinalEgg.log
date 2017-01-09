@@ -3725,18 +3725,16 @@ g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(
 g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(2032): warning C4838: conversion from 'std::size_t' to 'Sint32' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(2032): warning C4838: conversion from 'std::size_t' to 'Uint16' requires a narrowing conversion
 g:\sonic\sadx project\sadx_dreamcast\dc_finalegg\dc_finalegg\FinalEgg_objects.h(2032): warning C4267: 'initializing': conversion from 'size_t' to 'Uint16', possible loss of data
-DC_FinalEgg.cpp(93): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
-DC_FinalEgg.cpp(151): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-DC_FinalEgg.cpp(154): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
-DC_FinalEgg.cpp(147): warning C4101: 'angle4': unreferenced local variable
-DC_FinalEgg.cpp(143): warning C4101: 'v4': unreferenced local variable
-DC_FinalEgg.cpp(183): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
-DC_FinalEgg.cpp(198): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
-DC_FinalEgg.cpp(222): warning C4244: 'initializing': conversion from 'double' to 'int', possible loss of data
+DC_FinalEgg.cpp(84): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+DC_FinalEgg.cpp(130): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+DC_FinalEgg.cpp(133): warning C4244: '=': conversion from 'double' to 'int', possible loss of data
+DC_FinalEgg.cpp(124): warning C4101: 'v4': unreferenced local variable
+DC_FinalEgg.cpp(160): warning C4838: conversion from 'std::size_t' to 'int' requires a narrowing conversion
+DC_FinalEgg.cpp(176): warning C4267: '=': conversion from 'size_t' to 'int16_t', possible loss of data
   dllmain.cpp
      Creating library G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.lib and object G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.exp
   Generating code
-  All 1045 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
+  All 1044 functions were compiled because no usable IPDB/IOBJ from previous compilation was found.
   Finished generating code
   DC_FinalEgg.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.dll
   DC_FinalEgg.vcxproj -> G:\Sonic\SADX Project\sadx_dreamcast\DC_FinalEgg\Release\DC_FinalEgg.pdb (Full PDB)

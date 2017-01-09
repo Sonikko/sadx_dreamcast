@@ -6,7 +6,17 @@
 #include "FinalEgg_objects.h"
 #include "stdlib.h"
 #include "math.h"
+DataPointer(NJS_TEXLIST, dword_1AC3F30, 0x1AC3F30);
+DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(int, LastRenderFlags, 0x03D08498);
 DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
+FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
+FunctionPointer(void, sub_4094D0, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x4094D0);
+FunctionPointer(void, sub_408530, (NJS_OBJECT*), 0x408530);
+static Angle angle = 0;
+static float trans = 0;
+static NJS_MATRIX backup;
+
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB48, &landtable_0001D108), //Act 1
 	ptrdecl(0x97DB50, &landtable_000E67D0) //Act 3
@@ -30,15 +40,6 @@ void __cdecl SetClip_FEgg2_r(signed int a1)
 }
 
 //O Tatekan
-FunctionPointer(void, sub_408530, (NJS_OBJECT*), 0x408530);
-DataPointer(NJS_TEXLIST, dword_1AC3F30, 0x1AC3F30);
-DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(int, LastRenderFlags, 0x03D08498);
-
-static Angle angle = 0;
-static float trans = 0;
-static NJS_MATRIX backup;
-
 void __cdecl sub_5B4690(ObjectMaster *a1)
 {
 	EntityData1 *v1; // esi@1
@@ -47,58 +48,46 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 	float YDist; // ST04_4@6
 	int v5; // eax@6
 	float scale; // [sp+10h] [bp+4h]@9
-
 	v1 = a1->Data1;
-
 	if (!DroppedFrames)
 	{
 		if (trans > 1.0f) trans = 0;
 		// backup environment map matrix
 		memcpy(&backup, (NJS_MATRIX*)0x038A5DD0, sizeof(NJS_MATRIX));
-
 		// make & apply our transformation matrix
 		njPushMatrix(nullptr);
-
 		angle = (angle + 128) % 65536; // <- rotate
 		njUnitMatrix(nullptr);
 		//njRotateZ(nullptr, angle);
 		njRotateY(nullptr, angle);
 		njTranslate(nullptr, trans, trans, 0.0f);
 		trans = trans + 0.005f;
-
 		njGetMatrix((NJS_MATRIX*)0x038A5DD0);
-
 		njPopMatrix(1);
-
 		SetTextureToLevelObj();
 		njPushMatrix(0);
 		njTranslateV(0, &v1->Position);
-
 		v2 = v1->Rotation.y;
 		if (v2)
 		{
 			njRotateY(0, (unsigned __int16)v2);
 		}
-
 		njPushMatrix(0);
 		v3 = v1->Rotation.x;
 		if (v3)
 		{
 			njRotateY(0, (unsigned __int16)v3);
 		}
-
 		sub_408530((NJS_OBJECT*)0x1A45500);
 		njPopMatrix(1u);
 		njPushMatrix(0);
 		YDist = v1->Scale.y * 22.0;
 		njTranslate(0, 0.0, YDist, 0.0);
 		v5 = v1->Rotation.z;
-
 		if (v5)
 		{
 			njRotateY(0, (unsigned __int16)v5);
 		}
-
 		ProcessModelNode_AB_Wrapper(&object_01644A40, 1.0);
 		njPopMatrix(1u);
 		((NJS_OBJECT*)0x01A4583C)->basicdxmodel->mats[0].attr_texId = 176;
@@ -109,7 +98,6 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 		njScale(0, 1.0, v1->Scale.y, 1.0);
 		sub_408530((NJS_OBJECT*)0x01A4425C);
 		//njSetTexture(&dword_1AC3F30);
-
 		if (v1->Scale.y >= 1.0)
 		{
 			scale = v1->Scale.y;
@@ -118,43 +106,33 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 		{
 			scale = 1.0;
 		}
-
 		LastRenderFlags &= ~1;
 		ProcessModelNode_AB_Wrapper(&object_0164583C, scale);
-
 		njPopMatrix(1u);
 		njPopMatrix(1u);
-
 		// restore environment map matrix
 		memcpy((NJS_MATRIX*)0x038A5DD0, &backup, sizeof(NJS_MATRIX));
 		LastRenderFlags &= ~1;
 	}
 }
 
-FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
-FunctionPointer(void, sub_4094D0, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x4094D0);
-
 void __cdecl OStandLight_DisplayFixed(ObjectMaster *a1)
 {
-	DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 	EntityData1 *v1; // esi@1
 	int v2; // eax@2
 	NJS_OBJECT* v3; // eax@4
 	NJS_OBJECT* v4; // eax@4
 	v1 = a1->Data1;
-	int angle2;
-	int angle3;
-	int angle4;
-	int cam3;
+	int light_angle;
+	int cam_angle;
 	if (!DroppedFrames)
 	{
-		cam3 = NJM_ANG_DEG(Camera_Data1->Rotation.y);
-		cam3 = cam3 % 360;
-		if (cam3 < 0) cam3 = cam3 + 360;
-		angle2 = NJM_ANG_DEG(16384 + (Camera_Data1->Rotation.y) * 4);
-		angle2 = angle2 % 360;
-		if (angle2 < 0) angle2 = angle2 + 360;
-		angle3 = angle2;
+		cam_angle = NJM_ANG_DEG(Camera_Data1->Rotation.y);
+		cam_angle = cam_angle % 360;
+		if (cam_angle < 0) cam_angle = cam_angle + 360;
+		light_angle = NJM_ANG_DEG(16384 + (Camera_Data1->Rotation.y) * 4);
+		light_angle = light_angle % 360;
+		if (light_angle < 0) light_angle = light_angle + 360;
 		SetTextureToLevelObj();
 		njPushMatrix(0);
 		njTranslateV(0, &v1->Position);
@@ -172,8 +150,7 @@ void __cdecl OStandLight_DisplayFixed(ObjectMaster *a1)
 		((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[23].z = v1->Scale.y;
 		((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[24].y = -1.0f*(v1->Scale.z) + v1->Scale.x;
 		((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[24].z = v1->Scale.y;
-		if (cam3 >= 160 && cam3 <= 200 && v1->Scale.y < 40) ((NJS_OBJECT*)0x1C28C78)->child->ang[2] = NJM_DEG_ANG(angle3);
-//		PrintDebug("%d\n", angle4);
+		if (cam_angle >= 160 && cam_angle <= 200 && v1->Scale.y < 40) ((NJS_OBJECT*)0x1C28C78)->child->ang[2] = NJM_DEG_ANG(light_angle);
 		njPopMatrix(1u);
 	}
 }
@@ -186,10 +163,11 @@ extern "C"
 		*(NJS_OBJECT*)0x19FEFE4 = object_001AEDFC;  // Light
 		*(NJS_MODEL_SADX*)0x19D8BC0 = attach_015D8BC0;  // Laser
 		*(NJS_OBJECT*)0x01C28C78 = object_01828C78; // O Stand Light
+		//WriteJump((void*)0x5AE330, sub_5AE330); //O Texture function
 		WriteJump(OStandLight_Display, OStandLight_DisplayFixed); //O Stand Light function
-		WriteJump((void*)0x5B4690, sub_5B4690); //Cylinder function
+		WriteJump((void*)0x005B4690, sub_5B4690); //Cylinder function
 		WriteData((void*)0x005B47A1, 0x90i8, 5); //Kill specialized texlist for cylinder
-		memcpy((void*)0x1A44230, &attach_01644230, sizeof(attach_01644230));  // Cylinder
+		memcpy((void*)0x01A44230, &attach_01644230, sizeof(attach_01644230));  // Cylinder
 		memcpy((void*)0x01A45810, &attach_01645810, sizeof(attach_01645810));  // Cylinder
 		ResizeTextureList((NJS_TEXLIST*)0x1B98518, textures_finalegg1);
 		ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);
@@ -214,16 +192,5 @@ extern "C"
 			FinalEgg3Fog[i].Layer = 650.0f;
 			FinalEgg3Fog[i].Distance = 2000.0f;
 		}
-	}
-	__declspec(dllexport) void __cdecl OnFrame()
-	{
-		if (Camera_Data1 != nullptr)
-		{
-			int x = NJM_ANG_DEG(Camera_Data1->Rotation.y);
-			x = x % 360;
-			if (x < 0) x = x + 360;
-			//PrintDebug("%d\n", x);
-		}
-			
 	}
 }
