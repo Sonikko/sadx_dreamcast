@@ -1,7 +1,7 @@
 /**
- * SADX Mod Loader.
- * Common header file for SADXModLoader mods.
- */
+* SADX Mod Loader.
+* Common header file for SADXModLoader mods.
+*/
 
 #ifndef SADXMODLOADER_H
 #define SADXMODLOADER_H
@@ -73,33 +73,33 @@ struct HelperFunctions_v3
 	// The version of the structure.
 	int Version;
 	// Registers a start position for a character.
-	void (__cdecl *RegisterStartPosition)(unsigned char character, const StartPosition &position);
+	void(__cdecl *RegisterStartPosition)(unsigned char character, const StartPosition &position);
 	// Clears the list of registered start positions for a character.
-	void (__cdecl *ClearStartPositionList)(unsigned char character);
+	void(__cdecl *ClearStartPositionList)(unsigned char character);
 	// Registers a field start position for a character.
-	void (__cdecl *RegisterFieldStartPosition)(unsigned char character, const FieldStartPosition &position);
+	void(__cdecl *RegisterFieldStartPosition)(unsigned char character, const FieldStartPosition &position);
 	// Clears the list of registered field start positions for a character.
-	void (__cdecl *ClearFieldStartPositionList)(unsigned char character);
+	void(__cdecl *ClearFieldStartPositionList)(unsigned char character);
 	// Registers a path list.
-	void (__cdecl *RegisterPathList)(const PathDataPtr &paths);
+	void(__cdecl *RegisterPathList)(const PathDataPtr &paths);
 	// Clears the list of registered path lists.
-	void (__cdecl *ClearPathListList)();
+	void(__cdecl *ClearPathListList)();
 	// Registers a PVM file for a character.
-	void (__cdecl *RegisterCharacterPVM)(unsigned char character, const PVMEntry &pvm);
+	void(__cdecl *RegisterCharacterPVM)(unsigned char character, const PVMEntry &pvm);
 	// Clears the list of registered PVM files for a character.
-	void (__cdecl *ClearCharacterPVMList)(unsigned char character);
+	void(__cdecl *ClearCharacterPVMList)(unsigned char character);
 	// Registers a PVM file for a common object.
-	void (__cdecl *RegisterCommonObjectPVM)(const PVMEntry &pvm);
+	void(__cdecl *RegisterCommonObjectPVM)(const PVMEntry &pvm);
 	// Clears the list of registered PVM files for common objects.
-	void (__cdecl *ClearCommonObjectPVMList)();
+	void(__cdecl *ClearCommonObjectPVMList)();
 	// Registers a trial level entry for a character.
-	void (__cdecl *RegisterTrialLevel)(unsigned char character, const TrialLevelListEntry &level);
+	void(__cdecl *RegisterTrialLevel)(unsigned char character, const TrialLevelListEntry &level);
 	// Clears the list of registered trial level entries for a character.
-	void (__cdecl *ClearTrialLevelList)(unsigned char character);
+	void(__cdecl *ClearTrialLevelList)(unsigned char character);
 	// Registers a trial subgame entry for a character.
-	void (__cdecl *RegisterTrialSubgame)(unsigned char character, const TrialLevelListEntry &level);
+	void(__cdecl *RegisterTrialSubgame)(unsigned char character, const TrialLevelListEntry &level);
 	// Clears the list of registered trial subgame entries for a character.
-	void (__cdecl *ClearTrialSubgameList)(unsigned char character);
+	void(__cdecl *ClearTrialSubgameList)(unsigned char character);
 };
 
 struct HelperFunctions_v4
@@ -142,9 +142,9 @@ struct HelperFunctions_v4
 
 typedef HelperFunctions_v4 HelperFunctions;
 
-typedef void (__cdecl *ModInitFunc)(const char *path, const HelperFunctions &helperFunctions);
+typedef void(__cdecl *ModInitFunc)(const char *path, const HelperFunctions &helperFunctions);
 
-typedef void (__cdecl *ModEvent)();
+typedef void(__cdecl *ModEvent)();
 
 struct ModInfo
 {
