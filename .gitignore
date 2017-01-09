@@ -11,6 +11,8 @@
 *.userprefs
 
 # Build results
+.vs/
+ipch/
 [Dd]ebug/
 [Dd]ebugPublic/
 [Rr]elease/
@@ -44,6 +46,9 @@ dlldata.c
 project.lock.json
 artifacts/
 
+*.suo
+*.VC.db
+*.vc.db
 *_i.c
 *_p.c
 *_i.h
