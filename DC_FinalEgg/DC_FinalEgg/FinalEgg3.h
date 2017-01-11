@@ -82662,9 +82662,9 @@ NJS_MODEL_SADX attach_000A1378 = { vertex_000A1318, normal_000A1348, LengthOfArr
 
 NJS_OBJECT object_000A13A0 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000A1378, 897.3868f, -42.13358f, -842.9236f, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
-//NJS_MOTION animation_000A13D4 = { animation_000A13D4_mdat, 30, 0, 0 };
+NJS_MOTION animation_000A13D4 = { NULL, 30, 0, 0 };
 
-//NJS_ACTION action_animation_000A13D4 = { &object_000A13A0, &animation_000A13D4 };
+NJS_ACTION action_animation_000A13D4 = { &object_000A13A0, &animation_000A13D4 };
 
 NJS_MATERIAL matlist_000A13E8[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 34, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_TEXTURE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
@@ -82924,9 +82924,9 @@ NJS_OBJECT object_000A1AA0 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_
 //	{}
 //};
 
-//NJS_MOTION animation_000A1AD4 = { animation_000A1AD4_mdat, 30, 0, 0 };
+NJS_MOTION animation_000A1AD4 = { NULL, 30, 0, 0 };
 
-//NJS_ACTION action_animation_000A1AD4 = { &object_000A1AA0, &animation_000A1AD4 };
+NJS_ACTION action_animation_000A1AD4 = { &object_000A1AA0, &animation_000A1AD4 };
 
 NJS_MATERIAL matlist_000A1AE8[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 34, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_TEXTURE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
@@ -83781,12 +83781,12 @@ GeoAnimData animlist_000E62C0[] = {
 	{ 0, 1, 30, &object_000A0F88, &action_animation_000A100C, (NJS_TEXLIST *)0 },
 	{ 0, 1, 30, &object_000A10F0, &action_animation_000A1174, (NJS_TEXLIST *)0 },
 	{ 0, 1, 30, &object_000A1258, &action_animation_000A12BC, (NJS_TEXLIST *)0 },
-	//{ 0, 1, 30, &object_000A13A0, &action_animation_000A13D4, (NJS_TEXLIST *)0 },
+	{ 0, 1, 30, &object_000A13A0, &action_animation_000A13D4, (NJS_TEXLIST *)0 },
 	{ 0, 1, 30, &object_000A14B8, &action_animation_000A152C, (NJS_TEXLIST *)0 },
 	{ 0, 1, 30, &object_000A1688, &action_animation_000A171C, (NJS_TEXLIST *)0 },
 	{ 0, 1, 30, &object_000A1800, &action_animation_000A1874, (NJS_TEXLIST *)0 },
 	{ 0, 1, 30, &object_000A1958, &action_animation_000A19BC, (NJS_TEXLIST *)0 },
-	//{ 0, 1, 30, &object_000A1AA0, &action_animation_000A1AD4, (NJS_TEXLIST *)0 },
+	{ 0, 1, 30, &object_000A1AA0, &action_animation_000A1AD4, (NJS_TEXLIST *)0 },
 	{ 0, 1, 30, &object_000A1BB8, &action_animation_000A1C2C, (NJS_TEXLIST *)0 },
 	{ 0, 1, 30, &object_000A1C40, &action_animation_000A1CD4, (NJS_TEXLIST *)0 },
 	{ 0, 1, 30, &object_000A1CE8, &action_animation_000A1D7C, (NJS_TEXLIST *)0 },

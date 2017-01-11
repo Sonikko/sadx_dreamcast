@@ -220,6 +220,7 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		((NJS_OBJECT*)0x1A462EC)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		*(NJS_OBJECT*)0x19FEFE4 = object_001AEDFC;  // Light
 		*(NJS_MODEL_SADX*)0x19D8BC0 = attach_015D8BC0;  // Laser
 		*(NJS_OBJECT*)0x01C28C78 = object_01828C78; // O Stand Light
