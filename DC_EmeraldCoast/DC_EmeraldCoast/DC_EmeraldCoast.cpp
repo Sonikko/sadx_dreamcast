@@ -28,9 +28,6 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	DataArray(SkyboxScale, EmeraldCoast1Skybox, 0x00E99CE0, 3);
 	for (int i = 0; i < 3; i++)
 	{
-		EmeraldCoast1Skybox[i].Far.x = 1.0f;
-		EmeraldCoast1Skybox[i].Far.y = 1.0f;
-		//EmeraldCoast1Skybox[i].Far.z = 0.955f;
 		DrawDist_EmeraldCoast1[i].Maximum = -12000.0f;
 		DrawDist_EmeraldCoast2[i].Maximum = -4000.0f;
 		EmeraldCoast1Fog[i].Layer = -1200.0f;
