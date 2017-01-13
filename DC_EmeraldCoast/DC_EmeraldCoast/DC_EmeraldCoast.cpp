@@ -24,11 +24,17 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	DataArray(FogData, EmeraldCoast1Fog, 0x00E99DDC, 3);
 	DataArray(FogData, EmeraldCoast2Fog, 0x00E99E0C, 3);
 	DataArray(FogData, EmeraldCoast3Fog, 0x00E99E3C, 3);
+
+	DataArray(SkyboxScale, EmeraldCoast1Skybox, 0x00E99CE0, 3);
 	for (int i = 0; i < 3; i++)
 	{
-		DrawDist_EmeraldCoast1[i].Maximum = -6000.0f;
+		EmeraldCoast1Skybox[i].Far.x = 1.0f;
+		EmeraldCoast1Skybox[i].Far.y = 1.0f;
+		//EmeraldCoast1Skybox[i].Far.z = 0.955f;
+		DrawDist_EmeraldCoast1[i].Maximum = -12000.0f;
 		DrawDist_EmeraldCoast2[i].Maximum = -4000.0f;
-		EmeraldCoast1Fog[i].Layer = -1500.0f;
+		EmeraldCoast1Fog[i].Layer = -1200.0f;
+		EmeraldCoast1Fog[i].Distance = -8000.0f;
 		EmeraldCoast2Fog[i].Layer = -1500.0f;
 		EmeraldCoast3Fog[i].Layer = -1500.0f;
 	}
@@ -36,7 +42,6 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 
 extern "C" __declspec(dllexport) void __cdecl OnFrame()
 {
-
 	{
 	if (CurrentLevel == 1 && CurrentAct == 0 && GameState == 15)
 		{

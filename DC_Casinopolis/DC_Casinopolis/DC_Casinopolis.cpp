@@ -25,12 +25,19 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x1CBD1C4, textures_casino2);
 		ResizeTextureList((NJS_TEXLIST*)0x1C8AF04, textures_casino3);
 		ResizeTextureList((NJS_TEXLIST*)0x1C47004, textures_casino4);
-		*(NJS_OBJECT*)0x1E74A94 = object_01A74A94; //billboard
+		*(NJS_MODEL_SADX*)0x01E74A68 = attach_01A74A68; //billboard
+		*(NJS_MODEL_SADX*)0x01E46F30 = attach_001C4DCC; //rotating thing
 		memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //light
+		DataArray(FogData, Casino1Fog, 0x01C46990, 3);
 		DataArray(FogData, Casino2Fog, 0x01C469C0, 3);
+		
 		DataArray(DrawDistance, DrawDist_Casino2, 0x01C46948, 3);
 		for (int i = 0; i < 3; i++)
 		{
+			Casino1Fog[i].Color = 0xFF000000;
+			Casino1Fog[i].Layer = 600.0f;
+			Casino1Fog[i].Toggle = 1;
+			Casino1Fog[i].Distance = 1700.0f;
 			Casino2Fog[i].Color = 0xFF646400;
 			Casino2Fog[i].Layer = 1.0f;
 			Casino2Fog[i].Distance = 4000.0f;
