@@ -23,13 +23,30 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
-
+		/*object_000A0098_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_0009FF94_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_000A0134_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_000A0030_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_0009FFC8_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_000914F8_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_000A00CC_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_00091A60_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_000A0168_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_000A0134_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_000A0100_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_000A0064_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_000A0030_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
+		object_0009FFFC_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;*/
 		ResizeTextureList((NJS_TEXLIST*)0x26B9960, textures_twinkle1);
 		ResizeTextureList((NJS_TEXLIST*)0x2721A8C, textures_twinkle2);
 		ResizeTextureList((NJS_TEXLIST*)0x26FEA54, textures_twinkle3);
 		ResizeTextureList((NJS_TEXLIST*)0x38AEB70, textures_tpobjects); //OBJ_TWINKLE
+		*(NJS_OBJECT*)0x0279D364 = object_000A0E58; // barrel
+		*(NJS_OBJECT*)0x027AC44C = object_000AB6DC; // pirate ship
+		*(NJS_OBJECT*)0x027BF9DC = object_000B9E98; // spinning roof
 		((NJS_OBJECT *)0x038C214C)->basicdxmodel->mats[6].attr_texId = 96; //Neon panel
 		((NJS_OBJECT *)0x027C05FC)->child->basicdxmodel->mats[0].attr_texId = 89; //Monitor thing in Act 1
+		((NJS_OBJECT *)0x027B0708)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Merry-go-round floor
 		((NJS_OBJECT *)0x027BEA34)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Horsies
 		((NJS_OBJECT *)0x027BEA34)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Horsies
 		((NJS_OBJECT *)0x027BEA34)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Horsies
@@ -60,7 +77,6 @@ extern "C"
 		((NJS_OBJECT *)0x027A6EA0)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
 		((NJS_OBJECT *)0x038C234C)->basicdxmodel->mats[0].attr_texId = 96; //Light
 		((NJS_OBJECT *)0x038BFC74)->basicdxmodel->mats[0].attr_texId = 96;  //Light 2
-		*(NJS_OBJECT*)0x0279D364 = object_000A0E58; // barrel
 		((NJS_OBJECT *)0x0279D364)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Barrel
 		((NJS_OBJECT *)0x0279D364)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Barrel
 		((NJS_OBJECT *)0x0279D364)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Barrel
@@ -71,6 +87,13 @@ extern "C"
 		((NJS_OBJECT *)0x027A5024)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag2 1
 		((NJS_OBJECT *)0x027A5024)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag2 2
 		((NJS_OBJECT *)0x027A5024)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag2 3
+		((NJS_OBJECT *)0x027A3358)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Fence2
+		((NJS_OBJECT *)0x027A5464)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 1
+		((NJS_OBJECT *)0x027A5464)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 2
+		((NJS_OBJECT *)0x027A58A4)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 3
+		((NJS_OBJECT *)0x027A58A4)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 4
+
+		
 		/**(NJS_OBJECT*)0x027B6170 = object_000B4F1C; // yellow flower pot
 		*(NJS_OBJECT*)0x027B80C4 = object_000B4F1C; // yellow flower pot 2
 		*(NJS_OBJECT*)0x027B6A58 = object_000B5EE8; // pink flower pot
@@ -91,7 +114,7 @@ extern "C"
 			TwinklePark3Fog[i].Distance = -2200.0f;
 			TwinklePark3Fog[i].Color = 0xFF100428;
 			TwinklePark4Fog[i].Color = 0xFF000000;
-			TwinklePark4Fog[i].Layer = 400.0f;
+			TwinklePark4Fog[i].Layer = 1.0f;
 			TwinklePark4Fog[i].Distance = 1200.0f;
 			TwinklePark4Fog[i].Toggle = 1;
 		}
