@@ -3,6 +3,7 @@
 #include "SkyDeck1.h"
 #include "SkyDeck2.h"
 #include "SkyDeck3.h"
+#include "SkyDeck_objects.h"
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DAC8, &landtable_0001F018),
@@ -21,6 +22,8 @@ extern "C" __declspec(dllexport) void cdecl Init()
 {
 	((NJS_OBJECT *)0x214BF20)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_2;
 	((NJS_OBJECT *)0x214E3AC)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_3;
+	*(NJS_OBJECT *)0x214FB74 = object_000FF4A4; //Cannon in Act 1
+	*(NJS_OBJECT *)0x2161F68 = object_0010EB4C; //Cannon in Act 2
 	WriteData((NJS_OBJECT**)0x005ED3AC, (NJS_OBJECT*)&object_01D4BF20); //sky normal
 	WriteData((NJS_OBJECT**)0x005ED3A5, (NJS_OBJECT*)&object_01D4E3AC_2); //sky dark top 2 
 	WriteData((NJS_OBJECT**)0x005ED46D, (NJS_OBJECT*)&object_01D4E3AC); //sky dark top 1
