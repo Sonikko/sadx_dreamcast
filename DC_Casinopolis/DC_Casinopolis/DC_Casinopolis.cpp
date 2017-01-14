@@ -30,7 +30,6 @@ extern "C"
 		memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //light
 		DataArray(FogData, Casino1Fog, 0x01C46990, 3);
 		DataArray(FogData, Casino2Fog, 0x01C469C0, 3);
-		
 		DataArray(DrawDistance, DrawDist_Casino2, 0x01C46948, 3);
 		for (int i = 0; i < 3; i++)
 		{
@@ -67,13 +66,34 @@ extern "C"
 			{
 				uv_01A47B78[q].v = uv_01A47B78[q].v - 10;
 			}
+			if (uv_01A47B78[0].v <= -255)
+			{
+				uv_01A47B78[0].v = 255;
+				uv_01A47B78[1].v = 255;
+				uv_01A47B78[2].v = -590;
+				uv_01A47B78[3].v = -590;
+				uv_01A47B78[4].v = -797;
+				uv_01A47B78[5].v = -797;
+				uv_01A47B78[6].v = -901;
+				uv_01A47B78[7].v = -901;
+			}
 			for (int q2 = 0; q2 < LengthOfArray(uv_01A47468); q2++)
 			{
 				uv_01A47468[q2].v = uv_01A47468[q2].v - 10;
 			}
+			if (uv_01A47468[0].v <= -1020)
+			{
+				for (int r1 = 0; r1 < LengthOfArray(uv_01A47468); r1++)
+				uv_01A47468[r1].v = uv_01A47468_0[r1].v;
+			}
 			for (int q3 = 0; q3 < LengthOfArray(uv_01A474F8); q3++)
 			{
 				uv_01A474F8[q3].v = uv_01A474F8[q3].v - 10;
+			}
+			if (uv_01A474F8[0].v <= -3570)
+			{
+				for (int r2 = 0; r2 < LengthOfArray(uv_01A474F8); r2++)
+				uv_01A474F8[r2].v = uv_01A474F8_0[r2].v;
 			}
 			if (LevelFrameCount % 41 == 1)
 			{
