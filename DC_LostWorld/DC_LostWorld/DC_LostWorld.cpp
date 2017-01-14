@@ -27,6 +27,7 @@ extern "C"
 		*(NJS_OBJECT*)0x20253BC = object_00149374; //Snake joints
 		*(NJS_MODEL_SADX*)0x2026E38 = attach_00149E7C; //Fire obstacle
 		((NJS_OBJECT*)0x2031810)->basicdxmodel->mats[0].attrflags |= NJD_DA_ONE; //Ceiling light
+		((NJS_OBJECT*)0x2031810)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Ceiling light
 		WriteData((void*)0x814CB4, 0xc1c80000, 4); //LW2 fog stuff
 		ResizeTextureList((NJS_TEXLIST*)0x1F6F02C, textures_lw1);
 		ResizeTextureList((NJS_TEXLIST*)0x1E9B9AC, textures_lw2);
