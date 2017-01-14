@@ -50,7 +50,7 @@ extern "C"
 			IceCap1Fog[i].Layer = 1500.0f;
 			IceCap1Fog[i].Distance = 3800.0f;
 			IceCap1Fog[i].Toggle = 1;
-			DrawDist_IceCap1[i].Maximum = -4000.0;
+			DrawDist_IceCap1[i].Maximum = -12000.0;
 			IceCap2Fog[i].Color = 0xFFFFFFFF;
 			IceCap2Fog[i].Layer = 800.0f;
 			IceCap2Fog[i].Distance = 3800.0f;

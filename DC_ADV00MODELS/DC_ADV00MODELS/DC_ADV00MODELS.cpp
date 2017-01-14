@@ -13,14 +13,16 @@
 #include "SS_taxi.h"
 #include "SS_TPBall.h"
 #include "SS_train.h"
+#include "SS_box.h"
 
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		WriteData((void*)0x00630AE0, 0x90, 4); //Hotel door fix
-		//Objects
 		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31);
+		//Objects
+		memcpy((void*)0x02ABDF0C, &object_00172BD4, sizeof(object_00172BD4)); // Box in the sewers
 		memcpy((void*)0x02AE8674, &object_00195DC0, sizeof(object_00195DC0)); // SS train
 		memcpy((void*)0x02AF4FC0, &object_0019F390, sizeof(object_0019F390)); // SS Police
 		memcpy((void*)0x02AF1974, &object_0019CBD8, sizeof(object_0019CBD8)); // SS Red Car
