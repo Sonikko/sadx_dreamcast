@@ -39,9 +39,10 @@ extern "C"
 			((LandTable *)0x0E3E024)->COLList[inv2].Flags &= ~ColFlags_Solid;
 		}
 		memcpy((void*)0x0E537D8, &object_00162694, sizeof(object_00162694));  // Icicle
-		DataArray(FogData, IceCap1Fog, 0x00C67EA0, 1);
-		DataArray(FogData, IceCap2Fog, 0x00C67ED0, 1);
-		DataArray(FogData, IceCap4Fog, 0x00C67F30, 1);
+		DataArray(FogData, IceCap1Fog, 0x00C67EA0, 3);
+		DataArray(FogData, IceCap2Fog, 0x00C67ED0, 3);
+		DataArray(FogData, IceCap3Fog, 0x00C67F00, 3);
+		DataArray(FogData, IceCap4Fog, 0x00C67F30, 3);
 		DataArray(DrawDistance, DrawDist_IceCap1, 0x00C67E40, 3);
 		DataArray(DrawDistance, DrawDist_IceCap2, 0x00C67E58, 3);
 		for (int i = 0; i < 3; i++)
@@ -56,6 +57,8 @@ extern "C"
 			IceCap2Fog[i].Distance = 3800.0f;
 			IceCap2Fog[i].Toggle = 1;
 			DrawDist_IceCap2[i].Maximum = -4000.0;
+			IceCap3Fog[i].Layer = 2500.0f;
+			IceCap3Fog[i].Color = 0xFFFFFFFF;
 			IceCap4Fog[i].Color = 0xFF575757;
 			IceCap4Fog[i].Layer = 800.0f;
 			IceCap4Fog[i].Distance = 3800.0f;
