@@ -52657,7 +52657,7 @@ GeoAnimData animlist_0001C868[] = {
 	{ 0, 1, 20, &object_0006B71C, &action_animation_0006B8B0, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_finalegg1[79];
+NJS_TEXNAME textures_finalegg1[80];
 NJS_TEXLIST texlist_finalegg1 = { arrayptrandlength(textures_finalegg1) };
 
 LandTable landtable_0001D108 = { LengthOfArray(collist_00019DCC), LengthOfArray(animlist_0001C868), 0xD, 1700, collist_00019DCC, animlist_0001C868, "FINALEGG1", (NJS_TEXLIST *)&texlist_finalegg1, 0, 0 };
