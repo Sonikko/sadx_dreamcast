@@ -5,6 +5,8 @@
 #include "HotShelter2.h"
 #include "HotShelter3.h"
 
+static int anim = 78;
+
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB88, &landtable_0001970C),
 	ptrdecl(0x97DB8C, &landtable_0005277C),
@@ -49,104 +51,12 @@ extern "C"
 		{
 			if (CurrentLevel == 12 && CurrentAct == 0 && GameState != 16)
 			{
-				if (LevelFrameCount % 56 == 0)
-				{
-					matlist_0140FBE8[0].attr_texId = 78;
-					matlist_0140F824[0].attr_texId = 78;
-					matlist_0140F608[0].attr_texId = 78;
-					matlist_0140FA60[0].attr_texId = 78;
-				}
-				if (LevelFrameCount % 56 == 4)
-				{
-					matlist_0140FBE8[0].attr_texId = 79;
-					matlist_0140F824[0].attr_texId = 79;
-					matlist_0140F608[0].attr_texId = 79;
-					matlist_0140FA60[0].attr_texId = 79;
-				}
-				if (LevelFrameCount % 56 == 8)
-				{
-					matlist_0140FBE8[0].attr_texId = 80;
-					matlist_0140F824[0].attr_texId = 80;
-					matlist_0140F608[0].attr_texId = 80;
-					matlist_0140FA60[0].attr_texId = 80;
-				}
-				if (LevelFrameCount % 56 == 12)
-				{
-					matlist_0140FBE8[0].attr_texId = 81;
-					matlist_0140F824[0].attr_texId = 81;
-					matlist_0140F608[0].attr_texId = 81;
-					matlist_0140FA60[0].attr_texId = 81;
-				}
-				if (LevelFrameCount % 56 == 16)
-				{
-					matlist_0140FBE8[0].attr_texId = 82;
-					matlist_0140F824[0].attr_texId = 82;
-					matlist_0140F608[0].attr_texId = 82;
-					matlist_0140FA60[0].attr_texId = 82;
-				}
-				if (LevelFrameCount % 56 == 20)
-				{
-					matlist_0140FBE8[0].attr_texId = 83;
-					matlist_0140F824[0].attr_texId = 83;
-					matlist_0140F608[0].attr_texId = 83;
-					matlist_0140FA60[0].attr_texId = 83;
-				}
-				if (LevelFrameCount % 56 == 24)
-				{
-					matlist_0140FBE8[0].attr_texId = 84;
-					matlist_0140F824[0].attr_texId = 84;
-					matlist_0140F608[0].attr_texId = 84;
-					matlist_0140FA60[0].attr_texId = 84;
-				}
-				if (LevelFrameCount % 56 == 28)
-				{
-					matlist_0140FBE8[0].attr_texId = 85;
-					matlist_0140F824[0].attr_texId = 85;
-					matlist_0140F608[0].attr_texId = 85;
-					matlist_0140FA60[0].attr_texId = 85;
-				}
-				if (LevelFrameCount % 56 == 32)
-				{
-					matlist_0140FBE8[0].attr_texId = 86;
-					matlist_0140F824[0].attr_texId = 86;
-					matlist_0140F608[0].attr_texId = 86;
-					matlist_0140FA60[0].attr_texId = 86;
-				}
-				if (LevelFrameCount % 56 == 36)
-				{
-					matlist_0140FBE8[0].attr_texId = 87;
-					matlist_0140F824[0].attr_texId = 87;
-					matlist_0140F608[0].attr_texId = 87;
-					matlist_0140FA60[0].attr_texId = 87;
-				}
-				if (LevelFrameCount % 56 == 40)
-				{
-					matlist_0140FBE8[0].attr_texId = 88;
-					matlist_0140F824[0].attr_texId = 88;
-					matlist_0140F608[0].attr_texId = 88;
-					matlist_0140FA60[0].attr_texId = 88;
-				}
-				if (LevelFrameCount % 56 == 44)
-				{
-					matlist_0140FBE8[0].attr_texId = 89;
-					matlist_0140F824[0].attr_texId = 89;
-					matlist_0140F608[0].attr_texId = 89;
-					matlist_0140FA60[0].attr_texId = 89;
-				}
-				if (LevelFrameCount % 56 == 48)
-				{
-					matlist_0140FBE8[0].attr_texId = 90;
-					matlist_0140F824[0].attr_texId = 90;
-					matlist_0140F608[0].attr_texId = 90;
-					matlist_0140FA60[0].attr_texId = 90;
-				}
-				if (LevelFrameCount % 56 == 52)
-				{
-					matlist_0140FBE8[0].attr_texId = 91;
-					matlist_0140F824[0].attr_texId = 91;
-					matlist_0140F608[0].attr_texId = 91;
-					matlist_0140FA60[0].attr_texId = 91;
-				}
+				if (anim > 91) anim = 78;
+				matlist_0140FBE8[0].attr_texId = anim;
+				matlist_0140F824[0].attr_texId = anim;
+				matlist_0140F608[0].attr_texId = anim;
+				matlist_0140FA60[0].attr_texId = anim;
+				if (LevelFrameCount % 3 == 0) anim++;
 			}
 		}
 	}
