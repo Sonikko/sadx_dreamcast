@@ -23,6 +23,7 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x229B8CC, textures_mountain2);
 		ResizeTextureList((NJS_TEXLIST*)0x224096C, textures_mountain3);
 		DataArray(FogData, RedMountain1Fog, 0x02240700, 3);
+		DataArray(FogData, RedMountain2Fog, 0x02240730, 3);
 		DataArray(FogData, RedMountain3Fog, 0x02240760, 3);
 		DataArray(DrawDistance, DrawDist_RedMountain1, 0x022406B8, 3);
 		DataArray(DrawDistance, DrawDist_RedMountain3, 0x022406E8, 3);
@@ -32,6 +33,9 @@ extern "C"
 			RedMountain1Fog[i].Layer = 2000.0f;
 			RedMountain1Fog[i].Distance = 16000.0f;
 			RedMountain1Fog[i].Toggle = 1;
+			RedMountain2Fog[i].Layer = 1000.0f;
+			RedMountain2Fog[i].Distance = 2400.0f;
+			RedMountain2Fog[i].Toggle = 1;
 			RedMountain3Fog[i].Color = 0xFFFFFFFF;
 			RedMountain3Fog[i].Layer = 2000.0f;
 			RedMountain3Fog[i].Distance = 16000.0f;
