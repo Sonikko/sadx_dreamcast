@@ -89,6 +89,7 @@ extern "C"
 			matlist_00031C48[3].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00030274[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00022CC0[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_00022CC0[12].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00025990[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_0001E1DC[4].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_0001E1DC[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -145,6 +146,7 @@ extern "C"
 			matlist_00031C48[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00030274[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00022CC0[5].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00022CC0[12].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00025990[5].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_0001E1DC[4].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_0001E1DC[5].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -201,6 +203,7 @@ extern "C"
 			matlist_00031C48[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00030274[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00022CC0[5].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00022CC0[12].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00025990[5].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_0001E1DC[4].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_0001E1DC[5].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
