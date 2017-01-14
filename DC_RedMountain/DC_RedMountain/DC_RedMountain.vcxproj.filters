@@ -39,7 +39,7 @@
     <ClInclude Include="Mountain2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Skull.h">
+    <ClInclude Include="RM_Objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

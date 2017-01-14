@@ -3,7 +3,7 @@
 #include "Mountain1.h"
 #include "Mountain2.h"
 #include "Mountain3.h"
-//#include "Skull.h"
+#include "RM_Objects.h"
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DAA8, &landtable_00018CB8),
@@ -17,6 +17,8 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		*(NJS_OBJECT*)0x246CAA8 = object_0206CAA8_2;
+		WriteData((NJS_OBJECT**)0x006011CC, (NJS_OBJECT*)&object_0206CAA8);
 		ResizeTextureList((NJS_TEXLIST*)0x230FDF4, textures_mountain1);
 		ResizeTextureList((NJS_TEXLIST*)0x229B8CC, textures_mountain2);
 		ResizeTextureList((NJS_TEXLIST*)0x224096C, textures_mountain3);
@@ -38,7 +40,22 @@ extern "C"
 			DrawDist_RedMountain3[i].Maximum = -16000.0;
 		}
 	}
-
+	__declspec(dllexport) void __cdecl OnFrame()
+	{
+		if (GameState != 16)
+		{
+			for (int q = 0; q < LengthOfArray(uv_0206C9F0); q++)
+			{
+				uv_0206C9F0[q].u = uv_0206C9F0[q].u - 1;
+			}
+		}
+			
+		if (uv_0206C9F0[0].u >= 765)
+		{
+			uv_0206C9F0[0].u = 0;
+			uv_0206C9F0[0].u = 0;
+			uv_0206C9F0[0].u = 765;
+			uv_0206C9F0[0].u = 765;
+		}
+	}
 }
-
-//memcpy((void*)0x024364C0, &attach_0014E8FC, sizeof(attach_0014E8FC));  // Skull
