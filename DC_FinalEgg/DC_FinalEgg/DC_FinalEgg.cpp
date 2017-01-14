@@ -220,6 +220,9 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		((NJS_OBJECT*)0x1C26F74)->basicdxmodel->mats[0].diffuse.argb.g = 178; //Egg Kanban stuff
+		((NJS_OBJECT*)0x1C26F74)->basicdxmodel->mats[0].diffuse.argb.r = 152; //Egg Kanban stuff
+		((NJS_OBJECT*)0x1C26F74)->basicdxmodel->mats[0].diffuse.argb.b = 152; //Egg Kanban stuff
 		((NJS_OBJECT*)0x1A462EC)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		*(NJS_OBJECT*)0x19FEFE4 = object_001AEDFC;  // Light
 		*(NJS_MODEL_SADX*)0x19D8BC0 = attach_015D8BC0;  // Laser
@@ -230,7 +233,6 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x1B98518, textures_finalegg1);
 		ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);
 		ResizeTextureList((NJS_TEXLIST*)0x1AC5780, textures_finalegg3);
-		ResizeTextureList((NJS_TEXLIST*)0x19CC1C0, 177); //Final Egg object texture list
 		((LandTable *)0x19C8ED0)->COLCount = LengthOfArray(collist_00081980); //Final Egg 2 COL list
 		((LandTable *)0x19C8ED0)->COLList = collist_00081980; //Final Egg 2 COL list
 		WriteJump((void*)0x5ADC40, SetClip_FEgg2_r); //Final Egg 2 clip function
