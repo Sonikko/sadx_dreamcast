@@ -8,6 +8,7 @@
 #include "ADV_MR03 (Final Egg entrance).h"
 #include "OFinalEgg.h"
 #include "MR_train.h"
+
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
 DataArray(FogData, MR2FogDay, 0x01103478, 3);
 DataArray(FogData, MR3FogDay, 0x011034A8, 3);
@@ -22,10 +23,12 @@ DataArray(DrawDistance, MR2DrawDist, 0x01103400, 3);
 DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
-
+static bool InsideTemple = 0;
+static int anim1 = 133;
+static int anim2 = 143;
+static int anim3 = 76;
 NJS_TEXNAME textures_mrtrain[31];
 NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
-static bool InsideTemple = 0;
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
@@ -96,165 +99,51 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 0)
 	{
-		if (FrameCounter % 30 == 1)	matlist_0007523C[0].attr_texId = 133;
-		if (FrameCounter % 30 == 4)	matlist_0007523C[0].attr_texId = 134;
-		if (FrameCounter % 30 == 7) matlist_0007523C[0].attr_texId = 135;
-		if (FrameCounter % 30 == 10) matlist_0007523C[0].attr_texId = 136;
-		if (FrameCounter % 30 == 13) matlist_0007523C[0].attr_texId = 137;
-		if (FrameCounter % 30 == 16) matlist_0007523C[0].attr_texId = 138;
-		if (FrameCounter % 30 == 19) matlist_0007523C[0].attr_texId = 139;
-		if (FrameCounter % 30 == 22) matlist_0007523C[0].attr_texId = 140;
-		if (FrameCounter % 30 == 25) matlist_0007523C[0].attr_texId = 141;
-		if (FrameCounter % 30 == 28) matlist_0007523C[0].attr_texId = 142;
-
-		if (FrameCounter % 60 == 0)
-		{
-			matlist_00053510[0].attr_texId = 143;
-			matlist_00053010[0].attr_texId = 143;
-			matlist_00059768[0].attr_texId = 143;
-			matlist_000594C0[0].attr_texId = 143;
-		}
-		if (FrameCounter % 60 == 4)
-		{
-			matlist_00053510[0].attr_texId = 144;
-			matlist_00053010[0].attr_texId = 144;
-			matlist_00059768[0].attr_texId = 144;
-			matlist_000594C0[0].attr_texId = 144;
-		}
-		if (FrameCounter % 60 == 8) 
-		{
-			matlist_00053510[0].attr_texId = 145; 
-			matlist_00053010[0].attr_texId = 145;
-			matlist_00059768[0].attr_texId = 145;
-			matlist_000594C0[0].attr_texId = 145;
-		}
-		if (FrameCounter % 60 == 12) 
-		{ 
-			matlist_00053510[0].attr_texId = 146; 
-			matlist_00053010[0].attr_texId = 146;
-			matlist_00059768[0].attr_texId = 146;
-			matlist_000594C0[0].attr_texId = 146;
-		}
-		if (FrameCounter % 60 == 16)
-		{
-			matlist_00053510[0].attr_texId = 147; 
-			matlist_00053010[0].attr_texId = 147;
-			matlist_00059768[0].attr_texId = 147;
-			matlist_000594C0[0].attr_texId = 147;
-		}
-		if (FrameCounter % 60 == 20)
-		{
-			matlist_00053510[0].attr_texId = 148;
-			matlist_00053010[0].attr_texId = 148;
-			matlist_00059768[0].attr_texId = 148;
-			matlist_000594C0[0].attr_texId = 148;
-		}
-		if (FrameCounter % 60 == 24)
-		{
-			matlist_00053510[0].attr_texId = 149;
-			matlist_00053010[0].attr_texId = 149;
-			matlist_00059768[0].attr_texId = 149;
-			matlist_000594C0[0].attr_texId = 149;
-		}
-		if (FrameCounter % 60 == 28) 
-		{
-			matlist_00053510[0].attr_texId = 150;
-			matlist_00053010[0].attr_texId = 150;
-			matlist_00059768[0].attr_texId = 150;
-			matlist_000594C0[0].attr_texId = 150;
-		}
-		if (FrameCounter % 60 == 32)
-		{
-			matlist_00053510[0].attr_texId = 151;
-			matlist_00053010[0].attr_texId = 151;
-			matlist_00059768[0].attr_texId = 151;
-			matlist_000594C0[0].attr_texId = 151;
-		}
-		if (FrameCounter % 60 == 36)
-		{
-			matlist_00053510[0].attr_texId = 152;
-			matlist_00053010[0].attr_texId = 152;
-			matlist_00059768[0].attr_texId = 152;
-			matlist_000594C0[0].attr_texId = 152;
-		}
-		if (FrameCounter % 60 == 40)
-		{
-			matlist_00053510[0].attr_texId = 153;
-			matlist_00053010[0].attr_texId = 153;
-			matlist_00059768[0].attr_texId = 153;
-			matlist_000594C0[0].attr_texId = 153;
-		}
-		if (FrameCounter % 60 == 44)
-		{
-			matlist_00053510[0].attr_texId = 154;
-			matlist_00053010[0].attr_texId = 154;
-			matlist_00059768[0].attr_texId = 154;
-			matlist_000594C0[0].attr_texId = 154;
-		}
-		if (FrameCounter % 60 == 48)
-		{
-			matlist_00053510[0].attr_texId = 155;
-			matlist_00053010[0].attr_texId = 155;
-			matlist_00059768[0].attr_texId = 155;
-			matlist_000594C0[0].attr_texId = 155;
-		}
-		if (FrameCounter % 60 == 52)
-		{
-			matlist_00053510[0].attr_texId = 156;
-			matlist_00053010[0].attr_texId = 156;
-			matlist_00059768[0].attr_texId = 156;
-			matlist_000594C0[0].attr_texId = 156;
-		}
-		if (FrameCounter % 60 == 56)
-		{
-			matlist_00053510[0].attr_texId = 157;
-			matlist_00053010[0].attr_texId = 157;
-			matlist_00059768[0].attr_texId = 157;
-			matlist_000594C0[0].attr_texId = 157;
-		}
-	}
-	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 0)
-	{
 		for (int q = 0; q < LengthOfArray(uv_00075EC0); q++)
 		{
 			uv_00075EC0[q].v = uv_00075EC0[q].v + 1;
-
+		}
+		if (uv_00075EC0[0].v >= 577)
+		{
+			for (int r1 = 0; r1 < LengthOfArray(uv_00075EC0); r1++)
+			{
+			uv_00075EC0[r1].v = uv_00075EC0_0[r1].v;
+			}
 		}
 		for (int q2 = 0; q2 < LengthOfArray(uv_000755A4); q2++)
 		{
 			uv_000755A4[q2].v = uv_000755A4[q2].v - 1;
-
+		}
+		if (uv_000755A4[0].v <= -502)
+		{
+			for (int r2 = 0; r2 < LengthOfArray(uv_000755A4); r2++)
+			{
+				uv_000755A4[r2].v = uv_000755A4_0[r2].v;
+			}
+		}
+		if (anim1 > 142) anim1 = 133;
+		if (anim2 > 157) anim2 = 143;
+		matlist_0007523C[0].attr_texId = anim1;
+		matlist_00053510[0].attr_texId = anim2;
+		matlist_00053010[0].attr_texId = anim2;
+		matlist_00059768[0].attr_texId = anim2;
+		matlist_000594C0[0].attr_texId = anim2;
+		if (FrameCounter % 4 == 0)
+		{
+			anim1++;
+			anim2++;
 		}
 	}
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 1)
 	{
-		if (FrameCounter % 42 == 1) {matlist_000A3884[0].attr_texId = 76; matlist_000A6CF8[1].attr_texId = 76; matlist_000A6CF8[2].attr_texId = 76; matlist_000A6CF8[3].attr_texId = 76;
-		}
-		if (FrameCounter % 42 == 4) {matlist_000A3884[0].attr_texId = 77; matlist_000A6CF8[1].attr_texId = 77; matlist_000A6CF8[2].attr_texId = 77; matlist_000A6CF8[3].attr_texId = 77;
-		}
-		if (FrameCounter % 42 == 7) {matlist_000A3884[0].attr_texId = 78; matlist_000A6CF8[1].attr_texId = 78; matlist_000A6CF8[2].attr_texId = 78; matlist_000A6CF8[3].attr_texId = 78;
-		}
-		if (FrameCounter % 42 == 10) {matlist_000A3884[0].attr_texId = 79; matlist_000A6CF8[1].attr_texId = 79; matlist_000A6CF8[2].attr_texId = 79; matlist_000A6CF8[3].attr_texId = 79;
-		}
-		if (FrameCounter % 42 == 13) {matlist_000A3884[0].attr_texId = 80; matlist_000A6CF8[1].attr_texId = 80; matlist_000A6CF8[2].attr_texId = 80; matlist_000A6CF8[3].attr_texId = 80;
-		}
-		if (FrameCounter % 42 == 16) {matlist_000A3884[0].attr_texId = 81; matlist_000A6CF8[1].attr_texId = 81; matlist_000A6CF8[2].attr_texId = 81; matlist_000A6CF8[3].attr_texId = 81;
-		}
-		if (FrameCounter % 42 == 19) {matlist_000A3884[0].attr_texId = 82; matlist_000A6CF8[1].attr_texId = 82; matlist_000A6CF8[2].attr_texId = 82; matlist_000A6CF8[3].attr_texId = 82;
-		}
-		if (FrameCounter % 42 == 22) {matlist_000A3884[0].attr_texId = 83; matlist_000A6CF8[1].attr_texId = 83; matlist_000A6CF8[2].attr_texId = 83; matlist_000A6CF8[3].attr_texId = 83;
-		}
-		if (FrameCounter % 42 == 25) {matlist_000A3884[0].attr_texId = 84; matlist_000A6CF8[1].attr_texId = 84; matlist_000A6CF8[2].attr_texId = 84; matlist_000A6CF8[3].attr_texId = 84;
-		}
-		if (FrameCounter % 42 == 28) {matlist_000A3884[0].attr_texId = 85; matlist_000A6CF8[1].attr_texId = 85; matlist_000A6CF8[2].attr_texId = 85; matlist_000A6CF8[3].attr_texId = 85;
-		}
-		if (FrameCounter % 42 == 31) {matlist_000A3884[0].attr_texId = 86; matlist_000A6CF8[1].attr_texId = 86; matlist_000A6CF8[2].attr_texId = 86; matlist_000A6CF8[3].attr_texId = 86;
-		}
-		if (FrameCounter % 42 == 34) {matlist_000A3884[0].attr_texId = 87; matlist_000A6CF8[1].attr_texId = 87; matlist_000A6CF8[2].attr_texId = 87; matlist_000A6CF8[3].attr_texId = 87;
-		}
-		if (FrameCounter % 42 == 37) {matlist_000A3884[0].attr_texId = 88; matlist_000A6CF8[1].attr_texId = 88; matlist_000A6CF8[2].attr_texId = 88; matlist_000A6CF8[3].attr_texId = 88;
-		}
-		if (FrameCounter % 42 == 40) {matlist_000A3884[0].attr_texId = 89; matlist_000A6CF8[1].attr_texId = 89; matlist_000A6CF8[2].attr_texId = 89; matlist_000A6CF8[3].attr_texId = 89;
+		if (anim3 > 89) anim3 = 76;
+		matlist_000A3884[0].attr_texId = anim3; 
+		matlist_000A6CF8[1].attr_texId = anim3;
+		matlist_000A6CF8[2].attr_texId = anim3;
+		matlist_000A6CF8[3].attr_texId = anim3;
+		if (FrameCounter % 3 == 0)
+		{
+			anim3++;
 		}
 	}
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 2)
@@ -280,12 +169,46 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 			if (CurrentFogDist > -12000.0f) CurrentFogDist = CurrentFogDist - 32.0f;
 		}
 		for (int q6 = 0; q6 < LengthOfArray(uv_00162054); q6++) {uv_00162054[q6].v++; }
+		if (uv_00162054[0].v >= 255)
+		{
+			for (int r3 = 0; r3 < LengthOfArray(uv_00162054); r3++)
+			{
+				uv_00162054[r3].v = uv_00162054_0[r3].v;
+			}
+		}
 		for (int q7 = 0; q7 < LengthOfArray(uv_001622D8); q7++) {uv_001622D8[q7].v++; }
+		if (uv_001622D8[0].v >= 510)
+		{
+			for (int r4 = 0; r4 < LengthOfArray(uv_001622D8); r4++)
+			{
+				uv_001622D8[r4].v = uv_001622D8_0[r4].v;
+			}
+		}
 		for (int q3 = 0; q3 < LengthOfArray(uv_00160D9C); q3++)	{uv_00160D9C[q3].v--; }
+		if (uv_00160D9C[0].v <= -251)
+		{
+			for (int r5 = 0; r5 < LengthOfArray(uv_00160D9C); r5++)
+			{
+				uv_00160D9C[r5].v = uv_00160D9C_0[r5].v;
+			}
+		}
 		for (int q4 = 0; q4 < LengthOfArray(uv_0016166C); q4++)	{uv_0016166C[q4].v++; }
+		if (uv_0016166C[0].v >= 76)
+		{
+			for (int r6 = 0; r6 < LengthOfArray(uv_0016166C); r6++)
+			{
+				uv_0016166C[r6].v = uv_0016166C_0[r6].v;
+			}
+		}
 		for (int q5 = 0; q5 < LengthOfArray(uv_00161C18); q5++) {uv_00161C18[q5].v++; }
+		if (uv_00161C18[0].v >= 728)
+		{
+			for (int r7 = 0; r7 < LengthOfArray(uv_00161C18); r7++)
+			{
+				uv_00161C18[r7].v = uv_00161C18_0[r7].v;
+			}
+		}
 	}
 }
 	
-
 extern "C" __declspec(dllexport) const ModInfo SADXModInfo = { ModLoaderVer };
