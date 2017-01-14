@@ -5,6 +5,8 @@
 #include "EmeraldCoast2.h"
 #include "EmeraldCoast3.h"
 
+DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
+
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA28, &landtable_00081554),
 	ptrdecl(0x97DA2C, &landtable_000DEB60),
@@ -20,26 +22,44 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	ResizeTextureList((NJS_TEXLIST*)0xE9A4CC, textures_ecoast3);
 	DataArray(DrawDistance, DrawDist_EmeraldCoast1, 0x00E99D94, 3);
 	DataArray(DrawDistance, DrawDist_EmeraldCoast2, 0x00E99DAC, 3);
-	//DataArray(DrawDistance, DrawDist_EmeraldCoast3, 0x00E99DC4, 3);
+	DataArray(DrawDistance, DrawDist_EmeraldCoast3, 0x00E99DC4, 3);
 	DataArray(FogData, EmeraldCoast1Fog, 0x00E99DDC, 3);
 	DataArray(FogData, EmeraldCoast2Fog, 0x00E99E0C, 3);
 	DataArray(FogData, EmeraldCoast3Fog, 0x00E99E3C, 3);
-
-	DataArray(SkyboxScale, EmeraldCoast1Skybox, 0x00E99CE0, 3);
 	for (int i = 0; i < 3; i++)
 	{
-		DrawDist_EmeraldCoast1[i].Maximum = -12000.0f;
+		DrawDist_EmeraldCoast1[i].Maximum = -6000.0f;
 		DrawDist_EmeraldCoast2[i].Maximum = -4000.0f;
-		EmeraldCoast1Fog[i].Layer = -1200.0f;
-		EmeraldCoast1Fog[i].Distance = -8000.0f;
-		EmeraldCoast2Fog[i].Layer = -1500.0f;
-		EmeraldCoast3Fog[i].Layer = -1500.0f;
+		DrawDist_EmeraldCoast3[i].Maximum = -4000.0f;
+		EmeraldCoast1Fog[i].Toggle = 0;
+		EmeraldCoast2Fog[i].Toggle = 0;
+		EmeraldCoast3Fog[i].Toggle = 0;
 	}
 }
 
 extern "C" __declspec(dllexport) void __cdecl OnFrame()
 {
+	if (CurrentLevel == 1 && CurrentAct == 0)
 	{
+		CurrentSkybox.x = 0.8f;
+		CurrentSkybox.y = 0.8f;
+		CurrentSkybox.z = 0.8f;
+		((NJS_OBJECT *)0x103B37C)->evalflags &= ~NJD_EVAL_HIDE;
+	}
+	if (CurrentLevel == 1 && CurrentAct == 1)
+	{
+		CurrentSkybox.x = 1.0f;
+		CurrentSkybox.y = 1.0f;
+		CurrentSkybox.z = 1.0f;
+		((NJS_OBJECT *)0x103B37C)->evalflags &= ~NJD_EVAL_HIDE;
+	}
+	if (CurrentLevel == 1 && CurrentAct == 2)
+	{
+		CurrentSkybox.x = 0.8f;
+		CurrentSkybox.y = 0.8f;
+		CurrentSkybox.z = 0.8f;
+		((NJS_OBJECT *)0x103B37C)->evalflags |= NJD_EVAL_HIDE;
+	}
 	if (CurrentLevel == 1 && CurrentAct == 0 && GameState == 15)
 		{
 			if (LevelFrameCount % 60 == 0)
@@ -1697,7 +1717,6 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 			matlist_0011B12C[0].attr_texId = 78;
 			matlist_0011B12C[1].attr_texId = 78;
 		}
-	}
 	}
 }
 extern "C" __declspec(dllexport) const ModInfo SADXModInfo = { ModLoaderVer };
