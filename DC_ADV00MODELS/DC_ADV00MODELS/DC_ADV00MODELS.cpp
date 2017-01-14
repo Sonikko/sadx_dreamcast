@@ -15,6 +15,12 @@
 #include "SS_train.h"
 #include "SS_box.h"
 
+static int anim1 = 46;
+static int anim2 = 183;
+static int anim3 = 29;
+static int anim4 = 59;
+static int anim5 = 60;
+
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
@@ -73,16 +79,9 @@ extern "C"
 		//Water animation in Act 2 (Sewers)
 		if (CurrentLevel == 26 && CurrentAct == 2 && GameState == 15)
 		{
-			if (FrameCounter % 30 == 1) matlist_000D9890[0].attr_texId = 47;
-			if (FrameCounter % 30 == 4) matlist_000D9890[0].attr_texId = 48;
-			if (FrameCounter % 30 == 7) matlist_000D9890[0].attr_texId = 49;
-			if (FrameCounter % 30 == 10) matlist_000D9890[0].attr_texId = 50;
-			if (FrameCounter % 30 == 13) matlist_000D9890[0].attr_texId = 51;
-			if (FrameCounter % 30 == 16) matlist_000D9890[0].attr_texId = 52;
-			if (FrameCounter % 30 == 19) matlist_000D9890[0].attr_texId = 53;
-			if (FrameCounter % 30 == 22) matlist_000D9890[0].attr_texId = 54;
-			if (FrameCounter % 30 == 25) matlist_000D9890[0].attr_texId = 55;
-			if (FrameCounter % 30 == 28) matlist_000D9890[0].attr_texId = 46;
+			if (anim1 > 55) anim1 = 46;
+			matlist_000D9890[0].attr_texId = anim1;
+			if (FrameCounter % 3 == 0) anim1++;
 		}
 		//Night reflections Act 0
 		if (CurrentLevel == 26 && CurrentAct == 0 && GetTimeOfDay() == 2)
@@ -440,237 +439,39 @@ extern "C"
 		}
 
 		//Sea animations Act 3 (Main area)
-		if (CurrentLevel == 26 && CurrentAct == 3)
+		if (CurrentLevel == 26 && CurrentAct == 3 && GameState == 15)
 		{
-			if (FrameCounter % 60 == 0 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 183;
-				matlist_00123620[0].attr_texId = 183;
-				matlist_000E7180[2].attr_texId = 29;
-				matlist_00122894[2].attr_texId = 29;
-				matlist_00114D80[0].attr_texId = 29;
-			}
-			if (FrameCounter % 60 == 4 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 242;
-				matlist_00123620[0].attr_texId = 242;
-				matlist_000E7180[2].attr_texId = 228;
-				matlist_00122894[2].attr_texId = 228;
-				matlist_00114D80[0].attr_texId = 228;
-			}
-			if (FrameCounter % 60 == 8 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 243;
-				matlist_00123620[0].attr_texId = 243;
-				matlist_000E7180[2].attr_texId = 229;
-				matlist_00122894[2].attr_texId = 229;
-				matlist_00114D80[0].attr_texId = 229;
-			}
-			if (FrameCounter % 60 == 12 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 244;
-				matlist_00123620[0].attr_texId = 244;
-				matlist_000E7180[2].attr_texId = 230;
-				matlist_00122894[2].attr_texId = 230;
-				matlist_00114D80[0].attr_texId = 230;
-			}
-			if (FrameCounter % 60 == 16 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 245;
-				matlist_00123620[0].attr_texId = 245;
-				matlist_000E7180[2].attr_texId = 231;
-				matlist_00122894[2].attr_texId = 231;
-				matlist_00114D80[0].attr_texId = 231;
-			}
-			if (FrameCounter % 60 == 20 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 246;
-				matlist_00123620[0].attr_texId = 246;
-				matlist_000E7180[2].attr_texId = 232;
-				matlist_00122894[2].attr_texId = 232;
-				matlist_00114D80[0].attr_texId = 232;
-			}
-			if (FrameCounter % 60 == 24 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 247;
-				matlist_00123620[0].attr_texId = 247;
-				matlist_000E7180[2].attr_texId = 233;
-				matlist_00122894[2].attr_texId = 233;
-				matlist_00114D80[0].attr_texId = 233;
-			}
-			if (FrameCounter % 60 == 28 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 248;
-				matlist_00123620[0].attr_texId = 248;
-				matlist_000E7180[2].attr_texId = 234;
-				matlist_00122894[2].attr_texId = 234;
-				matlist_00114D80[0].attr_texId = 234;
-			}
-			if (FrameCounter % 60 == 32 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 249;
-				matlist_00123620[0].attr_texId = 249;
-				matlist_000E7180[2].attr_texId = 235;
-				matlist_00122894[2].attr_texId = 235;
-				matlist_00114D80[0].attr_texId = 235;
-			}
-			if (FrameCounter % 60 == 36 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 250;
-				matlist_00123620[0].attr_texId = 250;
-				matlist_000E7180[2].attr_texId = 236;
-				matlist_00122894[2].attr_texId = 236;
-				matlist_00114D80[0].attr_texId = 236;
-			}
-			if (FrameCounter % 60 == 40 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 251;
-				matlist_00123620[0].attr_texId = 251;
-				matlist_000E7180[2].attr_texId = 237;
-				matlist_00122894[2].attr_texId = 237;
-				matlist_00114D80[0].attr_texId = 237;
-			}
-			if (FrameCounter % 60 == 44 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 252;
-				matlist_00123620[0].attr_texId = 252;
-				matlist_000E7180[2].attr_texId = 238;
-				matlist_00122894[2].attr_texId = 238;
-				matlist_00114D80[0].attr_texId = 238;
-			}
-			if (FrameCounter % 60 == 48 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 253;
-				matlist_00123620[0].attr_texId = 253;
-				matlist_000E7180[2].attr_texId = 239;
-				matlist_00122894[2].attr_texId = 239;
-				matlist_00114D80[0].attr_texId = 239;
-			}
-			if (FrameCounter % 60 == 52 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 254;
-				matlist_00123620[0].attr_texId = 254;
-				matlist_000E7180[2].attr_texId = 240;
-				matlist_00122894[2].attr_texId = 240;
-				matlist_00114D80[0].attr_texId = 240;
-			}
-			if (FrameCounter % 60 == 56 && GameState == 15)
-			{
-				matlist_0012231C[0].attr_texId = 255;
-				matlist_00123620[0].attr_texId = 255;
-				matlist_000E7180[2].attr_texId = 241;
-				matlist_00122894[2].attr_texId = 241;
-				matlist_00114D80[0].attr_texId = 241;
-			}
+				if (anim2 > 255) anim2 = 183;
+				if (anim2 > 183 && anim2 < 242) anim2 = 242;
+				if (anim3 > 241) anim3 = 29;
+				if (anim3 > 29 && anim3 < 228) anim3 = 228;
+				matlist_0012231C[0].attr_texId = anim2;
+				matlist_00123620[0].attr_texId = anim2;
+				matlist_000E7180[2].attr_texId = anim3;
+				matlist_00122894[2].attr_texId = anim3;
+				matlist_00114D80[0].attr_texId = anim3;
+				if (FrameCounter % 3 == 0)
+				{
+					anim2++;
+					anim3++;
+				}
 		}
 
 		//Sea animations Act 4 (Hotel)
-		if (CurrentLevel == 26 && CurrentAct == 4)
+		if (CurrentLevel == 26 && CurrentAct == 4 && GameState == 15)
 		{
-			if (FrameCounter % 60 == 0 && GameState == 15)
+			if (anim4 > 101) anim4 = 59;
+			if (anim4 > 59 && anim4 < 88) anim4 = 88;
+			if (anim5 > 115) anim5 = 60;
+			if (anim5 > 60 && anim5 < 102) anim5 = 102;
+			matlist_00147958[2].attr_texId = anim4;
+			matlist_00150A50[3].attr_texId = anim4;
+			matlist_00151E54[0].attr_texId = anim4;
+			matlist_00148688[0].attr_texId = anim5;
+			if (FrameCounter % 3 == 0)
 			{
-				matlist_00147958[2].attr_texId = 59;
-				matlist_00150A50[3].attr_texId = 59;
-				matlist_00151E54[0].attr_texId = 59;
-				matlist_00148688[0].attr_texId = 60;
-			}
-			if (FrameCounter % 60 == 4 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 88;
-				matlist_00150A50[3].attr_texId = 88;
-				matlist_00151E54[0].attr_texId = 88;
-				matlist_00148688[0].attr_texId = 102;
-		}
-			if (FrameCounter % 60 == 8 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 89;
-				matlist_00150A50[3].attr_texId = 89;
-				matlist_00151E54[0].attr_texId = 89;
-				matlist_00148688[0].attr_texId = 103;
-			}
-			if (FrameCounter % 60 == 12 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 90;
-				matlist_00150A50[3].attr_texId = 90;
-				matlist_00151E54[0].attr_texId = 90;
-				matlist_00148688[0].attr_texId = 104;
-			}
-			if (FrameCounter % 60 == 16 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 91;
-				matlist_00150A50[3].attr_texId = 91;
-				matlist_00151E54[0].attr_texId = 91;
-				matlist_00148688[0].attr_texId = 105;
-			}
-			if (FrameCounter % 60 == 20 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 92;
-				matlist_00150A50[3].attr_texId = 92;
-				matlist_00151E54[0].attr_texId = 92;
-				matlist_00148688[0].attr_texId = 106;
-			}
-			if (FrameCounter % 60 == 24 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 93;
-				matlist_00150A50[3].attr_texId = 93;
-				matlist_00151E54[0].attr_texId = 93;
-				matlist_00148688[0].attr_texId = 107;
-			}
-			if (FrameCounter % 60 == 28 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 94;
-				matlist_00150A50[3].attr_texId = 94;
-				matlist_00151E54[0].attr_texId = 94;
-				matlist_00148688[0].attr_texId = 108;
-			}
-			if (FrameCounter % 60 == 32 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 95;
-				matlist_00150A50[3].attr_texId = 95;
-				matlist_00151E54[0].attr_texId = 95;
-				matlist_00148688[0].attr_texId = 109;
-			}
-			if (FrameCounter % 60 == 36 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 96;
-				matlist_00150A50[3].attr_texId = 96;
-				matlist_00151E54[0].attr_texId = 96;
-				matlist_00148688[0].attr_texId = 110;
-			}
-			if (FrameCounter % 60 == 40 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 97;
-				matlist_00150A50[3].attr_texId = 97;
-				matlist_00151E54[0].attr_texId = 97;
-				matlist_00148688[0].attr_texId = 111;
-			}
-			if (FrameCounter % 60 == 44 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 98;
-				matlist_00150A50[3].attr_texId = 98;
-				matlist_00151E54[0].attr_texId = 98;
-				matlist_00148688[0].attr_texId = 112; 
-			}
-			if (FrameCounter % 60 == 48 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 99;
-				matlist_00150A50[3].attr_texId = 99;
-				matlist_00151E54[0].attr_texId = 99;
-				matlist_00148688[0].attr_texId = 113;
-			}
-			if (FrameCounter % 60 == 52 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 100;
-				matlist_00150A50[3].attr_texId = 100;
-				matlist_00151E54[0].attr_texId = 100;
-				matlist_00148688[0].attr_texId = 114;
-			}
-			if (FrameCounter % 60 == 56 && GameState == 15)
-			{
-				matlist_00147958[2].attr_texId = 101;
-				matlist_00150A50[3].attr_texId = 101;
-				matlist_00151E54[0].attr_texId = 101;
-				matlist_00148688[0].attr_texId = 115;
+				anim4++;
+				anim5++;
 			}
 		}
 	}
