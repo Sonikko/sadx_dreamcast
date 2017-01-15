@@ -5,6 +5,8 @@
 #include "Twinkle3.h"
 #include "TwinklePark_objects.h"
 
+static int anim = 74;
+
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA68, &landtable_0001788C),
 	ptrdecl(0x97DA6C, &landtable_00019344),
@@ -92,8 +94,6 @@ extern "C"
 		((NJS_OBJECT *)0x027A5464)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 2
 		((NJS_OBJECT *)0x027A58A4)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 3
 		((NJS_OBJECT *)0x027A58A4)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 4
-
-		
 		/**(NJS_OBJECT*)0x027B6170 = object_000B4F1C; // yellow flower pot
 		*(NJS_OBJECT*)0x027B80C4 = object_000B4F1C; // yellow flower pot 2
 		*(NJS_OBJECT*)0x027B6A58 = object_000B5EE8; // pink flower pot
@@ -118,111 +118,18 @@ extern "C"
 			TwinklePark4Fog[i].Distance = 1200.0f;
 			TwinklePark4Fog[i].Toggle = 1;
 		}
-
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
 		{
 			if (CurrentLevel == 3 && CurrentAct == 1 && GameState != 16)
 			{
-				if (LevelFrameCount % 56 == 0)
-				{
-					matlist_00065D8C[0].attr_texId = 74;
-					matlist_0001A3A8[0].attr_texId = 74;
-					matlist_000657A0[0].attr_texId = 74;
-					matlist_00065A3C[0].attr_texId = 74;
-				}
-				if (LevelFrameCount % 56 == 4)
-				{
-					matlist_00065D8C[0].attr_texId = 75;
-					matlist_0001A3A8[0].attr_texId = 75;
-					matlist_000657A0[0].attr_texId = 75;
-					matlist_00065A3C[0].attr_texId = 75;
-				}
-				if (LevelFrameCount % 56 == 8)
-				{
-					matlist_00065D8C[0].attr_texId = 76;
-					matlist_0001A3A8[0].attr_texId = 76;
-					matlist_000657A0[0].attr_texId = 76;
-					matlist_00065A3C[0].attr_texId = 76;
-				}
-				if (LevelFrameCount % 56 == 12)
-				{
-					matlist_00065D8C[0].attr_texId = 77;
-					matlist_0001A3A8[0].attr_texId = 77;
-					matlist_000657A0[0].attr_texId = 77;
-					matlist_00065A3C[0].attr_texId = 77;
-				}
-				if (LevelFrameCount % 56 == 16)
-				{
-					matlist_00065D8C[0].attr_texId = 78;
-					matlist_0001A3A8[0].attr_texId = 78;
-					matlist_000657A0[0].attr_texId = 78;
-					matlist_00065A3C[0].attr_texId = 78;
-				}
-				if (LevelFrameCount % 56 == 20)
-				{
-					matlist_00065D8C[0].attr_texId = 79;
-					matlist_0001A3A8[0].attr_texId = 79;
-					matlist_000657A0[0].attr_texId = 79;
-					matlist_00065A3C[0].attr_texId = 79;
-				}
-				if (LevelFrameCount % 56 == 24)
-				{
-					matlist_00065D8C[0].attr_texId = 80;
-					matlist_0001A3A8[0].attr_texId = 80;
-					matlist_000657A0[0].attr_texId = 80;
-					matlist_00065A3C[0].attr_texId = 80;
-				}
-				if (LevelFrameCount % 56 == 28)
-				{
-					matlist_00065D8C[0].attr_texId = 81;
-					matlist_0001A3A8[0].attr_texId = 81;
-					matlist_000657A0[0].attr_texId = 81;
-					matlist_00065A3C[0].attr_texId = 81;
-				}
-				if (LevelFrameCount % 56 == 32)
-				{
-					matlist_00065D8C[0].attr_texId = 82;
-					matlist_0001A3A8[0].attr_texId = 82;
-					matlist_000657A0[0].attr_texId = 82;
-					matlist_00065A3C[0].attr_texId = 82;
-				}
-				if (LevelFrameCount % 56 == 36)
-				{
-					matlist_00065D8C[0].attr_texId = 83;
-					matlist_0001A3A8[0].attr_texId = 83;
-					matlist_000657A0[0].attr_texId = 83;
-					matlist_00065A3C[0].attr_texId = 83;
-				}
-				if (LevelFrameCount % 56 == 40)
-				{
-					matlist_00065D8C[0].attr_texId = 84;
-					matlist_0001A3A8[0].attr_texId = 84;
-					matlist_000657A0[0].attr_texId = 84;
-					matlist_00065A3C[0].attr_texId = 84;
-				}
-				if (LevelFrameCount % 56 == 44)
-				{
-					matlist_00065D8C[0].attr_texId = 85;
-					matlist_0001A3A8[0].attr_texId = 85;
-					matlist_000657A0[0].attr_texId = 85;
-					matlist_00065A3C[0].attr_texId = 85;
-				}
-				if (LevelFrameCount % 56 == 48)
-				{
-					matlist_00065D8C[0].attr_texId = 86;
-					matlist_0001A3A8[0].attr_texId = 86;
-					matlist_000657A0[0].attr_texId = 86;
-					matlist_00065A3C[0].attr_texId = 86;
-				}
-				if (LevelFrameCount % 56 == 52)
-				{
-					matlist_00065D8C[0].attr_texId = 87;
-					matlist_0001A3A8[0].attr_texId = 87;
-					matlist_000657A0[0].attr_texId = 87;
-					matlist_00065A3C[0].attr_texId = 87;
-				}
+				if (anim > 87) anim = 74;
+				matlist_00065D8C[0].attr_texId = anim;
+				matlist_0001A3A8[0].attr_texId = anim;
+				matlist_000657A0[0].attr_texId = anim;
+				matlist_00065A3C[0].attr_texId = anim;
+				if (LevelFrameCount % 3 == 0) anim++;
 			}
 		}
 	};
