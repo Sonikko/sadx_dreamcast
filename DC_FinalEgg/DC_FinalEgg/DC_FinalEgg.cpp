@@ -194,7 +194,7 @@ void __cdecl sub_5AE330(ObjectMaster *a1)
 		BackupConstantAttr();
 		AddConstantAttr(0, NJD_FLAG_USE_ALPHA);
 		AddConstantAttr(0, NJD_DA_ONE);
-		((NJS_OBJECT*)0x1A45620)->basicdxmodel->mats->diffuse.color = 0xAFFFFFFF;
+		((NJS_OBJECT*)0x1A45620)->basicdxmodel->mats->diffuse.color = 0x9FFFFFFF;
 		njColorBlendingMode(0, 8);
 		njColorBlendingMode(1, 10);
 		njPushMatrix(0);
