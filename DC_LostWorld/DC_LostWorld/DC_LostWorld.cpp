@@ -5,6 +5,8 @@
 #include "LostWorld3.h"
 #include "LostWorld_objects.h"
 
+DataPointer(float, CurrentDrawDist, 0x03ABDC74);
+
 static int animw1 = 44;
 static int animw2 = 81;
 
@@ -65,6 +67,8 @@ extern "C"
 		}
 		if (CurrentLevel == 7 && CurrentAct == 1 && GameState != 16)
 		{
+			auto entity = CharObj1Ptrs[0];
+			if (entity != nullptr && entity->Position.y < -400 && entity->Position.y > -1400) CurrentDrawDist = -6000.0f; else CurrentDrawDist = -2700.0f;
 			if (animw2 > 94) animw2 = 81;
 			matlist_000E924C[0].attr_texId = animw2;
 			matlist_000E3610[0].attr_texId = animw2;
