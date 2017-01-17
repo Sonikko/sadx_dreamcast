@@ -46,7 +46,7 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		if (CurrentLevel == 5 && CurrentAct != 1 && GameState != 16)
+		if (CurrentLevel == 5 && GameState != 16)
 		{
 			for (int q = 0; q < LengthOfArray(uv_0206C9F0); q++)
 			{
