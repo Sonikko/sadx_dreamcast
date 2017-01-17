@@ -26,7 +26,10 @@ extern "C"
 		*(NJS_OBJECT*)0x1FFF454 = object_0012C218; //Ashiba02
 		*(NJS_OBJECT*)0x1FFFF04 = object_0012C8B4; //Ashiba03
 		*(NJS_OBJECT*)0x2023C08 = object_00148264; //Snake head
-		*(NJS_OBJECT*)0x20253BC = object_00149374; //Snake joints
+		*(NJS_OBJECT*)0x20253BC = object_00148E78; //Snake joints
+		*(NJS_OBJECT*)0x2025D64 = object_00149374; //Snake joint near the tail
+		*(NJS_OBJECT*)0x202670C = object_00149870; //Snake tail
+		*(NJS_OBJECT*)0x2024828 = object_001487A0; //Snake tail tip
 		*(NJS_MODEL_SADX*)0x2026E38 = attach_00149E7C; //Fire obstacle
 		((NJS_OBJECT*)0x2031810)->basicdxmodel->mats[0].attrflags |= NJD_DA_ONE; //Ceiling light
 		((NJS_OBJECT*)0x2031810)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Ceiling light
