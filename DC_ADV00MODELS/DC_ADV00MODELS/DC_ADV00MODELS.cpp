@@ -453,7 +453,7 @@ extern "C"
 				matlist_000E7180[2].attr_texId = anim3;
 				matlist_00122894[2].attr_texId = anim3;
 				matlist_00114D80[0].attr_texId = anim3;
-				if (FrameCounter % 3 == 0)
+				if (FrameCounter % 4 == 0)
 				{
 					anim2++;
 					anim3++;
@@ -471,7 +471,7 @@ extern "C"
 			matlist_00150A50[3].attr_texId = anim4;
 			matlist_00151E54[0].attr_texId = anim4;
 			matlist_00148688[0].attr_texId = anim5;
-			if (FrameCounter % 3 == 0)
+			if (FrameCounter % 4 == 0)
 			{
 				anim4++;
 				anim5++;

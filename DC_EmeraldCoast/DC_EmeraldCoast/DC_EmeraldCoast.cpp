@@ -101,7 +101,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 			matlist_0001FFE0[2].attr_texId = anim2;
 			matlist_0001FFE0[4].attr_texId = anim2;
 			matlist_0001DC78[1].attr_texId = anim2;
-			if (LevelFrameCount % 3 == 0)
+			if (LevelFrameCount % 4 == 0)
 			{
 			anim1++;
 			anim2++;
@@ -139,7 +139,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 			matlist_000D86A0[0].attr_texId = anim4;
 			matlist_000D8254[0].attr_texId = anim4;
 			matlist_000D7D64[0].attr_texId = anim4;
-			if (LevelFrameCount % 3 == 0)
+			if (LevelFrameCount % 4 == 0)
 			{
 				anim3++;
 				anim4++;
@@ -192,7 +192,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 			matlist_00110DFC[0].attr_texId = anim6;
 			matlist_0011B12C[0].attr_texId = anim6;
 			matlist_0011B12C[1].attr_texId = anim6;
-			if (LevelFrameCount % 3 == 0)
+			if (LevelFrameCount % 4 == 0)
 			{
 				anim5++;
 				anim6++;
