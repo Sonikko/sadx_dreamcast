@@ -33,15 +33,55 @@ LandTable **___LANDTABLEEC = (LandTable **)GetProcAddress(handle2, "___LANDTABLE
 LandTable **___LANDTABLEECC = (LandTable **)GetProcAddress(handle3, "___LANDTABLEEC");
 NJS_OBJECT **___ADV01C_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle3, "___ADV01C_OBJECTS");
 NJS_OBJECT **___ADV01_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01_OBJECTS");
+NJS_OBJECT **___ADV01EC00_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01EC00_OBJECTS");
 NJS_MODEL_SADX **___ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle3, "___ADV01C_MODELS");
 static bool PinkMonitorMode = 0;
 static bool CurrentlyPink = 0;
+//FunctionPointer(void, sub_10001050, (NJS_OBJECT*), (handle2+0x1050));
+//void(__cdecl* sub_10001050)(NJS_OBJECT*) = (void(__cdecl*)(NJS_OBJECT*))(handle2 + 0x1050);
+void(__cdecl* sub_10001050)(NJS_OBJECT*) = nullptr;
+
+void __cdecl SetClip_EC00(signed int cliplevel)
+{
+	if (cliplevel >= 2)
+	{
+		sub_10001050(&object_00032A00);
+		sub_10001050(&object_00032D2C);
+		sub_10001050(&object_0003335C);
+		sub_10001050(&object_00033688);
+		landtable_00162260.COLCount -= 4;
+	}
+	else
+	{
+		landtable_00162260.COLList = &collist_0015F764[4];
+		landtable_00162260.COLCount -= 4;
+	}
+}
+
+void __cdecl SetClip_EC01(signed int cliplevel)
+{
+	if (cliplevel >= 2)
+	{
+		sub_10001050(&object_0007F56C);
+		sub_10001050(&object_0007F898);
+		sub_10001050(&object_0007EF3C);
+		sub_10001050(&object_0007EC10);
+		sub_10001050(&object_0008241C_2);
+		sub_10001050(&object_00082A7C_2);
+		landtable_001631F0.COLCount -= 6;
+	}
+	else
+	{
+		landtable_001631F0.COLList = &collist_00162284[6];
+		landtable_001631F0.COLCount -= 6;
+	}
+}
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
-
-	WriteData((char *)GetProcAddress(handle2, "SetClip_EC00"), 0xC3u, sizeof(char *));
-	WriteData((char *)GetProcAddress(handle2, "SetClip_EC01"), 0xC3u, sizeof(char *));
+	sub_10001050 = (void(__cdecl*)(NJS_OBJECT*))(handle2 + 0x1050);
+	WriteJump((char *)GetProcAddress(handle2, "SetClip_EC00"), SetClip_EC00);
+	WriteJump((char *)GetProcAddress(handle2, "SetClip_EC01"), SetClip_EC01);
 	WriteData((void *)0x0051BB8C, 0x90, 5); //disable that stupid DisableFog thing
 	___ADV01_TEXLISTS[0] = &texlist_ec00;
 	___ADV01_TEXLISTS[1] = &texlist_ec01;
