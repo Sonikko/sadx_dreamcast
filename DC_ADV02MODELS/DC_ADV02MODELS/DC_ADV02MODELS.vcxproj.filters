@@ -60,6 +60,9 @@
     <ClInclude Include="MR_train.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="MR_Rock.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

@@ -8,6 +8,7 @@
 #include "ADV_MR03 (Final Egg entrance).h"
 #include "OFinalEgg.h"
 #include "MR_train.h"
+#include "MR_Rock.h"
 
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
 DataArray(FogData, MR2FogDay, 0x01103478, 3);
@@ -70,6 +71,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___LANDTABLEMR[2] = &landtable_00000178;
 	___LANDTABLEMR[3] = &landtable_0000019C;
 	NJS_OBJECT **___ADV02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02_OBJECTS");
+	___ADV02_OBJECTS[64] = &object_001E87F0;
 	___ADV02_OBJECTS[68] = &object_002145D4;
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	___ADV02MR02_OBJECTS[141] = &object_001615BC;
@@ -99,6 +101,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 0)
 	{
+		NJS_OBJECT **___ADV02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02_OBJECTS");
 		for (int q = 0; q < LengthOfArray(uv_00075EC0); q++)
 		{
 			uv_00075EC0[q].v = uv_00075EC0[q].v + 1;

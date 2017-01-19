@@ -153,6 +153,7 @@
     <ClInclude Include="ADV_MR03_PC.h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="MetalSonic.h" />
+    <ClInclude Include="MR_Rock.h" />
     <ClInclude Include="MR_train.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="OFinalEgg.h" />
