@@ -45,18 +45,18 @@ void __cdecl sub_600BF0(ObjectMaster *a1, NJS_OBJECT *a2)
 		v16.r = Camera_Data1->Position.x;
 		v16.g = Camera_Data1->Position.y;
 		v16.b = Camera_Data1->Position.z;
-		v3 = 1.0 - fabs(v16.g - v2->Position.y) * 0.025;
+		v3 = 1.0f - fabs(v16.g - v2->Position.y) * 0.025f;
 		v2->Scale.y = v3;
-		if (v3 < 0.0)
+		if (v3 < 0)
 		{
 			v2->Scale.y = 0;
 		}
-		if (v2->Scale.y > 0.80000001)
+		if (v2->Scale.y > 0.8f)
 		{
-			v2->Scale.y = 1061997773;
+			v2->Scale.y = 0.8f;
 		}
 		njSetTexture(&OBJ_MOUNTAIN_TEXLIST);
-		v4 = v2->Scale.y * -0.80000001 - 0.2;
+		v4 = v2->Scale.y * -0.8f - 0.2f;
 		v16.a = v4;
 		v16.b = v4;
 		v16.g = v4;
@@ -64,19 +64,19 @@ void __cdecl sub_600BF0(ObjectMaster *a1, NJS_OBJECT *a2)
 		SetMaterialAndSpriteColor((NJS_ARGB *)&v16);
 		v5 = Camera_Data1->Position.x;
 		v17 = Camera_Data1->Position.z;
-		if (v5 < 0.0)
+		if (v5 < 0)
 		{
-			v5 = v5 - 2000.0;
+			v5 = v5 - 2000.0f;
 		}
-		if (v17 < 0.0)
+		if (v17 < 0)
 		{
-			v17 = v17 - 2000.0;
+			v17 = v17 - 2000.0f;
 		}
-		v6 = (v5 + 1000.0) * 0.00050000002;
-		v15 = sub_789320(v6) * 2000.0;
-		v7 = (v17 + 1000.0) * 0.00050000002;
+		v6 = (v5 + 1000.0f) * 0.0005f;
+		v15 = sub_789320(v6) * 2000.0f;
+		v7 = (v17 + 1000.0f) * 0.0005f;
 		v13 = -1;
-		v18 = sub_789320(v7) * 2000.0;
+		v18 = sub_789320(v7) * 2000.0f;
 		do
 		{
 			v8 = -1;
@@ -84,16 +84,16 @@ void __cdecl sub_600BF0(ObjectMaster *a1, NJS_OBJECT *a2)
 			do
 			{
 				njPushMatrix(0);
-				XDist = (double)v14 * 2000.0 + v15;
-				z = (double)v13 * 2000.0 + v18;
+				XDist = (double)v14 * 2000.0f + v15;
+				z = (double)v13 * 2000.0f + v18;
 				njTranslate(0, XDist, v2->Position.y, z);
-				ProcessModelNode_A_Wrapper((NJS_OBJECT *)a2, 0, 1.0);
+				ProcessModelNode_A_Wrapper((NJS_OBJECT *)a2, 0, 1.0f);
 				njPopMatrix(1u);
 				v14 = ++v8;
 			} while (v8 < 2);
 			v12 = (v13 + 1) - 2;
 			v11 = v13++ - 1 < 0;
-		} while (v11 ^ v12);
+		} while (v11 | v12);
 		ClampGlobalColorThing_Thing();
 	}
 }
