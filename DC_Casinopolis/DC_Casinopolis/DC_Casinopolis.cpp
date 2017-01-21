@@ -68,7 +68,7 @@ extern "C"
 			{
 				uv_01A47B78[q].v = uv_01A47B78[q].v - 10;
 			}
-			if (uv_01A47B78[0].v <= -255)
+			if (uv_01A47B78[0].v < -255)
 			{
 				uv_01A47B78[0].v = 255;
 				uv_01A47B78[1].v = 255;
@@ -83,7 +83,7 @@ extern "C"
 			{
 				uv_01A47468[q2].v = uv_01A47468[q2].v - 10;
 			}
-			if (uv_01A47468[0].v <= -1020)
+			if (uv_01A47468[0].v < -1020)
 			{
 				for (int r1 = 0; r1 < LengthOfArray(uv_01A47468); r1++)
 				uv_01A47468[r1].v = uv_01A47468_0[r1].v;
@@ -92,7 +92,7 @@ extern "C"
 			{
 				uv_01A474F8[q3].v = uv_01A474F8[q3].v - 10;
 			}
-			if (uv_01A474F8[0].v <= -3570)
+			if (uv_01A474F8[0].v < -2040)
 			{
 				for (int r2 = 0; r2 < LengthOfArray(uv_01A474F8); r2++)
 				uv_01A474F8[r2].v = uv_01A474F8_0[r2].v;
