@@ -30,25 +30,16 @@
     <ClInclude Include="SADXModLoader.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SandHill.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TwinkleCircuit.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ECModel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tornado1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tornado2.h">
+    <ClInclude Include="Tornado2_trans2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Tornado2_Trans.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tornado2_trans2.h">
+    <ClInclude Include="Tornado2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tornado1.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -56,7 +47,7 @@
     <ClCompile Include="stdafx.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="DC_SubGames.cpp">
+    <ClCompile Include="DC_TornadoModels.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="dllmain.cpp">
