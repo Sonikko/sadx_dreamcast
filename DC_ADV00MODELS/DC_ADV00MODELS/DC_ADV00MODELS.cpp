@@ -35,6 +35,7 @@ extern "C"
 		memcpy((void*)0x02AF8400, &object_001A17C4, sizeof(object_001A17C4)); // SS Blue Car
 		memcpy((void*)0x02AFBA64, &object_001A4268, sizeof(object_001A4268)); // SS Taxi
 		memcpy((void*)0x02AD362C, &object_00185A20, sizeof(object_00185A20)); // SS Twinkle Park Ball
+		memcpy((void*)0x02AB6900, &object_0016C3FC, sizeof(object_0016C3FC)); // SS Twinkle Park Elevator
 		//Landtables
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 		LandTable **___LANDTABLESS = (LandTable **)GetProcAddress(handle, "___LANDTABLESS");

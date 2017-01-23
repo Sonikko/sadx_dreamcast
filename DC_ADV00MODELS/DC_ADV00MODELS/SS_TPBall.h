@@ -728,3 +728,148 @@ NJS_VECTOR normal_00185878[] = {
 NJS_MODEL_SADX attach_001859F8 = { vertex_001856F8, normal_00185878, LengthOfArray(vertex_001856F8), meshlist_001856E0, matlist_001854F4, LengthOfArray(meshlist_001856E0), LengthOfArray(matlist_001854F4),{ 0.000275f, -0.000784f, -0.000732f }, 39.68626f, NULL };
 
 NJS_OBJECT object_00185A20 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attach_001859F8, 0, 0, 0, 0, 0, 0, 1, 1, 1, &object_001854C0, NULL };
+
+//elevator
+
+
+NJS_MATERIAL matlist_0016C03C[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, OBJ_SSTexName_eledai01, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_FLIP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, OBJ_SSTexName_elehasirahaji02, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016C064[] = {
+	5, 15, 18, 0, 16, 17,
+	0x8000u | 5, 15, 14, 0, 13, 17
+};
+
+Sint16 poly_0016C07C[] = {
+	4, 12, 7, 1, 6,
+	4, 11, 12, 2, 1,
+	4, 10, 11, 3, 2,
+	4, 9, 10, 4, 3,
+	4, 8, 9, 5, 4,
+	4, 7, 8, 6, 5,
+	4, 14, 13, 9, 10,
+	4, 15, 14, 8, 9,
+	4, 17, 16, 11, 12,
+	4, 18, 15, 7, 8,
+	4, 13, 17, 10, 11,
+	4, 16, 18, 12, 7
+};
+
+NJS_TEX uv_0016C0F4[] = {
+	{ 255, 127 },
+	{ 191, 254 },
+	{ 127, 127 },
+	{ 63, 254 },
+	{ 0, 127 },
+	{ 255, 127 },
+	{ 191, 0 },
+	{ 127, 127 },
+	{ 63, 0 },
+	{ 0, 127 }
+};
+
+NJS_TEX uv_0016C11C[] = {
+	{ 1267, 1 },
+	{ 4, 0 },
+	{ 1270, 254 },
+	{ 4, 254 },
+	{ 1267, 1 },
+	{ 4, 0 },
+	{ 1270, 254 },
+	{ 4, 254 },
+	{ 1267, 1 },
+	{ 4, 0 },
+	{ 1270, 254 },
+	{ 4, 254 },
+	{ 1267, 1 },
+	{ 4, 0 },
+	{ 1270, 254 },
+	{ 4, 254 },
+	{ 1267, 1 },
+	{ 4, 0 },
+	{ 1270, 254 },
+	{ 4, 254 },
+	{ 1267, 1 },
+	{ 4, 0 },
+	{ 1270, 254 },
+	{ 4, 254 },
+	{ 1267, 1 },
+	{ 4, 0 },
+	{ 1270, 254 },
+	{ 4, 254 },
+	{ 1267, 1 },
+	{ 4, 0 },
+	{ 1270, 254 },
+	{ 4, 254 },
+	{ 1267, 1 },
+	{ 4, 0 },
+	{ 1270, 254 },
+	{ 4, 254 },
+	{ 1267, 1 },
+	{ 4, 0 },
+	{ 1270, 254 },
+	{ 4, 254 },
+	{ 1267, 1 },
+	{ 4, 0 },
+	{ 1270, 254 },
+	{ 4, 254 },
+	{ 1267, 1 },
+	{ 4, 0 },
+	{ 1270, 254 },
+	{ 4, 254 }
+};
+
+NJS_MESHSET_SADX meshlist_0016C1DC[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_0016C064, NULL, NULL, NULL, uv_0016C0F4, NULL },
+	{ NJD_MESHSET_TRIMESH | 1, 12, poly_0016C07C, NULL, NULL, NULL, uv_0016C11C, NULL }
+};
+
+NJS_VECTOR vertex_0016C20C[] = {
+	{ 0.000114f, 3, 0.00061f },
+	{ 21.65081f, 0, -12.49924f },
+	{ 0.000113f, 0, -24.99939f },
+	{ -21.65052f, 0, -12.49939f },
+	{ -21.65051f, 0, 12.50061f },
+	{ 0.000122f, 0, 25.00061f },
+	{ 21.65075f, 0, 12.5006f },
+	{ 21.65081f, 3, 12.50076f },
+	{ 0.000122f, 3, 25.00061f },
+	{ -21.65051f, 3, 12.50061f },
+	{ -21.6505f, 3, -12.49939f },
+	{ 0.000113f, 3, -24.99939f },
+	{ 21.65081f, 3, -12.49924f },
+	{ -18.83594f, 3, -10.87447f },
+	{ -18.83595f, 3, 10.87553f },
+	{ 0.000106f, 3, 21.75053f },
+	{ 18.8362f, 3, -10.87434f },
+	{ 0.000099f, 3, -21.74947f },
+	{ 18.8362f, 3, 10.87566f }
+};
+
+NJS_VECTOR normal_0016C2F0[] = {
+	{ 0, 1, 0 },
+	{ 0.866027f, 0, -0.499998f },
+	{ 0.000002f, 0.000002f, -1 },
+	{ -0.866026f, 0.000002f, -0.499999f },
+	{ -0.866025f, 0, 0.5f },
+	{ -0.00001f, -0.00032f, 1 },
+	{ 0.86603f, -0.00032f, 0.499992f },
+	{ 0.686246f, 0.609983f, 0.396217f },
+	{ -0.00001f, 0.609979f, 0.7924179f },
+	{ -0.686244f, 0.609994f, 0.396203f },
+	{ -0.686243f, 0.6099949f, -0.396203f },
+	{ 0.000002f, 0.6099949f, -0.7924049f },
+	{ 0.686244f, 0.6099949f, -0.396201f },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 }
+};
+
+NJS_MODEL_SADX attach_0016C3D4 = { vertex_0016C20C, normal_0016C2F0, LengthOfArray(vertex_0016C20C), meshlist_0016C1DC, matlist_0016C03C, LengthOfArray(meshlist_0016C1DC), LengthOfArray(matlist_0016C03C),{ 0.000143f, 1.5f, 0.00061f }, 33.07191f, NULL };
+
+NJS_OBJECT object_0016C3FC = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016C3D4, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
