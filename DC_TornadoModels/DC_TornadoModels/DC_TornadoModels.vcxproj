@@ -150,6 +150,7 @@
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="Tornado1.h" />
+    <ClInclude Include="Tornado1hit.h" />
     <ClInclude Include="Tornado2.h" />
     <ClInclude Include="Tornado2_Trans.h" />
     <ClInclude Include="Tornado2_trans2.h" />
