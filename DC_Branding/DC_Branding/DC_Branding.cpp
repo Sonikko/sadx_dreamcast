@@ -21,7 +21,7 @@ extern "C"
 		//Selection box R
 		WriteData((void*)0x0045812F, 0, 4);
 		//Kill Cream
-		WriteData((void*)0x00634F40, 0xC3u, sizeof (void*));
+		WriteData((void*)0x6353A0, 0xC3u, sizeof (void*));
 	}
 }
 
