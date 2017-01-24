@@ -93,15 +93,14 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_ACTIONS[0]->object = &object_0020C3B0;
 	___ADV02_ACTIONS[0]->motion = &animation_000862E8;
 	___ADV02_ACTIONS[10]->object = &object_00201C18;
+	___ADV02_ACTIONS[30]->object = &object_0020DC78;
 }
 
 extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 {
 	auto entity = CharObj1Ptrs[0];
-	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 0)
 	{
-		NJS_OBJECT **___ADV02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02_OBJECTS");
 		for (int q = 0; q < LengthOfArray(uv_00075EC0); q++)
 		{
 			uv_00075EC0[q].v = uv_00075EC0[q].v + 1;
