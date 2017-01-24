@@ -5,10 +5,21 @@
 #include "Casino2.h"
 #include "Casino3.h"
 #include "Casino4.h"
+#include "stdlib.h"
 
 static short CurrentPlayer = -1;
 static int anim1 = 67;
 static int anim2 = 7;
+FunctionPointer(void, sub_5DD900, (int a1, int a2), 0x5DD900);
+FunctionPointer(void, sub_5DD920, (int a1, int a2), 0x5DD920);
+FunctionPointer(void, sub_5C09D0, (int a1), 0x5C09D0);
+FunctionPointer(bool, IsVisible2, (NJS_VECTOR *center, float radius), 0x00403330);
+FunctionPointer(void, SetMaterialAndSpriteColor, (NJS_ARGB *a1), 0x00402F40);
+
+DataPointer(ObjectMaster*, off_1E75DC8, 0x01E75DC8);
+DataPointer(ObjectMaster*, off_1E75DE0, 0x01E75DE0);
+DataPointer(NJS_OBJECT, stru_1E5EC4C, 0x01E5EC4C);
+DataPointer(NJS_OBJECT, stru_1E5E7BC, 0x01E5E7BC);
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB28, &landtable_00025EAC),
@@ -17,16 +28,95 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DB34, &landtable_000D8440),
 };
 
+void __cdecl OLhtr_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi@1
+	int v2; // eax@3
+	int v3; // eax@5
+	int v4; // eax@7
+	int v5;
+	v1 = a1->Data1;
+	if (!ClipObject(a1, 360010.0) && IsVisible2(&v1->Position, 30.0))
+	{
+		sub_5DD900(12 * (v1->Action == 0) + 31940064, 1);
+		sub_5C09D0(12);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		v2 = v1->Rotation.z;
+		if (v2)
+		{
+			njRotateZ(0, (unsigned __int16)v2);
+		}
+		v3 = v1->Rotation.x;
+		if (v3)
+		{
+			njRotateX(0, (unsigned __int16)v3);
+		}
+		v4 = v1->Rotation.y;
+		if (v4)
+		{
+			njRotateY(0, (unsigned __int16)v4);
+		}
+		ProcessModelNode_A_Wrapper(&stru_1E5E7BC, 4, 1.0f);
+		v5 = rand() % 60;
+		if (v5 > 50) stru_1E5E7BC.basicdxmodel->mats[2].diffuse.color = 0xFF7F7F7F;
+		if (v5 <= 50) stru_1E5E7BC.basicdxmodel->mats[2].diffuse.color = 0xFFFFFFFF;
+		njPopMatrix(1u);
+		sub_5DD920((int)&off_1E75DE0, 2);
+	}
+}
+
+void __cdecl OLhtg_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi@1
+	int v2; // eax@3
+	int v3; // eax@5
+	int v4; // eax@7
+	int v5;
+	v1 = a1->Data1;
+	if (!ClipObject(a1, 360010.0) && IsVisible2(&v1->Position, 105.0))
+	{
+		sub_5DD900(12 * (v1->Action == 0) + 31940040, 1);
+		sub_5C09D0(12);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		v2 = v1->Rotation.z;
+		if (v2)
+		{
+			njRotateZ(0, (unsigned __int16)v2);
+		}
+		v3 = v1->Rotation.x;
+		if (v3)
+		{
+			njRotateX(0, (unsigned __int16)v3);
+		}
+		v4 = v1->Rotation.y;
+		if (v4)
+		{
+			njRotateY(0, (unsigned __int16)v4);
+		}
+		ProcessModelNode_A_Wrapper(&stru_1E5EC4C, 4, 1.0f);
+		v5 = rand() % 60;
+		if (v5 > 50) stru_1E5EC4C.basicdxmodel->mats[4].diffuse.color = 0xFF7F7F7F;
+		if (v5 <= 50) stru_1E5EC4C.basicdxmodel->mats[4].diffuse.color = 0xFFFFFFFF;
+		njPopMatrix(1u);
+		sub_5DD920((int)&off_1E75DC8, 2);
+	}
+}
+
 extern "C"
 {
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteJump((void*)0x5C9980, OLhtg_Display);
+		WriteJump((void*)0x5C9BA0, OLhtr_Display);
 		ResizeTextureList((NJS_TEXLIST*)0x1D1B050, textures_casino1);
 		ResizeTextureList((NJS_TEXLIST*)0x1CBD1C4, textures_casino2);
 		ResizeTextureList((NJS_TEXLIST*)0x1C8AF04, textures_casino3);
 		ResizeTextureList((NJS_TEXLIST*)0x1C47004, textures_casino4);
+		//memcpy((void*)0x01E5EC4C, &object_01A5EC4C, sizeof(object_01A5EC4C)); //ceiling light
 		*(NJS_MODEL_SADX*)0x01E74A68 = attach_01A74A68; //billboard
 		*(NJS_MODEL_SADX*)0x01E46F30 = attach_001C4DCC; //rotating thing
 		memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //light
