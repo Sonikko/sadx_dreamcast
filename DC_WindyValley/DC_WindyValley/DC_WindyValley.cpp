@@ -6,6 +6,7 @@
 
 DataArray(FogData, FogData_Windy1, 0x00AFEA20, 3);
 DataArray(FogData, FogData_Windy2, 0x00AFEA50, 3);
+DataArray(DrawDistance, DrawDist_WindyValley1, 0x00AFE9D8, 3);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 
@@ -21,9 +22,10 @@ extern "C" __declspec(dllexport) void cdecl Init()
 {
 	for (int i = 0; i < 3; i++)
 	{
-		//FogData_Windy1[i].Distance = 1600.0f;
-		//FogData_Windy1[i].Layer = 400.0f;
-		//FogData_Windy1[i].Toggle = 1;
+		DrawDist_WindyValley1[i].Maximum = -4000.0f;
+		FogData_Windy1[i].Distance = 9000.0f;
+		FogData_Windy1[i].Layer = 3700.0f;
+		FogData_Windy1[i].Color = 0xFFFFFFFF;
 		FogData_Windy2[i].Color = 0xFFFFFFFF;
 		FogData_Windy2[i].Distance = 2500.0f;
 		FogData_Windy2[i].Layer = 50.0f;
@@ -39,15 +41,15 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 auto entity = CharObj1Ptrs[0];
 if (CurrentCharacter == 0 && CurrentLevel == 2 && CurrentAct == 0 && GameState !=16)
 {
-	if (entity != nullptr && entity->Position.x > 2950 && entity->Position.z > -1520 && entity->Position.y < -512)
+	if (entity != nullptr && entity->Position.x > 2950 && entity->Position.z > -1520 && entity->Position.z < -1300 && entity->Position.y <= -350)
 	{
-		if (CurrentFogDist > 450) CurrentFogDist = CurrentFogDist - 32.0f;
-		if (CurrentFogLayer >= 32) CurrentFogLayer = CurrentFogLayer - 32.0f;
+		if (CurrentFogDist > 450) CurrentFogDist = CurrentFogDist - 64.0f;
+		if (CurrentFogLayer >= 64) CurrentFogLayer = CurrentFogLayer - 64.0f;
 	}
-	if (entity != nullptr && entity->Position.y > -450)
+	if (entity != nullptr && entity->Position.y > -350)
 	{
 		if (CurrentFogDist < 2200) CurrentFogDist = CurrentFogDist + 32.0f;
-		if (CurrentFogLayer < 400) CurrentFogLayer = CurrentFogLayer + 32.0f;
+		if (CurrentFogLayer < 400) CurrentFogLayer = CurrentFogLayer + 16.0f;
 	}
 }
 

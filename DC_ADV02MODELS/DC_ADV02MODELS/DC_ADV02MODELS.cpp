@@ -106,7 +106,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		{
 			uv_00075EC0[q].v = uv_00075EC0[q].v + 1;
 		}
-		if (uv_00075EC0[0].v > -322)
+		if (uv_00075EC0[0].v >= -67)
 		{
 			for (int r1 = 0; r1 < LengthOfArray(uv_00075EC0); r1++)
 			{
@@ -117,7 +117,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		{
 			uv_000755A4[q2].v = uv_000755A4[q2].v - 1;
 		}
-		if (uv_000755A4[1].v < -251)
+		if (uv_000755A4[0].v <= -761)
 		{
 			for (int r2 = 0; r2 < LengthOfArray(uv_000755A4); r2++)
 			{
