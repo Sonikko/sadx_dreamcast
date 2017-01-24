@@ -6,6 +6,7 @@
 
 DataArray(FogData, FogData_Windy1, 0x00AFEA20, 3);
 DataArray(FogData, FogData_Windy2, 0x00AFEA50, 3);
+DataArray(FogData, FogData_Windy3, 0x00AFEA80, 3);
 DataArray(DrawDistance, DrawDist_WindyValley1, 0x00AFE9D8, 3);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
@@ -30,6 +31,9 @@ extern "C" __declspec(dllexport) void cdecl Init()
 		FogData_Windy2[i].Distance = 2500.0f;
 		FogData_Windy2[i].Layer = 50.0f;
 		FogData_Windy2[i].Toggle = 1;
+		FogData_Windy3[i].Distance = 6000.0f;
+		FogData_Windy3[i].Layer = 2000.0f;
+		FogData_Windy3[i].Color = 0xFFFFFFFF;
 	}
 	ResizeTextureList((NJS_TEXLIST *)0xB98BF8, textures_windy1);
 	ResizeTextureList((NJS_TEXLIST *)0xB81304, textures_windy2);
