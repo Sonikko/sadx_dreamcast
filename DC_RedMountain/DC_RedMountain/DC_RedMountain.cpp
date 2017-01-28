@@ -131,6 +131,10 @@ extern "C"
 	{
 		//WriteJump((void*)0x600BF0, sub_600BF0);
 		*(NJS_OBJECT*)0x246CAA8 = object_0206CAA8_2;
+		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
+		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
+		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
+		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
 		matlist_0206C9D4_2[0].diffuse.color = 0xFFFFFFFF;
 		matlist_0206C9D4[0].diffuse.color = 0xFFFFFFFF;
 		WriteData((NJS_OBJECT**)0x006011CC, (NJS_OBJECT*)&object_0206CAA8);
