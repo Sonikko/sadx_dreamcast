@@ -36,7 +36,7 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	for (int i = 0; i < 3; i++)
 	{
 		DrawDist_EmeraldCoast1[i].Maximum = -6000.0f;
-		DrawDist_EmeraldCoast2[i].Maximum = -4000.0f;
+		DrawDist_EmeraldCoast2[i].Maximum = -3900.0f;
 		DrawDist_EmeraldCoast3[i].Maximum = -4000.0f;
 		EmeraldCoast1Fog[i].Toggle = 0;
 		EmeraldCoast2Fog[i].Toggle = 0;
@@ -48,7 +48,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 {
 	if (CurrentLevel == 1 && CurrentAct == 0)
 	{
-		CurrentSkybox.x = 0.8f;
+		CurrentSkybox.x = 1.0f;
 		CurrentSkybox.y = 0.8f;
 		CurrentSkybox.z = 0.8f;
 		((NJS_OBJECT *)0x103B37C)->evalflags &= ~NJD_EVAL_HIDE;
