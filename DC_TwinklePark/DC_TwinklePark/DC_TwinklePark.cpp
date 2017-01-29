@@ -46,6 +46,7 @@ extern "C"
 		*(NJS_OBJECT*)0x0279D364 = object_000A0E58; // barrel
 		*(NJS_OBJECT*)0x027AC44C = object_000AB6DC; // pirate ship
 		*(NJS_OBJECT*)0x027BF9DC = object_000B9E98; // spinning roof
+		*(NJS_OBJECT*)0x027BCD7C = object_000B812C; // lilypad
 		((NJS_OBJECT *)0x038C214C)->basicdxmodel->mats[6].attr_texId = 96; //Neon panel
 		((NJS_OBJECT *)0x027C05FC)->child->basicdxmodel->mats[0].attr_texId = 89; //Monitor thing in Act 1
 		((NJS_OBJECT *)0x027B0708)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Merry-go-round floor
