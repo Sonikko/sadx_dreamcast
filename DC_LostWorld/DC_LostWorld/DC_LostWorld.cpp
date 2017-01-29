@@ -33,6 +33,7 @@ extern "C"
 		*(NJS_MODEL_SADX*)0x2026E38 = attach_00149E7C; //Fire obstacle
 		((NJS_OBJECT*)0x2031810)->basicdxmodel->mats[0].attrflags |= NJD_DA_ONE; //Ceiling light
 		((NJS_OBJECT*)0x2031810)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Ceiling light
+		((NJS_OBJECT*)0x01FE9D7C)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Water in snake room
 		WriteData((void*)0x814CB4, 0xc1c80000, 4); //LW2 fog stuff
 		ResizeTextureList((NJS_TEXLIST*)0x1F6F02C, textures_lw1);
 		ResizeTextureList((NJS_TEXLIST*)0x1E9B9AC, textures_lw2);
@@ -66,7 +67,7 @@ extern "C"
 			matlist_000584CC[0].attr_texId = animw1;
 			matlist_00057E90[0].attr_texId = animw1;
 			matlist_00059BE8[0].attr_texId = animw1;
-			if (LevelFrameCount % 3 == 0) animw1++;
+			if (LevelFrameCount % 2 == 0) animw1++;
 		}
 		if (CurrentLevel == 7 && CurrentAct == 1 && GameState != 16)
 		{
