@@ -44,8 +44,8 @@ extern "C"
 		for (int i = 0; i < 3; i++)
 		{
 			LostWorld1Fog[i].Color = 0xFFFFFFFF;
-			LostWorld1Fog[i].Layer = 150.0f;
-			LostWorld1Fog[i].Distance = 3200.0f;
+			LostWorld1Fog[i].Layer = 1.0f;
+			LostWorld1Fog[i].Distance = 3400.0f;
 			LostWorld1Fog[i].Toggle = 1;
 			LostWorld2Fog[i].Color = 0xFFFFFFFF;
 			LostWorld2Fog[i].Layer = 150.0f;
