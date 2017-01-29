@@ -10,6 +10,7 @@ DataArray(FogData, FogData_Windy3, 0x00AFEA80, 3);
 DataArray(DrawDistance, DrawDist_WindyValley1, 0x00AFE9D8, 3);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
+DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA48, &landtable_0000D7E0),
@@ -23,7 +24,7 @@ extern "C" __declspec(dllexport) void cdecl Init()
 {
 	for (int i = 0; i < 3; i++)
 	{
-		DrawDist_WindyValley1[i].Maximum = -4000.0f;
+		DrawDist_WindyValley1[i].Maximum = -12000.0f;
 		FogData_Windy1[i].Distance = 9000.0f;
 		FogData_Windy1[i].Layer = 3700.0f;
 		FogData_Windy1[i].Color = 0xFFFFFFFF;
@@ -42,6 +43,12 @@ extern "C" __declspec(dllexport) void cdecl Init()
 
 extern "C" __declspec(dllexport) void cdecl OnFrame()
 {
+	if (CurrentLevel == 2 && CurrentAct == 0)
+	{
+		CurrentSkybox.x = 1.0f;
+		CurrentSkybox.y = 1.0f;
+		CurrentSkybox.z = 1.0f;
+	}
 auto entity = CharObj1Ptrs[0];
 if (CurrentCharacter == 0 && CurrentLevel == 2 && CurrentAct == 0 && GameState !=16)
 {
