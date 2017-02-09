@@ -17,13 +17,30 @@ DataPointer(float, CurrentSkyBoxScaleY, 0x03ABDC98);
 DataPointer(float, CurrentSkyBoxScaleZ, 0x03ABDC9C);
 DataPointer(NJS_VECTOR, SkyDeck_SkyPosition, 0x03C7F038);
 DataPointer(NJS_COLOR, CurrentFogColor, 0x03ABDC68);
-
+DataPointer(NJS_OBJECT, rail1, 0x216B214);
+DataPointer(NJS_OBJECT, rail2, 0x2162D5C);
+DataPointer(NJS_OBJECT, rail3, 0x2165ADC);
+DataPointer(NJS_OBJECT, rail4, 0x2168494);
+DataPointer(NJS_OBJECT, rail5, 0x216A0A4);
+DataPointer(NJS_OBJECT, rail6, 0x216F134);
+DataPointer(NJS_OBJECT, rail7, 0x2171694);
 extern "C" __declspec(dllexport) void cdecl Init()
 {
 	((NJS_OBJECT *)0x214BF20)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_2;
 	((NJS_OBJECT *)0x214E3AC)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_3;
 	*(NJS_OBJECT *)0x214FB74 = object_000FF4A4; //Cannon in Act 1
 	*(NJS_OBJECT *)0x2161F68 = object_0010EB4C; //Cannon in Act 2
+	*(NJS_OBJECT *)0x21802BC = object_00126000; //Rail platform 1
+	*(NJS_OBJECT *)0x218346C = object_00128644; //Rail platform 2
+	*(NJS_OBJECT *)0x2186254 = object_0012A9C8; //Rail platform 3
+	*(NJS_OBJECT *)0x21C4FD8 = object_00162F84;//Crane
+	rail1.basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	rail2.basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	rail3.basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	rail4.basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	rail5.basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	rail6.basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	rail7.basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 	*(NJS_OBJECT *)0x21AD794 = object_0014D990; //Trolley thing or whatever that is
 	WriteData((NJS_OBJECT**)0x005ED3AC, (NJS_OBJECT*)&object_01D4BF20); //sky normal
 	WriteData((NJS_OBJECT**)0x005ED3A5, (NJS_OBJECT*)&object_01D4E3AC_2); //sky dark top 2 
