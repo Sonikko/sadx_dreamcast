@@ -9,7 +9,7 @@
 
 NJS_TEXNAME textures_cylinder[259];
 NJS_TEXLIST texlist_cylinder = { arrayptrandlength(textures_cylinder) };
-
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, LastRenderFlags, 0x03D08498);
 DataPointer(float, SomeDepthThing, 0x03ABD9C0);
@@ -257,7 +257,7 @@ extern "C"
 	{
 		if (CurrentLevel == 10 && GameState != 16)
 		{
-			if (LevelFrameCount % 2 == 0) cylinderframe++;
+			if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) cylinderframe++;
 			if (cylinderframe >= 257) cylinderframe = 0;
 			((NJS_OBJECT*)0x01A4583C)->basicdxmodel->mats[0].attr_texId = cylinderframe;
 			((NJS_OBJECT*)0x1A45620)->basicdxmodel->mats->attr_texId = cylinderframe;
