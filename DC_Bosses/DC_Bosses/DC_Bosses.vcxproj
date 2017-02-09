@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="Chaos0_Model.h" />
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
