@@ -148,6 +148,8 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		((NJS_OBJECT *)0x016E3994)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2;
+		((NJS_OBJECT *)0x31A4DFC)->basicdxmodel->mats[11].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Zero holding Amy lighting fix
 	/*	((LandTable *)0x112136C)->COLList[2].Flags = 0x00040000;
 		((LandTable *)0x112136C)->COLList[3].Flags = 0x00040000;
 		((LandTable *)0x112136C)->COLList[4].Flags = 0x00040000;
