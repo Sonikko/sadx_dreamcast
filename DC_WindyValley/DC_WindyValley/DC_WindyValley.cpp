@@ -22,6 +22,11 @@ extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlengt
 
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	//((NJS_OBJECT*)0xC0655C)->evalflags |= NJD_EVAL_HIDE;
+	//((NJS_OBJECT*)0xC06450)->evalflags |= NJD_EVAL_HIDE;
+	//((NJS_OBJECT*)0xC05E10)->evalflags |= NJD_EVAL_HIDE;
+	//((NJS_OBJECT*)0xC06344)->evalflags |= NJD_EVAL_HIDE;
+	//((NJS_OBJECT*)0xC06A94)->evalflags |= NJD_EVAL_HIDE;
 	for (int i = 0; i < 3; i++)
 	{
 		DrawDist_WindyValley1[i].Maximum = -12000.0f;
