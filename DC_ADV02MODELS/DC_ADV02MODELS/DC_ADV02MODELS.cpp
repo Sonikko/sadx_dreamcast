@@ -24,6 +24,7 @@ DataArray(DrawDistance, MR2DrawDist, 0x01103400, 3);
 DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 static bool InsideTemple = 0;
 static int anim1 = 133;
 static int anim2 = 143;
@@ -130,7 +131,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		matlist_00053010[0].attr_texId = anim2;
 		matlist_00059768[0].attr_texId = anim2;
 		matlist_000594C0[0].attr_texId = anim2;
-		if (FrameCounter % 4 == 0)
+		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 		{
 			anim1++;
 			anim2++;
@@ -143,7 +144,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		matlist_000A6CF8[1].attr_texId = anim3;
 		matlist_000A6CF8[2].attr_texId = anim3;
 		matlist_000A6CF8[3].attr_texId = anim3;
-		if (FrameCounter % 3 == 0)
+		if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2)
 		{
 			anim3++;
 		}

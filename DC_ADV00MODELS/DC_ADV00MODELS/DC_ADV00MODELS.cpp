@@ -20,6 +20,7 @@ static int anim2 = 183;
 static int anim3 = 29;
 static int anim4 = 59;
 static int anim5 = 60;
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 
 extern "C"
 {
@@ -82,7 +83,7 @@ extern "C"
 		{
 			if (anim1 > 55) anim1 = 46;
 			matlist_000D9890[0].attr_texId = anim1;
-			if (FrameCounter % 3 == 0) anim1++;
+			if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting >= 2) anim1++;
 		}
 		//Night reflections Act 0
 		if (CurrentLevel == 26 && CurrentAct == 0 && GetTimeOfDay() == 2)
@@ -454,7 +455,7 @@ extern "C"
 				matlist_000E7180[2].attr_texId = anim3;
 				matlist_00122894[2].attr_texId = anim3;
 				matlist_00114D80[0].attr_texId = anim3;
-				if (FrameCounter % 4 == 0)
+				if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 				{
 					anim2++;
 					anim3++;
@@ -472,7 +473,7 @@ extern "C"
 			matlist_00150A50[3].attr_texId = anim4;
 			matlist_00151E54[0].attr_texId = anim4;
 			matlist_00148688[0].attr_texId = anim5;
-			if (FrameCounter % 4 == 0)
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 			{
 				anim4++;
 				anim5++;

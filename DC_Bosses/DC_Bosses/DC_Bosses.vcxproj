@@ -159,6 +159,7 @@
     <ClInclude Include="E101.h" />
     <ClInclude Include="E101R.h" />
     <ClInclude Include="EggHornet.h" />
+    <ClInclude Include="EggHornet_Model.h" />
     <ClInclude Include="EggViper.h" />
     <ClInclude Include="EggWalker.h" />
     <ClInclude Include="ninja.h" />

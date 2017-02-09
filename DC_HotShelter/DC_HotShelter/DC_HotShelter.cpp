@@ -6,6 +6,7 @@
 #include "HotShelter3.h"
 
 static int anim = 78;
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB88, &landtable_0001970C),
@@ -57,7 +58,7 @@ extern "C"
 				matlist_0140F824[0].attr_texId = anim;
 				matlist_0140F608[0].attr_texId = anim;
 				matlist_0140FA60[0].attr_texId = anim;
-				if (LevelFrameCount % 3 == 0) anim++;
+				if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)anim++;
 			}
 		}
 	}

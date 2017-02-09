@@ -20,6 +20,7 @@ DataPointer(ObjectMaster*, off_1E75DC8, 0x01E75DC8);
 DataPointer(ObjectMaster*, off_1E75DE0, 0x01E75DE0);
 DataPointer(NJS_OBJECT, stru_1E5EC4C, 0x01E5EC4C);
 DataPointer(NJS_OBJECT, stru_1E5E7BC, 0x01E5E7BC);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB28, &landtable_00025EAC),
@@ -198,7 +199,7 @@ extern "C"
 			if (anim1 > 80) anim1 = 67;
 			matlist_00066F5C[1].attr_texId = anim1;
 			matlist_01979784[0].attr_texId = anim1;
-			if (LevelFrameCount % 3 == 0) anim1++;	
+			if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim1++;
 		}
 		if (CurrentLevel == 9 && CurrentAct == 1 && GameState != 16)
 		{
@@ -206,7 +207,7 @@ extern "C"
 			if (anim2 > 21) anim2 = 7;
 			matlist_000ACC44[0].attr_texId = anim2;
 			matlist_000ACB40[0].attr_texId = anim2;
-			if (LevelFrameCount % 3 == 0) anim2++;
+			if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim2++;
 		}
 	}
 }

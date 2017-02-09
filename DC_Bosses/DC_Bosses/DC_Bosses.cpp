@@ -14,9 +14,12 @@
 #include "E101.h"
 #include "Zero.h"
 #include "E101R.h"
+#include "EggHornet_Model.h"
 
 DataPointer(float, Chaos4Hitpoints, 0x03C58158);
 static bool Chaos4Defeated = 0;
+static int anim = 27;
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 
 NJS_MKEY_A animation_0004CEA0_15_rot[] = {
 	{ 0, 0, 0, 0 },
@@ -84,6 +87,60 @@ PointerInfo pointers[] = {
 	ptrdecl(0x7D1DD1, &landtable_00000180) //E101R
 };
 
+DataPointer(NJS_TEXANIM, stru_149401C, 0x149401C);
+DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(NJS_ARGB, stru_1494114, 0x1494114);
+DataPointer(NJS_SPRITE, stru_1494030, 0x1494030);
+FunctionPointer(void, sub_5632F0, (ObjectMaster *a1), 0x5632F0);
+FunctionPointer(void, sub_563370, (ObjectMaster *a1), 0x563370);
+
+
+void __cdecl sub_5633A0(ObjectMaster *a1)
+{
+	a1->Data1->field_C = 0;
+	a1->MainSub = sub_563370;
+	a1->DisplaySub = sub_5632F0;
+	a1->Data1->field_C = 0;
+}
+
+
+void __cdecl sub_5632F0X(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi@1
+	v1 = a1->Data1;
+	int v2 = a1->Data1->field_C;
+	if (!DroppedFrames)
+	{
+		DisableFog();
+		SetMaterialAndSpriteColor(&stru_1494114);
+		njColorBlendingMode(0, 10);
+		njColorBlendingMode(1, 10);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		v2++;
+		stru_149401C.texid = v2;
+		njDrawSprite3D_2(&stru_1494030, 0, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE, 4);
+		njPopMatrix(1u);
+		ToggleStageFog();
+	}
+}
+
+void __cdecl sub_563370Z(ObjectMaster *a1)
+{
+	EntityData1 *v1; // eax@1
+	int v2; // st7@1
+	v1 = a1->Data1;
+	v2 = a1->Data1->field_C;
+	if (v2 >= 15) CheckThingButThenDeleteObject(a1);
+	else
+	{
+	a1->Data1->field_C = v2;
+	sub_5632F0(a1); 
+	}
+}
+
+
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
@@ -106,6 +163,9 @@ extern "C"
 		((LandTable *)0x112136C)->COLList[15].Flags = 0x00040000;
 		((LandTable *)0x112136C)->COLList[16].Flags = 0x00040000;
 		((LandTable *)0x112136C)->COLList[17].Flags = 0x00040000;*/
+		//WriteJump((void*)0x563370, sub_563370Z);
+		//WriteJump((void*)0x5633A0, sub_5633A0);
+		//WriteJump((void*)0x5632F0, sub_5632F0X);
 		WriteData((void*)0x00557009, 0x90, 16); //Kill Chaos 6 skybox animation
 		WriteData((void*)0x00557073, 0x0, 2); // Kill Chaos 6 skybox scale 1
 		WriteData((void*)0x00557078, 0x0, 2); // Kill Chaos 6 skybox scale 2
@@ -127,6 +187,7 @@ extern "C"
 		memcpy((void*)0x0118440C, &object_0006B890, sizeof(object_0006B890)); // Chaos2 2
 		object_0006B890.basicdxmodel->mats[0].attr_texId = 11; //Chaos2 BG object fixes
 		object_0006B438.basicdxmodel->mats[0].attr_texId = 0; //Chaos2 BG object fixes
+		//*(NJS_OBJECT*)0x1561A70 = object_000104E8; //Egg Hornet model
 		((NJS_OBJECT *)0x016E3994)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2;
 		((NJS_OBJECT *)0x016E3994)->basicdxmodel->mats[1].diffuse.color = 0x99B2B2B2;
 		((NJS_OBJECT *)0x016E3CCC)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2;
@@ -178,23 +239,14 @@ extern "C"
 
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+
+		((NJS_OBJECT *)0x13895FC)->basicdxmodel->meshsets[0].vertuv->u++;
 		//water animation
 		if (CurrentLevel == 17 && GameState == 15)
 		{
-			if (LevelFrameCount % 56 == 0) matlist_000429E8[0].attr_texId = 27;
-			if (LevelFrameCount % 56 == 4) matlist_000429E8[0].attr_texId = 26;
-			if (LevelFrameCount % 56 == 8) matlist_000429E8[0].attr_texId = 25;
-			if (LevelFrameCount % 56 == 12) matlist_000429E8[0].attr_texId = 24;
-			if (LevelFrameCount % 56 == 16) matlist_000429E8[0].attr_texId = 23;
-			if (LevelFrameCount % 56 == 20) matlist_000429E8[0].attr_texId = 22;
-			if (LevelFrameCount % 56 == 24) matlist_000429E8[0].attr_texId = 21;
-			if (LevelFrameCount % 56 == 28) matlist_000429E8[0].attr_texId = 20;
-			if (LevelFrameCount % 56 == 32) matlist_000429E8[0].attr_texId = 19;
-			if (LevelFrameCount % 56 == 36) matlist_000429E8[0].attr_texId = 18;
-			if (LevelFrameCount % 56 == 40) matlist_000429E8[0].attr_texId = 17;
-			if (LevelFrameCount % 56 == 44) matlist_000429E8[0].attr_texId = 16;
-			if (LevelFrameCount % 56 == 48) matlist_000429E8[0].attr_texId = 15;
-			if (LevelFrameCount % 56 == 52) matlist_000429E8[0].attr_texId = 14;
+			if (anim < 14) anim = 27;
+			matlist_000429E8[0].attr_texId = anim;
+			if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) anim--;
 		}
 		if (CurrentLevel == 17 && LevelFrameCount < 70)
 		{

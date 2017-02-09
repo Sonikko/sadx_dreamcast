@@ -11,7 +11,9 @@ static int anim3 = 42;
 static int anim4 = 71;
 static int anim5 = 50;
 static int anim6 = 65;
+static int animframe = 0;
 
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
 
 PointerInfo pointers[] = {
@@ -67,6 +69,10 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		CurrentSkybox.z = 0.8f;
 		((NJS_OBJECT *)0x103B37C)->evalflags |= NJD_EVAL_HIDE;
 	}
+	if (CurrentLevel == 1 && GameState != 16)
+	{
+		animframe++;
+	}
 	if (CurrentLevel == 1 && CurrentAct == 0 && GameState == 15)
 		{
 			if (anim1 > 96) anim1 = 82;
@@ -101,10 +107,10 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 			matlist_0001FFE0[2].attr_texId = anim2;
 			matlist_0001FFE0[4].attr_texId = anim2;
 			matlist_0001DC78[1].attr_texId = anim2;
-			if (LevelFrameCount % 4 == 0)
+			if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
 			{
-			anim1++;
-			anim2++;
+				anim1++;
+				anim2++;
 			}
 		}
 	if (CurrentLevel == 1 && CurrentAct == 1 && GameState == 15)
@@ -139,7 +145,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 			matlist_000D86A0[0].attr_texId = anim4;
 			matlist_000D8254[0].attr_texId = anim4;
 			matlist_000D7D64[0].attr_texId = anim4;
-			if (LevelFrameCount % 4 == 0)
+			if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
 			{
 				anim3++;
 				anim4++;
@@ -192,7 +198,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 			matlist_00110DFC[0].attr_texId = anim6;
 			matlist_0011B12C[0].attr_texId = anim6;
 			matlist_0011B12C[1].attr_texId = anim6;
-			if (LevelFrameCount % 4 == 0)
+			if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
 			{
 				anim5++;
 				anim6++;

@@ -5,6 +5,8 @@
 #include "Twinkle3.h"
 #include "TwinklePark_objects.h"
 
+DataPointer(int, FramerateSetting, 0x0389D7DC);
+
 static int anim = 74;
 
 PointerInfo pointers[] = {
@@ -130,7 +132,7 @@ extern "C"
 				matlist_0001A3A8[0].attr_texId = anim;
 				matlist_000657A0[0].attr_texId = anim;
 				matlist_00065A3C[0].attr_texId = anim;
-				if (LevelFrameCount % 3 == 0) anim++;
+				if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) anim++;
 			}
 		}
 	};
