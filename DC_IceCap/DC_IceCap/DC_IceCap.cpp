@@ -1,11 +1,14 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
+#include "Icicle.h"
 #include "IceCap1.h"
 #include "IceCap2.h"
 #include "IceCap3.h"
 #include "IceCap4_PC.h"
 #include "IceCap4.h"
-#include "Icicle.h"
+
+DataPointer(int, MissedFrames, 0x03B1117C);
+FunctionPointer(Sint32, SetTextureToLevelObj, (), 0x00420FC0);
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB08, &landtable_00014B44),
@@ -14,12 +17,46 @@ PointerInfo pointers[] = {
 	//ptrdecl(0x97DB14, &landtable_00019950)
 };
 
+void __cdecl sub_4F4BA0(ObjectMaster *a2)
+{
+	EntityData1 *v1; // esi@1
+	int v2; // eax@2
+	int v3; // eax@4
+	int v4; // eax@6
+
+	v1 = a2->Data1;
+	if (!MissedFrames)
+	{
+		SetTextureToLevelObj();
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		v2 = v1->Rotation.z;
+		if (v2)
+		{
+			njRotateZ(0, (unsigned __int16)v2);
+		}
+		v3 = v1->Rotation.x;
+		if (v3)
+		{
+			njRotateX(0, (unsigned __int16)v3);
+		}
+		v4 = v1->Rotation.y;
+		if (v4)
+		{
+			njRotateY(0, (unsigned __int16)v4);
+		}
+		ProcessModelNode_D_WrapperB(&object_00162694, 2, 1.0);
+		njPopMatrix(1u);
+	}
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//WriteJump((void*)0x4F4BA0, sub_4F4BA0);
 		ResizeTextureList((NJS_TEXLIST*)0xDE3A74, textures_icecap1);
 		ResizeTextureList((NJS_TEXLIST*)0xD39744, textures_icecap2);
 		ResizeTextureList((NJS_TEXLIST*)0xC68408, textures_icecap3);
@@ -38,7 +75,7 @@ extern "C"
 		{
 			((LandTable *)0x0E3E024)->COLList[inv2].Flags &= ~ColFlags_Solid;
 		}
-		memcpy((void*)0x0E537D8, &object_00162694, sizeof(object_00162694));  // Icicle
+		memcpy((void*)0x0E537D8, &object_00162694, sizeof(object_00162694));  // Icicle inner part
 		DataArray(FogData, IceCap1Fog, 0x00C67EA0, 3);
 		DataArray(FogData, IceCap2Fog, 0x00C67ED0, 3);
 		DataArray(FogData, IceCap3Fog, 0x00C67F00, 3);
@@ -67,6 +104,8 @@ extern "C"
 	};
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		if (CurrentLevel == 8 && CurrentAct == 0) ((NJS_OBJECT*)0x0E537D8)->evalflags |= NJD_EVAL_HIDE;
+		if (CurrentLevel == 8 && CurrentAct == 1) ((NJS_OBJECT*)0x0E537D8)->evalflags &= ~NJD_EVAL_HIDE;
 		if (CurrentLevel == 8 && CurrentAct == 3 && GameState == 15)
 		{
 			if (LevelFrameCount % 60 == 0)
