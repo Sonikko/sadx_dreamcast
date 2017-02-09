@@ -10,6 +10,7 @@ DataPointer(float, CurrentDrawDist, 0x03ABDC74);
 static int animw1 = 44;
 static int animw2 = 81;
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(NJS_MODEL_SADX, Hasira1Model, 0x2004E80);
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DAE8, &landtable_0000D560),
@@ -23,6 +24,7 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		Hasira1Model.mats[0].diffuse.color = 0x99B2B2B2;
 		*(NJS_OBJECT*)0x1FFE9A4 = object_0012BB88; //Ashiba01
 		*(NJS_OBJECT*)0x1FFF454 = object_0012C218; //Ashiba02
 		*(NJS_OBJECT*)0x1FFFF04 = object_0012C8B4; //Ashiba03
@@ -35,6 +37,13 @@ extern "C"
 		((NJS_OBJECT*)0x2031810)->basicdxmodel->mats[0].attrflags |= NJD_DA_ONE; //Ceiling light
 		((NJS_OBJECT*)0x2031810)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Ceiling light
 		((NJS_OBJECT*)0x01FE9D7C)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Water in snake room
+		((NJS_OBJECT*)0x01FE9F38)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Some other water
+		((NJS_OBJECT*)0x01FEB668)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Some other water
+		((NJS_OBJECT*)0x01FEC26C)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Some other water
+		((NJS_OBJECT*)0x1E9B594)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Some other water
+		((NJS_OBJECT*)0x202E404)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Some other water
+		((NJS_OBJECT*)0x279AC80)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Some other water
+		((NJS_OBJECT*)0x279B014)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Some other water
 		WriteData((void*)0x814CB4, 0xc1c80000, 4); //LW2 fog stuff
 		ResizeTextureList((NJS_TEXLIST*)0x1F6F02C, textures_lw1);
 		ResizeTextureList((NJS_TEXLIST*)0x1E9B9AC, textures_lw2);
@@ -73,7 +82,7 @@ extern "C"
 		if (CurrentLevel == 7 && CurrentAct == 1 && GameState != 16)
 		{
 			auto entity = CharObj1Ptrs[0];
-			if (entity != nullptr && entity->Position.y < -400 && entity->Position.y > -1400) CurrentDrawDist = -6000.0f; else CurrentDrawDist = -2700.0f;
+			if (entity != nullptr && entity->Position.x < 7000 && entity->Position.x > 1800) CurrentDrawDist = -6000.0f; else CurrentDrawDist = -2700.0f;
 			if (animw2 > 94) animw2 = 81;
 			matlist_000E924C[0].attr_texId = animw2;
 			matlist_000E3610[0].attr_texId = animw2;
