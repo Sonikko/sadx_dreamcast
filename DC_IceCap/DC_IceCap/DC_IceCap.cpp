@@ -17,46 +17,12 @@ PointerInfo pointers[] = {
 	//ptrdecl(0x97DB14, &landtable_00019950)
 };
 
-void __cdecl sub_4F4BA0(ObjectMaster *a2)
-{
-	EntityData1 *v1; // esi@1
-	int v2; // eax@2
-	int v3; // eax@4
-	int v4; // eax@6
-
-	v1 = a2->Data1;
-	if (!MissedFrames)
-	{
-		SetTextureToLevelObj();
-		njPushMatrix(0);
-		njTranslateV(0, &v1->Position);
-		v2 = v1->Rotation.z;
-		if (v2)
-		{
-			njRotateZ(0, (unsigned __int16)v2);
-		}
-		v3 = v1->Rotation.x;
-		if (v3)
-		{
-			njRotateX(0, (unsigned __int16)v3);
-		}
-		v4 = v1->Rotation.y;
-		if (v4)
-		{
-			njRotateY(0, (unsigned __int16)v4);
-		}
-		ProcessModelNode_D_WrapperB(&object_00162694, 2, 1.0);
-		njPopMatrix(1u);
-	}
-}
-
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		//WriteJump((void*)0x4F4BA0, sub_4F4BA0);
 		ResizeTextureList((NJS_TEXLIST*)0xDE3A74, textures_icecap1);
 		ResizeTextureList((NJS_TEXLIST*)0xD39744, textures_icecap2);
 		ResizeTextureList((NJS_TEXLIST*)0xC68408, textures_icecap3);
@@ -104,8 +70,6 @@ extern "C"
 	};
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		if (CurrentLevel == 8 && CurrentAct == 0) ((NJS_OBJECT*)0x0E537D8)->evalflags |= NJD_EVAL_HIDE;
-		if (CurrentLevel == 8 && CurrentAct == 1) ((NJS_OBJECT*)0x0E537D8)->evalflags &= ~NJD_EVAL_HIDE;
 		if (CurrentLevel == 8 && CurrentAct == 3 && GameState == 15)
 		{
 			if (LevelFrameCount % 60 == 0)
@@ -564,5 +528,3 @@ extern "C"
 		}
 	}
 }
-//memcpy((void*)0x00D6B39C, &object_0007F6C4, sizeof(object_0007F6C4)); //Env map 1
-//memcpy((void*)0x00DD3A5C, &object_000C50AC, sizeof(object_000C50AC)); //Env map 1

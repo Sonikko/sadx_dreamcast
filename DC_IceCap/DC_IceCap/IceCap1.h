@@ -1764,7 +1764,7 @@ NJS_MODEL_SADX attach_0001CC58 = { vertex_0001C8C8, normal_0001CA90, LengthOfArr
 NJS_OBJECT object_0001CC80 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0001CC58, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_MATERIAL matlist_0001CCB4[] = {
-	{ { 0x7FB2B2B2 },{ 0xFFFFFFFF }, 11, 7, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ENV | NJD_DA_INV_SRC | NJD_SA_SRC }
+	{ { 0x7FB2B8B3 },{ 0xFFFFFFFF }, 11, 34, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ENV | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
 Sint16 poly_0001CCC8[] = {
@@ -30478,7 +30478,6 @@ NJS_OBJECT object_0005B898 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_
 COL collist_000142F8[] = {
 	{ { 1510.079f, 95.6177f, 1116.685f }, 224.1801f, 0, 0, &object_0001C5EC, 0, 0xC0000001 },
 	{ { 583.2459f, 188.5475f, 1162.196f }, 56.24269f, 0, 0, &object_0001CC80, 0, 0xC0000001 },
-	{ { 505.9004f, 176.3905f, 940.769f }, 97.45547f, 0, 0, &object_0001D554, 0, 0xC0000001 },
 	{ { 505.9004f, 212.2535f, 940.769f }, 103.0665f, 0, 0, &object_0001E400, 0, 0xC0000001 },
 	{ { 579.5859f, 122.1313f, 1023.418f }, 82.48392f, 0, 0, &object_0001EFE4, 0, 0xC0000001 },
 	{ { 422.546f, 127.4435f, 1003.378f }, 57.75169f, 0, 0, &object_0001F760, 0, 0xC0000001 },
@@ -30535,17 +30534,10 @@ COL collist_000142F8[] = {
 	{ { 1591.036f, 28.11333f, 1031.322f }, 81.46635f, 0, 0, &object_0005AD8C, 0, 0xC0000001 },
 	{ { -91.58114f, 2630.327f, -2597.915f }, 99.39124f, 0, 0, &object_0005B148, 0, 0xC0000001 },
 	{ { 457.0421f, 79.27649f, 904.1125f }, 65.23633f, 0, 0, &object_0005B898, 0, 0x80000001 },
-	{ { 446.78f, 179.36f, 994.21f }, 100, 0, 0, &icicle1, 0, 0x80040001 },
-	{ { 462.91f, 179.36f, 974.83f }, 100, 0, 0, &icicle2, 0, 0x80040001 },
-	{ { 479.58f, 179.36f, 955.49f }, 100, 0, 0, &icicle3, 0, 0x80040001 },
-	{ { 495.38f, 179.36f, 931.23f }, 100, 0, 0, &icicle4, 0, 0x80040001 },
-	{ { 515.91f, 179.36f, 941.72f }, 100, 0, 0, &icicle5, 0, 0x80040001 },
-	{ { 537.89f, 179.36f, 952.64f }, 100, 0, 0, &icicle6, 0, 0x80040001 },
-	{ { 475.38f, 179.36f, 919.96f }, 100, 0, 0, &icicle7, 0, 0x80040001 },
-	{ { 456.38f, 179.36f, 909.96f }, 100, 0, 0, &icicle8, 0, 0x80040001 },
+	{ { 505.9004f, 176.3905f, 940.769f }, 97.45547f, 0, 0, &object_0001D554, 0, 0xC1000001 },
 };
 
-NJS_TEXNAME textures_icecap1[34];
+NJS_TEXNAME textures_icecap1[35];
 NJS_TEXLIST texlist_icecap1 = { arrayptrandlength(textures_icecap1) };
 
 LandTable landtable_00014B44 = { LengthOfArray(collist_000142F8), 0, 0xC, 900, collist_000142F8, NULL, "ICECAP01", (NJS_TEXLIST *)&texlist_icecap1, 0, 0 };
