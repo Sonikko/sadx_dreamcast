@@ -137,7 +137,11 @@ extern "C"
 					animlight = 95;
 					animtimer = 0;
 				}
-				animtimer++;
+				if (GameState !=16)
+				{
+				if (FramerateSetting < 2) animtimer++;
+				if (FramerateSetting >= 2) animtimer = animtimer + 2;
+				}
 			}
 		}
 	};
