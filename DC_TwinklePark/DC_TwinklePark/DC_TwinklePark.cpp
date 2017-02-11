@@ -8,6 +8,8 @@
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 
 static int anim = 74;
+static int animlight = 95;
+static int animtimer = 0;
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA68, &landtable_0001788C),
@@ -27,26 +29,20 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		/*object_000A0098_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_0009FF94_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_000A0134_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_000A0030_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_0009FFC8_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_000914F8_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_000A00CC_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_00091A60_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_000A0168_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_000A0134_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_000A0100_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_000A0064_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_000A0030_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;
-		object_0009FFFC_2.basicdxmodel->mats[0].diffuse.color = 0x7F3F3F3F;*/
 		ResizeTextureList((NJS_TEXLIST*)0x26B9960, textures_twinkle1);
 		ResizeTextureList((NJS_TEXLIST*)0x2721A8C, textures_twinkle2);
 		ResizeTextureList((NJS_TEXLIST*)0x26FEA54, textures_twinkle3);
 		ResizeTextureList((NJS_TEXLIST*)0x38AEB70, textures_tpobjects); //OBJ_TWINKLE
 		*(NJS_OBJECT*)0x0279D364 = object_000A0E58; // barrel
-		*(NJS_OBJECT*)0x027AC44C = object_000AB6DC; // pirate ship
+		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[8].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		*(NJS_OBJECT*)0x027AAFF4 = object_000AA710; // pirate ship
+		//*(NJS_OBJECT*)0x027AC44C = object_000AB6DC; // pirate ship
+		//*(NJS_OBJECT*)0x027AB6E0 = object_000AACC8; // pirate ship
+		//*(NJS_OBJECT*)0x027A6EA0 = object_000A9318; // pirate ship
 		*(NJS_OBJECT*)0x027BF9DC = object_000B9E98; // spinning roof
 		*(NJS_OBJECT*)0x027BCD7C = object_000B812C; // lilypad
 		((NJS_OBJECT *)0x038C214C)->basicdxmodel->mats[6].attr_texId = 96; //Neon panel
@@ -71,15 +67,9 @@ extern "C"
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[5].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[8].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
 		((NJS_OBJECT *)0x027AB6E0)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
-		((NJS_OBJECT *)0x027AB6E0)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
-		((NJS_OBJECT *)0x027AB6E0)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
 		((NJS_OBJECT *)0x027AB6E0)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
-		((NJS_OBJECT *)0x027AB6E0)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
 		((NJS_OBJECT *)0x027A6EA0)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
-		((NJS_OBJECT *)0x027A6EA0)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
-		((NJS_OBJECT *)0x027A6EA0)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
 		((NJS_OBJECT *)0x027A6EA0)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
-		((NJS_OBJECT *)0x027A6EA0)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
 		((NJS_OBJECT *)0x038C234C)->basicdxmodel->mats[0].attr_texId = 96; //Light
 		((NJS_OBJECT *)0x038BFC74)->basicdxmodel->mats[0].attr_texId = 96;  //Light 2
 		((NJS_OBJECT *)0x0279D364)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Barrel
@@ -133,6 +123,21 @@ extern "C"
 				matlist_000657A0[0].attr_texId = anim;
 				matlist_00065A3C[0].attr_texId = anim;
 				if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) anim++;
+				object_000AA710.basicdxmodel->mats[14].attr_texId = animlight;
+				object_000AA710.basicdxmodel->mats[3].attr_texId = animlight;
+				object_000AA710.basicdxmodel->mats[8].attr_texId = animlight;
+				object_000AA710.basicdxmodel->mats[12].attr_texId = animlight;
+				if (animtimer >= 30 && animlight == 95)
+				{
+					animlight = 28;
+					animtimer = 0;
+				}
+				if (animtimer >= 30 && animlight == 28)
+				{
+					animlight = 95;
+					animtimer = 0;
+				}
+				animtimer++;
 			}
 		}
 	};
