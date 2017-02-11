@@ -17,9 +17,13 @@
 #include "E101R.h"
 #include "EggHornet_Model.h"
 
+HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 DataPointer(float, Chaos4Hitpoints, 0x03C58158);
 static bool Chaos4Defeated = 0;
 static int anim = 27;
+static int anim2 = 81;
+static int anim3 = 121;
+static int anim4 = 131;
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 
 NJS_MKEY_A animation_0004CEA0_15_rot[] = {
@@ -148,6 +152,24 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		if (SADXStyleWater != 0)
+		{
+			collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x00000001;
+			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x00000001;
+			collist_0001E294[0].Flags = 0x00000000;
+			landtable_00000128.TexName = "EGM1LANDW";
+			landtable_00000110.TexName = "E101R_TIKEIW";
+			landtable_00000180.TexName = "E101R_TIKEIW";
+		}
+		else
+		{
+			collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x80000001;
+			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x80000001;
+			collist_0001E294[0].Flags = 0x80040000;
+			landtable_00000128.TexName = "EGM1LAND";
+			landtable_00000110.TexName = "E101R_TIKEI";
+			landtable_00000180.TexName = "E101R_TIKEI";
+		}
 		((NJS_OBJECT *)0x016E3994)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2;
 		((NJS_OBJECT *)0x31A4DFC)->basicdxmodel->mats[11].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Zero holding Amy lighting fix
 	/*	((LandTable *)0x112136C)->COLList[2].Flags = 0x00040000;
@@ -181,7 +203,7 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x15E99F8, textures_eggwalker);
 		ResizeTextureList((NJS_TEXLIST*)0x167E5CC, textures_eggviper);
 		ResizeTextureList((NJS_TEXLIST*)0x14FBFB4, textures_e101);
-		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 81); //Zero texlist
+		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 91); //Zero/E101R texlist
 		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 swamp water
 		((LandTable *)0x11EDE38)->COLList = collist_0014AFB4; //Chaos6 COL list
 		((LandTable *)0x11EDE38)->COLCount = LengthOfArray(collist_0014AFB4); //Chaos6 COL list
@@ -207,8 +229,12 @@ extern "C"
 		DataArray(FogData, EggHornetFog, 0x01556B34, 3);
 		DataArray(FogData, EggWalkerFog, 0x015E87F4, 3);
 		DataArray(FogData, EggViperFog, 0x0165D334, 3);
+		DataArray(FogData, Fog_E101R, 0x015225F0, 3);
+		DataArray(FogData, Fog_Zero, 0x016B4DB0, 3);
 		DataArray(DrawDistance, DrawDist_Chaos7, 0x01420E00, 3);
 		DataArray(DrawDistance, DrawDist_EggHornet, 0x01556B1C, 3);
+		DataArray(DrawDistance, DrawDist_E101R, 0x015225D8, 3);
+		DataArray(DrawDistance, DrawDist_Zero, 0x016B4D98, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			Chaos2Fog[i].Color = 0xFF000000;
@@ -229,8 +255,13 @@ extern "C"
 			DrawDist_EggHornet[i].Maximum = -12500.0;
 			EggHornetFog[i].Layer = -2000.0f;
 			EggHornetFog[i].Distance= -8000.0f;
+			EggHornetFog[i].Toggle = 0;
 			EggWalkerFog[i].Toggle = 0;
 			EggViperFog[i].Toggle = 0;
+			Fog_Zero[i].Toggle = 0;
+			Fog_E101R[i].Toggle = 0;
+			DrawDist_Zero[i].Maximum = -9500.0f;
+			DrawDist_E101R[i].Maximum = -9500.0f;
 		}
 		HMODULE handle = GetModuleHandle(L"BOSSCHAOS0MODELS");
 		LandTable **___LANDTABLEBOSSCHAOS0 = (LandTable **)GetProcAddress(handle, "___LANDTABLEBOSSCHAOS0");
@@ -298,7 +329,16 @@ extern "C"
 
 		((NJS_OBJECT *)0x13895FC)->basicdxmodel->meshsets[0].vertuv->u++;
 		//water animation
-		if (CurrentLevel == 17 && GameState == 15)
+		if (CurrentLevel == 23 || CurrentLevel == 25)
+		{
+			if (GameState != 16)
+			{
+			if (anim2 > 90) anim2 = 81;
+			matlist_00007B80[0].attr_texId = anim2;
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim2++;
+			}
+		}
+		if (CurrentLevel == 17 && GameState != 16)
 		{
 			if (anim < 14) anim = 27;
 			matlist_000429E8[0].attr_texId = anim;
@@ -309,6 +349,21 @@ extern "C"
 			matlist_000429E8[0].diffuse.argb.a = 0xBF; //set water alpha back to normal if level is restarted
 			object_000425F8.basicdxmodel->mats[0].diffuse.argb.a = 0x65;
 			Chaos4Defeated = 0;
+		}
+		if (CurrentLevel == 20 && GameState != 16)
+		{
+			if (anim3 > 130) anim3 = 121;
+			if (anim4 > 145) anim4 = 131;
+			matlist_00057F04[0].attr_texId = anim3;
+			matlist_00048AD0[0].attr_texId = anim4;
+			matlist_00048FD0[0].attr_texId = anim4;
+			matlist_0004E8F8[0].attr_texId = anim4;
+			matlist_0004EBA0[0].attr_texId = anim4;
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+			{
+				anim3++;
+				anim4++;
+			}
 		}
 		if (CurrentLevel == 17 && GameState == 15 && Chaos4Hitpoints > 4 && LevelFrameCount > 70 && matlist_000429E8[0].diffuse.argb.a>3)matlist_000429E8[0].diffuse.argb.a= matlist_000429E8[0].diffuse.argb.a-4; //make water invisible when Chaos4 gets in there
 		if (CurrentLevel == 17 && GameState == 15 && Chaos4Hitpoints < 1) Chaos4Defeated = 1;

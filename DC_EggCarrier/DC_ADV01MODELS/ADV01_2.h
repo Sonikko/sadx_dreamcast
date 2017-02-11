@@ -17590,10 +17590,11 @@ COL collist_00163214[] = {
 	{ { 345.1609f, 1406.419f, 2883.352f }, 45.76971f, 0, 0, &object_000BE0A4, 0, 0x80000000 },
 	{ { 345.1609f, 1406.419f, 3009.662f }, 45.76971f, 0, 0, &object_000BE0D8, 0, 0x80000000 },
 	{ { 345.1609f, 1406.419f, 3127.127f }, 45.76971f, 0, 0, &object_000BE10C, 0, 0x80000000 },
-	{ { -33.71269f, 1806.474f, 2863.416f }, 53.78573f, 0, 0, &object_000BE140, 0, 0x40000001 }
+	{ { -33.71269f, 1806.474f, 2863.416f }, 53.78573f, 0, 0, &object_000BE140, 0, 0x40000001 },
+	{ { 0, 0, 0 }, 10000, 0, 0, &object_00007C50_2, 0, 0x80000001 }
 };
 
-NJS_TEXNAME textures_ec02[69];
+NJS_TEXNAME textures_ec02[79];
 NJS_TEXLIST texlist_ec02 = { arrayptrandlength(textures_ec02) };
 
 LandTable landtable_00163CE8 = { LengthOfArray(collist_00163214), 0, 8, 0, collist_00163214, NULL, "ADV_EC02", (NJS_TEXLIST *)&texlist_ec02, 0, 0 };

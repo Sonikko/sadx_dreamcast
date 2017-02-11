@@ -15,6 +15,20 @@
 #include "ADV01C_05.h"
 #include "EC_Objects.h"
 
+HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
+
+DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(__int16, EggCarrierSunk_CharacterFlag, 0x0090A41C);
+
+static int water1 = 101;
+static int water2 = 93;
+static int water3 = 69;
+
+DataArray(DrawDistance, EggCarrierOutsideDrawDist1, 0x010F2264, 3);
+DataArray(DrawDistance, EggCarrierOutsideDrawDist2, 0x010F227C, 3);
+DataArray(DrawDistance, EggCarrierOutsideDrawDist3, 0x010F2294, 3);
+DataArray(FogData, EggCarrierOutside2Fog, 0x010F233C, 3);
+DataArray(FogData, EggCarrierOutside3Fog, 0x010F236C, 3);
 DataArray(FogData, EggCarrierOutside4Fog, 0x010F239C, 3);
 DataArray(FogData, EggCarrierOutside5Fog, 0x010F23CC, 3);
 DataArray(FogData, EggCarrierOutside6Fog, 0x010F23FC, 3);
@@ -79,6 +93,18 @@ void __cdecl SetClip_EC01(signed int cliplevel)
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	if (SADXStyleWater != 0)
+	{
+		landtable_00162260.TexName = "ADV_EC00W";
+		landtable_001631F0.TexName = "ADV_EC01W";
+		landtable_00163CE8.TexName = "ADV_EC02W";
+	}
+	else
+	{
+		landtable_00162260.TexName = "ADV_EC00";
+		landtable_001631F0.TexName = "ADV_EC01";
+		landtable_00163CE8.TexName = "ADV_EC02";
+	}
 	sub_10001050 = (void(__cdecl*)(NJS_OBJECT*))(handle2 + 0x1050);
 	WriteJump((char *)GetProcAddress(handle2, "SetClip_EC00"), SetClip_EC00);
 	WriteJump((char *)GetProcAddress(handle2, "SetClip_EC01"), SetClip_EC01);
@@ -114,6 +140,11 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01C_MODELS[27]->mats[0].diffuse.color = 0xFFFFFFFF;
 	for (int i = 0; i < 3; i++)
 	{
+		EggCarrierOutsideDrawDist1[i].Maximum = -11000;
+		EggCarrierOutsideDrawDist2[i].Maximum = -11000;
+		EggCarrierOutsideDrawDist3[i].Maximum = -11000;
+		EggCarrierOutside2Fog[i].Toggle = 0;
+		EggCarrierOutside3Fog[i].Toggle = 0;
 		EggCarrierOutside4Fog[i].Toggle = 0;
 		EggCarrierOutside5Fog[i].Toggle = 0;
 		EggCarrierOutside6Fog[i].Toggle = 0;
@@ -138,6 +169,36 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 
 extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 {
+	if (CurrentLevel == 29 && CurrentAct == 0)
+	{
+		if (GameState != 16)
+		{
+			if (water1 > 110) water1 = 101;
+			matlist_00007B80[0].attr_texId = water1;
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) water1++;
+		}
+		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_0015F764[LengthOfArray(collist_0015F764)-1].Flags = 0x80000002; else collist_0015F764[LengthOfArray(collist_0015F764) - 1].Flags = 0x00000000;
+	}
+	if (CurrentLevel == 29 && CurrentAct == 1)
+	{
+		if (GameState != 16)
+		{
+			if (water2 > 102) water2 = 93;
+			matlist_00007B80_1[0].attr_texId = water2;
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) water2++;
+		}
+		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x80000002; else collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x00000000;
+	}
+	if (CurrentLevel == 29 && CurrentAct == 2)
+	{
+		if (GameState != 16)
+		{
+			if (water3 > 78) water3 = 69;
+			matlist_00007B80_2[0].attr_texId = water3;
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) water3++;
+		}
+		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x80000002; else collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x00000000;
+	}
 	if (CurrentLevel == 32 && CurrentAct == 1) PinkMonitorMode = 1;
 	if (CurrentLevel == 32 && CurrentAct != 1) PinkMonitorMode = 0;
 	if (CurrentLevel == 12) PinkMonitorMode = 1;

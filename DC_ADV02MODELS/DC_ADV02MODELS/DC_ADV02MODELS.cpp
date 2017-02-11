@@ -1,5 +1,8 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
+
+HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
+
 #include "button.h"
 #include "ADV_MR00 (Station area).h"
 #include "ADV_MR01 (Angel Island).h"
@@ -34,10 +37,21 @@ NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	if (SADXStyleWater != 0) 
+	{
+		landtable_00017960.TexName = "ADV_MR00W";
+		collist_00015E60[0].Flags = 0x00000000;
+	}
+	else 
+	{
+		landtable_00017960.TexName = "ADV_MR00";
+		collist_00015E60[0].Flags = 0x80040000;
+	}
 	for (int i = 0; i < 3; i++)
 	{
 		MR1FogDay[i].Distance = -9000.0f;
 		MR1FogDay[i].Layer = -3500.0f;
+		MR1FogDay[i].Toggle = 0;
 		MR1FogEvening[i].Distance = -9000.0f;
 		MR1FogEvening[i].Layer = -3500.0f;
 		MR1FogNight[i].Distance = -9000.0f;
@@ -127,6 +141,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		if (anim1 > 142) anim1 = 133;
 		if (anim2 > 157) anim2 = 143;
 		matlist_0007523C[0].attr_texId = anim1;
+		matlist_00057F04[0].attr_texId = anim1;
 		matlist_00053510[0].attr_texId = anim2;
 		matlist_00053010[0].attr_texId = anim2;
 		matlist_00059768[0].attr_texId = anim2;

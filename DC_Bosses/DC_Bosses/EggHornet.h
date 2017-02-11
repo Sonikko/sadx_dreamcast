@@ -29333,7 +29333,7 @@ NJS_MODEL_SADX attach_00057EA8 = { vertex_00057AE8, normal_00057CC8, LengthOfArr
 NJS_OBJECT object_00057ED0 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00057EA8, 513.2979f, 157.8985f, 478.8509f, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_MATERIAL matlist_00057F04[] = {
-	{ { 0x654553B2 },{ 0xFFFFFFFF }, 11, 55, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+	{ { 0x65B2B2B2 },{ 0xFFFFFFFF }, 11, 55, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
 Sint16 poly_00057F18[] = {
@@ -36611,6 +36611,7 @@ NJS_MOTION animation_00047864 = { animation_00047864_mdat, 60, NJD_MTYPE_POS_0 |
 NJS_ACTION action_animation_00047864 = { &object_00046510, &animation_00047864 };
 
 COL collist_0001E294[] = {
+	{ { 711.6917f, -420.8741f, 3703.044f }, 7883.168f, 0, 0, &object_00057FD4, 0, 0x80040000 }, //SA1 water
 	{ { 1436.808f, 251.172f, 782.993f }, 117.353f, 0, 0, &object_00020CBC, 0, 0x80000000 },
 	{ { 473.2005f, 180.5945f, 1056.772f }, 236.1434f, 0, 0, &object_00021098, 0, 0x20200001 },
 	{ { 1417.907f, 180.5945f, 1034.915f }, 237.202f, 0, 0, &object_000213EC, 0, 0x20200001 },
@@ -36659,8 +36660,8 @@ COL collist_0001E294[] = {
 	{ { 419.8706f, -273.8246f, 896.7131f }, 44.53577f, 0, 0, &object_00047ACC, 0, 0x80000000 },
 	{ { 1030.364f, -229.2646f, 793.5226f }, 658.8709f, 0, 0, &object_0004825C, 0, 0x80000000 },
 	{ { -40.19849f, -174.5693f, 1065.521f }, 578.9866f, 0, 0, &object_00048A9C, 0, 0x80000000 },
-	//{ { 1187.889f, -413.2884f, 673.5183f }, 903.1257f, 0, 0, &object_00048F9C, 0, 0x80000000 },
-	//{ { -63.33233f, -411.4669f, 1024.211f }, 635.5662f, 0, 0, &object_00049370, 0, 0x80000000 },
+	{ { 1187.889f, -413.2884f, 673.5183f }, 903.1257f, 0, 0, &object_00048F9C, 0, 0x81000000 }, //waves1
+	{ { -63.33233f, -411.4669f, 1024.211f }, 635.5662f, 0, 0, &object_00049370, 0, 0x81000000 }, //waves2
 	{ { 290.8424f, 36.08207f, 395.2899f }, 66.89975f, 0, 0, &object_00049B74, 0, 0x80000000 },
 	{ { 274.7254f, 6.400557f, 482.6452f }, 53.77915f, 0, 0, &object_0004A378, 0, 0x80000000 },
 	{ { 284.921f, -21.33574f, 564.6489f }, 48.22094f, 0, 0, &object_0004A9A8, 0, 0x80000000 },
@@ -36672,8 +36673,8 @@ COL collist_0001E294[] = {
 	{ { 226.9086f, 57.00835f, 130.1344f }, 74.13409f, 0, 0, &object_0004DDC4, 0, 0x80000000 },
 	{ { 718.0708f, -300.594f, 2060.905f }, 294.7249f, 0, 0, &object_0004E344, 0, 0x80000000 },
 	{ { 306.7564f, -210.3378f, 1963.691f }, 287.045f, 0, 0, &object_0004E8C4, 0, 0x80000000 },
-	//{ { 725.0441f, -415.7866f, 2063.492f }, 379.9257f, 0, 0, &object_0004EB6C, 0, 0x80000000 },
-	//{ { 306.5933f, -414.4693f, 1964.876f }, 316.5208f, 0, 0, &object_0004EE14, 0, 0x80000000 },
+	{ { 725.0441f, -415.7866f, 2063.492f }, 379.9257f, 0, 0, &object_0004EB6C, 0, 0x81000000 }, //waves3
+	{ { 306.5933f, -414.4693f, 1964.876f }, 316.5208f, 0, 0, &object_0004EE14, 0, 0x81000000 }, //waves4
 	{ { 947.9913f, -4.964786f, 635.342f }, 720.6861f, 0, 0, &object_0004FC58, 0, 0x80000000 },
 	{ { 170.6006f, 37.66645f, 249.1282f }, 462.4006f, 0, 0, &object_0005092C, 0, 0x80000000 },
 	{ { -54.59659f, 15.72331f, 864.3162f }, 594.0847f, 0, 0, &object_000517D8, 0, 0x80000000 },
@@ -36691,7 +36692,6 @@ COL collist_0001E294[] = {
 	{ { 540.9422f, 245.9369f, 436.382f }, 111.1719f, 0, 0, &object_00057144, 0, 0x80000000 },
 	{ { 440.8284f, -273.2584f, 924.0701f }, 98.91365f, 0, 0, &object_00057754, 0, 0x80000000 },
 	{ { 515.3414f, 246.8822f, 477.5255f }, 78.63104f, 0, 0, &object_00057ED0, 0, 0x80000000 },
-	//{ { 711.6917f, -420.8741f, 3703.044f }, 7883.168f, 0, 0, &object_00057FD4, 0, 0x80000000 },
 	{ { 612.8887f, -385.9573f, 1749.468f }, 214.4635f, 0, 0, &object_00058C90, 0, 0x80000000 },
 	{ { 354.9228f, -375.1651f, 1072.205f }, 222.0689f, 0, 0, &object_00059770, 0, 0x80000000 },
 	{ { 1969.992f, -393.9404f, 1505.476f }, 241.7885f, 0, 0, &object_0005A3A0, 0, 0x80000000 },
@@ -36752,7 +36752,7 @@ GeoAnimData animlist_0001F524[] = {
 NJS_TEXNAME textures_hornet[10];
 NJS_TEXLIST texlist_hornet = { arrayptrandlength(textures_hornet) };
 
-NJS_TEXNAME textures_egm1land[121];
+NJS_TEXNAME textures_egm1land[146];
 NJS_TEXLIST texlist_egm1land = { arrayptrandlength(textures_egm1land) };
 
 LandTable landtable_00000128 = { LengthOfArray(collist_0001E294), LengthOfArray(animlist_0001F524), 0xD, 10000, collist_0001E294, animlist_0001F524, "egm1land", (NJS_TEXLIST *)0x1557064, 0, 0 };

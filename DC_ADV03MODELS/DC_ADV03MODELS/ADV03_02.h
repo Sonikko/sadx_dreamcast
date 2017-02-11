@@ -23821,6 +23821,7 @@ NJS_MODEL_SADX attach_000FB470 = { vertex_000FB110, normal_000FB2C0, LengthOfArr
 NJS_OBJECT object_000FB49C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000FB470, 0, 0, 0, 0, 0xAAA, 0, 1, 1, 1, NULL, NULL };
 
 COL collist_000976C0[] = {
+	{ { -545.4837f, -220, 999.9899f }, 2876.595f, 0, 0, &object_0009E8A8, 0, 0x80000020 }, //SA1 water
 	{ { -104, 0, 223 }, 0, 0, 0, &palm1_2, 0, 0x80000000 }, //palm1
 	{ { -231, 0, 87 }, 0, 0, 0, &palm2_2, 0, 0x80000000 }, //palm2
 	{ { -226, 0, -96 }, 0, 0, 0, &palm3_2, 0, 0x80000000 }, //palm3

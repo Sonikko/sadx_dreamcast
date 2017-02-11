@@ -22964,6 +22964,7 @@ NJS_MODEL_SADX attach_000B85B8 = { vertex_000B8258, normal_000B8408, LengthOfArr
 NJS_OBJECT object_000B85E4 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000B85B8, 0, 0, 0, 0, 0xAAA, 0, 1, 1, 1, NULL, NULL };
 
 COL collist_0006735C[] = {
+	{ { -545.4837f, -220, 999.9899f }, 2876.595f, 0, 0, &object_0006E5BC, 0, 0x80000020 }, //SA1 water
 	{ { -104, 0, 223 }, 0, 0, 0, &palm1, 0, 0x80000000 }, //palm1
 	{ { -231, 0, 87 }, 0, 0, 0, &palm2, 0, 0x80000000 }, //palm2
 	{ { -226, 0, -96 }, 0, 0, 0, &palm3, 0, 0x80000000 }, //palm3
@@ -22990,7 +22991,6 @@ COL collist_0006735C[] = {
 	{ { -469.0468f, 220.5821f, 549.9084f }, 355.9483f, 0, 0, &object_0006BE38, 0, 0x20200001 },
 	{ { -1000.001f, 30.38067f, 421.5496f }, 353.6481f, 0, 0, &object_0006C8EC, 0, 0x80000020 },
 	{ { -50.00012f, -87.63605f, 433.1015f }, 1313.044f, 0, 0, &object_0006D7B0, 0, 0x80000020 },
-	//{ { -545.4837f, -220, 999.9899f }, 2876.595f, 0, 0, &object_0006E5BC, 0, 0x80000020 }, //SA1 water
 	{ { 1118.845f, 22.99869f, 2404.496f }, 1018.771f, 0, 0, &object_0006F3F0, 0, 0x80000020 },
 	{ { -803.2065f, 17.5229f, 1516.494f }, 629.4918f, 0, 0, &object_0006FD30, 0, 0x80000020 },
 	{ { 12.71671f, 210.4147f, 1789.746f }, 526.1426f, 0, 0, &object_000700B4, 0, 0x80000020 },
@@ -23198,7 +23198,7 @@ COL collist_0006735C[] = {
 	{ { 0, 87.5f, 0 }, 125.0876f, 0, 0, &object_0009566C, 0, 0xC0000002 }, //water top
 };
 
-NJS_TEXNAME textures_past1[84];
+NJS_TEXNAME textures_past1[86];
 NJS_TEXLIST texlist_past01 = { arrayptrandlength(textures_past1) };
 
 LandTable landtable_0000029C = { LengthOfArray(collist_0006735C), 0, 8, 0, collist_0006735C, NULL, "PAST01", (NJS_TEXLIST *)&texlist_past01, 0, 0 };

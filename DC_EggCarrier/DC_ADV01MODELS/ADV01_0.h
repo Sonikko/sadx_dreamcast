@@ -37888,6 +37888,54 @@ NJS_MOTION animation_0004E0B8 = { animation_0004E0B8_mdat, 60, NJD_MTYPE_POS_0 |
 
 NJS_ACTION action_animation_0004E0B8 = { &object_0004AE94, &animation_0004E0B8 };
 
+NJS_MATERIAL matlist_00007B80[] = {
+	{ { 0x99B2B2B2 },{ 0xFFFFFFFF }, 11, 101, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+NJS_MATERIAL matlist_00007B80_1[] = {
+	{ { 0x99B2B2B2 },{ 0xFFFFFFFF }, 11, 93, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+NJS_MATERIAL matlist_00007B80_2[] = {
+	{ { 0x99B2B2B2 },{ 0xFFFFFFFF }, 11, 69, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00007B94[] = {
+	4, 3, 2, 1, 0
+};
+
+NJS_TEX uv_00007BA0[] = {
+	{ 20400, -9945 },
+	{ 10200, 255 },
+	{ 10199, -20145 },
+	{ 0, -9944 }
+};
+
+NJS_MESHSET_SADX meshlist_00007BB0[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_00007B94, NULL, NULL, NULL, uv_00007BA0, NULL }
+};
+
+NJS_VECTOR vertex_00007BC8[] = {
+	{ -20099.999f, 415, -20099.999f },
+	{ -20099.999f, 415, 20099.999f },
+	{ 20099.999f, 415, -20099.999f },
+	{ 20099.999f, 415, 20099.999f }
+};
+
+NJS_VECTOR normal_00007BF8[] = {
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 }
+};
+
+NJS_MODEL_SADX attach_00007C28 = { vertex_00007BC8, normal_00007BF8, LengthOfArray(vertex_00007BC8), meshlist_00007BB0, matlist_00007B80, LengthOfArray(meshlist_00007BB0), LengthOfArray(matlist_00007B80),{ 0, 415, 0 }, 11455.13f, NULL };
+NJS_MODEL_SADX attach_00007C28_1 = { vertex_00007BC8, normal_00007BF8, LengthOfArray(vertex_00007BC8), meshlist_00007BB0, matlist_00007B80_1, LengthOfArray(meshlist_00007BB0), LengthOfArray(matlist_00007B80_1),{ 0, 415, 0 }, 11455.13f, NULL };
+NJS_MODEL_SADX attach_00007C28_2 = { vertex_00007BC8, normal_00007BF8, LengthOfArray(vertex_00007BC8), meshlist_00007BB0, matlist_00007B80_2, LengthOfArray(meshlist_00007BB0), LengthOfArray(matlist_00007B80_2),{ 0, 415, 0 }, 11455.13f, NULL };
+NJS_OBJECT object_00007C50 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00007C28, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT object_00007C50_1 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00007C28_1, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT object_00007C50_2 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00007C28_2, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
 COL collist_0015F764[] = {
 	{ { -0.7125624f, 681.5402f, -507.521f }, 214.3001f, 0, 0, &object_00032A00, 0, 0xA0000001 },
 	{ { 134.9767f, 681.5402f, -385.4529f }, 135.7921f, 0, 0, &object_00032D2C, 0, 0xA0000001 },
@@ -38197,14 +38245,15 @@ COL collist_0015F764[] = {
 	{ { -0.7125624f, 681.5402f, -507.521f }, 214.3001f, 0, 0, &object_00032A00, 0, 0xA0040001 },
 	{ { 134.9767f, 681.5402f, -385.4529f }, 135.7921f, 0, 0, &object_00032D2C, 0, 0xA0040001 },
 	{ { 0.676956f, 681.5402f, -263.9437f }, 214.3045f, 0, 0, &object_0003335C, 0, 0xA0040001 },
-	{ { -134.1181f, 681.5402f, -386.0016f }, 136.1435f, 0, 0, &object_00033688, 0, 0xA0040001 }
+	{ { -134.1181f, 681.5402f, -386.0016f }, 136.1435f, 0, 0, &object_00033688, 0, 0xA0040001 },
+	{ { 0, 0, 0 }, 10000, 0, 0, &object_00007C50, 0, 0x80000001 }
 };
 
 GeoAnimData animlist_00162248[] = {
 	{ 0, 0.09999999f, 60, &object_0004AE94, &action_animation_0004E0B8, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_ec00[101];
+NJS_TEXNAME textures_ec00[111];
 NJS_TEXLIST texlist_ec00 = { arrayptrandlength(textures_ec00) };
 
 LandTable landtable_00162260 = { LengthOfArray(collist_0015F764), LengthOfArray(animlist_001ECECC), 9, 0, collist_0015F764, animlist_001ECECC, "ADV_EC00", (NJS_TEXLIST *)&texlist_ec00, 0, 0 };

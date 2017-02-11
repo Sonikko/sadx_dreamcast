@@ -30479,13 +30479,14 @@ COL collist_00162284[] = {
 	{ { -134.1181f, 681.5402f, -386.0016f }, 136.1435f, 0, 0, &object_0007F898, 0, 0xA0040001 },
 	{ { -179.6095f, 598.7015f, 304.3087f }, 402.0725f, 0, 0, &object_00082A7C_2, 0, 0x80040001 },
 	{ { 180.2257f, 598.7015f, 304.3086f }, 402.0383f, 0, 0, &object_0008241C_2, 0, 0x80040001 },
+	{ { 0, 0, 0 }, 10000, 0, 0, &object_00007C50_1, 0, 0x80000001 }
 };
 
 GeoAnimData animlist_001631D8[] = {
 	{ 0, 0.09999999f, 60, &object_0003AD18, &action_animation_0003DF3C, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_ec01[93];
+NJS_TEXNAME textures_ec01[103];
 NJS_TEXLIST texlist_ec01 = { arrayptrandlength(textures_ec01) };
 
 LandTable landtable_001631F0 = { LengthOfArray(collist_00162284), LengthOfArray(animlist_001631D8), 9, 0, collist_00162284, animlist_001631D8, "ADV_EC01", (NJS_TEXLIST *)&texlist_ec01, 0, 0 };
