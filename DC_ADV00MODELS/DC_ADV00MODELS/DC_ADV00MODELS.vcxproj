@@ -155,7 +155,9 @@
     <ClInclude Include="ADVSS03 Fixes.h" />
     <ClInclude Include="SS_bluecar.h" />
     <ClInclude Include="SS_Box.h" />
+    <ClInclude Include="SS_Pole.h" />
     <ClInclude Include="SS_police.h" />
+    <ClInclude Include="SS_PoolChair.h" />
     <ClInclude Include="SS_redcar.h" />
     <ClInclude Include="SS_taxi.h" />
     <ClInclude Include="SS_TPBall.h" />

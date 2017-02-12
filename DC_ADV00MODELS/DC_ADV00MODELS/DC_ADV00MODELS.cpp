@@ -15,6 +15,8 @@ HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 #include "SS_TPBall.h"
 #include "SS_train.h"
 #include "SS_box.h"
+#include "SS_PoolChair.h"
+#include "SS_Pole.h"
 
 static int anim1 = 46;
 static int anim2 = 183;
@@ -33,16 +35,14 @@ extern "C"
 		if (SADXStyleWater != 0)
 		{
 			matlist_00133D3C[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
-			collist_000DA99C[0].Flags = 0x00000000;
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 6].Flags = 0x80000000;
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 2].Flags = 0x00000002;
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 1].Flags = 0x00000000; //SA1 water
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x80000000; //SADX sea bottom
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 2].Flags = 0x00000002; //Sewers water
 			matlist_000D9890[0].diffuse.color = 0xD2B2B2B2;
 			matlist_0014B314[0].attr_texId = 65;
 			matlist_0014BED8[0].attr_texId = 65;
 			matlist_00151E54[0].attr_texId = 59;
 			matlist_001566E4[0].attr_texId = 65;
-			matlist_00150A50[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
-			matlist_00150A50[1].attrflags &= ~NJD_FLAG_USE_ALPHA;
 			matlist_00151E54[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 			matlist_001566E4[0].diffuse.argb.a = 0;
 			object_00151F24.pos[1] = -29.5f;
@@ -53,16 +53,14 @@ extern "C"
 		else
 		{
 			matlist_00133D3C[0].attrflags |= NJD_FLAG_USE_ALPHA;
-			collist_000DA99C[0].Flags = 0x80040000;
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 6].Flags = 0x00000000;
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 2].Flags = 0x80000002;
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 1].Flags = 0x80040000; //SA1 water
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x00000000; //SADX sea bottom
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 2].Flags = 0x80000002; //Sewers water
 			matlist_000D9890[0].diffuse.color = 0xB2B2B2B2;
 			matlist_0014B314[0].attr_texId = 78;
 			matlist_0014BED8[0].attr_texId = 78;
 			matlist_00151E54[0].attr_texId = 78;
 			matlist_001566E4[0].attr_texId = 78;
-			matlist_00150A50[0].attrflags |= NJD_FLAG_USE_ALPHA;
-			matlist_00150A50[1].attrflags |= NJD_FLAG_USE_ALPHA;
 			matlist_00151E54[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			matlist_001566E4[0].diffuse.argb.a = 0xB2;
 			object_00151F24.pos[1] = -13;
@@ -73,6 +71,9 @@ extern "C"
 		WriteData((void*)0x00630AE0, 0x90, 4); //Hotel door fix
 		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31);
 		//Objects
+		memcpy((void*)0x02AC9EE4, &attach_0017DDC0, sizeof(attach_0017DDC0)); // Lamp pole
+		memcpy((void*)0x02AC9840, &attach_0017D7A8, sizeof(attach_0017D7A8)); // Lamp pole
+		//memcpy((void*)0x02AD03C0, &attach_00182AB0, sizeof(attach_00182AB0)); // Pool chair
 		memcpy((void*)0x02ABDF0C, &object_00172BD4, sizeof(object_00172BD4)); // Box in the sewers
 		memcpy((void*)0x02AE8674, &object_00195DC0, sizeof(object_00195DC0)); // SS train
 		memcpy((void*)0x02AF4FC0, &object_0019F390, sizeof(object_0019F390)); // SS Police
@@ -131,6 +132,7 @@ extern "C"
 		//Night reflections Act 0
 		if (CurrentLevel == 26 && CurrentAct == 0 && GetTimeOfDay() == 2)
 		{
+			attach_0017D7A8.mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00031C48[3].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00030274[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00022CC0[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -313,6 +315,8 @@ extern "C"
 		if (CurrentLevel == 26 && CurrentAct == 4 && GetTimeOfDay() == 0) matlist_00152110[0].attr_texId = 70;
 
 		//Night reflections Act 3 (Main area)
+		if (CurrentLevel == 26 && GetTimeOfDay() == 2) attach_0017D7A8.mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		if (CurrentLevel == 26 && GetTimeOfDay() != 2) attach_0017D7A8.mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		if (CurrentLevel == 26 && CurrentAct == 3 && GetTimeOfDay() == 2)
 		{
 			matlist_000F5934[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -351,13 +355,9 @@ extern "C"
 			matlist_000F062C[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00128FA8[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00128FA8[3].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125408[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125408[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125408[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125038[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125038[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125038[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125038[3].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129814[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129814[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00124B94[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -409,13 +409,9 @@ extern "C"
 			matlist_000F062C[5].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00128FA8[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00128FA8[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125408[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125408[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125408[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125038[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125038[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125038[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125038[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129814[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129814[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00124B94[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -467,13 +463,9 @@ extern "C"
 			matlist_000F062C[5].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00128FA8[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00128FA8[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125408[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125408[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125408[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125038[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125038[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125038[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125038[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129814[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129814[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00124B94[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -497,7 +489,7 @@ extern "C"
 				if (anim3 > 29 && anim3 < 228) anim3 = 228;
 				matlist_0012231C[0].attr_texId = anim2;
 				matlist_00123620[0].attr_texId = anim2;
-				matlist_000E7180[2].attr_texId = anim3;
+				matlist_000E7180[1].attr_texId = anim3;
 				matlist_00122894[2].attr_texId = anim3;
 				if (SADXStyleWater != 0) matlist_00114D80[0].attr_texId = anim3;
 				if (SADXStyleWater == 0) matlist_00133D3C[0].attr_texId = anim6;
@@ -519,7 +511,8 @@ extern "C"
 			if (anim5 > 115) anim5 = 60;
 			if (anim5 > 60 && anim5 < 102) anim5 = 102;
 			matlist_00147958[2].attr_texId = anim4;
-			matlist_00150A50[3].attr_texId = anim4;
+			matlist_00150A50[1].attr_texId = anim4;
+			matlist_00150A50[3].attr_texId = anim5;
 			if (SADXStyleWater != 0) matlist_00151E54[0].attr_texId = anim4;
 			matlist_00148688[0].attr_texId = anim5;
 			if (SADXStyleWater == 0) matlist_00151E54[0].attr_texId = anim7;
