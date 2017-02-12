@@ -28,6 +28,7 @@ DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 static bool InsideTemple = 0;
 static int anim1 = 133;
 static int anim2 = 143;
@@ -166,17 +167,17 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 	}
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 2)
 	{
-		if (entity != nullptr && entity->Position.z < -725 && entity->Position.z > -1560 && entity->Position.x < -100 && entity->Position.x > -900)
+		if (Camera_Data1 != nullptr && Camera_Data1->Position.z < -500 && Camera_Data1->Position.z > -1560 && Camera_Data1->Position.x < -100 && Camera_Data1->Position.x > -900)
 		{
 			InsideTemple = 1;
 		}
 		else InsideTemple = 0;
-		if (entity != nullptr && entity->Position.y < 300.0f && InsideTemple == 0)
+		if (Camera_Data1 != nullptr && Camera_Data1->Position.y < 300.0f && InsideTemple == 0)
 		{
 				if (CurrentFogLayer < -350.0f) CurrentFogLayer = CurrentFogLayer + 32.0f;
 				if (CurrentFogDist < -2200.0f) CurrentFogDist = CurrentFogDist + 32.0f;
 		}
-		if (entity != nullptr && entity->Position.y > 300.0f)
+		if (Camera_Data1 != nullptr && Camera_Data1->Position.y > 300.0f)
 		{
 			if (CurrentFogLayer > -5000.0f) CurrentFogLayer = CurrentFogLayer - 16.0f;
 			if (CurrentFogDist > -12000.0f) CurrentFogDist = CurrentFogDist - 32.0f;
