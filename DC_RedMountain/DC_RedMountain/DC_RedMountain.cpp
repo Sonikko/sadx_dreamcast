@@ -135,8 +135,9 @@ extern "C"
 		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
 		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
 		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
-		matlist_0206C9D4_2[0].diffuse.color = 0xFFFFFFFF;
-		matlist_0206C9D4[0].diffuse.color = 0xFFFFFFFF;
+		matlist_0206C9D4_2[0].diffuse.color = 0xEFFFFFFF;
+		matlist_0206C9D4[0].diffuse.color = 0xEFFFFFFF;
+		WriteData((void*)0x00600C8F, 0x58, sizeof(char));
 		WriteData((NJS_OBJECT**)0x006011CC, (NJS_OBJECT*)&object_0206CAA8);
 		ResizeTextureList((NJS_TEXLIST*)0x230FDF4, textures_mountain1);
 		ResizeTextureList((NJS_TEXLIST*)0x229B8CC, textures_mountain2);
