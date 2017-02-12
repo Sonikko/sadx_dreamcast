@@ -78,6 +78,9 @@
     <ClInclude Include="SS_Pole.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="SS_hoteldoor.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

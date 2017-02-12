@@ -17,6 +17,7 @@ HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 #include "SS_box.h"
 #include "SS_PoolChair.h"
 #include "SS_Pole.h"
+#include "SS_hoteldoor.h"
 
 static int anim1 = 46;
 static int anim2 = 183;
@@ -71,6 +72,8 @@ extern "C"
 		WriteData((void*)0x00630AE0, 0x90, 4); //Hotel door fix
 		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31);
 		//Objects
+		memcpy((void*)0x02AAB0E4, &object_00164444, sizeof(object_00164444)); // Hotel door 1
+		memcpy((void*)0x02AAE0BC, &object_00164444, sizeof(object_00164444)); // Hotel door 2
 		memcpy((void*)0x02AC9EE4, &attach_0017DDC0, sizeof(attach_0017DDC0)); // Lamp pole
 		memcpy((void*)0x02AC9840, &attach_0017D7A8, sizeof(attach_0017D7A8)); // Lamp pole
 		//memcpy((void*)0x02AD03C0, &attach_00182AB0, sizeof(attach_00182AB0)); // Pool chair
