@@ -154,6 +154,7 @@
     <ClInclude Include="ADVSS04 Collision.h" />
     <ClInclude Include="ADVSS03 Fixes.h" />
     <ClInclude Include="SS_bluecar.h" />
+    <ClInclude Include="SS_Boat.h" />
     <ClInclude Include="SS_Box.h" />
     <ClInclude Include="SS_hoteldoor.h" />
     <ClInclude Include="SS_Pole.h" />
