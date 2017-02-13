@@ -14,7 +14,7 @@ DataPointer(NJS_BGRA, CurrentFogColor, 0x03ABDC68);
 DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
 DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 static int TornadoActive = 0;
-static int fadeout = 255;
+static int fadeout = 178;
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA48, &landtable_0000D7E0),
@@ -34,7 +34,7 @@ extern "C" __declspec(dllexport) void cdecl Init()
 	((NJS_OBJECT*)0xC06A94)->evalflags |= NJD_EVAL_HIDE;
 	for (int i = 0; i < 3; i++)
 	{
-		DrawDist_WindyValley1[i].Maximum = -12000.0f;
+		DrawDist_WindyValley1[i].Maximum = -4800.0f;
 		FogData_Windy1[i].Distance = 20000.0f;
 		FogData_Windy1[i].Layer = 8000.0f;
 		FogData_Windy1[i].Color = 0xFF303030;
@@ -58,28 +58,28 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 		if (GameState == 3)
 		{
 			TornadoActive = 0;
-			fadeout = 255;
-			matlist_00806484[0].diffuse.argb.r = 255;
-			matlist_00806484[0].diffuse.argb.g = 255;
-			matlist_00806484[0].diffuse.argb.b = 255;
-			matlist_00806590[0].diffuse.argb.r = 255;
-			matlist_00806590[0].diffuse.argb.g = 255;
-			matlist_00806590[0].diffuse.argb.b = 255;
-			matlist_00805E44[0].diffuse.argb.r = 255;
-			matlist_00805E44[0].diffuse.argb.g = 255;
-			matlist_00805E44[0].diffuse.argb.b = 255;
-			matlist_00806378[0].diffuse.argb.r = 255;
-			matlist_00806378[0].diffuse.argb.g = 255;
-			matlist_00806378[0].diffuse.argb.b = 255;
-			matlist_008055DC[0].diffuse.argb.r = 255;
-			matlist_008055DC[0].diffuse.argb.g = 255;
-			matlist_008055DC[0].diffuse.argb.b = 255;
-			matlist_008055DC[1].diffuse.argb.r = 255;
-			matlist_008055DC[1].diffuse.argb.g = 255;
-			matlist_008055DC[1].diffuse.argb.b = 255;
-			matlist_008055DC[2].diffuse.argb.r = 255;
-			matlist_008055DC[2].diffuse.argb.g = 255;
-			matlist_008055DC[2].diffuse.argb.b = 255;
+			fadeout = 178;
+			matlist_00806484[0].diffuse.argb.r = 178;
+			matlist_00806484[0].diffuse.argb.g = 178;
+			matlist_00806484[0].diffuse.argb.b = 178;
+			matlist_00806590[0].diffuse.argb.r = 178;
+			matlist_00806590[0].diffuse.argb.g = 178;
+			matlist_00806590[0].diffuse.argb.b = 178;
+			matlist_00805E44[0].diffuse.argb.r = 178;
+			matlist_00805E44[0].diffuse.argb.g = 178;
+			matlist_00805E44[0].diffuse.argb.b = 178;
+			matlist_00806378[0].diffuse.argb.r = 178;
+			matlist_00806378[0].diffuse.argb.g = 178;
+			matlist_00806378[0].diffuse.argb.b = 178;
+			matlist_008055DC[0].diffuse.argb.r = 178;
+			matlist_008055DC[0].diffuse.argb.g = 178;
+			matlist_008055DC[0].diffuse.argb.b = 178;
+			matlist_008055DC[1].diffuse.argb.r = 178;
+			matlist_008055DC[1].diffuse.argb.g = 178;
+			matlist_008055DC[1].diffuse.argb.b = 178;
+			matlist_008055DC[2].diffuse.argb.r = 178;
+			matlist_008055DC[2].diffuse.argb.g = 178;
+			matlist_008055DC[2].diffuse.argb.b = 178;
 		}
 		if (Camera_Data1 != nullptr)
 		{
