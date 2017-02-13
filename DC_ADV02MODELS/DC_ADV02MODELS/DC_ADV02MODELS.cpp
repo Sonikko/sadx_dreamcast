@@ -19,7 +19,6 @@ DataArray(FogData, MR3FogDay, 0x011034A8, 3);
 DataArray(FogData, MR4FogDay, 0x011034D8, 3);
 DataArray(FogData, MR1FogEvening, 0x01103508, 3);
 DataArray(FogData, MR2FogEvening, 0x01103538, 3);
-DataArray(FogData, MR3FogEvening, 0x01103568, 3);
 DataArray(FogData, MR1FogNight, 0x01103568, 3);
 DataArray(FogData, MR3FogNight, 0x01103598, 3);
 DataArray(DrawDistance, MR1DrawDist, 0x011033E8, 3);
@@ -55,24 +54,24 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		MR1FogDay[i].Toggle = 0;
 		MR1FogEvening[i].Distance = -9000.0f;
 		MR1FogEvening[i].Layer = -3500.0f;
-		MR1FogNight[i].Distance = -9000.0f;
-		MR1FogNight[i].Layer = -3500.0f;
-		MR2FogDay[i].Layer = -5000.0f;
-		MR2FogDay[i].Distance = -12000.0f;
+		MR1FogNight[i].Color = 0xFF000F53;
+		MR1FogNight[i].Distance = -10000.0f;
+		MR1FogNight[i].Layer = -2000.0f;
+		MR2FogDay[i].Layer = -2000.0f;
+		MR2FogDay[i].Distance = -16000.0f;
+		MR2FogDay[i].Color = 0xFFB4B4B4;
 		MR2FogEvening[i].Distance = -12000.0f;
 		MR2FogEvening[i].Layer = -5000.0f;
-		MR3FogDay[i].Layer = -5000.0f;
-		MR3FogDay[i].Distance = -12000.0f;
-		MR3FogDay[i].Color = 0xFF8F9672;
+		MR2FogEvening[i].Color = 0xFF96825A;
+		MR3FogDay[i].Layer = -4000.0f;
+		MR3FogDay[i].Distance = -16000.0f;
+		MR3FogDay[i].Color = 0xFFB4B4B4;
 		MR3FogNight[i].Distance = -12000;
 		MR3FogNight[i].Color = 0xFF000F53;
 		MR3FogNight[i].Layer = -5000;
-		MR3FogEvening[i].Layer = -5000;
-		MR3FogEvening[i].Distance = -12000;
 		MR1DrawDist[i].Maximum = -10000.0f;
 		MR2DrawDist[i].Maximum = -10000.0f;
 		MR3DrawDist[i].Maximum = -12000.0f;
-		//Either some of these are shared for night, or I'm too dumb to understand the disassembly
 	}
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
@@ -114,6 +113,26 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 
 extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 {
+	//Evening and night materials Act 3
+	if (CurrentLevel == 33 && CurrentAct == 2)
+	{
+		matlist_00208504Z[9].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_00208504Z[10].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_00208504Z[11].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_00208504Z[12].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_002069C8[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_002069C8[6].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_002069C8[7].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_00208504[9].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_00208504[10].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_00208504[11].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_00208504[12].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_0020632C[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_00208504Z[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_00208504Z[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_00208504[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlist_00208504[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+	}
 	auto entity = CharObj1Ptrs[0];
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 0)
 	{
@@ -125,7 +144,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		{
 			for (int r1 = 0; r1 < LengthOfArray(uv_00075EC0); r1++)
 			{
-			uv_00075EC0[r1].v = uv_00075EC0_0[r1].v;
+				uv_00075EC0[r1].v = uv_00075EC0_0[r1].v;
 			}
 		}
 		for (int q2 = 0; q2 < LengthOfArray(uv_000755A4); q2++)
@@ -156,7 +175,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 1)
 	{
 		if (anim3 > 89) anim3 = 76;
-		matlist_000A3884[0].attr_texId = anim3; 
+		matlist_000A3884[0].attr_texId = anim3;
 		matlist_000A6CF8[1].attr_texId = anim3;
 		matlist_000A6CF8[2].attr_texId = anim3;
 		matlist_000A6CF8[3].attr_texId = anim3;
@@ -167,27 +186,44 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 	}
 	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 2)
 	{
-		if (Camera_Data1 != nullptr && Camera_Data1->Position.z < -500 && Camera_Data1->Position.z > -1560 && Camera_Data1->Position.x < -100 && Camera_Data1->Position.x > -900)
+		if (Camera_Data1 != nullptr && Camera_Data1->Position.z < -548 && Camera_Data1->Position.z > -1560 && Camera_Data1->Position.x < -80 && Camera_Data1->Position.x > -900)
 		{
 			InsideTemple = 1;
 		}
 		else InsideTemple = 0;
 		if (Camera_Data1 != nullptr && Camera_Data1->Position.y < 300.0f && InsideTemple == 0)
 		{
-				if (CurrentFogLayer < -350.0f) CurrentFogLayer = CurrentFogLayer + 32.0f;
-				if (CurrentFogDist < -2200.0f) CurrentFogDist = CurrentFogDist + 32.0f;
+			if (CurrentFogLayer < -65.0f) CurrentFogLayer = CurrentFogLayer + 64.0f;
+			if (CurrentFogLayer > -65.0f) CurrentFogLayer = -1.0f;
+			if (CurrentFogDist < -3200.0f) CurrentFogDist = CurrentFogDist + 128.0f;
 		}
 		if (Camera_Data1 != nullptr && Camera_Data1->Position.y > 300.0f)
 		{
-			if (CurrentFogLayer > -5000.0f) CurrentFogLayer = CurrentFogLayer - 16.0f;
-			if (CurrentFogDist > -12000.0f) CurrentFogDist = CurrentFogDist - 32.0f;
+			if (GetTimeOfDay() != 0)
+			{
+				if (CurrentFogLayer > -1000.0f) CurrentFogLayer = CurrentFogLayer - 64.0f;
+				if (CurrentFogDist > -14000.0f) CurrentFogDist = CurrentFogDist - 128.0f;
+			}
+			if (GetTimeOfDay() == 0)
+			{
+				if (CurrentFogLayer > -4000.0f) CurrentFogLayer = CurrentFogLayer - 64.0f;
+				if (CurrentFogDist > -16000.0f) CurrentFogDist = CurrentFogDist - 128.0f;
+			}
 		}
 		if (InsideTemple == 1)
 		{
-			if (CurrentFogLayer > -5000.0f) CurrentFogLayer = CurrentFogLayer - 16.0f;
-			if (CurrentFogDist > -12000.0f) CurrentFogDist = CurrentFogDist - 32.0f;
+			if (GetTimeOfDay() != 0)
+			{
+				if (CurrentFogLayer > -1000.0f) CurrentFogLayer = CurrentFogLayer - 64.0f;
+				if (CurrentFogDist > -14000.0f) CurrentFogDist = CurrentFogDist - 128.0f;
+			}
+			if (GetTimeOfDay() == 0)
+			{
+				if (CurrentFogLayer > -4000.0f) CurrentFogLayer = CurrentFogLayer - 64.0f;
+				if (CurrentFogDist > -16000.0f) CurrentFogDist = CurrentFogDist - 128.0f;
+			}
 		}
-		for (int q6 = 0; q6 < LengthOfArray(uv_00162054); q6++) {uv_00162054[q6].v++; }
+		for (int q6 = 0; q6 < LengthOfArray(uv_00162054); q6++) { uv_00162054[q6].v++; }
 		if (uv_00162054[0].v > 255)
 		{
 			for (int r3 = 0; r3 < LengthOfArray(uv_00162054); r3++)
@@ -195,7 +231,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 				uv_00162054[r3].v = uv_00162054_0[r3].v;
 			}
 		}
-		for (int q7 = 0; q7 < LengthOfArray(uv_001622D8); q7++) {uv_001622D8[q7].v++; }
+		for (int q7 = 0; q7 < LengthOfArray(uv_001622D8); q7++) { uv_001622D8[q7].v++; }
 		if (uv_001622D8[0].v > 510)
 		{
 			for (int r4 = 0; r4 < LengthOfArray(uv_001622D8); r4++)
@@ -203,7 +239,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 				uv_001622D8[r4].v = uv_001622D8_0[r4].v;
 			}
 		}
-		for (int q3 = 0; q3 < LengthOfArray(uv_00160D9C); q3++)	{uv_00160D9C[q3].v--; }
+		for (int q3 = 0; q3 < LengthOfArray(uv_00160D9C); q3++) { uv_00160D9C[q3].v--; }
 		if (uv_00160D9C[0].v < -4)
 		{
 			for (int r5 = 0; r5 < LengthOfArray(uv_00160D9C); r5++)
@@ -211,7 +247,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 				uv_00160D9C[r5].v = uv_00160D9C_0[r5].v;
 			}
 		}
-		for (int q4 = 0; q4 < LengthOfArray(uv_0016166C); q4++)	{uv_0016166C[q4].v++; }
+		for (int q4 = 0; q4 < LengthOfArray(uv_0016166C); q4++) { uv_0016166C[q4].v++; }
 		if (uv_0016166C[0].v > 179)
 		{
 			for (int r6 = 0; r6 < LengthOfArray(uv_0016166C); r6++)
@@ -219,7 +255,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 				uv_0016166C[r6].v = uv_0016166C_0[r6].v;
 			}
 		}
-		for (int q5 = 0; q5 < LengthOfArray(uv_00161C18); q5++) {uv_00161C18[q5].v++; }
+		for (int q5 = 0; q5 < LengthOfArray(uv_00161C18); q5++) { uv_00161C18[q5].v++; }
 		if (uv_00161C18[0].v > -473)
 		{
 			for (int r7 = 0; r7 < LengthOfArray(uv_00161C18); r7++)
@@ -229,5 +265,4 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		}
 	}
 }
-	
 extern "C" __declspec(dllexport) const ModInfo SADXModInfo = { ModLoaderVer };
