@@ -29,6 +29,14 @@ static int anim7 = 120;
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 
+int __cdecl CheckIfCameraIsInHotel_Lol()
+{
+	int result; // eax@3
+	int v1; // eax@8
+	result = 0;
+	return result;
+}
+
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
@@ -70,6 +78,7 @@ extern "C"
 			landtable_00135A90.TexName = "ADVSS04";
 		}
 		WriteData((void*)0x00630AE0, 0x90, 4); //Hotel door fix
+		WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting
 		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31);
 		//Objects
 		memcpy((void*)0x02AAB0E4, &object_00164444, sizeof(object_00164444)); // Hotel door 1
