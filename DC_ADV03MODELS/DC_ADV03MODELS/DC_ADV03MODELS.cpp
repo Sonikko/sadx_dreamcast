@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
-HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 #include "Palm.h"
 #include "ADV03_00_PC.h"
 #include "ADV03_00.h"
@@ -13,6 +12,7 @@ static int animframe2 = 75;
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	if (SADXStyleWater != 0)
 	{
 		collist_0006735C[0].Flags = 0x00000020;

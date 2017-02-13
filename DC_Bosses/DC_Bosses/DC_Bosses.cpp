@@ -17,7 +17,6 @@
 #include "E101R.h"
 #include "EggHornet_Model.h"
 
-HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 DataPointer(float, Chaos4Hitpoints, 0x03C58158);
 static bool Chaos4Defeated = 0;
 static int anim = 27;
@@ -152,6 +151,7 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		//Eggman model lighting fix
 		((NJS_OBJECT*)0x008961E0)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 		((NJS_OBJECT*)0x008964CC)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;

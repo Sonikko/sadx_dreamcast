@@ -15,8 +15,6 @@
 #include "ADV01C_05.h"
 #include "EC_Objects.h"
 
-HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
-
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(__int16, EggCarrierSunk_CharacterFlag, 0x0090A41C);
 
@@ -93,6 +91,7 @@ void __cdecl SetClip_EC01(signed int cliplevel)
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	if (SADXStyleWater != 0)
 	{
 		landtable_00162260.TexName = "ADV_EC00W";
@@ -169,6 +168,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 
 extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 {
+	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	if (CurrentLevel == 29 && CurrentAct == 0)
 	{
 		if (GameState != 16)

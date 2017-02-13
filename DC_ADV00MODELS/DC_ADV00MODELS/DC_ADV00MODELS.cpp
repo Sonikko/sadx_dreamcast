@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
-HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 #include "ADVSS00 (City Hall).h"
 #include "ADVSS01 (Casino Area).h"
 #include "ADVSS02 (Sewers).h"
@@ -40,8 +39,9 @@ int __cdecl CheckIfCameraIsInHotel_Lol()
 
 extern "C"
 {
-	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
+	__declspec(dllexport) void __cdecl Init()
 	{
+		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		if (SADXStyleWater != 0)
 		{
 			matlist_00133D3C[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
@@ -135,6 +135,7 @@ extern "C"
 
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 		//Water animation in Act 2 (Sewers)
 		if (CurrentLevel == 26 && CurrentAct == 2 && GameState == 15)

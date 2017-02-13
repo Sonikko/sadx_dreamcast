@@ -1,8 +1,5 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
-
-HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
-
 #include "button.h"
 #include "ADV_MR00 (Station area).h"
 #include "ADV_MR01 (Angel Island).h"
@@ -37,6 +34,7 @@ NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	if (SADXStyleWater != 0) 
 	{
 		landtable_00017960.TexName = "ADV_MR00W";
