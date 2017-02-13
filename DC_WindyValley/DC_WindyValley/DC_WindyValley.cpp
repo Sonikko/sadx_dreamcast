@@ -15,6 +15,7 @@ DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
 DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 static int TornadoActive = 0;
 static int fadeout = 255;
+static int fadeout2 = 255;
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA48, &landtable_0000D7E0),
@@ -35,9 +36,9 @@ extern "C" __declspec(dllexport) void cdecl Init()
 	for (int i = 0; i < 3; i++)
 	{
 		DrawDist_WindyValley1[i].Maximum = -5200.0f;
-		FogData_Windy1[i].Distance = 20000.0f;
-		FogData_Windy1[i].Layer = 8000.0f;
-		FogData_Windy1[i].Color = 0xFF303030;
+		FogData_Windy1[i].Distance = 12000.0f;
+		FogData_Windy1[i].Layer = 1000.0f;
+		FogData_Windy1[i].Color = 0xFFFFFFFF;
 		FogData_Windy2[i].Color = 0xFFFFFFFF;
 		FogData_Windy2[i].Distance = 2500.0f;
 		FogData_Windy2[i].Layer = 50.0f;
@@ -59,6 +60,8 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 		{
 			TornadoActive = 0;
 			fadeout = 255;
+			fadeout2 = 255;
+			matlist_00806484[0].diffuse.argb.a = 178;
 			matlist_00806484[0].diffuse.argb.r = 255;
 			matlist_00806484[0].diffuse.argb.g = 255;
 			matlist_00806484[0].diffuse.argb.b = 255;
@@ -103,17 +106,18 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 	auto entity = CharObj1Ptrs[0];
 	if (CurrentCharacter != 6 && CurrentLevel == 2 && CurrentAct == 0 && GameState != 16)
 	{
-		if (entity != nullptr && entity->Position.x > 3000 && TornadoActive == 0)
+		if (entity != nullptr && entity->Position.x > 2980 && TornadoActive == 0)
 		{
+			if (matlist_00806484[0].diffuse.argb.a > 1) matlist_00806484[0].diffuse.argb.a--;
 			matlist_00806484[0].diffuse.argb.r = fadeout;
 			matlist_00806484[0].diffuse.argb.g = fadeout;
 			matlist_00806484[0].diffuse.argb.b = fadeout;
-			matlist_00806590[0].diffuse.argb.r = fadeout;
-			matlist_00806590[0].diffuse.argb.g = fadeout;
-			matlist_00806590[0].diffuse.argb.b = fadeout;
-			matlist_00805E44[0].diffuse.argb.r = fadeout;
-			matlist_00805E44[0].diffuse.argb.g = fadeout;
-			matlist_00805E44[0].diffuse.argb.b = fadeout;
+			matlist_00806590[0].diffuse.argb.r = fadeout2;
+			matlist_00806590[0].diffuse.argb.g = fadeout2;
+			matlist_00806590[0].diffuse.argb.b = fadeout2;
+			matlist_00805E44[0].diffuse.argb.r = fadeout2;
+			matlist_00805E44[0].diffuse.argb.g = fadeout2;
+			matlist_00805E44[0].diffuse.argb.b = fadeout2;
 			matlist_00806378[0].diffuse.argb.r = fadeout;
 			matlist_00806378[0].diffuse.argb.g = fadeout;
 			matlist_00806378[0].diffuse.argb.b = fadeout;
@@ -126,21 +130,24 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 			matlist_008055DC[2].diffuse.argb.r = fadeout;
 			matlist_008055DC[2].diffuse.argb.g = fadeout;
 			matlist_008055DC[2].diffuse.argb.b = fadeout;
+			if (fadeout2 > 80) fadeout2 = fadeout2 - 2;
 			if (fadeout > 53) fadeout = fadeout - 2;
-		}
-		if (entity != nullptr && entity->Position.x > 2950 && entity->Position.z > -1520 && entity->Position.z < -1200 && entity->Position.y <= -350 && entity->Position.y >= -480)
-		{
-			TornadoActive == 1;
-			if (CurrentFogDist > 5000) CurrentFogDist = CurrentFogDist - 128.0f;
-			if (CurrentFogLayer >= 64) CurrentFogLayer = CurrentFogLayer - 128.0f;
-			if (CurrentFogColor.r > 1)
+			if (CurrentFogColor.r > 7)
 			{
-				CurrentFogColor.r--;
-				CurrentFogColor.g--;
-				CurrentFogColor.b--;
+				CurrentFogColor.r = CurrentFogColor.r - 8;
+				CurrentFogColor.g = CurrentFogColor.g - 8;
+				CurrentFogColor.b = CurrentFogColor.b - 8;
 			}
+			if (CurrentFogColor.r < 7 && CurrentFogColor.r > 0)
+			{
+				CurrentFogColor.r = 0;
+				CurrentFogColor.g = 0;
+				CurrentFogColor.b = 0;
+			}
+			if (CurrentFogDist > 5000) CurrentFogDist = CurrentFogDist - 128.0f;
+			if (CurrentFogLayer >= 100) CurrentFogLayer = CurrentFogLayer - 128.0f;
 		}
-		if (entity != nullptr && entity->Position.x > 3000 && entity->Position.z > -1520 && entity->Position.z < -1200 && entity->Position.y <= -480)
+		if (entity != nullptr && entity->Position.x > 3050 && entity->Position.z > -1520 && entity->Position.z < -1300 && entity->Position.y <= -480)
 		{
 			TornadoActive == 1;
 			if (CurrentFogDist > 450) CurrentFogDist = CurrentFogDist - 64.0f;
