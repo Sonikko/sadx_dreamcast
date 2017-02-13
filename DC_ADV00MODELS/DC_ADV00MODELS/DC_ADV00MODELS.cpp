@@ -46,7 +46,7 @@ extern "C"
 			matlist_00133D3C[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 1].Flags = 0x00000000; //SA1 water
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x80000000; //SADX sea bottom
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 2].Flags = 0x00000002; //Sewers water
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 3].Flags = 0x00000002; //Sewers water
 			matlist_000D9890[0].diffuse.color = 0xD2B2B2B2;
 			matlist_0014B314[0].attr_texId = 65;
 			matlist_0014BED8[0].attr_texId = 65;
@@ -64,7 +64,7 @@ extern "C"
 			matlist_00133D3C[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 1].Flags = 0x80040000; //SA1 water
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x00000000; //SADX sea bottom
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 2].Flags = 0x80000002; //Sewers water
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 3].Flags = 0x80000002; //Sewers water
 			matlist_000D9890[0].diffuse.color = 0xB2B2B2B2;
 			matlist_0014B314[0].attr_texId = 78;
 			matlist_0014BED8[0].attr_texId = 78;
