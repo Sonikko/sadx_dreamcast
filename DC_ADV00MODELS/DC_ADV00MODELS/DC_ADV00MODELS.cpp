@@ -44,7 +44,13 @@ extern "C"
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		if (SADXStyleWater != 0)
 		{
+			matlist_00123C24[0].attrflags |= NJD_FLAG_USE_ALPHA;
+			matlist_00122894_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
+			matlist_000E7180_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			matlist_00133D3C[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 6].Flags = 0x80040000; //Water workaround
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 7].Flags = 0x80040000; //Water workaround
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 8].Flags = 0x80040000; //Water workaround
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 1].Flags = 0x00000000; //SA1 water
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x80000000; //SADX sea bottom
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 3].Flags = 0x00000002; //Sewers water
@@ -62,7 +68,13 @@ extern "C"
 		}
 		else
 		{
+			matlist_00123C24[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+			matlist_00122894_2[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+			matlist_000E7180_2[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 			matlist_00133D3C[0].attrflags |= NJD_FLAG_USE_ALPHA;
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 6].Flags = 0x80000000; //Water workaround
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 7].Flags = 0x80000000; //Water workaround
+			collist_000DA99C[LengthOfArray(collist_000DA99C) - 8].Flags = 0x80000000; //Water workaround
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 1].Flags = 0x80040000; //SA1 water
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x00000000; //SADX sea bottom
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 3].Flags = 0x80000002; //Sewers water
