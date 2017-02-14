@@ -138,7 +138,7 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 				CurrentFogColor.g = CurrentFogColor.g - 8;
 				CurrentFogColor.b = CurrentFogColor.b - 8;
 			}
-			if (CurrentFogColor.r < 7 && CurrentFogColor.r > 0)
+			if (CurrentFogColor.r <= 7 && CurrentFogColor.r > 0)
 			{
 				CurrentFogColor.r = 0;
 				CurrentFogColor.g = 0;
