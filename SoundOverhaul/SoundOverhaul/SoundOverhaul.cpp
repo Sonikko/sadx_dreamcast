@@ -10,7 +10,13 @@ SoundFileInfo E101mkIISoundList_list[] = {
 	{ 5, "" }
 };
 
+
+SoundFileInfo soundlist97_list[] = {
+	{ 6, "E_00BF" }
+};
+
 SoundList E101mkIISoundList = { arraylengthandptr(E101mkIISoundList_list) };
+SoundList soundlist97 = { arraylengthandptr(soundlist97_list) };
 
 extern "C"
 {
@@ -18,6 +24,7 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 		*(SoundList*)0x90FDD0 = E101mkIISoundList;
+		*(SoundList*)0x90FFB8 = soundlist97;
 		WriteData((void*)0x0053881F, 0x90u, 2);
 	}
 }
