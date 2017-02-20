@@ -27,16 +27,20 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		landtable_0000029C.TexName = "PAST01";
 		landtable_000002C0.TexName = "PAST02";
 	}
+	DataArray(DrawDistance, DrawDist_Past1, 0x0111E540, 3);
 	DataArray(DrawDistance, DrawDist_Past2, 0x0111E558, 3);
 	DataArray(DrawDistance, DrawDist_Past3, 0x0111E570, 3);
+	DataArray(FogData, FogData_Past1, 0x0111E588, 3);
 	DataArray(FogData, FogData_Past2, 0x0111E5B8, 3);
 	DataArray(FogData, FogData_Past3, 0x0111E5E8, 3);
 	for (int i = 0; i < 3; i++)
 	{
+		FogData_Past1[i].Toggle = 0;
 		FogData_Past2[i].Toggle = 0;
 		FogData_Past3[i].Toggle = 0;
-		DrawDist_Past2[i].Maximum = -16000.0;
-		DrawDist_Past3[i].Maximum = -16000.0;
+		DrawDist_Past1[i].Maximum = -12000.0f;
+		DrawDist_Past2[i].Maximum = -16000.0f;
+		DrawDist_Past3[i].Maximum = -16000.0f;
 	}
 	HMODULE handle = GetModuleHandle(L"ADV03MODELS");
 	NJS_TEXLIST **___ADV03_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV03_TEXLISTS");
