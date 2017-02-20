@@ -37,6 +37,8 @@ DataArray(FogData, EggCarrierInside3Fog, 0x01100C78, 3);
 DataArray(FogData, EggCarrierInside4Fog, 0x01100CA8, 3);
 DataArray(FogData, EggCarrierInside5Fog, 0x01100CD8, 3);
 DataArray(FogData, EggCarrierInside6Fog, 0x01100D08, 3);
+DataArray(PVMEntry, EggCarrierObjectTexlist_Sea, 0x010F34A8, 6);
+
 HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
 HMODULE handle3 = GetModuleHandle(L"ADV01CMODELS");
 NJS_TEXLIST **___ADV01_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle2, "___ADV01_TEXLISTS");
@@ -94,12 +96,14 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	if (SADXStyleWater != 0)
 	{
+		EggCarrierObjectTexlist_Sea[1].Name = "EC_SEAW";
 		landtable_00162260.TexName = "ADV_EC00W";
 		landtable_001631F0.TexName = "ADV_EC01W";
 		landtable_00163CE8.TexName = "ADV_EC02W";
 	}
 	else
 	{
+		EggCarrierObjectTexlist_Sea[1].Name = "EC_SEA";
 		landtable_00162260.TexName = "ADV_EC00";
 		landtable_001631F0.TexName = "ADV_EC01";
 		landtable_00163CE8.TexName = "ADV_EC02";
