@@ -20,6 +20,7 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		(*(NJS_OBJECT*)0x181406C).basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2; //fix weird material colors on OUkijima
 		*(NJS_OBJECT*)0x1851CA4 = object_00140EBC; //Elevator
 		ResizeTextureList((NJS_TEXLIST*)0x180DFF4, textures_shelter0);
 		ResizeTextureList((NJS_TEXLIST*)0x17F56F4, textures_shelter1);
