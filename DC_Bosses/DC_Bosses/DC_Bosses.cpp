@@ -296,8 +296,8 @@ extern "C"
 		//SADX style water
 		if (SADXStyleWater != 0)
 		{
-			collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x00000001;
-			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x00000001;
+			collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x00000000;
+			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x00000000;
 			collist_0001E294[0].Flags = 0x00000000;
 			landtable_00000128.TexName = "EGM1LANDW";
 			landtable_00000110.TexName = "E101R_TIKEIW";
@@ -305,8 +305,8 @@ extern "C"
 		}
 		else
 		{
-			collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x80000001;
-			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x80000001;
+			collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x80000000;
+			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x80000000;
 			collist_0001E294[0].Flags = 0x80040000;
 			landtable_00000128.TexName = "EGM1LAND";
 			landtable_00000110.TexName = "E101R_TIKEI";
