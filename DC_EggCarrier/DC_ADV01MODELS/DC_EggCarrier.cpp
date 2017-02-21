@@ -181,7 +181,7 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 			matlist_00007B80[0].attr_texId = water1;
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) water1++;
 		}
-		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_0015F764[LengthOfArray(collist_0015F764)-1].Flags = 0x80000002; else collist_0015F764[LengthOfArray(collist_0015F764) - 1].Flags = 0x00000000;
+		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_0015F764[LengthOfArray(collist_0015F764)-1].Flags = 0x80000000; else collist_0015F764[LengthOfArray(collist_0015F764) - 1].Flags = 0x00000000;
 	}
 	if (CurrentLevel == 29 && CurrentAct == 1)
 	{
@@ -191,7 +191,7 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 			matlist_00007B80_1[0].attr_texId = water2;
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) water2++;
 		}
-		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x80000002; else collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x00000000;
+		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x80000000; else collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x00000000;
 	}
 	if (CurrentLevel == 29 && CurrentAct == 2)
 	{
@@ -201,7 +201,7 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 			matlist_00007B80_2[0].attr_texId = water3;
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) water3++;
 		}
-		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x80000002; else collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x00000000;
+		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x80000000; else collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x00000000;
 	}
 	if (CurrentLevel == 32 && CurrentAct == 1) PinkMonitorMode = 1;
 	if (CurrentLevel == 32 && CurrentAct != 1) PinkMonitorMode = 0;
