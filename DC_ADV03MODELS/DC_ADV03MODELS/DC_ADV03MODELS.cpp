@@ -12,6 +12,9 @@ static int animframe2 = 75;
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	//Tikal lighting fixes
+	((NJS_OBJECT*)0x008CE058)->basicdxmodel->mats[0].attrflags &= NJD_FLAG_USE_ALPHA;
+	((NJS_OBJECT*)0x008CC658)->basicdxmodel->mats[0].attrflags &= NJD_FLAG_USE_ALPHA;
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	if (SADXStyleWater != 0)
 	{

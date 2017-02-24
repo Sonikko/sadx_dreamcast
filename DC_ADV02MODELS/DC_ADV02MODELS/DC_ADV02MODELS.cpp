@@ -21,6 +21,7 @@ DataArray(FogData, MR3FogNight, 0x01103598, 3);
 DataArray(DrawDistance, MR1DrawDist, 0x011033E8, 3);
 DataArray(DrawDistance, MR2DrawDist, 0x01103400, 3);
 DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
+DataArray(DrawDistance, MR4DrawDist, 0x01103430, 3);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
@@ -70,6 +71,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		MR1DrawDist[i].Maximum = -10000.0f;
 		MR2DrawDist[i].Maximum = -10000.0f;
 		MR3DrawDist[i].Maximum = -12000.0f;
+		MR4DrawDist[i].Maximum = -4000.0f;
 	}
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
