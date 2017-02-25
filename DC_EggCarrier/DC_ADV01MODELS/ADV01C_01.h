@@ -25901,14 +25901,19 @@ COL collist_0000C670[] = {
 	{ { 129, 2, -219.75f }, 34, 0, 0, &object_00056D00, 0, 0x80000000 },
 	{ { -151.6249f, 69.99999f, 240 }, 42.06115f, 0, 0, &object_00056D34, 0, 0x80000000 },
 	{ { -151.6249f, 69.99999f, -440 }, 42.06115f, 0, 0, &object_00056D68, 0, 0x80000000 },
-	{ { 0.01697f, -6, -48.49997f }, 146.8124f, 0, 0, &object_0003B450, 0, 0x80000000 }
+	{ { 0.01697f, -6, -48.49997f }, 146.8124f, 0, 0, &object_0003B450, 0, 0x80000000 },
+	{ { -193, 100.1f, -280.5f }, 146.8124f, 0, 0, &Barrier_ReservoirRoom, 0, 0x00000000 },
+	{ { 187, 100.1f, -3 }, 146.8124f, 0, 0, &Barrier_AmmunitionRoom, 0, 0x00000000 },
+	{ { -62, 20.1f, 192 }, 146.8124f, 0, 0, &Barrier_Prison, 0, 0x00000000 },
+	{ { 0, 20.1f, 247 }, 146.8124f, 0, 0, &Barrier_HotShelter, 0, 0x00000000 },
+	{ { 62, 20.1f, 192 }, 146.8124f, 0, 0, &Barrier_E101Room, 0, 0x00000000 }
 };
 
 GeoAnimData animlist_0000D798[] = {
 	{ 0, 1, 100, &object_00032F3C, &action_animation_000330A0, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_ec31[47];
+NJS_TEXNAME textures_ec31[49];
 NJS_TEXLIST texlist_ec31 = { arrayptrandlength(textures_ec31) };
 
 LandTable landtable_0000D7B0 = { LengthOfArray(collist_0000C670), LengthOfArray(animlist_0000D798), 9, 0, collist_0000C670, animlist_0000D798, "ADV_EC31", (NJS_TEXLIST *)&texlist_ec31, 0, 0 };

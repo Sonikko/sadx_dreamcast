@@ -7,13 +7,13 @@
 #include "ADV01_3.h"
 #include "ADV01_4.h"
 #include "ADV01_5.h"
+#include "EC_Objects.h"
 #include "ADV01C_00.h"
 #include "ADV01C_01.h"
 #include "ADV01C_02.h"
 #include "ADV01C_03.h"
 #include "ADV01C_04.h"
 #include "ADV01C_05.h"
-#include "EC_Objects.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(__int16, EggCarrierSunk_CharacterFlag, 0x0090A41C);
@@ -38,7 +38,8 @@ DataArray(FogData, EggCarrierInside4Fog, 0x01100CA8, 3);
 DataArray(FogData, EggCarrierInside5Fog, 0x01100CD8, 3);
 DataArray(FogData, EggCarrierInside6Fog, 0x01100D08, 3);
 DataArray(PVMEntry, EggCarrierObjectTexlist_Sea, 0x010F34A8, 6);
-
+DataPointer(int, DroppedFrames, 0x03B1117C);
+FunctionPointer(Sint32, SetTextureToLevelObj, (), 0x00420FC0);
 HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
 HMODULE handle3 = GetModuleHandle(L"ADV01CMODELS");
 NJS_TEXLIST **___ADV01_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle2, "___ADV01_TEXLISTS");
@@ -51,6 +52,7 @@ NJS_OBJECT **___ADV01EC00_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___A
 NJS_MODEL_SADX **___ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle3, "___ADV01C_MODELS");
 static bool PinkMonitorMode = 0;
 static bool CurrentlyPink = 0;
+
 //FunctionPointer(void, sub_10001050, (NJS_OBJECT*), (handle2+0x1050));
 //void(__cdecl* sub_10001050)(NJS_OBJECT*) = (void(__cdecl*)(NJS_OBJECT*))(handle2 + 0x1050);
 void(__cdecl* sub_10001050)(NJS_OBJECT*) = nullptr;
@@ -172,6 +174,32 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 
 extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 {
+	if (CurrentLevel == 32 && GameState != 16)
+	{
+		//EC Interior barrier stuff
+		//Water reservoir and armory
+		if (CurrentCharacter == 6)
+		{
+		collist_0000C670[LengthOfArray(collist_0000C670) - 4].Flags = 0x00000000;
+		collist_0000C670[LengthOfArray(collist_0000C670) - 5].Flags = 0x00000000;
+		}
+		else
+		{
+		collist_0000C670[LengthOfArray(collist_0000C670) - 4].Flags = 0x81040000;
+		collist_0000C670[LengthOfArray(collist_0000C670) - 5].Flags = 0x81040000;
+		}
+		//Hot Shelter room
+		if (CurrentCharacter != 5 && CurrentCharacter != 6 && CurrentCharacter != 7) collist_0000C670[LengthOfArray(collist_0000C670) - 2].Flags = 0x81040000; //Lock Hot Shelter room for everyone but Amy, Big and Gamma
+		if (CurrentCharacter == 5 || CurrentCharacter == 7) collist_0000C670[LengthOfArray(collist_0000C670) - 2].Flags = 0x00000000; //Unlock Hot Shelter room for Amy and Big
+		if (CurrentCharacter == 6 && GetEventFlag(EventFlags_Gamma_RedMountainClear)) collist_0000C670[LengthOfArray(collist_0000C670) - 2].Flags = 0x00000000; //Unlock Hot Shelter room for Gamma
+		//Hedgehog Hammer room
+		if (CurrentCharacter == 5 || CurrentCharacter == 6 || CurrentCharacter == 7) collist_0000C670[LengthOfArray(collist_0000C670) - 3].Flags = 0x00000000; //Unlock prison room for Amy, Big and Gamma
+		else collist_0000C670[LengthOfArray(collist_0000C670) - 3].Flags = 0x81040000; //Lock prison room for everyone else
+		//E101 Beta room
+		if (CurrentCharacter != 6) collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x81040000; //Lock E101 Beta room for everyone but Gamma
+		if (CurrentCharacter == 6 && GetEventFlag(EventFlags_Gamma_JetBooster))	collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x81040000; //Lock E101 Beta room for Gamma
+		if (CurrentCharacter == 6 && !GetEventFlag(EventFlags_Gamma_JetBooster)) collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x00000000; //Unlock E101 Beta room for Gamma
+	}
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	if (CurrentLevel == 29 && CurrentAct == 0)
 	{
