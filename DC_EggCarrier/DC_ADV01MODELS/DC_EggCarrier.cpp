@@ -177,7 +177,7 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 	if (CurrentLevel == 32 && GameState != 16)
 	{
 		//EC Interior barrier stuff
-		//Water reservoir and armory
+		//Water reservoir and Ammunition Room
 		if (CurrentCharacter == 6)
 		{
 		collist_0000C670[LengthOfArray(collist_0000C670) - 4].Flags = 0x00000000;
@@ -185,19 +185,20 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 		}
 		else
 		{
-		collist_0000C670[LengthOfArray(collist_0000C670) - 4].Flags = 0x81040000;
-		collist_0000C670[LengthOfArray(collist_0000C670) - 5].Flags = 0x81040000;
+		collist_0000C670[LengthOfArray(collist_0000C670) - 4].Flags = 0x80040000;
+		collist_0000C670[LengthOfArray(collist_0000C670) - 5].Flags = 0x80040000;
 		}
 		//Hot Shelter room
-		if (CurrentCharacter != 5 && CurrentCharacter != 6 && CurrentCharacter != 7) collist_0000C670[LengthOfArray(collist_0000C670) - 2].Flags = 0x81040000; //Lock Hot Shelter room for everyone but Amy, Big and Gamma
+		if (CurrentCharacter != 5 && CurrentCharacter != 6 && CurrentCharacter != 7) collist_0000C670[LengthOfArray(collist_0000C670) - 2].Flags = 0x80040000; //Lock Hot Shelter room for everyone but Amy, Big and Gamma
 		if (CurrentCharacter == 5 || CurrentCharacter == 7) collist_0000C670[LengthOfArray(collist_0000C670) - 2].Flags = 0x00000000; //Unlock Hot Shelter room for Amy and Big
+		if (CurrentCharacter == 6 && !GetEventFlag(EventFlags_Gamma_RedMountainClear)) collist_0000C670[LengthOfArray(collist_0000C670) - 2].Flags = 0x80040000; //Lock Hot Shelter room for Gamma
 		if (CurrentCharacter == 6 && GetEventFlag(EventFlags_Gamma_RedMountainClear)) collist_0000C670[LengthOfArray(collist_0000C670) - 2].Flags = 0x00000000; //Unlock Hot Shelter room for Gamma
 		//Hedgehog Hammer room
 		if (CurrentCharacter == 5 || CurrentCharacter == 6 || CurrentCharacter == 7) collist_0000C670[LengthOfArray(collist_0000C670) - 3].Flags = 0x00000000; //Unlock prison room for Amy, Big and Gamma
-		else collist_0000C670[LengthOfArray(collist_0000C670) - 3].Flags = 0x81040000; //Lock prison room for everyone else
+		else collist_0000C670[LengthOfArray(collist_0000C670) - 3].Flags = 0x80040000; //Lock prison room for everyone else
 		//E101 Beta room
-		if (CurrentCharacter != 6) collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x81040000; //Lock E101 Beta room for everyone but Gamma
-		if (CurrentCharacter == 6 && GetEventFlag(EventFlags_Gamma_JetBooster))	collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x81040000; //Lock E101 Beta room for Gamma
+		if (CurrentCharacter != 6) collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x80040000; //Lock E101 Beta room for everyone but Gamma
+		if (CurrentCharacter == 6 && GetEventFlag(EventFlags_Gamma_JetBooster))	collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x80040000; //Lock E101 Beta room for Gamma
 		if (CurrentCharacter == 6 && !GetEventFlag(EventFlags_Gamma_JetBooster)) collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x00000000; //Unlock E101 Beta room for Gamma
 	}
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
