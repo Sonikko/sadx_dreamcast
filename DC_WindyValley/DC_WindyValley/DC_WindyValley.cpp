@@ -35,7 +35,7 @@ extern "C" __declspec(dllexport) void cdecl Init()
 	((NJS_OBJECT*)0xC06A94)->evalflags |= NJD_EVAL_HIDE;
 	for (int i = 0; i < 3; i++)
 	{
-		DrawDist_WindyValley1[i].Maximum = -5200.0f;
+		DrawDist_WindyValley1[i].Maximum = -8000.0f;
 		FogData_Windy1[i].Distance = 12000.0f;
 		FogData_Windy1[i].Layer = 1000.0f;
 		FogData_Windy1[i].Color = 0xFFFFFFFF;
