@@ -56,7 +56,7 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 {
 	if (CurrentLevel == 2 && CurrentAct == 0)
 	{
-		if (GameState == 3)
+		if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
 		{
 			TornadoActive = 0;
 			fadeout = 255;
