@@ -27122,7 +27122,94 @@ NJS_MATERIAL matlist_00045294[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 46, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_FLIP_V | NJD_FLAG_FLIP_U | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 3, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 51, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
-	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 3, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_DA_INV_SRC | NJD_SA_SRC }
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 2, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+
+NJS_TEX uv_000F9DF0Z[] = {
+	{ 125, 253 },
+	{ 125, 1 },
+	{ 1, 253 },
+	{ 1, 1 },
+	{ 1, 1 },
+	{ 1, 253 },
+	{ 125, 1 },
+	{ 125, 253 },
+	{ 125, 253 },
+	{ 125, 1 },
+	{ 1, 253 },
+	{ 1, 1 },
+	{ 1, 1 },
+	{ 1, 253 },
+	{ 125, 1 },
+	{ 125, 253 },
+	{ 125, 253 },
+	{ 125, 1 },
+	{ 1, 253 },
+	{ 1, 1 },
+	{ 1, 1 },
+	{ 1, 253 },
+	{ 125, 1 },
+	{ 125, 253 },
+	{ 125, 253 },
+	{ 125, 1 },
+	{ 1, 253 },
+	{ 1, 1 },
+	{ 1, 1 },
+	{ 1, 253 },
+	{ 125, 1 },
+	{ 125, 253 },
+	{ 125, 253 },
+	{ 125, 1 },
+	{ 1, 253 },
+	{ 1, 1 },
+	{ 1, 1 },
+	{ 1, 253 },
+	{ 125, 1 },
+	{ 125, 253 },
+	{ 125, 253 },
+	{ 125, 1 },
+	{ 1, 253 },
+	{ 1, 1 },
+	{ 1, 1 },
+	{ 1, 253 },
+	{ 125, 1 },
+	{ 125, 253 },
+	{ 125, 253 },
+	{ 125, 1 },
+	{ 1, 253 },
+	{ 1, 1 },
+	{ 1, 1 },
+	{ 1, 253 },
+	{ 125, 1 },
+	{ 125, 253 },
+	{ 125, 253 },
+	{ 125, 1 },
+	{ 1, 253 },
+	{ 1, 1 },
+	{ 1, 1 },
+	{ 1, 253 },
+	{ 125, 1 },
+	{ 125, 253 }
+};
+
+Sint16 poly_000F9740Z[] = {
+	4, 24, 16, 23, 15,
+	4, 28, 20, 27, 19,
+	4, 32, 24, 31, 23,
+	4, 36, 28, 35, 27,
+	4, 40, 32, 39, 31,
+	4, 44, 36, 43, 35,
+	4, 48, 40, 47, 39,
+	4, 52, 44, 51, 43,
+	4, 56, 48, 55, 47,
+	4, 60, 52, 59, 51,
+	4, 64, 56, 63, 55,
+	4, 68, 60, 67, 59,
+	4, 72, 64, 71, 63,
+	4, 76, 68, 75, 67,
+	4, 16, 72, 15, 71,
+	4, 20, 76, 19, 75
 };
 
 Sint16 poly_00045320[] = {
@@ -27422,7 +27509,7 @@ NJS_MESHSET_SADX meshlist_0004587C[] = {
 	{ NJD_MESHSET_TRIMESH | 3, 16, poly_000453B4, NULL, NULL, NULL, uv_0004563C, NULL },
 	{ NJD_MESHSET_TRIMESH | 4, 8, poly_00045454, NULL, NULL, NULL, uv_0004573C, NULL },
 	{ NJD_MESHSET_TRIMESH | 5, 8, poly_000454B4, NULL, NULL, NULL, uv_000457DC, NULL },
-	{ NJD_MESHSET_TRIMESH | 6, 1, poly_00045514, NULL, NULL, NULL, NULL, NULL }
+	{ NJD_MESHSET_TRIMESH | 6, 16, poly_000F9740Z, NULL, NULL, NULL, uv_000F9DF0Z, NULL }
 };
 
 NJS_VECTOR vertex_00045924[] = {
