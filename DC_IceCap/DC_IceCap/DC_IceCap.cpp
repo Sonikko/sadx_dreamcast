@@ -31,7 +31,7 @@ extern "C"
 		LandTable *lt = (LandTable *)0x0E3E024; COL *tmp = new COL[171+LengthOfArray(collist_000180D8)];
 		memcpy(tmp, lt->COLList, sizeof(COL) * lt->COLCount);
 		lt->COLList = tmp; lt->COLCount = 171 + LengthOfArray(collist_000180D8);
-		for (int inv = 0; inv < 170; inv++)
+		for (int inv = 0; inv < 171; inv++)
 		{
 			((LandTable *)0x0E3E024)->COLList[inv].Flags &= ~ColFlags_Visible;
 		}
