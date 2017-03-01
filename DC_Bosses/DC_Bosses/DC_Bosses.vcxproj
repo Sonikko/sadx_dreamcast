@@ -149,6 +149,7 @@
     <ClInclude Include="Chaos0_Landtable.h" />
     <ClInclude Include="Chaos0_policecar.h" />
     <ClInclude Include="Chaos2.h" />
+    <ClInclude Include="Chaos2_PC.h" />
     <ClInclude Include="Chaos4.h" />
     <ClInclude Include="Chaos4_water.h" />
     <ClInclude Include="Chaos6_Act1.h" />

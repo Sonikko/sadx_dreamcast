@@ -87,6 +87,9 @@
     <ClInclude Include="EggHornet_Model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Chaos2_PC.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

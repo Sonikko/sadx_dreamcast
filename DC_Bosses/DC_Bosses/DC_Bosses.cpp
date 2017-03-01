@@ -6,7 +6,7 @@
 #include "Chaos0_Landtable.h"
 #include "Chaos0_PoliceCar.h"
 #include "Chaos0_Model.h"
-#include "Chaos2.h"
+#include "Chaos2_PC.h"
 #include "Chaos4_water.h"
 #include "Chaos4.h"
 #include "Chaos6_Act1.h"
@@ -89,6 +89,7 @@ NJS_MOTION animation_0004CEA0 = { animation_0004CEA0_mdat, 8, NJD_MTYPE_POS_0 | 
 
 PointerInfo pointers[] = {
 	//ptrdecl(0x7D1CC0, &landtable_0000028C), //Chaos 2 DC
+	ptrdecl(0x7D1CC0, &landtable_00D2136C), //Chaos 2 PC
 	ptrdecl(0x7D1CD6, &landtable_00000238), //Chaos 4
 	ptrdecl(0x7D1CEC, &landtable_00000318), // Chaos 6 Act 1
 	ptrdecl(0x7D1CF6, &landtable_0000033C), //Chaos 6 Act 2
@@ -104,7 +105,7 @@ PointerInfo pointers[] = {
 //Perfect Chaos damage functions
 void __cdecl sub_5633A0(ObjectMaster *a1)
 {
-	a1->Data1->field_C = 5;
+	a1->Data1->field_C = FrameCounter;
 	a1->MainSub = sub_563370;
 	//a1->DisplaySub = sub_5632F0;
 	a1->Data1->field_C = 0;
@@ -123,8 +124,10 @@ void __cdecl sub_563370Z(ObjectMaster *a1)
 {
 	EntityData1 *v1; // eax@1
 	int v2; // st7@1
+	int v3;
 	v1 = a1->Data1;
 	v2 = a1->Data1->field_C;
+	v3 = FrameCounter - v2;
 	if (v2 >= 16) 
 	{
 		CheckThingButThenDeleteObject(a1);
@@ -144,7 +147,7 @@ void __cdecl sub_563370Z(ObjectMaster *a1)
 		njPopMatrix(1u);
 		ToggleStageFog();
 	}
-	if (FrameCounter % 2 == 0 ) v2++;
+	if (v3 % 2 == 0 ) v2++;
 	a1->Data1->field_C = v2;
 	}
 }
@@ -155,12 +158,31 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		//Perfect Chaos damage functions
-		//WriteJump((void*)0x563370, sub_563370Z);
-		//WriteJump((void*)0x5632F0, sub_5632F0X);
-		//WriteJump((void*)0x5633A0, sub_5633A0);
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
-		//E102 Beta lighting fix
+		//Perfect Chaos damage functions
+		/*
+		WriteJump((void*)0x563370, sub_563370Z);
+		WriteJump((void*)0x5632F0, sub_5632F0X);
+		WriteJump((void*)0x5633A0, sub_5633A0);
+		*/
+		//Disable Chaos 2 columns
+		((NJS_OBJECT *)0x11863EC)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118C944)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118C978)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118C9AC)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118C9E0)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118CA14)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118CA48)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118CA7C)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118CAB0)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118CAE4)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118CB18)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118CB4C)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118CB80)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118CBB4)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118CBE8)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118C910)->evalflags |= NJD_EVAL_HIDE;
+		//E101 Beta lighting fix
 		((NJS_OBJECT*)0x014D857C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x014D857C)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x014D887C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -312,23 +334,6 @@ extern "C"
 			landtable_00000110.TexName = "E101R_TIKEI";
 			landtable_00000180.TexName = "E101R_TIKEI";
 		}
-		//Chaos 2 SADX column objects
-	/*	((LandTable *)0x112136C)->COLList[2].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[3].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[4].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[5].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[6].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[7].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[8].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[9].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[10].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[11].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[12].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[13].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[14].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[15].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[16].Flags = 0x00040000;
-		((LandTable *)0x112136C)->COLList[17].Flags = 0x00040000;*/
 		WriteData((void*)0x00557009, 0x90, 16); //Kill Chaos 6 skybox animation
 		WriteData((void*)0x00557073, 0x0, 2); // Chaos 6 skybox scale 1
 		WriteData((void*)0x00557078, 0x0, 2); // Chaos 6 skybox scale 2
@@ -346,10 +351,6 @@ extern "C"
 		((LandTable *)0x11EDE38)->COLList = collist_0014AFB4; //Chaos6 COL list
 		((LandTable *)0x11EDE38)->COLCount = LengthOfArray(collist_0014AFB4); //Chaos6 COL list
 		memcpy((void*)0x011EDE20, &animlist_0014B62C, sizeof(animlist_0014B62C)); // Chaos6 animlist
-		memcpy((void*)0x01183F04, &object_0006B438, sizeof(object_0006B438)); // Chaos2 1 
-		memcpy((void*)0x0118440C, &object_0006B890, sizeof(object_0006B890)); // Chaos2 2
-		object_0006B890.basicdxmodel->mats[0].attr_texId = 11; //Chaos2 BG object fixes
-		object_0006B438.basicdxmodel->mats[0].attr_texId = 0; //Chaos2 BG object fixes
 		//*(NJS_OBJECT*)0x1561A70 = object_000104E8; //Egg Hornet model
 		DataArray(FogData, Chaos2Fog, 0x01120638, 3);
 		DataArray(FogData, Chaos6SFog, 0x011EF0E8, 3);
