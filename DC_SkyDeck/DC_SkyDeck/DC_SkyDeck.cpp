@@ -16,20 +16,10 @@ void __cdecl sub_5F29B0()
 	DataPointer(int, dword_3B36D48, 0x03B36D48);
 	int i; // ecx@1
 	char *ptr; // eax@2
-
-	i = landtable_00021094.COLCount;
-	if (landtable_00021094.COLCount > 0)
+	for (int i = 0; i < landtable_00021094.COLCount; i++)
 	{
-		ptr = (char *)&landtable_00021094.COLList->Flags;
-		do
-		{
-			if (*(ptr - 4) & 4)
-			{
-				*(DWORD *)ptr &= ~ColFlags_Solid;
-			}
-			ptr += 36;
-			--i;
-		} while (i);
+		if (landtable_00021094.COLList[i].anonymous_6 & 4)
+			landtable_00021094.COLList[i].Flags &= ~ColFlags_Solid;
 	}
 	dword_3B36D48 &= ~ColFlags_Water;
 }
@@ -96,6 +86,17 @@ extern "C" __declspec(dllexport) void cdecl Init()
 
 extern "C" __declspec(dllexport) void cdecl OnFrame()
 {
+	if (CurrentLevel == 6 && CurrentAct == 1)
+	{
+		{
+			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
+		for (int i = 0; i < landtable_00021094.COLCount; i++)
+		{
+			if (landtable_00021094.COLList[i].anonymous_6 & 4)
+				landtable_00021094.COLList[i].Flags |= ColFlags_Solid;
+		}
+		}
+	}
 	if (CurrentLevel == 6 && CurrentAct == 2)
 	{
 		CurrentSkyBoxScaleX = 1.0f;
