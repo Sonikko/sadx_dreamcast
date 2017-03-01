@@ -11,6 +11,29 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DAD0, &landtable_00023EB4)
 };
 
+void __cdecl sub_5F29B0()
+{
+	DataPointer(int, dword_3B36D48, 0x03B36D48);
+	int i; // ecx@1
+	char *ptr; // eax@2
+
+	i = landtable_00021094.COLCount;
+	if (landtable_00021094.COLCount > 0)
+	{
+		ptr = (char *)&landtable_00021094.COLList->Flags;
+		do
+		{
+			if (*(ptr - 4) & 4)
+			{
+				*(DWORD *)ptr &= ~ColFlags_Solid;
+			}
+			ptr += 36;
+			--i;
+		} while (i);
+	}
+	dword_3B36D48 &= ~ColFlags_Water;
+}
+
 DataPointer(float, SkyDeckAltitude, 0x03C80610); //0 to 700
 DataPointer(float, CurrentSkyBoxScaleX, 0x03ABDC94);
 DataPointer(float, CurrentSkyBoxScaleY, 0x03ABDC98);
@@ -26,6 +49,7 @@ DataPointer(NJS_OBJECT, rail6, 0x216F134);
 DataPointer(NJS_OBJECT, rail7, 0x2171694);
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	WriteJump((void*)0x5F29B0, sub_5F29B0);
 	((NJS_OBJECT *)0x214BF20)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_2;
 	((NJS_OBJECT *)0x214E3AC)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_3;
 	*(NJS_OBJECT *)0x214FB74 = object_000FF4A4; //Cannon in Act 1
