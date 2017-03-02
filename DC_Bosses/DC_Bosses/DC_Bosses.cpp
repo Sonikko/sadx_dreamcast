@@ -158,6 +158,7 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		*(NJS_TEXLIST**)0x02BD5FE4 = (NJS_TEXLIST*)0x02EE0AA4;
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		//Perfect Chaos damage functions
 		/*
