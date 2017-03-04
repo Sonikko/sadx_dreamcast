@@ -20,6 +20,7 @@ DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
 DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 DataPointer(int, CurrentFogToggle, 0x03ABDC6C);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
+DataPointer(float, EC1OceanYShift, 0x010C85A8);
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA28, &landtable_00081554),
@@ -91,6 +92,24 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 	if (CurrentLevel == 1 && CurrentAct == 0 && GameState != 16)
 		{
 			HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
+			if (EC1OceanYShift > -1.4f)
+			{
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 1].Flags = 0x80000002;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 2].Flags = 0x80000002;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 3].Flags = 0x80000002;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 4].Flags = 0x80000002;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 5].Flags = 0x80000002;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 6].Flags = 0x80000002;
+			}
+			else
+			{
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 1].Flags = 0x80000402;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 2].Flags = 0x80000402;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 3].Flags = 0x80000402;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 4].Flags = 0x80000402;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 5].Flags = 0x80000402;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 6].Flags = 0x80000402;
+			}
 			if (water_anim > 26) water_anim = 17;
 			if (anim1 > 96) anim1 = 82;
 			if (anim2 > 81) anim2 = 67;
