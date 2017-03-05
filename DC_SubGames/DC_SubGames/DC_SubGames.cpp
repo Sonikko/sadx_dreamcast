@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "SandHill.h"
 #include "TwinkleCircuit.h"
 #include "ECModel.h"

@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "button.h"
 #include "ADV_MR00 (Station area).h"
 #include "ADV_MR01 (Angel Island).h"

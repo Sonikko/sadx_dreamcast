@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "ADVSS00 (City Hall).h"
 #include "ADVSS01 (Casino Area).h"
 #include "ADVSS02 (Sewers).h"

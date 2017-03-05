@@ -39,7 +39,6 @@ DataArray(FogData, EggCarrierInside5Fog, 0x01100CD8, 3);
 DataArray(FogData, EggCarrierInside6Fog, 0x01100D08, 3);
 DataArray(PVMEntry, EggCarrierObjectTexlist_Sea, 0x010F34A8, 6);
 DataPointer(int, DroppedFrames, 0x03B1117C);
-FunctionPointer(Sint32, SetTextureToLevelObj, (), 0x00420FC0);
 HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
 HMODULE handle3 = GetModuleHandle(L"ADV01CMODELS");
 NJS_TEXLIST **___ADV01_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle2, "___ADV01_TEXLISTS");

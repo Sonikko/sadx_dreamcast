@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "Tornado1.h"
 #include "Tornado1hit.h"
 #include "Tornado2.h"
