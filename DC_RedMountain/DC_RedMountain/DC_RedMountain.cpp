@@ -1,6 +1,6 @@
 #include "stdafx.h"
 #include "math.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "Mountain1.h"
 #include "Mountain2.h"
 #include "Mountain3.h"
@@ -16,7 +16,6 @@ DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(signed int, ClipLevel, 0x03ABDCF0);
 DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 DataPointer(NJS_TEXLIST, OBJ_MOUNTAIN_TEXLIST, 0x024208A8);
-FunctionPointer(void, SetMaterialAndSpriteColor, (NJS_ARGB *a1), 0x00402F40);
 FunctionPointer(double, sub_789320, (float), 0x789320);
 
 void __cdecl sub_600BF0(ObjectMaster *a1, NJS_OBJECT *a2)

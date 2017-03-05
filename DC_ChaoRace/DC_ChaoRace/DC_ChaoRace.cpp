@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "ChaoRace.h"
 #include "ChaoRaceEntry.h"
 PointerInfo pointers[] = {

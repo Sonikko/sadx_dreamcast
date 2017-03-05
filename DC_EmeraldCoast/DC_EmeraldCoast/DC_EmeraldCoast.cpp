@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "EmeraldCoast1_PC.h"
 #include "EmeraldCoast1.h"
 #include "EmeraldCoast2.h"

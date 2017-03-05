@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 
 
 SoundFileInfo E101mkIISoundList_list[] = {

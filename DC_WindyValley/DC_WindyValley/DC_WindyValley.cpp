@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "windy1.h"
 #include "windy2.h"
 #include "windy3.h"

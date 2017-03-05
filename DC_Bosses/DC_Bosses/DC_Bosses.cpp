@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "EggHornet.h"
 #include "EggWalker.h"
 #include "EggViper.h"

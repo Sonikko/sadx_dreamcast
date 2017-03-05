@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "Casino_objects.h"
 #include "Casino1.h"
 #include "Casino2.h"
@@ -14,7 +14,6 @@ FunctionPointer(void, sub_5DD900, (int a1, int a2), 0x5DD900);
 FunctionPointer(void, sub_5DD920, (int a1, int a2), 0x5DD920);
 FunctionPointer(void, sub_5C09D0, (int a1), 0x5C09D0);
 FunctionPointer(bool, IsVisible2, (NJS_VECTOR *center, float radius), 0x00403330);
-FunctionPointer(void, SetMaterialAndSpriteColor, (NJS_ARGB *a1), 0x00402F40);
 
 DataPointer(ObjectMaster*, off_1E75DC8, 0x01E75DC8);
 DataPointer(ObjectMaster*, off_1E75DE0, 0x01E75DE0);

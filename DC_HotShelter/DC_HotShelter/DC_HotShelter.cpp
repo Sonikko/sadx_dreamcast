@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "WaterStuff.h"
 #include "HotShelter1.h"
 #include "HotShelter2.h"

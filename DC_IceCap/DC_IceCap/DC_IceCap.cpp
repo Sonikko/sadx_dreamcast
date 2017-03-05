@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "Icicle.h"
 #include "IceCap1.h"
 #include "IceCap2.h"
@@ -9,7 +9,6 @@
 
 DataPointer(int, MissedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-FunctionPointer(Sint32, SetTextureToLevelObj, (), 0x00420FC0);
 static int animframe = 41;
 
 PointerInfo pointers[] = {
