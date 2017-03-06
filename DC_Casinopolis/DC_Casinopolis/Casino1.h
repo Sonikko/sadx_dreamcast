@@ -33348,7 +33348,9 @@ COL collist_00023DA0K[] = {
 	{ { -336.57, -195.7, 176.35 }, 0, 0, 0, &light5, 0, 0xA1000000 },
 	{ { -363.88, -195.7, 109.72 }, 0, 0, 0, &light6, 0, 0xA1000000 },
 	{ { 311.62, 0, 338.93 }, 0, 0, 0, &object_01A74A94Z, 0, 0xC2040000 }, //neon k
-	{ { 0, 32.5f, -256.5f }, 215.4356f, 0, 0, &object_000506DC, 0, 0x80000000 } //fence
+	{ { 0, 32.5f, -256.5f }, 215.4356f, 0, 0, &object_000506DC, 0, 0x80000000 }, //fence
+	{ { 271.24f, -131.39f, 121.96f }, 200, 0, 0, &object_01A3FD04, 0, 0x80000000 }, //O KBS
+	{ { -105.87f, -142.39f, 252.9f }, 200, 0, 0, &object_01A3D734, 0, 0x80000000 }, //O KBC
 };
 
 COL collist_00023DA0S[] = {
@@ -33591,9 +33593,11 @@ COL collist_00023DA0S[] = {
 	{ { -367.47, -152.7, 150.38 }, 0, 0, 0, &object_01A47CA4, 0, 0x84040000 }, //Mizu A
 	{ { -294.3481f, -11.99954f, 86.71259f }, 589.6112f, 0, 0, &object_019798D4, 0, 0x80000000 }, //water under ship
 	{ { 0, 32.5f, -256.5f }, 215.4356f, 0, 0, &object_000506DC, 0, 0x80000000 }, //fence
+	{ { 271.24f, -131.39f, 121.96f }, 200, 0, 0, &object_01A3FD04, 0, 0x80000000 }, //O KBS
+	{ { -105.87f, -142.39f, 252.9f }, 200, 0, 0, &object_01A3D734, 0, 0x80000000 }, //O KBC
 };
 
-NJS_TEXNAME textures_casino1[135];
+NJS_TEXNAME textures_casino1[136];
 NJS_TEXLIST texlist_casino1 = { arrayptrandlength(textures_casino1) };
 
 LandTable landtable_00025EAC = { LengthOfArray(collist_00023DA0K), 0, 0xC, 800, collist_00023DA0K, NULL, "CASINO01", (NJS_TEXLIST *)&texlist_casino1, 0, 0 };

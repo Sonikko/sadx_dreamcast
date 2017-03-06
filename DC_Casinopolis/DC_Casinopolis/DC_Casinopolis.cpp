@@ -120,6 +120,9 @@ extern "C"
 	{
 		((NJS_OBJECT*)0x01E47B1C)->evalflags |= NJD_EVAL_HIDE; //Hide MizuB
 		((NJS_OBJECT*)0x01E47CA4)->evalflags |= NJD_EVAL_HIDE; //Hide MizuA
+		((NJS_OBJECT*)0x01E3FD04)->evalflags |= NJD_EVAL_HIDE; //Hide OKbS
+		((NJS_OBJECT*)0x01E3D734)->evalflags |= NJD_EVAL_HIDE; //Hide OKbC
+		//*(NJS_OBJECT*)0x01E49864 = object_001C6E9C;
 		WriteJump((void*)0x5C9980, OLhtg_Display);
 		WriteJump((void*)0x5C9BA0, OLhtr_Display);
 		ResizeTextureList((NJS_TEXLIST*)0x1D1B050, textures_casino1);
