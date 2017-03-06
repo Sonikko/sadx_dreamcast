@@ -79,14 +79,14 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		CurrentSkybox.x = 1.0f;
 		CurrentSkybox.y = 0.8f;
 		CurrentSkybox.z = 0.8f;
-		((NJS_OBJECT *)0x103B37C)->evalflags |= NJD_EVAL_HIDE;
+		if (((NJS_OBJECT *)0x103B37C)->evalflags & NJD_EVAL_HIDE) ((NJS_OBJECT *)0x103B37C)->evalflags &= ~NJD_EVAL_HIDE;
 	}
 	if (CurrentLevel == 1 && CurrentAct == 1)
 	{	
 		CurrentSkybox.x = 1.0f;
 		CurrentSkybox.y = 1.0f;
 		CurrentSkybox.z = 1.0f;
-		((NJS_OBJECT *)0x103B37C)->evalflags |= NJD_EVAL_HIDE;
+		if (((NJS_OBJECT *)0x103B37C)->evalflags & NJD_EVAL_HIDE) ((NJS_OBJECT *)0x103B37C)->evalflags &= ~NJD_EVAL_HIDE;
 	}
 	}
 	if (CurrentLevel == 1 && CurrentAct == 2)
@@ -94,7 +94,8 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		CurrentSkybox.x = 0.8f;
 		CurrentSkybox.y = 0.8f;
 		CurrentSkybox.z = 0.8f;
-		((NJS_OBJECT *)0x103B37C)->evalflags |= NJD_EVAL_HIDE;
+		if (((NJS_OBJECT *)0x103B37C)->evalflags & NJD_EVAL_HIDE);
+		else ((NJS_OBJECT *)0x103B37C)->evalflags |= NJD_EVAL_HIDE;
 	}
 	if (CurrentLevel == 1 && GameState != 16)
 	{
