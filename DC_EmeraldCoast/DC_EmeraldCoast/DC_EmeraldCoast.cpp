@@ -33,6 +33,7 @@ extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlengt
 extern "C" __declspec(dllexport) void __cdecl Init()
 {
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
+	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
 	DataArray(PVMEntry, BeachTexlists, 0x0102F408, 25);
 	DataArray(DrawDistance, DrawDist_EmeraldCoast1, 0x00E99D94, 3);
 	DataArray(DrawDistance, DrawDist_EmeraldCoast2, 0x00E99DAC, 3);
@@ -50,33 +51,43 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	ResizeTextureList((NJS_TEXLIST*)0xE9A4CC, textures_ecoast3);
 	for (int i = 0; i < 3; i++)
 	{
-		DrawDist_EmeraldCoast1[i].Maximum = -6000.0f;
-		DrawDist_EmeraldCoast2[i].Maximum = -3900.0f;
 		DrawDist_EmeraldCoast3[i].Maximum = -4000.0f;
-		EmeraldCoast1Fog[i].Toggle = 0;
-		EmeraldCoast2Fog[i].Toggle = 0;
 		EmeraldCoast3Fog[i].Toggle = 0;
 		EmeraldCoast3Fog[i].Layer = -300.0f;
 		EmeraldCoast3Fog[i].Distance = -3000.0f;
 		EmeraldCoast3Fog[i].Color = 0xFFFFFFFF;
 	}
+	if (IamStupidAndIWantFuckedUpOcean == 0)
+	{
+		for (int i = 0; i < 3; i++)
+		{
+			DrawDist_EmeraldCoast1[i].Maximum = -6000.0f;
+			DrawDist_EmeraldCoast2[i].Maximum = -3900.0f;
+			EmeraldCoast1Fog[i].Toggle = 0;
+			EmeraldCoast2Fog[i].Toggle = 0;
+		}
+	}
 }
 
 extern "C" __declspec(dllexport) void __cdecl OnFrame()
 {
+	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
+	if (IamStupidAndIWantFuckedUpOcean == 0)
+	{
 	if (CurrentLevel == 1 && CurrentAct == 0)
 	{
 		CurrentSkybox.x = 1.0f;
 		CurrentSkybox.y = 0.8f;
 		CurrentSkybox.z = 0.8f;
-		((NJS_OBJECT *)0x103B37C)->evalflags &= ~NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x103B37C)->evalflags |= NJD_EVAL_HIDE;
 	}
 	if (CurrentLevel == 1 && CurrentAct == 1)
 	{	
 		CurrentSkybox.x = 1.0f;
 		CurrentSkybox.y = 1.0f;
 		CurrentSkybox.z = 1.0f;
-		((NJS_OBJECT *)0x103B37C)->evalflags &= ~NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x103B37C)->evalflags |= NJD_EVAL_HIDE;
+	}
 	}
 	if (CurrentLevel == 1 && CurrentAct == 2)
 	{
@@ -203,11 +214,20 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		{
 			CurrentFogToggle = 1;
 			if (CurrentFogLayer < -11) CurrentFogLayer = CurrentFogLayer + 10;
+			WriteData((void*)0x004F777E, 0x90, 5); //Kill the ocean temporarily
 		}
 		else
 		{
 			if (CurrentFogLayer > -300) CurrentFogLayer = CurrentFogLayer - 10;
-			if (CurrentFogLayer <= -300 ) CurrentFogToggle = 0;
+			if (CurrentFogLayer <= -300 && CurrentFogToggle == 1)
+			{
+				CurrentFogToggle = 0;
+				WriteData((void*)0x004F777E, 0xE8, 1); //Restore the ocean
+				WriteData((void*)0x004F777F, 0xBD, 1); //Restore the ocean
+				WriteData((void*)0x004F7780, 0xD0, 1); //Restore the ocean
+				WriteData((void*)0x004F7781, 0xF0, 1); //Restore the ocean
+				WriteData((void*)0x004F7782, 0xFF, 1); //Restore the ocean
+			}
 		}
 			if (anim5 > 64) anim5 = 50;
 			if (anim6 > 79) anim6 = 65;
