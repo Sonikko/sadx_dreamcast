@@ -118,13 +118,14 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		((NJS_OBJECT*)0x01E47B1C)->evalflags |= NJD_EVAL_HIDE; //Hide MizuB
+		((NJS_OBJECT*)0x01E47CA4)->evalflags |= NJD_EVAL_HIDE; //Hide MizuA
 		WriteJump((void*)0x5C9980, OLhtg_Display);
 		WriteJump((void*)0x5C9BA0, OLhtr_Display);
 		ResizeTextureList((NJS_TEXLIST*)0x1D1B050, textures_casino1);
 		ResizeTextureList((NJS_TEXLIST*)0x1CBD1C4, textures_casino2);
 		ResizeTextureList((NJS_TEXLIST*)0x1C8AF04, textures_casino3);
 		ResizeTextureList((NJS_TEXLIST*)0x1C47004, textures_casino4);
-		//memcpy((void*)0x01E5EC4C, &object_01A5EC4C, sizeof(object_01A5EC4C)); //ceiling light
 		*(NJS_MODEL_SADX*)0x01E74A68 = attach_01A74A68; //billboard
 		*(NJS_MODEL_SADX*)0x01E46F30 = attach_001C4DCC; //rotating thing
 		memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //light
