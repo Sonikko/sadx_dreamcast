@@ -9,6 +9,7 @@
 #include "OFinalEgg.h"
 #include "MR_train.h"
 #include "MR_Rock.h"
+#include "MR_IceCapDoor.h"
 
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
 DataArray(FogData, MR2FogDay, 0x01103478, 3);
@@ -86,6 +87,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___LANDTABLEMR[2] = &landtable_00000178;
 	___LANDTABLEMR[3] = &landtable_0000019C;
 	NJS_OBJECT **___ADV02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02_OBJECTS");
+	___ADV02_OBJECTS[23] = &object_001BACAC;
 	___ADV02_OBJECTS[64] = &object_001E87F0;
 	___ADV02_OBJECTS[68] = &object_002145D4;
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
