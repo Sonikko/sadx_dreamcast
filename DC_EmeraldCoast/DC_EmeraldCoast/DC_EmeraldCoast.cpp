@@ -105,12 +105,12 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 			HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 			if (EC1OceanYShift > -1.4f)
 			{
-				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 1].Flags = 0x80000002;
-				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 2].Flags = 0x80000002;
-				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 3].Flags = 0x80000002;
-				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 4].Flags = 0x80000002;
-				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 5].Flags = 0x80000002;
-				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 6].Flags = 0x80000002;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 1].Flags = 0x80040002;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 2].Flags = 0x80040002;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 3].Flags = 0x80040002;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 4].Flags = 0x80040002;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 5].Flags = 0x80040002;
+				collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 6].Flags = 0x80040002;
 			}
 			else
 			{
