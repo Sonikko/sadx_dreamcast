@@ -38,6 +38,9 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	DataArray(DrawDistance, DrawDist_EmeraldCoast1, 0x00E99D94, 3);
 	DataArray(DrawDistance, DrawDist_EmeraldCoast2, 0x00E99DAC, 3);
 	DataArray(DrawDistance, DrawDist_EmeraldCoast3, 0x00E99DC4, 3);
+	DataArray(NJS_VECTOR, SkyboxScale_EmeraldCoast1, 0x00E99CE0, 3);
+	DataArray(NJS_VECTOR, SkyboxScale_EmeraldCoast2, 0x00E99D04, 3);
+	DataArray(NJS_VECTOR, SkyboxScale_EmeraldCoast3, 0x00E99D28, 3);
 	DataArray(FogData, EmeraldCoast1Fog, 0x00E99DDC, 3);
 	DataArray(FogData, EmeraldCoast2Fog, 0x00E99E0C, 3);
 	DataArray(FogData, EmeraldCoast3Fog, 0x00E99E3C, 3);
@@ -61,6 +64,15 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	{
 		for (int i = 0; i < 3; i++)
 		{
+			SkyboxScale_EmeraldCoast1[i].x = 1.0f;
+			SkyboxScale_EmeraldCoast1[i].y = 0.8f;
+			SkyboxScale_EmeraldCoast1[i].z = 0.8f;
+			SkyboxScale_EmeraldCoast2[i].x = 1.0f;
+			SkyboxScale_EmeraldCoast2[i].y = 1.0f;
+			SkyboxScale_EmeraldCoast2[i].z = 1.0f;
+			SkyboxScale_EmeraldCoast3[i].x = 0.8f;
+			SkyboxScale_EmeraldCoast3[i].y = 0.8f;
+			SkyboxScale_EmeraldCoast3[i].z = 0.8f;
 			DrawDist_EmeraldCoast1[i].Maximum = -6000.0f;
 			DrawDist_EmeraldCoast2[i].Maximum = -3900.0f;
 			EmeraldCoast1Fog[i].Toggle = 0;
@@ -74,26 +86,13 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
 	if (IamStupidAndIWantFuckedUpOcean == 0)
 	{
-	if (CurrentLevel == 1 && CurrentAct == 0)
-	{
-		CurrentSkybox.x = 1.0f;
-		CurrentSkybox.y = 0.8f;
-		CurrentSkybox.z = 0.8f;
-		if (((NJS_OBJECT *)0x103B37C)->evalflags & NJD_EVAL_HIDE) ((NJS_OBJECT *)0x103B37C)->evalflags &= ~NJD_EVAL_HIDE;
-	}
-	if (CurrentLevel == 1 && CurrentAct == 1)
+	if (CurrentLevel == 1 && CurrentAct != 2)
 	{	
-		CurrentSkybox.x = 1.0f;
-		CurrentSkybox.y = 1.0f;
-		CurrentSkybox.z = 1.0f;
 		if (((NJS_OBJECT *)0x103B37C)->evalflags & NJD_EVAL_HIDE) ((NJS_OBJECT *)0x103B37C)->evalflags &= ~NJD_EVAL_HIDE;
 	}
 	}
 	if (CurrentLevel == 1 && CurrentAct == 2)
 	{
-		CurrentSkybox.x = 0.8f;
-		CurrentSkybox.y = 0.8f;
-		CurrentSkybox.z = 0.8f;
 		if (((NJS_OBJECT *)0x103B37C)->evalflags & NJD_EVAL_HIDE);
 		else ((NJS_OBJECT *)0x103B37C)->evalflags |= NJD_EVAL_HIDE;
 	}
