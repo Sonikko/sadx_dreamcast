@@ -56,7 +56,7 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 {
 	if (CurrentLevel == 2 && CurrentAct == 0)
 	{
-		if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
+		if (GameState == 3 || GameState == 4)
 		{
 			TornadoActive = 0;
 			fadeout = 255;
@@ -149,7 +149,7 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 		}
 		if (entity != nullptr && entity->Position.x > 3050 && entity->Position.z > -1520 && entity->Position.z < -1300 && entity->Position.y <= -480)
 		{
-			TornadoActive == 1;
+			TornadoActive = 1;
 			if (CurrentFogDist > 450) CurrentFogDist = CurrentFogDist - 64.0f;
 			if (CurrentFogLayer >= 64) CurrentFogLayer = CurrentFogLayer - 64.0f;
 			if (CurrentFogColor.r > 1)
