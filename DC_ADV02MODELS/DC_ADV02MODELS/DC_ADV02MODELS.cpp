@@ -136,7 +136,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		matlist_00208504[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 	}
 	auto entity = CharObj1Ptrs[0];
-	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 0)
+	if (GameState != 16 && CurrentLevel == 33 && CurrentAct == 0)
 	{
 		for (int q = 0; q < LengthOfArray(uv_00075EC0); q++)
 		{
@@ -168,13 +168,13 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		matlist_00053010[0].attr_texId = anim2;
 		matlist_00059768[0].attr_texId = anim2;
 		matlist_000594C0[0].attr_texId = anim2;
-		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+		if (FramerateSetting < 2 && FrameCounter % 5 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 		{
 			anim1++;
 			anim2++;
 		}
 	}
-	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 1)
+	if (GameState != 16 && CurrentLevel == 33 && CurrentAct == 1)
 	{
 		if (anim3 > 89) anim3 = 76;
 		matlist_000A3884[0].attr_texId = anim3;
@@ -186,7 +186,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 			anim3++;
 		}
 	}
-	if (GameState == 15 && CurrentLevel == 33 && CurrentAct == 2)
+	if (GameState != 16 && CurrentLevel == 33 && CurrentAct == 2)
 	{
 		if (Camera_Data1 != nullptr && Camera_Data1->Position.z < -548 && Camera_Data1->Position.z > -1560 && Camera_Data1->Position.x < -80 && Camera_Data1->Position.x > -900)
 		{
