@@ -1170,7 +1170,7 @@ NJS_VECTOR normal_001C06D0[] = {
 
 NJS_MODEL_SADX attach_001C11E0 = { vertex_001BFBC0, normal_001C06D0, LengthOfArray(vertex_001BFBC0), meshlist_001BFB18, matlist_001BE610, LengthOfArray(meshlist_001BFB18), LengthOfArray(matlist_001BE610),{ 0.293301f, 26.07793f, -1.650064f }, 32.56704f, NULL };
 
-NJS_TEXNAME textures5[130];
+NJS_TEXNAME textures5[139];
 NJS_TEXLIST texlist5 = { arrayptrandlength(textures5) };
 
 NJS_MATERIAL matlist_00136050[] = {
@@ -17927,6 +17927,15 @@ COL collist_00134D10[] = {
 	{ { -172.55f, 122.5f, 1915 }, 139.6057f, 0, 0, &object_00156ED0, 0, 0x80000000 },
 	{ { -172.55f, 177.5f, 1915 }, 139.6057f, 0, 0, &object_00156F04, 0, 0x80000000 },
 	{ { -731.9571f, -10.5f, 2012.492f }, 741.9803f, 0, 0, &object_00156F38, 0, 0x80000000 },
+	{ { -507.53f, 0, 1911.2f }, 560, 0, 0, &object_parasol1, 0, 0x80000000 },
+	{ { -507.53f, 0, 1911.2f }, 560, 0, 0, &object_parasol2, 0, 0x80000000 },
+	{ { -507.53f, 0, 1911.2f }, 560, 0, 0, &object_parasol3, 0, 0x80000000 },
+	{ { -507.53f, 0, 1911.2f }, 560, 0, 0, &object_parasol4, 0, 0x80000000 },
+	{ { -507.53f, 0, 1911.2f }, 560, 0, 0, &object_parasol5, 0, 0x80000000 },
+	{ { -507.53f, 0, 1911.2f }, 560, 0, 0, &object_parasol6, 0, 0x80000000 },
+	{ { -507.53f, 0, 1911.2f }, 560, 0, 0, &object_parasol7, 0, 0x80000000 },
+	{ { -507.53f, 0, 1911.2f }, 560, 0, 0, &object_parasol8, 0, 0x80000000 },
+	{ { -507.53f, 0, 1911.2f }, 560, 0, 0, &object_parasol9, 0, 0x80000000 },
 	{ { -705.9538f, 63.99175f, 2187.786f }, 92.20733f, 0, 0, &object_00154978, 0, 0x80040000 },
 	{ { -749.4633f, 63.01091f, 2109.519f }, 92.20733f, 0, 0, &object_00156F6C, 0, 0x80040100 },
 	{ { -854.6483f, 64.30426f, 2159.636f }, 92.20733f, 0, 0, &object_00156FA0, 0, 0x80040100 },

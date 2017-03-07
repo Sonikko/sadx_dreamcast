@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include "SS_PoolChair.h"
 #include "ADVSS00 (City Hall).h"
 #include "ADVSS01 (Casino Area).h"
 #include "ADVSS02 (Sewers).h"
@@ -14,7 +15,6 @@
 #include "SS_TPBall.h"
 #include "SS_train.h"
 #include "SS_box.h"
-#include "SS_PoolChair.h"
 #include "SS_Pole.h"
 #include "SS_hoteldoor.h"
 #include "SS_Boat.h"
@@ -94,12 +94,12 @@ extern "C"
 		WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting
 		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31);
 		//Objects
+		WriteData((void*)0x0063A6A4, 0x90, 5); // Pool chair
 		memcpy((void*)0x02AEE7B0, &object_0019AF04, sizeof(object_0019AF04)); // Boat
 		memcpy((void*)0x02AAB0E4, &object_00164444, sizeof(object_00164444)); // Hotel door 1
 		memcpy((void*)0x02AAE0BC, &object_00164444, sizeof(object_00164444)); // Hotel door 2
 		memcpy((void*)0x02AC9EE4, &attach_0017DDC0, sizeof(attach_0017DDC0)); // Lamp pole
 		memcpy((void*)0x02AC9840, &attach_0017D7A8, sizeof(attach_0017D7A8)); // Lamp pole
-		//memcpy((void*)0x02AD03C0, &attach_00182AB0, sizeof(attach_00182AB0)); // Pool chair
 		memcpy((void*)0x02ABDF0C, &object_00172BD4, sizeof(object_00172BD4)); // Box in the sewers
 		memcpy((void*)0x02AE8674, &object_00195DC0, sizeof(object_00195DC0)); // SS train
 		memcpy((void*)0x02AF4FC0, &object_0019F390, sizeof(object_0019F390)); // SS Police
