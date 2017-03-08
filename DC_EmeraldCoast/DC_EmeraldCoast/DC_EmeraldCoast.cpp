@@ -14,7 +14,8 @@ static int anim6 = 65;
 static int anim7 = 57;
 static int anim8 = 80;
 static int animframe = 0;
-int water_anim = 17;
+static int inside_secret_area = 0;
+static int water_anim = 17;
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
 DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
@@ -56,7 +57,7 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	{
 		DrawDist_EmeraldCoast3[i].Maximum = -4000.0f;
 		EmeraldCoast3Fog[i].Toggle = 0;
-		EmeraldCoast3Fog[i].Layer = -300.0f;
+		EmeraldCoast3Fog[i].Layer = -1200.0f;
 		EmeraldCoast3Fog[i].Distance = -3000.0f;
 		EmeraldCoast3Fog[i].Color = 0xFFFFFFFF;
 	}
@@ -209,18 +210,30 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 	}
 	if (CurrentLevel == 1 && CurrentAct == 2 && GameState != 16)
 	{
-		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
-		if (Camera_Data1 != nullptr && Camera_Data1->Position.z > 1700)
+		if (GameState == 3 || GameState == 4)
 		{
+			inside_secret_area = 0;
+			CurrentFogToggle = 0;
+			WriteData((void*)0x004F777E, 0xE8, 1); //Restore the ocean
+			WriteData((void*)0x004F777F, 0xBD, 1); //Restore the ocean
+			WriteData((void*)0x004F7780, 0xD0, 1); //Restore the ocean
+			WriteData((void*)0x004F7781, 0xF0, 1); //Restore the ocean
+			WriteData((void*)0x004F7782, 0xFF, 1); //Restore the ocean
+		}
+		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
+		if (Camera_Data1 != nullptr && Camera_Data1->Position.z > 2000)
+		{
+			inside_secret_area = 1;
 			CurrentFogToggle = 1;
-			if (CurrentFogLayer < -11) CurrentFogLayer = CurrentFogLayer + 10;
+			if (CurrentFogLayer < -21) CurrentFogLayer = CurrentFogLayer + 20;
 			WriteData((void*)0x004F777E, 0x90, 5); //Kill the ocean temporarily
 		}
 		else
 		{
-			if (CurrentFogLayer > -300) CurrentFogLayer = CurrentFogLayer - 10;
-			if (CurrentFogLayer <= -300 && CurrentFogToggle == 1)
+			if (CurrentFogLayer > -1200) CurrentFogLayer = CurrentFogLayer - 20;
+			if (CurrentFogLayer <= -1200 && CurrentFogToggle == 1)
 			{
+				inside_secret_area = 0;
 				CurrentFogToggle = 0;
 				WriteData((void*)0x004F777E, 0xE8, 1); //Restore the ocean
 				WriteData((void*)0x004F777F, 0xBD, 1); //Restore the ocean
