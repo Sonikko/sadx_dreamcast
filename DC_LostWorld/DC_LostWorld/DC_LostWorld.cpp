@@ -45,6 +45,7 @@ extern "C"
 		((NJS_OBJECT*)0x279AC80)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Some other water
 		((NJS_OBJECT*)0x279B014)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Some other water
 		WriteData((void*)0x814CB4, 0xc1c80000, 4); //LW2 fog stuff
+		WriteData((void*)0x005E315D, 0, 1); //Prevent the mirror room from disabling character lighting
 		ResizeTextureList((NJS_TEXLIST*)0x1F6F02C, textures_lw1);
 		ResizeTextureList((NJS_TEXLIST*)0x1E9B9AC, textures_lw2);
 		ResizeTextureList((NJS_TEXLIST*)0x1E79D80, textures_lw3);
