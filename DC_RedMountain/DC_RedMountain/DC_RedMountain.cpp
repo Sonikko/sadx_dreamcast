@@ -153,6 +153,7 @@ extern "C"
 			RedMountain1Fog[i].Distance = 16000.0f;
 			RedMountain1Fog[i].Toggle = 1;
 			RedMountain2Fog[i].Layer = 1000.0f;
+			RedMountain2Fog[i].Color = 0xFF000000;
 			RedMountain2Fog[i].Distance = 2400.0f;
 			RedMountain2Fog[i].Toggle = 1;
 			RedMountain3Fog[i].Color = 0xFFFFFFFF;
