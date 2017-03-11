@@ -22,6 +22,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteData((void*)0x00619545, 1, 1); //blending mode for poster
 		ResizeTextureList((NJS_TEXLIST*)0x2592E8C, textures_highway1);
 		ResizeTextureList((NJS_TEXLIST*)0x2581310, textures_highway2);
 		ResizeTextureList((NJS_TEXLIST*)0x24CAC94, textures_highway3);
