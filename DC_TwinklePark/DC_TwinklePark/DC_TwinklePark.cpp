@@ -1,9 +1,10 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include "TwinklePark_objects.h"
 #include "Twinkle1.h"
 #include "Twinkle2.h"
 #include "Twinkle3.h"
-#include "TwinklePark_objects.h"
+
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 
@@ -29,6 +30,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//WriteData((void*)0x00621338, 0x5C, 1);
 		ResizeTextureList((NJS_TEXLIST*)0x26B9960, textures_twinkle1);
 		ResizeTextureList((NJS_TEXLIST*)0x2721A8C, textures_twinkle2);
 		ResizeTextureList((NJS_TEXLIST*)0x26FEA54, textures_twinkle3);
@@ -40,6 +42,9 @@ extern "C"
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[8].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		*(NJS_OBJECT*)0x027AAFF4 = object_000AA710; // pirate ship
+		*(NJS_MODEL_SADX*)0x027AC420 = attach_000AB6B4;//pirate ship blinking supporter
+		*(NJS_MODEL_SADX*)0x027AB6B4 = attach_000AACA0;//pirate ship rotating thing right
+		*(NJS_MODEL_SADX*)0x027A6E74 = attach_000A92F0;//pirate ship rotating thing left
 		//*(NJS_OBJECT*)0x027AC44C = object_000AB6DC; // pirate ship
 		//*(NJS_OBJECT*)0x027AB6E0 = object_000AACC8; // pirate ship
 		//*(NJS_OBJECT*)0x027A6EA0 = object_000A9318; // pirate ship
@@ -47,20 +52,15 @@ extern "C"
 		*(NJS_OBJECT*)0x027BCD7C = object_000B812C; // lilypad
 		((NJS_OBJECT *)0x038C214C)->basicdxmodel->mats[6].attr_texId = 96; //Neon panel
 		((NJS_OBJECT *)0x027C05FC)->child->basicdxmodel->mats[0].attr_texId = 89; //Monitor thing in Act 1
-		((NJS_OBJECT *)0x027B0708)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Merry-go-round floor
-		((NJS_OBJECT *)0x027BEA34)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Horsies
-		((NJS_OBJECT *)0x027BEA34)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Horsies
-		((NJS_OBJECT *)0x027BEA34)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Horsies
-		((NJS_OBJECT *)0x027BEA34)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Horsies
-		((NJS_OBJECT *)0x027BEA34)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Horsies
-		((NJS_OBJECT *)0x027AD86C)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Bowling door
-		((NJS_OBJECT *)0x027AD86C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Bowling door
-		((NJS_OBJECT *)0x027AD86C)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Bowling door
-		((NJS_OBJECT *)0x027AD86C)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Bowling door
-		((NJS_OBJECT *)0x027AD86C)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Bowling door
+		//*(NJS_OBJECT *)0x027B0708 = object_000AEC6C; //Merry-go-round floor
+		((NJS_OBJECT *)0x027B0708)->evalflags |= NJD_EVAL_HIDE;
+		*(NJS_OBJECT *)0x027AE4F4 = object_000AD08C; //Merry-go-round
+		*(NJS_OBJECT *)0x027BEA34 = object_000B95A0; //Horsies
+		*(NJS_OBJECT *)0x027AD86C = object_000AC45C; //Bowling door
 		((NJS_OBJECT *)0x027B3DB8)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Bowling pin
 		((NJS_OBJECT *)0x027B3DB8)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Bowling pin
 		((NJS_OBJECT *)0x027B3DB8)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Bowling pin
+		/*
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
@@ -69,7 +69,7 @@ extern "C"
 		((NJS_OBJECT *)0x027AB6E0)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
 		((NJS_OBJECT *)0x027AB6E0)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
 		((NJS_OBJECT *)0x027A6EA0)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
-		((NJS_OBJECT *)0x027A6EA0)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship
+		((NJS_OBJECT *)0x027A6EA0)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Pirate ship*/
 		((NJS_OBJECT *)0x038C234C)->basicdxmodel->mats[0].attr_texId = 96; //Light
 		((NJS_OBJECT *)0x038BFC74)->basicdxmodel->mats[0].attr_texId = 96;  //Light 2
 		((NJS_OBJECT *)0x0279D364)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Barrel
@@ -117,6 +117,7 @@ extern "C"
 		{
 			if (CurrentLevel == 3 && CurrentAct == 1 && GameState != 16)
 			{
+				object_000AEC6C.ang[1] = object_000AEC6C.ang[1]+64;
 				if (anim > 87) anim = 74;
 				matlist_00065D8C[0].attr_texId = anim;
 				matlist_0001A3A8[0].attr_texId = anim;

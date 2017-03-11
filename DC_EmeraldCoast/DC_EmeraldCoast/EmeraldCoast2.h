@@ -44271,7 +44271,7 @@ NJS_VECTOR normal_000DC524[] = {
 
 NJS_MODEL_SADX attach_000DC980 = { vertex_000DC0C8, normal_000DC524, LengthOfArray(vertex_000DC0C8), meshlist_000DC080, matlist_000DBBA4, LengthOfArray(meshlist_000DC080), LengthOfArray(matlist_000DBBA4),{ -132.4524f, -20.09698f, 125.9805f }, 388.2132f, NULL };
 
-NJS_OBJECT object_000DC9A8 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000DC980, 865.4871f, 540, -965.9444f, 0, 0, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT object_000DC9A8 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000DC980, 865.4871f, 539.88f, -965.9444f, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_MATERIAL matlist_0008360C[] = {
 	{ { 0x00B2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
@@ -45196,7 +45196,7 @@ COL collist_000DD600[] = {
 	{ { 6358.676f, 42, -2180.138f }, 301.2927f, 0, 0, &object_00081DE0, 0, 0x20200001 },
 	{ { 5993.853f, 42, -2393.401f }, 137.4182f, 0, 0, &object_00083A64, 0, 0x20200001 },
 	{ { 6126.042f, 42, -2588.39f }, 252.7748f, 0, 0, &object_00083C90, 0, 0x20200001 },
-	{ { 774, 540, -907 }, 197.9899f, 0, 0, &object_00B7F21C, 0, 0x20000002 },//wtr
+	/*{ { 774, 540, -907 }, 197.9899f, 0, 0, &object_00B7F21C, 0, 0x20000002 },//wtr
 	{ { 1054, 540, -907 }, 197.9899f, 0, 0, &object_00B7F250, 0, 0x20000002 },
 	{ { 774, 540, -627 }, 197.9899f, 0, 0, &object_00B7F2B8, 0, 0x20000002 },
 	{ { 494, 540, -627 }, 197.9899f, 0, 0, &object_00B7F284, 0, 0x20000002 },
@@ -45212,7 +45212,7 @@ COL collist_000DD600[] = {
 	{ { 65, 540, -2027 }, 197.9899f, 0, 0, &object_00B7F354, 0, 0x20000002 },
 	{ { 65, 540, -1747 }, 197.9899f, 0, 0, &object_00B7F3F0, 0, 0x20000002 },
 	{ { 344.9998f, 540, -1747.001f }, 197.9899f, 0, 0, &object_00B7F320, 0, 0x20000002 },
-	{ { 345, 540, -1187 }, 197.9899f, 0, 0, &object_00B7F4C0, 0, 0x20000002 }, //end wtr
+	{ { 345, 540, -1187 }, 197.9899f, 0, 0, &object_00B7F4C0, 0, 0x20000002 }, //end wtr*/
 	{ { 3132.331f, 75, -1408.95f }, 177.637f, 0, 0, &object_000DD5CC, 0, 0xA0000001 },
 	{ { 733.0347f, 519.903f, -839.9638f }, 388.7592f, 0, 0, &object_000DC9A8, 0, 0x80040000 }, //pool bottom
 	{ { -215, 540, -2027 }, 197.9899f, 0, 0, &object_000DB5E4, 0, 0xA0000002 },//water stuff

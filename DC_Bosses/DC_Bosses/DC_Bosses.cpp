@@ -32,8 +32,8 @@ static int anim2 = 81;
 static int anim3 = 121;
 static int anim4 = 131;
 
-//static int rot = 0;
-//static int rotdir = 1;
+static int rot = 0;
+static int rotdir = 1;
 
 NJS_MKEY_A animation_0004CEA0_15_rot[] = {
 	{ 0, 0, 0, 0 },
@@ -439,22 +439,22 @@ extern "C"
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
 		//Egg Hornet rotation
-		/*if (rotdir == 1) rot = rot+12;
-		if (rotdir == -1) rot = rot-12;
+		/*if (rotdir == 1) rot = rot+4;
+		if (rotdir == -1) rot = rot-4;
 		if (rot > 12) rotdir = -1;
 		if (rot < -12) rotdir = 1;
 		((NJS_OBJECT *)0x01561A70)->ang[1] = NJM_DEG_ANG(rot); //Main model
 		((NJS_OBJECT *)0x015658E0)->ang[1] = NJM_DEG_ANG(rot + 90); //Eggman
-		((NJS_OBJECT *)0x01567BCC)->ang[1] = NJM_DEG_ANG(rot); //Jet1
-		((NJS_OBJECT *)0x01567E64)->ang[1] = NJM_DEG_ANG(rot); //Jet1
-		((NJS_OBJECT *)0x015685CC)->ang[1] = NJM_DEG_ANG(rot); //Jet1
-		((NJS_OBJECT *)0x015680CC)->ang[1] = NJM_DEG_ANG(rot); //Jet1
-		((NJS_OBJECT *)0x01568334)->ang[1] = NJM_DEG_ANG(rot); //Jet1
-		((NJS_OBJECT *)0x015688C4)->ang[1] = NJM_DEG_ANG(rot); //Jet1
-		((NJS_OBJECT *)0x01568B5C)->ang[1] = NJM_DEG_ANG(rot); //Jet1
-		((NJS_OBJECT *)0x0156902C)->ang[1] = NJM_DEG_ANG(rot); //Jet1
-		((NJS_OBJECT *)0x015692C4)->ang[1] = NJM_DEG_ANG(rot); //Jet1
-		((NJS_SPRITE *)0x3C6C884)->ang = 0xC000; //Jet*/
+		((NJS_OBJECT *)0x01567BCC)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x01567E64)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x015685CC)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x015680CC)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x01568334)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x015688C4)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x01568B5C)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x0156902C)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x015692C4)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_SPRITE *)0x3C6C884)->ang = NJM_DEG_ANG(rot); //Main model*/
 		//water animation
 		if (CurrentLevel == 23 || CurrentLevel == 25)
 		{
