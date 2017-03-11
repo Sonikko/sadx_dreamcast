@@ -9,6 +9,7 @@
 #include "SH_helicopter.h"
 #include "SH_turnasi.h"
 #include "SH_glass.h"
+#include "Highway_objects.h"
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA88, &landtable_0001853C),
@@ -22,6 +23,11 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		((NJS_OBJECT*)0x026785FC)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2; //material fix for container A
+		((NJS_OBJECT*)0x0267943C)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2; //material fix for container A
+		((NJS_OBJECT*)0x02676A4C)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2; //material fix for container B
+		*(NJS_OBJECT*)0x026777D4 = object_00146254;//container B top broken 1
+		*(NJS_OBJECT*)0x02677288 = object_00145D34;//container B top broken 2
 		WriteData((void*)0x00619545, 1, 1); //blending mode for poster
 		ResizeTextureList((NJS_TEXLIST*)0x2592E8C, textures_highway1);
 		ResizeTextureList((NJS_TEXLIST*)0x2581310, textures_highway2);
