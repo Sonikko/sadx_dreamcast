@@ -104,6 +104,7 @@
     <ClInclude Include="ChaoRaceFunc.h" />
     <ClInclude Include="ChaoRace_PC.h" />
     <ClInclude Include="ECGarden_DC.h" />
+    <ClInclude Include="Elevator.h" />
     <ClInclude Include="MRGarden.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="SADXModLoader.h" />

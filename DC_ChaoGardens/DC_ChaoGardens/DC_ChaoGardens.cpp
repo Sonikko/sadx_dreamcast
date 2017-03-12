@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
 #include "ChaoRaceFunc.h"
+#include "Elevator.h"
 #include "SSGarden.h"
 #include "MRGarden.h"
 #include "ChaoRace.h"
@@ -125,12 +126,10 @@ extern "C"
 		ChaoTreeSpawns[0].e.x = 190;  //Palm tree 2
 		ChaoTreeSpawns[0].e.y = 3;  //Palm tree 2
 		ChaoTreeSpawns[0].e.z = 49.5f;  //Palm tree 2
-		WriteData((void*)0x0072AE89, 0x11, 1); //Black Market door position patch
-		WriteData((void*)0x0072AE90, 0x61, 1); //Black Market door position patch
-		WriteData((void*)0x0072AE91, 0x42, 1); //Black Market door position patch
-		WriteData((void*)0x0072AFFC, 0x11, 1); //Black Market door position patch
-		WriteData((void*)0x0072AFF2, 0x61, 1); //Black Market door position patch
-		WriteData((void*)0x0072AFF3, 0x42, 1); //Black Market door position patch
+		WriteData((float*)0x0072AFF0, 59.5f); //Black market door X (collision)
+		WriteData((float*)0x0072AE8E, 59.5f); //Black market door X
+		WriteData((float*)0x0072AE87, 145.0f); //Black market door Z		
+		WriteData((float*)0x0072AFFA, 145.0f); //Black market door Z (collision)		
 		WriteData((void*)0x007195D1, 0x90, 5); //Kill SADX water
 		WriteData((void*)0x0071946E, 0x90, 5); //Kill SADX fountain
 //Chao Race stuff
