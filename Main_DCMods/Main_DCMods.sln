@@ -15,7 +15,7 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_Branding", "..\DC_Brandi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_Casinopolis", "..\DC_Casinopolis\DC_Casinopolis\DC_Casinopolis.vcxproj", "{A863386A-A7F3-4A03-A465-A6B614E9D863}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_ChaoRace", "..\DC_ChaoRace\DC_ChaoRace\DC_ChaoRace.vcxproj", "{F6963EDE-A910-46BA-8668-4B549A1A237C}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_ChaoGardens", "..\DC_ChaoGardens\DC_ChaoGardens\DC_ChaoGardens.vcxproj", "{F6963EDE-A910-46BA-8668-4B549A1A237C}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_EggCarrier", "..\DC_EggCarrier\DC_ADV01MODELS\DC_ADV01MODELS.vcxproj", "{CB80BF28-E42E-4E35-8D5C-BF44D21289FD}"
 EndProject
