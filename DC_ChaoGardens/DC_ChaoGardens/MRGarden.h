@@ -597,10 +597,10 @@ Sint16 poly_00003008[] = {
 };
 
 NJS_TEX uv_00003014[] = {
-	{ 7650, -3597 },
-	{ 3795, 255 },
-	{ 3852, -7395 },
-	{ 0, -3540 }
+	{ 17850, -8670 },
+	{ 8925, 255 },
+	{ 8924, -17595 },
+	{ 0, -8669 }
 };
 
 NJS_MESHSET_SADX meshlist_00003024[] = {
@@ -608,10 +608,10 @@ NJS_MESHSET_SADX meshlist_00003024[] = {
 };
 
 NJS_VECTOR vertex_0000303C[] = {
-	{ -1165.097f, -202.9371f, -495.8335f },
-	{ -1165.097f, -202.9371f, 1867.522f },
-	{ 1165.097f, -202.9371f, -495.8335f },
-	{ 1165.097f, -202.9371f, 1867.522f }
+	{ -8099.999f, 415, -8099.999f },
+	{ -8099.999f, 415, 8099.999f },
+	{ 8099.999f, 415, -8099.999f },
+	{ 8099.999f, 415, 8099.999f }
 };
 
 NJS_VECTOR normal_0000306C[] = {
@@ -623,7 +623,7 @@ NJS_VECTOR normal_0000306C[] = {
 
 NJS_MODEL_SADX attach_0000309C = { vertex_0000303C, normal_0000306C, LengthOfArray(vertex_0000303C), meshlist_00003024, matlist_00002FF4, LengthOfArray(meshlist_00003024), LengthOfArray(matlist_00002FF4),{ 0, -202.9371f, 685.8443f }, 1659.462f, NULL };
 
-NJS_OBJECT object_000030C4 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0000309C, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT object_000030C4 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0000309C, 0, -1000, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 Sint16 poly_0000310C[] = {
 	3, 1, 3, 5,
@@ -8598,14 +8598,14 @@ NJS_MODEL_SADX attach_00018ACC = { vertex_000181B4, normal_00018640, LengthOfArr
 NJS_OBJECT object_00018AF4 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00018ACC, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 COL collist_0000F778[] = {
-	{ { 0, 0, 0 }, 12000, 0, 0, &object_00013A78, 0, 0x00000020 }, //skybox day
-	{ { 0, 0, 0 }, 12000, 0, 0, &object_0001AD38, 0, 0x00000020 }, //skybox night
-	{ { 0, 0, 0 }, 12000, 0, 0, &object_00018AF4, 0, 0x00000020 }, //skybox evening
+	{ { 0, 0, 0 }, 12000, 0, 0, &object_00013A78, 0, 0x00000420 }, //skybox day
+	{ { 0, 0, 0 }, 12000, 0, 0, &object_0001AD38, 0, 0x00000420 }, //skybox night
+	{ { 0, 0, 0 }, 12000, 0, 0, &object_00018AF4, 0, 0x00000420 }, //skybox evening
 	{ { -64.39134f, 14.4613f, -156.1538f }, 122.3955f, 0, 0, &object_00002118, 0, 0xA0000001 },
 	{ { -6.895681f, 39.68758f, -173.8375f }, 39.55579f, 0, 0, &object_00002224, 0, 0x40200001 },
 	{ { -236.7694f, 100.3705f, -81.71477f }, 607.397f, 0, 0, &object_00002B68, 0, 0x80000020 },
 	{ { 434.3719f, 9.603171f, -83.37959f }, 266.9677f, 0, 0, &object_00002FC0, 0, 0x80000020 },
-	{ { 0, -202.9371f, 685.8443f }, 1659.462f, 0, 0, &object_000030C4, 0, 0x80000020 },
+	{ { 0, -202.9371f, 685.8443f }, 11659.462f, 0, 0, &object_000030C4, 0, 0x80000000 },
 	{ { 29.66012f, 17.21187f, -172.1576f }, 40.03966f, 0, 0, &object_00003314, 0, 0x40000001 },
 	{ { 9.070099f, 108.2513f, -37.8673f }, 351.5585f, 0, 0, &object_00003FD0, 0, 0xA0001001 },
 	{ { 65.83306f, 33.79395f, 71.01436f }, 41.35626f, 0, 0, &object_0000432C, 0, 0xC0000001 },
@@ -8642,6 +8642,8 @@ COL collist_0000F778[] = {
 	{ { 9.070099f, 108.3222f, 46.49789f }, 336.8923f, 0, 0, &object_0000EB94, 0, 0x20200001 },
 	{ { 48.99936f, 110.0703f, -137.3616f }, 120.9884f, 0, 0, &object_0000F024, 0, 0xA4000400 },
 	{ { -27.76017f, -0.07867499f, -51.32835f }, 188.6589f, 0, 0, &object_0000F744, 0, 0xA0000002 },
+	{ { 239.4137f, 15.10273f, -45.98477f }, 100, 0, 0, &VMU_MR, 0, 0x20000001 }, //VMU piece
+	{ { 246.0f, 21.03273f, -45.98477f }, 100, 0, 0, &VMU_MR2, 0, 0x20000001 }, //VMU piece
 };
 
 NJS_TEXNAME textures_mrgarden[61];

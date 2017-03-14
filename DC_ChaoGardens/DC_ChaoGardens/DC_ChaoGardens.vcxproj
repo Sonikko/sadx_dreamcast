@@ -102,15 +102,18 @@
     <ClInclude Include="ChaoRace.h" />
     <ClInclude Include="ChaoRaceEntry.h" />
     <ClInclude Include="ChaoRaceFunc.h" />
-    <ClInclude Include="ChaoRace_PC.h" />
     <ClInclude Include="ECGarden_DC.h" />
+    <ClInclude Include="ECGarden_func.h" />
     <ClInclude Include="Elevator.h" />
     <ClInclude Include="MRGarden.h" />
+    <ClInclude Include="MRGarden_func.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="SADXModLoader.h" />
     <ClInclude Include="SSGarden.h" />
+    <ClInclude Include="SSGarden_func.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
+    <ClInclude Include="ChaoObjects.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DC_ChaoGardens.cpp" />

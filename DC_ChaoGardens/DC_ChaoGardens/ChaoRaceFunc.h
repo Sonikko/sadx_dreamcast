@@ -1943,7 +1943,7 @@ void LoadObjects()
 		ent->Scale.x = 3;
 		ent->Scale.y = 3;
 	}
-	/*obj = LoadObject((LoadObj)2, 3, OF2); // ZONE
+	obj = LoadObject((LoadObj)2, 3, OF2); // ZONE
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1951,6 +1951,7 @@ void LoadObjects()
 		ent->Position.y = 80.37f;
 		ent->Position.z = 151.66f;
 		ent->Scale.x = 30;
+		ent->Scale.y = 0;
 		ent->Scale.z = 200;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF2); // ZONE
@@ -1961,7 +1962,9 @@ void LoadObjects()
 		ent->Position.y = 60;
 		ent->Position.z = 97.08f;
 		ent->Scale.x = 50;
-	}*/
+		ent->Scale.y = 0;
+		ent->Scale.z = 200;
+	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
 	if (obj)
 	{
