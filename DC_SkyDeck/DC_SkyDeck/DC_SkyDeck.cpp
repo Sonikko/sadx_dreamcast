@@ -11,19 +11,6 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DAD0, &landtable_00023EB4)
 };
 
-void __cdecl sub_5F29B0()
-{
-	DataPointer(int, dword_3B36D48, 0x03B36D48);
-	int i; // ecx@1
-	char *ptr; // eax@2
-	for (int i = 0; i < landtable_00021094.COLCount; i++)
-	{
-		if (landtable_00021094.COLList[i].anonymous_6 & 4)
-			landtable_00021094.COLList[i].Flags &= ~ColFlags_Solid;
-	}
-	dword_3B36D48 &= ~ColFlags_Water;
-}
-
 DataPointer(float, SkyDeckAltitude, 0x03C80610); //0 to 700
 DataPointer(float, CurrentSkyBoxScaleX, 0x03ABDC94);
 DataPointer(float, CurrentSkyBoxScaleY, 0x03ABDC98);
@@ -39,7 +26,8 @@ DataPointer(NJS_OBJECT, rail6, 0x216F134);
 DataPointer(NJS_OBJECT, rail7, 0x2171694);
 extern "C" __declspec(dllexport) void cdecl Init()
 {
-	WriteJump((void*)0x5F29B0, sub_5F29B0);
+	((LandTable*)0x022369A0)->COLCount = landtable_00021094.COLCount;
+	((LandTable*)0x022369A0)->COLList = landtable_00021094.COLList;
 	((NJS_OBJECT *)0x214BF20)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_2;
 	((NJS_OBJECT *)0x214E3AC)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_3;
 	*(NJS_OBJECT *)0x214FB74 = object_000FF4A4; //Cannon in Act 1
@@ -61,7 +49,7 @@ extern "C" __declspec(dllexport) void cdecl Init()
 	WriteData((NJS_OBJECT**)0x005ED46D, (NJS_OBJECT*)&object_01D4E3AC); //sky dark top 1
 	WriteData((NJS_OBJECT**)0x005ED4FC, (NJS_OBJECT*)&object_01D4E3AC); //sky dark bottom 1 
 	ResizeTextureList((NJS_TEXLIST*)0x20E0BB0, textures_skydeck1);
-	//ResizeTextureList((NJS_TEXLIST*)0x20AA63C, textures_skydeck2);
+	ResizeTextureList((NJS_TEXLIST*)0x20AA63C, textures_skydeck2);
 	ResizeTextureList((NJS_TEXLIST*)0x203ACE0, textures_skydeck3);
 	DataArray(FogData, SkyDeck1Fog, 0x0203A094, 3);
 	DataArray(FogData, SkyDeck2Fog, 0x0203A0C4, 3);

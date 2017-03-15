@@ -30,6 +30,38 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//*(NJS_OBJECT*)0x27AF5EC = object_000ADBE0; //Double Door
+		*(NJS_OBJECT*)0x027B23E4 = object_000B0818; //Trap Door
+		//Buyon material fixes
+		//Head
+		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[2].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[3].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[4].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[5].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[6].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[7].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[8].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[9].diffuse.color = 0xFFB2B2B2;
+		//Ear 1
+		((NJS_OBJECT*)0x038E2958)->basicdxmodel->mats[0].diffuse.color = 0xCCB2B2B2;
+		((NJS_OBJECT*)0x038E2958)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E2958)->basicdxmodel->mats[2].diffuse.color = 0xFFB2B2B2;
+		//Ear 2
+		((NJS_OBJECT*)0x038E2688)->basicdxmodel->mats[0].diffuse.color = 0xCCB2B2B2;
+		((NJS_OBJECT*)0x038E2688)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E2688)->basicdxmodel->mats[2].diffuse.color = 0xFFB2B2B2;
+		//Feet
+		((NJS_OBJECT*)0x038E4C88)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E4B7C)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E46D0)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E45C4)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E50C4)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E50C4)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E50C4)->basicdxmodel->mats[2].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x038E50C4)->basicdxmodel->mats[3].diffuse.color = 0xFFB2B2B2;
+		//
 		//WriteData((void*)0x00621338, 0x5C, 1);
 		ResizeTextureList((NJS_TEXLIST*)0x26B9960, textures_twinkle1);
 		ResizeTextureList((NJS_TEXLIST*)0x2721A8C, textures_twinkle2);
