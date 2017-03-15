@@ -29,6 +29,7 @@ extern "C"
 		*(NJS_OBJECT*)0x026777D4 = object_00146254;//container B top broken 1
 		*(NJS_OBJECT*)0x02677288 = object_00145D34;//container B top broken 2
 		WriteData((void*)0x00619545, 1, 1); //blending mode for poster
+		WriteData((void*)0x0061A8EA, 0, 1); //blending mode for glass
 		ResizeTextureList((NJS_TEXLIST*)0x2592E8C, textures_highway1);
 		ResizeTextureList((NJS_TEXLIST*)0x2581310, textures_highway2);
 		ResizeTextureList((NJS_TEXLIST*)0x24CAC94, textures_highway3);
