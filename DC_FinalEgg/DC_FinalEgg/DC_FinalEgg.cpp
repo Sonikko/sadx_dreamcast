@@ -220,6 +220,10 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		*(NJS_MODEL_SADX*)0x01A1F7F8 = attach_001CE570; //Gachapon thing
+		*(NJS_MODEL_SADX*)0x01A1ED18 = attach_001CE0D0; //Gachapon thing lid
+		*(NJS_MODEL_SADX*)0x01A1E758 = attach_001CDD00; //Gachapon thing left
+		*(NJS_MODEL_SADX*)0x01A1E458 = attach_001CDA74; //Gachapon thing right
 		((NJS_OBJECT*)0x1C26F74)->basicdxmodel->mats[0].diffuse.argb.g = 178; //Egg Kanban stuff
 		((NJS_OBJECT*)0x1C26F74)->basicdxmodel->mats[0].diffuse.argb.r = 152; //Egg Kanban stuff
 		((NJS_OBJECT*)0x1C26F74)->basicdxmodel->mats[0].diffuse.argb.b = 152; //Egg Kanban stuff
