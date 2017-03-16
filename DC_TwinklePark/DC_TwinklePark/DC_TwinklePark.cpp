@@ -40,8 +40,11 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x26B9960, textures_twinkle1);
 		ResizeTextureList((NJS_TEXLIST*)0x2721A8C, textures_twinkle2);
 		ResizeTextureList((NJS_TEXLIST*)0x26FEA54, textures_twinkle3);
-		ResizeTextureList((NJS_TEXLIST*)0x38AEB70, textures_tpobjects); //OBJ_TWINKLE
+		ResizeTextureList((NJS_TEXLIST*)0x38AEB70, textures_tpobjects); //OBJ_SHAREOBJ
+		ResizeTextureList((NJS_TEXLIST*)0x279BF68, 107); //OBJ_TWINKLE
 		*(NJS_OBJECT*)0x0279D364 = object_000A0E58; // barrel
+		((NJS_OBJECT *)0x027A247C)->basicdxmodel->mats[5].attrflags |= NJD_FLAG_IGNORE_LIGHT; //rollercoaster
+		((NJS_OBJECT *)0x027A247C)->basicdxmodel->mats[7].attrflags |= NJD_FLAG_IGNORE_LIGHT; //rollercoaster
 		((NJS_OBJECT *)0x38BAA3C)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2; //cart
 		((NJS_OBJECT *)0x38BAA3C)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2; //cart
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -123,33 +126,47 @@ extern "C"
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
 		{
-			if (CurrentLevel == 3 && CurrentAct == 1 && GameState != 16)
+			if (CurrentLevel == 3 && CurrentAct == 1)
 			{
-				object_000AEC6C.ang[1] = object_000AEC6C.ang[1]+64;
-				if (anim > 87) anim = 74;
-				matlist_00065D8C[0].attr_texId = anim;
-				matlist_0001A3A8[0].attr_texId = anim;
-				matlist_000657A0[0].attr_texId = anim;
-				matlist_00065A3C[0].attr_texId = anim;
-				if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) anim++;
-				object_000AA710.basicdxmodel->mats[14].attr_texId = animlight;
-				object_000AA710.basicdxmodel->mats[3].attr_texId = animlight;
-				object_000AA710.basicdxmodel->mats[8].attr_texId = animlight;
-				object_000AA710.basicdxmodel->mats[12].attr_texId = animlight;
-				if (animtimer >= 30 && animlight == 95)
+				if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
+					if (CurrentCharacter != 0)
+					{
+						collist_000178B0[LengthOfArray(collist_000178B0) - 1].Flags = 0x00000000;
+						collist_000178B0[LengthOfArray(collist_000178B0) - 2].Flags = 0x00000000;
+					}
+					else
+					{
+						collist_000178B0[LengthOfArray(collist_000178B0) - 1].Flags = 0x80040000;
+						collist_000178B0[LengthOfArray(collist_000178B0) - 2].Flags = 0x80040000;
+					}
+				if (GameState != 16)
 				{
-					animlight = 28;
-					animtimer = 0;
-				}
-				if (animtimer >= 30 && animlight == 28)
-				{
-					animlight = 95;
-					animtimer = 0;
-				}
-				if (GameState !=16)
-				{
-				if (FramerateSetting < 2) animtimer++;
-				if (FramerateSetting >= 2) animtimer = animtimer + 2;
+					object_000AEC6C.ang[1] = object_000AEC6C.ang[1] + 64;
+					if (anim > 87) anim = 74;
+					matlist_00065D8C[0].attr_texId = anim;
+					matlist_0001A3A8[0].attr_texId = anim;
+					matlist_000657A0[0].attr_texId = anim;
+					matlist_00065A3C[0].attr_texId = anim;
+					if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) anim++;
+					object_000AA710.basicdxmodel->mats[14].attr_texId = animlight;
+					object_000AA710.basicdxmodel->mats[3].attr_texId = animlight;
+					object_000AA710.basicdxmodel->mats[8].attr_texId = animlight;
+					object_000AA710.basicdxmodel->mats[12].attr_texId = animlight;
+					if (animtimer >= 30 && animlight == 95)
+					{
+						animlight = 28;
+						animtimer = 0;
+					}
+					if (animtimer >= 30 && animlight == 28)
+					{
+						animlight = 95;
+						animtimer = 0;
+					}
+					if (GameState != 16)
+					{
+						if (FramerateSetting < 2) animtimer++;
+						if (FramerateSetting >= 2) animtimer = animtimer + 2;
+					}
 				}
 			}
 		}
