@@ -30,8 +30,9 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		//*(NJS_OBJECT*)0x27AF5EC = object_000ADBE0; //Double Door
-		*(NJS_OBJECT*)0x027A0454 = object_000A3CCC; //Bownling catapult
+		//*(NJS_OBJECT*)0x27AF5EC = object_000ADBE0; //Double door
+		*(NJS_OBJECT*)0x027B23E4 = object_000B0818; //Trap door
+		*(NJS_OBJECT*)0x027A0454 = object_000A3CCC; //Bowling catapult
 		*(NJS_OBJECT*)0x027B5884 = object_000B2A40; //O Foothold
 		*(NJS_OBJECT*)0x038E50C4 = object_034E50C4; //Buyon material fixes
 		*(NJS_OBJECT*)0x038E3584 = object_034E3584;	//Buyon material fixes

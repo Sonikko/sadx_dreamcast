@@ -38059,10 +38059,12 @@ COL collist_000178B0[] = {
 	{ { -300, 480, -184 }, 145.7738f, 0, 0, &object_00066B3C, 0, 0xA0000001 },
 	{ { -300, 480, -364 }, 145.7738f, 0, 0, &object_00066B70, 0, 0xA0000001 },
 	{ { 118, 460, 781 }, 179.1647f, 0, 0, &object_00066BA4, 0, 0xA0000001 },
-	{ { 880, 50, -187 }, 400, 0, 0, &object_000AEC6C, 0, 0x80000000},
+	{ { 880, 50, -187 }, 400, 0, 0, &object_000AEC6C, 0, 0x80000000 },
+	{ { -90, 0, -490 }, 300, 0, 0, &bowling1, 0, 0x80040000 },
+	{ { 437, 0, 720 }, 300, 0, 0, &bowling2, 0, 0x80040000 },
 };
 
-NJS_TEXNAME textures_twinkle2[88];
+NJS_TEXNAME textures_twinkle2[89];
 NJS_TEXLIST texlist_twinkle2 = { arrayptrandlength(textures_twinkle2) };
 
 LandTable landtable_00019344 = { LengthOfArray(collist_000178B0), 0, 0xC, 1500, collist_000178B0, NULL, "TWINKLE02", (NJS_TEXLIST *)&texlist_twinkle2, 0, 0 };
