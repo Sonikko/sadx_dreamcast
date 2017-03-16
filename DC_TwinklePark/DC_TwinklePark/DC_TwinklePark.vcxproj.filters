@@ -45,6 +45,9 @@
     <ClInclude Include="TwinklePark_objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Buyon.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

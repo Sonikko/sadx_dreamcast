@@ -4,7 +4,7 @@
 #include "Twinkle1.h"
 #include "Twinkle2.h"
 #include "Twinkle3.h"
-
+#include "Buyon.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 
@@ -33,37 +33,9 @@ extern "C"
 		//*(NJS_OBJECT*)0x27AF5EC = object_000ADBE0; //Double Door
 		*(NJS_OBJECT*)0x027A0454 = object_000A3CCC; //Bownling catapult
 		*(NJS_OBJECT*)0x027B5884 = object_000B2A40; //O Foothold
-		//Buyon material fixes
-		//Head
-		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[2].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[3].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[4].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[5].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[6].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[7].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[8].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[9].diffuse.color = 0xFFB2B2B2;
-		//Ear 1
-		((NJS_OBJECT*)0x038E2958)->basicdxmodel->mats[0].diffuse.color = 0xCCB2B2B2;
-		((NJS_OBJECT*)0x038E2958)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E2958)->basicdxmodel->mats[2].diffuse.color = 0xFFB2B2B2;
-		//Ear 2
-		((NJS_OBJECT*)0x038E2688)->basicdxmodel->mats[0].diffuse.color = 0xCCB2B2B2;
-		((NJS_OBJECT*)0x038E2688)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E2688)->basicdxmodel->mats[2].diffuse.color = 0xFFB2B2B2;
-		//Feet
-		((NJS_OBJECT*)0x038E4C88)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E4B7C)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E46D0)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E45C4)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E50C4)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E50C4)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E50C4)->basicdxmodel->mats[2].diffuse.color = 0xFFB2B2B2;
-		((NJS_OBJECT*)0x038E50C4)->basicdxmodel->mats[3].diffuse.color = 0xFFB2B2B2;
-		//
-		//WriteData((void*)0x00621338, 0x5C, 1);
+		*(NJS_OBJECT*)0x038E50C4 = object_034E50C4; //Buyon material fixes
+		*(NJS_OBJECT*)0x038E3584 = object_034E3584;	//Buyon material fixes
+		*(NJS_OBJECT*)0x038E3B2C = object_034E3B2C;	//Buyon material fixes
 		ResizeTextureList((NJS_TEXLIST*)0x26B9960, textures_twinkle1);
 		ResizeTextureList((NJS_TEXLIST*)0x2721A8C, textures_twinkle2);
 		ResizeTextureList((NJS_TEXLIST*)0x26FEA54, textures_twinkle3);
