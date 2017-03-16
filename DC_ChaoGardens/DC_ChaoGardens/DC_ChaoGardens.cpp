@@ -566,20 +566,20 @@ extern "C"
 __declspec(dllexport) void __cdecl OnFrame()
 	{
 //Station Square garden
-	/*	if (CurrentLevel == 39 && GameState != 16)
+		if (CurrentLevel == 39 && GameState != 16)
 		{
 			auto entity = CharObj1Ptrs[0];
 			if (entity != nullptr)
 			{
-			//	if (entity->Position.z > 150 && entity->Position.x > 30.0f)
-		//		{
-				//	sub_715700(7);
+				if (entity->Position.z > 150 && entity->Position.x > 30.0f)
+				{
+				sub_715700(7);
 				}
 			}
 			if (ssgardenwater > 9) ssgardenwater = 0;
 			matlist_00011388[0].attr_texId = ssgardenwater;
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ssgardenwater++;
-		}*/
+		}
 //Egg Carrier garden
 		if (CurrentLevel == 40 && GameState != 16)
 		{
