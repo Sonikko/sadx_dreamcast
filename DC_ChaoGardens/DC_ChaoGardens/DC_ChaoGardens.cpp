@@ -615,6 +615,14 @@ __declspec(dllexport) void __cdecl OnFrame()
 //Mystic Ruins garden
 		if (CurrentLevel == 41 && GameState != 16)
 		{
+			for (int q3 = 0; q3 < LengthOfArray(uv_0000F184); q3++) { uv_0000F184[q3].v--; }
+			if (uv_0000F184[2].v <= -255)
+			{
+				for (int r5 = 0; r5 < LengthOfArray(uv_0000F184); r5++)
+				{
+					uv_0000F184[r5].v = uv_0000F184_R[r5].v;
+				}
+			}
 			if (mrgardenwater > 45) mrgardenwater = 36;
 			matlist_00002FF4[0].attr_texId = mrgardenwater;
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) mrgardenwater++;
