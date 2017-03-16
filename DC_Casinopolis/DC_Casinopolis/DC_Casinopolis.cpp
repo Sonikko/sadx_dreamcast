@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
 #include "Casino_objects.h"
+#include "Cowgirl.h"
 #include "Casino1.h"
 #include "Casino2.h"
 #include "Casino3.h"
@@ -10,6 +11,7 @@
 static short CurrentPlayer = -1;
 static int anim1 = 67;
 static int anim2 = 7;
+static int delayX = 0;
 FunctionPointer(void, sub_5DD900, (int a1, int a2), 0x5DD900);
 FunctionPointer(void, sub_5DD920, (int a1, int a2), 0x5DD920);
 FunctionPointer(void, sub_5C09D0, (int a1), 0x5C09D0);
@@ -118,11 +120,25 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
+		if (Cowgirl != 0)
+		{
+			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 1].Flags = 0x80000001;
+			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 5].Flags = 0x00000000;
+			landtable_00025EAC.AnimCount = LengthOfArray(animlist_casino);
+			landtable_00025EAC.AnimData = animlist_casino;
+			WriteData((void*)0x005CACD0, 0xC3u, sizeof(char));
+		}
+		else
+		{
+			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 1].Flags = 0x00000000;
+			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 5].Flags = 0xC2040000;
+			landtable_00025EAC.AnimCount = 0;
+		}
 		((NJS_OBJECT*)0x01E47B1C)->evalflags |= NJD_EVAL_HIDE; //Hide MizuB
 		((NJS_OBJECT*)0x01E47CA4)->evalflags |= NJD_EVAL_HIDE; //Hide MizuA
 		((NJS_OBJECT*)0x01E3FD04)->evalflags |= NJD_EVAL_HIDE; //Hide OKbS
 		((NJS_OBJECT*)0x01E3D734)->evalflags |= NJD_EVAL_HIDE; //Hide OKbC
-		//*(NJS_OBJECT*)0x01E49864 = object_001C6E9C;
 		WriteJump((void*)0x5C9980, OLhtg_Display);
 		WriteJump((void*)0x5C9BA0, OLhtr_Display);
 		ResizeTextureList((NJS_TEXLIST*)0x1D1B050, textures_casino1);
@@ -150,6 +166,7 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
 		if (CurrentLevel == 9 && CurrentAct == 0 && CurrentPlayer != CurrentCharacter)
 		{
 			if (CurrentCharacter == 0)
@@ -166,6 +183,20 @@ extern "C"
 		}
 		if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
 		{
+			if (Cowgirl != 0)
+			{
+			auto entity = CharObj1Ptrs[0];
+			if (delayX>=60 && entity != nullptr && entity->Status & Status_Attack && entity->Position.y > 0)
+			{
+				NJS_VECTOR Cowgirl { 311.62f, 0, 338.93f };
+				NJS_VECTOR Cowgirl2{ 407.245f, 0, 133.055f };
+				NJS_VECTOR Cowgirl3{ 303.745f, 0, 310.805f };
+				if (IsPlayerInsideSphere (&Cowgirl, 50) || IsPlayerInsideSphere(&Cowgirl2, 50) || IsPlayerInsideSphere(&Cowgirl3, 50))
+				PlaySound(278, 0, 0, 0);
+				delayX = 0;
+			}
+			delayX++;
+			}
 			for (int q = 0; q < LengthOfArray(uv_01A47B78); q++)
 			{
 				uv_01A47B78[q].v = uv_01A47B78[q].v - 10;

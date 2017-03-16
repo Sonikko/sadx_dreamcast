@@ -48,6 +48,9 @@
     <ClInclude Include="Casino_objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Cowgirl.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
