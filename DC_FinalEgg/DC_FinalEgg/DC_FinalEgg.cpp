@@ -220,6 +220,8 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteData((char*)0x00794AE8, 0x03, sizeof(char));
+		*(NJS_OBJECT*)0x1C2A588 = object_0021D560; //Some light thing material fix
 		*(NJS_MODEL_SADX*)0x01A1F7F8 = attach_001CE570; //Gachapon thing
 		*(NJS_MODEL_SADX*)0x01A1ED18 = attach_001CE0D0; //Gachapon thing lid
 		*(NJS_MODEL_SADX*)0x01A1E758 = attach_001CDD00; //Gachapon thing left

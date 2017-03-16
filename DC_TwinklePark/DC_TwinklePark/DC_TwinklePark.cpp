@@ -31,7 +31,8 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 		//*(NJS_OBJECT*)0x27AF5EC = object_000ADBE0; //Double Door
-		*(NJS_OBJECT*)0x027B23E4 = object_000B0818; //Trap Door
+		*(NJS_OBJECT*)0x027A0454 = object_000A3CCC; //Bownling catapult
+		*(NJS_OBJECT*)0x027B5884 = object_000B2A40; //O Foothold
 		//Buyon material fixes
 		//Head
 		((NJS_OBJECT*)0x038E3584)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;

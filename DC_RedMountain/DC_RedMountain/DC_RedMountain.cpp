@@ -130,6 +130,11 @@ extern "C"
 	{
 		//WriteJump((void*)0x600BF0, sub_600BF0);
 		*(NJS_OBJECT*)0x246CAA8 = object_0206CAA8_2;
+		*(NJS_MODEL_SADX*)0x24390BC = attach_00151A8C;//Light thing
+		*(NJS_MODEL_SADX*)0x24394CC = attach_001515D8; //Light thing propeller 1
+		*(NJS_MODEL_SADX*)0x24392C4 = attach_001513C8; //Light thing propeller 2
+		*(NJS_OBJECT*)0x2439964 = object_001511FC;
+		WriteData((void*)0x0060C981, 3, 1); //Light thing blending mode
 		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
 		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
 		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
