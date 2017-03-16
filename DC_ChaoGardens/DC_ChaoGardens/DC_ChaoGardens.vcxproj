@@ -108,6 +108,7 @@
     <ClInclude Include="MRGarden.h" />
     <ClInclude Include="MRGarden_func.h" />
     <ClInclude Include="ninja.h" />
+    <ClInclude Include="RaceEntry_func.h" />
     <ClInclude Include="SADXModLoader.h" />
     <ClInclude Include="SSGarden.h" />
     <ClInclude Include="SSGarden_func.h" />

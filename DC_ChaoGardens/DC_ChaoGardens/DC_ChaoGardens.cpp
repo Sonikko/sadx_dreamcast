@@ -9,6 +9,7 @@
 #include "ChaoRaceEntry.h"
 #include "ECGarden_DC.h"
 #include "ECGarden_func.h"
+#include "RaceEntry_func.h"
 #include "SSGarden_func.h"
 #include "MRGarden_func.h"
 #include <stdlib.h>  
@@ -114,7 +115,6 @@ void __cdecl LoadECGardenX()
 	PrintDebug("ChaoStgGarden01EC Prolog begin\n");
 	CurrentLevel = 40;
 	LoadObject(LoadObj_Data1, 2, ChaoStgGarden01EC_Load);
-	LoadObjects_EC();
 	SetChaoLandTable(&landtable_0000DF3C);
 	PrintDebug("ChaoStgGarden01EC Prolog end\n");
 }
@@ -123,8 +123,8 @@ void __cdecl LoadSSGardenX()
 {
 	PrintDebug("ChaoStgGarden00SS Prolog begin\n");
 	CurrentLevel = 39;
+	LoadPVM("OBJ_SS", (NJS_TEXLIST*)0x02AA4BF8);
 	LoadObject(LoadObj_Data1, 2, ChaoStgGarden00SS_Load);
-	LoadObjects_SS();
 	SetChaoLandTable(&landtable_00011DD4);
 	PrintDebug("ChaoStgGarden00SS Prolog end\n");
 }
@@ -166,7 +166,6 @@ void __cdecl LoadMRGardenX()
 	ChaoGardenMR_SetLandTable_Day();
 	ModuleDestructors[1] = Print_ChaoStgGarden02MR_Daytime_epilog;
 	SetChaoLandTable(LandTable_ChaoGardenMR);
-	LoadObjects_MR();
 }
 
 void __cdecl LoadChaoRaceDoor(ObjectMaster *a1)
@@ -217,7 +216,6 @@ void cdecl SetElevatorTexlist()
 {
 	if (CurrentLevel == 39)
 	{
-		LoadPVM("OBJ_SS", (NJS_TEXLIST*)0x02AA4BF8);
 		njSetTexture((NJS_TEXLIST*)0x02AA4BF8); //OBJ_SS
 	}
 		else SetTextureToLevelObj();
@@ -233,7 +231,6 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 {
 	EntityData1 *ent; // eax@1
 	ObjectMaster *obj;
-	EntityData1 *ent2; // eax@1
 	ent = LoadObject(LoadObj_Data1, 2, Chao_Name_Machine_Load)->Data1;
 	if (CurrentLevel == 39)
 	{
@@ -241,6 +238,7 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 	ent->Position.y = 8.56f;
 	ent->Position.z = -128.44f;
 	ent->Rotation.y = 0xD7B8;
+	LoadObjects_SS();
 	}
 	if (CurrentLevel == 40)
 	{
@@ -250,6 +248,7 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 	ent->Rotation.x = 0xFFB0;
 	ent->Rotation.y = 0xAFD6;
 	ent->Rotation.z = 0xFFDE;
+	LoadObjects_EC();
 	}
 	if (CurrentLevel == 41)
 	{
@@ -259,7 +258,117 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 	ent->Rotation.x = 0xFFDC;
 	ent->Rotation.y = 0xC1A8;
 	ent->Rotation.z = 0xFFF2;
+	LoadObjects_MR();
 	}
+}
+
+void __cdecl LoadRaceEntryX()
+{
+	PrintDebug("ChaoStgEntrance _prolog begin.\n");
+	LoadObject(LoadObj_Data1, 5, ChaoStgEntrance_Main);
+	//PlayMusic(MusicIDs_c_btl_cv);
+	//CurrentLevel = 42;
+	//CurrentAct = 1;
+	SetChaoLandTable(&landtable_00000270);
+	//SetChaoLandTable((LandTable*)0x03423700);
+	PrintDebug("ChaoStgEntrance _prolog end.\n");
+}
+
+ObjectMaster *__cdecl sub_72C2E0()
+{
+	FunctionPointer(void, sub_72C280, (int a1), 0x72C280);
+	FunctionPointer(void, sub_72C210, (int a1), 0x72C210);
+	FunctionPointer(void, sub_72C240, (int a1), 0x72C240);
+	DataPointer(int, dword_3CDC6B4, 0x3CDC6B4);
+	DataPointer(NJS_OBJECT, stru_366C124, 0x366C124);
+	ObjectMaster *v0; // eax@1
+	ObjectMaster *v1; // esi@1
+	v0 = LoadObject(LoadObj_UnknownB, 2, (void(__cdecl *)(ObjectMaster *))sub_72C280);
+	v1 = v0;
+	v0->DeleteSub = (void(__cdecl *)(ObjectMaster *))sub_72C210;
+	v0->DisplaySub = (void(__cdecl *)(ObjectMaster *))sub_72C240;
+	dword_3CDC6B4 = (int)v0;
+	InitLandTableObject(&stru_366C124);
+	LoadPVM("OBJ_AL_RACE", (NJS_TEXLIST*)0x033A6404);
+	LoadObjects_E();
+	return v1;
+}
+
+void __cdecl ChaoStgEntrance_MainX(ObjectMaster *a1)
+{
+	FunctionPointer(void, sub_7197E0, (ObjectMaster *a1), 0x7197E0);
+	FunctionPointer(void, sub_7197C0, (ObjectMaster *a1), 0x7197C0);
+	FunctionPointer(int, sub_72CC30, (), 0x72CC30);
+	FunctionPointer(char, sub_72CD70, (), 0x72CD70);
+	FunctionPointer(int, sub_72CC00, (NJS_TEXLIST *a1, int a2, int a3, int a4), 0x72CC00);
+	FunctionPointer(char, sub_716A90, (), 0x716A90);
+	FunctionPointer(int, sub_72CBC0, (), 0x72CBC0);
+	FunctionPointer(signed int, sub_717160, (), 0x717160);
+	DataArray(NJS_TEXLIST, ChaoTexLists, 0x033A1038, 7);
+	DataPointer(int, TextLanguage, 0x03B0F0E8);
+	DataPointer(int, dword_3CA6EB8, 0x3CA6EB8);
+	DataPointer(NJS_TEXLIST, AL_TEX_ENT_COMMON_TEXLIST, 0x034232E8);
+	DataPointer(NJS_TEXLIST, AL_ENT_CHAR_X_TEX_TEXLIST, 0x034232F0);
+	DataPointer(NJS_TEXLIST, AL_ENT_TITLE_X_TEX_TEXLIST, 0x034232F8);
+	FunctionPointer(void, SetGlobalPoint2Col_Colors, (Uint32 a1, Uint32 a2, Uint32 a3), 0x00402F10);
+	FunctionPointer(ObjectMaster *, sub_72CB40, (), 0x72CB40);
+	FunctionPointer(ObjectMaster *, sub_72C4A0, (), 0x72C4A0);
+	FunctionPointer(ObjectMaster *, sub_72C3A0, (), 0x72C3A0);
+	FunctionPointer(ObjectMaster *, sub_72C2E0, (), 0x72C2E0);
+	FunctionPointer(void, sub_7153F0, (), 0x7153F0);
+	const char *v1; // [sp-24h] [bp-24h]@5
+	NJS_TEXLIST *v2; // [sp-20h] [bp-20h]@5
+	unsigned __int16 v3; // [sp-1Ch] [bp-1Ch]@5
+	const char *v4; // [sp-Ch] [bp-Ch]@3
+
+	a1->MainSub = sub_7197E0;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))nullsub;
+	a1->DeleteSub = sub_7197C0;
+	SetGlobalPoint2Col_Colors(0xFF000000, 0xFF000000, 0xFF000000);
+	ChaoManager_Load();
+	//sub_72CD70();
+	LoadChaoTexlist("AL_TEX_COMMON", &ChaoTexLists[1], 1u);
+	sub_72CC30();
+	if (TextLanguage)
+	{
+		if (TextLanguage == 2)
+		{
+			v4 = "AL_TEX_ENT_COMMON_FR";
+		}
+		else
+		{
+			v4 = "AL_TEX_ENT_COMMON_EN";
+		}
+		LoadChaoTexlist(v4, &AL_TEX_ENT_COMMON_TEXLIST, 1u);
+		LoadChaoTexlist("AL_ENT_CHAR_E_TEX", &AL_ENT_CHAR_X_TEX_TEXLIST, 1u);
+		v3 = 1;
+		v2 = &AL_ENT_TITLE_X_TEX_TEXLIST;
+		v1 = "AL_ENT_TITLE_E_TEX";
+	}
+	else
+	{
+		LoadChaoTexlist("AL_TEX_ENT_COMMON_JP", &AL_TEX_ENT_COMMON_TEXLIST, 1u);
+		LoadChaoTexlist("AL_ENT_CHAR_J_TEX", &AL_ENT_CHAR_X_TEX_TEXLIST, 1u);
+		v3 = 1;
+		v2 = &AL_ENT_TITLE_X_TEX_TEXLIST;
+		v1 = "AL_ENT_TITLE_J_TEX";
+	}
+	LoadChaoTexlist(v1, v2, v3);
+	sub_72CC00(&AL_TEX_ENT_COMMON_TEXLIST, 3, 2, 4);
+	sub_716A90();
+	sub_72CBC0();
+	dword_3CA6EB8 = sub_717160();
+	//sub_72CB40();
+	//sub_72C4A0();
+	//sub_72C3A0();
+	//sub_72C2E0();
+	InitializeSoundManager();
+	PlayMusic(MusicIDs_c_btl_cv);
+	DataPointer(DrawDistance, LevelDrawDistance, 0x03ABDC70);
+	LevelDrawDistance.Minimum = -1.0f;
+	LevelDrawDistance.Maximum = -12000.0f;
+	//sub_7153F0();
+	LoadObjects_E();
 }
 
 extern "C"
@@ -269,6 +378,9 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 //General
+		//WriteJump((void*)0x007199B0, LoadRaceEntryX);
+		//WriteJump((void*)0x00719880, ChaoStgEntrance_MainX);
+		//WriteJump((void*)0x0072C2E0, sub_72C2E0);
 		ResizeTextureList((NJS_TEXLIST*)0x033A1338, 31); //AL_DX_OBJ_CMN
 		*(NJS_OBJECT*)0x036065B4 = object_00180454_EC; //EC garden to EC transporter
 		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_USE_ENV;
@@ -295,11 +407,10 @@ extern "C"
 		}
 //Chao Race stuff
 		WriteJump((void*)0x00719DB0, LoadChaoRaceX);
-		ResizeTextureList((NJS_TEXLIST *)0x3425018, 109);
 		WriteData((void*)0x0071C293, 0x90, 5); //Prevent the Cheering Omochaos from disappearing
 //Chao Race entry stuff
-		//WriteData((void*)0x007197E0, 0xC3u, sizeof(char));
-		/*WriteData((void*)0x007198B2, 0x90, 5);
+		/*WriteData((void*)0x007197E0, 0xC3u, sizeof(char));
+		WriteData((void*)0x007198B2, 0x90, 5);
 		WriteData((void*)0x00719969, 0x90, 5);
 		WriteData((void*)0x0071996E, 0x90, 5);
 		WriteData((void*)0x00719973, 0x90, 5);
@@ -367,6 +478,9 @@ extern "C"
 		Chao_MRChaoSpawnPoints[1].x = 164;
 		Chao_MRChaoSpawnPoints[2].x = 177;
 		Chao_MRChaoSpawnPoints[3].z = 123.75f;
+		Chao_MRChaoSpawnPoints[6].x = 26.375f;
+		Chao_MRChaoSpawnPoints[6].y = 20.325;
+		Chao_MRChaoSpawnPoints[6].z = -7.375;
 		Chao_MRChaoSpawnPoints[7].x = -58.25f;
 		Chao_MRChaoSpawnPoints[7].y = 48.5f;
 		Chao_MRChaoSpawnPoints[7].z = -74;
@@ -418,12 +532,15 @@ extern "C"
 		WriteData((float*)0x00719121, -41.76f);  //MR transporter
 		Chao_ECChaoSpawnPoints[0].y = 73.8f;
 		Chao_ECChaoSpawnPoints[1].z = -83.5f;
-		Chao_ECChaoSpawnPoints[2].x = 157.5f;
-		Chao_ECChaoSpawnPoints[2].y	 = 37.5f;
-		Chao_ECChaoSpawnPoints[2].z = -75.5f;
+		Chao_ECChaoSpawnPoints[2].x = 165.375f;
+		Chao_ECChaoSpawnPoints[2].y	 = 33.0f;
+		Chao_ECChaoSpawnPoints[2].z = -22.0f;
+		Chao_ECChaoSpawnPoints[3].y = 5.65f;
 		Chao_ECChaoSpawnPoints[3].z = 96.0f;
 		Chao_ECChaoSpawnPoints[4].y = 32.8f;
-		Chao_ECChaoSpawnPoints[7].y = 66.0f;
+		Chao_ECChaoSpawnPoints[6].x = -211.8f;
+		Chao_ECChaoSpawnPoints[6].y = 2.25f;
+		Chao_ECChaoSpawnPoints[7].y = 71.6f;
 		Chao_ECChaoSpawnPoints[10].y = 35.5f;
 		Chao_ECChaoSpawnPoints[11].y = 37.5f;
 		Chao_ECChaoSpawnPoints[12].x = 198.5f;
@@ -449,20 +566,20 @@ extern "C"
 __declspec(dllexport) void __cdecl OnFrame()
 	{
 //Station Square garden
-		if (CurrentLevel == 39 && GameState != 16)
+	/*	if (CurrentLevel == 39 && GameState != 16)
 		{
 			auto entity = CharObj1Ptrs[0];
 			if (entity != nullptr)
 			{
-				if (entity->Position.z > 150 && entity->Position.x > 30.0f)
-				{
-					sub_715700(7);
+			//	if (entity->Position.z > 150 && entity->Position.x > 30.0f)
+		//		{
+				//	sub_715700(7);
 				}
 			}
 			if (ssgardenwater > 9) ssgardenwater = 0;
 			matlist_00011388[0].attr_texId = ssgardenwater;
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ssgardenwater++;
-		}
+		}*/
 //Egg Carrier garden
 		if (CurrentLevel == 40 && GameState != 16)
 		{
@@ -517,6 +634,20 @@ __declspec(dllexport) void __cdecl OnFrame()
 //Chao Race
 		if (CurrentLevel == 42 && GameState != 16)
 		{
+			/*auto entity = CharObj1Ptrs[0];
+			if (entity != nullptr)
+			{
+				if (CurrentAct == 1 && entity->Position.y < -10)
+				{
+					entity->Position.x = 2052;
+					entity->Position.y = 5;
+					entity->Position.z = 0;
+					entity->Rotation.x = 0;
+					entity->Rotation.y = NJM_ANG_DEG(180);
+					entity->Rotation.z = 0;
+					//LoadObject(LoadObj_Data1, 5, ChaoStgEntrance_Main);
+				}
+			}*/
 			if (chaoracewater > 68) chaoracewater = 55;
 			matlist_0002A548[0].attr_texId = chaoracewater;
 			matlist_0003EFB0[0].attr_texId = chaoracewater;
