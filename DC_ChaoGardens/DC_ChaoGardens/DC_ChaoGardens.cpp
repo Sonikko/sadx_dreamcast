@@ -6,93 +6,14 @@
 #include "SSGarden.h"
 #include "MRGarden.h"
 #include "ChaoRace.h"
-#include "ChaoRaceEntry.h"
+#include "RaceEntry_DX.h"
 #include "ECGarden_DC.h"
 #include "ECGarden_func.h"
 #include "RaceEntry_func.h"
 #include "SSGarden_func.h"
 #include "MRGarden_func.h"
+#include "MainFunctions.h"
 #include <stdlib.h>  
-
-struct ChaoTreeSpawn
-{
-	NJS_VECTOR a;
-	NJS_VECTOR b;
-	NJS_VECTOR c;
-	NJS_VECTOR d;
-	NJS_VECTOR e;
-	NJS_VECTOR f;
-	NJS_VECTOR g;
-	NJS_VECTOR h;
-	NJS_VECTOR i;
-	NJS_VECTOR j;
-};
-
-FunctionPointer(void, SetChaoLandTableX, (LandTable *geo), 0x0043A4C0);
-FunctionPointer(void, sub_715700, (int a1), 0x00715700);
-FunctionPointer(void, sub_715730, (int a1, int a2), 0x00715730);
-DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataArray(NJS_VECTOR, Chao_SSChaoSpawnPoints, 0x033A0AF8, 16);
-DataArray(NJS_VECTOR, Chao_ECChaoSpawnPoints, 0x033A0BB8, 16);
-DataArray(NJS_VECTOR, Chao_MRChaoSpawnPoints, 0x033A0C78, 16);
-DataArray(ChaoTreeSpawn, ChaoTreeSpawns, 0x033A0D78, 3);
-static int chaoracewater = 55;
-static int ssgardenwater = 0;
-static int ecgardensand = 64;
-static int ecgardenwater = 54;
-static int mrgardenwater = 36;
-
-void __cdecl sub_72A790()
-{
-	FunctionPointer(void, sub_745A20, (NJS_TEX*, int), 0x745A20);
-	DataPointer(NJS_TEXLIST*, texlist_garden02mr_daytime, 0x03CA6E84);
-	DataPointer(LandTable*, objLandTableGarden02_Daytime, 0x03CA6E88);
-	DataPointer(int, dword_3CA6E8C, 0x3CA6E8C);
-	HMODULE handle = GetModuleHandle(L"CHAOSTGGARDEN02MR_DAYTIME");
-	PrintDebug("ChaoStgGarden02MR_Daytime _prolog\n");
-	dword_3CA6E8C = (int)GetProcAddress(handle, "stg_garden02_mr_objects");
-	texlist_garden02mr_daytime = (NJS_TEXLIST *)&texlist_mrgarden;
-	objLandTableGarden02_Daytime = (LandTable *)&landtable_0000FD3C;
-	collist_0000F778[0].Flags = 0x80000420;
-	collist_0000F778[1].Flags = 0x00000000;
-	collist_0000F778[2].Flags = 0x00000000;
-	sub_745A20((NJS_TEX*)&uv_0000EC54, 48);
-}
-
-void __cdecl sub_72A820()
-{
-	FunctionPointer(void, sub_745A20, (NJS_TEX*, int), 0x745A20);
-	HMODULE handle = GetModuleHandle(L"CHAOSTGGARDEN02MR_EVENING");
-	DataPointer(NJS_TEXLIST*, texlist_garden02mr_evening, 0x03CA6E84);
-	DataPointer(LandTable*, objLandTableGarden02_Evening, 0x03CA6E88);
-	DataPointer(int, dword_3CA6E8C, 0x3CA6E8C);
-	PrintDebug("ChaoStgGarden02MR_Evening _prolog\n");
-	dword_3CA6E8C = (int)GetProcAddress(handle, "stg_garden02_mr_objects");
-	texlist_garden02mr_evening = (NJS_TEXLIST *)&texlist_mrgarden;
-	objLandTableGarden02_Evening = (LandTable *)&landtable_0000FD3C;
-	collist_0000F778[0].Flags = 0x00000000;
-	collist_0000F778[1].Flags = 0x00000000;
-	collist_0000F778[2].Flags = 0x80000420;
-	sub_745A20((NJS_TEX*)&uv_0000EC54, 48);
-}
-
-void __cdecl sub_72A8B0()
-{
-	FunctionPointer(void, sub_745A20, (NJS_TEX*, int), 0x745A20);
-	HMODULE handle = GetModuleHandle(L"CHAOSTGGARDEN02MR_NIGHT");
-	DataPointer(NJS_TEXLIST*, texlist_garden02mr_night, 0x03CA6E84);
-	DataPointer(LandTable*, objLandTableGarden02_Night, 0x03CA6E88);
-	DataPointer(int, dword_3CA6E8C, 0x3CA6E8C);
-	PrintDebug("ChaoStgGarden02MR_Night _prolog\n");
-	dword_3CA6E8C = (int)GetProcAddress(handle, "stg_garden02_mr_objects");
-	texlist_garden02mr_night = (NJS_TEXLIST *)&texlist_mrgarden;
-	objLandTableGarden02_Night = (LandTable *)&landtable_0000FD3C;
-	collist_0000F778[0].Flags = 0x00000000;
-	collist_0000F778[1].Flags = 0x80000420;
-	collist_0000F778[2].Flags = 0x00000000;
-	sub_745A20((NJS_TEX*)&uv_0000EC54, 48);
-}
 
 PointerInfo pointers[] = {
 	ptrdecl(0x719DC9, &landtable_00000E64), //MR Garden
@@ -110,166 +31,16 @@ void __cdecl LoadChaoRaceX()
 	PrintDebug("ChaoStgRace _prolog end.\n");
 }
 
-void __cdecl LoadECGardenX()
-{
-	PrintDebug("ChaoStgGarden01EC Prolog begin\n");
-	CurrentLevel = 40;
-	LoadObject(LoadObj_Data1, 2, ChaoStgGarden01EC_Load);
-	SetChaoLandTable(&landtable_0000DF3C);
-	PrintDebug("ChaoStgGarden01EC Prolog end\n");
-}
-
-void __cdecl LoadSSGardenX()
-{
-	PrintDebug("ChaoStgGarden00SS Prolog begin\n");
-	CurrentLevel = 39;
-	LoadPVM("OBJ_SS", (NJS_TEXLIST*)0x02AA4BF8);
-	LoadObject(LoadObj_Data1, 2, ChaoStgGarden00SS_Load);
-	SetChaoLandTable(&landtable_00011DD4);
-	PrintDebug("ChaoStgGarden00SS Prolog end\n");
-}
-
-void __cdecl LoadMRGardenX()
-{
-	DataPointer(LandTable*, LandTable_ChaoGardenMR, 0x03CA6E88);
-	DataArray(void*, ModuleDestructors, 0x03CA6E70, 4);
-	FunctionPointer(void, ChaoGardenMR_SetLandTable_Evening, (), 0x0072A820);
-	FunctionPointer(void, ChaoGardenMR_SetLandTable_Night, (), 0x0072A8B0);
-	FunctionPointer(void, ChaoGardenMR_SetLandTable_Day, (), 0x0072A790);
-	int v0; // eax@1
-	int v1; // eax@2
-	PrintDebug("ChaoStgGarden02MR Prolog\n");
-	LoadObject(LoadObj_Data1, 2, ChaoStgGarden02MR_Load);
-	v0 = GetTimeOfDay();
-	CurrentLevel = 41;
-	if (v0)
-	{
-		v1 = v0 - 1;
-		if (!v1)
-		{
-			LoadGameDLL("ChaoStgGarden02MR_Evening", 2);
-			ChaoGardenMR_SetLandTable_Evening();
-			ModuleDestructors[1] = Print_ChaoStgGarden02MR_Evening_epilog;
-			SetChaoLandTable(LandTable_ChaoGardenMR);
-			return;
-		}
-		if (v1 == 1)
-		{
-			LoadGameDLL("ChaoStgGarden02MR_Night", 2);
-			ChaoGardenMR_SetLandTable_Night();
-			ModuleDestructors[1] = Print_ChaoStgGarden02MR_Night_epilog;
-			SetChaoLandTable(LandTable_ChaoGardenMR);
-			return;
-		}
-	}
-	LoadGameDLL("ChaoStgGarden02MR_Daytime", 2);
-	ChaoGardenMR_SetLandTable_Day();
-	ModuleDestructors[1] = Print_ChaoStgGarden02MR_Daytime_epilog;
-	SetChaoLandTable(LandTable_ChaoGardenMR);
-}
-
-void __cdecl LoadChaoRaceDoor(ObjectMaster *a1)
-{
-	ObjectMaster *v1; // eax@1
-	EntityData1 *v2; // ecx@2
-	ObjectMaster *v1x; // eax@1
-	EntityData1 *v2x; // ecx@2
-	v1 = LoadChildObject(LoadObj_Data1, OF_SS11, a1);
-	if (v1)
-	{
-		v2 = v1->Data1;
-		v2->Position.x = 0;
-		v2->Position.y = 0;
-		v2->Position.z = -157;
-	}
-	v1x = LoadChildObject(LoadObj_Data1, OF_SS11, a1);
-	if (v1x)
-	{
-		v2x = v1x->Data1;
-		v2x->Position.x = 0;
-		v2x->Position.y = 0;
-		v2x->Position.z = -247;
-	}
-}
-
-void __cdecl sub_4145D0(unsigned __int8 a1, unsigned __int8 a2)
-{
-	DataPointer(int, CutsceneMode, 0x03B22E1C);
-	DataPointer(int, NextAct, 0x03B22E18);
-	if (CurrentLevel !=39)
-	{
-	CutsceneMode = 3;
-	NextLevel = a1;
-	NextAct = a2;
-	}
-	else
-	{
-	SetLevelEntrance(4);
-	sub_715730(26, 4);
-	NextLevel = 26;
-	NextAct = 4;
-	CutsceneMode = 3;
-	}
-}
-
-void cdecl SetElevatorTexlist()
-{
-	if (CurrentLevel == 39)
-	{
-		njSetTexture((NJS_TEXLIST*)0x02AA4BF8); //OBJ_SS
-	}
-		else SetTextureToLevelObj();
-}
-
-void cdecl NameMachineTexlist()
-{
-	LoadPVM("CHAO_OBJECT", (NJS_TEXLIST*)0x033A0788);
-	njSetTexture((NJS_TEXLIST*)0x033A0788); //CHAO_TEXLIST
-}
-
-void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
-{
-	EntityData1 *ent; // eax@1
-	ObjectMaster *obj;
-	ent = LoadObject(LoadObj_Data1, 2, Chao_Name_Machine_Load)->Data1;
-	if (CurrentLevel == 39)
-	{
-	ent->Position.x = 178.03f;
-	ent->Position.y = 8.56f;
-	ent->Position.z = -128.44f;
-	ent->Rotation.y = 0xD7B8;
-	LoadObjects_SS();
-	}
-	if (CurrentLevel == 40)
-	{
-	ent->Position.x = 131.67f;
-	ent->Position.y = 2.6f;
-	ent->Position.z = -204.28f;
-	ent->Rotation.x = 0xFFB0;
-	ent->Rotation.y = 0xAFD6;
-	ent->Rotation.z = 0xFFDE;
-	LoadObjects_EC();
-	}
-	if (CurrentLevel == 41)
-	{
-	ent->Position.x = 239.4137f;
-	ent->Position.y = 15.10273f;
-	ent->Position.z = -45.98477f;
-	ent->Rotation.x = 0xFFDC;
-	ent->Rotation.y = 0xC1A8;
-	ent->Rotation.z = 0xFFF2;
-	LoadObjects_MR();
-	}
-}
-
 void __cdecl LoadRaceEntryX()
 {
 	PrintDebug("ChaoStgEntrance _prolog begin.\n");
 	LoadObject(LoadObj_Data1, 5, ChaoStgEntrance_Main);
 	//PlayMusic(MusicIDs_c_btl_cv);
-	//CurrentLevel = 42;
-	//CurrentAct = 1;
-	SetChaoLandTable(&landtable_00000270);
+	CurrentLevel = 42;
+	CurrentAct = 1;
+	//((LandTable*)0x03423700)->TexName = "AL_RACE01";
+	SetChaoLandTable(&landtable_03023700); //PC
+	//SetChaoLandTable(&landtable_00000270); //DC
 	//SetChaoLandTable((LandTable*)0x03423700);
 	PrintDebug("ChaoStgEntrance _prolog end.\n");
 }
@@ -304,7 +75,6 @@ void __cdecl ChaoStgEntrance_MainX(ObjectMaster *a1)
 	FunctionPointer(char, sub_716A90, (), 0x716A90);
 	FunctionPointer(int, sub_72CBC0, (), 0x72CBC0);
 	FunctionPointer(signed int, sub_717160, (), 0x717160);
-	DataArray(NJS_TEXLIST, ChaoTexLists, 0x033A1038, 7);
 	DataPointer(int, TextLanguage, 0x03B0F0E8);
 	DataPointer(int, dword_3CA6EB8, 0x3CA6EB8);
 	DataPointer(NJS_TEXLIST, AL_TEX_ENT_COMMON_TEXLIST, 0x034232E8);
@@ -320,7 +90,6 @@ void __cdecl ChaoStgEntrance_MainX(ObjectMaster *a1)
 	NJS_TEXLIST *v2; // [sp-20h] [bp-20h]@5
 	unsigned __int16 v3; // [sp-1Ch] [bp-1Ch]@5
 	const char *v4; // [sp-Ch] [bp-Ch]@3
-
 	a1->MainSub = sub_7197E0;
 	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))nullsub;
 	a1->DeleteSub = sub_7197C0;
@@ -377,16 +146,27 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
-//General
+//Chao Race Entry
 		//WriteJump((void*)0x007199B0, LoadRaceEntryX);
+		ResizeTextureList((NJS_TEXLIST *)0x340E934, 62); //Race Entry texlist
 		//WriteJump((void*)0x00719880, ChaoStgEntrance_MainX);
 		//WriteJump((void*)0x0072C2E0, sub_72C2E0);
+		/*WriteData((void*)0x007197E0, 0xC3u, sizeof(char));
+		WriteData((void*)0x007198B2, 0x90, 5);
+		WriteData((void*)0x00719969, 0x90, 5);
+		WriteData((void*)0x0071996E, 0x90, 5);
+		WriteData((void*)0x00719973, 0x90, 5);
+		WriteData((void*)0x00719978, 0x90, 5);
+		WriteData((void*)0x007199A0, 0x90, 5);*/
+//General
+		WriteJump((void*)0x0078AC80, sub_78AC80X); //Eggs
+		ResizeTextureList(&ChaoTexLists[0], 144); //AL_BODY
 		ResizeTextureList((NJS_TEXLIST*)0x033A1338, 31); //AL_DX_OBJ_CMN
 		*(NJS_OBJECT*)0x036065B4 = object_00180454_EC; //EC garden to EC transporter
-		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_USE_ENV;
-		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[3].attr_texId = 23;
-		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[4].attr_texId = 24;
+		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_USE_ENV; //EC garden to EC transporter
+		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //EC garden to EC transporter
+		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[3].attr_texId = 23; //EC garden to EC transporter
+		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[4].attr_texId = 24; //EC garden to EC transporter
 		*(NJS_OBJECT*)0x03604540 = object_00180454; //All other transporters
 		*(NJS_MODEL_SADX*)0x036087C0 = attach_0017BAF8; //Tree trunk
 		*(NJS_MODEL_SADX*)0x03608064 = attach_0017B768; //Tree leaves 1
@@ -408,14 +188,6 @@ extern "C"
 //Chao Race stuff
 		WriteJump((void*)0x00719DB0, LoadChaoRaceX);
 		WriteData((void*)0x0071C293, 0x90, 5); //Prevent the Cheering Omochaos from disappearing
-//Chao Race entry stuff
-		/*WriteData((void*)0x007197E0, 0xC3u, sizeof(char));
-		WriteData((void*)0x007198B2, 0x90, 5);
-		WriteData((void*)0x00719969, 0x90, 5);
-		WriteData((void*)0x0071996E, 0x90, 5);
-		WriteData((void*)0x00719973, 0x90, 5);
-		WriteData((void*)0x00719978, 0x90, 5);
-		WriteData((void*)0x007199A0, 0x90, 5);*/
 //Station Square garden stuff
 		WriteJump((void*)0x4145D0, sub_4145D0); //Elevator function
 		WriteJump((void*)0x0072AB80, LoadChaoRaceDoor);
@@ -588,16 +360,7 @@ __declspec(dllexport) void __cdecl OnFrame()
 			{
 				if (entity->Position.y < 69 && entity->Position.x > 90 && entity->Position.x < 110 && entity->Position.z < 24 && entity->Position.z >-44)
 				{
-					entity->Position.y = 118;
-					if (Camera_Data1 != nullptr)
-					{
-						Camera_Data1->Position.x = 0;
-						Camera_Data1->Position.y = 0;
-						Camera_Data1->Position.z = 0;
-						Camera_Data1->Rotation.x = 0;
-						Camera_Data1->Rotation.y = 0;
-						Camera_Data1->Rotation.z = 0;
-					}
+					entity->Position.y = 110;
 				}
 			}
 			if (ecgardenwater > 63) ecgardenwater = 54;
@@ -642,20 +405,6 @@ __declspec(dllexport) void __cdecl OnFrame()
 //Chao Race
 		if (CurrentLevel == 42 && GameState != 16)
 		{
-			/*auto entity = CharObj1Ptrs[0];
-			if (entity != nullptr)
-			{
-				if (CurrentAct == 1 && entity->Position.y < -10)
-				{
-					entity->Position.x = 2052;
-					entity->Position.y = 5;
-					entity->Position.z = 0;
-					entity->Rotation.x = 0;
-					entity->Rotation.y = NJM_ANG_DEG(180);
-					entity->Rotation.z = 0;
-					//LoadObject(LoadObj_Data1, 5, ChaoStgEntrance_Main);
-				}
-			}*/
 			if (chaoracewater > 68) chaoracewater = 55;
 			matlist_0002A548[0].attr_texId = chaoracewater;
 			matlist_0003EFB0[0].attr_texId = chaoracewater;
