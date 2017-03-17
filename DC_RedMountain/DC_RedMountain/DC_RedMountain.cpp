@@ -13,6 +13,7 @@ PointerInfo pointers[] = {
 };
 
 DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
 DataPointer(signed int, ClipLevel, 0x03ABDCF0);
 DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 DataPointer(NJS_TEXLIST, OBJ_MOUNTAIN_TEXLIST, 0x024208A8);
@@ -146,10 +147,12 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x230FDF4, textures_mountain1);
 		ResizeTextureList((NJS_TEXLIST*)0x229B8CC, textures_mountain2);
 		ResizeTextureList((NJS_TEXLIST*)0x224096C, textures_mountain3);
+		DataArray(NJS_VECTOR, SkyboxScale_RedMountain2, 0x02240628, 3);
 		DataArray(FogData, RedMountain1Fog, 0x02240700, 3);
 		DataArray(FogData, RedMountain2Fog, 0x02240730, 3);
 		DataArray(FogData, RedMountain3Fog, 0x02240760, 3);
 		DataArray(DrawDistance, DrawDist_RedMountain1, 0x022406B8, 3);
+		DataArray(DrawDistance, DrawDist_RedMountain2, 0x022406D0, 3);
 		DataArray(DrawDistance, DrawDist_RedMountain3, 0x022406E8, 3);
 		for (int i = 0; i < 3; i++)
 		{
@@ -167,6 +170,9 @@ extern "C"
 			RedMountain3Fog[i].Toggle = 1;
 			DrawDist_RedMountain1[i].Maximum = -16000.0;
 			DrawDist_RedMountain3[i].Maximum = -16000.0;
+			SkyboxScale_RedMountain2[i].x = 1.0f;
+			SkyboxScale_RedMountain2[i].y = 1.0f;
+			SkyboxScale_RedMountain2[i].z = 1.0f;
 		}
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
@@ -183,6 +189,10 @@ extern "C"
 				uv_0206C9F0[1].u = 0;
 				uv_0206C9F0[2].u = 765;
 				uv_0206C9F0[3].u = 765;
+			}
+			if (CurrentAct == 1 && Camera_Data1 != nullptr)
+			{
+				if (Camera_Data1->Position.y > 900) CurrentDrawDistance = -9000.0f;
 			}
 		}
 	}

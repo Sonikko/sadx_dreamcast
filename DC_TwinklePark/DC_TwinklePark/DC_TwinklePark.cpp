@@ -43,8 +43,7 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x38AEB70, textures_tpobjects); //OBJ_SHAREOBJ
 		ResizeTextureList((NJS_TEXLIST*)0x279BF68, 107); //OBJ_TWINKLE
 		*(NJS_OBJECT*)0x0279D364 = object_000A0E58; // barrel
-		((NJS_OBJECT *)0x027A247C)->basicdxmodel->mats[5].attrflags |= NJD_FLAG_IGNORE_LIGHT; //rollercoaster
-		((NJS_OBJECT *)0x027A247C)->basicdxmodel->mats[7].attrflags |= NJD_FLAG_IGNORE_LIGHT; //rollercoaster
+		*(NJS_OBJECT *)0x027A247C = object_023A247C; // rollercoaster
 		((NJS_OBJECT *)0x38BAA3C)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2; //cart
 		((NJS_OBJECT *)0x38BAA3C)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2; //cart
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -128,7 +127,7 @@ extern "C"
 		{
 			if (CurrentLevel == 3 && CurrentAct == 1)
 			{
-				if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
+				if (GameState !=16)
 					if (CurrentCharacter != 0)
 					{
 						collist_000178B0[LengthOfArray(collist_000178B0) - 1].Flags = 0x00000000;
