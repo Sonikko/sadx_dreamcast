@@ -92,6 +92,7 @@ void __cdecl LoadSSGardenX()
 	CurrentLevel = 39;
 	LoadPVM("OBJ_SS", (NJS_TEXLIST*)0x02AA4BF8);
 	LoadObject(LoadObj_Data1, 2, ChaoStgGarden00SS_Load);
+	LoadObjects_SS();
 	SetChaoLandTable(&landtable_00011DD4);
 	PrintDebug("ChaoStgGarden00SS Prolog end\n");
 }
@@ -101,6 +102,7 @@ void __cdecl LoadECGardenX()
 	PrintDebug("ChaoStgGarden01EC Prolog begin\n");
 	CurrentLevel = 40;
 	LoadObject(LoadObj_Data1, 2, ChaoStgGarden01EC_Load);
+	LoadObjects_EC();
 	SetChaoLandTable(&landtable_0000DF3C);
 	PrintDebug("ChaoStgGarden01EC Prolog end\n");
 }
@@ -116,6 +118,7 @@ void __cdecl LoadMRGardenX()
 	int v1; // eax@2
 	PrintDebug("ChaoStgGarden02MR Prolog\n");
 	LoadObject(LoadObj_Data1, 2, ChaoStgGarden02MR_Load);
+	LoadObjects_MR();
 	v0 = GetTimeOfDay();
 	CurrentLevel = 41;
 	if (v0)
@@ -202,8 +205,7 @@ void cdecl SetElevatorTexlist()
 //Name machine and other objects
 void cdecl NameMachineTexlist()
 {
-	LoadPVM("CHAO_OBJECT", (NJS_TEXLIST*)0x033A0788);
-	njSetTexture((NJS_TEXLIST*)0x033A0788); //CHAO_TEXLIST
+	njSetTexture((NJS_TEXLIST*)0x033A0788); //CHAO_OBJECT
 }
 
 void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
@@ -217,7 +219,6 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 		ent->Position.y = 8.56f;
 		ent->Position.z = -128.44f;
 		ent->Rotation.y = 0xD7B8;
-		LoadObjects_SS();
 	}
 	if (CurrentLevel == 40)
 	{
@@ -227,7 +228,6 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 		ent->Rotation.x = 0xFFB0;
 		ent->Rotation.y = 0xAFD6;
 		ent->Rotation.z = 0xFFDE;
-		LoadObjects_EC();
 	}
 	if (CurrentLevel == 41)
 	{
@@ -237,7 +237,6 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 		ent->Rotation.x = 0xFFDC;
 		ent->Rotation.y = 0xC1A8;
 		ent->Rotation.z = 0xFFF2;
-		LoadObjects_MR();
 	}
 }
 
