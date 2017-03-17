@@ -105,6 +105,7 @@
     <ClInclude Include="ECGarden_DC.h" />
     <ClInclude Include="ECGarden_func.h" />
     <ClInclude Include="Elevator.h" />
+    <ClInclude Include="Fountain.h" />
     <ClInclude Include="MainFunctions.h" />
     <ClInclude Include="MRGarden.h" />
     <ClInclude Include="MRGarden_func.h" />

@@ -3,6 +3,7 @@
 #include "ChaoObjects.h"
 #include "ChaoRaceFunc.h"
 #include "Elevator.h"
+#include "Fountain.h"
 #include "SSGarden.h"
 #include "MRGarden.h"
 #include "ChaoRace.h"
@@ -16,7 +17,7 @@
 #include <stdlib.h>  
 
 PointerInfo pointers[] = {
-	ptrdecl(0x719DC9, &landtable_00000E64), //MR Garden
+	ptrdecl(0x719DC9, &landtable_00000E64), //Chao Race
 	ptrdecl(0x719619, &landtable_00011DD4), //SS Garden
 	ptrdecl(0x7191E9, &landtable_0000DF3C) //EC Garden
 };
@@ -143,7 +144,7 @@ void __cdecl ChaoStgEntrance_MainX(ObjectMaster *a1)
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
-	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
+	//__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
 //Chao Race Entry
@@ -351,6 +352,18 @@ __declspec(dllexport) void __cdecl OnFrame()
 			if (ssgardenwater > 9) ssgardenwater = 0;
 			matlist_00011388[0].attr_texId = ssgardenwater;
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ssgardenwater++;
+			for (int q = 0; q < LengthOfArray(uv_000144F0); q++)
+			{
+				uv_000144F0[q].v = uv_000144F0[q].v - 2;
+			}
+			if (uv_000144F0[0].v < 0)
+			{
+				for (int q2 = 0; q2 < LengthOfArray(uv_000144F0); q2++)
+				{
+					uv_000144F0[q2].v = uv_000144F0R[q2].v;
+				}
+			}
+
 		}
 //Egg Carrier garden
 		if (CurrentLevel == 40 && GameState != 16)
@@ -410,6 +423,18 @@ __declspec(dllexport) void __cdecl OnFrame()
 			matlist_0003EFB0[0].attr_texId = chaoracewater;
 			matlist_0003F2DC[0].attr_texId = chaoracewater;
 			if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) chaoracewater++;
+			for (int w = 0; w < LengthOfArray(uv_00045AF4); w++)
+			{
+				uv_00045AF4[w].v = uv_00045AF4[w].v - 6;
+			}
+			if (uv_00045AF4[0].v < -253)
+			{
+				for (int w2 = 0; w2 < LengthOfArray(uv_00045AF4); w2++)
+				{
+					uv_00045AF4[w2].v = uv_00045AF4R[w2].v;
+				}
+			}
+			
 		}
 	}
 }
