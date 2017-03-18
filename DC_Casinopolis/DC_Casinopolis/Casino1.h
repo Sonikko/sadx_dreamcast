@@ -33345,11 +33345,13 @@ COL collist_00023DA0K[] = {
 	{ { -324.39, -156.3, 117.89 }, 0, 0, 0, &light4, 0, 0xA1000000 },
 	{ { -336.57, -195.7, 176.35 }, 0, 0, 0, &light5, 0, 0xA1000000 },
 	{ { -363.88, -195.7, 109.72 }, 0, 0, 0, &light6, 0, 0xA1000000 },
+	{ { 446.07f, -60, -143.4f }, 30, 0, 0, &object_019F259C, 0, 0x84000000 }, //TUTUA part 1
+	{ { 446.07f, -60, -143.4f }, 30, 0, 0, &object_019F230C, 0, 0x84000000 }, //TUTUA part 2
 	{ { 311.62, 0, 338.93 }, 0, 0, 0, &object_01A74A94Z, 0, 0xC2040000 }, //neon k
 	{ { 0, 32.5f, -256.5f }, 215.4356f, 0, 0, &object_000506DC, 0, 0x80000000 }, //fence
 	{ { 271.24f, -131.39f, 121.96f }, 200, 0, 0, &object_01A3FD04, 0, 0x80000000 }, //O KBS
 	{ { -105.87f, -142.39f, 252.9f }, 200, 0, 0, &object_01A3D734, 0, 0x80000000 }, //O KBC
-	{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8, 0, 0x80000001 } //Cowgirl
+	{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8, 0, 0x80000001 }, //Cowgirl
 };
 
 COL collist_00023DA0S[] = {
@@ -33600,7 +33602,7 @@ GeoAnimData animlist_casino[] = {
 	{ 0, 0.2f, 30, &object_001D98C8, &action_cowgirl_anim, (NJS_TEXLIST*)0 }
 };
 
-NJS_TEXNAME textures_casino1[154];
+NJS_TEXNAME textures_casino1[155];
 NJS_TEXLIST texlist_casino1 = { arrayptrandlength(textures_casino1) };
 
 LandTable landtable_00025EAC = { LengthOfArray(collist_00023DA0K), LengthOfArray(animlist_casino), 0xD, 800, collist_00023DA0K, animlist_casino, "CASINO01", (NJS_TEXLIST *)&texlist_casino1, 0, 0 };

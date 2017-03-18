@@ -12,6 +12,7 @@ static short CurrentPlayer = -1;
 static int anim1 = 67;
 static int anim2 = 7;
 static int delayX = 0;
+static int ang = 0;
 FunctionPointer(void, sub_5DD900, (int a1, int a2), 0x5DD900);
 FunctionPointer(void, sub_5DD920, (int a1, int a2), 0x5DD920);
 FunctionPointer(void, sub_5C09D0, (int a1), 0x5C09D0);
@@ -120,6 +121,9 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		((NJS_OBJECT*)0x01DF259C)->evalflags |= NJD_EVAL_HIDE; //O TUTUA
+		((NJS_OBJECT*)0x01DF230C)->evalflags |= NJD_EVAL_HIDE; //O TUTUA
+		WriteData((void*)0x005D4456, 0x90, 5); //O TUTUA
 		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
 		if (Cowgirl != 0)
 		{
@@ -183,6 +187,8 @@ extern "C"
 		}
 		if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
 		{
+			object_019F230C.ang[1] = ang;
+			ang = (ang + 32) % 65536;
 			if (Cowgirl != 0)
 			{
 			auto entity = CharObj1Ptrs[0];
