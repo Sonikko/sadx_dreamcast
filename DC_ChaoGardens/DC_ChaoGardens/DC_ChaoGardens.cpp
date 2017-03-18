@@ -79,7 +79,8 @@ extern "C"
 		}
 //Chao Race stuff
 		WriteJump((void*)0x00719DB0, LoadChaoRaceX);
-		WriteData((void*)0x0071C293, 0x90, 5); //Prevent the Cheering Omochaos from disappearing
+		WriteData((float*)0x00719D74, -16000.0f); //Draw distance
+		//WriteData((void*)0x0071C293, 0x90, 5); //Prevent the Cheering Omochaos from disappearing
 //Station Square garden stuff
 		WriteJump((void*)0x4145D0, sub_4145D0); //Elevator function
 		WriteJump((void*)0x0072AB80, LoadChaoRaceDoor);

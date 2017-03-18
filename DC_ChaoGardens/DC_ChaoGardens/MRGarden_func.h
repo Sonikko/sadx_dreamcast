@@ -1,3 +1,5 @@
+#include <SADXModLoader.h>
+
 ObjectFunc(OF_MR0, 0x00450370); // RING   
 ObjectFunc(OF_MR4, 0x004D4770); // CYLINDER
 ObjectFunc(OF_MR5, 0x004D47E0); // CUBE    
@@ -7,7 +9,9 @@ void LoadObjects_MR()
 {
 	ObjectMaster *obj;
 	EntityData1 *ent;
+	setdata.Distance = 900000.0f;
 	obj = LoadObject((LoadObj)2, 3, OF_MR0); // RING   
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -17,18 +21,8 @@ void LoadObjects_MR()
 		ent->Rotation.y = 0xDFE5;
 		ent->Rotation.z = 0x14FD;
 	}
-	/*obj = LoadObject((LoadObj)3, 3, OF_MR3); // VMS
-	if (obj)
-	{
-	ent = obj->Data1;
-	ent->Position.x = 239.4137f;
-	ent->Position.y = 15.10273f;
-	ent->Position.z = -45.98477f;
-	ent->Rotation.x = 0xFFDC;
-	ent->Rotation.y = 0xC1A8;
-	ent->Rotation.z = 0xFFF2;
-	}*/
 	obj = LoadObject((LoadObj)2, 3, OF_MR4); // CYLINDER
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -40,6 +34,7 @@ void LoadObjects_MR()
 		ent->Scale.y = 10;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF_MR5); // CUBE    
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;

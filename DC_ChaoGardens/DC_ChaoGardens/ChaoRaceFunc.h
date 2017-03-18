@@ -19,11 +19,14 @@ ObjectFunc(OF15, 0x71C180); // CHEER CHAO
 ObjectFunc(OF16, 0x71BFF0); // BOW CHAO
 ObjectFunc(OF17, 0x71BEA0); // CRACKER
 ObjectFunc(OF18, 0x71BBB0); // BUTTERFLY
+SETObjData setdata_race = {};
 void LoadObjects()
 {
 	ObjectMaster *obj;
 	EntityData1 *ent;
+	setdata_race.Distance = 612800.0f;
 	obj = LoadObject((LoadObj)2, 3, OF10); // BUGLE
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -33,6 +36,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x1F1E;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF10); // BUGLE
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -43,6 +47,7 @@ void LoadObjects()
 		ent->Rotation.z = 0xC000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF10); // BUGLE
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -53,6 +58,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x600B;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF10); // BUGLE
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -63,6 +69,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x900B;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -74,6 +81,7 @@ void LoadObjects()
 		ent->Scale.y = 1;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -85,6 +93,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -96,6 +105,7 @@ void LoadObjects()
 		ent->Scale.y = 1;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -107,6 +117,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -119,6 +130,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -131,6 +143,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -143,6 +156,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -155,6 +169,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -167,6 +182,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -179,6 +195,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -191,6 +208,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -202,6 +220,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -213,6 +232,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -224,6 +244,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -235,6 +256,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -246,6 +268,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -257,6 +280,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -268,6 +292,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -279,6 +304,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -290,6 +316,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -301,6 +328,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -312,6 +340,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -323,6 +352,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -334,6 +364,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -345,6 +376,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -356,6 +388,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -367,6 +400,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -378,6 +412,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -390,6 +425,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -402,6 +438,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -414,6 +451,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -426,6 +464,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -438,6 +477,7 @@ void LoadObjects()
 		ent->Scale.y = 2;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -450,6 +490,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -462,6 +503,7 @@ void LoadObjects()
 		ent->Scale.y = 2;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -474,6 +516,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF18); // BUTTERFLY
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -486,6 +529,7 @@ void LoadObjects()
 		ent->Scale.y = 2;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -495,6 +539,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x5D7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -504,6 +549,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x30D7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -513,6 +559,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x40D7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -522,6 +569,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x50D7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -531,6 +579,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x85D7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -540,6 +589,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x8AD7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -549,6 +599,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x8AD7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -558,6 +609,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xA0D7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -567,6 +619,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xA0D7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -576,6 +629,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xABD7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -585,6 +639,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xABD7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -594,6 +649,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xB0D7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -603,6 +659,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xB0D7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF15); // CHEER CHAO
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -612,6 +669,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xB0D7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -624,6 +682,7 @@ void LoadObjects()
 		ent->Scale.y = 15;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -636,6 +695,7 @@ void LoadObjects()
 		ent->Scale.y = 10.8f;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -648,6 +708,7 @@ void LoadObjects()
 		ent->Scale.y = 20.8f;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -660,6 +721,7 @@ void LoadObjects()
 		ent->Scale.y = 20.8f;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -672,6 +734,7 @@ void LoadObjects()
 		ent->Scale.y = 10.8f;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -681,6 +744,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x7A15;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -690,6 +754,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x7A15;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -699,6 +764,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -708,6 +774,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -717,6 +784,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -726,6 +794,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -735,6 +804,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -744,6 +814,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -753,6 +824,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -762,6 +834,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -771,6 +844,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -780,6 +854,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -789,6 +864,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -798,6 +874,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -807,6 +884,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -816,6 +894,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -825,6 +904,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -834,6 +914,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -843,6 +924,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF13); // ISLET
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -852,6 +934,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x4066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF13); // ISLET
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -861,6 +944,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x4066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF13); // ISLET
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -870,6 +954,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF13); // ISLET
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -879,6 +964,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF13); // ISLET
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -888,6 +974,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF13); // ISLET
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -897,6 +984,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -906,6 +994,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC3B;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -915,6 +1004,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x4000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -924,6 +1014,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x4000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -933,6 +1024,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x4BA1;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -942,6 +1034,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x4BA1;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -951,6 +1044,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x6BA1;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -960,6 +1054,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x8BA1;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -972,6 +1067,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -984,6 +1080,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -993,6 +1090,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1002,6 +1100,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1011,6 +1110,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1023,6 +1123,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1035,6 +1136,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1047,6 +1149,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1056,6 +1159,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF04C;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1065,6 +1169,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1074,6 +1179,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1086,6 +1192,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1098,6 +1205,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1110,6 +1218,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF7); // PURPLE FLOWER
+
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1121,7 +1230,8 @@ void LoadObjects()
 		ent->Scale.x = 4;
 		ent->Scale.y = 3;
 	}
-	/*obj = LoadObject((LoadObj)2, 3, OF11); // SCOOP
+	obj = LoadObject((LoadObj)2, 3, OF11); // SCOOP
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1132,6 +1242,7 @@ void LoadObjects()
 		ent->Rotation.z = 0xC000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF11); // SCOOP
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1142,6 +1253,7 @@ void LoadObjects()
 		ent->Rotation.z = 0xC000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF11); // SCOOP
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1152,6 +1264,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x600B;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF9); // WATERING CAN
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1161,6 +1274,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x1F1E;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF9); // WATERING CAN
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1168,8 +1282,9 @@ void LoadObjects()
 		ent->Position.y = 60.06f;
 		ent->Position.z = 109.13f;
 		ent->Rotation.y = 0x8E0B;
-	}*/
+	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1181,6 +1296,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1192,6 +1308,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1201,6 +1318,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC3B;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1210,6 +1328,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC3B;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1219,6 +1338,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC3B;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1231,6 +1351,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1243,6 +1364,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1255,6 +1377,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1267,6 +1390,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1278,6 +1402,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1289,6 +1414,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1301,6 +1427,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1310,6 +1437,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x1F1E;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1322,6 +1450,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1333,6 +1462,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1344,6 +1474,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1355,6 +1486,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1364,6 +1496,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x6BA1;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1376,6 +1509,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1388,6 +1522,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1397,6 +1532,7 @@ void LoadObjects()
 		ent->Rotation.y = 0x86A8;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1408,6 +1544,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1418,6 +1555,7 @@ void LoadObjects()
 		ent->Rotation.z = 0xF000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1428,6 +1566,7 @@ void LoadObjects()
 		ent->Rotation.z = 0xF000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1440,6 +1579,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1449,6 +1589,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xABA8;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1458,6 +1599,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1467,6 +1609,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1476,6 +1619,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1485,6 +1629,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1494,6 +1639,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1503,6 +1649,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1512,6 +1659,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1521,6 +1669,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC6A8;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1530,6 +1679,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC6A8;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1542,6 +1692,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1554,6 +1705,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1565,6 +1717,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1576,6 +1729,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1588,6 +1742,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1600,6 +1755,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1612,6 +1768,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1624,6 +1781,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1636,6 +1794,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1648,6 +1807,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1660,6 +1820,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1669,6 +1830,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1678,6 +1840,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1687,6 +1850,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1696,6 +1860,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1705,6 +1870,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1714,6 +1880,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1723,6 +1890,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1732,6 +1900,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1741,6 +1910,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1750,6 +1920,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1759,6 +1930,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1768,6 +1940,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1780,6 +1953,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1792,6 +1966,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1804,6 +1979,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1815,6 +1991,7 @@ void LoadObjects()
 		ent->Rotation.z = 0x1000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1826,6 +2003,7 @@ void LoadObjects()
 		ent->Rotation.z = 0x1000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1837,6 +2015,7 @@ void LoadObjects()
 		ent->Rotation.z = 0x1000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1848,6 +2027,7 @@ void LoadObjects()
 		ent->Rotation.z = 0x1000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1860,6 +2040,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1872,6 +2053,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1884,6 +2066,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1896,6 +2079,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1908,6 +2092,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1920,6 +2105,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1932,6 +2118,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF6); // WHITE FLOWER
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1944,6 +2131,7 @@ void LoadObjects()
 		ent->Scale.y = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF2); // ZONE
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1951,10 +2139,10 @@ void LoadObjects()
 		ent->Position.y = 80.37f;
 		ent->Position.z = 151.66f;
 		ent->Scale.x = 30;
-		ent->Scale.y = 0;
 		ent->Scale.z = 200;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF2); // ZONE
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1962,10 +2150,10 @@ void LoadObjects()
 		ent->Position.y = 60;
 		ent->Position.z = 97.08f;
 		ent->Scale.x = 50;
-		ent->Scale.y = 0;
 		ent->Scale.z = 200;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1975,6 +2163,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC331;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1984,6 +2173,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC331;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -1993,6 +2183,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC331;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2002,6 +2193,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC331;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2011,6 +2203,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC331;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2020,6 +2213,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC331;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2029,6 +2223,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC331;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2038,6 +2233,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC331;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2047,6 +2243,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC331;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2056,6 +2253,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC331;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2065,6 +2263,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC331;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2074,6 +2273,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xC331;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2083,6 +2283,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2092,6 +2293,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2101,6 +2303,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2110,6 +2313,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF066;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF3); // PALM
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2119,6 +2323,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF581;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF3); // PALM
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -2128,6 +2333,7 @@ void LoadObjects()
 		ent->Rotation.y = 0xF581;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF8); // START MARK
+	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;

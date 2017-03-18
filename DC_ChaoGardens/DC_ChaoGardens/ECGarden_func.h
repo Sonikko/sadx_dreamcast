@@ -1,14 +1,19 @@
-ObjectFunc(OF0_EC, 0x00450370); // RING   
-ObjectFunc(OF4_EC, 0x004D4770); // CYLINDER
-ObjectFunc(OF5_EC, 0x004D47E0); // CUBE    
-ObjectFunc(OF6_EC, 0x004D4700); // SPHERE  
-ObjectFunc(OF17_EC, 0x004D4850); // WALL  
+#include <SADXModLoader.h>
+
+ObjectFunc(EC_OF0, 0x00450370); // RING   
+ObjectFunc(EC_OF4, 0x004D4770); // CYLINDER
+ObjectFunc(EC_OF5, 0x004D47E0); // CUBE    
+ObjectFunc(EC_OF6, 0x004D4700); // SPHERE  
+ObjectFunc(EC_OF17, 0x004D4850); // WALL  
+SETObjData setdata = {};
 
 void LoadObjects_EC()
 {
 	ObjectMaster *obj;
 	EntityData1 *ent;
-	obj = LoadObject((LoadObj)2, 5, OF0_EC); // RING   
+	setdata.Distance = 900000.0f;
+	obj = LoadObject((LoadObj)2, 5, EC_OF0); // RING   
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -18,8 +23,8 @@ void LoadObjects_EC()
 		ent->Rotation.y = 0xDFE5;
 		ent->Rotation.z = 0x14FD;
 	}
-
-	obj = LoadObject((LoadObj)2, 2, OF17_EC); // WALL  
+	obj = LoadObject((LoadObj)2, 2, EC_OF17); // WALL  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -32,7 +37,8 @@ void LoadObjects_EC()
 		ent->Scale.x = 700;
 		ent->Scale.y = 400;
 	}
-	obj = LoadObject((LoadObj)2, 2, OF17_EC); // WALL  
+	obj = LoadObject((LoadObj)2, 2, EC_OF17); // WALL  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -45,7 +51,8 @@ void LoadObjects_EC()
 		ent->Scale.x = 700;
 		ent->Scale.y = 400;
 	}
-	obj = LoadObject((LoadObj)2, 2, OF17_EC); // WALL  
+	obj = LoadObject((LoadObj)2, 2, EC_OF17); // WALL  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -58,7 +65,8 @@ void LoadObjects_EC()
 		ent->Scale.x = 700;
 		ent->Scale.y = 400;
 	}
-	obj = LoadObject((LoadObj)2, 2, OF17_EC); // WALL  
+	obj = LoadObject((LoadObj)2, 2, EC_OF17); // WALL  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -70,7 +78,8 @@ void LoadObjects_EC()
 		ent->Scale.x = 700;
 		ent->Scale.y = 400;
 	}
-	obj = LoadObject((LoadObj)2, 2, OF17_EC); // WALL  
+	obj = LoadObject((LoadObj)2, 2, EC_OF17); // WALL  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -83,7 +92,8 @@ void LoadObjects_EC()
 		ent->Scale.x = 100;
 		ent->Scale.y = 400;
 	}
-	obj = LoadObject((LoadObj)2, 2, OF17_EC); // WALL  
+	obj = LoadObject((LoadObj)2, 2, EC_OF17); // WALL  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -96,7 +106,8 @@ void LoadObjects_EC()
 		ent->Scale.x = 100;
 		ent->Scale.y = 400;
 	}
-	obj = LoadObject((LoadObj)2, 2, OF17_EC); // WALL  
+	obj = LoadObject((LoadObj)2, 2, EC_OF17); // WALL  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -109,7 +120,8 @@ void LoadObjects_EC()
 		ent->Scale.x = 100;
 		ent->Scale.y = 400;
 	}
-	obj = LoadObject((LoadObj)2, 2, OF17_EC); // WALL  
+	obj = LoadObject((LoadObj)2, 2, EC_OF17); // WALL  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -122,7 +134,8 @@ void LoadObjects_EC()
 		ent->Scale.x = 200;
 		ent->Scale.y = 400;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF5_EC); // CUBE    
+	obj = LoadObject((LoadObj)2, 3, EC_OF5); // CUBE    
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -136,7 +149,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 11;
 		ent->Scale.z = 16;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -150,7 +164,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 12;
 		ent->Scale.z = 24;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -164,7 +179,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 12;
 		ent->Scale.z = 24;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -178,7 +194,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 12;
 		ent->Scale.z = 24;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -192,7 +209,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 12;
 		ent->Scale.z = 24;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -206,7 +224,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 12;
 		ent->Scale.z = 24;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -220,7 +239,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 12;
 		ent->Scale.z = 24;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -234,7 +254,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 12;
 		ent->Scale.z = 24;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -248,7 +269,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 12;
 		ent->Scale.z = 24;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -262,7 +284,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 12;
 		ent->Scale.z = 24;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -276,7 +299,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 12;
 		ent->Scale.z = 24;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -290,7 +314,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 12;
 		ent->Scale.z = 24;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -304,7 +329,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 12;
 		ent->Scale.z = 24;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -318,7 +344,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 9;
 		ent->Scale.z = 25;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -332,7 +359,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 9;
 		ent->Scale.z = 25;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -346,7 +374,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 9;
 		ent->Scale.z = 25;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -360,7 +389,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 9;
 		ent->Scale.z = 25;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -374,7 +404,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 9;
 		ent->Scale.z = 25;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF6_EC); // SPHERE  
+	obj = LoadObject((LoadObj)2, 3, EC_OF6); // SPHERE  
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -388,7 +419,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 9;
 		ent->Scale.z = 25;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF5_EC); // CUBE    
+	obj = LoadObject((LoadObj)2, 3, EC_OF5); // CUBE    
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -402,7 +434,8 @@ void LoadObjects_EC()
 		ent->Scale.y = 20;
 		ent->Scale.z = 25;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF4_EC); // CYLINDER
+	obj = LoadObject((LoadObj)2, 3, EC_OF4); // CYLINDER
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -415,7 +448,8 @@ void LoadObjects_EC()
 		ent->Scale.x = 35;
 		ent->Scale.y = 30;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF4_EC); // CYLINDER
+	obj = LoadObject((LoadObj)2, 3, EC_OF4); // CYLINDER
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -428,7 +462,8 @@ void LoadObjects_EC()
 		ent->Scale.x = 70;
 		ent->Scale.y = 53;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF4_EC); // CYLINDER
+	obj = LoadObject((LoadObj)2, 3, EC_OF4); // CYLINDER
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -441,7 +476,8 @@ void LoadObjects_EC()
 		ent->Scale.x = 55;
 		ent->Scale.y = 30;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF4_EC); // CYLINDER
+	obj = LoadObject((LoadObj)2, 3, EC_OF4); // CYLINDER
+	obj->SETData.SETData = &setdata;
 	if (obj)
 	{
 		ent = obj->Data1;
