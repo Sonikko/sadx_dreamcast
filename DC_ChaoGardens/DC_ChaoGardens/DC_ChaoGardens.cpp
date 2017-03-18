@@ -51,6 +51,7 @@ extern "C"
 		WriteData((void*)0x00719978, 0x90, 5);
 		WriteData((void*)0x007199A0, 0x90, 5);*/
 //General
+		*(NJS_OBJECT*)0x33CB04C = object_001826E8; //Name machine button
 		WriteData((void*)0x007195AE, 0x90, 5); //Don't load SADX button prompts in SS garden
 		WriteData((void*)0x00719181, 0x90, 5); //Don't load SADX button prompts in EC garden
 		WriteData((void*)0x00718E20, 0x90, 5); //Don't load SADX button prompts in MR garden
