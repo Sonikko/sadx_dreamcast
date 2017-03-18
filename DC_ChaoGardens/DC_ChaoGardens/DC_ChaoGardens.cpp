@@ -51,6 +51,9 @@ extern "C"
 		WriteData((void*)0x00719978, 0x90, 5);
 		WriteData((void*)0x007199A0, 0x90, 5);*/
 //General
+		WriteData((void*)0x007195AE, 0x90, 5); //Don't load SADX button prompts in SS garden
+		WriteData((void*)0x00719181, 0x90, 5); //Don't load SADX button prompts in EC garden
+		WriteData((void*)0x00718E20, 0x90, 5); //Don't load SADX button prompts in MR garden
 		WriteJump((void*)0x0078AC80, sub_78AC80X); //Eggs
 		ResizeTextureList(&ChaoTexLists[0], 144); //AL_BODY
 		ResizeTextureList((NJS_TEXLIST*)0x033A1338, 31); //AL_DX_OBJ_CMN
