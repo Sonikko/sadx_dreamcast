@@ -261,8 +261,21 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	DataPointer(D3DMATRIX, stru_389D7E8, 0x0389D7E8);
 	DataArray(NJS_TEXLIST, ChaoTexLists, 0x033A1038, 7);
 	DataArray(int, dword_389D828, 0x389D828, 13);
+	if (a2 == SADXEggColour_Black_MonoTone)
+	{
+		WriteData((char*)0x03601516, 0x8F, 1);
+		WriteData((char*)0x036009B6, 0x8F, 1);
+		WriteData((char*)0x03600F4E, 0x8F, 1);
+	}
+	else
+	{
+		WriteData((char*)0x03601516, 0x3D, 1);
+		WriteData((char*)0x036009B6, 0x3D, 1);
+		WriteData((char*)0x03600F4E, 0x3D, 1);
+	}
 	switch (a2)
 	{
+	case SADXEggColour_Black_MonoTone:
 	case SADXEggColour_Normal:
 		DisableChunkMaterialFlags();
 		break;
@@ -281,13 +294,6 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 		EnableChunkMaterialFlags();
 		SetChunkMaterialFlags(9u);
 		sub_78A320(dword_389D828[a2 - SADXEggColour_Yellow_MonoTone]);
-		break;
-	case SADXEggColour_Black_MonoTone:
-		EnableChunkMaterialFlags();
-		SetChunkMaterialFlags(4u);
-		Direct3D_SetTexList(ChaoTexLists);
-		sub_78A320(-1);
-		SetChunkTextureIndexA(0x8F);
 		break;
 	case SADXEggColour_Yellow_TwoTone:
 	case SADXEggColour_White_TwoTone:
