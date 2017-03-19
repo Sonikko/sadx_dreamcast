@@ -10,6 +10,9 @@
 #include "MR_train.h"
 #include "MR_Rock.h"
 #include "MR_IceCapDoor.h"
+#include "Tanken.h"
+#include "Tanken2.h"
+#include "Tanken3.h"
 
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
 DataArray(FogData, MR2FogDay, 0x01103478, 3);
@@ -36,6 +39,9 @@ NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	*(NJS_OBJECT*)0x1108A18 = object_00226468; //TANKEN
+	*(NJS_OBJECT*)0x110CF34 = object2_00229334; //TANKEN 2
+	*(NJS_OBJECT*)0x11112CC = object_0022DDA4; //TANKEN 3
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	if (SADXStyleWater != 0) 
 	{

@@ -66,6 +66,15 @@
     <ClInclude Include="MR_IceCapDoor.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Tanken3.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tanken.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Tanken2.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">
