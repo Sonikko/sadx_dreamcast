@@ -7,6 +7,14 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//Item capsule lighting fixes
+		((NJS_MODEL*)0x008BF260)->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MODEL*)0x008BF260)->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MODEL*)0x008BF260)->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MODEL*)0x008BF260)->mats[3].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MODEL*)0x008BEAA8)->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MODEL*)0x008BE620)->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MODEL*)0x008BE620)->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //end
 		ResizeTextureList((NJS_TEXLIST*)0x0092ACE4, 5); //GOMA texlist
 		*(NJS_OBJECT*)0x92A2D0 = object_00157760; //GOMA
 		*(NJS_ACTION*)0x949FCC = action__158830; //GOMA animation
