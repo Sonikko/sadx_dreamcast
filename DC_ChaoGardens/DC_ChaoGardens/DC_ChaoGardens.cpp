@@ -56,6 +56,7 @@ extern "C"
 		WriteData((void*)0x00719181, 0x90, 5); //Don't load SADX button prompts in EC garden
 		WriteData((void*)0x00718E20, 0x90, 5); //Don't load SADX button prompts in MR garden
 		WriteJump((void*)0x0078AC80, sub_78AC80X); //Eggs
+		WriteData((char*)0x007151D3, 0x14, 1);//The secret EC egg is a two-tone gray egg
 		ResizeTextureList(&ChaoTexLists[0], 144); //AL_BODY
 		ResizeTextureList((NJS_TEXLIST*)0x033A1338, 31); //AL_DX_OBJ_CMN
 		*(NJS_OBJECT*)0x036065B4 = object_00180454_EC; //EC garden to EC transporter

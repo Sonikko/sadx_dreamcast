@@ -261,7 +261,7 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	DataPointer(D3DMATRIX, stru_389D7E8, 0x0389D7E8);
 	DataArray(NJS_TEXLIST, ChaoTexLists, 0x033A1038, 7);
 	DataArray(int, dword_389D828, 0x389D828, 13);
-	if (a2 == SADXEggColour_Black_MonoTone)
+	if (a2 == SADXEggColour_Black_TwoTone || a2 == SADXEggColour_Grey_TwoTone || a2 == SADXEggColour_BlackShiny_TwoTone || a2 == SADXEggColour_GreyShiny_TwoTone)
 	{
 		WriteData((char*)0x03601516, 0x8F, 1);
 		WriteData((char*)0x036009B6, 0x8F, 1);
@@ -275,7 +275,7 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	}
 	switch (a2)
 	{
-	case SADXEggColour_Black_MonoTone:
+	case SADXEggColour_Grey_TwoTone:
 	case SADXEggColour_Normal:
 		DisableChunkMaterialFlags();
 		break;
@@ -291,6 +291,7 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	case SADXEggColour_LightGreen_MonoTone:
 	case SADXEggColour_Purple_MonoTone:
 	case SADXEggColour_Orange_MonoTone:
+	case SADXEggColour_Black_MonoTone:
 		EnableChunkMaterialFlags();
 		SetChunkMaterialFlags(9u);
 		sub_78A320(dword_389D828[a2 - SADXEggColour_Yellow_MonoTone]);
@@ -301,7 +302,6 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	case SADXEggColour_Aqua_TwoTone:
 	case SADXEggColour_Pink_TwoTone:
 	case SADXEggColour_Blue_TwoTone:
-	case SADXEggColour_Grey_TwoTone:
 	case SADXEggColour_Green_TwoTone:
 	case SADXEggColour_Red_TwoTone:
 	case SADXEggColour_LightGreen_TwoTone:
