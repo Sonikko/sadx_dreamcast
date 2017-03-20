@@ -127,16 +127,18 @@ extern "C"
 		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
 		if (Cowgirl != 0)
 		{
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 1].Flags = 0x80000001;
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 5].Flags = 0x00000000;
+			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 2].Flags = 0x84001041;
+			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 1].Flags = 0x80040000;
+			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 6].Flags = 0x00000000;
 			landtable_00025EAC.AnimCount = LengthOfArray(animlist_casino);
 			landtable_00025EAC.AnimData = animlist_casino;
 			WriteData((void*)0x005CACD0, 0xC3u, sizeof(char));
 		}
 		else
 		{
+			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 2].Flags = 0x00000000;
 			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 1].Flags = 0x00000000;
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 5].Flags = 0xC2040000;
+			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 6].Flags = 0xC2040000;
 			landtable_00025EAC.AnimCount = 0;
 		}
 		((NJS_OBJECT*)0x01E47B1C)->evalflags |= NJD_EVAL_HIDE; //Hide MizuB
@@ -194,10 +196,13 @@ extern "C"
 			auto entity = CharObj1Ptrs[0];
 			if (delayX>=60 && entity != nullptr && entity->Status & Status_Attack && entity->Position.y > 0)
 			{
-				NJS_VECTOR Cowgirl { 311.62f, 0, 338.93f };
-				NJS_VECTOR Cowgirl2{ 407.245f, 0, 133.055f };
-				NJS_VECTOR Cowgirl3{ 303.745f, 0, 310.805f };
-				if (IsPlayerInsideSphere (&Cowgirl, 50) || IsPlayerInsideSphere(&Cowgirl2, 50) || IsPlayerInsideSphere(&Cowgirl3, 50))
+				NJS_VECTOR Cowgirl { 331.62f, 0, 348.93f };
+				NJS_VECTOR Cowgirl2{ 409.245f, 0, 198.18f };
+				NJS_VECTOR Cowgirl3{ 237.12f, 0, 431.055f };
+				NJS_VECTOR Cowgirl4{ 331.62f, 50, 348.93f };
+				NJS_VECTOR Cowgirl5{ 409.245f, 50, 198.18f };
+				NJS_VECTOR Cowgirl6{ 237.12f, 50, 431.055f };
+				if (IsPlayerInsideSphere (&Cowgirl, 60) || IsPlayerInsideSphere(&Cowgirl2, 60) || IsPlayerInsideSphere(&Cowgirl3, 60) || IsPlayerInsideSphere(&Cowgirl4, 60) || IsPlayerInsideSphere(&Cowgirl5, 60) || IsPlayerInsideSphere(&Cowgirl6, 60))
 				PlaySound(278, 0, 0, 0);
 				delayX = 0;
 			}
