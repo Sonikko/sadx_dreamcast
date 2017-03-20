@@ -127,8 +127,10 @@ extern "C"
 		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
 		if (Cowgirl != 0)
 		{
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 2].Flags = 0x84001041;
+			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 2].Flags = 0x84001001;
 			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 1].Flags = 0x80040000;
+			collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 2].Flags = 0x84001001;
+			collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 1].Flags = 0x80040000;
 			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 6].Flags = 0x00000000;
 			landtable_00025EAC.AnimCount = LengthOfArray(animlist_casino);
 			landtable_00025EAC.AnimData = animlist_casino;
@@ -136,6 +138,8 @@ extern "C"
 		}
 		else
 		{
+			collist_00023DA0K[LengthOfArray(collist_00023DA0S) - 2].Flags = 0x00000000;
+			collist_00023DA0K[LengthOfArray(collist_00023DA0S) - 1].Flags = 0x00000000;
 			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 2].Flags = 0x00000000;
 			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 1].Flags = 0x00000000;
 			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 6].Flags = 0xC2040000;
