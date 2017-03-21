@@ -74,7 +74,7 @@ extern "C" __declspec(dllexport) void cdecl Init()
 
 extern "C" __declspec(dllexport) void cdecl OnFrame()
 {
-	if (CurrentLevel == 6 && CurrentAct == 1)
+	if (CurrentLevel == 6)
 	{
 		{
 			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
