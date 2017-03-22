@@ -26,6 +26,7 @@ DataArray(DrawDistance, MR1DrawDist, 0x011033E8, 3);
 DataArray(DrawDistance, MR2DrawDist, 0x01103400, 3);
 DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
 DataArray(DrawDistance, MR4DrawDist, 0x01103430, 3);
+DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
@@ -199,6 +200,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 			InsideTemple = 1;
 		}
 		else InsideTemple = 0;
+		if (CurrentCharacter == 7)  InsideTemple = 1; //208, 226
 		if (Camera_Data1 != nullptr && Camera_Data1->Position.y < 300.0f && InsideTemple == 0)
 		{
 			if (CurrentFogLayer < -65.0f) CurrentFogLayer = CurrentFogLayer + 64.0f;

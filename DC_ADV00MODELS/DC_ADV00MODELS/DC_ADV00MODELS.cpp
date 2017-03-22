@@ -522,7 +522,7 @@ extern "C"
 				if (SADXStyleWater != 0) matlist_00114D80[0].attr_texId = anim3;
 				if (SADXStyleWater == 0) matlist_00133D3C[0].attr_texId = anim6;
 				if (SADXStyleWater == 0) matlist_00114D80Z[0].attr_texId = anim6;
-				if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+				if (FramerateSetting < 2 && FrameCounter % 5 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 				{
 					anim2++;
 					anim3++;
@@ -547,7 +547,7 @@ extern "C"
 			if (SADXStyleWater == 0) matlist_001566E4[0].attr_texId = anim7;
 			if (SADXStyleWater == 0) matlist_0014B314[0].attr_texId = anim7;
 			if (SADXStyleWater == 0) matlist_0014BED8[0].attr_texId = anim7;
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+			if (FramerateSetting < 2 && FrameCounter % 5 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 			{
 				anim4++;
 				anim5++;

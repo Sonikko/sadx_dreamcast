@@ -13,6 +13,7 @@ static int anim1 = 67;
 static int anim2 = 7;
 static int delayX = 0;
 static int ang = 0;
+static int SoundPlayed = 0;
 FunctionPointer(void, sub_5DD900, (int a1, int a2), 0x5DD900);
 FunctionPointer(void, sub_5DD920, (int a1, int a2), 0x5DD920);
 FunctionPointer(void, sub_5C09D0, (int a1), 0x5C09D0);
@@ -198,6 +199,19 @@ extern "C"
 			landtable_00025EAC.COLCount = LengthOfArray(collist_00023DA0K);
 			}
 			CurrentPlayer = CurrentCharacter;
+		}
+		if (CurrentLevel == 9 && GameState != 16)
+		{
+			if (CurrentAct != 1) SoundPlayed = 0;
+			if (CurrentAct == 1)
+			{
+				auto entity = CharObj1Ptrs[0];
+				if (SoundPlayed == 0 && entity != nullptr && entity->Position.y > -1696)
+				{
+					PlaySound(249, 0, 0, 0);
+					SoundPlayed = 1;
+				}
+			}
 		}
 		if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
 		{

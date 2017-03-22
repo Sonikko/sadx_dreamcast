@@ -72,14 +72,14 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 	{
 		if (animframe1 > 84) animframe1 = 75;
 		matlist_0009DEBC[0].attr_texId = animframe1;
-		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) animframe1++;
+		if (FramerateSetting < 2 && FrameCounter % 5 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) animframe1++;
 	}
 	if (CurrentLevel == 34 && CurrentAct == 1 && GameState != 16)
 	{
 		if (animframe2 > 85) animframe2 = 75;
 		if (animframe2 == 83) animframe2 = 84;
 		matlist_0006DBD0[0].attr_texId = animframe2;
-		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) animframe2++;
+		if (FramerateSetting < 2 && FrameCounter % 5 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) animframe2++;
 	}
 }
 extern "C" __declspec(dllexport) const ModInfo SADXModInfo = { ModLoaderVer };
