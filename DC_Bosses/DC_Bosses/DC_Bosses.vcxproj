@@ -112,6 +112,7 @@
     <ClInclude Include="Chaos7_fixes.h" />
     <ClInclude Include="Chaos7_PC.h" />
     <ClInclude Include="E101.h" />
+    <ClInclude Include="E101Kai_Model.h" />
     <ClInclude Include="E101R.h" />
     <ClInclude Include="EggHornet.h" />
     <ClInclude Include="EggHornet_Model.h" />

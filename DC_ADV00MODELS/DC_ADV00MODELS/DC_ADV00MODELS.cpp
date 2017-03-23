@@ -155,7 +155,7 @@ extern "C"
 			if (anim1 > 55) anim1 = 46;
 			matlist_000D9890[0].attr_texId = anim1;
 			matlist_000C24BC[0].attr_texId = anim1;
-			if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting >= 2) anim1++;
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim1++;
 		}
 		//Night reflections Act 0
 		if (CurrentLevel == 26 && CurrentAct == 0 && GetTimeOfDay() == 2)
