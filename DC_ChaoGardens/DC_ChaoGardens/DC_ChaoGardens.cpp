@@ -298,7 +298,7 @@ __declspec(dllexport) void __cdecl OnFrame()
 			}
 			if (mrgardenwater > 45) mrgardenwater = 36;
 			matlist_00002FF4[0].attr_texId = mrgardenwater;
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) mrgardenwater++;
+			if (FramerateSetting < 2 && FrameCounter % 5 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) mrgardenwater++;
 			if (Camera_Data1 != nullptr)
 			{
 				object_00013A78.pos[0] = Camera_Data1->Position.x;
