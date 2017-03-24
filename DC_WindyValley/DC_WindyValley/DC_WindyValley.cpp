@@ -106,46 +106,49 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 	auto entity = CharObj1Ptrs[0];
 	if (CurrentCharacter != 6 && CurrentLevel == 2 && CurrentAct == 0 && GameState != 16)
 	{
-		if (entity != nullptr && entity->Position.x > 2980 && TornadoActive == 0)
+		if (entity != nullptr && TornadoActive == 0)
 		{
-			if (matlist_00806484[0].diffuse.argb.a > 1) matlist_00806484[0].diffuse.argb.a--;
-			matlist_00806484[0].diffuse.argb.r = fadeout;
-			matlist_00806484[0].diffuse.argb.g = fadeout;
-			matlist_00806484[0].diffuse.argb.b = fadeout;
-			matlist_00806590[0].diffuse.argb.r = fadeout2;
-			matlist_00806590[0].diffuse.argb.g = fadeout2;
-			matlist_00806590[0].diffuse.argb.b = fadeout2;
-			matlist_00805E44[0].diffuse.argb.r = fadeout2;
-			matlist_00805E44[0].diffuse.argb.g = fadeout2;
-			matlist_00805E44[0].diffuse.argb.b = fadeout2;
-			matlist_00806378[0].diffuse.argb.r = fadeout;
-			matlist_00806378[0].diffuse.argb.g = fadeout;
-			matlist_00806378[0].diffuse.argb.b = fadeout;
-			matlist_008055DC[0].diffuse.argb.r = fadeout;
-			matlist_008055DC[0].diffuse.argb.g = fadeout;
-			matlist_008055DC[0].diffuse.argb.b = fadeout;
-			matlist_008055DC[1].diffuse.argb.r = fadeout;
-			matlist_008055DC[1].diffuse.argb.g = fadeout;
-			matlist_008055DC[1].diffuse.argb.b = fadeout;
-			matlist_008055DC[2].diffuse.argb.r = fadeout;
-			matlist_008055DC[2].diffuse.argb.g = fadeout;
-			matlist_008055DC[2].diffuse.argb.b = fadeout;
-			if (fadeout2 > 80) fadeout2 = fadeout2 - 2;
-			if (fadeout > 53) fadeout = fadeout - 2;
-			if (CurrentFogColor.r > 7)
+			if (entity->Position.z < -1250 || entity->Position.x > 2980)
 			{
-				CurrentFogColor.r = CurrentFogColor.r - 8;
-				CurrentFogColor.g = CurrentFogColor.g - 8;
-				CurrentFogColor.b = CurrentFogColor.b - 8;
+				if (matlist_00806484[0].diffuse.argb.a > 1) matlist_00806484[0].diffuse.argb.a--;
+				matlist_00806484[0].diffuse.argb.r = fadeout;
+				matlist_00806484[0].diffuse.argb.g = fadeout;
+				matlist_00806484[0].diffuse.argb.b = fadeout;
+				matlist_00806590[0].diffuse.argb.r = fadeout2;
+				matlist_00806590[0].diffuse.argb.g = fadeout2;
+				matlist_00806590[0].diffuse.argb.b = fadeout2;
+				matlist_00805E44[0].diffuse.argb.r = fadeout2;
+				matlist_00805E44[0].diffuse.argb.g = fadeout2;
+				matlist_00805E44[0].diffuse.argb.b = fadeout2;
+				matlist_00806378[0].diffuse.argb.r = fadeout;
+				matlist_00806378[0].diffuse.argb.g = fadeout;
+				matlist_00806378[0].diffuse.argb.b = fadeout;
+				matlist_008055DC[0].diffuse.argb.r = fadeout;
+				matlist_008055DC[0].diffuse.argb.g = fadeout;
+				matlist_008055DC[0].diffuse.argb.b = fadeout;
+				matlist_008055DC[1].diffuse.argb.r = fadeout;
+				matlist_008055DC[1].diffuse.argb.g = fadeout;
+				matlist_008055DC[1].diffuse.argb.b = fadeout;
+				matlist_008055DC[2].diffuse.argb.r = fadeout;
+				matlist_008055DC[2].diffuse.argb.g = fadeout;
+				matlist_008055DC[2].diffuse.argb.b = fadeout;
+				if (fadeout2 > 80) fadeout2 = fadeout2 - 2;
+				if (fadeout > 53) fadeout = fadeout - 2;
+				if (CurrentFogColor.r > 7)
+				{
+					CurrentFogColor.r = CurrentFogColor.r - 8;
+					CurrentFogColor.g = CurrentFogColor.g - 8;
+					CurrentFogColor.b = CurrentFogColor.b - 8;
+				}
+				if (CurrentFogColor.r <= 7 && CurrentFogColor.r > 0)
+				{
+					CurrentFogColor.r = 0;
+					CurrentFogColor.g = 0;
+					CurrentFogColor.b = 0;
+				}
+				if (CurrentFogDist > 5000) CurrentFogDist = CurrentFogDist - 128.0f;
+				if (CurrentFogLayer >= 100) CurrentFogLayer = CurrentFogLayer - 128.0f;
 			}
-			if (CurrentFogColor.r <= 7 && CurrentFogColor.r > 0)
-			{
-				CurrentFogColor.r = 0;
-				CurrentFogColor.g = 0;
-				CurrentFogColor.b = 0;
-			}
-			if (CurrentFogDist > 5000) CurrentFogDist = CurrentFogDist - 128.0f;
-			if (CurrentFogLayer >= 100) CurrentFogLayer = CurrentFogLayer - 128.0f;
 		}
 		if (entity != nullptr && entity->Position.x > 3050 && entity->Position.z > -1520 && entity->Position.z < -1300 && entity->Position.y <= -480)
 		{
