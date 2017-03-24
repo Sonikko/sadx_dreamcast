@@ -13,6 +13,7 @@
 #include "Tanken.h"
 #include "Tanken2.h"
 #include "Tanken3.h"
+#include "Grass.h"
 
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
 DataArray(FogData, MR2FogDay, 0x01103478, 3);
@@ -97,6 +98,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_OBJECTS[23] = &object_001BACAC;
 	___ADV02_OBJECTS[64] = &object_001E87F0;
 	___ADV02_OBJECTS[68] = &object_002145D4;
+	___ADV02_OBJECTS[100] = &object_001F41C0;
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	___ADV02MR02_OBJECTS[141] = &object_001615BC;
 	___ADV02MR02_OBJECTS[142] = &object_00161B8C;
@@ -115,6 +117,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02MR02_OBJECTS[178] = &object_001A08EC;
 	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
 	___ADV02_ACTIONS[0]->object = &object_0020C3B0;
+	___ADV02_ACTIONS[32]->object = &object_001F41C0;
 	___ADV02_ACTIONS[0]->motion = &animation_000862E8;
 	___ADV02_ACTIONS[10]->object = &object_00201C18;
 	___ADV02_ACTIONS[30]->object = &object_0020DC78;
