@@ -202,7 +202,19 @@ void cdecl SetElevatorTexlist()
 	else SetTextureToLevelObj();
 }
 
-//Name machine and other objects
+//Function to set texture/texlist for garden transporters
+void SetTransporterTexture()
+{
+	DataPointer(PVMEntry *, ADV01C_TEXLISTS, 0x038F6EC8);
+	HMODULE handle = GetModuleHandle(L"ADV01CMODELS");
+	NJS_MODEL_SADX **ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle, "___ADV01C_MODELS");
+	if (CurrentLevel != 32) njSetTexture((NJS_TEXLIST*)0x033A0788); //CHAO_OBJECT
+	else njSetTexture(ADV01C_TEXLISTS[6].TexList);
+	if (CurrentLevel != 32) ADV01C_MODELS[32]->mats[0].attr_texId = 68;
+	else ADV01C_MODELS[32]->mats[0].attr_texId = 1;
+}
+
+//Name machine
 void cdecl NameMachineTexlist()
 {
 	njSetTexture((NJS_TEXLIST*)0x033A0788); //CHAO_OBJECT
@@ -261,7 +273,7 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	DataPointer(D3DMATRIX, stru_389D7E8, 0x0389D7E8);
 	DataArray(NJS_TEXLIST, ChaoTexLists, 0x033A1038, 7);
 	DataArray(int, dword_389D828, 0x389D828, 13);
-	if (a2 == SADXEggColour_Black_TwoTone || a2 == SADXEggColour_Grey_TwoTone || a2 == SADXEggColour_BlackShiny_TwoTone || a2 == SADXEggColour_GreyShiny_TwoTone)
+	if (a2 == SADXEggColour_Black_TwoTone || a2 == SADXEggColour_BlackShiny_TwoTone)
 	{
 		WriteData((char*)0x03601516, 0x8F, 1);
 		WriteData((char*)0x036009B6, 0x8F, 1);
@@ -275,7 +287,7 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	}
 	switch (a2)
 	{
-	case SADXEggColour_Grey_TwoTone:
+	case SADXEggColour_Black_TwoTone:
 	case SADXEggColour_Normal:
 		DisableChunkMaterialFlags();
 		break;
@@ -307,7 +319,7 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	case SADXEggColour_LightGreen_TwoTone:
 	case SADXEggColour_Purple_TwoTone:
 	case SADXEggColour_Orange_TwoTone:
-	case SADXEggColour_Black_TwoTone:
+	case SADXEggColour_Grey_TwoTone:
 		EnableChunkMaterialFlags();
 		SetChunkMaterialFlags(8u);
 		v2 = GetChunkTextureIndex(a1);

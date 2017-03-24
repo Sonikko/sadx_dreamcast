@@ -51,12 +51,14 @@ extern "C"
 		WriteData((void*)0x00719978, 0x90, 5);
 		WriteData((void*)0x007199A0, 0x90, 5);*/
 //General
+		WriteCall((void*)0x005262DE, SetTransporterTexture);// Garden transporter texture/texlist
+		WriteJump((void*)0x729260, (void*)0x5262B0);// Garden transporter effects
 		*(NJS_OBJECT*)0x33CB04C = object_001826E8; //Name machine button
 		WriteData((void*)0x007195AE, 0x90, 5); //Don't load SADX button prompts in SS garden
 		WriteData((void*)0x00719181, 0x90, 5); //Don't load SADX button prompts in EC garden
 		WriteData((void*)0x00718E20, 0x90, 5); //Don't load SADX button prompts in MR garden
 		WriteJump((void*)0x0078AC80, sub_78AC80X); //Eggs
-		WriteData((char*)0x007151D3, 0x14, 1);//The secret EC egg is a two-tone gray egg
+		WriteData((char*)0x007151D3, 0x1A, 1);//The secret EC egg is a two-tone black egg
 		ResizeTextureList(&ChaoTexLists[0], 144); //AL_BODY
 		ResizeTextureList((NJS_TEXLIST*)0x033A1338, 31); //AL_DX_OBJ_CMN
 		*(NJS_OBJECT*)0x036065B4 = object_00180454_EC; //EC garden to EC transporter
@@ -188,6 +190,7 @@ extern "C"
 		ChaoTreeSpawns[2].e.y = 5.211613f;  //Palm tree 5
 		ChaoTreeSpawns[2].e.z = -47.53315f;  //Palm tree 5
 //Egg Carrier garden stuff
+		WriteCall((void*)0x00729289, NameMachineTexlist);
 		WriteJump((void*)0x007191D0, LoadECGardenX);
 		WriteData((float*)0x007191BF, -12000.0f); //Draw distance
 		WriteData((void*)0x00718FE8, 0xC4, 1); //Disable Y check
