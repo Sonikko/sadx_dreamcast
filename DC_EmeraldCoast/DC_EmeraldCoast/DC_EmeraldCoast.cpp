@@ -48,6 +48,7 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	WriteData((void*)0x004F7749, 0x90, 5); //Kill second water in Act 2
 	WriteData((void*)0x004F77E9, 0x90, 5); //Kill second water in Act 3
 	if (SADXStyleWater == 0) WriteData((void*)0x004F8A58, 0, 1); //Kill that stupid Blending Mode thing
+	if (SADXStyleWater == 0) WriteData((char*)0x004F8AC6, 0, 1); //water UVs
 	if (SADXStyleWater != 0) BeachTexlists[1].Name = "BEACH_SEAW";
 	ResizeTextureList((NJS_TEXLIST*)0x010C0508, 27); //BEACH_SEA texlist
 	ResizeTextureList((NJS_TEXLIST*)0xF812AC, textures_ecoast1);
