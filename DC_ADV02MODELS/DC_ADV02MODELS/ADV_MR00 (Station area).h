@@ -64327,7 +64327,7 @@ NJS_VECTOR normal_00128120[] = {
 
 NJS_MODEL_SADX attach_0012860C = { vertex_00127C30, normal_00128120, LengthOfArray(vertex_00127C30), meshlist_00127BF8, matlist_001269F0, LengthOfArray(meshlist_00127BF8), LengthOfArray(matlist_001269F0),{ -16.79176f, 0.740458f, -1.164825f }, 288.6185f, NULL };
 
-NJS_OBJECT object_00128638 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0012860C, 92.16866f, -28.18111f, -118.0242f, 0, 0, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT object_00128638 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0012860C, 92.16866f, -29.18111f, -118.0242f, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 //Tails' workshop collision
 
