@@ -99,6 +99,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_OBJECTS[25] = &object_001B9854; //Ice Cap door 1 
 	___ADV02_OBJECTS[26] = &object_001B9D9C; //Ice Cap door 2
 	___ADV02_OBJECTS[86] = &object_001BF00C; //Ice Cap lock
+	___ADV02_OBJECTS[88] = &object_001BBA04; //Ice Stone
 	___ADV02_OBJECTS[64] = &object_001E87F0;
 	___ADV02_OBJECTS[68] = &object_002145D4;
 	___ADV02_OBJECTS[100] = &object_001F41C0;
@@ -120,6 +121,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02MR02_OBJECTS[178] = &object_001A08EC;
 	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
 	___ADV02_ACTIONS[0]->object = &object_0020C3B0;
+	___ADV02_ACTIONS[29]->object = &object_001BBA04; //Ice Stone
 	___ADV02_ACTIONS[32]->object = &object_001F41C0;
 	___ADV02_ACTIONS[0]->motion = &animation_000862E8;
 	___ADV02_ACTIONS[10]->object = &object_00201C18;
