@@ -84,6 +84,9 @@ extern "C"
 		WriteData((void*)0x0045812D, 0x3F, 1);
 		//Selection box R
 		WriteData((void*)0x0045812F, 0, 4);
+		//PressStart texture
+		WriteData((float*)0x0050FFAA, 191.0f);
+		WriteData((float*)0x0050FFB2, 350.0f); 
 	}
 }
 
