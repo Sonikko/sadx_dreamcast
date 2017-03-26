@@ -73,6 +73,8 @@ extern "C"
 			WriteData((void*)0x0050E83C, 0xF9, 1); //Disable titlescreen scrolling 2
 			WriteData((void*)0x0050E5BB, 0x34, 1); //Disable titlescreen scrolling 1 (640x480)
 			WriteData((void*)0x0050E5BC, 0xF9, 1); //Disable titlescreen scrolling 2 (640x480)
+			WriteData((float*)0x0050FFAA, 191.0f); //PressStart texture
+			WriteData((float*)0x0050FFB2, 350.0f); //PressStart texture
 		}
 		WriteData((void*)0x0042CCF3, 0x0F, 1); //Disable Sonic Team logo
 		//Selection box B
@@ -84,9 +86,6 @@ extern "C"
 		WriteData((void*)0x0045812D, 0x3F, 1);
 		//Selection box R
 		WriteData((void*)0x0045812F, 0, 4);
-		//PressStart texture
-		WriteData((float*)0x0050FFAA, 191.0f);
-		WriteData((float*)0x0050FFB2, 350.0f); 
 	}
 }
 
