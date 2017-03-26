@@ -74,7 +74,26 @@ extern "C"
 			WriteData((void*)0x0050E5BB, 0x34, 1); //Disable titlescreen scrolling 1 (640x480)
 			WriteData((void*)0x0050E5BC, 0xF9, 1); //Disable titlescreen scrolling 2 (640x480)
 			WriteData((float*)0x0050FFAA, 191.0f); //PressStart texture
-			WriteData((float*)0x0050FFB2, 350.0f); //PressStart texture
+			WriteData((float*)0x0050FFB2, 365.0f); //PressStart texture
+			//Title screen vertical stretching
+			WriteData((char*)0x0050E7C1, 0x98, 1);
+			WriteData((char*)0x0050E7C2, 0xCC, 1);
+			WriteData((char*)0x0050E7C3, 0x7D, 1);
+
+			WriteData((char*)0x0050E761, 0x98, 1);
+			WriteData((char*)0x0050E762, 0xCC, 1);
+			WriteData((char*)0x0050E763, 0x7D, 1);
+			WriteData((char*)0x0050E764, 0x00, 1);
+
+			WriteData((char*)0x0050E701, 0x98, 1);
+			WriteData((char*)0x0050E702, 0xCC, 1);
+			WriteData((char*)0x0050E703, 0x7D, 1);
+			WriteData((char*)0x0050E704, 0x00, 1);
+
+			WriteData((char*)0x0050E6D2, 0x98, 1);
+			WriteData((char*)0x0050E6D3, 0xCC, 1);
+			WriteData((char*)0x0050E6D4, 0x7D, 1);
+			WriteData((char*)0x0050E6D5, 0x00, 1);
 		}
 		WriteData((void*)0x0042CCF3, 0x0F, 1); //Disable Sonic Team logo
 		//Selection box B
