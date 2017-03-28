@@ -16,6 +16,8 @@
 #include "MainFunctions.h"
 #include <stdlib.h>  
 
+static int vmuframe = 0;
+
 PointerInfo pointers[] = {
 	ptrdecl(0x719DC9, &landtable_00000E64), //Chao Race
 	ptrdecl(0x719619, &landtable_00011DD4), //SS Garden
@@ -238,6 +240,16 @@ extern "C"
 	}
 __declspec(dllexport) void __cdecl OnFrame()
 	{
+//All gardens VMU
+	if (CurrentLevel == 39 || CurrentLevel == 40 || CurrentLevel == 41)
+	{
+		if (GameState != 16)
+		{
+			if (vmuframe > 4) vmuframe = 0;
+			matlist_0018271C[1].attr_texId = vmuframe;
+			if (FrameCounter % 120 == 0) vmuframe++;
+		}
+	}
 //Station Square garden
 		if (CurrentLevel == 39 && GameState != 16)
 		{
