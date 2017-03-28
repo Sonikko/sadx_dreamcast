@@ -1068,7 +1068,28 @@ NJS_VECTOR normal_00012884[] = {
 NJS_MODEL_SADX attach_00012A04 = { vertex_00012704, normal_00012884, LengthOfArray(vertex_00012704), meshlist_000126BC, matlist_00012500, LengthOfArray(meshlist_000126BC), LengthOfArray(matlist_00012500),{ 0, 20, -0.400024f }, 30.10399f, NULL };
 
 NJS_OBJECT object_00012A2C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attach_00012A04, 0, 0, 0, 0, 0, 0, 1, 1, 1, &object_000124CC, NULL };
+//Door animation
 
+
+NJS_MKEY_F _12ADC_1_pos[] = {
+	{ 0, 20, 0, -0.400024f },
+	{ 1, 36, 0, -0.400024f }
+};
+
+NJS_MKEY_F _12ADC_2_pos[] = {
+	{ 0, -20, 0, -0.400024f },
+	{ 1, -37, 0, -0.400024f }
+};
+
+NJS_MDATA2 _12ADC_mdat[] = {
+	{ NULL, NULL, 0, 0 },
+	{ _12ADC_1_pos, NULL, LengthOfArray(_12ADC_1_pos), 0 },
+	{ _12ADC_2_pos, NULL, LengthOfArray(_12ADC_2_pos), 0 }
+};
+
+NJS_MOTION _12ADC = { _12ADC_mdat, 2, NJD_MTYPE_POS_0 | NJD_MTYPE_ANG_1, 2 };
+
+NJS_ACTION action__12ADC = { &object_00012A2C, &_12ADC };
 //Garden Transporter
 
 NJS_MATERIAL matlist_0017F478[] = {

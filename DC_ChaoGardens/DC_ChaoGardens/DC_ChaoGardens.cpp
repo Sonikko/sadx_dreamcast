@@ -96,7 +96,8 @@ extern "C"
 		WriteCall((void*)0x00638DD7, SetElevatorTexlist);
 		WriteData((void*)0x007195A3, 0x90, 5);
 		ResizeTextureList((NJS_TEXLIST*)0x03406088, 32); //GARDEN00SSOBJ
-		*(NJS_MODEL_SADX*)0x0340C578 = attach_00012A04; //race door wall part
+		*(NJS_OBJECT*)0x0340C5A4 = object_00012A2C; //race door wall part
+		*(NJS_MOTION*)0x0340D978 = _12ADC; //race door animation
 		((NJS_OBJECT*)0x0340B97C)->basicdxmodel->mats[0].attr_texId = 18; //race door left
 		((NJS_OBJECT*)0x0340B97C)->basicdxmodel->mats[1].attr_texId = 18; //race door left
 		((NJS_OBJECT*)0x0340B97C)->basicdxmodel->mats[2].attr_texId = 28; //race door left
