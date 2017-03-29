@@ -1,7 +1,64 @@
+/*HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
+if (Cowgirl != 0)
+{
+collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 1].Flags = 0x84041040;
+collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 2].Flags = 0x84001040;
+collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 3].Flags = 0x00001001;
+collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 4].Flags = 0x00001001;
+collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 8].Flags = 0x00000000;
+
+collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 1].Flags = 0x84041040;
+collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 2].Flags = 0x84001040;
+collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 3].Flags = 0x00001001;
+collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 4].Flags = 0x00001001;
+landtable_00025EAC.AnimCount = LengthOfArray(animlist_casino);
+landtable_00025EAC.AnimData = animlist_casino;
+WriteData((void*)0x005CAA90, 0xC3u, sizeof(char));
+}
+else
+{
+collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 2].Flags = 0x00000000;
+collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 2].Flags = 0x00000000;
+collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 1].Flags = 0x00000000;
+collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 1].Flags = 0x00000000;
+collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 3].Flags = 0x00000000;
+collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 3].Flags = 0x00000000;
+collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 4].Flags = 0x00000000;
+collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 4].Flags = 0x00000000;
+collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 8].Flags = 0xC2040000;
+landtable_00025EAC.AnimCount = 0;
+}*/
+
+//OnFrame
+/*	if (Cowgirl != 0)
+{
+auto entity = CharObj1Ptrs[0];
+if (delayX>=60 && entity != nullptr && entity->Status & Status_Attack && entity->Position.y > 0)
+{
+NJS_VECTOR Cowgirl { 331.62f, 0, 348.93f };
+NJS_VECTOR Cowgirl2{ 409.245f, 0, 198.18f };
+NJS_VECTOR Cowgirl3{ 237.12f, 0, 431.055f };
+NJS_VECTOR Cowgirl4{ 331.62f, 50, 348.93f };
+NJS_VECTOR Cowgirl5{ 409.245f, 50, 198.18f };
+NJS_VECTOR Cowgirl6{ 237.12f, 50, 431.055f };
+if (IsPlayerInsideSphere (&Cowgirl, 60) || IsPlayerInsideSphere(&Cowgirl2, 60) || IsPlayerInsideSphere(&Cowgirl3, 60) || IsPlayerInsideSphere(&Cowgirl4, 60) || IsPlayerInsideSphere(&Cowgirl5, 60) || IsPlayerInsideSphere(&Cowgirl6, 60))
+PlaySound(278, 0, 0, 0);
+delayX = 0;
+}
+delayX++;
+}*/
+
+
+GeoAnimData animlist_casino[] = {
+	{ 0, 0.2f, 30, &object_001D98C8, &action_cowgirl_anim, (NJS_TEXLIST*)0 }
+};
+
+//LandTable landtable_00025EAC = { LengthOfArray(collist_00023DA0K), LengthOfArray(animlist_casino), 0xD, 800, collist_00023DA0K, animlist_casino, "CASINO01", (NJS_TEXLIST *)&texlist_casino1, 0, 0 };
+
 //Cowgirl
 
 NJS_MATERIAL matlist_001CF7BC[] = {
-	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 137, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_V | NJD_FLAG_USE_TEXTURE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC },
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 156, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_V | NJD_FLAG_USE_TEXTURE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 138, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 139, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };

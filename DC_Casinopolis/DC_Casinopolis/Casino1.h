@@ -33351,10 +33351,11 @@ COL collist_00023DA0K[] = {
 	{ { 0, 32.5f, -256.5f }, 215.4356f, 0, 0, &object_000506DC, 0, 0x80000000 }, //fence
 	{ { 271.24f, -131.39f, 121.96f }, 200, 0, 0, &object_01A3FD04, 0, 0x80000000 }, //O KBS
 	{ { -105.87f, -142.39f, 252.9f }, 200, 0, 0, &object_01A3D734, 0, 0x80000000 }, //O KBC
-	{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8_3, 0, 0x00001001 }, //Cowgirl collision
-	{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001CFAC4_2, 0, 0x00001001 }, //Cowgirl collision
-	{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8, 0, 0x80000000 }, //Cowgirl
-	{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8_2, 0, 0x80040000 }, //Cowgirl2
+	//{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8_3, 0, 0x00001001 }, //Cowgirl collision
+	//{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001CFAC4_2, 0, 0x00001001 }, //Cowgirl collision
+	//{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001CFAC4, 0, 0x84001001 }, //Cowgirl collision
+	//{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8, 0, 0x84000000 }, //Cowgirl
+	//{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8_2, 0, 0x84040000 }, //Cowgirl2
 };
 
 COL collist_00023DA0S[] = {
@@ -33599,17 +33600,14 @@ COL collist_00023DA0S[] = {
 	{ { 0, 32.5f, -256.5f }, 215.4356f, 0, 0, &object_000506DC, 0, 0x80000000 }, //fence
 	{ { 271.24f, -131.39f, 121.96f }, 200, 0, 0, &object_01A3FD04, 0, 0x80000000 }, //O KBS
 	{ { -105.87f, -142.39f, 252.9f }, 200, 0, 0, &object_01A3D734, 0, 0x80000000 }, //O KBC
-	{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8_3, 0, 0x00001001 }, //Cowgirl collision
-	{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001CFAC4_2, 0, 0x00001001 }, //Cowgirl collision
-	{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8, 0, 0x80000000 }, //Cowgirl
-	{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8_2, 0, 0x80040000 }, //Cowgirl2
+	//{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8_3, 0, 0x00001001 }, //Cowgirl collision
+	//{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001CFAC4_2, 0, 0x04001001 }, //Cowgirl collision
+	//{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8, 0, 0x84000000 }, //Cowgirl
+	//{ { 311.62f, 0, 338.93f }, 300, 0, 0, &object_001D98C8_2, 0, 0x84040000 }, //Cowgirl2
 };
 
-GeoAnimData animlist_casino[] = {
-	{ 0, 0.2f, 30, &object_001D98C8, &action_cowgirl_anim, (NJS_TEXLIST*)0 }
-};
 
-NJS_TEXNAME textures_casino1[155];
+NJS_TEXNAME textures_casino1[137];
 NJS_TEXLIST texlist_casino1 = { arrayptrandlength(textures_casino1) };
 
-LandTable landtable_00025EAC = { LengthOfArray(collist_00023DA0K), LengthOfArray(animlist_casino), 0xD, 800, collist_00023DA0K, animlist_casino, "CASINO01", (NJS_TEXLIST *)&texlist_casino1, 0, 0 };
+LandTable landtable_00025EAC = { LengthOfArray(collist_00023DA0K), 0, 0xC, 800, collist_00023DA0K, NULL, "CASINO01", (NJS_TEXLIST *)&texlist_casino1, 0, 0 };

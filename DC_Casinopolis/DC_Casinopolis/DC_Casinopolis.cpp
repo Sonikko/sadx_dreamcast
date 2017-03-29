@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
 #include "Casino_objects.h"
-#include "Cowgirl.h"
 #include "Casino1.h"
 #include "Casino2.h"
 #include "Casino3.h"
@@ -124,36 +123,13 @@ extern "C"
 	{
 		((NJS_OBJECT*)0x01DF259C)->evalflags |= NJD_EVAL_HIDE; //O TUTUA
 		((NJS_OBJECT*)0x01DF230C)->evalflags |= NJD_EVAL_HIDE; //O TUTUA
+		//Card machine top animation
+		DataArray(NJS_MESHSET_SADX, cardmachinemesh, 0x01E48E28, 13);
+		cardmachinemesh[3].vertuv = uv_01A48AD8;
+		//Lion top animation
+		DataArray(NJS_MESHSET_SADX, lionmesh, 0x1DFF0F8, 13);
+		lionmesh[0].vertuv = uv_019FEA58;
 		WriteData((void*)0x005D4456, 0x90, 5); //O TUTUA
-		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
-		if (Cowgirl != 0)
-		{
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 2].Flags = 0x84001040;
-			collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 2].Flags = 0x84001040;
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 1].Flags = 0x80041040;
-			collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 1].Flags = 0x80041040;
-			collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 3].Flags = 0x00001001;
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 3].Flags = 0x00001001;
-			collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 4].Flags = 0x00001001;
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 4].Flags = 0x00001001;
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 8].Flags = 0x00000000;
-			landtable_00025EAC.AnimCount = LengthOfArray(animlist_casino);
-			landtable_00025EAC.AnimData = animlist_casino;
-			WriteData((void*)0x005CAA90, 0xC3u, sizeof(char));
-		}
-		else
-		{
-			collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 2].Flags = 0x00000000;
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 2].Flags = 0x00000000;
-			collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 1].Flags = 0x00000000;
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 1].Flags = 0x00000000;
-			collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 3].Flags = 0x00000000;
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 3].Flags = 0x00000000;
-			collist_00023DA0S[LengthOfArray(collist_00023DA0S) - 4].Flags = 0x00000000;
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 4].Flags = 0x00000000;
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 8].Flags = 0xC2040000;
-			landtable_00025EAC.AnimCount = 0;
-		}
 		((NJS_OBJECT*)0x01E47B1C)->evalflags |= NJD_EVAL_HIDE; //Hide MizuB
 		((NJS_OBJECT*)0x01E47CA4)->evalflags |= NJD_EVAL_HIDE; //Hide MizuA
 		((NJS_OBJECT*)0x01E3FD04)->evalflags |= NJD_EVAL_HIDE; //Hide OKbS
@@ -185,7 +161,6 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
 		if (CurrentLevel == 9 && CurrentAct == 0 && CurrentPlayer != CurrentCharacter)
 		{
 			if (CurrentCharacter == 0)
@@ -215,24 +190,31 @@ extern "C"
 		}
 		if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
 		{
+			//OTUTUA animation
 			object_019F230C.ang[1] = ang;
 			ang = (ang + 32) % 65536;
-			if (Cowgirl != 0)
+			//Card machine and lion top animation
+			if (FrameCounter % 16 == 0)
 			{
-			auto entity = CharObj1Ptrs[0];
-			if (delayX>=60 && entity != nullptr && entity->Status & Status_Attack && entity->Position.y > 0)
+				for (int xz = 0; xz < LengthOfArray(uv_01A48AD8); xz++)
+				{
+					uv_01A48AD8[xz].u = (uv_01A48AD8[xz].u + 320);
+				}
+				for (int xz2 = 0; xz2 < LengthOfArray(uv_019FEA58); xz2++)
+				{
+					uv_019FEA58[xz2].u = (uv_019FEA58[xz2].u - 320);
+				}
+			if (FrameCounter % 128 == 0)
 			{
-				NJS_VECTOR Cowgirl { 331.62f, 0, 348.93f };
-				NJS_VECTOR Cowgirl2{ 409.245f, 0, 198.18f };
-				NJS_VECTOR Cowgirl3{ 237.12f, 0, 431.055f };
-				NJS_VECTOR Cowgirl4{ 331.62f, 50, 348.93f };
-				NJS_VECTOR Cowgirl5{ 409.245f, 50, 198.18f };
-				NJS_VECTOR Cowgirl6{ 237.12f, 50, 431.055f };
-				if (IsPlayerInsideSphere (&Cowgirl, 60) || IsPlayerInsideSphere(&Cowgirl2, 60) || IsPlayerInsideSphere(&Cowgirl3, 60) || IsPlayerInsideSphere(&Cowgirl4, 60) || IsPlayerInsideSphere(&Cowgirl5, 60) || IsPlayerInsideSphere(&Cowgirl6, 60))
-				PlaySound(278, 0, 0, 0);
-				delayX = 0;
+				for (int xz3 = 0; xz3 < LengthOfArray(uv_01A48AD8); xz3++)
+				{
+					uv_01A48AD8[xz3].u = (uv_01A48AD8_R[xz3].u);
+				}
+				for (int xz4 = 0; xz4 < LengthOfArray(uv_019FEA58); xz4++)
+				{
+					uv_019FEA58[xz4].u = (uv_019FEA58_R[xz4].u);
+				}
 			}
-			delayX++;
 			}
 			for (int q = 0; q < LengthOfArray(uv_01A47B78); q++)
 			{
