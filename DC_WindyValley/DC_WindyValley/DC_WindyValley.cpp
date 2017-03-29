@@ -3,6 +3,7 @@
 #include "windy1.h"
 #include "windy2.h"
 #include "windy3.h"
+#include "Objects_Windy.h"
 
 DataArray(FogData, FogData_Windy1, 0x00AFEA20, 3);
 DataArray(FogData, FogData_Windy2, 0x00AFEA50, 3);
@@ -28,6 +29,7 @@ extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlengt
 extern "C" __declspec(dllexport) void cdecl Init()
 {
 	WriteData((void*)0x4DD120, 0xC3, sizeof(char));
+	*(NJS_OBJECT*)0x00C32DB8 = object_000D40D4; //grassy rock
 	((NJS_OBJECT*)0xC0655C)->evalflags |= NJD_EVAL_HIDE;
 	((NJS_OBJECT*)0xC06450)->evalflags |= NJD_EVAL_HIDE;
 	((NJS_OBJECT*)0xC05E10)->evalflags |= NJD_EVAL_HIDE;
