@@ -11,6 +11,10 @@ static float vstretchx = 0.3525f;
 static float vstretchz = 0.4025f;
 static float rewritestretch = 0.5f;
 static float zero = 0.0f;
+static float f256 = 256.0f;
+static float f512 = 512.0f;
+static float f768 = 768.0f;
+static float gamestretch = 0.0f;
 
 extern "C"
 {
@@ -52,29 +56,65 @@ extern "C"
 			{
 				GUITexturePVMs[17].Name = "AVA_GTITLE0_E1";
 				GUITexturePVMs[18].Name = "AVA_TITLE_CMN1";
-				GUITexturePVMs[20].Name = "AVA_TITLE_BACK_ES";
+				GUITexturePVMs[20].Name = "AVA_TITLE_BACK_E1";
 				GUITexturePVMs[29].Name = "AVA_TITLE_CMN_SMALLS";
 
 				GUITexturePVMs2[17].Name = "AVA_GTITLE0_E1";
 				GUITexturePVMs2[18].Name = "AVA_TITLE_CMN1";
-				GUITexturePVMs2[20].Name = "AVA_TITLE_BACK_ES";
+				GUITexturePVMs2[20].Name = "AVA_TITLE_BACK_E1";
 				GUITexturePVMs2[29].Name = "AVA_TITLE_CMN_SMALLS";
 
 				GUITexturePVMs3[17].Name = "AVA_GTITLE0_E1";
 				GUITexturePVMs3[18].Name = "AVA_TITLE_CMN1";
-				GUITexturePVMs3[20].Name = "AVA_TITLE_BACK_ES";
+				GUITexturePVMs3[20].Name = "AVA_TITLE_BACK_E1";
 				GUITexturePVMs3[29].Name = "AVA_TITLE_CMN_SMALLS";
 
 				GUITexturePVMs4[17].Name = "AVA_GTITLE0_E1";
 				GUITexturePVMs4[18].Name = "AVA_TITLE_CMN1";
-				GUITexturePVMs4[20].Name = "AVA_TITLE_BACK_ES";
+				GUITexturePVMs4[20].Name = "AVA_TITLE_BACK_E1";
 				GUITexturePVMs4[29].Name = "AVA_TITLE_CMN_SMALLS";
 
 				GUITexturePVMs5[17].Name = "AVA_GTITLE0_E1";
 				GUITexturePVMs5[18].Name = "AVA_TITLE_CMN1";
-				GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_ES";
+				GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_E1";
 				GUITexturePVMs5[29].Name = "AVA_TITLE_CMN_SMALLS";
 			}
+			//Main menu
+			gamestretch = float(HorizontalResolution)/1280.0f;
+			WriteData((float**)0x0050BAB7, &gamestretch);
+			WriteData((float**)0x0050BAFA, &gamestretch);
+			WriteData((float**)0x0050BB3A, &gamestretch);
+			WriteData((float**)0x0050BB46, &gamestretch);
+			WriteData((float**)0x0050BABD, &gamestretch);
+			WriteData((float**)0x0050BB74, &gamestretch);
+			WriteData((float**)0x0050BB80, &gamestretch);
+			WriteData((float**)0x0050BBA9, &gamestretch);
+			WriteData((float**)0x0050BBB1, &gamestretch);
+			WriteData((float**)0x0050BBB7, &gamestretch);
+			WriteData((float**)0x0050BBE3, &gamestretch);
+			WriteData((float**)0x0050BBE9, &gamestretch);
+			WriteData((float**)0x0050BBF5, &gamestretch);
+			WriteData((float**)0x0050BC1E, &gamestretch);
+			WriteData((float**)0x0050BC23, &gamestretch);
+			WriteData((float**)0x0050BC2F, &gamestretch);
+			WriteData((float**)0x0050BC58, &gamestretch);
+			WriteData((float**)0x0050BC5E, &gamestretch);
+			WriteData((float**)0x0050BC69, &gamestretch);
+			WriteData((float**)0x0050BB34, &gamestretch);
+			WriteData((float**)0x0050BB6F, &gamestretch);
+			WriteData((float**)0x0050BB00, &gamestretch);
+			WriteData((float**)0x0050BB0B, &gamestretch);
+			WriteData((float**)0x0050BB0B, &gamestretch);
+			WriteData((float**)0x0050BC64, &f768);
+			WriteData((float**)0x0050BBEF, &f256);
+			WriteData((float**)0x0050BB06, &f256);
+			WriteData((float**)0x0050BB7A, &f256);
+			WriteData((float**)0x0050BC29, &f512);
+			WriteData((float**)0x0050BB06, &f512);
+			WriteData((float**)0x0050BB7A, &f512);
+			WriteData((float**)0x0050BBBD, &zero);
+			WriteData((float**)0x0050BAD5, &zero);
+			WriteData((float**)0x0050BB40, &zero);
 			//Scrolling
 			WriteData((float**)0x0050E83B, &zero); //Disable titlescreen scrolling 
 			WriteData((float**)0x0050E5BB, &zero); //Disable titlescreen scrolling (640x480)
