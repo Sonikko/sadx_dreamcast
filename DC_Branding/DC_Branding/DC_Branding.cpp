@@ -15,6 +15,15 @@ static float f256 = 256.0f;
 static float f512 = 512.0f;
 static float f768 = 768.0f;
 static float gamestretch = 0.0f;
+static float control_vertoffset = 455.0f;
+static float control_hzoffset = 593.0f;
+static float camera_vertoffset = 75.0f;
+static float camera_hzoffset = 215.0f;
+
+void BoxBackgroundColor()
+{
+	SetMaterialAndSpriteColor_Float(0.9f, 1.0f, 1.0f, 1.0f);
+}
 
 extern "C"
 {
@@ -167,6 +176,18 @@ extern "C"
 			}
 		}
 		WriteData((void*)0x0042CCF3, 0x0F, 1); //Disable Sonic Team logo
+		//Pause box stuff
+		WriteData((float*)0x00459070, 15.0f);
+		WriteData((float**)0x00459054, &control_vertoffset);
+		WriteData((float**)0x00459039, &control_hzoffset);
+		WriteData((float**)0x00458D4D, &camera_hzoffset);
+		WriteData((float**)0x00458D68, &camera_vertoffset);
+		WriteData((float*)0x00459077, 23.0f);
+		WriteData((float*)0x00458D78, 27.0f);
+		WriteData((float*)0x00458D7F, 5.0f);
+		WriteCall((void*)0x004585C8, BoxBackgroundColor);
+		WriteCall((void*)0x0045902F, BoxBackgroundColor);
+		WriteCall((void*)0x00458DA9, BoxBackgroundColor);
 		WriteData((float*)0x00458125, 1.0f); //Selection box B
 		WriteData((float*)0x0045812A, 0.7f); //Selection box G
 		WriteData((float*)0x0045812F, 0.0f); //Selection box R
