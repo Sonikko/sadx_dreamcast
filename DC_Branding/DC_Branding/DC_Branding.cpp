@@ -79,8 +79,25 @@ extern "C"
 				GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_E1";
 				GUITexturePVMs5[29].Name = "AVA_TITLE_CMN_SMALLS";
 			}
-			//Main menu
+			//Stretch value
 			gamestretch = float(HorizontalResolution)/1280.0f;
+			//AVA_BACK stuff
+			WriteData((float**)0x00507BC2, &gamestretch);
+			WriteData((float**)0x00507BC8, &gamestretch);
+			WriteData((char*)0x010D7D09, 0x02, 1);
+			WriteData((char*)0x010D7D0D, 0x02, 1);
+			WriteData((char*)0x010D7D13, 0x02, 1);
+			WriteData((char*)0x010D7D15, 0x02, 1);
+			WriteData((char*)0x010D7D19, 0x04, 1);
+			WriteData((char*)0x010D7D1F, 0x04, 1);
+			WriteData((char*)0x010D7D20, 0xFF, 1);
+			WriteData((char*)0x010D7D25, 0x04, 1);
+			WriteData((char*)0x010D7D26, 0xFF, 1);
+			WriteData((char*)0x010D7D2B, 0x04, 1);
+			WriteData((char*)0x010D7D2B, 0x04, 1);
+			WriteData((char*)0x010D7D2C, 0xFF, 1);
+			WriteData((char*)0x010D7D2D, 0x02, 1);
+			//Main menu BG
 			WriteData((float**)0x0050BAB7, &gamestretch);
 			WriteData((float**)0x0050BAFA, &gamestretch);
 			WriteData((float**)0x0050BB3A, &gamestretch);
