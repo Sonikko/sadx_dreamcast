@@ -23,6 +23,7 @@ DataPointer(NJS_TEXANIM, stru_149401C, 0x149401C);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(NJS_ARGB, stru_1494114, 0x1494114);
 DataPointer(NJS_SPRITE, stru_1494030, 0x1494030);
+static unsigned char bytex = 0;
 FunctionPointer(void, sub_5632F0, (ObjectMaster *a1), 0x5632F0);
 FunctionPointer(void, sub_563370, (ObjectMaster *a1), 0x563370);
 static float alpa = 1.0f;
@@ -119,53 +120,50 @@ PointerInfo pointers[] = {
 };
 
 //Perfect Chaos damage functions
-void __cdecl sub_5633A0(ObjectMaster *a1)
-{
-	a1->Data1->field_C = FrameCounter;
-	a1->MainSub = sub_563370;
-	//a1->DisplaySub = sub_5632F0;
-	a1->Data1->field_C = 0;
-}
 
 
 void __cdecl sub_5632F0X(ObjectMaster *a1)
 {
 	EntityData1 *v1; // esi@1
 	v1 = a1->Data1;
-	int v2 = a1->Data1->field_C;
-
+	if (!DroppedFrames)
+	{
+		DisableFog();
+		SetMaterialAndSpriteColor(&stru_1494114);
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_ONE);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		stru_149401C.texid = (int)*(float *)&v1->CharIndex;
+		njDrawSprite3D_2(&stru_1494030, 0, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE, 4);
+		njPopMatrix(1u);
+		ToggleStageFog();
+	}
 }
 
 void __cdecl sub_563370Z(ObjectMaster *a1)
 {
 	EntityData1 *v1; // eax@1
-	int v2; // st7@1
-	int v3;
+	float v2; // st7@1
+
 	v1 = a1->Data1;
-	v2 = a1->Data1->field_C;
-	v3 = FrameCounter - v2;
-	if (v2 >= 16) 
+	v2 = *(float*)&v1->CharIndex + 0.3f;
+	*(float*)&v1->CharIndex = v2;
+	if (v2 < 16.0f)
 	{
-		CheckThingButThenDeleteObject(a1);
+		sub_5632F0X(a1);
 	}
 	else
 	{
-	if (!DroppedFrames)
-	{
-		DisableFog();
-		SetMaterialAndSpriteColor(&stru_1494114);
-		njColorBlendingMode(0, 10);
-		njColorBlendingMode(1, 10);
-		njPushMatrix(0);
-		njTranslateV(0, &v1->Position);
-		stru_149401C.texid = v2;
-		njDrawSprite3D_2(&stru_1494030, 0, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE, 4);
-		njPopMatrix(1u);
-		ToggleStageFog();
+		CheckThingButThenDeleteObject(a1);
 	}
-	if (v3 % 2 == 0 ) v2++;
-	a1->Data1->field_C = v2;
-	}
+}
+
+void __cdecl sub_5633A0(ObjectMaster *a1)
+{
+	a1->MainSub = sub_563370Z;
+	a1->DisplaySub = sub_5632F0X;
+	a1->Data1->CharIndex = 0;
 }
 
 extern "C"
@@ -186,11 +184,9 @@ extern "C"
 		*(NJS_TEXLIST**)0x02BD5FE4 = (NJS_TEXLIST*)0x02EE0AA4; //Eggman Super Sonic cutscene texlist fix
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		//Perfect Chaos damage functions
-		/*
-		WriteJump((void*)0x563370, sub_563370Z);
-		WriteJump((void*)0x5632F0, sub_5632F0X);
-		WriteJump((void*)0x5633A0, sub_5633A0);
-		*/
+		//WriteJump((void*)0x563370, sub_563370Z);
+		//WriteJump((void*)0x5632F0, sub_5632F0X);
+		//WriteJump((void*)0x5633A0, sub_5633A0);
 		//Disable Chaos 2 columns
 		((NJS_OBJECT *)0x11863EC)->evalflags |= NJD_EVAL_HIDE;
 		((NJS_OBJECT *)0x118C944)->evalflags |= NJD_EVAL_HIDE;
@@ -473,22 +469,43 @@ extern "C"
 		if (trigger == 2) alpa = alpa + 0.04f;
 		if (alpa >= 1.0f) trigger = 0;
 		//Egg Hornet rotation
-		/*if (rotdir == 1) rot = rot+4;
-		if (rotdir == -1) rot = rot-4;
-		if (rot > 12) rotdir = -1;
-		if (rot < -12) rotdir = 1;
-		((NJS_OBJECT *)0x01561A70)->ang[1] = NJM_DEG_ANG(rot); //Main model
-		((NJS_OBJECT *)0x015658E0)->ang[1] = NJM_DEG_ANG(rot + 90); //Eggman
-		((NJS_OBJECT *)0x01567BCC)->evalflags |= NJD_EVAL_HIDE;
-		((NJS_OBJECT *)0x01567E64)->evalflags |= NJD_EVAL_HIDE;
-		((NJS_OBJECT *)0x015685CC)->evalflags |= NJD_EVAL_HIDE;
-		((NJS_OBJECT *)0x015680CC)->evalflags |= NJD_EVAL_HIDE;
-		((NJS_OBJECT *)0x01568334)->evalflags |= NJD_EVAL_HIDE;
-		((NJS_OBJECT *)0x015688C4)->evalflags |= NJD_EVAL_HIDE;
-		((NJS_OBJECT *)0x01568B5C)->evalflags |= NJD_EVAL_HIDE;
-		((NJS_OBJECT *)0x0156902C)->evalflags |= NJD_EVAL_HIDE;
-		((NJS_OBJECT *)0x015692C4)->evalflags |= NJD_EVAL_HIDE;
-		((NJS_SPRITE *)0x3C6C884)->ang = NJM_DEG_ANG(rot); //Main model*/
+		DataPointer(unsigned char, byte_03C6C944, 0x03C6C944);
+		DataPointer(float, dword_3C6C930, 0x3C6C930);
+		if (CurrentLevel == 20 && GameState != 16)
+		{
+			if (dword_3C6C930 != 1 && byte_03C6C944 != bytex)
+			{
+				bytex = byte_03C6C944;
+				((NJS_OBJECT *)0x01561A70)->ang[1] = NJM_DEG_ANG(0); //Main model
+				((NJS_OBJECT *)0x015658E0)->ang[1] = NJM_DEG_ANG(90); //Eggman
+				((NJS_SPRITE *)0x3C6C884)->ang = NJM_DEG_ANG(0); //Main model
+				((NJS_OBJECT *)0x01567BCC)->ang[1] = NJM_DEG_ANG(0); //Jet
+				((NJS_OBJECT *)0x01567E64)->ang[1] = NJM_DEG_ANG(0); //Jet
+				((NJS_OBJECT *)0x015685CC)->ang[1] = NJM_DEG_ANG(0); //Jet
+				((NJS_OBJECT *)0x015680CC)->ang[1] = NJM_DEG_ANG(0); //Jet
+				((NJS_OBJECT *)0x01568334)->ang[2] = NJM_DEG_ANG(0); //Jet
+			}
+			if (dword_3C6C930 == 1 && byte_03C6C944 != bytex)
+			{
+				if (rotdir == 1) rot = rot + 5;
+				if (rotdir == -1) rot = rot - 5;
+				if (rot > 10) rotdir = -1;
+				if (rot < -10) rotdir = 1;
+				((NJS_OBJECT *)0x01561A70)->ang[1] = NJM_DEG_ANG(rot); //Main model
+				((NJS_OBJECT *)0x015658E0)->ang[1] = NJM_DEG_ANG(rot + 90); //Eggman
+				((NJS_SPRITE *)0x3C6C884)->ang = NJM_DEG_ANG(rot); //Jet sprite
+				((NJS_OBJECT *)0x01567BCC)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+				((NJS_OBJECT *)0x01567E64)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+				((NJS_OBJECT *)0x015685CC)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+				((NJS_OBJECT *)0x015680CC)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+				((NJS_OBJECT *)0x01568334)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+				((NJS_OBJECT *)0x01567BCC)->ang[1] = NJM_DEG_ANG(rot); //Jet
+				((NJS_OBJECT *)0x01567E64)->ang[1] = NJM_DEG_ANG(rot); //Jet
+				((NJS_OBJECT *)0x015685CC)->ang[1] = NJM_DEG_ANG(rot); //Jet
+				((NJS_OBJECT *)0x015680CC)->ang[1] = NJM_DEG_ANG(rot); //Jet
+				((NJS_OBJECT *)0x01568334)->ang[1] = NJM_DEG_ANG(rot+180); //Jet
+			}
+		}
 		//water animation
 		if (CurrentLevel == 23 || CurrentLevel == 25)
 		{
