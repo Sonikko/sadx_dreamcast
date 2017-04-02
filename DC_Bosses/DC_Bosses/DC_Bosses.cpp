@@ -158,6 +158,11 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//Perfect Chaos tornado UVs
+		WriteData((int*)0x01426CA0, 1538);
+		WriteData((int*)0x01426CA4, -2500);
+		WriteData((int*)0x01426CA8, -2538);
+		WriteData((int*)0x01426CAC, -2538);
 		*(NJS_OBJECT *)0x02DA8664 = object_029A8664; //E101R model in cutscenes
 		*(NJS_OBJECT *)0x010FEF74 = *(NJS_OBJECT *)0x02EEB524; //Replace the non-updated Eggmobile model with a high-poly one
 		WriteData((NJS_TEXLIST**)0x007D2B22, (NJS_TEXLIST*)0x02EE0AA4); //Replace the texlist for the above model in the NPC data array
