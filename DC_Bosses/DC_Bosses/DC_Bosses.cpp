@@ -487,8 +487,8 @@ extern "C"
 			}
 			if (dword_3C6C930 == 1 && byte_03C6C944 != bytex)
 			{
-				if (rotdir == 1) rot = rot + 5;
-				if (rotdir == -1) rot = rot - 5;
+				if (rotdir == 1) rot = rot + 3;
+				if (rotdir == -1) rot = rot - 3;
 				if (rot > 10) rotdir = -1;
 				if (rot < -10) rotdir = 1;
 				((NJS_OBJECT *)0x01561A70)->ang[1] = NJM_DEG_ANG(rot); //Main model
