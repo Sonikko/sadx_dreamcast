@@ -25,6 +25,8 @@ DataPointer(NJS_ARGB, stru_1494114, 0x1494114);
 DataPointer(NJS_SPRITE, stru_1494030, 0x1494030);
 FunctionPointer(void, sub_5632F0, (ObjectMaster *a1), 0x5632F0);
 FunctionPointer(void, sub_563370, (ObjectMaster *a1), 0x563370);
+static float alpa = 1.0f;
+int trigger = 0;
 
 static bool Chaos4Defeated = 0;
 static int anim = 27;
@@ -86,6 +88,20 @@ NJS_MDATA2 animation_0004CEA0_mdat[] = {
 };
 
 NJS_MOTION animation_0004CEA0 = { animation_0004CEA0_mdat, 8, NJD_MTYPE_POS_0 | NJD_MTYPE_ANG_1, 2 };
+
+void __cdecl TornadoFunc()
+{
+	DataPointer(unsigned char, byte_03C5A7EF, 0x03C5A7EF);
+	DataPointer(float, dword_3C6A998, 0x3C6A998);
+	DataPointer(NJS_OBJECT, stru_13A6E8C, 0x13A6E8C);
+	DataPointer(NJS_ARGB, nj_constant_material_temp, 0x03B18220);
+	nj_constant_material_temp.a = alpa;
+	nj_constant_material_temp.r = 1.0f;
+	nj_constant_material_temp.g = 1.0f;
+	nj_constant_material_temp.b = 1.0f;
+	SetMaterialAndSpriteColor(&nj_constant_material_temp);
+	ProcessModelNode_D_WrapperB(&stru_13A6E8C, 0, 1.0);
+}
 
 PointerInfo pointers[] = {
 	//ptrdecl(0x7D1CC0, &landtable_0000028C), //Chaos 2 DC
@@ -163,6 +179,7 @@ extern "C"
 		WriteData((int*)0x01426CA4, -2500);
 		WriteData((int*)0x01426CA8, -2538);
 		WriteData((int*)0x01426CAC, -2538);
+		WriteCall((void*)0x00562303, TornadoFunc); //Perfect Chaos tornado fade-in
 		*(NJS_OBJECT *)0x02DA8664 = object_029A8664; //E101R model in cutscenes
 		*(NJS_OBJECT *)0x010FEF74 = *(NJS_OBJECT *)0x02EEB524; //Replace the non-updated Eggmobile model with a high-poly one
 		WriteData((NJS_TEXLIST**)0x007D2B22, (NJS_TEXLIST*)0x02EE0AA4); //Replace the texlist for the above model in the NPC data array
@@ -444,6 +461,17 @@ extern "C"
 
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		//Super stupid hax to make Perfect Chaos' tornadoes fade in
+		DataPointer(unsigned char, byte_03C5A7EF, 0x03C5A7EF);
+		if (byte_03C5A7EF == 0) trigger = 0;
+		if (byte_03C5A7EF == 3)
+		{
+			trigger = 1;
+			alpa = 0;
+		}
+		if (trigger == 1 && byte_03C5A7EF != 3) trigger = 2;
+		if (trigger == 2) alpa = alpa + 0.04f;
+		if (alpa >= 1.0f) trigger = 0;
 		//Egg Hornet rotation
 		/*if (rotdir == 1) rot = rot+4;
 		if (rotdir == -1) rot = rot-4;
