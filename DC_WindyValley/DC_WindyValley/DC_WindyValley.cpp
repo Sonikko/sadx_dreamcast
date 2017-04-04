@@ -30,6 +30,9 @@ extern "C" __declspec(dllexport) void cdecl Init()
 {
 	WriteData((void*)0x4DD120, 0xC3, sizeof(char));
 	*(NJS_OBJECT*)0x00C32DB8 = object_000D40D4; //grassy rock
+	*(NJS_OBJECT*)0xC2B860 = object_0082B860; //broken fan piece
+	*(NJS_OBJECT*)0xC2C160 = object_0082C160; //broken fan piece 2
+	*(NJS_OBJECT*)0xC2C788 = object_0082C788; //broken fan piece 3
 	((NJS_OBJECT*)0xC0655C)->evalflags |= NJD_EVAL_HIDE;
 	((NJS_OBJECT*)0xC06450)->evalflags |= NJD_EVAL_HIDE;
 	((NJS_OBJECT*)0xC05E10)->evalflags |= NJD_EVAL_HIDE;
