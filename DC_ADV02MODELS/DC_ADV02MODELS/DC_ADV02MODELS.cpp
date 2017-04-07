@@ -54,7 +54,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	if (SADXStyleWater != 0) 
 	{
 		landtable_00017960.TexName = "ADV_MR00W";
-		collist_00015E60[0].Flags = 0x00000000;
+		collist_00015E60[LengthOfArray(collist_00015E60)-6].Flags = 0x00000000;
 		WriteCall((void*)0x005325C9, SetWaterTexture);
 		WriteData((int*)0x00532611, 156);
 		texlist_mr00.nbTexture = 171;
@@ -63,7 +63,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	{
 		WriteData((void*)0x532500, 0xC3u, sizeof(char));
 		landtable_00017960.TexName = "ADV_MR00";
-		collist_00015E60[0].Flags = 0x80040000;
+		collist_00015E60[LengthOfArray(collist_00015E60) - 6].Flags = 0x80040000;
 	}
 	for (int i = 0; i < 3; i++)
 	{
