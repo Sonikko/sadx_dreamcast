@@ -42,9 +42,6 @@
     <ClInclude Include="Casino4.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Casino2 Fixes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Casino_objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>

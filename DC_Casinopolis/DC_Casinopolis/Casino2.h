@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
-#include "Casino2 Fixes.h"
 
 Sint16 poly_0006C3AC[] = {
 	4, 6, 7, 43, 44,
@@ -33319,16 +33318,13 @@ COL collist_0006A230[] = {
 	{ { -1651.002f, -2205, 2214.999f }, 144.3953f, 0, 0, &object_000ADB80, 0, 0x80000000 },
 	{ { -1566, -2082.5f, 2315 }, 74.00511f, 0, 0, &object_000ADBB4, 0, 0x80000000 },
 	{ { -1566, -2082.5f, 2115 }, 74.00511f, 0, 0, &object_000ADBE8, 0, 0x80000000 },
-	//{ { -1256, -702.5f, 2870 }, 287.4546f, 0, 0, &object_018CEDB4, 0, 0x80040001 }, //fix1
-	//{ { -2055.999f, -1532.5f, 3020 }, 287.4547f, 0, 0, &object_018D1DDC, 0, 0x80040001 }, //fix2
 	{ { -1256, -702.5f, 2870 }, 315.0825f, 0, 0, &object_00078EFC, 0, 0x80040001 }, // dome1
 	{ { -2055.999f, -1532.5f, 3020 }, 315.0825f, 0, 0, &object_0007AEF8, 0, 0x80040001 }, //dome2
 	{ { -1566, -2082.5f, 1925 }, 74.00511f, 0, 0, &object_000ADC1C, 0, 0x80000000 },
-	//{ { -1566, -2187.9, 1790 }, 74.00511f, 0, 0, &object_01A4FD94, 0, 0x80000000 }, //ladder lol
 	{ { -1566, -2142.5f, 1790 }, 71.12137f, 0, 0, &object_0008C344, 0, 0xC3040000 } //light
 };
 
-NJS_TEXNAME textures_casino2[59];
+NJS_TEXNAME textures_casino2[58];
 NJS_TEXLIST texlist_casino2 = { arrayptrandlength(textures_casino2) };
 
 LandTable landtable_0006C0B4 = { LengthOfArray(collist_0006A230), 0, 0xC, 1500, collist_0006A230, NULL, "CASINO02", (NJS_TEXLIST *)&texlist_casino2, 0, 0 };

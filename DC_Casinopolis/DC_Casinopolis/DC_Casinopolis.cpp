@@ -10,6 +10,7 @@
 static short CurrentPlayer = -1;
 static int anim1 = 67;
 static int anim2 = 7;
+static int anim2_actual = 0;
 static int delayX = 0;
 static int ang = 0;
 static int SoundPlayed = 0;
@@ -256,11 +257,24 @@ extern "C"
 		}
 		if (CurrentLevel == 9 && CurrentAct == 1 && GameState != 16)
 		{
-			if (anim2 > 7 && anim2 < 9) anim2 = 9;
-			if (anim2 > 21) anim2 = 7;
+			if (anim2_actual == 0) anim2 = 7;
+			if (anim2_actual == 1) anim2 = 10;
+			if (anim2_actual == 2) anim2 = 11;
+			if (anim2_actual == 3) anim2 = 12;
+			if (anim2_actual == 4) anim2 = 13;
+			if (anim2_actual == 5) anim2 = 14;
+			if (anim2_actual == 6) anim2 = 9;
+			if (anim2_actual == 7) anim2 = 15;
+			if (anim2_actual == 8) anim2 = 16;
+			if (anim2_actual == 9) anim2 = 17;
+			if (anim2_actual == 10) anim2 = 18;
+			if (anim2_actual == 11) anim2 = 19;
+			if (anim2_actual == 12) anim2 = 20;
+			if (anim2_actual == 13) anim2 = 21;
+			if (anim2_actual > 13) anim2_actual = 0;
 			matlist_000ACC44[0].attr_texId = anim2;
 			matlist_000ACB40[0].attr_texId = anim2;
-			if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim2++;
+			if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim2_actual++;
 		}
 	}
 }
