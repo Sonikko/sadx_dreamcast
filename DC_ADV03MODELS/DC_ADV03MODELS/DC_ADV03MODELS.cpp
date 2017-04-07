@@ -25,6 +25,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	}
 	else
 	{
+		WriteData((void*)0x542850, 0xC3u, sizeof(char));
 		collist_0006735C[0].Flags = 0x80000020;
 		collist_000976C0[0].Flags = 0x80000020;
 		landtable_0000029C.TexName = "PAST01";

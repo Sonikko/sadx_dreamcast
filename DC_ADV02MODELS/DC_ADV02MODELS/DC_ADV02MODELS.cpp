@@ -33,11 +33,17 @@ DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 static bool InsideTemple = 0;
-static int anim1 = 133;
-static int anim2 = 143;
+static int anim1 = 130;
+static int anim2 = 140;
 static int anim3 = 76;
+static int anim_sadx = 156;
 NJS_TEXNAME textures_mrtrain[31];
 NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
+
+void __cdecl SetWaterTexture()
+{
+	njSetTextureNum(155);
+}
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
@@ -49,9 +55,13 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	{
 		landtable_00017960.TexName = "ADV_MR00W";
 		collist_00015E60[0].Flags = 0x00000000;
+		WriteCall((void*)0x005325C9, SetWaterTexture);
+		WriteData((int*)0x00532611, 156);
+		texlist_mr00.nbTexture = 171;
 	}
 	else 
 	{
+		WriteData((void*)0x532500, 0xC3u, sizeof(char));
 		landtable_00017960.TexName = "ADV_MR00";
 		collist_00015E60[0].Flags = 0x80040000;
 	}
@@ -130,6 +140,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 
 extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 {
+	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	//Evening and night materials Act 3
 	if (CurrentLevel == 33 && CurrentAct == 2)
 	{
@@ -175,8 +186,10 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 				uv_000755A4[r2].v = uv_000755A4_0[r2].v;
 			}
 		}
-		if (anim1 > 142) anim1 = 133;
-		if (anim2 > 157) anim2 = 143;
+		if (anim1 > 139) anim1 = 130;
+		if (anim2 > 154) anim2 = 140;
+		if (anim_sadx > 170) anim_sadx = 156;
+		if (SADXStyleWater != 0) WriteData((int*)0x00532611, anim_sadx);
 		matlist_0007523C[0].attr_texId = anim1;
 		matlist_00057F04[0].attr_texId = anim1;
 		matlist_00053510[0].attr_texId = anim2;
@@ -187,6 +200,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		{
 			anim1++;
 			anim2++;
+			anim_sadx++;
 		}
 	}
 	if (GameState != 16 && CurrentLevel == 33 && CurrentAct == 1)

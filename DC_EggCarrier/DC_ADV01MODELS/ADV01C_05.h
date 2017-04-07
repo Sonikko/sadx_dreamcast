@@ -3977,7 +3977,7 @@ COL collist_0000F7CC[] = {
 	{ { 0.00000017f, 34, -9.709404f }, 87.17123f, 0, 0, &object_000AC93C, 0, 0x80000000 }
 };
 
-NJS_TEXNAME textures_ec35[20];
+NJS_TEXNAME textures_ec35[14];
 NJS_TEXLIST texlist_ec35 = { arrayptrandlength(textures_ec35) };
 
 LandTable landtable_0000FE44 = { LengthOfArray(collist_0000F7CC), 0, 8, 0, collist_0000F7CC, NULL, "ADV_EC35", (NJS_TEXLIST *)&texlist_ec35, 0, 0 };

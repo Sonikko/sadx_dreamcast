@@ -24,10 +24,20 @@ static int anim2 = 183;
 static int anim3 = 29;
 static int anim4 = 59;
 static int anim5 = 60;
-static int anim6 = 157;
+static int anim6 = 219;
 static int anim7 = 120;
+static int anim_sadx = 268;
+static int anim_sadx2 = 132;
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+
+void __cdecl WaterTexture()
+{
+	if (CurrentAct == 4 && GetTimeOfDay() != 1) njSetTextureNum(128);
+	if (CurrentAct == 4 && GetTimeOfDay() == 1) njSetTextureNum(131);
+	if (CurrentAct == 3 && GetTimeOfDay() == 1) njSetTextureNum(267);
+	if (CurrentAct == 3 && GetTimeOfDay() != 1) njSetTextureNum(266);
+}
 
 int __cdecl CheckIfCameraIsInHotel_Lol()
 {
@@ -44,6 +54,7 @@ extern "C"
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		if (SADXStyleWater != 0)
 		{
+			WriteCall((void*)0x006312BB, WaterTexture);
 			matlist_00123C24[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			matlist_00122894_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			matlist_000E7180_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
@@ -53,6 +64,8 @@ extern "C"
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 8].Flags = 0x80040000; //Water workaround
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 1].Flags = 0x00000000; //SA1 water
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x80000000; //SADX sea bottom
+			meshlist_00114DB0[0].vertcolor = vcolor_0015EFF0; //SADX sea bottom
+			meshlist_00151E84[0].vertcolor = vcolor_001B6370; //SADX sea bottom (hotel)
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 3].Flags = 0x00000002; //Sewers water
 			matlist_000D9890[0].diffuse.color = 0xD2B2B2B2;
 			matlist_0014B314[0].attr_texId = 65;
@@ -65,9 +78,15 @@ extern "C"
 			landtable_000C21F0.TexName = "ADVSS02W";
 			landtable_000DCEBC.TexName = "ADVSS03W";
 			landtable_00135A90.TexName = "ADVSS04W";
+			texlist4.nbTexture = 283;
+			texlist5.nbTexture = 147;
+			WriteData((int*)0x006311BB, 268);
+			WriteData((int*)0x006311D9, 266);
+			WriteData((int*)0x006311D2, 267);
 		}
 		else
 		{
+			WriteData((void*)0x631140, 0xC3u, sizeof(char));
 			matlist_00123C24[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 			matlist_00122894_2[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 			matlist_000E7180_2[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
@@ -77,6 +96,8 @@ extern "C"
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 8].Flags = 0x80000000; //Water workaround
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 1].Flags = 0x80040000; //SA1 water
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x00000000; //SADX sea bottom
+			meshlist_00114DB0[0].vertcolor = NULL; //SADX sea bottom
+			meshlist_00151E84[0].vertcolor = NULL; //SADX sea bottom (hotel)
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 3].Flags = 0x80000002; //Sewers water
 			matlist_000D9890[0].diffuse.color = 0xB2B2B2B2;
 			matlist_0014B314[0].attr_texId = 78;
@@ -110,20 +131,20 @@ extern "C"
 		memcpy((void*)0x02AB6900, &object_0016C3FC, sizeof(object_0016C3FC)); // SS Twinkle Park Elevator
 		//Landtables
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
-		LandTable **___LANDTABLESS = (LandTable **)GetProcAddress(handle, "___LANDTABLESS");
 		NJS_TEXLIST **___ADV00_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV00_TEXLISTS");
-		___ADV00_TEXLISTS[0] = &texlist1;
-		___ADV00_TEXLISTS[1] = &texlist2;
-		___ADV00_TEXLISTS[2] = &texlist3;
-		___ADV00_TEXLISTS[3] = &texlist4;
-		___ADV00_TEXLISTS[4] = &texlist5;
-		___ADV00_TEXLISTS[5] = &texlist6;
+		LandTable **___LANDTABLESS = (LandTable **)GetProcAddress(handle, "___LANDTABLESS");
 		___LANDTABLESS[0] = &landtable_000157F4;
 		___LANDTABLESS[1] = &landtable_000738F4;
 		___LANDTABLESS[2] = &landtable_000C21F0;
 		___LANDTABLESS[3] = &landtable_000DCEBC;
 		___LANDTABLESS[4] = &landtable_00135A90;
 		___LANDTABLESS[5] = &landtable_001573CC;
+		___ADV00_TEXLISTS[0] = &texlist1;
+		___ADV00_TEXLISTS[1] = &texlist2;
+		___ADV00_TEXLISTS[2] = &texlist3;
+		___ADV00_TEXLISTS[3] = &texlist4;
+		___ADV00_TEXLISTS[4] = &texlist5;
+		___ADV00_TEXLISTS[5] = &texlist6;
 		//Fog data
 		DataArray(FogData, StationSquare1Fog, 0x02AA3D10, 3);
 		DataArray(FogData, StationSquare2Fog, 0x02AA3D40, 3);
@@ -509,8 +530,9 @@ extern "C"
 		//Sea animations Act 3 (Main area)
 		if (CurrentLevel == 26 && CurrentAct == 3 && GameState != 16)
 		{
-				if (anim6 > 227) anim6 = 157;
-				if (anim6 > 157 && anim6 < 219) anim6 = 219;
+				if (anim_sadx > 282) anim_sadx = 268;
+				if (SADXStyleWater != 0) WriteData((int*)0x006311BB, anim_sadx);
+				if (anim6 > 227) anim6 = 219;
 				if (anim2 > 255) anim2 = 183;
 				if (anim2 > 183 && anim2 < 242) anim2 = 242;
 				if (anim3 > 241) anim3 = 29;
@@ -520,6 +542,8 @@ extern "C"
 				matlist_000E7180[1].attr_texId = anim3;
 				matlist_00122894[2].attr_texId = anim3;
 				if (SADXStyleWater != 0) matlist_00114D80[0].attr_texId = anim3;
+				if (SADXStyleWater != 0) matlist_00114D80[0].diffuse.argb.a=0xB2;
+				if (SADXStyleWater != 0)matlist_00114D80[0].attrflags |= NJD_FLAG_USE_ALPHA;
 				if (SADXStyleWater == 0) matlist_00133D3C[0].attr_texId = anim6;
 				if (SADXStyleWater == 0) matlist_00114D80Z[0].attr_texId = anim6;
 				if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
@@ -527,21 +551,25 @@ extern "C"
 					anim2++;
 					anim3++;
 					anim6++;
+					anim_sadx++;
 				}
 		}
 
 		//Sea animations Act 4 (Hotel)
 		if (CurrentLevel == 26 && CurrentAct == 4 && GameState != 16)
 		{
-			if (anim7 > 129) anim7 = 120;
-			if (anim4 > 101) anim4 = 59;
-			if (anim4 > 59 && anim4 < 88) anim4 = 88;
-			if (anim5 > 115) anim5 = 60;
-			if (anim5 > 60 && anim5 < 102) anim5 = 102;
+			if (anim_sadx2 > 146) anim_sadx2 = 132;
+			if (anim7 > 86) anim7 = 65;
+			if (anim7 > 65 && anim7 < 78) anim7 = 78;
+			if (anim4 > 100) anim4 = 59;
+			if (anim4 > 59 && anim4 < 87) anim4 = 87;
+			if (anim5 > 114) anim5 = 60;
+			if (anim5 > 60 && anim5 < 101) anim5 = 101;
 			matlist_00147958[2].attr_texId = anim4;
 			matlist_00150A50[1].attr_texId = anim4;
 			matlist_00150A50[3].attr_texId = anim5;
 			if (SADXStyleWater != 0) matlist_00151E54[0].attr_texId = anim4;
+			if (SADXStyleWater != 0) WriteData((int*)0x006311E0, anim_sadx2);
 			matlist_00148688[0].attr_texId = anim5;
 			if (SADXStyleWater == 0) matlist_00151E54[0].attr_texId = anim7;
 			if (SADXStyleWater == 0) matlist_001566E4[0].attr_texId = anim7;
@@ -552,6 +580,7 @@ extern "C"
 				anim4++;
 				anim5++;
 				anim7++;
+				anim_sadx2++;
 			}
 		}
 	}
