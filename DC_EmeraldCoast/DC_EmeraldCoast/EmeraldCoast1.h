@@ -2,6 +2,45 @@
 
 #include "SADXModLoader.h"
 
+//Water thing 2
+
+NJS_MATERIAL matlist_001A1360[] = {
+	{ { 0x9BB2B2B2 },{ 0xFFFFFFFF }, 12, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_001A1374[] = {
+	4, 3, 2, 1, 0
+};
+
+NJS_TEX uv_001A1380[] = {
+	{ 0, 255 },
+	{ 0, -4845 },
+	{ 5100, 255 },
+	{ 5100, -4845 }
+};
+
+NJS_MESHSET_SADX meshlist_001A1390[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_001A1374, NULL, NULL, NULL, uv_001A1380, NULL }
+};
+
+NJS_VECTOR vertex_001A13A8[] = {
+	{ -1975.5f, 0, -1975.5f },
+	{ -1975.5f, 0, 1975.5f },
+	{ 1975.5f, 0, -1975.5f },
+	{ 1975.5f, 0, 1975.5f }
+};
+
+NJS_VECTOR normal_001A13D8[] = {
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 }
+};
+
+NJS_MODEL_SADX attach_001A1408 = { vertex_001A13A8, normal_001A13D8, LengthOfArray(vertex_001A13A8), meshlist_001A1390, matlist_001A1360, LengthOfArray(meshlist_001A1390), LengthOfArray(matlist_001A1360),{ 0 }, 2793.779f, NULL };
+
+NJS_OBJECT object_001A1430 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_001A1408, 0, 0, 0, 0, 0x9000, 0, 1, 1, 1, NULL, NULL };
+
 NJS_MATERIAL matlist_00011EC8[] = {
 	{ { 0x00B2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_DA_INV_SRC | NJD_SA_SRC }
 };

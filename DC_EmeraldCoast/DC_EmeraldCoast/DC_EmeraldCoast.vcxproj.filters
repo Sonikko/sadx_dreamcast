@@ -39,13 +39,10 @@
     <ClInclude Include="EmeraldCoast2.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EmeraldCoast2_Fixes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="EmeraldCoast3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EmeraldCoast3_fixes.h">
+    <ClInclude Include="EC_Objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

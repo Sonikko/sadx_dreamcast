@@ -1,5 +1,5 @@
 #include "SADXModLoader.h"
-#include "EmeraldCoast2_Fixes.h"
+//#include "EmeraldCoast2_Fixes.h"
 
 Sint16 poly_0008199C[] = {
 	0x8000u | 18, 9, 0, 10, 1, 11, 2, 12, 3, 13, 4, 14, 5, 15, 6, 16, 7, 17, 8
@@ -45085,6 +45085,38 @@ NJS_MODEL_SADX attach_000DD5A4 = { vertex_000DCEB4, normal_000DD22C, LengthOfArr
 
 NJS_OBJECT object_000DD5CC = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000DD5A4, 0, 50, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
+//What is this?
+
+NJS_MATERIAL matlist_00AF5760[] = {
+	{ { 0xFFFFFFFF },{ 0x00000000 }, 0, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00AF5774[] = {
+	4, 3, 2, 1, 0
+};
+
+NJS_MESHSET_SADX meshlist_00AF5780[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_00AF5774, NULL, NULL, NULL, NULL, NULL }
+};
+
+NJS_VECTOR vertex_00AF579C[] = {
+	{ 700, -1.5f, -1000 },
+	{ 700, -1.5f, -4850 },
+	{ 7800, -1.5f, -1000 },
+	{ 7800, -1.5f, -4850 }
+};
+
+NJS_VECTOR normal_00AF57CC[] = {
+	{ 0, -1, 0 },
+	{ 0, -1, 0 },
+	{ 0, -1, 0 },
+	{ 0, -1, 0 }
+};
+
+NJS_MODEL_SADX attach_00AF57FC = { vertex_00AF579C, normal_00AF57CC, LengthOfArray(vertex_00AF579C), meshlist_00AF5780, matlist_00AF5760, LengthOfArray(meshlist_00AF5780), LengthOfArray(matlist_00AF5760),{ 4250, -1.5f, -2925 }, 4038.332f, NULL };
+
+NJS_OBJECT object_00AF5828 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00AF57FC, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
 COL collist_000DD600[] = {
 	{ { 4250, -1.5f, -2925 }, 4039.332f, 0, 0, &object_00AF5828, 0, 2 },
 	{ { 2761.759f, 22.99999f, -1228.795f }, 303.5674f, 0, 0, &object_00081BB4, 0, 0x20200001 },
@@ -45243,7 +45275,7 @@ COL collist_000DD600[] = {
 	{ { 7090.521f, -0.7000005f, -2178.289f }, 147.9335f, 0, 0, &object_000DAC30, 0, 0x80000402 },
 };
 
-NJS_TEXNAME textures_ecoast2[91];
+NJS_TEXNAME textures_ecoast2[86];
 NJS_TEXLIST texlist_ecoast2 = { arrayptrandlength(textures_ecoast2) };
 
 LandTable landtable_000DEB60 = { LengthOfArray(collist_000DD600), 0, 0xC, 2000, collist_000DD600, NULL, "BEACH02", (NJS_TEXLIST *)&texlist_ecoast2, 0, 0 };

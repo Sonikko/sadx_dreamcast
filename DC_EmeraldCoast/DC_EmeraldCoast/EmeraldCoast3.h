@@ -29851,9 +29851,9 @@ NJS_MODEL_SADX attach_00AC9788 = { vertex_00AC9518, normal_00AC9650, LengthOfArr
 NJS_OBJECT object_00AC97B4 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00AC9788, 6806.437f, 9.585938f, 684.9412f, 0, 0x6DD8, 0, 1, 1, 1, NULL, NULL };
 
 COL collist_0011C2A0[] = {
-	{ { 6497.354f, -24.82641f, 1663.469f }, 821.705f, 0, 0, &object_00ACA028, 0, 0x80000000 },//sadx
+	/*{ { 6497.354f, -24.82641f, 1663.469f }, 821.705f, 0, 0, &object_00ACA028, 0, 0x80000000 },//sadx
 	{ { 5256.153f, -19.26781f, 1425.129f }, 730.5525f, 0, 0, &object_00ACA3EC, 0, 0x80000000 },//sadx2
-	{ { 6112.446f, -19.54125f, 728.1219f }, 1185.192f, 0, 0, &object_00AC97B4, 0, 0x80000000 },//sadx3
+	{ { 6112.446f, -19.54125f, 728.1219f }, 1185.192f, 0, 0, &object_00AC97B4, 0, 0x80000000 },//sadx3*/
 	{ { 6124.72f, 405, 926.3859f }, 203.7361f, 0, 0, &object_000DF6E4, 0, 0x20000001 },
 	{ { 6227.045f, -230.7706f, 1825 }, 64.10343f, 0, 0, &object_000DFBD8, 0, 0xC0000001 },
 	{ { 6223.088f, -62, 1658.512f }, 157.6497f, 0, 0, &object_000E05D4, 0, 0x40000001 },
@@ -30046,7 +30046,7 @@ COL collist_0011C2A0[] = {
 	{ { 6221.851f, -0.7f, 980.1447f }, 240.8204f, 0, 0, &object_001190C8, 0, 0x80000402 },
 };
 
-NJS_TEXNAME textures_ecoast3[95];
+NJS_TEXNAME textures_ecoast3[94];
 NJS_TEXLIST texlist_ecoast3 = { arrayptrandlength(textures_ecoast3) };
 
 LandTable landtable_0011DD58 = { LengthOfArray(collist_0011C2A0), 0, 0xC, 600, collist_0011C2A0, NULL, "BEACH03", (NJS_TEXLIST *)&texlist_ecoast3, 0, 0 };
