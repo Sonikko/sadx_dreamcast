@@ -39,10 +39,7 @@
     <ClInclude Include="HotShelter3.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="HotShelter2_fixes.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="WaterStuff.h">
+    <ClInclude Include="HotShelter_Objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

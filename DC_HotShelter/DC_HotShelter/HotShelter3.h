@@ -1,9 +1,6 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
 
-NJS_TEXNAME textures_shelter2[125];
-NJS_TEXLIST texlist_hotshelter2 = { arrayptrandlength(textures_shelter2) };
-
 NJS_MATERIAL matlist_000B0DC8[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 35, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 104, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_U | NJD_FLAG_FLIP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -44718,4 +44715,7 @@ GeoAnimData animlist_000B0D14[] = {
 	{ 0, 1, 27, &object_0005C538, &action_animation_0005C72C, (NJS_TEXLIST *)0 }
 };
 
-LandTable landtable_000B0DA4 = { LengthOfArray(collist_000AD36C), LengthOfArray(animlist_000B0D14), 0xD, 650, collist_000AD36C, animlist_000B0D14, "HOTSHELTER3", (NJS_TEXLIST *)&texlist_hotshelter2 , 0, 0 };
+NJS_TEXNAME textures_shelter3[122];
+NJS_TEXLIST texlist_hotshelter3 = { arrayptrandlength(textures_shelter3) };
+
+LandTable landtable_000B0DA4 = { LengthOfArray(collist_000AD36C), LengthOfArray(animlist_000B0D14), 0xD, 650, collist_000AD36C, animlist_000B0D14, "HOTSHELTER3", (NJS_TEXLIST *)&texlist_hotshelter3 , 0, 0 };

@@ -1,9 +1,5 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
-#include "HotShelter2_fixes.h"
-
-NJS_TEXNAME textures_shelter1[160];
-NJS_TEXLIST texlist_hotshelter1 = { arrayptrandlength(textures_shelter1) };
 
 NJS_MATERIAL matlist_000527A0[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 129, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -45330,4 +45326,7 @@ GeoAnimData animlist_000526BC[] = {
 	{ 0, 1, 27, &object_0005AB5C, &action_animation_0005ABC0, (NJS_TEXLIST *)0 }
 };
 
-LandTable landtable_0005277C = { LengthOfArray(collist_0004CDDC), LengthOfArray(animlist_000526BC), 0xD, 650, collist_0004CDDC, animlist_000526BC, "HOTSHELTER2", (NJS_TEXLIST *)&texlist_hotshelter1, 0, 0 };
+NJS_TEXNAME textures_shelter2[157];
+NJS_TEXLIST texlist_hotshelter2 = { arrayptrandlength(textures_shelter2) };
+
+LandTable landtable_0005277C = { LengthOfArray(collist_0004CDDC), LengthOfArray(animlist_000526BC), 0xD, 650, collist_0004CDDC, animlist_000526BC, "HOTSHELTER2", (NJS_TEXLIST *)&texlist_hotshelter2, 0, 0 };

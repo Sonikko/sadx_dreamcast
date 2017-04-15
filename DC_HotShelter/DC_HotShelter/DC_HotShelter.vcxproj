@@ -100,13 +100,12 @@
   <ItemGroup>
     <ClInclude Include="HotShelter1.h" />
     <ClInclude Include="HotShelter2.h" />
-    <ClInclude Include="HotShelter2_fixes.h" />
+    <ClInclude Include="HotShelter_Objects.h" />
     <ClInclude Include="HotShelter3.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="SADXModLoader.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="WaterStuff.h" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DC_HotShelter.cpp" />
