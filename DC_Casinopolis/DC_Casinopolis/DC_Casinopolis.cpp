@@ -8,8 +8,9 @@
 #include "stdlib.h"
 
 static short CurrentPlayer = -1;
-static int anim1 = 67;
+static int anim1 = 75;
 static int anim2 = 7;
+static int anim1_actual = 0;
 static int anim2_actual = 0;
 static int delayX = 0;
 static int ang = 0;
@@ -61,7 +62,7 @@ void __cdecl OLhtr_Display(ObjectMaster *a1)
 		{
 			njRotateY(0, (unsigned __int16)v4);
 		}
-		ProcessModelNode_A_Wrapper(&stru_1E5E7BC, 4, 1.0f);
+		ProcessModelNode_A_Wrapper(&stru_1E5E7BC, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 		if (LevelFrameCount % 3 != 0) stru_1E5E7BC.basicdxmodel->mats[2].diffuse.color = 0xFFFFFFFF;
 		if (LevelFrameCount % 3 == 0)
 		{
@@ -103,7 +104,7 @@ void __cdecl OLhtg_Display(ObjectMaster *a1)
 		{
 			njRotateY(0, (unsigned __int16)v4);
 		}
-		ProcessModelNode_A_Wrapper(&stru_1E5EC4C, 4, 1.0f);
+		ProcessModelNode_A_Wrapper(&stru_1E5EC4C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 		if (LevelFrameCount % 3 != 0) stru_1E5EC4C.basicdxmodel->mats[4].diffuse.color = 0xFFFFFFFF;
 		if (LevelFrameCount % 3 == 0)
 		{
@@ -166,12 +167,12 @@ extern "C"
 		{
 			if (CurrentCharacter == 0)
 			{
-				landtable_00025EAC.COLList = collist_00023DA0S;
+				landtable_00025EAC.Col = collist_00023DA0S;
 				landtable_00025EAC.COLCount = LengthOfArray(collist_00023DA0S);
 			}
 			if (CurrentCharacter == 3)
 			{
-			landtable_00025EAC.COLList = collist_00023DA0K;
+			landtable_00025EAC.Col = collist_00023DA0K;
 			landtable_00025EAC.COLCount = LengthOfArray(collist_00023DA0K);
 			}
 			CurrentPlayer = CurrentCharacter;
@@ -191,6 +192,25 @@ extern "C"
 		}
 		if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
 		{
+			//Water
+			if (anim1_actual == 0) anim1 = 75;
+			if (anim1_actual == 1) anim1 = 68;
+			if (anim1_actual == 2) anim1 = 69;
+			if (anim1_actual == 3) anim1 = 70;
+			if (anim1_actual == 4) anim1 = 71;
+			if (anim1_actual == 5) anim1 = 72;
+			if (anim1_actual == 6) anim1 = 73;
+			if (anim1_actual == 7) anim1 = 74;
+			if (anim1_actual == 8) anim1 = 67;
+			if (anim1_actual == 9) anim1 = 76;
+			if (anim1_actual == 10) anim1 = 77;
+			if (anim1_actual == 11) anim1 = 78;
+			if (anim1_actual == 12) anim1 = 79;
+			if (anim1_actual == 13) anim1 = 80;
+			if (anim1_actual > 13) anim1_actual = 0;
+			matlist_00066F5C[1].attr_texId = anim1;
+			matlist_01979784[0].attr_texId = anim1;
+			if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim1_actual++;
 			//OTUTUA animation
 			object_019F230C.ang[1] = ang;
 			ang = (ang + 32) % 65536;
@@ -250,10 +270,6 @@ extern "C"
 				for (int r2 = 0; r2 < LengthOfArray(uv_01A474F8); r2++)
 				uv_01A474F8[r2].v = uv_01A474F8_0[r2].v;
 			}
-			if (anim1 > 80) anim1 = 67;
-			matlist_00066F5C[1].attr_texId = anim1;
-			matlist_01979784[0].attr_texId = anim1;
-			if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim1++;
 		}
 		if (CurrentLevel == 9 && CurrentAct == 1 && GameState != 16)
 		{

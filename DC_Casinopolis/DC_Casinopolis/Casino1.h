@@ -15457,6 +15457,10 @@ NJS_MATERIAL matlist_00046E58[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 105, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_FLIP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
+NJS_MATERIAL matlist_00046E58_2[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 105, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_FLIP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
 Sint16 poly_00046F20[] = {
 	0x8000u | 10, 0, 2, 1, 3, 5, 7, 4, 6, 0, 2,
 	0x8000u | 10, 77, 79, 78, 80, 82, 84, 81, 83, 77, 79
@@ -15792,7 +15796,11 @@ NJS_MESHSET_SADX meshlist_000474D4[] = {
 	{ NJD_MESHSET_TRIMESH | 6, 5, poly_00047054, NULL, NULL, NULL, uv_00047354, NULL },
 	{ NJD_MESHSET_TRIMESH | 7, 1, poly_0004709A, NULL, NULL, NULL, uv_000473CC, NULL },
 	{ NJD_MESHSET_TRIMESH | 8, 8, poly_000470AC, NULL, NULL, NULL, uv_000473EC, NULL },
-	{ NJD_MESHSET_TRIMESH | 9, 1, poly_00047118, NULL, NULL, NULL, uv_000474A4, NULL }
+	//{ NJD_MESHSET_TRIMESH | 9, 1, poly_00047118, NULL, NULL, NULL, uv_000474A4, NULL }
+};
+
+NJS_MESHSET_SADX meshlist_000474D4_2[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_00047118, NULL, NULL, NULL, uv_000474A4, NULL }
 };
 
 NJS_VECTOR vertex_000475C4[] = {
@@ -16096,6 +16104,10 @@ NJS_VECTOR normal_00047CA8[] = {
 };
 
 NJS_MODEL_SADX attach_0004838C = { vertex_000475C4, normal_00047CA8, LengthOfArray(vertex_000475C4), meshlist_000474D4, matlist_00046E58, LengthOfArray(meshlist_000474D4), LengthOfArray(matlist_00046E58),{ -332.6874f, -166.45f, 150.42f }, 127.3406f, NULL };
+
+NJS_MODEL_SADX attach_0004838C_2 = { vertex_000475C4, normal_00047CA8, LengthOfArray(vertex_000475C4), meshlist_000474D4_2, matlist_00046E58_2, LengthOfArray(meshlist_000474D4_2), LengthOfArray(matlist_00046E58_2),{ -332.6874f, -166.45f, 150.42f }, 127.3406f, NULL };
+
+NJS_OBJECT object_000483B4_2 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0004838C_2, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_OBJECT object_000483B4 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0004838C, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
@@ -33336,9 +33348,11 @@ COL collist_00023DA0K[] = {
 	{ { -147.7219f, 194.5009f, 364.192f }, 224.0405f, 0, 0, &object_00044630, 0, 0x80040000 },
 	{ { -374.6237f, 218.5009f, -12.62659f }, 225.1661f, 0, 0, &object_000492C0, 0, 0x80040000 },
 	{ { -128.3576f, -125, -309.9343f }, 56.67119f, 0, 0, &object_0005907C, 0, 0x80040000 },
+	{ { -367.47, -152.7, 150.38 }, 400, 0, 0, &object_01A47CA4, 0, 0x84000000 }, //Mizu B
+	{ { -329.67, -166.7, 137.12 }, 400, 0, 0, &object_01A47B1C, 0, 0x84000000 }, //Mizu A
+	{ { -336.487f, -191, 150.5001f }, 400, 0, 0, &object_000670B8, 0, 0x80000002 }, //water under Mizu stuff
+	{ { -332.6874f, -166.45f, 150.42f }, 400, 0, 0, &object_000483B4_2, 0, 0x80040000 }, //transparent area around Mizu stuff
 	{ { -294.3481f, -11.99954f, 86.71259f }, 589.6112f, 0, 0, &object_019798D4, 0, 0x80040000 }, //water under ship
-	{ { -329.67, -166.7, 137.12 }, 0, 0, 0, &object_01A47B1C, 0, 0x84040000 }, //Mizu B
-	{ { -367.47, -152.7, 150.38 }, 0, 0, 0, &object_01A47CA4, 0, 0x84040000 }, //Mizu A
 	{ { -284.63, -195.7, 156.06 }, 0, 0, 0, &light1, 0, 0xA1000000 },
 	{ { -312.79, -156.3, 143.76 }, 0, 0, 0, &light2, 0, 0xA1000000 },
 	{ { -313.35, -195.7, 88.93 }, 0, 0, 0, &light3, 0, 0xA1000000 },
@@ -33490,7 +33504,6 @@ COL collist_00023DA0S[] = {
 	{ { 254.4111f, 35.00005f, 0.912369f }, 231.5012f, 0, 0, &object_00066384, 0, 0xA0000001 },
 	{ { 104.9342f, 25.50005f, 257.5713f }, 124.0407f, 0, 0, &object_000667B4, 0, 0xA0000001 },
 	{ { 519.683f, 156.0001f, -321.1066f }, 56.88501f, 0, 0, &object_00066DAC, 0, 0xC0000001 },
-	{ { -336.487f, -191, 150.5001f }, 113.3734f, 0, 0, &object_000670B8, 0, 0x80000002 },
 	{ { -374.6007f, 67.39999f, 175.7702f }, 80.21603f, 0, 0, &object_000672D8, 0, 0xC0000001 },
 	{ { -311.1504f, 107.85f, -179.949f }, 32.45293f, 0, 0, &object_0006743C, 0, 0x40000001 },
 	{ { -436.5501f, 107.85f, -179.949f }, 32.45293f, 0, 0, &object_000675A0, 0, 0x40000001 },
@@ -33594,8 +33607,10 @@ COL collist_00023DA0S[] = {
 	{ { -338.2269f, -137, 139.5959f }, 153.4277f, 0, 0, &object_00035CB0, 0, 0xA0000001 },
 	{ { -147.7219f, 194.5009f, 364.192f }, 224.0405f, 0, 0, &object_00044630, 0, 0x80040000 },
 	{ { -374.6237f, 218.5009f, -12.62659f }, 225.1661f, 0, 0, &object_000492C0, 0, 0x80040000 },
-	{ { -329.67, -166.7, 137.12 }, 0, 0, 0, &object_01A47B1C, 0, 0x84040000 }, //Mizu B
-	{ { -367.47, -152.7, 150.38 }, 0, 0, 0, &object_01A47CA4, 0, 0x84040000 }, //Mizu A
+	{ { -367.47, -152.7, 150.38 }, 400, 0, 0, &object_01A47CA4, 0, 0x84000000 }, //Mizu B
+	{ { -329.67, -166.7, 137.12 }, 400, 0, 0, &object_01A47B1C, 0, 0x84000000 }, //Mizu A
+	{ { -336.487f, -191, 150.5001f }, 400, 0, 0, &object_000670B8, 0, 0x80000002 }, //water under Mizu stuff
+	{ { -332.6874f, -166.45f, 150.42f }, 400, 0, 0, &object_000483B4_2, 0, 0x80040000 }, //transparent area around Mizu stuff
 	{ { -294.3481f, -11.99954f, 86.71259f }, 589.6112f, 0, 0, &object_019798D4, 0, 0x80000000 }, //water under ship
 	{ { 0, 32.5f, -256.5f }, 215.4356f, 0, 0, &object_000506DC, 0, 0x80000000 }, //fence
 	{ { 271.24f, -131.39f, 121.96f }, 200, 0, 0, &object_01A3FD04, 0, 0x80000000 }, //O KBS
