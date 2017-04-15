@@ -123,6 +123,9 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//((NJS_OBJECT*)0x01E5E4A8)->evalflags |= NJD_EVAL_HIDE; //O LIGHTB
+		((NJS_OBJECT*)0x1E5E39C)->evalflags |= NJD_EVAL_HIDE; //O LIGHTA
+		//memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //O LIGHTA model
 		((NJS_OBJECT*)0x01DF259C)->evalflags |= NJD_EVAL_HIDE; //O TUTUA
 		((NJS_OBJECT*)0x01DF230C)->evalflags |= NJD_EVAL_HIDE; //O TUTUA
 		//Card machine top animation
@@ -132,8 +135,8 @@ extern "C"
 		DataArray(NJS_MESHSET_SADX, lionmesh, 0x1DFF0F8, 13);
 		lionmesh[0].vertuv = uv_019FEA58;
 		WriteData((void*)0x005D4456, 0x90, 5); //O TUTUA
-		((NJS_OBJECT*)0x01E47B1C)->evalflags |= NJD_EVAL_HIDE; //Hide MizuB
-		((NJS_OBJECT*)0x01E47CA4)->evalflags |= NJD_EVAL_HIDE; //Hide MizuA
+		((NJS_OBJECT*)0x01E47B1C)->evalflags |= NJD_EVAL_HIDE; //Hid MizuA
+		((NJS_OBJECT*)0x01E47CA4)->evalflags |= NJD_EVAL_HIDE; //Hide MizuB
 		((NJS_OBJECT*)0x01E3FD04)->evalflags |= NJD_EVAL_HIDE; //Hide OKbS
 		((NJS_OBJECT*)0x01E3D734)->evalflags |= NJD_EVAL_HIDE; //Hide OKbC
 		WriteJump((void*)0x5C9980, OLhtg_Display);
@@ -144,7 +147,6 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x1C47004, textures_casino4);
 		*(NJS_MODEL_SADX*)0x01E74A68 = attach_01A74A68; //billboard
 		*(NJS_MODEL_SADX*)0x01E46F30 = attach_001C4DCC; //rotating thing
-		memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //light
 		DataArray(FogData, Casino1Fog, 0x01C46990, 3);
 		DataArray(FogData, Casino2Fog, 0x01C469C0, 3);
 		DataArray(DrawDistance, DrawDist_Casino2, 0x01C46948, 3);
