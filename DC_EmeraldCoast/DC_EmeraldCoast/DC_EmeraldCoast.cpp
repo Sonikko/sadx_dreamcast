@@ -88,10 +88,10 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			uv_00CC0530[1].v = uv_00CC0530[1].v - v_add;
 			uv_00CC0530[2].v = uv_00CC0530[2].v - v_add;
 			uv_00CC0530[3].v = uv_00CC0530[3].v - v_add;
-		for (int v_step = 0; v_step < 1300; v_step++)
-		{
-			uv_00CBB000[v_step].v = uv_00CBB000[v_step].v - v2_add;
-		}
+			for (int v_step = 0; v_step < 1300; v_step++)
+			{
+				uv_00CBB000[v_step].v = uv_00CBB000[v_step].v - v2_add;
+			}
 		}
 		oldpos.x = v1->Position.x;
 		oldpos.z = v1->Position.z;
@@ -125,6 +125,7 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	*(NJS_OBJECT*)0x1049A1C = object_0012BE80; //Pier small
 	*(NJS_OBJECT*)0x104C00C = object_0012E428; //Dolphin
 	*(NJS_OBJECT*)0x106BB4C = object_0014DF28; //Whale
+	*(NJS_MODEL_SADX*)0x010C06C8 = attach_001A1690; //Spike gate shadow
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
 	if (SADXStyleWater == 0)

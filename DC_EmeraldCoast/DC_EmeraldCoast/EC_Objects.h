@@ -6485,3 +6485,42 @@ NJS_VECTOR normal_0014D3D8[] = {
 NJS_MODEL_SADX attach_0014DF00 = { vertex_0014C8B0, normal_0014D3D8, LengthOfArray(vertex_0014C8B0), meshlist_0014C838, matlist_0014B7BC, LengthOfArray(meshlist_0014C838), LengthOfArray(matlist_0014B7BC),{ 0.39485f, 26.43596f, -13.0565f }, 189.8013f, NULL };
 
 NJS_OBJECT object_0014DF28 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0014DF00, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+//Spikegate shadow
+
+NJS_MATERIAL matlist_001A15E8[] = {
+	{ { 0x97B2B2B2 },{ 0xFFFFFFFF }, 11, OBJ_BEACHTexName_am_sea200_16, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_V | NJD_FLAG_FLIP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_001A15FC[] = {
+	4, 3, 2, 1, 0
+};
+
+NJS_TEX uv_001A1608[] = {
+	{ 0, 255 },
+	{ 0, -255 },
+	{ 510, 255 },
+	{ 510, -255 }
+};
+
+NJS_MESHSET_SADX meshlist_001A1618[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_001A15FC, NULL, NULL, NULL, uv_001A1608, NULL }
+};
+
+NJS_VECTOR vertex_001A1630[] = {
+	{ -30, 0, -3 },
+	{ -30, 0, 3 },
+	{ 30, 0, -3 },
+	{ 30, 0, 3 }
+};
+
+NJS_VECTOR normal_001A1660[] = {
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 },
+	{ 0, 1, 0 }
+};
+
+NJS_MODEL_SADX attach_001A1690 = { vertex_001A1630, normal_001A1660, LengthOfArray(vertex_001A1630), meshlist_001A1618, matlist_001A15E8, LengthOfArray(meshlist_001A1618), LengthOfArray(matlist_001A15E8),{ 0 }, 30.14963f, NULL };
+
+NJS_OBJECT object_001A16B8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_001A1690, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
