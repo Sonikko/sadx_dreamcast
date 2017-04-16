@@ -75,7 +75,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			uv_00CC0530[1].u = uv_00CC0530[1].u - u_add;
 			uv_00CC0530[2].u = uv_00CC0530[2].u - u_add;
 			uv_00CC0530[3].u = uv_00CC0530[3].u - u_add;
-			for (int u_step = 0; u_step < 1300; u_step++)
+			for (int u_step = 0; u_step < LengthOfArray(uv_00CBB000_d); u_step++)
 			{
 				uv_00CBB000[u_step].u = uv_00CBB000[u_step].u - u2_add;
 			}
@@ -208,6 +208,8 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 
 extern "C" __declspec(dllexport) void __cdecl OnFrame()
 {
+	DataArray(NJS_TEX, uv_00CC0530, 0x10C0530, 4);
+	DataArray(NJS_TEX, uv_00CBB000, 0x10BB000, 1300);
 	//Hide skybox bottom in Act 3
 	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
 	if (IamStupidAndIWantFuckedUpOcean == 0)
@@ -229,6 +231,20 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 	//Frame Counter and water animation
 	if (CurrentLevel == 1 && GameState != 16)
 	{
+		//Restore ocean UVs on level exit/restart
+		if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
+		{
+			for (int r = 0; r < LengthOfArray(uv_00CC0530_d); r++)
+			{
+				uv_00CC0530[r].u = uv_00CC0530_d[r].u;
+				uv_00CC0530[r].v = uv_00CC0530_d[r].v;
+			}
+			for (int r2 = 0; r2 < LengthOfArray(uv_00CBB000_d); r2++)
+			{
+				uv_00CBB000[r2].u = uv_00CBB000_d[r2].u;
+				uv_00CBB000[r2].v = uv_00CBB000_d[r2].v;
+			}
+		}
 		animframe++;
 		if (beachsea_water > 9) beachsea_water = 0;
 		if (CurrentAct == 0)
