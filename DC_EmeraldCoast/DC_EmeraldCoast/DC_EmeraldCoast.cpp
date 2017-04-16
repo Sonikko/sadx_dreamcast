@@ -123,6 +123,8 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	*(NJS_OBJECT*)0x10945EC = object_0017514C; //Log2
 	*(NJS_OBJECT*)0x1097F8C = object_001795B4; //Pier edge
 	*(NJS_OBJECT*)0x1049A1C = object_0012BE80; //Pier small
+	*(NJS_OBJECT*)0x104C00C = object_0012E428; //Dolphin
+	*(NJS_OBJECT*)0x106BB4C = object_0014DF28; //Whale
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
 	if (SADXStyleWater == 0)
