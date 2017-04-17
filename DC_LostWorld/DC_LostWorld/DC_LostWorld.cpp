@@ -24,6 +24,7 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteData((void*)0x005E2090, 0xC3u, 1); //Kill water animation in Act 1
 		Hasira1Model.mats[0].diffuse.color = 0x99B2B2B2;
 		*(NJS_OBJECT*)0x1FFE9A4 = object_0012BB88; //Ashiba01
 		*(NJS_OBJECT*)0x1FFF454 = object_0012C218; //Ashiba02
@@ -37,6 +38,7 @@ extern "C"
 		((NJS_OBJECT*)0x2031810)->basicdxmodel->mats[0].attrflags |= NJD_DA_ONE; //Ceiling light
 		((NJS_OBJECT*)0x2031810)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Ceiling light
 		((NJS_OBJECT*)0x01FE9D7C)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Water in snake room
+		((NJS_OBJECT*)0x01FE9D7C)->basicdxmodel->mats[0].attr_texId = 44;
 		((NJS_OBJECT*)0x01FE9F38)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Some other water
 		((NJS_OBJECT*)0x01FEB668)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Some other water
 		((NJS_OBJECT*)0x01FEC26C)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Some other water
