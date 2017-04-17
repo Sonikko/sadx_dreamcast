@@ -31,7 +31,6 @@ DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 static bool InsideTemple = 0;
 static int anim1 = 130;
 static int anim2 = 140;
