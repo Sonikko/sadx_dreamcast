@@ -15,6 +15,8 @@ static int anim2_actual = 0;
 static int delayX = 0;
 static int ang = 0;
 static int SoundPlayed = 0;
+static int shift1 = 65;
+static int shift2 = -10;
 FunctionPointer(void, sub_5DD900, (int a1, int a2), 0x5DD900);
 FunctionPointer(void, sub_5DD920, (int a1, int a2), 0x5DD920);
 FunctionPointer(void, sub_5C09D0, (int a1), 0x5C09D0);
@@ -123,14 +125,72 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		DataArray(NJS_TEX, uv_01A4BD38, 0x01E4BD38, LengthOfArray(uv_001C8C9C));
+		DataArray(NJS_TEX, uv_01A4BD98, 0x01E4BD98, LengthOfArray(uv_001C8CFC));
+		
+		ResizeTextureList((NJS_TEXLIST*)0x01DF0920, 203); //OBJ_CASINO9
+		*(NJS_MODEL_SADX*)0x01DF7140 = attach_00177188; //Slot red
+		*(NJS_MODEL_SADX*)0x01DF5138 = attach_00175E44; //Slot blue
+		*(NJS_MODEL_SADX*)0x01D8BC10 = attach_0010E984; //FlipperL
+		*(NJS_MODEL_SADX*)0x01D8BED8 = attach_0010EC3C; //FlipperR
+		*(NJS_MODEL_SADX*)0x01DDE898 = attach_00160358; //BanjuDoor
+		*(NJS_MODEL_SADX*)0x01D8E1B8 = attach_00110E9C; //Dtarget
+		*(NJS_MODEL_SADX*)0x01DCF690 = attach_00151610; //Kazariyaji
+		*(NJS_MODEL_SADX*)0x01DCF970 = attach_001518D4; //Kazariyaji2
+		*(NJS_MODEL_SADX*)0x01DCFC50 = attach_00151B98; //Kazariyaji green 2
+		*(NJS_MODEL_SADX*)0x01DCFF30 = attach_00151E5C; //Kazariyaji pink 2
+		*(NJS_MODEL_SADX*)0x01D9C72C = attach_0011F050; //Bottom decoration in Act 3 (bright)
+		*(NJS_MODEL_SADX*)0x01D9CB7C = attach_0011F490; //Bottom decoration in Act 3 (dark)
+		*(NJS_MODEL_SADX*)0x01DDF318 = attach_00160DA4; //CardUV
+		//UV fixes
+		memcpy((void*)0x1E3C3C8, uv_001BA8B0, sizeof(uv_001BA8B0)); //O KBB
+		memcpy((void*)0x1E3C868, uv_001BAD3C, sizeof(uv_001BAD3C)); //O KBR
+		memcpy((void*)0x1E46FF8, uv_001C4E90, sizeof(uv_001C4E90)); //SDFUTIR
+		memcpy((void*)0x1E471C8, uv_001C5054, sizeof(uv_001C5054)); //SDFUTIB
+		memcpy((void*)0x1E4BD38, uv_001C8C9C, sizeof(uv_001C8C9C)); //Wall marquee
+		memcpy((void*)0x1E4BD98, uv_001C8CFC, sizeof(uv_001C8CFC)); //Wall marquee
+		memcpy((void*)0x1E3BAC8, uv_001B9FC4, sizeof(uv_001B9FC4)); //ORlti
+		memcpy((void*)0x1E3BBC8, uv_001BA0C4, sizeof(uv_001BA0C4)); //ORlti
+		memcpy((void*)0x1E3BC08, uv_001BA104, sizeof(uv_001BA104)); //ORlti
+		*(NJS_MODEL_SADX*)0x01E49838 = attach_001C6E74; //Card pinball machine
+		*(NJS_MODEL_SADX*)0x01E4B17C = attach_001C8128; //Slot pinball machine
+		memcpy((void*)0x01E4D298, uv_001CA184, sizeof(uv_001CA184)); //Card pinball spinning ad
+		memcpy((void*)0x1E4DFD8, uv_001CAE80, sizeof(uv_001CAE80)); //Slot pinball spinning ad
+		((NJS_ACTION*)0x01DE120C)->object = &object_00155E04; //Pianpach
+		((NJS_ACTION*)0x01DE223C)->object = &object_001594F4; //Pianwalk
+		((NJS_ACTION*)0x01DE23C4)->object = &object_0015B34C; //Pianfish
+		((NJS_ACTION*)0x01DE2A5C)->object = &object_0015CEC4; //Pianwhatever
+		((NJS_ACTION*)0x01DE084C)->object = &object_00153688; //Flying clock
+		*(NJS_MODEL_SADX*)0x1E5D8D8 = attach_001DA00C; //Wht
+		*(NJS_OBJECT*)0x1DC2B74 = object_00144F38; //Reala thing 1
+		*(NJS_OBJECT*)0x1DC4644 = object_00146978; //Reala thing 2
+		*(NJS_OBJECT*)0x1DC6114 = object_001483B8; //Reala thing 3
+		*(NJS_OBJECT*)0x1DC7BE4 = object_00149DF8; //Reala thing 4
+		//Yaji (arrow object) fixes
+		DataArray(NJS_TEX, yajitex, 0x01DDB544, 4);
+		yajitex[0].u = 509;
+		yajitex[1].u = 510;
+		((NJS_MODEL_SADX*)0x01DDB5D0)->mats[0].attrflags |= NJD_FLAG_FLIP_U;
+		//Bumper1 fixes
+		((NJS_MODEL_SADX*)0x01D98CE8)->mats[0].attrflags |= NJD_FLAG_FLIP_U;
+		((NJS_MODEL_SADX*)0x01D99790)->mats[0].attrflags |= NJD_FLAG_FLIP_U;
+		DataArray(NJS_TEX, bumpertex, 0x01D98418, LengthOfArray(uv_01998418));
+		DataArray(NJS_TEX, bumpertex2, 0x01D98EC0, LengthOfArray(uv_0011B8B4));
+		for (int uv_bump = 0; uv_bump < LengthOfArray(uv_01998418); uv_bump++)
+		{
+			bumpertex[uv_bump].u = uv_01998418[uv_bump].u;
+			bumpertex[uv_bump].v = uv_01998418[uv_bump].v;
+		}
+		for (int uv_bump2 = 0; uv_bump2 < LengthOfArray(uv_0011B8B4); uv_bump2++)
+		{
+			bumpertex2[uv_bump2].u = uv_01998418[uv_bump2].u;
+			bumpertex2[uv_bump2].v = uv_01998418[uv_bump2].v;
+		}
 		//((NJS_OBJECT*)0x01E5E4A8)->evalflags |= NJD_EVAL_HIDE; //O LIGHTB
 		((NJS_OBJECT*)0x1E5E39C)->evalflags |= NJD_EVAL_HIDE; //O LIGHTA
 		//memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //O LIGHTA model
 		((NJS_OBJECT*)0x01DF259C)->evalflags |= NJD_EVAL_HIDE; //O TUTUA
 		((NJS_OBJECT*)0x01DF230C)->evalflags |= NJD_EVAL_HIDE; //O TUTUA
-		//Card machine top animation
-		DataArray(NJS_MESHSET_SADX, cardmachinemesh, 0x01E48E28, 13);
-		cardmachinemesh[3].vertuv = uv_01A48AD8;
 		//Lion top animation
 		DataArray(NJS_MESHSET_SADX, lionmesh, 0x1DFF0F8, 13);
 		lionmesh[0].vertuv = uv_019FEA58;
@@ -217,61 +277,72 @@ extern "C"
 			object_019F230C.ang[1] = ang;
 			ang = (ang + 32) % 65536;
 			//Card machine and lion top animation
-			if (FrameCounter % 16 == 0)
+			if (FrameCounter % 12 == 0)
 			{
+				shift1 = (shift1 + 65) % 255;
+				for (int slot_uv1 = 0; slot_uv1 < LengthOfArray(uv_001C7570); slot_uv1++)
+				{
+					uv_001C7570[slot_uv1].u = uv_001C7570_0[slot_uv1].u + shift1;
+				}
+				for (int slot_uv2 = 0; slot_uv2 < LengthOfArray(uv_001C75E0); slot_uv2++)
+				{
+					uv_001C75E0[slot_uv2].u = uv_001C75E0_0[slot_uv2].u + shift1;
+				}
+				for (int slot_uv3 = 0; slot_uv3 < LengthOfArray(uv_001C7748); slot_uv3++)
+				{
+					uv_001C7748[slot_uv3].u = uv_001C7748_0[slot_uv3].u + shift1;
+				}
+				for (int slotmachine1 = 0; slotmachine1 < LengthOfArray(uv_001767D8); slotmachine1++)
+				{
+					uv_001767D8[slotmachine1].u = uv_001767D8_0[slotmachine1].u + shift1;
+				}
+				for (int slotmachine2 = 0; slotmachine2 < LengthOfArray(uv_00175494); slotmachine2++)
+				{
+					uv_00175494[slotmachine2].u = uv_00175494_0[slotmachine2].u + shift1;
+				}
+				
+				for (int card_uv1 = 0; card_uv1 < LengthOfArray(uv_001C6200); card_uv1++)
+				{
+					uv_001C6200[card_uv1].u = uv_001C6200_0[card_uv1].u + shift1;
+				}
+				for (int card_uv1 = 0; card_uv1 < LengthOfArray(uv_001C6200); card_uv1++)
+				{
+					uv_001C6200[card_uv1].u = uv_001C6200_0[card_uv1].u + shift1;
+				}
+				for (int card_uv2 = 0; card_uv2 < LengthOfArray(uv_001C63EC); card_uv2++)
+				{
+					uv_001C63EC[card_uv2].u =uv_001C63EC_0[card_uv2].u + shift1;
+				}
+				for (int card_uv3 = 0; card_uv3 < LengthOfArray(uv_001C646C); card_uv3++)
+				{
+					uv_001C646C[card_uv3].u = uv_001C646C_0[card_uv3].u + shift1;
+				}
 				for (int xz = 0; xz < LengthOfArray(uv_01A48AD8); xz++)
 				{
-					uv_01A48AD8[xz].u = (uv_01A48AD8[xz].u + 320);
+					uv_01A48AD8[xz].u = (uv_01A48AD8_0[xz].u + shift1);
 				}
 				for (int xz2 = 0; xz2 < LengthOfArray(uv_019FEA58); xz2++)
 				{
-					uv_019FEA58[xz2].u = (uv_019FEA58[xz2].u - 320);
+					uv_019FEA58[xz2].u = (uv_019FEA58_0[xz2].u - shift1);
 				}
-			if (FrameCounter % 128 == 0)
-			{
-				for (int xz3 = 0; xz3 < LengthOfArray(uv_01A48AD8); xz3++)
+			}
+			//Waterfalls
+				shift2 = (shift2 - 10) % 255;
+				for (int q = 0; q < LengthOfArray(uv_01A47B78); q++)
 				{
-					uv_01A48AD8[xz3].u = (uv_01A48AD8_R[xz3].u);
+					uv_01A47B78[q].v = uv_01A47B78_0[q].v + shift2;
 				}
-				for (int xz4 = 0; xz4 < LengthOfArray(uv_019FEA58); xz4++)
+
+				for (int q2 = 0; q2 < LengthOfArray(uv_01A47468); q2++)
 				{
-					uv_019FEA58[xz4].u = (uv_019FEA58_R[xz4].u);
+					uv_01A47468[q2].v = uv_01A47468_0[q2].v + shift2;
 				}
-			}
-			}
-			for (int q = 0; q < LengthOfArray(uv_01A47B78); q++)
-			{
-				uv_01A47B78[q].v = uv_01A47B78[q].v - 10;
-			}
-			if (uv_01A47B78[0].v < -255)
-			{
-				uv_01A47B78[0].v = 255;
-				uv_01A47B78[1].v = 255;
-				uv_01A47B78[2].v = -590;
-				uv_01A47B78[3].v = -590;
-				uv_01A47B78[4].v = -797;
-				uv_01A47B78[5].v = -797;
-				uv_01A47B78[6].v = -901;
-				uv_01A47B78[7].v = -901;
-			}
-			for (int q2 = 0; q2 < LengthOfArray(uv_01A47468); q2++)
-			{
-				uv_01A47468[q2].v = uv_01A47468[q2].v - 10;
-			}
-			if (uv_01A47468[0].v < -1020)
-			{
-				for (int r1 = 0; r1 < LengthOfArray(uv_01A47468); r1++)
-				uv_01A47468[r1].v = uv_01A47468_0[r1].v;
-			}
-			for (int q3 = 0; q3 < LengthOfArray(uv_01A474F8); q3++)
-			{
-				uv_01A474F8[q3].v = uv_01A474F8[q3].v - 10;
-			}
-			if (uv_01A474F8[0].v < -2040)
-			{
-				for (int r2 = 0; r2 < LengthOfArray(uv_01A474F8); r2++)
-				uv_01A474F8[r2].v = uv_01A474F8_0[r2].v;
-			}
+
+				for (int q3 = 0; q3 < LengthOfArray(uv_01A474F8); q3++)
+				{
+					uv_01A474F8[q3].v = uv_01A474F8_0[q3].v + shift2;
+				}
+			
 		}
 		if (CurrentLevel == 9 && CurrentAct == 1 && GameState != 16)
 		{
