@@ -1,5 +1,75 @@
 #include "SADXModLoader.h"
 
+//Billboard DC UVs
+
+NJS_TEX uv_001E9ABC[] = {
+	{ 2550, -255 },
+	{ 2550, 255 },
+	{ 1974, -255 },
+	{ 1974, 255 },
+	{ 1405, -255 },
+	{ 1405, 255 },
+	{ 842, -255 },
+	{ 842, 255 },
+	{ 280, -255 },
+	{ 280, 255 },
+	{ 0, -255 },
+	{ 0, 255 },
+	{ 280, -255 },
+	{ 280, 255 },
+	{ 842, -255 },
+	{ 842, 255 },
+	{ 1405, -255 },
+	{ 1405, 255 },
+	{ 1974, -255 },
+	{ 1974, 255 },
+	{ 2550, -255 },
+	{ 2550, 255 },
+	{ 2550, -255 },
+	{ 2550, 255 },
+	{ 1974, -255 },
+	{ 1974, 255 },
+	{ 1405, -255 },
+	{ 1405, 255 },
+	{ 842, -255 },
+	{ 842, 255 },
+	{ 280, -255 },
+	{ 280, 255 },
+	{ 0, -255 },
+	{ 0, 255 },
+	{ 280, -255 },
+	{ 280, 255 },
+	{ 842, -255 },
+	{ 842, 255 },
+	{ 1405, -255 },
+	{ 1405, 255 },
+	{ 1974, -255 },
+	{ 1974, 255 },
+	{ 2550, -255 },
+	{ 2550, 255 }
+};
+
+NJS_TEX uv_001E9BF4[] = {
+	{ 249, -255 },
+	{ 701, 255 },
+	{ 701, -255 },
+	{ 1275, 255 },
+	{ 1275, -255 },
+	{ 249, 255 },
+	{ 701, -255 },
+	{ 701, 255 },
+	{ 1275, -255 },
+	{ 1275, 255 },
+	{ 701, -255 },
+	{ 249, -255 },
+	{ 249, 255 },
+	{ 0, -255 },
+	{ 0, 255 },
+	{ 249, -255 },
+	{ 249, 255 },
+	{ 701, 255 }
+};
+
 
 enum OBJ_CASINO9TexName
 {
@@ -1979,10 +2049,10 @@ NJS_MESHSET_SADX meshlist_01A6D948[] = {
 	{ NJD_MESHSET_TRIMESH | 4, 7, poly_01A6C8E0, NULL, NULL, NULL, uv_01A6D160, NULL },
 	{ NJD_MESHSET_TRIMESH | 5, 10, poly_01A6CA10, NULL, NULL, NULL, uv_01A6D3A0, NULL },
 	{ NJD_MESHSET_TRIMESH | 6, 13, poly_01A6CBA0, NULL, NULL, NULL, uv_01A6D690, NULL },
-	{ NJD_MESHSET_TRIMESH | 7, 2, poly_01A6CC58, NULL, NULL, NULL, uv_01A6D7C8, NULL },
+	{ NJD_MESHSET_TRIMESH | 7, 2, poly_01A6CC58, NULL, NULL, NULL, uv_001E9ABC, NULL }, //was uv_01A6D7C8
 	{ NJD_MESHSET_TRIMESH | 8, 1, poly_01A6CCB4, NULL, NULL, NULL, uv_01A6D878, NULL },
 	{ NJD_MESHSET_TRIMESH | 9, 1, poly_01A6CCE4, NULL, NULL, NULL, uv_01A6D8D0, NULL },
-	{ NJD_MESHSET_TRIMESH | 10, 3, poly_01A6CD00, NULL, NULL, NULL, uv_01A6D900, NULL }
+	{ NJD_MESHSET_TRIMESH | 10, 3, poly_01A6CD00, NULL, NULL, NULL, uv_001E9BF4, NULL } //was uv_01A6D900
 };
 
 NJS_VECTOR vertex_01A6DA80[] = {
@@ -22285,3 +22355,4 @@ NJS_TEX uv_001CAE80[] = {
 	{ 0, -255 },
 	{ 0, 255 }
 };
+

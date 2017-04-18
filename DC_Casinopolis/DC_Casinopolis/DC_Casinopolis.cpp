@@ -176,6 +176,23 @@ extern "C"
 		((NJS_MODEL_SADX*)0x01D99790)->mats[0].attrflags |= NJD_FLAG_FLIP_U;
 		DataArray(NJS_TEX, bumpertex, 0x01D98418, LengthOfArray(uv_01998418));
 		DataArray(NJS_TEX, bumpertex2, 0x01D98EC0, LengthOfArray(uv_0011B8B4));
+		DataArray(NJS_TEX, bill1, 0x01E6D7C8, LengthOfArray(uv_001E9ABC));
+		DataArray(NJS_TEX, bill2, 0x01E6D900, LengthOfArray(uv_001E9BF4));
+		for (int uv_bill1 = 0; uv_bill1 < LengthOfArray(uv_001E9ABC); uv_bill1++)
+		{
+			bill1[uv_bill1].u = uv_001E9ABC[uv_bill1].u;
+			bill1[uv_bill1].v = uv_001E9ABC[uv_bill1].v;
+		}
+		for (int uv_bill2 = 0; uv_bill2 < LengthOfArray(uv_001E9BF4); uv_bill2++)
+		{
+			bill2[uv_bill2].u = uv_001E9BF4[uv_bill2].u;
+			bill2[uv_bill2].v = uv_001E9BF4[uv_bill2].v;
+		}
+		for (int uv_bump = 0; uv_bump < LengthOfArray(uv_01998418); uv_bump++)
+		{
+			bumpertex[uv_bump].u = uv_01998418[uv_bump].u;
+			bumpertex[uv_bump].v = uv_01998418[uv_bump].v;
+		}
 		for (int uv_bump = 0; uv_bump < LengthOfArray(uv_01998418); uv_bump++)
 		{
 			bumpertex[uv_bump].u = uv_01998418[uv_bump].u;
