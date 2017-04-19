@@ -421,7 +421,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		if (beachsea_water > 14) beachsea_water = 0;
 		((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attr_texId = beachsea_water;
 		matlist_00CBA58C[0].attr_texId = beachsea_water;
-		if (animframe % 4 == 0) beachsea_water++;
+		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2) beachsea_water++;
 	}
 	if (CurrentLevel == 1 && CurrentAct == 0 && GameState != 16)
 		{
