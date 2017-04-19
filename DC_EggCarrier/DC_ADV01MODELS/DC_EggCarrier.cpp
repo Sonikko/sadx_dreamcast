@@ -68,7 +68,7 @@ void __cdecl SetClip_EC00(signed int cliplevel)
 	}
 	else
 	{
-		landtable_00162260.COLList = &collist_0015F764[4];
+		landtable_00162260.Col = &collist_0015F764[4];
 		landtable_00162260.COLCount -= 4;
 	}
 }
@@ -87,7 +87,7 @@ void __cdecl SetClip_EC01(signed int cliplevel)
 	}
 	else
 	{
-		landtable_001631F0.COLList = &collist_00162284[6];
+		landtable_001631F0.Col = &collist_00162284[6];
 		landtable_001631F0.COLCount -= 6;
 	}
 }
@@ -207,6 +207,11 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 		{
 			if (water1 > 110) water1 = 101;
 			matlist_00007B80[0].attr_texId = water1;
+			if (Camera_Data1 != nullptr)
+			{
+				object_00007C50.pos[0] = Camera_Data1->Position.x;
+				object_00007C50.pos[2] = Camera_Data1->Position.z;
+			}
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) water1++;
 		}
 		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_0015F764[LengthOfArray(collist_0015F764)-1].Flags = 0x80000000; else collist_0015F764[LengthOfArray(collist_0015F764) - 1].Flags = 0x00000000;
@@ -217,6 +222,11 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 		{
 			if (water2 > 102) water2 = 93;
 			matlist_00007B80_1[0].attr_texId = water2;
+			if (Camera_Data1 != nullptr)
+			{
+				object_00007C50_1.pos[0] = Camera_Data1->Position.x;
+				object_00007C50_1.pos[2] = Camera_Data1->Position.z;
+			}
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) water2++;
 		}
 		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x80000000; else collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x00000000;
@@ -227,13 +237,18 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 		{
 			if (water3 > 78) water3 = 69;
 			matlist_00007B80_2[0].attr_texId = water3;
+			if (Camera_Data1 != nullptr)
+			{
+				object_00007C50_2.pos[0] = Camera_Data1->Position.x;
+				object_00007C50_2.pos[2] = Camera_Data1->Position.z;
+			}
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) water3++;
 		}
 		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x80000000; else collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x00000000;
 	}
 	if (CurrentLevel == 32 && CurrentAct == 1) PinkMonitorMode = 1;
 	if (CurrentLevel == 32 && CurrentAct != 1) PinkMonitorMode = 0;
-	if (CurrentLevel == 12) PinkMonitorMode = 1;
+	if (CurrentLevel == 12 && CurrentAct == 0) PinkMonitorMode = 1;
 	if (CurrentLevel != 32 && CurrentLevel != 12) PinkMonitorMode = 0;
 	if (PinkMonitorMode == 1 && CurrentlyPink == 0)
 	{
