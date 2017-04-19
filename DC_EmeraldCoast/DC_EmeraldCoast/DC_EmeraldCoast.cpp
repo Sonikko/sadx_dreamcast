@@ -101,11 +101,6 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 {
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	double v2;
-	double v4;
-	float xa;
-	float xb;
-	float XDist;
-	float z;
 	DataArray(NJS_TEX, uv_00CC0530, 0x10C0530, 4);
 	DataPointer(int, EffectActive, 0x3C5E4B0);
 	DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
@@ -113,16 +108,10 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	v1 = a1->Data1;
 	int unitsize_u_small = 10;
 	int unitsize_v_small = 10;
-	float u_add;
-	float v_add;
 	float u2_add;
-	float u3_add;
 	float v2_add;
-	float v3_add;
-	/*v4 = njSin(FrameCounterUnpaused << 6) * OceanDataA.PositionOffset.y;
-	xa = v4;
-	z = v4 + OceanDataA.Position.z;
-	v1->Position.z = z;*/
+	int u2_delta;
+	int v2_delta;
 	if (*(signed int*)&v1->CharIndex)
 	{
 		v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
@@ -145,7 +134,9 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			for (int u_step = 0; u_step < LengthOfArray(uv_00CBB000_d); u_step++)
 			{
 				uv_00CBB000_data[u_step].u = uv_00CBB000_data[u_step].u - u2_add;
-				uv_00CBB000[u_step].u = uv_00CBB000[u_step].u - u2_add;
+				u2_delta = uv_00CBB000_data[u_step].u - uv_00CBB000_d[u_step].u;
+				uv_00CBB000_data[u_step].u = uv_00CBB000_d[u_step].u + (u2_delta % 255);
+				uv_00CBB000[u_step].u = uv_00CBB000_data[u_step].u;
 			}
 		}
 		if (oldpos.z != v1->Position.z)
@@ -155,7 +146,9 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			for (int v_step = 0; v_step < LengthOfArray(uv_00CBB000_d); v_step++)
 			{
 				uv_00CBB000_data[v_step].v = uv_00CBB000_data[v_step].v - v2_add;
-				uv_00CBB000[v_step].v = uv_00CBB000[v_step].v - v2_add;
+				v2_delta = uv_00CBB000_data[v_step].v - uv_00CBB000_d[v_step].v;
+				uv_00CBB000_data[v_step].v = uv_00CBB000_d[v_step].v + (v2_delta % 255);
+				uv_00CBB000[v_step].v = uv_00CBB000_data[v_step].v;
 			}
 		}
 		oldpos.x = v1->Position.x;
