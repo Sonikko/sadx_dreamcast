@@ -13,7 +13,6 @@ DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, LastRenderFlags, 0x03D08498);
 DataPointer(float, SomeDepthThing, 0x03ABD9C0);
-DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 FunctionPointer(void, sub_4094D0, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x4094D0);
 FunctionPointer(void, sub_408530, (NJS_OBJECT*), 0x408530);
@@ -53,7 +52,7 @@ void __cdecl SetClip_FEgg2_r(signed int a1)
 			object_016C2D94.basicdxmodel->mats[i].attrflags &= 0xFFEFFFFF;
 	}
 	else
-	((LandTable *)0x19C8ED0)->COLList = &collist_00081980[3];
+	((LandTable *)0x19C8ED0)->Col = &collist_00081980[3];
 	((LandTable *)0x19C8ED0)->COLCount -= 3;
 }
 
@@ -205,7 +204,7 @@ void __cdecl sub_5AE330(ObjectMaster *a1)
 		njScaleV(0, v2);
 		SomeDepthThing = 38952;
 		a3 = VectorMaxAbs(v2);
-		ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x1A45620, 4, a3);
+		ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x1A45620, QueuedModelFlagsB_SomeTextureThing, a3);
 		SomeDepthThing = 0;
 		njPopMatrix(1u);
 		ClampGlobalColorThing_Thing();
@@ -220,7 +219,7 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		*(NJS_OBJECT*)0x1C2A588 = object_0021D560; //Some light thing material fix
+		*(NJS_MODEL_SADX*)0x01C2A55C = attach_0021D538; //Some light thing material fix
 		*(NJS_MODEL_SADX*)0x01A1F7F8 = attach_001CE570; //Gachapon thing
 		*(NJS_MODEL_SADX*)0x01A1ED18 = attach_001CE0D0; //Gachapon thing lid
 		*(NJS_MODEL_SADX*)0x01A1E758 = attach_001CDD00; //Gachapon thing left
@@ -241,7 +240,7 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);
 		ResizeTextureList((NJS_TEXLIST*)0x1AC5780, textures_finalegg3);
 		((LandTable *)0x19C8ED0)->COLCount = LengthOfArray(collist_00081980); //Final Egg 2 COL list
-		((LandTable *)0x19C8ED0)->COLList = collist_00081980; //Final Egg 2 COL list
+		((LandTable *)0x19C8ED0)->Col = collist_00081980; //Final Egg 2 COL list
 		WriteJump((void*)0x5ADC40, SetClip_FEgg2_r); //Final Egg 2 clip function
 		DataArray(FogData, FinalEgg1Fog, 0x019C8FF0, 3);
 		DataArray(FogData, FinalEgg2Fog, 0x019C9020, 3);
