@@ -13,7 +13,6 @@ DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(NJS_BGRA, CurrentFogColor, 0x03ABDC68);
 DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
-DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 static int TornadoActive = 0;
 static int fadeout = 255;
 static int fadeout2 = 255;
@@ -30,6 +29,7 @@ extern "C" __declspec(dllexport) void cdecl Init()
 {
 	WriteData((void*)0x4DD120, 0xC3, sizeof(char));
 	*(NJS_OBJECT*)0x00C32DB8 = object_000D40D4; //grassy rock
+	*(NJS_OBJECT*)0xC0B188 = object_000B6C3C; //Skybox bottom in Act 3
 	*(NJS_OBJECT*)0xC2B860 = object_0082B860; //broken fan piece
 	*(NJS_OBJECT*)0xC2C160 = object_0082C160; //broken fan piece 2
 	*(NJS_OBJECT*)0xC2C788 = object_0082C788; //broken fan piece 3
