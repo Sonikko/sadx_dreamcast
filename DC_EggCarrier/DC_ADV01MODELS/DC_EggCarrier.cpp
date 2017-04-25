@@ -158,27 +158,36 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		EggCarrierOutsideDrawDist1[i].Maximum = -11000;
 		EggCarrierOutsideDrawDist2[i].Maximum = -11000;
 		EggCarrierOutsideDrawDist3[i].Maximum = -11000;
-		EggCarrierOutside2Fog[i].Toggle = 0;
-		EggCarrierOutside3Fog[i].Toggle = 0;
-		EggCarrierOutside4Fog[i].Toggle = 0;
-		EggCarrierOutside5Fog[i].Toggle = 0;
-		EggCarrierOutside6Fog[i].Toggle = 0;
+		EggCarrierOutside2Fog[i].Distance = -12000;
+		EggCarrierOutside2Fog[i].Layer = -12000;
+		EggCarrierOutside3Fog[i].Distance = -12000;
+		EggCarrierOutside3Fog[i].Layer = -12000;
+		EggCarrierOutside4Fog[i].Distance = -12000;
+		EggCarrierOutside4Fog[i].Layer = -12000;
+		EggCarrierOutside5Fog[i].Distance = -12000;
+		EggCarrierOutside5Fog[i].Layer = -12000;
+		EggCarrierOutside6Fog[i].Distance = -12000;
+		EggCarrierOutside6Fog[i].Layer = -12000;
 		EggCarrierOutside7Fog[i].Toggle = 1;
 		EggCarrierOutside7Fog[i].Layer = 3000;
 		EggCarrierOutside7Fog[i].Color = 0xFF000000;
 		EggCarrierOutside7Fog[i].Distance = 21500;
-		EggCarrierInside1Fog[i].Toggle = 0;
+		EggCarrierInside1Fog[i].Distance = -12000;
+		EggCarrierInside1Fog[i].Layer = -12000;
 		EggCarrierInside2Fog[i].Toggle = 1;
 		EggCarrierInside2Fog[i].Distance = 4000.0f;
 		EggCarrierInside2Fog[i].Layer = 800.0f;
 		EggCarrierInside2Fog[i].Color = 0xFFC6C9A8;
-		EggCarrierInside3Fog[i].Toggle = 0;
+		EggCarrierInside3Fog[i].Distance = -12000;
+		EggCarrierInside3Fog[i].Layer = -12000;
 		EggCarrierInside4Fog[i].Toggle = 1;
 		EggCarrierInside4Fog[i].Distance = 1216.0f;
 		EggCarrierInside4Fog[i].Layer = 139.0f;
 		EggCarrierInside4Fog[i].Color = 0xFFC8C864;
-		EggCarrierInside5Fog[i].Toggle = 0;
-		EggCarrierInside6Fog[i].Toggle = 0;
+		EggCarrierInside5Fog[i].Distance = -12000;
+		EggCarrierInside5Fog[i].Layer = -12000;
+		EggCarrierInside6Fog[i].Distance = -12000;
+		EggCarrierInside6Fog[i].Layer = -12000;
 	}
 }
 
