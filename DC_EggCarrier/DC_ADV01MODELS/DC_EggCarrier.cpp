@@ -18,9 +18,12 @@
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(__int16, EggCarrierSunk_CharacterFlag, 0x0090A41C);
 
-static int water1 = 101;
-static int water2 = 93;
-static int water3 = 69;
+static int water1 = 98;
+static int water2 = 90;
+static int water3 = 66;
+static char water_sadx1 = 108;
+static char water_sadx2 = 100;
+static char water_sadx3 = 76;
 
 DataArray(DrawDistance, EggCarrierOutsideDrawDist1, 0x010F2264, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist2, 0x010F227C, 3);
@@ -46,14 +49,13 @@ NJS_TEXLIST **___ADV01C_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle3, "___A
 LandTable **___LANDTABLEEC = (LandTable **)GetProcAddress(handle2, "___LANDTABLEEC");
 LandTable **___LANDTABLEECC = (LandTable **)GetProcAddress(handle3, "___LANDTABLEEC");
 NJS_OBJECT **___ADV01C_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle3, "___ADV01C_OBJECTS");
+NJS_ACTION **___ADV01C_ACTIONS = (NJS_ACTION **)GetProcAddress(handle3, "___ADV01C_ACTIONS");
 NJS_OBJECT **___ADV01_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01_OBJECTS");
 NJS_OBJECT **___ADV01EC00_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01EC00_OBJECTS");
 NJS_MODEL_SADX **___ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle3, "___ADV01C_MODELS");
 static bool PinkMonitorMode = 0;
 static bool CurrentlyPink = 0;
 
-//FunctionPointer(void, sub_10001050, (NJS_OBJECT*), (handle2+0x1050));
-//void(__cdecl* sub_10001050)(NJS_OBJECT*) = (void(__cdecl*)(NJS_OBJECT*))(handle2 + 0x1050);
 void(__cdecl* sub_10001050)(NJS_OBJECT*) = nullptr;
 
 void __cdecl SetClip_EC00(signed int cliplevel)
@@ -101,9 +103,17 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		landtable_00162260.TexName = "ADV_EC00W";
 		landtable_001631F0.TexName = "ADV_EC01W";
 		landtable_00163CE8.TexName = "ADV_EC02W";
+		texlist_ec00.nbTexture = 125;
+		texlist_ec01.nbTexture = 117;
+		texlist_ec02.nbTexture = 93;
+		WriteData((char*)0x0051C4E8, 0x7B, 1); //act 1 water
+		WriteData((char*)0x0051C50B, 0x73, 1); //act 2 water
+		WriteData((char*)0x0051C529, 0x5B, 1); //act 3 water
+		WriteData((float*)0x0051C5EC, 2.5f); //Z fighting fix
 	}
 	else
 	{
+		WriteData((void*)0x0051C440, 0xC3u, 1);
 		EggCarrierObjectTexlist_Sea[1].Name = "EC_SEA";
 		landtable_00162260.TexName = "ADV_EC00";
 		landtable_001631F0.TexName = "ADV_EC01";
@@ -125,21 +135,22 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___LANDTABLEEC[3] = &landtable_001650C8;
 	___LANDTABLEEC[4] = &landtable_00165830;
 	___LANDTABLEEC[5] = &landtable_001666F4;
-	___ADV01C_TEXLISTS[51] = &texlist_ec30;
-	___ADV01C_TEXLISTS[52] = &texlist_ec31;
-	___ADV01C_TEXLISTS[53] = &texlist_ec32;
-	___ADV01C_TEXLISTS[54] = &texlist_ec33;
-	___ADV01C_TEXLISTS[55] = &texlist_ec34;
-	___ADV01C_TEXLISTS[56] = &texlist_ec35;
 	___LANDTABLEECC[0] = &landtable_0000C64C;
 	___LANDTABLEECC[1] = &landtable_0000D7B0;
 	___LANDTABLEECC[2] = &landtable_0000E1D0;
 	___LANDTABLEECC[3] = &landtable_0000EDB8;
 	___LANDTABLEECC[4] = &landtable_0000F7A8;
 	___LANDTABLEECC[5] = &landtable_0000FE44;
+	___ADV01C_TEXLISTS[15] = &texlist_ec30;
+	___ADV01C_TEXLISTS[16] = &texlist_ec31;
+	___ADV01C_TEXLISTS[17] = &texlist_ec32;
+	___ADV01C_TEXLISTS[18] = &texlist_ec33;
+	___ADV01C_TEXLISTS[19] = &texlist_ec34;
+	___ADV01C_TEXLISTS[20] = &texlist_ec35;
 	___ADV01C_MODELS[28] = &attach_00111938;
 	___ADV01C_MODELS[27] = &attach_001114EC;
-	___ADV01C_OBJECTS[7] = &object_00111964;
+	___ADV01C_OBJECTS[7] = &object_00111964; //tarai button
+	___ADV01C_OBJECTS[8] = &object_000D243C; //tarai
 	___ADV01C_OBJECTS[7]->child = &object_00111518;
 	___ADV01C_MODELS[27]->mats[0].diffuse.color = 0xFFFFFFFF;
 	for (int i = 0; i < 3; i++)
@@ -205,14 +216,20 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 	{
 		if (GameState != 16)
 		{
-			if (water1 > 110) water1 = 101;
+			if (water1 > 107) water1 = 98;
+			if (water_sadx1 > 122) water_sadx1 = 108;
 			matlist_00007B80[0].attr_texId = water1;
 			if (Camera_Data1 != nullptr)
 			{
 				object_00007C50.pos[0] = Camera_Data1->Position.x;
 				object_00007C50.pos[2] = Camera_Data1->Position.z;
 			}
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) water1++;
+			if (SADXStyleWater != 0) WriteData((char*)0x0051C4E0, water_sadx1, 1);
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+			{
+				water1++;
+				water_sadx1++;
+			}
 		}
 		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_0015F764[LengthOfArray(collist_0015F764)-1].Flags = 0x80000000; else collist_0015F764[LengthOfArray(collist_0015F764) - 1].Flags = 0x00000000;
 	}
@@ -220,14 +237,20 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 	{
 		if (GameState != 16)
 		{
-			if (water2 > 102) water2 = 93;
+			if (water_sadx2 > 114) water_sadx2 = 100;
+			if (water2 > 99) water2 = 90;
 			matlist_00007B80_1[0].attr_texId = water2;
 			if (Camera_Data1 != nullptr)
 			{
 				object_00007C50_1.pos[0] = Camera_Data1->Position.x;
 				object_00007C50_1.pos[2] = Camera_Data1->Position.z;
 			}
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) water2++;
+			if (SADXStyleWater != 0) WriteData((char*)0x0051C503, water_sadx2, 1);
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+			{
+				water2++;
+				water_sadx2++;
+			}
 		}
 		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x80000000; else collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x00000000;
 	}
@@ -235,20 +258,27 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 	{
 		if (GameState != 16)
 		{
-			if (water3 > 78) water3 = 69;
+			if (water3 > 75) water3 = 66;
+			if (water_sadx3 > 90) water_sadx3 = 76;
 			matlist_00007B80_2[0].attr_texId = water3;
 			if (Camera_Data1 != nullptr)
 			{
 				object_00007C50_2.pos[0] = Camera_Data1->Position.x;
 				object_00007C50_2.pos[2] = Camera_Data1->Position.z;
 			}
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) water3++;
+			if (SADXStyleWater != 0) WriteData((char*)0x0051C521, water_sadx3, 1);
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+			{
+				water3++;
+				water_sadx3++;
+			}
 		}
 		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x80000000; else collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x00000000;
 	}
 	if (CurrentLevel == 32 && CurrentAct == 1) PinkMonitorMode = 1;
 	if (CurrentLevel == 32 && CurrentAct != 1) PinkMonitorMode = 0;
 	if (CurrentLevel == 12 && CurrentAct == 0) PinkMonitorMode = 1;
+	if (CurrentLevel == 12 && CurrentAct != 0) PinkMonitorMode = 0;
 	if (CurrentLevel != 32 && CurrentLevel != 12) PinkMonitorMode = 0;
 	if (PinkMonitorMode == 1 && CurrentlyPink == 0)
 	{

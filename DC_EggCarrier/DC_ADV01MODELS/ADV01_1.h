@@ -13716,7 +13716,7 @@ NJS_OBJECT object_000792CC = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_
 
 NJS_MATERIAL matlist_00079300[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 22, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
-	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 92, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 89, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
 Sint16 poly_00079328[] = {
@@ -30486,7 +30486,7 @@ GeoAnimData animlist_001631D8[] = {
 	{ 0, 0.09999999f, 60, &object_0003AD18, &action_animation_0003DF3C, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_ec01[103];
+NJS_TEXNAME textures_ec01[100];
 NJS_TEXLIST texlist_ec01 = { arrayptrandlength(textures_ec01) };
 
 LandTable landtable_001631F0 = { LengthOfArray(collist_00162284), LengthOfArray(animlist_001631D8), 9, 0, collist_00162284, animlist_001631D8, "ADV_EC01", (NJS_TEXLIST *)&texlist_ec01, 0, 0 };
