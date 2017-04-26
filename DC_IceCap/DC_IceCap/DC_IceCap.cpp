@@ -27,22 +27,27 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0xDE3A74, textures_icecap1);
 		ResizeTextureList((NJS_TEXLIST*)0xD39744, textures_icecap2);
 		ResizeTextureList((NJS_TEXLIST*)0xC68408, textures_icecap3);
+		//ResizeTextureList((NJS_TEXLIST*)0x00E48F30, 100);//OBJ_ICECAP - currently contains 3 extra textures
 		LandTable *lt = (LandTable *)0x0E3E024; COL *tmp = new COL[171+LengthOfArray(collist_000180D8)];
-		memcpy(tmp, lt->COLList, sizeof(COL) * lt->COLCount);
-		lt->COLList = tmp; lt->COLCount = 171 + LengthOfArray(collist_000180D8);
+		memcpy(tmp, lt->Col, sizeof(COL) * lt->COLCount);
+		lt->Col = tmp; lt->COLCount = 171 + LengthOfArray(collist_000180D8);
 		for (int inv = 0; inv < 171; inv++)
 		{
-			((LandTable *)0x0E3E024)->COLList[inv].Flags &= ~ColFlags_Visible;
+			((LandTable *)0x0E3E024)->Col[inv].Flags &= ~ColFlags_Visible;
 		}
 		for (int c = 171; c < LengthOfArray(collist_000180D8)+171; c++)
 		{
-			((LandTable *)0x0E3E024)->COLList[c] = collist_000180D8[c-171];
+			((LandTable *)0x0E3E024)->Col[c] = collist_000180D8[c-171];
 		}
 		for (int inv2 = 171; inv2 < 171 + LengthOfArray(collist_000180D8); inv2++)
 		{
-			((LandTable *)0x0E3E024)->COLList[inv2].Flags &= ~ColFlags_Solid;
+			((LandTable *)0x0E3E024)->Col[inv2].Flags &= ~ColFlags_Solid;
 		}
 		memcpy((void*)0x0E537D8, &object_00162694, sizeof(object_00162694));  // Icicle inner part
+		//*(NJS_OBJECT*)0xE6E694 = object_0017C308; //MizuIwa A
+		*(NJS_OBJECT*)0xE6E0E0 = object_0017BD64; //MizuIwa B
+		*(NJS_OBJECT*)0xE6E694 = object_0017C308; //MizuIwa C
+		*(NJS_OBJECT*)0xE52FCC = object_00161838; //OIceJmp
 		DataArray(FogData, IceCap1Fog, 0x00C67EA0, 3);
 		DataArray(FogData, IceCap2Fog, 0x00C67ED0, 3);
 		DataArray(FogData, IceCap3Fog, 0x00C67F00, 3);
