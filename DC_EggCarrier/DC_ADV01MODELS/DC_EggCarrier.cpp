@@ -44,12 +44,15 @@ DataArray(PVMEntry, EggCarrierObjectTexlist_Sea, 0x010F34A8, 6);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
 HMODULE handle3 = GetModuleHandle(L"ADV01CMODELS");
+HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS");
+NJS_OBJECT **___MILES_OBJECTS = (NJS_OBJECT **)GetProcAddress(CHRMODELS, "___MILES_OBJECTS");
 NJS_TEXLIST **___ADV01_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle2, "___ADV01_TEXLISTS");
 NJS_TEXLIST **___ADV01C_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle3, "___ADV01C_TEXLISTS");
 LandTable **___LANDTABLEEC = (LandTable **)GetProcAddress(handle2, "___LANDTABLEEC");
 LandTable **___LANDTABLEECC = (LandTable **)GetProcAddress(handle3, "___LANDTABLEEC");
 NJS_OBJECT **___ADV01C_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle3, "___ADV01C_OBJECTS");
 NJS_ACTION **___ADV01C_ACTIONS = (NJS_ACTION **)GetProcAddress(handle3, "___ADV01C_ACTIONS");
+NJS_ACTION **___ADV01_ACTIONS = (NJS_ACTION **)GetProcAddress(handle2, "___ADV01_ACTIONS");
 NJS_OBJECT **___ADV01_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01_OBJECTS");
 NJS_OBJECT **___ADV01EC00_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01EC00_OBJECTS");
 NJS_MODEL_SADX **___ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle3, "___ADV01C_MODELS");
@@ -151,6 +154,12 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01C_MODELS[27] = &attach_001114EC;
 	___ADV01C_OBJECTS[7] = &object_00111964; //tarai button
 	___ADV01C_OBJECTS[8] = &object_000D243C; //tarai
+	___ADV01_ACTIONS[2]->object = &object_0019795C; //OEggChair
+	___ADV01_ACTIONS[2]->motion = &_197dbc; //OEggChair
+	___ADV01_OBJECTS[21] = &object_001972E4;
+	___ADV01_OBJECTS[22] = &object_0018C098;
+	___ADV01_OBJECTS[23] = &object_0018BD3C;
+	___ADV01_OBJECTS[24] = &object_0018B9E0;
 	___ADV01C_OBJECTS[7]->child = &object_00111518;
 	___ADV01C_MODELS[27]->mats[0].diffuse.color = 0xFFFFFFFF;
 	for (int i = 0; i < 3; i++)
