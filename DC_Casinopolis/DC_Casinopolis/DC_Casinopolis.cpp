@@ -127,7 +127,6 @@ extern "C"
 	{
 		DataArray(NJS_TEX, uv_01A4BD38, 0x01E4BD38, LengthOfArray(uv_001C8C9C));
 		DataArray(NJS_TEX, uv_01A4BD98, 0x01E4BD98, LengthOfArray(uv_001C8CFC));
-		
 		ResizeTextureList((NJS_TEXLIST*)0x01DF0920, 203); //OBJ_CASINO9
 		*(NJS_MODEL_SADX*)0x01DF7140 = attach_00177188; //Slot red
 		*(NJS_MODEL_SADX*)0x01DF5138 = attach_00175E44; //Slot blue
@@ -204,8 +203,9 @@ extern "C"
 			bumpertex2[uv_bump2].v = uv_01998418[uv_bump2].v;
 		}
 		//((NJS_OBJECT*)0x01E5E4A8)->evalflags |= NJD_EVAL_HIDE; //O LIGHTB
-		((NJS_OBJECT*)0x1E5E39C)->evalflags |= NJD_EVAL_HIDE; //O LIGHTA
-		//memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //O LIGHTA model
+		//((NJS_OBJECT*)0x1E5E39C)->evalflags |= NJD_EVAL_HIDE; //O LIGHTA
+		memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //O LIGHTA model
+		WriteData((char*)0x005DDBE2, 0x08, 1); //O LIGHTA blending mode
 		((NJS_OBJECT*)0x01DF259C)->evalflags |= NJD_EVAL_HIDE; //O TUTUA
 		((NJS_OBJECT*)0x01DF230C)->evalflags |= NJD_EVAL_HIDE; //O TUTUA
 		//Lion top animation
