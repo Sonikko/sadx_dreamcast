@@ -31,6 +31,7 @@ DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, DroppedFrames, 0x03B1117C);
 static bool InsideTemple = 0;
 static int anim1 = 130;
 static int anim2 = 140;
@@ -44,6 +45,38 @@ void __cdecl SetWaterTexture()
 	njSetTextureNum(155);
 }
 
+void __cdecl MRWater()
+{
+	if (CurrentAct == 0)
+	{
+		if (!DroppedFrames)
+		{
+			DisableFog();
+			njSetTexture(&texlist_mr00); //Act 1
+			njPushMatrix(0);
+			njTranslate(0, 0, 0, 0);
+			ProcessModelNode_A_Wrapper(&object_00057FD4, QueuedModelFlagsB_3, 1.0f);
+			njPopMatrix(1u);
+			njPushMatrix(0);
+			njTranslate(0, 0, 0, 0);
+			ProcessModelNode_A_Wrapper(&object_000538B0, QueuedModelFlagsB_3, 1.0f);
+			njPopMatrix(1u);
+			njPushMatrix(0);
+			njTranslate(0, 0, 0, 0);
+			ProcessModelNode_A_Wrapper(&object_000534DC, QueuedModelFlagsB_3, 1.0f);
+			njPopMatrix(1u);
+			njPushMatrix(0);
+			njTranslate(0, 0, 0, 0);
+			ProcessModelNode_A_Wrapper(&object_00059734, QueuedModelFlagsB_3, 1.0f);
+			njPopMatrix(1u);
+			njPushMatrix(0);
+			njTranslate(0, 0, 0, 0);
+			ProcessModelNode_A_Wrapper(&object_000599DC, QueuedModelFlagsB_3, 1.0f);
+			njPopMatrix(1u);
+		}
+	}
+}
+	
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	*(NJS_OBJECT*)0x1108A18 = object_00226468; //TANKEN
@@ -53,22 +86,25 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	if (SADXStyleWater != 0) 
 	{
 		landtable_00017960.TexName = "ADV_MR00W";
-		collist_00015E60[LengthOfArray(collist_00015E60)-6].Flags = 0x00000000;
 		WriteCall((void*)0x005325C9, SetWaterTexture);
 		WriteData((int*)0x00532611, 156);
 		texlist_mr00.nbTexture = 171;
+		collist_00015E60[LengthOfArray(collist_00015E60) - 2].Flags = 0x81000000;
+		collist_00015E60[LengthOfArray(collist_00015E60) - 3].Flags = 0x81000000;
+		collist_00015E60[LengthOfArray(collist_00015E60) - 4].Flags = 0x81000000;
+		collist_00015E60[LengthOfArray(collist_00015E60) - 5].Flags = 0x81000000;
 	}
 	else 
 	{
-		WriteData((void*)0x532500, 0xC3u, sizeof(char));
+		WriteJump((void*)0x532500, MRWater);
 		landtable_00017960.TexName = "ADV_MR00";
-		collist_00015E60[LengthOfArray(collist_00015E60) - 6].Flags = 0x80040000;
 	}
 	for (int i = 0; i < 3; i++)
 	{
 		MR1FogDay[i].Distance = -9000.0f;
-		MR1FogDay[i].Layer = -3500.0f;
-		MR1FogDay[i].Toggle = 0;
+		MR1FogDay[i].Layer = -1500.0f;
+		MR1FogDay[i].Toggle = 1;
+		MR1FogDay[i].Color = 0xFF646464;
 		MR1FogEvening[i].Distance = -9000.0f;
 		MR1FogEvening[i].Layer = -3500.0f;
 		MR1FogNight[i].Color = 0xFF000F53;
