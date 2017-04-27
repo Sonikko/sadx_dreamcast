@@ -48,40 +48,7 @@
     <ClInclude Include="ADVSS03 Fixes.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SS_taxi.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SS_redcar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SS_bluecar.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="textures.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SS_police.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SS_TPBall.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SS_train.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SS_Box.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SS_PoolChair.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SS_Pole.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SS_hoteldoor.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="SS_Boat.h">
+    <ClInclude Include="SS_Objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

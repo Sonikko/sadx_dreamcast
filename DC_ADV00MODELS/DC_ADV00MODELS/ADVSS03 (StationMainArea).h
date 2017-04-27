@@ -43846,7 +43846,7 @@ COL collist_000DA99C[] = {
 	{ { 898.5f, -14.62535f, 1966.875f }, 464.1407f, 0, 0, &object_00123AEC, 0, 0x80000000 }, //sand waves 2
 	{ { 673.3333f, -18.5f, 1415 }, 338.9731f, 0, 0, &object_001340E0, 0, 0x80000002 }, //sewers water
 	{ { 682.9835f, 66.46802f, 1299.016f }, 35.25409f, 0, 0, &object_0011935C_2, 0, 0x81000000 },
-	{ { 220, -18.5f, 4420 }, 3946.758f, 0, 0, &object_00114E50Z, 0, 0x80000000 }, //SA1 water
+	{ { 220, -18.5f, 4420 }, 3946.758f, 0, 0, &object_00114E50Z, 0, 0x00000000 }, //SA1 water
 };
 
 LandTable landtable_000DCEBC = { LengthOfArray(collist_000DA99C), 0, 0xC, 1500, collist_000DA99C, NULL, "ADVSS03", (NJS_TEXLIST *)&texlist4 , 0, 0 };

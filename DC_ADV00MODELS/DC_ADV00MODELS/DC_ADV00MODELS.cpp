@@ -1,23 +1,12 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
-#include "SS_PoolChair.h"
+#include "SS_Objects.h"
 #include "ADVSS00 (City Hall).h"
 #include "ADVSS01 (Casino Area).h"
 #include "ADVSS02 (Sewers).h"
 #include "ADVSS03 (StationMainArea).h"
 #include "ADVSS04 (Hotel).h"
 #include "ADVSS05 (Twinkle Park Entrance).h"
-#include "textures.h"
-#include "SS_bluecar.h"
-#include "SS_redcar.h"
-#include "SS_police.h"
-#include "SS_taxi.h"
-#include "SS_TPBall.h"
-#include "SS_train.h"
-#include "SS_box.h"
-#include "SS_Pole.h"
-#include "SS_hoteldoor.h"
-#include "SS_Boat.h"
 
 static int anim1 = 46;
 static int anim2 = 183;
@@ -30,6 +19,7 @@ static int anim_sadx = 268;
 static int anim_sadx2 = 132;
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, DroppedFrames, 0x03B1117C);
 
 void __cdecl WaterTexture()
 {
@@ -47,6 +37,21 @@ int __cdecl CheckIfCameraIsInHotel_Lol()
 	return result;
 }
 
+void __cdecl SSWater()
+{
+	if (CurrentAct == 3) 
+	{
+		if (!DroppedFrames)
+		{
+			njSetTexture(&texlist4); //Act 3
+			njPushMatrix(0);
+			njTranslate(0, 0, 0, 0);
+			ProcessModelNode_AB_Wrapper(&object_00114E50Z, 1.0f);
+			njPopMatrix(1u);
+		}
+	}
+}
+
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init()
@@ -59,10 +64,6 @@ extern "C"
 			matlist_00122894_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			matlist_000E7180_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			matlist_00133D3C[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 6].Flags = 0x80040000; //Water workaround
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 7].Flags = 0x80040000; //Water workaround
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 8].Flags = 0x80040000; //Water workaround
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 1].Flags = 0x00000000; //SA1 water
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x80000000; //SADX sea bottom
 			meshlist_00114DB0[0].vertcolor = vcolor_0015EFF0; //SADX sea bottom
 			meshlist_00151E84[0].vertcolor = vcolor_001B6370; //SADX sea bottom (hotel)
@@ -86,15 +87,11 @@ extern "C"
 		}
 		else
 		{
-			WriteData((void*)0x631140, 0xC3u, sizeof(char));
-			matlist_00123C24[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
-			matlist_00122894_2[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
-			matlist_000E7180_2[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+			WriteJump((void*)0x631140, SSWater);
+			matlist_00123C24[0].attrflags |= NJD_FLAG_USE_ALPHA;
+			matlist_00122894_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
+			matlist_000E7180_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			matlist_00133D3C[0].attrflags |= NJD_FLAG_USE_ALPHA;
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 6].Flags = 0x80000000; //Water workaround
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 7].Flags = 0x80000000; //Water workaround
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 8].Flags = 0x80000000; //Water workaround
-			collist_000DA99C[LengthOfArray(collist_000DA99C) - 1].Flags = 0x80040000; //SA1 water
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x00000000; //SADX sea bottom
 			meshlist_00114DB0[0].vertcolor = NULL; //SADX sea bottom
 			meshlist_00151E84[0].vertcolor = NULL; //SADX sea bottom (hotel)
@@ -113,7 +110,7 @@ extern "C"
 		}
 		WriteData((void*)0x00630AE0, 0x90, 4); //Hotel door fix
 		WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting
-		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31);
+		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31); //SS_TRAIN
 		//Objects
 		WriteData((void*)0x0063A6A4, 0x90, 5); // Pool chair
 		memcpy((void*)0x02AEE7B0, &object_0019AF04, sizeof(object_0019AF04)); // Boat
@@ -129,6 +126,9 @@ extern "C"
 		memcpy((void*)0x02AFBA64, &object_001A4268, sizeof(object_001A4268)); // SS Taxi
 		memcpy((void*)0x02AD362C, &object_00185A20, sizeof(object_00185A20)); // SS Twinkle Park Ball
 		memcpy((void*)0x02AB6900, &object_0016C3FC, sizeof(object_0016C3FC)); // SS Twinkle Park Elevator
+		memcpy((void*)0x02AD14C8, &object_00183B8C, sizeof(object_00183B8C)); // Gamma's target (O M Saku)
+		memcpy((void*)0x02AC95BC, &attach_0017D540, sizeof(attach_0017D540)); // Fire Extinguisher
+		memcpy((void*)0x02AD484C, &object_0018684C, sizeof(object_0018684C)); // Ice Key 1
 		//Landtables
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 		NJS_TEXLIST **___ADV00_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV00_TEXLISTS");
@@ -155,12 +155,18 @@ extern "C"
 		DataArray(DrawDistance, StationSquare6DrawDist, 0x02AA3CF8, 3);
 		for (int i = 0; i < 3; i++)
 		{
-			StationSquare1Fog[i].Toggle = 0;
-			StationSquare2Fog[i].Toggle = 0;
-			StationSquare3Fog[i].Toggle = 0;
-			StationSquare4Fog[i].Toggle = 0;
-			StationSquare5Fog[i].Toggle = 0;
-			StationSquare6Fog[i].Toggle = 0;
+			StationSquare1Fog[i].Distance = -12000.0f;
+			StationSquare2Fog[i].Distance = -12000.0f;
+			StationSquare3Fog[i].Distance = -12000.0f;
+			StationSquare4Fog[i].Distance = -12000.0f;
+			StationSquare5Fog[i].Distance = -12000.0f;
+			StationSquare6Fog[i].Distance = -12000.0f;
+			StationSquare1Fog[i].Layer = -12000.0f;
+			StationSquare2Fog[i].Layer = -12000.0f;
+			StationSquare3Fog[i].Layer = -12000.0f;
+			StationSquare4Fog[i].Layer = -12000.0f;
+			StationSquare5Fog[i].Layer = -12000.0f;
+			StationSquare6Fog[i].Layer = -12000.0f;
 			StationSquare6DrawDist[i].Maximum = -600.0f;
 		}
 	}
