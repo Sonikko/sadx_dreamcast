@@ -15,7 +15,6 @@ PointerInfo pointers[] = {
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
 DataPointer(signed int, ClipLevel, 0x03ABDCF0);
-DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 DataPointer(NJS_TEXLIST, OBJ_MOUNTAIN_TEXLIST, 0x024208A8);
 FunctionPointer(double, sub_789320, (float), 0x789320);
 
@@ -87,7 +86,7 @@ void __cdecl sub_600BF0(ObjectMaster *a1, NJS_OBJECT *a2)
 				XDist = (double)v14 * 2000.0f + v15;
 				z = (double)v13 * 2000.0f + v18;
 				njTranslate(0, XDist, v2->Position.y, z);
-				ProcessModelNode_A_Wrapper((NJS_OBJECT *)a2, 0, 1.0f);
+				ProcessModelNode_A_Wrapper((NJS_OBJECT *)a2, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 				njPopMatrix(1u);
 				v14 = ++v8;
 			} while (v8 < 2);
@@ -119,7 +118,7 @@ void __cdecl sub_600BF0Z(ObjectMaster *a1, NJS_OBJECT *a2)
 	float v18; // [sp+40h] [bp+4h]@11
 	njSetTexture(&OBJ_MOUNTAIN_TEXLIST);
 	njPushMatrix(0);
-	ProcessModelNode_A_Wrapper((NJS_OBJECT *)a2, 0, 1.0);
+	ProcessModelNode_A_Wrapper((NJS_OBJECT *)a2, QueuedModelFlagsB_SomeTextureThing, 1.0);
 	njPopMatrix(1u);
 }
 
@@ -130,8 +129,12 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 		//WriteJump((void*)0x600BF0, sub_600BF0);
-		*(NJS_OBJECT*)0x246CAA8 = object_0206CAA8_2;
-		*(NJS_MODEL_SADX*)0x24390BC = attach_00151A8C;//Light thing
+		*(NJS_OBJECT*)0x246A624 = object_00181CE0; //O Bpole
+		*(NJS_OBJECT*)0x246AB24 = object_001821C0; //O Bpole 2
+		*(NJS_MODEL_SADX*)0x2466818 = attach_0017DF2C; //Bridge piece
+		*(NJS_MODEL_SADX*)0x2466568 = attach_0017DC94; //Bridge piece 2
+		*(NJS_OBJECT*)0x246CAA8 = object_0206CAA8_2; //Cloud
+		*(NJS_MODEL_SADX*)0x24390BC = attach_00151A8C; //Light thing
 		*(NJS_MODEL_SADX*)0x24394CC = attach_001515D8; //Light thing propeller 1
 		*(NJS_MODEL_SADX*)0x24392C4 = attach_001513C8; //Light thing propeller 2
 		*(NJS_OBJECT*)0x2439964 = object_001511FC;
