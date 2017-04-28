@@ -219,6 +219,12 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		*(NJS_OBJECT*)0x1A37A6C = object_001E1EF8; //Elevator
+		*(NJS_OBJECT*)0x19D228C = object_0018E284; //OConvStop
+		memcpy((void*)0x019CDCD0, uv_0018AD48, sizeof(uv_0018AD48)); //Conveyour belt UVs
+		memcpy((void*)0x019CDD98, uv_0018AE10, sizeof(uv_0018AE10)); //Conveyour belt UVs
+		memcpy((void*)0x019CDF08, uv_0018AF80, sizeof(uv_0018AF80)); //Conveyour belt UVs
+		memcpy((void*)0x01C271F0, uv_0021DA1C, sizeof(uv_0021DA1C)); //Egg Kanban UVs
 		*(NJS_MODEL_SADX*)0x01C2A55C = attach_0021D538; //Some light thing material fix
 		*(NJS_MODEL_SADX*)0x01A1F7F8 = attach_001CE570; //Gachapon thing
 		*(NJS_MODEL_SADX*)0x01A1ED18 = attach_001CE0D0; //Gachapon thing lid
@@ -236,6 +242,7 @@ extern "C"
 		WriteJump((void*)0x5AE330, sub_5AE330); //O Texture function
 		WriteJump(OStandLight_Display, OStandLight_DisplayFixed); //O Stand Light function
 		WriteJump((void*)0x005B4690, sub_5B4690); //Cylinder function
+		ResizeTextureList((NJS_TEXLIST*)0x019CC1C0, 170); //OBJ_FINALEGG
 		ResizeTextureList((NJS_TEXLIST*)0x1B98518, textures_finalegg1);
 		ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);
 		ResizeTextureList((NJS_TEXLIST*)0x1AC5780, textures_finalegg3);
