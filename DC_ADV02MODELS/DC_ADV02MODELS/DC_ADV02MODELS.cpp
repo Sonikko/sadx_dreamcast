@@ -154,6 +154,11 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_OBJECTS[59] = &object_001B1648; //OIslandDoor left
 	___ADV02_OBJECTS[39] = &object_001AF63C; //Monkey cage (full)
 	___ADV02_OBJECTS[38] = &object_001AF0B0; //Monkey cage (bottom)
+	___ADV02_OBJECTS[42] = &object_001AE9B0; //Monkey cage (bottom)
+	___ADV02_OBJECTS[43] = &object_001AE70C; //Monkey cage (bottom)
+	___ADV02_OBJECTS[10] = &object_001A79D0; //Item stand
+	___ADV02_OBJECTS[12] = &object_001A7370; //Item stand
+	___ADV02_OBJECTS[13] = &object_001A6B1C; //Item stand
 	//___ADV02_OBJECTS[67] = &object_001DCF78; //Palm trees near Tails' workshop
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	___ADV02MR02_OBJECTS[141] = &object_001615BC;
