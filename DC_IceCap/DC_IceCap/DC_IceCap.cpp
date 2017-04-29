@@ -44,7 +44,6 @@ extern "C"
 			((LandTable *)0x0E3E024)->Col[inv2].Flags &= ~ColFlags_Solid;
 		}
 		memcpy((void*)0x0E537D8, &object_00162694, sizeof(object_00162694));  // Icicle inner part
-		//*(NJS_OBJECT*)0xE6E694 = object_0017C308; //MizuIwa A
 		*(NJS_OBJECT*)0xE6E0E0 = object_0017BD64; //MizuIwa B
 		*(NJS_OBJECT*)0xE6E694 = object_0017C308; //MizuIwa C
 		*(NJS_OBJECT*)0xE52FCC = object_00161838; //OIceJmp

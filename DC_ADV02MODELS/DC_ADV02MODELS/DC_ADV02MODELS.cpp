@@ -4,7 +4,6 @@
 #include "ADV_MR00 (Station area).h"
 #include "ADV_MR01 (Angel Island).h"
 #include "ADV_MR02 (Jungle area).h"
-#include "MetalSonic.h"
 #include "ADV_MR03 (Final Egg entrance).h"
 #include "OFinalEgg.h"
 #include "MR_train.h"
