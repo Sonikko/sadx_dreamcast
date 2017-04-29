@@ -160,8 +160,30 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01_OBJECTS[22] = &object_0018C098;
 	___ADV01_OBJECTS[23] = &object_0018BD3C;
 	___ADV01_OBJECTS[24] = &object_0018B9E0;
+	___ADV01_OBJECTS[0] = &object_00182160; //SideLift
+	___ADV01_OBJECTS[1] = &object_00181DBC; //SideLift
+	___ADV01_OBJECTS[2] = &object_00181684; //SideLift
+	___ADV01_OBJECTS[55] = &object_0017D82C; //OSLight
+	___ADV01_OBJECTS[56] = &object_0017CBA0; //OSLight
+	___ADV01_OBJECTS[57] = &object_0017C970; //OSLight
+	___ADV01_OBJECTS[58] = &object_0017BFE4; //OSLight
+	//___ADV01_OBJECTS[13] = &object_001A85F0; //OParasol
+	___ADV01_OBJECTS[27] = &object_001782D4; //Door top
+	___ADV01_OBJECTS[28] = &object_001777B4; //Door 2
+	___ADV01_OBJECTS[18] = &object_00189EA0; //Eggcap
+	___ADV01_OBJECTS[69]->child->child->model = &attach_0016CD90; //Monorail front
+	___ADV01_OBJECTS[69]->child->model = &attach_0016D524; //Monorail front
+	___ADV01_OBJECTS[70]->child->child->model = &attach_00170CFC; //Monorail back
+	___ADV01_OBJECTS[70]->child->model = &attach_001714D8; //Monorail back
 	___ADV01C_OBJECTS[7]->child = &object_00111518;
+	___ADV01C_OBJECTS[43]->child->child->model = &attach_000AEDD0; //Monorail 1 door
+	___ADV01C_OBJECTS[43]->child->model = &attach_000AF564; //Monorail 1 door thing
+	___ADV01C_OBJECTS[44]->child->child->model = &attach_000B2D3C; //Monorail 2 door 
+	___ADV01C_OBJECTS[44]->child->model = &attach_000B3518; //Monorail 2 door thing
+	___ADV01C_OBJECTS[29] = &object_000ADCD8; //Monorail station
+	___ADV01C_ACTIONS[6]->object = &object_000BAF48; //Door
 	___ADV01C_MODELS[27]->mats[0].diffuse.color = 0xFFFFFFFF;
+	WriteData((void*)0x005244D6, 0x90, 5); //Disable light flickering
 	for (int i = 0; i < 3; i++)
 	{
 		EggCarrierOutsideDrawDist1[i].Maximum = -11000;
