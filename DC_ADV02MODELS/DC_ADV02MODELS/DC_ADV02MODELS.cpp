@@ -13,6 +13,7 @@
 #include "Tanken2.h"
 #include "Tanken3.h"
 #include "Grass.h"
+#include "MR_Objects.h"
 
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
 DataArray(FogData, MR2FogDay, 0x01103478, 3);
@@ -146,7 +147,14 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_OBJECTS[88] = &object_001BBA04; //Ice Stone
 	___ADV02_OBJECTS[64] = &object_001E87F0;
 	___ADV02_OBJECTS[68] = &object_002145D4;
-	___ADV02_OBJECTS[100] = &object_001F41C0;
+	___ADV02_OBJECTS[100] = &object_001F41C0; //Grass
+	___ADV02_OBJECTS[20] = &object_001B5F40; //Torokko 
+	___ADV02_OBJECTS[61] = &object_001B1A98; //OIslandDoor
+	___ADV02_OBJECTS[60] = &object_001B0FE0; //OIslandDoor right
+	___ADV02_OBJECTS[59] = &object_001B1648; //OIslandDoor left
+	___ADV02_OBJECTS[39] = &object_001AF63C; //Monkey cage (full)
+	___ADV02_OBJECTS[38] = &object_001AF0B0; //Monkey cage (bottom)
+	//___ADV02_OBJECTS[67] = &object_001DCF78; //Palm trees near Tails' workshop
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	___ADV02MR02_OBJECTS[141] = &object_001615BC;
 	___ADV02MR02_OBJECTS[142] = &object_00161B8C;
@@ -165,11 +173,17 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02MR02_OBJECTS[178] = &object_001A08EC;
 	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
 	___ADV02_ACTIONS[0]->object = &object_0020C3B0;
+	___ADV02_ACTIONS[11]->object = &object_001B5F40; //Torokko
 	___ADV02_ACTIONS[29]->object = &object_001BBA04; //Ice Stone
 	___ADV02_ACTIONS[32]->object = &object_001F41C0;
 	___ADV02_ACTIONS[0]->motion = &animation_000862E8;
 	___ADV02_ACTIONS[10]->object = &object_00201C18;
 	___ADV02_ACTIONS[30]->object = &object_0020DC78;
+	___ADV02_ACTIONS[21]->object = &object_001DDBFC; //Plane platform
+	___ADV02_ACTIONS[9]->object = &object_001B2D5C; //Final Egg base door
+	___ADV02_ACTIONS[17]->object = &object_001CCFBC; //OHiddenGate
+	NJS_MODEL_SADX **___ADV02_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle, "___ADV02_MODELS");
+	___ADV02_MODELS[12] = &attach_001B412C; //Echidna statue
 }
 
 extern "C"  __declspec(dllexport) void __cdecl OnFrame()
@@ -198,6 +212,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 	auto entity = CharObj1Ptrs[0];
 	if (GameState != 16 && CurrentLevel == 33 && CurrentAct == 0)
 	{
+		if (GameMode == GameModes_Mission && CurrentCharacter == 5) collist_00015E60[LengthOfArray(collist_00015E60) - 1].Flags = 0x00000001; else collist_00015E60[LengthOfArray(collist_00015E60) - 1].Flags = 0x00000000;
 		for (int q = 0; q < LengthOfArray(uv_00075EC0); q++)
 		{
 			uv_00075EC0[q].v = uv_00075EC0[q].v + 1;

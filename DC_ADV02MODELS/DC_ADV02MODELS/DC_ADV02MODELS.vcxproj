@@ -106,6 +106,7 @@
     <ClInclude Include="button.h" />
     <ClInclude Include="Grass.h" />
     <ClInclude Include="MR_IceCapDoor.h" />
+    <ClInclude Include="MR_Objects.h" />
     <ClInclude Include="MR_Rock.h" />
     <ClInclude Include="MR_train.h" />
     <ClInclude Include="ninja.h" />
