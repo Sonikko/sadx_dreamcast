@@ -182,6 +182,8 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01C_OBJECTS[44]->child->child->model = &attach_000B2D3C; //Monorail 2 door 
 	___ADV01C_OBJECTS[44]->child->model = &attach_000B3518; //Monorail 2 door thing
 	___ADV01C_OBJECTS[29] = &object_000ADCD8; //Monorail station
+	___ADV01C_ACTIONS[7]->object = &object_000B8CD4; //Egglift
+	___ADV01C_OBJECTS[23] = &object_000B8CD4; //Egglift
 	___ADV01C_ACTIONS[6]->object = &object_000BAF48; //Door
 	___ADV01C_MODELS[27]->mats[0].diffuse.color = 0xFFFFFFFF;
 	WriteData((void*)0x005244D6, 0x90, 5); //Disable light flickering
