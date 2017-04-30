@@ -38199,7 +38199,7 @@ NJS_VECTOR normal_0000A640[] = {
 
 NJS_MODEL_SADX attach_0000A760 = { vertex_0000A520, normal_0000A640, LengthOfArray(vertex_0000A520), meshlist_0000A500, matlist_0000A2DC, LengthOfArray(meshlist_0000A500), LengthOfArray(matlist_0000A2DC),{ 0, 2.146421f, 0 }, 73.69697f, NULL };
 
-NJS_OBJECT object_0000A78C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_BREAK, &attach_0000A760, 1.606865f, 734.5f, 969.557f, 0, 0, 0, 1.0506f, 1, 1.0506f, NULL, NULL };
+NJS_OBJECT object_0000A78C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_BREAK, &attach_0000A760, 1.606865f, 733.5122f, 969.557f, 0, 0, 0, 1.0506f, 1, 1.0506f, NULL, NULL };
 
 COL collist_0015F764[] = {
 	{ { -0.7125624f, 681.5402f, -507.521f }, 214.3001f, 0, 0, &object_00032A00, 0, 0xA0000001 },
