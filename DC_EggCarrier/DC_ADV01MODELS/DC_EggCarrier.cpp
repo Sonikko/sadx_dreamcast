@@ -167,6 +167,8 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01_OBJECTS[56] = &object_0017CBA0; //OSLight
 	___ADV01_OBJECTS[57] = &object_0017C970; //OSLight
 	___ADV01_OBJECTS[58] = &object_0017BFE4; //OSLight
+	___ADV01_ACTIONS[0]->object = &object_00178BC4; //This thing is stupid
+	___ADV01_OBJECTS[5] = &object_00178BC4; //This thing is stupid
 	//___ADV01_OBJECTS[13] = &object_001A85F0; //OParasol
 	___ADV01_OBJECTS[27] = &object_001782D4; //Door top
 	___ADV01_OBJECTS[28] = &object_001777B4; //Door 2
