@@ -25,6 +25,11 @@ extern "C"
 	{
 		ResizeTextureList((NJS_TEXLIST*)0x026AA630, 16); //HIGHWAY_CAR
 		*(NJS_OBJECT*)0x0268843C = object_001554A8; //Cone
+		*(NJS_OBJECT*)0x0267497C = object_001434F4; //Platform
+		*(NJS_OBJECT*)0x02690DCC = object_0015C898; //Escalator2
+		*(NJS_OBJECT*)0x0268F054 = object_0015B100; //Escalator1
+		//*(NJS_OBJECT*)0x0266387C = object_00135B8C; //Fountain top
+		*(NJS_MODEL_SADX*)0x02696630 = attach_00161F5C; //Clock tower
 		WriteData((char*)0x006165DF, 0x04, 1); //Cone blending mode
 		((NJS_OBJECT*)0x026785FC)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2; //material fix for container A
 		((NJS_OBJECT*)0x0267943C)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2; //material fix for container A
