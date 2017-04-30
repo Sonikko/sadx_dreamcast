@@ -174,6 +174,7 @@ extern "C"
 
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		if (CurrentLevel == 26 && GetTimeOfDay() == 0) WriteData((void*)0x0063A906, 0x01, 1); else WriteData((void*)0x0063A906, 0x05, 1);
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 		//Water animation in Act 2 (Sewers)

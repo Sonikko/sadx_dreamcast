@@ -171,6 +171,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01_OBJECTS[27] = &object_001782D4; //Door top
 	___ADV01_OBJECTS[28] = &object_001777B4; //Door 2
 	___ADV01_OBJECTS[18] = &object_00189EA0; //Eggcap
+	___ADV01_OBJECTS[19] = &object_001760A0; //Egglift
 	___ADV01_OBJECTS[69]->child->child->model = &attach_0016CD90; //Monorail front
 	___ADV01_OBJECTS[69]->child->model = &attach_0016D524; //Monorail front
 	___ADV01_OBJECTS[70]->child->child->model = &attach_00170CFC; //Monorail back
