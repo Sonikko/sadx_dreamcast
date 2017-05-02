@@ -96,10 +96,10 @@ extern "C"
 		((NJS_OBJECT *)0x027A5464)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 2
 		((NJS_OBJECT *)0x027A58A4)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 3
 		((NJS_OBJECT *)0x027A58A4)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 4
-		*(NJS_OBJECT*)0x027B6170 = object_000B4F1C; // yellow flower pot
-		*(NJS_OBJECT*)0x027B80C4 = object_000B4F1C; // yellow flower pot 2
-		*(NJS_OBJECT*)0x027B6A58 = object_000B5EE8; // pink flower pot
-		*(NJS_OBJECT*)0x027B972C = object_000B5EE8; // pink flower pot 2
+		*(NJS_OBJECT*)0x027B6170 = object_000B34C8; // yellow flower pot (wall)
+		*(NJS_OBJECT*)0x027B80C4 = object_000B4F1C; // yellow flower pot
+		*(NJS_OBJECT*)0x027B6A58 = object_000B34C8_2; // pink flower pot (wall)
+		*(NJS_OBJECT*)0x027B972C = object_000B5EE8; // pink flower pot
 		*(NJS_OBJECT*)0x027BAC54 = object_000B6CF8; // yellow flower bed
 		*(NJS_OBJECT*)0x027BC1C4 = object_000B6CF8_2; // pink flower bed
 		DataArray(FogData, TwinklePark1Fog, 0x026B339C, 3);
