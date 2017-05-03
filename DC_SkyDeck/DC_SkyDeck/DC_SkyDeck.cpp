@@ -17,33 +17,71 @@ DataPointer(float, CurrentSkyBoxScaleY, 0x03ABDC98);
 DataPointer(float, CurrentSkyBoxScaleZ, 0x03ABDC9C);
 DataPointer(NJS_VECTOR, SkyDeck_SkyPosition, 0x03C7F038);
 DataPointer(NJS_COLOR, CurrentFogColor, 0x03ABDC68);
-DataPointer(NJS_OBJECT, rail1, 0x216B214);
-DataPointer(NJS_OBJECT, rail2, 0x2162D5C);
-DataPointer(NJS_OBJECT, rail3, 0x2165ADC);
-DataPointer(NJS_OBJECT, rail4, 0x2168494);
-DataPointer(NJS_OBJECT, rail5, 0x216A0A4);
-DataPointer(NJS_OBJECT, rail6, 0x216F134);
-DataPointer(NJS_OBJECT, rail7, 0x2171694);
+
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	//Lol wtf is this? Disable robot underwear?
+	WriteData((float*)0x005F4D20, 1.0f);
+	WriteData((float*)0x005F4D28, 1.0f);
+	WriteData((float*)0x005F4D30, 1.0f);
+	WriteData((float*)0x005F4D38, 1.0f);
 	((LandTable*)0x022369A0)->COLCount = landtable_00021094.COLCount;
-	((LandTable*)0x022369A0)->COLList = landtable_00021094.COLList;
+	((LandTable*)0x022369A0)->Col = landtable_00021094.Col;
 	((NJS_OBJECT *)0x214BF20)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_2;
 	((NJS_OBJECT *)0x214E3AC)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_3;
+	*(NJS_OBJECT *)0x21FDE74 = object_00197D2C; //Decal 1
+	*(NJS_OBJECT *)0x21FE9F8 = object_00198858; //Decal 2
+	*(NJS_OBJECT *)0x21FEB04 = object_0019895C; //Decal 3
+	*(NJS_OBJECT *)0x21FEC10 = object_00198A60; //Decal 4
+	*(NJS_OBJECT *)0x21FED1C = object_00198B64; //Decal 5 not sure
+	*(NJS_OBJECT *)0x21FEE28 = object_00198C68; //Decal 6 not sure
+	*(NJS_OBJECT *)0x21FEF34 = object_00198D6C; //Warning sign
 	*(NJS_OBJECT *)0x214FB74 = object_000FF4A4; //Cannon in Act 1
 	*(NJS_OBJECT *)0x2161F68 = object_0010EB4C; //Cannon in Act 2
 	*(NJS_OBJECT *)0x21802BC = object_00126000; //Rail platform 1
 	*(NJS_OBJECT *)0x218346C = object_00128644; //Rail platform 2
 	*(NJS_OBJECT *)0x2186254 = object_0012A9C8; //Rail platform 3
-	*(NJS_OBJECT *)0x21C4FD8 = object_00162F84;//Crane
-	rail1.basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-	rail2.basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-	rail3.basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-	rail4.basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-	rail5.basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-	rail6.basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-	rail7.basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	*(NJS_OBJECT *)0x216F67C = object_00118920; //Rail platform 4
+	*(NJS_OBJECT *)0x2162D5C = object_0010FAFC; //Rail platform 5
+	*(NJS_OBJECT *)0x2171694 = object_0011A3D8; //Rail platform 6
+	*(NJS_OBJECT *)0x2171834 = object_0011A564; //Some ladder
+	*(NJS_OBJECT *)0x216B984 = object_00115F88; //OConnect_0
+	*(NJS_OBJECT *)0x21660AC = object_001118F8; //Curved platform
+	*(NJS_OBJECT *)0x216E770 = object_00117D5C; //WTF is this thing?
+	*(NJS_OBJECT *)0x2171D0C = object_0011AA1C; //Platform with ladder
+	*(NJS_OBJECT *)0x21936AC = object_00135E10; //Small round thing
+	*(NJS_OBJECT *)0x216889C = object_001138B4; //Stairs 1
+	*(NJS_OBJECT *)0x216A4AC = object_00114F2C; //Stairs 2
+	*(NJS_OBJECT *)0x21C4FD8 = object_00162F84; //Crane
+	*(NJS_OBJECT *)0x21642D4 = object_00110634; //Talap 0
 	*(NJS_OBJECT *)0x21AD794 = object_0014D990; //Trolley thing or whatever that is
+	*(NJS_OBJECT *)0x21F7F8C = object_00192044; //ORoboA
+	*(NJS_OBJECT *)0x21B29B4 = object_00152A40; //Another cleaning robot
+	*(NJS_OBJECT *)0x21FA6F4 = object_001946BC; //ORoboB
+	*(NJS_ACTION*)0x02223EF4 = action_Robo2_action; //ORoboB action
+	*(NJS_OBJECT *)0x21B995C = object_001592E0; //Platform2
+	*(NJS_OBJECT *)0x21CAE18 = object_00168CFC; //Another big object
+	*(NJS_OBJECT *)0x2194F44 = object_001370C4; //OAnaA
+	*(NJS_OBJECT *)0x218C52C = object_00130724; //ORaneA
+	*(NJS_OBJECT *)0x218E0BC = object_00131D70; //ORaneC
+	*(NJS_OBJECT *)0x218F7CC = object_00132DE4; //ORaneD
+	*(NJS_OBJECT *)0x2190D94 = object_00133CD0; //ORaneE
+	*(NJS_OBJECT *)0x2192798 = object_00134F30; //ORaneF
+	*(NJS_OBJECT *)0x21BA014 = object_0015996C; //Hangar 1
+	*(NJS_OBJECT *)0x21BA484 = object_00159DBC; //Hangar 2
+	*(NJS_OBJECT *)0x21BCA10 = object_0015C2D0; //Radar-like thing
+	*(NJS_OBJECT *)0x21BDD24 = object_0015D5B8; //Huge thing 2
+	*(NJS_OBJECT *)0x21BF034 = object_0015E8A0; //Huge thing 3
+	*(NJS_OBJECT *)0x214E4B8 = object_000FE140; //Target
+	*(NJS_OBJECT *)0x21A34C8 = object_00144178; //Top red orb
+	*(NJS_OBJECT *)0x21A4C38 = object_0014589C; //Light-like thing
+	*(NJS_OBJECT *)0x21D1CC0 = object_0016FA10; //Huge Egg Carrier decoration
+	*(NJS_OBJECT *)0x21D41A0 = object_00171E3C; //Another decoration
+	*(NJS_OBJECT *)0x21F4EC0 = object_0018F244; //Elevator
+	*(NJS_OBJECT *)0x21FBF84 = object_00195B24; //Escalator
+	*(NJS_OBJECT *)0x217CFE4 = object_001238FC; //Untei
+	*(NJS_OBJECT *)0x960DFC = object_001E0C04; //Aircraft lift piece
+	((NJS_OBJECT *)0x21B0254)->model = &attach_00150394; //Control panel
 	WriteData((NJS_OBJECT**)0x005ED3AC, (NJS_OBJECT*)&object_01D4BF20); //sky normal
 	WriteData((NJS_OBJECT**)0x005ED3A5, (NJS_OBJECT*)&object_01D4E3AC_2); //sky dark top 2 
 	WriteData((NJS_OBJECT**)0x005ED46D, (NJS_OBJECT*)&object_01D4E3AC); //sky dark top 1
@@ -80,8 +118,8 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
 		for (int i = 0; i < landtable_00021094.COLCount; i++)
 		{
-			if (landtable_00021094.COLList[i].anonymous_6 & 4)
-				landtable_00021094.COLList[i].Flags |= ColFlags_Solid;
+			if (landtable_00021094.Col[i].anonymous_6 & 4)
+				landtable_00021094.Col[i].Flags |= ColFlags_Solid;
 		}
 		}
 	}
