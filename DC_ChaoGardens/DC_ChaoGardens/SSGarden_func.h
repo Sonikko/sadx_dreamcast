@@ -1,5 +1,5 @@
 ObjectFunc(OF_SS0, 0x00450370); // RING   
-ObjectFunc(OF_SS1, 0xC917AA0); // TREE   
+ObjectFunc(OF_SS1, 0x007212A0); // TREE   
 ObjectFunc(OF_SS2, 0xC918E36); // FLOWER 
 ObjectFunc(OF_SS3, 0xC919760); // VMS 
 ObjectFunc(OF_SS4, 0x004D4770); // CYLINDER

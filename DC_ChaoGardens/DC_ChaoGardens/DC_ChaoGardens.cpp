@@ -2,7 +2,7 @@
 #include <SADXModLoader.h>
 #include "ChaoObjects.h"
 #include "ChaoRaceFunc.h"
-#include "Elevator.h"
+//#include "Elevator.h"
 #include "Fountain.h"
 #include "SSGarden.h"
 #include "MRGarden.h"
@@ -82,9 +82,9 @@ extern "C"
 		stru_33D0B50[0].v.z = 5;
 		for (int i = 1; i < 9; i++)
 		{
-			stru_33D0B50[i].anonymous_1 = 0;
-			stru_33D0B50[i].anonymous_2 = 0;
-			stru_33D0B50[i].anonymous_3 = 0;
+			stru_33D0B50[i].scale.x = 0;
+			stru_33D0B50[i].scale.y = 0;
+			stru_33D0B50[i].scale.z = 0;
 		}
 //Chao Race stuff
 		WriteJump((void*)0x00719DB0, LoadChaoRaceX);
@@ -92,7 +92,7 @@ extern "C"
 		//WriteData((void*)0x0071C293, 0x90, 5); //Prevent the Cheering Omochaos from disappearing
 //Station Square garden stuff
 		WriteJump((void*)0x4145D0, sub_4145D0); //Elevator function
-		WriteJump((void*)0x0072AB80, LoadChaoRaceDoor);
+		WriteJump((void*)0x0072AB80, LoadChaoRaceDoorX);
 		WriteCall((void*)0x00638DD7, SetElevatorTexlist);
 		WriteData((void*)0x007195A3, 0x90, 5);
 		ResizeTextureList((NJS_TEXLIST*)0x03406088, 32); //GARDEN00SSOBJ
@@ -108,22 +108,38 @@ extern "C"
 		WriteData((void*)0x00719264, 0xF2, 1); //Exit 2
 		WriteData((void*)0x00719263, 0xF0, 1); //Exit 2
 		WriteJump((void*)0x00719600, LoadSSGardenX);
+		Chao_SSChaoSpawnPoints[0].y = 3.0f;
+		Chao_SSChaoSpawnPoints[1].y = 3.0f;
+		Chao_SSChaoSpawnPoints[2].y = 3.0f;
+		Chao_SSChaoSpawnPoints[3].y = 3.0f;
+		Chao_SSChaoSpawnPoints[4].y = 3.0f;
+		Chao_SSChaoSpawnPoints[5].y = 3.0f;
+		Chao_SSChaoSpawnPoints[6].y = 3.0f;
+		Chao_SSChaoSpawnPoints[7].y = 3.0f;
+		Chao_SSChaoSpawnPoints[8].y = 3.0f;
+		Chao_SSChaoSpawnPoints[9].y = 3.0f;
+		Chao_SSChaoSpawnPoints[10].y = 3.0f;
+		Chao_SSChaoSpawnPoints[11].y = 3.0f;
+		Chao_SSChaoSpawnPoints[12].y = 3.0f;
+		Chao_SSChaoSpawnPoints[13].y = 3.0f;
+		Chao_SSChaoSpawnPoints[14].y = 3.0f;
+		Chao_SSChaoSpawnPoints[15].y = 3.0f;
 		Chao_SSChaoSpawnPoints[12].x = -100.0f;
 		Chao_SSChaoSpawnPoints[14].x = -100.0f;
 		ChaoTreeSpawns[0].a.x = 129.32f; //Palm tree 1
-		ChaoTreeSpawns[0].a.y = 0.56f;  //Palm tree 1
+		ChaoTreeSpawns[0].a.y = 4.0f;  //Palm tree 1
 		ChaoTreeSpawns[0].a.z = 124.78f;  //Palm tree 1
 		ChaoTreeSpawns[0].b.x = 177.62f; //Palm tree 1
-		ChaoTreeSpawns[0].b.y = 0.56f; //Palm tree 1
+		ChaoTreeSpawns[0].b.y = 4.0f; //Palm tree 1
 		ChaoTreeSpawns[0].b.z = 62.64f;  //Palm tree 1
 		ChaoTreeSpawns[0].c.x = 109.29f; //Palm tree 1
-		ChaoTreeSpawns[0].c.y = 2.86f;  //Palm tree 1
+		ChaoTreeSpawns[0].c.y = 4.0f;  //Palm tree 1
 		ChaoTreeSpawns[0].c.z = 2.2f;  //Palm tree 1
 		ChaoTreeSpawns[0].d.x = 80.24f; //Palm tree 1
-		ChaoTreeSpawns[0].d.y = 1.86f;  //Palm tree 1
+		ChaoTreeSpawns[0].d.y = 4.0f;  //Palm tree 1
 		ChaoTreeSpawns[0].d.z = 52.08f;  //Palm tree 1
 		ChaoTreeSpawns[0].e.x = 107.19f; //Palm tree 1
-		ChaoTreeSpawns[0].e.y = 2.86f;  //Palm tree 1
+		ChaoTreeSpawns[0].e.y = 4.0f;  //Palm tree 1
 		ChaoTreeSpawns[0].e.z = 28.25f;  //Palm tree 1
 		WriteData((float*)0x00719461, 184.88f); //EC Transporter X
 		WriteData((float*)0x0071945C, 3.0f); //EC Transporter Y
@@ -178,19 +194,19 @@ extern "C"
 		Chao_MRChaoSpawnPoints[15].y = 2;
 		Chao_MRChaoSpawnPoints[15].z = 66.25f;
 		ChaoTreeSpawns[2].a.x = 126.8847f; //Palm tree 1
-		ChaoTreeSpawns[2].a.y = 0.2116146f;  //Palm tree 1
+		ChaoTreeSpawns[2].a.y = 3.2116146f;  //Palm tree 1
 		ChaoTreeSpawns[2].a.z = 129.4048f;  //Palm tree 1
 		ChaoTreeSpawns[2].b.x = -45.25877f; //Palm tree 2
-		ChaoTreeSpawns[2].b.y = -0.7883873f;  //Palm tree 2
+		ChaoTreeSpawns[2].b.y = 3.0f;  //Palm tree 2
 		ChaoTreeSpawns[2].b.z = 108.8823f;  //Palm tree 2
 		ChaoTreeSpawns[2].c.x = -157.6473f; //Palm tree 3
-		ChaoTreeSpawns[2].c.y = 0.2116146f;  //Palm tree 3
+		ChaoTreeSpawns[2].c.y = 2.8f;  //Palm tree 3
 		ChaoTreeSpawns[2].c.z = 122.3606f;  //Palm tree 3
 		ChaoTreeSpawns[2].d.x = -55.71612f; //Palm tree 4
-		ChaoTreeSpawns[2].d.y = 44.21161f;  //Palm tree 4
+		ChaoTreeSpawns[2].d.y = 47.5f;  //Palm tree 4
 		ChaoTreeSpawns[2].d.z = 20.53316f;  //Palm tree 4
 		ChaoTreeSpawns[2].e.x = 83.6948f; //Palm tree 5
-		ChaoTreeSpawns[2].e.y = 5.211613f;  //Palm tree 5
+		ChaoTreeSpawns[2].e.y = 7.5f;  //Palm tree 5
 		ChaoTreeSpawns[2].e.z = -47.53315f;  //Palm tree 5
 //Egg Carrier garden stuff
 		WriteCall((void*)0x00729289, NameMachineTexlist);

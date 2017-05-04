@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="DC_ChaoGardens.cpp" />
+    <ClCompile Include="dllmain.cpp" />
+    <ClCompile Include="stdafx.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ChaoRace.h" />
+    <ClInclude Include="ChaoRaceEntry.h" />
+    <ClInclude Include="ChaoRaceFunc.h" />
+    <ClInclude Include="ECGarden_DC.h" />
+    <ClInclude Include="ECGarden_func.h" />
+    <ClInclude Include="Fountain.h" />
+    <ClInclude Include="MainFunctions.h" />
+    <ClInclude Include="MRGarden.h" />
+    <ClInclude Include="MRGarden_func.h" />
+    <ClInclude Include="ninja.h" />
+    <ClInclude Include="RaceEntry_DX.h" />
+    <ClInclude Include="RaceEntry_func.h" />
+    <ClInclude Include="SADXModLoader.h" />
+    <ClInclude Include="SSGarden.h" />
+    <ClInclude Include="SSGarden_func.h" />
+    <ClInclude Include="stdafx.h" />
+    <ClInclude Include="targetver.h" />
+    <ClInclude Include="ChaoObjects.h" />
+    <ClInclude Include="WIP.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="ReadMe.txt" />
+  </ItemGroup>
+</Project>

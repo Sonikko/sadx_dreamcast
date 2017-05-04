@@ -18,7 +18,6 @@ struct ChaoTreeSpawn
 FunctionPointer(void, SetChaoLandTableX, (LandTable *geo), 0x0043A4C0);
 FunctionPointer(void, sub_715700, (int a1), 0x00715700);
 FunctionPointer(void, sub_715730, (int a1, int a2), 0x00715730);
-DataPointer(EntityData1*, Camera_Data1, 0x03B2CBB0);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataArray(NJS_VECTOR, Chao_SSChaoSpawnPoints, 0x033A0AF8, 16);
 DataArray(NJS_VECTOR, Chao_ECChaoSpawnPoints, 0x033A0BB8, 16);
@@ -148,7 +147,7 @@ void __cdecl LoadMRGardenX()
 }
 
 //Chao Race door
-void __cdecl LoadChaoRaceDoor(ObjectMaster *a1)
+void __cdecl LoadChaoRaceDoorX(ObjectMaster *a1)
 {
 	ObjectMaster *v1; // eax@1
 	EntityData1 *v2; // ecx@2
