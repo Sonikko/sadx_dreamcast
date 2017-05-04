@@ -27,15 +27,6 @@
     <ClInclude Include="Animals.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Tanken.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tanken2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tanken3.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Itembox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
