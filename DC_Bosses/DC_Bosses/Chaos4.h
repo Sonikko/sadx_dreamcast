@@ -7748,7 +7748,7 @@ GeoAnimData animlist_00045AB8[] = {
 	{ 0, 0.5f, 60, &object_000086B4, &action_animation_00016428, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_chaos4dc[28];
+NJS_TEXNAME textures_chaos4dc[27];
 NJS_TEXLIST texlist_chaos4dc = { arrayptrandlength(textures_chaos4dc) };
 
 LandTable landtable_00000238 = { LengthOfArray(collist_00045098), LengthOfArray(animlist_00045AB8), 0xD, 20000, collist_00045098, animlist_00045AB8, "CHAOS4_TIKEI", (NJS_TEXLIST *)&texlist_chaos4dc, 0, 0 };

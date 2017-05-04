@@ -2647,3 +2647,55 @@ NJS_VECTOR normal_0005CD2C[] = {
 NJS_MODEL_SADX attach_0005D20C = { vertex_0005C84C, normal_0005CD2C, LengthOfArray(vertex_0005C84C), meshlist_0005C804, matlist_0005C1A4, LengthOfArray(meshlist_0005C804), LengthOfArray(matlist_0005C1A4),{ 0, 9, 0 }, 27.313f, NULL };
 
 NJS_OBJECT object_0005D234 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attach_0005D20C, 0, 0, 0, 0, 0, 0, 1, 1, 1, &object_0005C170, NULL };
+
+NJS_MKEY_A animation_0004CEA0_15_rot[] = {
+	{ 0, 0, 0, 0 },
+	{ 1, 0, 0x1FFF, 0 },
+	{ 2, 0, 0x3FFF, 0 },
+	{ 3, 0, 0x5FFF, 0 },
+	{ 4, 0, 0x7FFF, 0 },
+	{ 5, 0, 0x9FFF, 0 },
+	{ 6, 0, 0xBFFF, 0 },
+	{ 7, 0, 0xDFFF, 0 }
+};
+
+NJS_MKEY_A animation_0004CEA0_16_rot[] = {
+	{ 0, 0, 0, 0xFFFF },
+	{ 1, 0, 0x1FFF, 0xFFFF },
+	{ 2, 0, 0x3FFF, 0xFFFF },
+	{ 3, 0, 0x5FFF, 0xFFFF },
+	{ 4, 0, 0x7FFF, 0xFFFF },
+	{ 5, 0, 0x9FFF, 0xFFFF },
+	{ 6, 0, 0xBFFF, 0xFFFF },
+	{ 7, 0, 0xDFFF, 0xFFFF }
+};
+
+NJS_MDATA2 animation_0004CEA0_mdat[] = {
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, animation_0004CEA0_15_rot, 0, LengthOfArray(animation_0004CEA0_15_rot) },
+	{ NULL, animation_0004CEA0_16_rot, 0, LengthOfArray(animation_0004CEA0_16_rot) },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 },
+	{ NULL, NULL, 0, 0 }
+};
+
+NJS_MOTION animation_0004CEA0 = { animation_0004CEA0_mdat, 8, NJD_MTYPE_POS_0 | NJD_MTYPE_ANG_1, 2 };

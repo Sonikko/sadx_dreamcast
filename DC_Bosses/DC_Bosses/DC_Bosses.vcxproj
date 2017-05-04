@@ -99,6 +99,7 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Arrays.h" />
     <ClInclude Include="Chaos0_Landtable.h" />
     <ClInclude Include="Chaos0_policecar.h" />
     <ClInclude Include="Chaos2.h" />

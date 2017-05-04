@@ -11256,6 +11256,9 @@ COL collist_00005280[] = {
 NJS_TEXNAME textures[35]; //number of textures in the PVM
 NJS_TEXLIST texlist = { arrayptrandlength(textures) };
 
+NJS_TEXNAME chaos0_obj_tex[33]; //number of textures in the PVM
+NJS_TEXLIST chaos0_object = { arrayptrandlength(chaos0_obj_tex) };
+
 //Initialize the landtable
 
 LandTable landtable_000001D8 = { LengthOfArray(collist_00005280), 0, 8, 0, collist_00005280, NULL, "LM_CHAOS0", (NJS_TEXLIST *)&texlist , 0, 0 }; //Replace the second NULL with the name of the PVM, replace the addres after (NJS_TEXLIST *) with "&texlist"
