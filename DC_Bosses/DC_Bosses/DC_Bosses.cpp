@@ -30,14 +30,14 @@ FunctionPointer(void, sub_5632F0, (ObjectMaster *a1), 0x5632F0);
 FunctionPointer(void, sub_563370, (ObjectMaster *a1), 0x563370);
 static float TornadoAlpha = 1.0f;
 int TornadoTrigger = 0;
-static int spritecount = 0;
-static int spritecount_slave1 = 0;
-static int spritecount_slave2 = 0;
+static int ParticleCount_main = 0;
+static int ParticleCount_slave1 = 0;
+static int ParticleCount_slave2 = 0;
 static bool Chaos4Defeated = 0;
-static int anim = 27;
-static int anim2 = 81;
-static int anim3 = 121;
-static int anim4 = 131;
+static int Chaos4Water = 27;
+static int E101ROcean = 81;
+static int EggHornetWater1 = 118;
+static int EggHornetWater2 = 128;
 
 static int EggHornet_Rotation = 0;
 static int EggHornet_RotationDirection = 1;
@@ -116,8 +116,8 @@ void __cdecl sub_5633A0(ObjectMaster *a1)
 {
 	a1->MainSub = sub_563370Z;
 	a1->DisplaySub = sub_5632F0X;
-	a1->Data1->CharIndex = spritecount;
-	spritecount++;
+	a1->Data1->CharIndex = ParticleCount_main;
+	ParticleCount_main++;
 }
 
 //DamageMain sprite
@@ -213,8 +213,8 @@ void __cdecl Chaos7Damage_Slave_LoadX(ObjectMaster *a1)
 	a1->MainSub = Chaos7Damage_Slave_MainX;
 	a1->DisplaySub = Chaos7Damage_DisplayX;
 	a1->Data1->Object = 0;
-	a1->Data1->Unknown= spritecount_slave1;
-	spritecount_slave1++;
+	a1->Data1->Unknown= ParticleCount_slave1;
+	ParticleCount_slave1++;
 }
 
 void __cdecl Chaos7Damage_Master_MainX(ObjectMaster *a1)
@@ -292,9 +292,9 @@ void __cdecl Chaos7Damage_Master_LoadX(ObjectMaster *a1)
 	v1 = a1->Data1;
 	v1->CharIndex = 0;
 	v1->Object = 0;
-	v1->NextAction = spritecount_slave1;
+	v1->NextAction = ParticleCount_slave1;
 	v1->Scale.x = (double)rand() * 0.000030517578f + 0.5f;
-	spritecount_slave1++;
+	ParticleCount_slave1++;
 }
 
 extern "C"
@@ -323,7 +323,7 @@ extern "C"
 		}
 		else
 		{
-			ResizeTextureList((NJS_TEXLIST*)0x1557064, textures_egm1land);  //Egg Hornet level texlist
+			ResizeTextureList((NJS_TEXLIST*)0x1557064, 143);  //Egg Hornet level texlist
 			ResizeTextureList((NJS_TEXLIST*)0x16B460C, 87); //Zero/E101R texlist
 			collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x80000000;
 			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x80000000;
@@ -520,7 +520,6 @@ extern "C"
 		((LandTable *)0x11EDE38)->COLCount = LengthOfArray(collist_0014AFB4); //Chaos6 COL list
 		memcpy((void*)0x011EDE20, &animlist_0014B62C, sizeof(animlist_0014B62C)); // Chaos6 animlist
 		//*(NJS_OBJECT*)0x1561A70 = object_000104E8; //Egg Hornet model
-		ResizeTextureList((NJS_TEXLIST*)0x1557064, 160);
 		DataArray(FogData, Chaos2Fog, 0x01120638, 3);
 		DataArray(FogData, Chaos6SFog, 0x011EF0E8, 3);
 		DataArray(FogData, Chaos6KFog, 0x011EF118, 3);
@@ -615,7 +614,7 @@ extern "C"
 		{
 			TornadoTrigger = 1;
 			TornadoAlpha = 0;
-			spritecount = 0;
+			ParticleCount_main = 0;
 		}
 		if (TornadoTrigger == 1 && byte_03C5A7EF != 3) TornadoTrigger = 2;
 		if (TornadoTrigger == 2) TornadoAlpha = TornadoAlpha + 0.04f;
@@ -663,9 +662,9 @@ extern "C"
 		{
 			if (GameState != 16)
 			{
-			if (anim2 > 86) anim2 = 77;
-			matlist_00007B80[0].attr_texId = anim2;
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim2++;
+			if (E101ROcean > 86) E101ROcean = 77;
+			matlist_00007B80[0].attr_texId = E101ROcean;
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) E101ROcean++;
 			if (Camera_Data1 != nullptr)
 			{
 				object_00007C50.pos[0] = Camera_Data1->Position.x;
@@ -675,9 +674,9 @@ extern "C"
 		}
 		if (CurrentLevel == 17 && GameState != 16)
 		{
-			if (anim < 13) anim = 26;
-			matlist_000429E8[0].attr_texId = anim;
-			if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) anim--;
+			if (Chaos4Water < 13) Chaos4Water = 26;
+			matlist_000429E8[0].attr_texId = Chaos4Water;
+			if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) Chaos4Water--;
 		}
 		if (CurrentLevel == 17 && LevelFrameCount < 70)
 		{
@@ -687,18 +686,17 @@ extern "C"
 		}
 		if (CurrentLevel == 20 && GameState != 16)
 		{
-			if (anim3 > 127) anim3 = 118;
-			if (anim4 > 142) anim4 = 128;
-			matlist_00057F04[0].attr_texId = anim3;
-			matlist_00048AD0[0].attr_texId = anim4;
-			matlist_00048FD0[0].attr_texId = anim4;
-			matlist_0004E8F8[0].attr_texId = anim4;
-			matlist_0004EBA0[0].attr_texId = anim4;
-			if (SADXStyleWater != 0) WriteData((void*)0x0057230F, 0, 1);
+			if (EggHornetWater1 > 127) EggHornetWater1 = 118;
+			if (EggHornetWater2 > 142) EggHornetWater2 = 128;
+			matlist_00057F04[0].attr_texId = EggHornetWater1;
+			matlist_00048AD0[0].attr_texId = EggHornetWater2;
+			matlist_00048FD0[0].attr_texId = EggHornetWater2;
+			matlist_0004E8F8[0].attr_texId = EggHornetWater2;
+			matlist_0004EBA0[0].attr_texId = EggHornetWater2;
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 			{
-				anim3++;
-				anim4++;
+				EggHornetWater1++;
+				EggHornetWater2++;
 			}
 		}
 		if (CurrentLevel == 17 && GameState == 15 && Chaos4Hitpoints > 4 && LevelFrameCount > 70 && matlist_000429E8[0].diffuse.argb.a>3)matlist_000429E8[0].diffuse.argb.a= matlist_000429E8[0].diffuse.argb.a-4; //make water invisible when Chaos4 gets in there
