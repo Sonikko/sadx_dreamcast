@@ -101,6 +101,8 @@ extern "C"
 		*(NJS_OBJECT*)0x02677288 = object_00145D34;//container B top broken 2
 		WriteData((void*)0x00619545, 1, 1); //blending mode for poster
 		WriteData((void*)0x0061A8EA, 0, 1); //blending mode for glass
+		WriteData((void*)0x0061A8EA, 0, 1); //blending mode for glass 2
+		WriteData((void*)0x0061A951, 0, 1); //blending mode for glass 3
 		ResizeTextureList((NJS_TEXLIST*)0x2592E8C, textures_highway1);
 		ResizeTextureList((NJS_TEXLIST*)0x2581310, textures_highway2);
 		ResizeTextureList((NJS_TEXLIST*)0x24CAC94, textures_highway3);
@@ -114,6 +116,52 @@ extern "C"
 		memcpy((void*)0x026682B8, &object_0013949C, sizeof(object_0013949C)); // SH Blue Car
 		memcpy((void*)0x0266FC8C, &object_0013E9CC, sizeof(object_0013E9CC)); // SH Yellow Car
 		memcpy((void*)0x0267A1A0, &attach_00148B24, sizeof(attach_00148B24)); //SH Glass
+		((NJS_OBJECT*)0x02679FDC)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x0267A2DC)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x0267A410)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x0267A56C)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x0267A67C)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x0267A7B0)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x0267A8C0)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x0267AA7C)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x0267ABB0)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x0267ACC0)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x0267ADD0)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x0267AF14)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x0267B06C)->basicdxmodel->mats[0].attr_texId = 13;
+		((NJS_OBJECT*)0x02679FDC)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		((NJS_OBJECT*)0x0267A2DC)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		((NJS_OBJECT*)0x0267A410)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		((NJS_OBJECT*)0x0267A56C)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		((NJS_OBJECT*)0x0267A67C)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		((NJS_OBJECT*)0x0267A7B0)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		((NJS_OBJECT*)0x0267A8C0)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		((NJS_OBJECT*)0x0267AA7C)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		((NJS_OBJECT*)0x0267ABB0)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		((NJS_OBJECT*)0x0267ACC0)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		((NJS_OBJECT*)0x0267ADD0)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		((NJS_OBJECT*)0x0267AF14)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		((NJS_OBJECT*)0x0267B06C)->basicdxmodel->mats[0].diffuse.color = 0x4CB2B2B2;
+		//Fountain materials
+		((NJS_OBJECT*)0x0266387C)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x0266387C)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x02663488)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x02663488)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x02662D68)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
+		((NJS_OBJECT*)0x02662D68)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
+		/*(NJS_OBJECT*)0x02679FDC = object_00148C50;
+		*(NJS_OBJECT*)0x0267A2DC = object_001495DC;
+		*(NJS_OBJECT*)0x0267A410 = object_00148D54;
+		*(NJS_OBJECT*)0x0267A56C = object_00148E5C;
+		*(NJS_OBJECT*)0x0267A67C = object_0014906C;
+		*(NJS_OBJECT*)0x0267A7B0 = object_00149174;
+		*(NJS_OBJECT*)0x0267A8C0 = object_001492CC;
+		*(NJS_OBJECT*)0x0267AA7C = object_001493D4;
+		*(NJS_OBJECT*)0x0267ABB0 = object_001494D8;
+		*(NJS_OBJECT*)0x0267ACC0 = object_001495DC;
+		*(NJS_OBJECT*)0x0267ADD0 = object_001496F4;
+		*(NJS_OBJECT*)0x0267AF14 = object_001497F8;
+		//*(NJS_OBJECT*)0x0267B06C =*/
 		DataArray(FogData, SpeedHighway1Fog, 0x024CA4E4, 3);
 		DataArray(FogData, SpeedHighway3Fog, 0x024CA544, 3);
 		for (int i = 0; i < 3; i++)
