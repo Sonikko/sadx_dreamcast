@@ -29,6 +29,8 @@ extern "C" __declspec(dllexport) void cdecl Init()
 	((LandTable*)0x022369A0)->Col = landtable_00021094.Col;
 	((NJS_OBJECT *)0x214BF20)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_2;
 	((NJS_OBJECT *)0x214E3AC)->basicdxmodel->meshsets->vertuv = uv_01D4E2F4_3;
+	*(NJS_MODEL_SADX *)0x961300 = attach_001E10F8; //Aircraft pad
+	*(NJS_MODEL_SADX *)0x961EF8 = attach_001E1CBC; //Aircraft pad something
 	*(NJS_OBJECT *)0x21FDE74 = object_00197D2C; //Decal 1
 	*(NJS_OBJECT *)0x21FE9F8 = object_00198858; //Decal 2
 	*(NJS_OBJECT *)0x21FEB04 = object_0019895C; //Decal 3
