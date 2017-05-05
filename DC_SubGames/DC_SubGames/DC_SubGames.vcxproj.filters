@@ -36,19 +36,7 @@
     <ClInclude Include="TwinkleCircuit.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ECModel.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tornado1.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tornado2.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tornado2_Trans.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Tornado2_trans2.h">
+    <ClInclude Include="SkyChaseModels.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
