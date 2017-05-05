@@ -3,6 +3,7 @@
 #include "Animals.h"
 #include "Itembox.h"
 #include "EmeShard.h"
+#include "TornadoCrash.h"
 
 static PointerInfo jumps[] = {
 	// ItemBox
@@ -32,6 +33,7 @@ extern "C"
 		WriteData((char*)0x004D7712, 2, 1); //Animal bubble blending mode
 		WriteData((char*)0x004A2DBB, 1, 1); //Emerald piece blending mode
 		*(NJS_OBJECT*)0x008BA6D4 = object_0019BC48; //Emerald piece
+		*(NJS_OBJECT*)0x02F67B78 = object_0021BD90; //Tornado 2 crashed
 		ResizeTextureList((NJS_TEXLIST*)0x0092ACE4, 5); //GOMA texlist
 		((NJS_OBJECT*)0x929E1C)->model = &attach_001568D8; //Goma left whisker
 		((NJS_OBJECT*)0x929FD8)->model = &attach_00156758; //Goma right whisker
