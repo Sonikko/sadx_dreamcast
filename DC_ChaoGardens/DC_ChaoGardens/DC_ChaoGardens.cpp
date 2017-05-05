@@ -17,6 +17,7 @@
 #include <stdlib.h>  
 
 static int vmuframe = 0;
+static float fruitscale = 0.65f;
 
 PointerInfo pointers[] = {
 	ptrdecl(0x719DC9, &landtable_00000E64), //Chao Race
@@ -56,6 +57,9 @@ extern "C"
 		WriteCall((void*)0x005262DE, SetTransporterTexture);// Garden transporter texture/texlist
 		WriteJump((void*)0x729260, (void*)0x5262B0);// Garden transporter effects
 		*(NJS_OBJECT*)0x33CB04C = object_001826E8; //Name machine button
+		*(NJS_OBJECT*)0x3606D00 = object_0017C0BC; //Coconut
+		*(NJS_OBJECT*)0x3606958 = object_0017C0BC_green; //Coconut (unripe)
+		WriteData((float**)0x00722C33, &fruitscale);
 		WriteData((void*)0x007195AE, 0x90, 5); //Don't load SADX button prompts in SS garden
 		WriteData((void*)0x00719181, 0x90, 5); //Don't load SADX button prompts in EC garden
 		WriteData((void*)0x00718E20, 0x90, 5); //Don't load SADX button prompts in MR garden
@@ -311,7 +315,7 @@ __declspec(dllexport) void __cdecl OnFrame()
 			matlist_0000C748[0].attr_texId = ecgardenwater;
 			matlist_0000EF4C[0].attr_texId = ecgardenwater;
 			matlist_00001D00[0].attr_texId = ecgardenwater;
-			if (FramerateSetting < 2 && FrameCounter % 5 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 			{
 				ecgardenwater++;
 				ecgardensand++;
@@ -330,7 +334,7 @@ __declspec(dllexport) void __cdecl OnFrame()
 			}
 			if (mrgardenwater > 45) mrgardenwater = 36;
 			matlist_00002FF4[0].attr_texId = mrgardenwater;
-			if (FramerateSetting < 2 && FrameCounter % 5 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) mrgardenwater++;
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) mrgardenwater++;
 			if (Camera_Data1 != nullptr)
 			{
 				object_00013A78.pos[0] = Camera_Data1->Position.x;
