@@ -11,14 +11,22 @@ static float vstretchx = 0.3525f;
 static float vstretchz = 0.4025f;
 static float rewritestretch = 0.5f;
 static float zero = 0.0f;
+static float one = 1.0f;
+static float minus1 = -1.0f;
+static float f128 = 128.0f;
 static float f256 = 256.0f;
 static float f512 = 512.0f;
+static float f384 = 384.0f;
 static float f768 = 768.0f;
 static float gamestretch = 0.0f;
 static float control_vertoffset = 455.0f;
 static float control_hzoffset = 593.0f;
 static float camera_vertoffset = 75.0f;
 static float camera_hzoffset = 215.0f;
+static float vertoffset = 0.0f;
+static float vertoffset128 = 128.0f;
+static float vertoffset256 = 256.0f;
+static float vertoffset384 = 384.0f;
 
 void BoxBackgroundColor()
 {
@@ -61,7 +69,7 @@ extern "C"
 				GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_ES";
 				GUITexturePVMs5[29].Name = "AVA_TITLE_CMN_SMALLS";
 			}
-			if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) //Widescreen
+			if (float(HorizontalResolution) / float(VerticalResolution) >= 1.5f) //Widescreen
 			{
 				GUITexturePVMs[17].Name = "AVA_GTITLE0_E1";
 				GUITexturePVMs[18].Name = "AVA_TITLE_CMN1";
@@ -88,68 +96,53 @@ extern "C"
 				GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_E1";
 				GUITexturePVMs5[29].Name = "AVA_TITLE_CMN_SMALLS";
 			}
-			//Stretch value
-			gamestretch = float(HorizontalResolution)/1280.0f;
-			//AVA_BACK stuff
-			WriteData((float**)0x00507BC2, &gamestretch);
-			WriteData((float**)0x00507BC8, &gamestretch);
-			WriteData((char*)0x010D7D09, 0x02, 1);
-			WriteData((char*)0x010D7D0D, 0x02, 1);
-			WriteData((char*)0x010D7D13, 0x02, 1);
-			WriteData((char*)0x010D7D15, 0x02, 1);
-			WriteData((char*)0x010D7D19, 0x04, 1);
-			WriteData((char*)0x010D7D1F, 0x04, 1);
-			WriteData((char*)0x010D7D20, 0xFF, 1);
-			WriteData((char*)0x010D7D25, 0x04, 1);
-			WriteData((char*)0x010D7D26, 0xFF, 1);
-			WriteData((char*)0x010D7D2B, 0x04, 1);
-			WriteData((char*)0x010D7D2B, 0x04, 1);
-			WriteData((char*)0x010D7D2C, 0xFF, 1);
-			WriteData((char*)0x010D7D2D, 0x02, 1);
 			//Main menu BG
-			WriteData((float**)0x0050BAB7, &gamestretch);
-			WriteData((float**)0x0050BAFA, &gamestretch);
-			WriteData((float**)0x0050BB3A, &gamestretch);
-			WriteData((float**)0x0050BB46, &gamestretch);
-			WriteData((float**)0x0050BABD, &gamestretch);
-			WriteData((float**)0x0050BB74, &gamestretch);
-			WriteData((float**)0x0050BB80, &gamestretch);
-			WriteData((float**)0x0050BBA9, &gamestretch);
-			WriteData((float**)0x0050BBB1, &gamestretch);
-			WriteData((float**)0x0050BBB7, &gamestretch);
-			WriteData((float**)0x0050BBE3, &gamestretch);
-			WriteData((float**)0x0050BBE9, &gamestretch);
-			WriteData((float**)0x0050BBF5, &gamestretch);
-			WriteData((float**)0x0050BC1E, &gamestretch);
-			WriteData((float**)0x0050BC23, &gamestretch);
-			WriteData((float**)0x0050BC2F, &gamestretch);
-			WriteData((float**)0x0050BC58, &gamestretch);
-			WriteData((float**)0x0050BC5E, &gamestretch);
-			WriteData((float**)0x0050BC69, &gamestretch);
-			WriteData((float**)0x0050BB34, &gamestretch);
-			WriteData((float**)0x0050BB6F, &gamestretch);
-			WriteData((float**)0x0050BB00, &gamestretch);
-			WriteData((float**)0x0050BB0B, &gamestretch);
-			WriteData((float**)0x0050BB0B, &gamestretch);
-			WriteData((float**)0x0050BC64, &f768);
-			WriteData((float**)0x0050BBEF, &f256);
-			WriteData((float**)0x0050BB06, &f256);
-			WriteData((float**)0x0050BB7A, &f256);
-			WriteData((float**)0x0050BC29, &f512);
-			WriteData((float**)0x0050BB06, &f512);
-			WriteData((float**)0x0050BB7A, &f512);
-			WriteData((float**)0x0050BBBD, &zero);
-			WriteData((float**)0x0050BAD5, &zero);
-			WriteData((float**)0x0050BB40, &zero);
+			WriteData((float**)0x0050BAB7, (float*)0x008928C0);
+			WriteData((float**)0x0050BAFA, (float*)0x008928C0);
+			WriteData((float**)0x0050BB3A, (float*)0x008928C0);
+			WriteData((float**)0x0050BB46, (float*)0x008928C0);
+			WriteData((float**)0x0050BABD, (float*)0x008928C0);
+			WriteData((float**)0x0050BB74, (float*)0x008928C0);
+			WriteData((float**)0x0050BB80, (float*)0x008928C0);
+			WriteData((float**)0x0050BBA9, (float*)0x008928C0);
+			WriteData((float**)0x0050BBB1, (float*)0x008928C0);
+			WriteData((float**)0x0050BBB7, (float*)0x008928C0);
+			WriteData((float**)0x0050BBE3, (float*)0x008928C0);
+			WriteData((float**)0x0050BBE9, (float*)0x008928C0);
+			WriteData((float**)0x0050BBF5, (float*)0x008928C0);
+			WriteData((float**)0x0050BC1E, (float*)0x008928C0);
+			WriteData((float**)0x0050BC23, (float*)0x008928C0);
+			WriteData((float**)0x0050BC2F, (float*)0x008928C0);
+			WriteData((float**)0x0050BC58, (float*)0x008928C0);
+			WriteData((float**)0x0050BC5E, (float*)0x008928C0);
+			WriteData((float**)0x0050BC69, (float*)0x008928C0);
+			WriteData((float**)0x0050BB34, (float*)0x008928C0);
+			WriteData((float**)0x0050BB6F, (float*)0x008928C0);
+			WriteData((float**)0x0050BB00, (float*)0x008928C0);
+			WriteData((float**)0x0050BB0B, (float*)0x008928C0);
+			WriteData((float**)0x0050BB0B, (float*)0x008928C0);
+			//vertoffset = 0.5f*(480.0f - (float(VerticalResolution) / float(HorizontalResolution / 640.0f)))-1.0f;
+			vertoffset = 0.0f;
+			vertoffset128 = 128.0f;
+			vertoffset256 = 256.0f;
+			vertoffset384 = 384.0f;
+			WriteData((float**)0x0050BAD5, &vertoffset);
+			WriteData((float**)0x0050BB06, &vertoffset256);
+			WriteData((float**)0x0050BB40, &vertoffset);
+			WriteData((float**)0x0050BB7A, &vertoffset256);
+			WriteData((float**)0x0050BBBD, &vertoffset);
+			WriteData((float**)0x0050BBEF, &vertoffset128);
+			WriteData((float**)0x0050BC29, &vertoffset256);
+			WriteData((float**)0x0050BC64, &vertoffset384);
 			//Scrolling
 			WriteData((float**)0x0050E83B, &zero); //Disable titlescreen scrolling 
 			WriteData((float**)0x0050E5BB, &zero); //Disable titlescreen scrolling (640x480)
 			//Offset
 			WriteData((float**)0x0050E6C2, &zero); //Disable horizontal offset
-			WriteData((float*)0x0050E6E7, 0.0f); //Disable vertical offset row 1
-			WriteData((float**)0x0050E73D, &zero); //Disable vertical offset row 2
-			WriteData((float**)0x0050E79D, &zero); //Disable vertical offset row 3
-			WriteData((float**)0x0050E7FD, &zero); //Disable vertical offset row 4
+			WriteData((float*)0x0050E6E7, -1.0f); //Disable vertical offset row 1
+			WriteData((float**)0x0050E73D, &one); //Disable vertical offset row 2
+			WriteData((float**)0x0050E79D, &one); //Disable vertical offset row 3
+			WriteData((float**)0x0050E7FD, &one); //Disable vertical offset row 4
 			//PressStart for 4:3
 			WriteData((float*)0x0050FFAA, 191.0f); //PressStart texture X
 			WriteData((float*)0x0050FFB2, 363.0f); //PressStart texture Y
