@@ -375,6 +375,7 @@ extern "C"
 		if (CurrentLevel == 26 && GetTimeOfDay() != 2) attach_0017D7A8.mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		if (CurrentLevel == 26 && CurrentAct == 3 && GetTimeOfDay() == 2)
 		{
+			matlist_000E3CC4[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_000F5934[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_0012BD98[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_0012BD98[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -429,6 +430,7 @@ extern "C"
 		//Evening reflections Act 3 (Main area)
 		if (CurrentLevel == 26 && CurrentAct == 3 && GetTimeOfDay() == 1)
 		{
+			matlist_000E3CC4[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000F5934[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_0012BD98[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_0012BD98[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -483,6 +485,7 @@ extern "C"
 		//Day reflections Act 3 (Main area)
 		if (CurrentLevel == 26 && CurrentAct == 3 && GetTimeOfDay() == 0)
 		{
+			matlist_000E3CC4[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000F5934[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_0012BD98[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_0012BD98[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
