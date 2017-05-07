@@ -252,6 +252,7 @@ extern "C"
 		DataArray(FogData, FinalEgg1Fog, 0x019C8FF0, 3);
 		DataArray(FogData, FinalEgg2Fog, 0x019C9020, 3);
 		DataArray(FogData, FinalEgg3Fog, 0x019C9050, 3);
+		DataArray(DrawDistance, DrawDist_FinalEgg2, 0x019C8FC0, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			FinalEgg1Fog[i].Color = 0xFF000000;
@@ -264,6 +265,7 @@ extern "C"
 			FinalEgg3Fog[i].Color = 0xFF000000;
 			FinalEgg3Fog[i].Layer = 650.0f;
 			FinalEgg3Fog[i].Distance = 2000.0f;
+			DrawDist_FinalEgg2[i].Maximum = -2400.0f;
 		}
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
