@@ -17,6 +17,7 @@ static int ang = 0;
 static int SoundPlayed = 0;
 static int shift1 = 65;
 static int shift2 = -10;
+static int carduv_reala = 1;
 FunctionPointer(void, sub_5DD900, (int a1, int a2), 0x5DD900);
 FunctionPointer(void, sub_5DD920, (int a1, int a2), 0x5DD920);
 FunctionPointer(void, sub_5C09D0, (int a1), 0x5C09D0);
@@ -141,7 +142,7 @@ extern "C"
 		*(NJS_MODEL_SADX*)0x01D9C72C = attach_0011F050; //Bottom decoration in Act 3 (bright)
 		*(NJS_MODEL_SADX*)0x01D9CB7C = attach_0011F490; //Bottom decoration in Act 3 (dark)
 		*(NJS_MODEL_SADX*)0x01DDF318 = attach_00160DA4; //CardUV 1
-		*(NJS_MODEL_SADX*)0x01DDF180 = attach_00160C14; //CardUV 2
+		*(NJS_MODEL_SADX*)0x01DDF180 = attach_00160C14_2; //CardUV 2
 		//UV fixes
 		memcpy((void*)0x1E3C3C8, uv_001BA8B0, sizeof(uv_001BA8B0)); //O KBB
 		memcpy((void*)0x1E3C868, uv_001BAD3C, sizeof(uv_001BAD3C)); //O KBR
@@ -382,6 +383,14 @@ extern "C"
 			matlist_000ACC44[0].attr_texId = anim2;
 			matlist_000ACB40[0].attr_texId = anim2;
 			if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim2_actual++;
+		}
+		if (CurrentLevel == 9 && CurrentAct == 3 && GameState != 16)
+		{
+			carduv_reala = (carduv_reala + 4) % 255;
+			for (int rl = 0; rl < LengthOfArray(uv_00160A9C); rl++)
+			{
+				uv_00160A9C[rl].v = uv_00160A9C_0[rl].v + carduv_reala;
+			}
 		}
 	}
 }
