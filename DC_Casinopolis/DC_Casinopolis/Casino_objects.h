@@ -22356,3 +22356,73 @@ NJS_TEX uv_001CAE80[] = {
 	{ 0, 255 }
 };
 
+//CardUV fix
+
+
+NJS_MATERIAL matlist_00160A4C[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 137, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_DA_INV_SRC | NJD_SA_SRC },
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 137, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_U | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00160A74[] = {
+	4, 2, 3, 1, 0,
+	0x8000u | 8, 2, 3, 10, 11, 8, 9, 7, 6,
+	4, 6, 7, 5, 4
+};
+
+NJS_TEX uv_00160A9C[] = {
+	{ 7, -4765 },
+	{ 502, -4765 },
+	{ 7, 175 },
+	{ 502, 175 },
+	{ 7, 175 },
+	{ 502, 175 },
+	{ 7, -462 },
+	{ 502, -462 },
+	{ 7, -4287 },
+	{ 502, -4287 },
+	{ 7, -4765 },
+	{ 502, -4765 },
+	{ 502, 175 },
+	{ 7, 175 },
+	{ 502, -4765 },
+	{ 7, -4765 }
+};
+
+NJS_MESHSET_SADX meshlist_00160ADC[] = {
+	{ NJD_MESHSET_TRIMESH | 1, 3, poly_00160A74, NULL, NULL, NULL, uv_00160A9C, NULL }
+};
+
+NJS_VECTOR vertex_00160AF4[] = {
+	{ -145.8141f, 20, 136.747f },
+	{ -145.8141f, -20, 136.747f },
+	{ -145.8141f, -20, -134.7436f },
+	{ -145.8141f, 20, -134.7436f },
+	{ 158.059f, -20, 136.7469f },
+	{ 158.059f, 20, 136.7469f },
+	{ 158.059f, 20, -134.7437f },
+	{ 158.059f, -20, -134.7437f },
+	{ 132.9352f, -20, -174.1363f },
+	{ 132.9352f, 20, -174.1363f },
+	{ -120.6902f, -20, -174.1363f },
+	{ -120.6902f, 20, -174.1363f }
+};
+
+NJS_VECTOR normal_00160B84[] = {
+	{ 1, 0, 0 },
+	{ 1, 0, 0 },
+	{ 0.959979f, 0, 0.280071f },
+	{ 0.959979f, 0, 0.280071f },
+	{ -1, 0, 0 },
+	{ -1, 0, 0 },
+	{ -0.959979f, 0, 0.280071f },
+	{ -0.959979f, 0, 0.280071f },
+	{ -0.480767f, 0, 0.876848f },
+	{ -0.480767f, 0, 0.876848f },
+	{ 0.480767f, 0, 0.876848f },
+	{ 0.480767f, 0, 0.876848f }
+};
+
+NJS_MODEL_SADX attach_00160C14 = { vertex_00160AF4, normal_00160B84, LengthOfArray<Sint32>(vertex_00160AF4), meshlist_00160ADC, matlist_00160A4C, LengthOfArray<Uint16>(meshlist_00160ADC), LengthOfArray<Uint16>(matlist_00160A4C),{ 6.122452f, 0, -18.69465f }, 217.3634f, NULL };
+
+NJS_OBJECT object_00160C3C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00160C14, 0, 0, 0, 0x9000, 0, 0, 1, 1, 1, NULL, NULL };
