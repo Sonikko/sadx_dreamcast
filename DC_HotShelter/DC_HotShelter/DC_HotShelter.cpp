@@ -24,6 +24,7 @@ extern "C"
 	{
 		*(NJS_OBJECT*)0x18608A4 = object_0014D13C; //Broken wall (full)
 		*(NJS_OBJECT*)0x1862834 = object_0014E514; //Broken wall (broken)
+		*(NJS_OBJECT*)0x185F280 = object_0014C23C; //Broken wall (pieces)
 		*(NJS_OBJECT*)0x1812D34 = object_00109F58; //Egghead door 1
 		*(NJS_OBJECT*)0x184C22C = object_0013CDD4; //Egghead door 2 part 1
 		*(NJS_OBJECT*)0x184BA64 = object_0013C6AC; //Egghead door 2 part 2
