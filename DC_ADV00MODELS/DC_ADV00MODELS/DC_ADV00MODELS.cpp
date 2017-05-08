@@ -155,6 +155,12 @@ extern "C"
 		DataArray(DrawDistance, StationSquare6DrawDist, 0x02AA3CF8, 3);
 		for (int i = 0; i < 3; i++)
 		{
+			StationSquare1Fog[i].Toggle = 1;
+			StationSquare2Fog[i].Toggle = 1;
+			StationSquare3Fog[i].Toggle = 1;
+			StationSquare4Fog[i].Toggle = 1;
+			StationSquare5Fog[i].Toggle = 1;
+			StationSquare6Fog[i].Toggle = 1;
 			StationSquare1Fog[i].Distance = -12000.0f;
 			StationSquare2Fog[i].Distance = -12000.0f;
 			StationSquare3Fog[i].Distance = -12000.0f;
