@@ -37,6 +37,8 @@ static int anim1 = 130;
 static int anim2 = 140;
 static int anim3 = 76;
 static int anim_sadx = 156;
+static int uv_anim = 1;
+
 NJS_TEXNAME textures_mrtrain[31];
 NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
 
@@ -193,6 +195,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 
 extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 {
+	uv_anim = (uv_anim + 1) % 255;
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	//Evening and night materials Act 3
 	if (CurrentLevel == 33 && CurrentAct == 2)
@@ -218,28 +221,8 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 	if (GameState != 16 && CurrentLevel == 33 && CurrentAct == 0)
 	{
 		if (GameMode == GameModes_Mission && CurrentCharacter == 5) collist_00015E60[LengthOfArray(collist_00015E60) - 1].Flags = 0x00000001; else collist_00015E60[LengthOfArray(collist_00015E60) - 1].Flags = 0x00000000;
-		for (int q = 0; q < LengthOfArray(uv_00075EC0); q++)
-		{
-			uv_00075EC0[q].v = uv_00075EC0[q].v + 1;
-		}
-		if (uv_00075EC0[0].v >= -67)
-		{
-			for (int r1 = 0; r1 < LengthOfArray(uv_00075EC0); r1++)
-			{
-				uv_00075EC0[r1].v = uv_00075EC0_0[r1].v;
-			}
-		}
-		for (int q2 = 0; q2 < LengthOfArray(uv_000755A4); q2++)
-		{
-			uv_000755A4[q2].v = uv_000755A4[q2].v - 1;
-		}
-		if (uv_000755A4[0].v <= -761)
-		{
-			for (int r2 = 0; r2 < LengthOfArray(uv_000755A4); r2++)
-			{
-				uv_000755A4[r2].v = uv_000755A4_0[r2].v;
-			}
-		}
+		for (int q = 0; q < LengthOfArray(uv_00075EC0); q++) uv_00075EC0[q].v = uv_00075EC0_0[q].v + uv_anim;
+		for (int q2 = 0; q2 < LengthOfArray(uv_000755A4); q2++)	uv_000755A4[q2].v = uv_000755A4_0[q2].v - uv_anim;
 		if (anim1 > 139) anim1 = 130;
 		if (anim2 > 154) anim2 = 140;
 		if (anim_sadx > 170) anim_sadx = 156;
@@ -309,46 +292,12 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 				if (CurrentFogDist > -16000.0f) CurrentFogDist = CurrentFogDist - 128.0f;
 			}
 		}
-		for (int q6 = 0; q6 < LengthOfArray(uv_00162054); q6++) { uv_00162054[q6].v++; }
-		if (uv_00162054[0].v > 255)
-		{
-			for (int r3 = 0; r3 < LengthOfArray(uv_00162054); r3++)
-			{
-				uv_00162054[r3].v = uv_00162054_0[r3].v;
-			}
-		}
-		for (int q7 = 0; q7 < LengthOfArray(uv_001622D8); q7++) { uv_001622D8[q7].v++; }
-		if (uv_001622D8[0].v > 510)
-		{
-			for (int r4 = 0; r4 < LengthOfArray(uv_001622D8); r4++)
-			{
-				uv_001622D8[r4].v = uv_001622D8_0[r4].v;
-			}
-		}
-		for (int q3 = 0; q3 < LengthOfArray(uv_00160D9C); q3++) { uv_00160D9C[q3].v--; }
-		if (uv_00160D9C[0].v < -4)
-		{
-			for (int r5 = 0; r5 < LengthOfArray(uv_00160D9C); r5++)
-			{
-				uv_00160D9C[r5].v = uv_00160D9C_0[r5].v;
-			}
-		}
-		for (int q4 = 0; q4 < LengthOfArray(uv_0016166C); q4++) { uv_0016166C[q4].v++; }
-		if (uv_0016166C[0].v > 179)
-		{
-			for (int r6 = 0; r6 < LengthOfArray(uv_0016166C); r6++)
-			{
-				uv_0016166C[r6].v = uv_0016166C_0[r6].v;
-			}
-		}
-		for (int q5 = 0; q5 < LengthOfArray(uv_00161C18); q5++) { uv_00161C18[q5].v++; }
-		if (uv_00161C18[0].v > -473)
-		{
-			for (int r7 = 0; r7 < LengthOfArray(uv_00161C18); r7++)
-			{
-				uv_00161C18[r7].v = uv_00161C18_0[r7].v;
-			}
-		}
+		
+		for (int q6 = 0; q6 < LengthOfArray(uv_00162054); q6++) { uv_00162054[q6].v = uv_00162054_0[q6].v+uv_anim; }
+		for (int q7 = 0; q7 < LengthOfArray(uv_001622D8); q7++) { uv_001622D8[q7].v = uv_001622D8_0[q7].v+uv_anim; }
+		for (int q3 = 0; q3 < LengthOfArray(uv_00160D9C); q3++) { uv_00160D9C[q3].v = uv_00160D9C_0[q3].v-uv_anim; }
+		for (int q4 = 0; q4 < LengthOfArray(uv_0016166C); q4++) { uv_0016166C[q4].v = uv_0016166C_0[q4].v+uv_anim; }
+		for (int q5 = 0; q5 < LengthOfArray(uv_00161C18); q5++) { uv_00161C18[q5].v = uv_00161C18_0[q5].v+uv_anim; }
 	}
 }
 extern "C" __declspec(dllexport) const ModInfo SADXModInfo = { ModLoaderVer };
