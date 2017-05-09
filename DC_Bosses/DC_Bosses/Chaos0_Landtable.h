@@ -11248,12 +11248,20 @@ COL collist_00005280[] = {
 	{ { 416, 25.04082f, 331 }, 19.62266f, 0, 0, &object_0001C7B4, 0, 0xE0000001 },
 	{ { 300, 22.04082f, 219 }, 19.62266f, 0, 0, &object_0001C7E8, 0, 0xE0000001 },
 	{ { 217, 22.04082f, 197 }, 19.62266f, 0, 0, &object_0001C81C, 0, 0xE0000001 },
-	{ { 270, -200, 340 }, 848.5281f, 0, 0, &object_0001CB54, 0, 0x80000001 }
+	{ { 270, -200, 340 }, 848.5281f, 0, 0, &object_0001CB54, 0, 0x80000001 },
+	{ { 291.83f, 0.1f, 387.525f, }, 100, 0, 0, &spotlight1, 0, 0x81000000 },
+	{ { 313, 0.11f, 389.525f }, 100, 0, 0, &spotlight2, 0, 0x81000000 },
+	{ { 368.06f, 0.1f, 340.66f }, 100, 0, 0, &spotlight3, 0, 0x81000000 },
+	{ { 385.06f, 0.11f, 330.66f }, 100, 0, 0, &spotlight4, 0, 0x81000000 },
+	{ { 160.685f, 0.1f, 348.04f }, 100, 0, 0, &spotlight5, 0, 0x81000000 },
+	{ { 183.685f, 0.11f, 360.04f }, 100, 0, 0, &spotlight6, 0, 0x81000000 },
+	{ { 258.325f, 0.1f, 434.675f }, 100, 0, 0, &spotlight7, 0, 0x81000000 },
+	{ { 235.325f, 0.1f, 440.675f }, 100, 0, 0, &spotlight8, 0, 0x81000000 },
 };
 
 //Chaos 0 texture list
 
-NJS_TEXNAME textures[35]; //number of textures in the PVM
+NJS_TEXNAME textures[36]; //number of textures in the PVM
 NJS_TEXLIST texlist = { arrayptrandlength(textures) };
 
 NJS_TEXNAME chaos0_obj_tex[33]; //number of textures in the PVM
