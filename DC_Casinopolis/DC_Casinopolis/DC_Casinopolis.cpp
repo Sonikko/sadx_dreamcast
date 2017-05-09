@@ -6,22 +6,33 @@
 #include "Casino3.h"
 #include "Casino4.h"
 #include "stdlib.h"
+#include "Cowgirl.h"
 
 static short CurrentPlayer = -1;
+static float distance_float;
 static int anim1 = 75;
 static int anim2 = 7;
 static int anim1_actual = 0;
 static int anim2_actual = 0;
-static int delayX = 0;
+static int CowgirlDelay = 0;
 static int ang = 0;
 static int SoundPlayed = 0;
 static int shift1 = 65;
 static int shift2 = -10;
 static int carduv_reala = 1;
+static float cowgirlframe = 0;
+static int cowgirl_shift1 = 65;
+static int cowgirl_shift2 = 0;
 FunctionPointer(void, sub_5DD900, (int a1, int a2), 0x5DD900);
 FunctionPointer(void, sub_5DD920, (int a1, int a2), 0x5DD920);
 FunctionPointer(void, sub_5C09D0, (int a1), 0x5C09D0);
 FunctionPointer(bool, IsVisible2, (NJS_VECTOR *center, float radius), 0x00403330);
+NJS_VECTOR Cowgirl1{ 457.6972f, 45.06788f, 410.4371f };
+NJS_VECTOR Cowgirl2{ 340.3949, 51.20071, 503.1027 };
+NJS_VECTOR Cowgirl3{ 237.12f, 0, 421.055f };
+NJS_VECTOR Cowgirl4{ 331.62f, 50, 338.93f };
+NJS_VECTOR Cowgirl5{ 409.245f, 50, 188.18f };
+NJS_VECTOR Cowgirl6{ 237.12f, 50, 421.055f };
 
 DataPointer(ObjectMaster*, off_1E75DC8, 0x01E75DC8);
 DataPointer(ObjectMaster*, off_1E75DE0, 0x01E75DE0);
@@ -35,6 +46,32 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DB30, &landtable_000AF120),
 	ptrdecl(0x97DB34, &landtable_000D8440),
 };
+
+void __cdecl Cowgirl_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi@1
+	int cowgirlthing;
+	char v2; // al@3
+	Angle v3; // eax@5
+	NJS_OBJECT *v4; // edi@7
+	NJS_OBJECT *v5; // edi@7
+	Sint16 v6; // ax@7
+	NJS_OBJECT *v7; // edi@9
+	Sint16 v8; // ax@9
+	NJS_VECTOR distance_vector;
+	FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
+	v1 = a1->Data1;
+	if (!ClipObject(a1, 640010.0) && IsVisible(&v1->Position, 280.0))
+	{
+		auto entity = CharObj1Ptrs[0];
+		njSetTexture((NJS_TEXLIST*)0x01DF0920); //OBJ_CASINO9
+		njPushMatrix(0);
+		njTranslate(0, v1->Position.x, v1->Position.y, v1->Position.z+25);
+		njRotateXYZ(0, v1->Rotation.x, v1->Rotation.y, v1->Rotation.z);
+		sub_405450(&action_cowgirl_anim, cowgirlframe, 1.0f);
+		njPopMatrix(1u);
+	}
+}
 
 void __cdecl OLhtr_Display(ObjectMaster *a1)
 {
@@ -126,6 +163,8 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
+		if (Cowgirl != 0) WriteJump((void*)0x5CAA90, Cowgirl_Display);
 		DataArray(NJS_TEX, uv_01A4BD38, 0x01E4BD38, LengthOfArray(uv_001C8C9C));
 		DataArray(NJS_TEX, uv_01A4BD98, 0x01E4BD98, LengthOfArray(uv_001C8CFC));
 		ResizeTextureList((NJS_TEXLIST*)0x01DF0920, 203); //OBJ_CASINO9
@@ -244,6 +283,87 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		//Cowgirl
+		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
+		if (CurrentLevel == 9 && CurrentCharacter == 3 && Cowgirl != 0 && GameState != 16)
+		{
+		if (cowgirlframe > 30) cowgirlframe = 0;
+		cowgirlframe = cowgirlframe + 0.08f;
+		//Cowgirl UVs
+		if (FrameCounter % 16 == 0)
+		{
+			cowgirl_shift1 = (cowgirl_shift1 + 65) % 255;
+			cowgirl_shift2 = (cowgirl_shift2 + 100) % 510;
+
+			for (int slot_cow1 = 0; slot_cow1 < LengthOfArray(uv_001CF84C); slot_cow1++)
+			{
+				uv_001CF84C[slot_cow1].u = uv_001CF84C_0[slot_cow1].u + cowgirl_shift1;
+			}
+			for (int slot_cow2 = 0; slot_cow2 < LengthOfArray(uv_001D6728); slot_cow2++)
+			{
+				uv_001D6728[slot_cow2].u = uv_001D6728_0[slot_cow2].u + cowgirl_shift2;
+			}
+			for (int slot_cow3 = 0; slot_cow3 < LengthOfArray(uv_001D6040); slot_cow3++)
+			{
+				uv_001D6040[slot_cow3].u = uv_001D6040_0[slot_cow3].u + cowgirl_shift2;
+			}
+			for (int slot_cow4 = 0; slot_cow4 < LengthOfArray(uv_001D6794); slot_cow4++)
+			{
+				uv_001D6794[slot_cow4].u = uv_001D6794_0[slot_cow4].u + cowgirl_shift2;
+			}
+			for (int slot_cow5 = 0; slot_cow5 < LengthOfArray(uv_001D67BC); slot_cow5++)
+			{
+				uv_001D67BC[slot_cow5].u = uv_001D67BC_0[slot_cow5].u + cowgirl_shift2;
+			}
+			for (int slot_cow6 = 0; slot_cow6 < LengthOfArray(uv_001D2F74); slot_cow6++)
+			{
+				uv_001D2F74[slot_cow6].u = uv_001D2F74_0[slot_cow6].u + cowgirl_shift2;
+			}
+			for (int slot_cow7 = 0; slot_cow7 < LengthOfArray(uv_001D308C); slot_cow7++)
+			{
+				uv_001D308C[slot_cow7].u = uv_001D308C_0[slot_cow7].u + cowgirl_shift2;
+			}
+			for (int slot_cow8 = 0; slot_cow8 < LengthOfArray(uv_001D333C); slot_cow8++)
+			{
+				uv_001D333C[slot_cow8].u = uv_001D333C_0[slot_cow8].u + cowgirl_shift2;
+			}
+			for (int slot_cow9 = 0; slot_cow9 < LengthOfArray(uv_001D4868); slot_cow9++)
+			{
+				uv_001D4868[slot_cow9].u = uv_001D4868_0[slot_cow9].u + cowgirl_shift2;
+			}
+			for (int slot_cow10 = 0; slot_cow10 < LengthOfArray(uv_001D16E4); slot_cow10++)
+			{
+				uv_001D16E4[slot_cow10].u = uv_001D16E4_0[slot_cow10].u + cowgirl_shift2;
+			}
+			for (int slot_cow11 = 0; slot_cow11 < LengthOfArray(uv_001D02D0); slot_cow11++)
+			{
+				uv_001D02D0[slot_cow11].u = uv_001D02D0_0[slot_cow11].u + cowgirl_shift2;
+			}
+			for (int slot_cow12 = 0; slot_cow12 < LengthOfArray(uv_001D043C); slot_cow12++)
+			{
+				uv_001D043C[slot_cow12].u = uv_001D043C_0[slot_cow12].u + cowgirl_shift2;
+			}
+			for (int slot_cow13 = 0; slot_cow13 < LengthOfArray(uv_001D1F60); slot_cow13++)
+			{
+				uv_001D1F60[slot_cow13].u = uv_001D1F60_0[slot_cow13].u + cowgirl_shift2;
+			}
+			for (int slot_cow14 = 0; slot_cow14 < LengthOfArray(uv_001D1F78); slot_cow14++)
+			{
+				uv_001D1F78[slot_cow14].u = uv_001D1F78_0[slot_cow14].u + cowgirl_shift2;
+			}
+		}
+		//Cowgirl action
+		if (CowgirlDelay < 100) CowgirlDelay++;
+		auto entity = CharObj1Ptrs[0];
+		if (CowgirlDelay >= 100 && entity != nullptr && entity->Status & Status_Attack)
+		{
+			if (IsPlayerInsideSphere(&Cowgirl1, 180.0f) || IsPlayerInsideSphere(&Cowgirl2, 180.0f))
+			{
+					PlaySound(278, 0, 0, 0);
+					CowgirlDelay = 0;
+			}
+		}
+		}
 		if (CurrentLevel == 9 && CurrentAct == 0 && CurrentPlayer != CurrentCharacter)
 		{
 			if (CurrentCharacter == 0)
