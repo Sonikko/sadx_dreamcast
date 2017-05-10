@@ -394,7 +394,7 @@ extern "C"
 			if (CurrentAct == 1)
 			{
 				auto entity = CharObj1Ptrs[0];
-				if (SoundPlayed == 0 && entity != nullptr && entity->Position.y > -1696)
+				if (SoundPlayed == 0 && entity != nullptr && entity->Position.y > -1698)
 				{
 					PlaySound(249, 0, 0, 0);
 					SoundPlayed = 1;
