@@ -27,13 +27,10 @@ FunctionPointer(void, sub_5DD900, (int a1, int a2), 0x5DD900);
 FunctionPointer(void, sub_5DD920, (int a1, int a2), 0x5DD920);
 FunctionPointer(void, sub_5C09D0, (int a1), 0x5C09D0);
 FunctionPointer(bool, IsVisible2, (NJS_VECTOR *center, float radius), 0x00403330);
-NJS_VECTOR Cowgirl1{ 457.6972f, 45.06788f, 410.4371f };
-NJS_VECTOR Cowgirl2{ 340.3949, 51.20071, 503.1027 };
-NJS_VECTOR Cowgirl3{ 237.12f, 0, 421.055f };
-NJS_VECTOR Cowgirl4{ 331.62f, 50, 338.93f };
-NJS_VECTOR Cowgirl5{ 409.245f, 50, 188.18f };
-NJS_VECTOR Cowgirl6{ 237.12f, 50, 421.055f };
+NJS_VECTOR Cowgirl1{ 457.6972f, 45.06788f, 390 };
+NJS_VECTOR Cowgirl2{ 340.3949, 51.20071, 480 };
 
+DataArray(CollisionData, stru_1E763B8, 0x1E763B8, 3);
 DataPointer(ObjectMaster*, off_1E75DC8, 0x01E75DC8);
 DataPointer(ObjectMaster*, off_1E75DE0, 0x01E75DE0);
 DataPointer(NJS_OBJECT, stru_1E5EC4C, 0x01E5EC4C);
@@ -66,8 +63,8 @@ void __cdecl Cowgirl_Display(ObjectMaster *a1)
 		auto entity = CharObj1Ptrs[0];
 		njSetTexture((NJS_TEXLIST*)0x01DF0920); //OBJ_CASINO9
 		njPushMatrix(0);
-		njTranslate(0, v1->Position.x, v1->Position.y, v1->Position.z+25);
-		njRotateXYZ(0, v1->Rotation.x, v1->Rotation.y, v1->Rotation.z);
+		njTranslate(0, 311.62f, 0, 338.93f);
+		njRotateXYZ(0, 0, 0x1E00, 0);
 		sub_405450(&action_cowgirl_anim, cowgirlframe, 1.0f);
 		njPopMatrix(1u);
 	}
@@ -166,6 +163,15 @@ extern "C"
 		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
 		if (Cowgirl != 0)
 		{
+			stru_1E763B8[0].scale.y = stru_1E763B8[0].scale.y * 4;
+			stru_1E763B8[1].scale.y = stru_1E763B8[1].scale.y * 4;
+			stru_1E763B8[2].scale.y = stru_1E763B8[2].scale.y * 4;
+			stru_1E763B8[0].v.y = stru_1E763B8[0].v.y + 20;
+			stru_1E763B8[1].v.y = stru_1E763B8[1].v.y + 20;
+			stru_1E763B8[2].v.y = stru_1E763B8[2].v.y + 20;
+			stru_1E763B8[0].v.z = stru_1E763B8[0].v.z - 14;
+			stru_1E763B8[1].v.z = stru_1E763B8[1].v.z - 14;
+			stru_1E763B8[2].v.z = stru_1E763B8[2].v.z - 14;
 			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 4].Flags = 0x00000000;
 			WriteJump((void*)0x5CAA90, Cowgirl_Display);
 		}
