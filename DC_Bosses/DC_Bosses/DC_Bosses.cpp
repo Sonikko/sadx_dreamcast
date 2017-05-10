@@ -32,7 +32,7 @@ static float TornadoAlpha = 1.0f;
 int TornadoTrigger = 0;
 static int ParticleCount_main = 0;
 static int ParticleCount_slave1 = 0;
-static int ParticleCount_slave2 = 0;
+static int ParticleCount_slave2 = -120;
 static bool Chaos4Defeated = 0;
 static int Chaos4Water = 27;
 static int E101ROcean = 81;
@@ -44,6 +44,13 @@ static int EggHornet_RotationDirection = 1;
 
 static int egghornetwater = 143;
 static int e101rwater = 87;
+
+int __cdecl rand()
+{
+	DataPointer(int, seed, 0x02BCBDF8);
+	seed = 214013 * seed + 2531011;
+	return HIWORD(seed) & 0x7FFF;
+}
 
 void __cdecl TornadoFunc()
 {
@@ -75,6 +82,8 @@ PointerInfo pointers[] = {
 };
 
 //Perfect Chaos damage functions
+
+//Main explosion sprite
 
 void __cdecl sub_5632F0X(ObjectMaster *a1)
 {
@@ -120,39 +129,7 @@ void __cdecl sub_5633A0(ObjectMaster *a1)
 	ParticleCount_main++;
 }
 
-//DamageMain sprite
-
-void __cdecl Chaos7Damage_DisplayX(ObjectMaster *a1)
-{
-	DataPointer(NJS_TEXANIM, stru_1494050, 0x1494050);
-	DataPointer(NJS_SPRITE, stru_1494064, 0x1494064);
-	EntityData1 *v1; // esi@1
-	double v2; // st7@2
-	float v4;
-	int v3;
-	v1 = a1->Data1;
-	v3 = v1->NextAction;
-	v4 = *(float*)&v1->CharIndex;
-	if (!DroppedFrames)
-	{
-		DisableFog();
-		SetMaterialAndSpriteColor(&stru_1494124);
-		njColorBlendingMode(0, NJD_COLOR_BLENDING_ONE);
-		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
-		njPushMatrix(0);
-		njTranslateV(0, &v1->Position);
-		//stru_1494050.texid = ((short*)&v1->Object)[1] + 16;
-		//texanim2_array[v3].texid = ((short*)&v1->Object)[1] + 16;
-		texanim2_array[v3].texid = ((short*)&v1->Object)[1] + 16;
-		v2 = v1->Scale.x;
-		sprite2_array[v3].sy = v1->Scale.x;
-		sprite2_array[v3].sx = v2;
-		njDrawSprite3D_Queue(&sprite2_array[v3], 0, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE, QueuedModelFlagsB_SomeTextureThing);
-		njPopMatrix(1u);
-		ToggleStageFog();
-	}
-}
-
+//DamageSlave sprite
 
 void __cdecl Chaos7DamageSlave_DisplayX(ObjectMaster *a1)
 {
@@ -163,7 +140,7 @@ void __cdecl Chaos7DamageSlave_DisplayX(ObjectMaster *a1)
 	float v4;
 	char v3;
 	v1 = a1->Data1;
-	v3 = v1->CharID;
+	v3 = a1->field_30;
 	v4 = *(float*)&v1->CharIndex;
 	if (!DroppedFrames)
 	{
@@ -173,14 +150,12 @@ void __cdecl Chaos7DamageSlave_DisplayX(ObjectMaster *a1)
 		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
 		njPushMatrix(0);
 		njTranslateV(0, &v1->Position);
-		//stru_1494050.texid = ((short*)&v1->Object)[1] + 16;
-		//texanim2_array[v3].texid = ((short*)&v1->Object)[1] + 16;
-		//texanim3_array[v3].texid = ((short*)&v1->Object)[1] + 16;
-		texanim3_array[v3].texid = ((short*)&v1->Object)[1] + 16;
+		texanim3_array[v3 + 127].texid = ((signed short*)&v1->Object)[1] + 16;
+		sprite3_array[v3 + 127].tanim = &texanim3_array[v3 + 127];
 		v2 = v1->Scale.x;
-		sprite3_array[0].sy = v1->Scale.x;
-		sprite3_array[0].sx = v2;
-		njDrawSprite3D_Queue(&sprite3_array[0], 0, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE, QueuedModelFlagsB_SomeTextureThing);
+		sprite3_array[v3].sy = v1->Scale.x;
+		sprite3_array[v3].sx = v2;
+		njDrawSprite3D_Queue(&sprite3_array[v3 + 127], 0, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE, QueuedModelFlagsB_SomeTextureThing);
 		njPopMatrix(1u);
 		ToggleStageFog();
 	}
@@ -193,14 +168,14 @@ void __cdecl Chaos7Damage_Slave_MainX(ObjectMaster *a1)
 	unsigned __int8 v3; // of@2
 
 	v1 = a1->Data1;
-	if (++((signed short*)&v1->Object)[0] < 4	
-			|| (++((signed short*)&v1->Object)[1],
-			v3 = ((short*)&v1->Object)[1] - 8,
-			v2 = (signed __int16)(((short*)&v1->Object)[1] - 8) < 0,
+	if (++((signed short*)&v1->Object)[0] < 4
+		|| (++((signed short*)&v1->Object)[1],
+			v3 = HIWORD((float*)v1->Object) - 8,
+			v2 = (signed __int16)(HIWORD((float*)v1->Object) - 8) < 0,
 			((signed short*)&v1->Object)[0] = 0,
 			v2 ^ v3))
 	{
-		Chaos7Damage_DisplayX(a1);
+		Chaos7DamageSlave_DisplayX(a1);
 	}
 	else
 	{
@@ -210,11 +185,43 @@ void __cdecl Chaos7Damage_Slave_MainX(ObjectMaster *a1)
 
 void __cdecl Chaos7Damage_Slave_LoadX(ObjectMaster *a1)
 {
-	a1->MainSub = Chaos7Damage_Slave_MainX;
-	a1->DisplaySub = Chaos7Damage_DisplayX;
-	a1->Data1->Object = 0;
-	a1->Data1->Unknown= ParticleCount_slave1;
-	ParticleCount_slave1++;
+	a1->MainSub = Chaos7Damage_Slave_Main;
+	a1->DisplaySub = Chaos7DamageSlave_DisplayX;
+	*(Sint32*)&a1->Data1->Object = 0;
+	a1->field_30 = ParticleCount_slave2;
+	ParticleCount_slave2++;
+}
+
+//DamageMain sprite
+
+void __cdecl Chaos7Damage_DisplayX(ObjectMaster *a1)
+{
+	DataPointer(NJS_TEXANIM, stru_1494050, 0x1494050);
+	DataPointer(NJS_SPRITE, stru_1494064, 0x1494064);
+	EntityData1 *v1; // esi@1
+	double v2; // st7@2
+	float v4;
+	int v3;
+	v1 = a1->Data1;
+	v3 = v1->Unknown;
+	v4 = *(float*)&v1->CharIndex;
+	if (!DroppedFrames)
+	{
+		DisableFog();
+		SetMaterialAndSpriteColor(&stru_1494124);
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_ONE);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		texanim2_array[v3].texid = ((signed short*)&v1->Object)[1] + 16;
+		v2 = v1->Scale.x;
+		stru_1494064.sy = v1->Scale.x;
+		stru_1494064.sx = v2;
+		sprite2_array[v3].tanim = &texanim2_array[v3];
+		njDrawSprite3D_Queue(&sprite2_array[v3], 0, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE, QueuedModelFlagsB_SomeTextureThing);
+		njPopMatrix(1u);
+		ToggleStageFog();
+	}
 }
 
 void __cdecl Chaos7Damage_Master_MainX(ObjectMaster *a1)
@@ -256,12 +263,25 @@ void __cdecl Chaos7Damage_Master_MainX(ObjectMaster *a1)
 	}
 }
 
-int __cdecl rand()
+void __cdecl Chaos7Damage_Master_LoadX(ObjectMaster *a1)
 {
-	DataPointer(int, seed, 0x02BCBDF8);
-	seed = 214013 * seed + 2531011;
-	return HIWORD(seed) & 0x7FFF;
+	EntityData1 *v1; // esi@1
+	a1->MainSub = Chaos7Damage_Master_MainX;
+	a1->DisplaySub = Chaos7Damage_DisplayX;
+	v1 = a1->Data1;
+	v1->CharIndex = 0;
+	v1->Object = 0;
+	v1->Scale.x = (double)rand() * 0.000030517578f + 0.5f;
+	v1->Unknown = ParticleCount_slave1;
+	ParticleCount_slave1++;
 }
+
+void WaterTexture_BossOcean()
+{
+	if (CurrentLevel == 20) njSetTextureNum(158);
+	if (CurrentLevel == 23 || CurrentLevel == 25) njSetTextureNum(102);
+}
+
 void WaterTexture_BossWaves()
 {
 	if (egghornetwater > 157) egghornetwater = 143;
@@ -278,30 +298,24 @@ void WaterTexture_BossWaves()
 	}
 }
 
-void WaterTexture_BossOcean()
-{
-	if (CurrentLevel == 20) njSetTextureNum(158);
-	if (CurrentLevel == 23 || CurrentLevel == 25) njSetTextureNum(102);
-}
-
-void __cdecl Chaos7Damage_Master_LoadX(ObjectMaster *a1)
-{
-	EntityData1 *v1; // esi@1
-	a1->MainSub = Chaos7Damage_Master_MainX;
-	a1->DisplaySub = Chaos7Damage_DisplayX;
-	v1 = a1->Data1;
-	v1->CharIndex = 0;
-	v1->Object = 0;
-	v1->NextAction = ParticleCount_slave1;
-	v1->Scale.x = (double)rand() * 0.000030517578f + 0.5f;
-	ParticleCount_slave1++;
-}
-
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//Perfect Chaos sprite arrays
+		for (int ta = 0; ta < LengthOfArray(sprite3_array); ta++)
+		{
+			sprite3_array[ta].tanim = &texanim3_array[ta];
+		}
+		for (int ta2 = 0; ta2 < LengthOfArray(sprite2_array); ta2++)
+		{
+			sprite2_array[ta2].tanim = &texanim2_array[ta2];
+		}
+		for (int ta3 = 0; ta3 < LengthOfArray(sprite_array); ta3++)
+		{
+			sprite_array[ta3].tanim = &texanim_array[ta3];
+		}
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		//SADX style water
 		if (SADXStyleWater != 0)
@@ -339,11 +353,11 @@ extern "C"
 		WriteJump((void*)0x563370, sub_563370Z);
 		WriteJump((void*)0x5632F0, sub_5632F0X);
 		WriteJump((void*)0x5633A0, sub_5633A0);
-		//WriteJump((void*)0x00563490, Chaos7Damage_Slave_LoadX);
-		//WriteJump((void*)0x00563450, Chaos7Damage_Slave_MainX);
-		//WriteJump((void*)0x005633C0, Chaos7Damage_DisplayX);
-		//WriteJump((void*)0x00563BA0, Chaos7Damage_Master_MainX);
-		//WriteJump((void*)0x00563C50, Chaos7Damage_Master_LoadX);
+		WriteJump((void*)0x00563490, Chaos7Damage_Slave_LoadX);
+		WriteJump((void*)0x00563450, Chaos7Damage_Slave_MainX);
+		WriteJump((void*)0x005633C0, Chaos7Damage_DisplayX);
+		WriteJump((void*)0x00563BA0, Chaos7Damage_Master_MainX);
+		WriteJump((void*)0x00563C50, Chaos7Damage_Master_LoadX);
 		//Perfect Chaos tornado UVs
 		WriteData((int*)0x01426CA0, 1538);
 		WriteData((int*)0x01426CA4, -2500);
@@ -615,6 +629,8 @@ extern "C"
 			TornadoTrigger = 1;
 			TornadoAlpha = 0;
 			ParticleCount_main = 0;
+			ParticleCount_slave1 = 0;
+			ParticleCount_slave2 = 0;
 		}
 		if (TornadoTrigger == 1 && byte_03C5A7EF != 3) TornadoTrigger = 2;
 		if (TornadoTrigger == 2) TornadoAlpha = TornadoAlpha + 0.04f;
