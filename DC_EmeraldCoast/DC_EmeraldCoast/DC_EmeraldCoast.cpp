@@ -264,6 +264,8 @@ extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlengt
 
 extern "C" __declspec(dllexport) void __cdecl Init()
 {
+	WriteData((char*)0x004F7816, 0xFF, 2); //Disable water animation in Act 2
+	WriteData((char*)0x004F78E6, 0xFF, 2); //Disable water animation in Act 3
 	((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.argb.a = 0x99; //Match dynamic ocean alpha with normal ocean
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	DataArray(PVMEntry, BeachTexlists, 0x0102F408, 25);
@@ -420,6 +422,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		if (SADXStyleWater == 0 && beachsea_water > 9)beachsea_water = 0;
 		if (beachsea_water > 14) beachsea_water = 0;
 		((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attr_texId = beachsea_water;
+		((NJS_OBJECT*)0x010C05E8)->basicdxmodel->mats[0].attr_texId = beachsea_water;
 		matlist_00CBA58C[0].attr_texId = beachsea_water;
 		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2) beachsea_water++;
 	}
