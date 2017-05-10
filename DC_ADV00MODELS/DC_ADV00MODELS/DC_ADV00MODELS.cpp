@@ -113,6 +113,8 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31); //SS_TRAIN
 		//Objects
 		WriteData((void*)0x0063A6A4, 0x90, 5); // Pool chair
+		memcpy((void*)0x02AD4EA4, &object_00186E88, sizeof(object_00186E88)); //Hidden door 1
+		memcpy((void*)0x02AD4CD4, &object_00186CC4, sizeof(object_00186CC4)); //Hidden door 2
 		memcpy((void*)0x02AEE7B0, &object_0019AF04, sizeof(object_0019AF04)); // Boat
 		memcpy((void*)0x02AAB0E4, &object_00164444, sizeof(object_00164444)); // Hotel door 1
 		memcpy((void*)0x02AAE0BC, &object_00164444, sizeof(object_00164444)); // Hotel door 2
