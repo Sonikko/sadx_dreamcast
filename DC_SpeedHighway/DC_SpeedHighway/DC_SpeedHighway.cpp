@@ -81,7 +81,6 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		ResizeTextureList((NJS_TEXLIST*)0x026AA630, 16); //HIGHWAY_CAR
 		//WriteJump((void*)0x61BA10, sub_61BA10); //Fountain function
 		*(NJS_OBJECT*)0x0268843C = object_001554A8; //Cone
 		*(NJS_OBJECT*)0x0267497C = object_001434F4; //Platform

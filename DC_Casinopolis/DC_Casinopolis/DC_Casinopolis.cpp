@@ -177,7 +177,6 @@ extern "C"
 		}
 		DataArray(NJS_TEX, uv_01A4BD38, 0x01E4BD38, LengthOfArray(uv_001C8C9C));
 		DataArray(NJS_TEX, uv_01A4BD98, 0x01E4BD98, LengthOfArray(uv_001C8CFC));
-		ResizeTextureList((NJS_TEXLIST*)0x01DF0920, 203); //OBJ_CASINO9
 		*(NJS_MODEL_SADX*)0x01DF7140 = attach_00177188; //Slot red
 		*(NJS_MODEL_SADX*)0x01DF5138 = attach_00175E44; //Slot blue
 		*(NJS_MODEL_SADX*)0x01D8BC10 = attach_0010E984; //FlipperL

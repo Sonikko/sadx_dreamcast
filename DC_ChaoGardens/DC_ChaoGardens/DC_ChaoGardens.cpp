@@ -43,7 +43,7 @@ extern "C"
 	{
 //Chao Race Entry
 		//WriteJump((void*)0x007199B0, LoadRaceEntryX);
-		ResizeTextureList((NJS_TEXLIST *)0x340E934, 62); //Race Entry texlist
+		//ResizeTextureList((NJS_TEXLIST *)0x340E934, 62); //Race Entry texlist
 		//WriteJump((void*)0x00719880, ChaoStgEntrance_MainX);
 		//WriteJump((void*)0x0072C2E0, sub_72C2E0);
 		/*WriteData((void*)0x007197E0, 0xC3u, sizeof(char));
