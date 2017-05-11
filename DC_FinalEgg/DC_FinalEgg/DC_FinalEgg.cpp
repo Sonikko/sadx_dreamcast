@@ -242,7 +242,6 @@ extern "C"
 		WriteJump((void*)0x5AE330, sub_5AE330); //O Texture function
 		WriteJump(OStandLight_Display, OStandLight_DisplayFixed); //O Stand Light function
 		WriteJump((void*)0x005B4690, sub_5B4690); //Cylinder function
-		ResizeTextureList((NJS_TEXLIST*)0x019CC1C0, 170); //OBJ_FINALEGG
 		ResizeTextureList((NJS_TEXLIST*)0x1B98518, textures_finalegg1);
 		ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);
 		ResizeTextureList((NJS_TEXLIST*)0x1AC5780, textures_finalegg3);
