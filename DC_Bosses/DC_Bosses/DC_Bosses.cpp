@@ -693,8 +693,8 @@ extern "C"
 			}
 			if (dword_3C6C930 == 1 && byte_03C6C944 != EggHornetTrigger)
 			{
-				if (EggHornet_RotationDirection == 1) EggHornet_Rotation = EggHornet_Rotation + 3;
-				if (EggHornet_RotationDirection == -1) EggHornet_Rotation = EggHornet_Rotation - 3;
+				if (EggHornet_RotationDirection == 1) EggHornet_Rotation = EggHornet_Rotation + 3*FramerateSetting;
+				if (EggHornet_RotationDirection == -1) EggHornet_Rotation = EggHornet_Rotation - 3 * FramerateSetting;
 				if (EggHornet_Rotation > 10) EggHornet_RotationDirection = -1;
 				if (EggHornet_Rotation < -10) EggHornet_RotationDirection = 1;
 				((NJS_OBJECT *)0x01561A70)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Main model
