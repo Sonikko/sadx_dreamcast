@@ -20,16 +20,18 @@
 
 DataPointer(float, Chaos4Hitpoints, 0x03C58158);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+
 DataPointer(NJS_TEXANIM, stru_149401C, 0x149401C);
 DataPointer(NJS_TEXANIM, stru_1494050, 0x1494050);
 DataPointer(NJS_SPRITE, stru_1494030, 0x1494030);
 DataPointer(NJS_SPRITE, stru_1494064, 0x1494064);
-DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(NJS_ARGB, stru_1494114, 0x1494114);
 DataPointer(NJS_ARGB, stru_1494124, 0x1494124);
-static unsigned char EggHornetTrigger = 0;
+DataPointer(int, DroppedFrames, 0x03B1117C);
 FunctionPointer(void, sub_5632F0, (ObjectMaster *a1), 0x5632F0);
 FunctionPointer(void, sub_563370, (ObjectMaster *a1), 0x563370);
+
+static unsigned char EggHornetTrigger = 0;
 static float TornadoAlpha = 1.0f;
 int TornadoTrigger = 0;
 static bool Chaos4Defeated = 0;
