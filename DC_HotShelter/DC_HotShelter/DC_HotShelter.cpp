@@ -5,10 +5,14 @@
 #include "HotShelter2.h"
 #include "HotShelter3.h"
 
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 static float suimen_increment = 0.0f;
 static int suimen_direction = 1;
 static int anim = 78;
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+static int WaterThing_VShift = 0;
+DataPointer(float, HotShelterWaterThing, 0x3C72E54);
+DataArray(NJS_TEX, uv_01410790, 0x01810790, 20); //water thing UVs 1
+DataArray(NJS_TEX, uv_014107E0, 0x018107E0, 56); //water thing UVs 2
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB88, &landtable_0001970C),
@@ -22,6 +26,13 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//Waterfall UV fixes
+		WriteData((char*)0x005AD8EB, 0x00, 1);
+		WriteData((char*)0x005AD89B, 0x00, 1);
+		WriteData((char*)0x005AD9CE, 0x01, 1);
+		WriteData((char*)0x005ADA7B, 0x01, 1);
+		WriteData((void*)0x005AD896, 0x90, 3);
+		WriteData((void*)0x005AD8E6, 0x90, 3);
 		*(NJS_OBJECT*)0x18608A4 = object_0014D13C; //Broken wall (full)
 		*(NJS_OBJECT*)0x1862834 = object_0014E514; //Broken wall (broken)
 		*(NJS_OBJECT*)0x185F280 = object_0014C23C; //Broken wall (pieces)
@@ -65,6 +76,18 @@ extern "C"
 		{
 			if (CurrentLevel == 12 && CurrentAct == 0 && GameState != 16)
 			{
+				if (HotShelterWaterThing < 65.0f && HotShelterWaterThing > 0.0f)
+				{
+					WaterThing_VShift = (WaterThing_VShift - 16 * FramerateSetting) % 255;
+					for (int i = 0; i < 56; i++)
+					{
+						uv_014107E0[i].v = uv_014107E0_0[i].v + WaterThing_VShift;
+					}
+					for (int i = 0; i < 20; i++)
+					{
+						uv_01410790[i].v = uv_01410790_0[i].v + WaterThing_VShift;
+					}
+				}
 				//Move water up and down
 				object_0140FCC0.pos[1] = -5 + suimen_increment;
 				object_0140FA2C.pos[1]= 72 + suimen_increment;
