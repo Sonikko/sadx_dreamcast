@@ -99,7 +99,6 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="Arrays.h" />
     <ClInclude Include="Chaos0_Landtable.h" />
     <ClInclude Include="Chaos0_policecar.h" />
     <ClInclude Include="Chaos2.h" />
@@ -109,6 +108,7 @@
     <ClInclude Include="Chaos6_Act1.h" />
     <ClInclude Include="Chaos6_Act1_PC.h" />
     <ClInclude Include="Chaos6_Act2.h" />
+    <ClInclude Include="Chaos6_models.h" />
     <ClInclude Include="Chaos7.h" />
     <ClInclude Include="Chaos7_fixes.h" />
     <ClInclude Include="Chaos7_PC.h" />

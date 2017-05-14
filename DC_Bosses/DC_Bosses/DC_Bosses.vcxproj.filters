@@ -93,7 +93,7 @@
     <ClInclude Include="E101Kai_Model.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Arrays.h">
+    <ClInclude Include="Chaos6_models.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
