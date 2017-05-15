@@ -7,7 +7,7 @@ DataArray(PVMEntry, GUITexturePVMs3, 0x007EEED0, 30);
 DataArray(PVMEntry, GUITexturePVMs4, 0x007EEFC0, 30);
 DataArray(PVMEntry, GUITexturePVMs5, 0x007EF0B0, 30);
 
-static float pausexpos = 136.0f;
+static float pausexpos = 137.0f;
 static float vstretchx = 0.3525f;
 static float vstretchz = 0.4025f;
 static float rewritestretch = 0.5f;
@@ -21,7 +21,7 @@ static float f384 = 384.0f;
 static float f768 = 768.0f;
 static float gamestretch = 0.0f;
 static float control_vertoffset = 455.0f;
-static float control_hzoffset = 568.0f;
+static float control_hzoffset = 566.0f;
 static float camera_vertoffset = 75.0f;
 static float camera_hzoffset = 215.0f;
 static float vertoffset = 0.0f;
@@ -172,7 +172,11 @@ extern "C"
 		WriteData((void*)0x0042CCF3, 0x0F, 1); //Disable Sonic Team logo
 		//Pause box stuff
 		WriteData((float*)0x00458501, 17.1f); //Pause box X scale
-		WriteData((float*)0x0045852C, 18.5f); //Pause box Y scale (Adv field)
+		WriteData((float*)0x0045852C, 18.0f); //Pause box Y scale (5+ options)
+		WriteData((float*)0x00458523, 17.5f); //Pause box Y scale (4 options)
+		WriteData((char*)0x0045851D, 0x05, 1); //Check if pause box has 4 or 5 options
+		WriteData((char*)0x00459106, 0x50, 1); //Controls X shift
+		WriteData((char*)0x0045917E, 0x50, 1); //Controls X shift
 		WriteData((float**)0x004584C6, &pausexpos); //Pause box X position
 		WriteData((float*)0x00459070, 17.1f); //Controls X scale
 		WriteData((float**)0x00459054, &control_vertoffset);
