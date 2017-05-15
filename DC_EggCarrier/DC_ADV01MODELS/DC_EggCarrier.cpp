@@ -59,7 +59,25 @@ NJS_MODEL_SADX **___ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle3, "
 static bool PinkMonitorMode = 0;
 static bool CurrentlyPink = 0;
 
-void(__cdecl* sub_10001050)(NJS_OBJECT*) = nullptr;
+void sub_10001050(NJS_OBJECT *a1)
+{
+	NJS_MODEL_SADX *v1; // edx@1
+	signed int v2; // ecx@1
+	__int16 *v3; // eax@2
+
+	v1 = (NJS_MODEL_SADX*)a1->model;
+	v2 = 0;
+	if (v1->nbMat)
+	{
+		v3 = (__int16*)&v1->mats->attrflags;
+		do
+		{
+			*(_DWORD *)v3 &= 0xFFEFFFFF;
+			++v2;
+			v3 += 10;
+		} while (v2 < v1->nbMat);
+	}
+}
 
 void __cdecl SetClip_EC00(signed int cliplevel)
 {
@@ -122,7 +140,6 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		landtable_001631F0.TexName = "ADV_EC01";
 		landtable_00163CE8.TexName = "ADV_EC02";
 	}
-	sub_10001050 = (void(__cdecl*)(NJS_OBJECT*))(handle2 + 0x1050);
 	WriteJump((char *)GetProcAddress(handle2, "SetClip_EC00"), SetClip_EC00);
 	WriteJump((char *)GetProcAddress(handle2, "SetClip_EC01"), SetClip_EC01);
 	WriteData((void *)0x0051BB8C, 0x90, 5); //disable that stupid DisableFog thing
