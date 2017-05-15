@@ -105,6 +105,7 @@
     <ClInclude Include="ADV_MR03 (Final Egg entrance).h" />
     <ClInclude Include="button.h" />
     <ClInclude Include="Grass.h" />
+    <ClInclude Include="MasterEmerald.h" />
     <ClInclude Include="MR_IceCapDoor.h" />
     <ClInclude Include="MR_Objects.h" />
     <ClInclude Include="MR_Rock.h" />

@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
 #include "button.h"
+#include "MasterEmerald.h"
 #include "ADV_MR00 (Station area).h"
 #include "ADV_MR01 (Angel Island).h"
 #include "ADV_MR02 (Jungle area).h"
@@ -131,6 +132,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	}
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
+	NJS_MODEL_SADX **___ADV02_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle, "___ADV02_MODELS");
 	___ADV02_TEXLISTS[4] = &texlist_mrtrain;
 	___ADV02_TEXLISTS[38] = &texlist_mr00;
 	___ADV02_TEXLISTS[39] = &texlist_mr01;
@@ -161,6 +163,8 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_OBJECTS[10] = &object_001A79D0; //Item stand
 	___ADV02_OBJECTS[12] = &object_001A7370; //Item stand
 	___ADV02_OBJECTS[13] = &object_001A6B1C; //Item stand
+	___ADV02_OBJECTS[103] = &object_001C76EC; //Master Emerald (complete)
+	___ADV02_MODELS[15] = &attach_0007C3B8; //Master Emerald glow
 	//___ADV02_OBJECTS[67] = &object_001DCF78; //Palm trees near Tails' workshop
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	___ADV02MR02_OBJECTS[141] = &object_001615BC;
@@ -189,7 +193,6 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_ACTIONS[21]->object = &object_001DDBFC; //Plane platform
 	___ADV02_ACTIONS[9]->object = &object_001B2D5C; //Final Egg base door
 	___ADV02_ACTIONS[17]->object = &object_001CCFBC; //OHiddenGate
-	NJS_MODEL_SADX **___ADV02_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle, "___ADV02_MODELS");
 	___ADV02_MODELS[12] = &attach_001B412C; //Echidna statue
 }
 

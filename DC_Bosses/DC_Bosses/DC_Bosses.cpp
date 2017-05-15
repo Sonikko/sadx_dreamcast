@@ -16,7 +16,6 @@
 #include "Zero.h"
 #include "E101R.h"
 #include "E101Kai_Model.h"
-#include "Chaos6_models.h"
 
 DataPointer(float, Chaos4Hitpoints, 0x03C58158);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
@@ -43,6 +42,154 @@ static int EggHornet_Rotation = 0;
 static int EggHornet_RotationDirection = 1;
 static int egghornetwater = 143;
 static int e101rwater = 87;
+
+void __cdecl SetClip_Chaos6KX(signed int a1)
+{
+	NJS_MODEL_SADX *v1; // ecx@3
+	signed int v2; // edx@3
+	char *v3; // eax@4
+	NJS_MODEL_SADX *v4; // edx@6
+	signed int v5; // ecx@6
+	char *v6; // eax@7
+	NJS_MODEL_SADX *v7; // edx@9
+	signed int v8; // ecx@9
+	char *v9; // eax@10
+	NJS_MODEL_SADX *v10; // edx@12
+	signed int v11; // ecx@12
+	char *v12; // eax@13
+
+	if (a1 >= 2)
+	{
+		v1 = (NJS_MODEL_SADX*)object_00190A2C.model;
+		v2 = 0;
+		if (((NJS_MODEL_SADX*)object_00190A2C.model)->nbMat)
+		{
+			v3 = (char *)&((NJS_MODEL_SADX*)object_00190A2C.model)->mats->attrflags;
+			do
+			{
+				*(_DWORD *)v3 &= ~NJD_FLAG_USE_ALPHA;
+				++v2;
+				v3 += 20;
+			} while (v2 < v1->nbMat);
+		}
+		v4 = (NJS_MODEL_SADX*)object_00190BBC.model;
+		v5 = 0;
+		if (((NJS_MODEL_SADX*)object_00190BBC.model)->nbMat)
+		{
+			v6 = (char *)&((NJS_MODEL_SADX*)object_00190BBC.model)->mats->attrflags;
+			do
+			{
+				*(_DWORD *)v6 &= ~NJD_FLAG_USE_ALPHA;
+				++v5;
+				v6 += 20;
+			} while (v5 < v4->nbMat);
+		}
+		v7 = (NJS_MODEL_SADX*)object_001911EC.model;
+		v8 = 0;
+		if (((NJS_MODEL_SADX*)object_001911EC.model)->nbMat)
+		{
+			v9 = (char *)&((NJS_MODEL_SADX*)object_001911EC.model)->mats->attrflags;
+			do
+			{
+				*(_DWORD *)v9 &= ~NJD_FLAG_USE_ALPHA;
+				++v8;
+				v9 += 20;
+			} while (v8 < v7->nbMat);
+		}
+		v10 = (NJS_MODEL_SADX*)object_0019137C.model;
+		v11 = 0;
+		if (((NJS_MODEL_SADX*)object_0019137C.model)->nbMat)
+		{
+			v12 = (char *)&((NJS_MODEL_SADX*)object_0019137C.model)->mats->attrflags;
+			do
+			{
+				*(_DWORD *)v12 &= ~NJD_FLAG_USE_ALPHA;
+				++v11;
+				v12 += 20;
+			} while (v11 < v10->nbMat);
+		}
+		landtable_0000033C.COLCount -= 4;
+	}
+	else
+	{
+		landtable_0000033C.Col = &collist_0016F6D8[4];
+		landtable_0000033C.COLCount -= 4;
+	}
+}
+
+void __cdecl SetClip_Chaos6SX(signed int a1)
+{
+	NJS_MODEL_SADX *v1; // ecx@3
+	signed int v2; // edx@3
+	char *v3; // eax@4
+	NJS_MODEL_SADX *v4; // edx@6
+	signed int v5; // ecx@6
+	char *v6; // eax@7
+	NJS_MODEL_SADX *v7; // edx@9
+	signed int v8; // ecx@9
+	char *v9; // eax@10
+	NJS_MODEL_SADX *v10; // edx@12
+	signed int v11; // ecx@12
+	char *v12; // eax@13
+
+	if (a1 >= 2)
+	{
+		v1 = (NJS_MODEL_SADX*)object_0015D98C.model;
+		v2 = 0;
+		if (((NJS_MODEL_SADX*)object_0015D98C.model)->nbMat)
+		{
+			v3 = (char *)&((NJS_MODEL_SADX*)object_0015D98C.model)->mats->attrflags;
+			do
+			{
+				*(_DWORD *)v3 &= ~NJD_FLAG_USE_ALPHA;
+				++v2;
+				v3 += 20;
+			} while (v2 < v1->nbMat);
+		}
+		v4 = (NJS_MODEL_SADX*)object_0015DCB8.model;
+		v5 = 0;
+		if (((NJS_MODEL_SADX*)object_0015DCB8.model)->nbMat)
+		{
+			v6 = (char *)&((NJS_MODEL_SADX*)object_0015DCB8.model)->mats->attrflags;
+			do
+			{
+				*(_DWORD *)v6 &= ~NJD_FLAG_USE_ALPHA;
+				++v5;
+				v6 += 20;
+			} while (v5 < v4->nbMat);
+		}
+		v7 = (NJS_MODEL_SADX*)object_0015E2E8.model;
+		v8 = 0;
+		if (((NJS_MODEL_SADX*)object_0015E2E8.model)->nbMat)
+		{
+			v9 = (char *)&((NJS_MODEL_SADX*)object_0015E2E8.model)->mats->attrflags;
+			do
+			{
+				*(_DWORD *)v9 &= ~NJD_FLAG_USE_ALPHA;
+				++v8;
+				v9 += 20;
+			} while (v8 < v7->nbMat);
+		}
+		v10 = (NJS_MODEL_SADX*)object_0015E614.model;
+		v11 = 0;
+		if (((NJS_MODEL_SADX*)object_0015E614.model)->nbMat)
+		{
+			v12 = (char *)&((NJS_MODEL_SADX*)object_0015E614.model)->mats->attrflags;
+			do
+			{
+				*(_DWORD *)v12 &= ~NJD_FLAG_USE_ALPHA;
+				++v11;
+				v12 += 20;
+			} while (v11 < v10->nbMat);
+		}
+		landtable_00000318.COLCount -= 4;
+	}
+	else
+	{
+		landtable_00000318.Col = &collist_0014AFB4[4];
+		landtable_00000318.COLCount -= 4;
+	}
+}
 
 NJS_TEXANIM texanim_array[] =
 {
@@ -138,10 +285,8 @@ void __cdecl Chaos7Damage_DisplayX(ObjectMaster *a1)
 {
 	EntityData1 *v1; // esi@1
 	double v2; // st7@2
-	int v3;
+	short v3;
 	v1 = a1->Data1;
-	v3 = v1->Unknown;
-	short v5;
 	if (!DroppedFrames)
 	{
 		DisableFog();
@@ -150,8 +295,8 @@ void __cdecl Chaos7Damage_DisplayX(ObjectMaster *a1)
 		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
 		njPushMatrix(0);
 		njTranslateV(0, &v1->Position);
-		v5 = ((signed short*)&v1->Object)[1];
-		stru_1494064.tanim = &texanim_array[v5+16];
+		v3 = ((signed short*)&v1->Object)[1];
+		stru_1494064.tanim = &texanim_array[v3+16];
 		v2 = v1->Scale.x;
 		stru_1494064.sy = v1->Scale.x;
 		stru_1494064.sx = v2;
@@ -225,6 +370,8 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteJump((void*)0x00556D60, SetClip_Chaos6KX);
+		WriteJump((void*)0x00556E40, SetClip_Chaos6SX);
 		//WriteJump((void*)0x563620, sub_563620); //Mist
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		//SADX style water
@@ -475,20 +622,6 @@ extern "C"
 		((NJS_OBJECT*)0x02EE25AC)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 		((NJS_OBJECT*)0x02EE4194)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 		((NJS_OBJECT*)0x02EE3E98)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
-		//Battle arena fixes
-		((NJS_OBJECT *)0x016E3994)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2; //Egg Carrier boss battle arena material fix
-		((NJS_OBJECT *)0x016E3994)->basicdxmodel->mats[1].diffuse.color = 0x99B2B2B2; //Egg Carrier boss battle arena material fix
-		((NJS_OBJECT *)0x016E3CCC)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2; //Egg Carrier boss battle arena material fix
-		((NJS_OBJECT *)0x016E3CCC)->basicdxmodel->mats[1].diffuse.color = 0x99B2B2B2; //Egg Carrier boss battle arena material fix
-		((NJS_OBJECT *)0x016E301C)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2; //Egg Carrier boss battle arena material fix
-		((NJS_OBJECT *)0x016E301C)->basicdxmodel->mats[1].diffuse.color = 0x99B2B2B2; //Egg Carrier boss battle arena material fix
-		((NJS_OBJECT *)0x016E3354)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2; //Egg Carrier boss battle arena material fix
-		((NJS_OBJECT *)0x016E3354)->basicdxmodel->mats[1].diffuse.color = 0x99B2B2B2; //Egg Carrier boss battle arena material fix
-		((NJS_OBJECT *)0x016E3994)->basicdxmodel->mats[0].diffuse.color = 0xB2B2B2B2; //Egg Carrier boss battle arena material fix
-		WriteData((void*)0x00557009, 0x90, 16); //Kill Chaos 6 skybox animation
-		WriteData((void*)0x00557073, 0x0, 2); // Chaos 6 skybox scale 1
-		WriteData((void*)0x00557078, 0x0, 2); // Chaos 6 skybox scale 2
-		WriteData((void*)0x0055707D, 0x0, 2); // Chaos 6 skybox scale 3
 		ResizeTextureList((NJS_TEXLIST*)0x118FF08, textures_chaos4dc);
 		ResizeTextureList((NJS_TEXLIST*)0x121FF28, textures_chaos6);
 		ResizeTextureList((NJS_TEXLIST*)0x11F04A0, textures_chaos6_2);
@@ -497,10 +630,7 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x167E5CC, textures_eggviper);
 		ResizeTextureList((NJS_TEXLIST*)0x14FBFB4, textures_e101);
 		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 swamp water
-		((LandTable *)0x11EDE38)->Col = collist_0014AFB4; //Chaos6 COL list
-		((LandTable *)0x11EDE38)->COLCount = LengthOfArray(collist_0014AFB4); //Chaos6 COL list
-		//*(NJS_OBJECT*)0x01272FF4 = object_0001EFD4; //Chaos 6 main
-		memcpy((void*)0x011EDE20, &animlist_0014B62C, sizeof(animlist_0014B62C)); // Chaos6 animlist
+		WriteData((float*)0x00557064, 0.0f); //Move Chaos 6 skybox animation to the bottom
 		//*(NJS_OBJECT*)0x1561A70 = object_000104E8; //Egg Hornet model
 		DataArray(FogData, Chaos2Fog, 0x01120638, 3);
 		DataArray(FogData, Chaos6SFog, 0x011EF0E8, 3);
