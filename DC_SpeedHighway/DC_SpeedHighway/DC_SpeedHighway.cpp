@@ -84,6 +84,7 @@ extern "C"
 		//WriteJump((void*)0x61BA10, sub_61BA10); //Fountain function
 		*(NJS_OBJECT*)0x0268843C = object_001554A8; //Cone
 		*(NJS_OBJECT*)0x0267497C = object_001434F4; //Platform
+		*(NJS_OBJECT*)0x02687284 = object_02287284; //Small plant in Act 3
 		*(NJS_ACTION*)0x02674424 = action_Platform2_action;
 		*(NJS_OBJECT*)0x02679ECC = object_00148880; //Platform (Tails)
 		//*(NJS_OBJECT*)0x026A0008 = object_0016B6FC; //Missile (Tails)
@@ -162,6 +163,7 @@ extern "C"
 		*(NJS_OBJECT*)0x0267AF14 = object_001497F8;
 		//*(NJS_OBJECT*)0x0267B06C =*/
 		DataArray(FogData, SpeedHighway1Fog, 0x024CA4E4, 3);
+		DataArray(FogData, SpeedHighway2Fog, 0x024CA514, 3);
 		DataArray(FogData, SpeedHighway3Fog, 0x024CA544, 3);
 		for (int i = 0; i < 3; i++)
 		{
@@ -171,6 +173,9 @@ extern "C"
 			SpeedHighway3Fog[i].Layer = 1200.0f;
 			SpeedHighway3Fog[i].Distance = 2900.0f;
 			SpeedHighway3Fog[i].Toggle = 1;
+			SpeedHighway2Fog[i].Layer = 1600.0f;
+			SpeedHighway2Fog[i].Distance = 4800.0f;
+			SpeedHighway2Fog[i].Color = 0xFF300020;
 		}
 	}
 
