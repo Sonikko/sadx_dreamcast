@@ -44,12 +44,12 @@ void __cdecl SetClip_FEgg2_r(signed int a1)
 {
 	if (a1 >= 2)
 	{
-		for (int i = 0; i < object_016C017C.basicdxmodel->nbMat; i++)
-			object_016C017C.basicdxmodel->mats[i].attrflags &= 0xFFEFFFFF;
-		for (int i = 0; i < object_016C1DD0.basicdxmodel->nbMat; i++)
-			object_016C1DD0.basicdxmodel->mats[i].attrflags &= 0xFFEFFFFF;
-		for (int i = 0; i < object_016C2D94.basicdxmodel->nbMat; i++)
-			object_016C2D94.basicdxmodel->mats[i].attrflags &= 0xFFEFFFFF;
+		for (int i = 0; i < object_00087F80_2.basicdxmodel->nbMat; i++)
+			object_00087F80_2.basicdxmodel->mats[i].attrflags &= 0xFFEFFFFF;
+		for (int i = 0; i < object_00089114_2.basicdxmodel->nbMat; i++)
+			object_00089114_2.basicdxmodel->mats[i].attrflags &= 0xFFEFFFFF;
+		for (int i = 0; i < object_00085D08_2.basicdxmodel->nbMat; i++)
+			object_00085D08_2.basicdxmodel->mats[i].attrflags &= 0xFFEFFFFF;
 	}
 	else
 	((LandTable *)0x19C8ED0)->Col = &collist_00081980[3];
