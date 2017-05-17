@@ -62,7 +62,7 @@ extern "C" __declspec(dllexport) void cdecl Init()
 		FogData_Windy2[i].Layer = 50.0f;
 		FogData_Windy2[i].Toggle = 1;
 		FogData_Windy3[i].Distance = 6000.0f;
-		FogData_Windy3[i].Layer = 2000.0f;
+		FogData_Windy3[i].Layer = 200.0f;
 		FogData_Windy3[i].Color = 0xFFFFFFFF;
 	}
 	ResizeTextureList((NJS_TEXLIST *)0xB98BF8, textures_windy1);

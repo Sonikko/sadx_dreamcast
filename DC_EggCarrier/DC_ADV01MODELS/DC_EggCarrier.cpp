@@ -188,6 +188,10 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01_OBJECTS[5] = &object_00178BC4; //This thing is stupid
 	//___ADV01_OBJECTS[13] = &object_001A85F0; //OParasol
 	___ADV01_OBJECTS[27] = &object_001782D4; //Door top
+	___ADV01_OBJECTS[14]->model = &attach_0017FD8C; //OTaihou (Cannon)
+	___ADV01_OBJECTS[14]->child->model = &attach_0017F618; //OTaihou (Cannon)
+	___ADV01_OBJECTS[14]->child->child->model = &attach_0017E110; //OTaihou (Cannon)
+	___ADV01_OBJECTS[14]->child->child->sibling->model = &attach_0017DC48; //OTaihou (Cannon)
 	___ADV01_OBJECTS[28] = &object_001777B4; //Door 2
 	___ADV01_OBJECTS[18] = &object_00189EA0; //Eggcap
 	___ADV01_OBJECTS[19] = &object_001760A0; //Egglift

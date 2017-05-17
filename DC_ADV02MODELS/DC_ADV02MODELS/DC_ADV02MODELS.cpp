@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "math.h"
 #include <SADXModLoader.h>
 #include "button.h"
 #include "MasterEmerald.h"
@@ -15,7 +16,7 @@
 #include "Tanken3.h"
 #include "Grass.h"
 #include "MR_Objects.h"
-
+DataPointer(float, dword_111DB90, 0x111DB90);
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
 DataArray(FogData, MR2FogDay, 0x01103478, 3);
 DataArray(FogData, MR3FogDay, 0x011034A8, 3);
@@ -79,9 +80,11 @@ void __cdecl MRWater()
 		}
 	}
 }
-	
+
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	WriteData((float*)0x111DBA4, 0.0f); //Master Emerald glow color
+	WriteData((float*)0x111DB9C, 0.0f); //Master Emerald glow color
 	*(NJS_OBJECT*)0x1108A18 = object_00226468; //TANKEN
 	*(NJS_OBJECT*)0x110CF34 = object2_00229334; //TANKEN 2
 	*(NJS_OBJECT*)0x11112CC = object_0022DDA4; //TANKEN 3
@@ -163,6 +166,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_OBJECTS[10] = &object_001A79D0; //Item stand
 	___ADV02_OBJECTS[12] = &object_001A7370; //Item stand
 	___ADV02_OBJECTS[13] = &object_001A6B1C; //Item stand
+	___ADV02_OBJECTS[53]->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2; //Diggable place
 	___ADV02_OBJECTS[103] = &object_001C76EC; //Master Emerald (complete)
 	___ADV02_MODELS[15] = &attach_0007C3B8; //Master Emerald glow
 	//___ADV02_OBJECTS[67] = &object_001DCF78; //Palm trees near Tails' workshop
