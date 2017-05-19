@@ -90,8 +90,8 @@ extern "C"
 				}
 				//Move water up and down
 				object_0140FCC0.pos[1] = -5 + suimen_increment;
-				object_0140FA2C.pos[1]= 72 + suimen_increment;
-				object_0140F7F0.pos[1]= 69 + suimen_increment;
+				object_0140FA2C.pos[1]= 74 + suimen_increment;
+				object_0140F7F0.pos[1] = 64 + suimen_increment;
 				object_0140FBB4.pos[1]= 75 + suimen_increment;
 				if (suimen_direction == 1)	suimen_increment = suimen_increment + 0.005f;
 				if (suimen_increment >= 1.5f) suimen_direction = -1;
