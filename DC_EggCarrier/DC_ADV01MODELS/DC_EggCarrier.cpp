@@ -143,6 +143,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	WriteJump((char *)GetProcAddress(handle2, "SetClip_EC00"), SetClip_EC00);
 	WriteJump((char *)GetProcAddress(handle2, "SetClip_EC01"), SetClip_EC01);
 	WriteData((void *)0x0051BB8C, 0x90, 5); //disable that stupid DisableFog thing
+	((NJS_OBJECT*)0x03104130)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
 	___ADV01_TEXLISTS[0] = &texlist_ec00;
 	___ADV01_TEXLISTS[1] = &texlist_ec01;
 	___ADV01_TEXLISTS[2] = &texlist_ec02;
