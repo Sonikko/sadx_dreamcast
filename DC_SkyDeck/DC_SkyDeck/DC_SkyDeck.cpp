@@ -4,6 +4,7 @@
 #include "SkyDeck2.h"
 #include "SkyDeck3.h"
 #include "SkyDeck_objects.h"
+#include "math.h"
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DAC8, &landtable_0001F018),
@@ -18,6 +19,138 @@ DataPointer(float, CurrentSkyBoxScaleZ, 0x03ABDC9C);
 DataPointer(NJS_VECTOR, SkyDeck_SkyPosition, 0x03C7F038);
 DataPointer(NJS_COLOR, CurrentFogColor, 0x03ABDC68);
 
+/* Just in case I ever decide to rewrite this thing
+void SkyDeckSky_original(ObjectMaster *_this)
+{
+	unsigned __int64 v1; // rax@6
+	NJS_OBJECT *v2; // esi@7
+	long double v3; // st7@9
+	long double v4; // st7@13
+	NJS_OBJECT *v5; // eax@13
+	long double v6; // st7@15
+	long double v7; // st7@19
+	NJS_OBJECT *v8; // eax@19
+	NJS_ARGB a1; // [sp+4h] [bp-10h]@13
+	DataPointer(DrawDistance, SkyboxDrawDistance, 0x03ABDCA0);
+	DataPointer(DrawDistance, LevelDrawDistance, 0x03ABDC70);
+	DataPointer(Angle, SkyDeck_SkyRotationZ, 0x03C7F028);
+	DataPointer(Angle, SkyDeck_SkyRotationX, 0x03C7F05C);
+	DataPointer(int, dword_3C7F030, 0x3C7F030);
+	DataPointer(float, flt_3C8046C, 0x3C8046C);
+	DataPointer(int, MissedFrames, 0x03B1117C);
+	DataPointer(NJS_OBJECT, stru_214E2A0, 0x214E2A0);
+	DataPointer(NJS_OBJECT, stru_214C9E4, 0x214C9E4);
+	DataPointer(NJS_OBJECT, stru_214E3AC, 0x214E3AC);
+	DataPointer(NJS_OBJECT, stru_214BF20, 0x214BF20);
+	DataArray(NJS_TEX, SkyDeck_SkyUVsA, 0x03C80478, 32);
+	DataArray(NJS_TEX, SkyDeck_SkyUVsB, 0x03C804F8, 32);
+	DataPointer(NJS_TEXLIST, OBJ_SKYDECK_TEXLIST, 0x0214BE40);
+	DataPointer(NJS_VECTOR, Skybox_Scale, 0x03ABDC94);
+	FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
+
+	njControl3D_Backup();
+	njControl3D_Add(NJD_CONTROL_3D_OFFSET_MATERIAL);
+	DisableFog();
+	Direct3D_SetNearFarPlanes(SkyboxDrawDistance.Minimum, SkyboxDrawDistance.Maximum);
+	njPushMatrix(0);
+	njTranslate(0, SkyDeck_SkyPosition.x, SkyDeck_SkyPosition.y, SkyDeck_SkyPosition.z);
+	if (SkyDeck_SkyRotationZ)
+	{
+		njRotateZ(0, (unsigned __int16)SkyDeck_SkyRotationZ);
+	}
+	if (SkyDeck_SkyRotationX)
+	{
+		njRotateX(0, (unsigned __int16)SkyDeck_SkyRotationX);
+	}
+	njScale(0, 1.7, 1.0, 1.7);
+	if (!dword_3C7F030)
+	{
+		v1 = (unsigned __int64)(flt_3C8046C * 180.0);
+		SetGlobalPoint2Col_Colors(
+			v1 | (((unsigned int)v1 | (((unsigned __int8)v1 | 0xFFFFFF00) << 8)) << 8),
+			v1 | (((unsigned int)v1 | (((unsigned __int8)v1 | 0xFFFFFF00) << 8)) << 8),
+			v1 | (((unsigned int)v1 | (((unsigned __int8)v1 | 0xFFFFFF00) << 8)) << 8));
+		if (!MissedFrames)
+		{
+			v2 = &stru_214E2A0;
+			if (SkyDeck_SkyPosition.y - 1350.0f - 50.0f <= Camera_Data1->Position.y)
+			{
+				v2 = &stru_214C9E4;
+			}
+			njSetTexture(&OBJ_SKYDECK_TEXLIST);
+			njScaleEx(&Skybox_Scale);
+			sub_408530(v2);
+			njScale(0, 1.0, 1.0, 1.0);
+			v3 = 1.0 - fabs(Camera_Data1->Position.y - (SkyDeck_SkyPosition.y - 1350.0)) * 0.025;
+			if (v3 >= 0.050000001)
+			{
+				if (v3 > 0.89999998)
+				{
+					v3 = 0.89999998;
+				}
+			}
+			else
+			{
+				v3 = 0.050000001;
+			}
+			v4 = v3 * -1.0;
+			a1.b = v4;
+			a1.g = v4;
+			a1.r = v4;
+			a1.a = v4;
+			SetMaterialAndSpriteColor(&a1);
+			v5 = &stru_214E3AC;
+			if (SkyDeck_SkyPosition.y - 1350.0 - 100.0 <= Camera_Data1->Position.y)
+			{
+				v5 = &stru_214BF20;
+			}
+			SkyDeck_QueueDraw(v5, SkyDeck_SkyUVsB, 32);
+			v6 = 1.0 - fabs(Camera_Data1->Position.y - (SkyDeck_SkyPosition.y - 1350.0 - 100.0)) * 0.025;
+			if (v6 >= 0.0099999998)
+			{
+				if (v6 > 0.89999998)
+				{
+					v6 = 0.89999998;
+				}
+			}
+			else
+			{
+				v6 = 0.0099999998;
+			}
+			v7 = v6 * -1.0;
+			a1.b = v7;
+			a1.g = v7;
+			a1.r = v7;
+			a1.a = v7;
+			SetMaterialAndSpriteColor(&a1);
+			njTranslate(0, 0.0, -100.0, 0.0);
+			v8 = &stru_214E3AC;
+			if (SkyDeck_SkyPosition.y - 1350.0 - 100.0 <= Camera_Data1->Position.y)
+			{
+				v8 = &stru_214BF20;
+			}
+			SkyDeck_QueueDraw(v8, SkyDeck_SkyUVsA, 32);
+			if (SkyDeck_SkyPosition.y - 1350.0 - 100.0 > Camera_Data1->Position.y)
+			{
+				a1.a = a1.a - 0.25;
+				SetMaterialAndSpriteColor(&a1);
+				njTranslate(0, 0.0, -600.0, 0.0);
+				njScaleEx(&Skybox_Scale);
+				VectorMaxAbs(&Skybox_Scale);
+				SkyDeck_QueueDraw(&stru_214E3AC, SkyDeck_SkyUVsA, 32);
+				njScale(0, 1.0, 1.0, 1.0);
+				njTranslate(0, 0.0, -100.0, 0.0);
+				SkyDeck_QueueDraw(&stru_214E3AC, SkyDeck_SkyUVsB, 32);
+			}
+			ClampGlobalColorThing_Thing();
+		}
+	}
+	njPopMatrix(1u);
+	ToggleStageFog();
+	njControl3D_Restore();
+	Direct3D_SetNearFarPlanes(LevelDrawDistance.Minimum, LevelDrawDistance.Maximum);
+}
+*/
 extern "C" __declspec(dllexport) void cdecl Init()
 {
 	//Lol wtf is this? Disable robot underwear?
@@ -116,6 +249,7 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 {
 	if (CurrentLevel == 6)
 	{
+		if (CurrentAct != 2) WriteData((char*)0x005ED1BA, 0x00, 1); //Sky rendering queue flags
 		{
 			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
 		for (int i = 0; i < landtable_00021094.COLCount; i++)
@@ -127,6 +261,7 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 	}
 	if (CurrentLevel == 6 && CurrentAct == 2)
 	{
+		WriteData((char*)0x005ED1BA, 0x08, 1); //Sky rendering queue flags
 		CurrentSkyBoxScaleX = 1.0f;
 		CurrentSkyBoxScaleY = 1.0f;
 		CurrentSkyBoxScaleZ = 1.0f;
