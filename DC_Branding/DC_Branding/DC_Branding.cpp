@@ -172,9 +172,11 @@ extern "C"
 		WriteData((void*)0x0042CCF3, 0x0F, 1); //Disable Sonic Team logo
 		//Pause box stuff
 		WriteData((float*)0x00458501, 17.1f); //Pause box X scale
-		WriteData((float*)0x0045852C, 18.0f); //Pause box Y scale (5+ options)
-		WriteData((float*)0x00458523, 17.5f); //Pause box Y scale (4 options)
-		WriteData((char*)0x0045851D, 0x05, 1); //Check if pause box has 4 or 5 options
+		WriteData((float*)0x0045852C, 17.15f); //Pause box Y scale (4 options)
+		WriteData((float*)0x00458523, 11.7f); //Pause box Y scale (3 options)
+		WriteData((float*)0x00458511, 17.9f); //Pause box Y scale (5 options)
+		WriteData((char*)0x0045850C, 0x7C, 1); //Change condition from "if <= 5 options" to "if < 5 options"
+		WriteData((char*)0x0045851E, 0x74, 1); //Change condition from "if >= 4 options" to "if = 4 options"
 		WriteData((char*)0x00459106, 0x50, 1); //Controls X shift
 		WriteData((char*)0x0045917E, 0x50, 1); //Controls X shift
 		WriteData((float**)0x004584C6, &pausexpos); //Pause box X position
@@ -192,6 +194,12 @@ extern "C"
 		WriteData((float*)0x00458125, 1.0f); //Selection box B
 		WriteData((float*)0x0045812A, 0.7f); //Selection box G
 		WriteData((float*)0x0045812F, 0.0f); //Selection box R
+	}
+	__declspec(dllexport) void __cdecl OnFrame()
+	{
+		//Mission mode fix because SADX sucks
+		if (GameMode == GameModes_Mission) WriteData((float*)0x00458511, 21.0f); //Pause box Y scale (6 options)
+		else WriteData((float*)0x00458511, 17.9f); //Pause box Y scale (5 options)
 	}
 }
 
