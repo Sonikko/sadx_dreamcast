@@ -8699,7 +8699,7 @@ NJS_OBJECT object_0000F01CX = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL
 
 
 COL collist_0000DC0C[] = {
-	{ { 0, 0, 0 }, 12000, 0, 0, &object_000105E4, 0, 0x80000000 }, //skybox
+	{ { 0, 0, 0 }, 12000, 0, 0, &object_000105E4, 0, 0x80000001 }, //skybox
 	{ { 0, 0, 0 }, 12000, 0, 0, &object_0000F01C, 0, 0x80040000 }, //water?
 	{ { -114.1273f, 102.7535f, 6.023741f }, 86.81482f, 0, 0, &object_00001AD4, 0, 0xC0000001 },
 	{ { 3.696172f, 171.1053f, 8.131595f }, 99.48425f, 0, 0, &object_00001CCC, 0, 0x40200001 },

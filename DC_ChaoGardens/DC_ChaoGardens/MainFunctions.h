@@ -44,7 +44,7 @@ void __cdecl sub_72A790()
 	dword_3CA6E8C = (int)GetProcAddress(handle, "stg_garden02_mr_objects");
 	texlist_garden02mr_daytime = (NJS_TEXLIST *)&texlist_mrgarden;
 	objLandTableGarden02_Daytime = (LandTable *)&landtable_0000FD3C;
-	collist_0000F778[0].Flags = 0x80000420;
+	collist_0000F778[0].Flags = 0x80000001;
 	collist_0000F778[1].Flags = 0x00000000;
 	collist_0000F778[2].Flags = 0x00000000;
 	sub_745A20((NJS_TEX*)&uv_0000EC54, 48);
@@ -63,7 +63,7 @@ void __cdecl sub_72A820()
 	objLandTableGarden02_Evening = (LandTable *)&landtable_0000FD3C;
 	collist_0000F778[0].Flags = 0x00000000;
 	collist_0000F778[1].Flags = 0x00000000;
-	collist_0000F778[2].Flags = 0x80000420;
+	collist_0000F778[2].Flags = 0x80000001;
 	sub_745A20((NJS_TEX*)&uv_0000EC54, 48);
 }
 
@@ -79,7 +79,7 @@ void __cdecl sub_72A8B0()
 	texlist_garden02mr_night = (NJS_TEXLIST *)&texlist_mrgarden;
 	objLandTableGarden02_Night = (LandTable *)&landtable_0000FD3C;
 	collist_0000F778[0].Flags = 0x00000000;
-	collist_0000F778[1].Flags = 0x80000420;
+	collist_0000F778[1].Flags = 0x80000001;
 	collist_0000F778[2].Flags = 0x00000000;
 	sub_745A20((NJS_TEX*)&uv_0000EC54, 48);
 }
