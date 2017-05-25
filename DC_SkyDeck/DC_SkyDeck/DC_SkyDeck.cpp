@@ -249,7 +249,6 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 {
 	if (CurrentLevel == 6)
 	{
-		if (CurrentAct != 2) WriteData((char*)0x005ED1BA, 0x00, 1); //Sky rendering queue flags
 		{
 			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
 		for (int i = 0; i < landtable_00021094.COLCount; i++)
@@ -261,7 +260,6 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 	}
 	if (CurrentLevel == 6 && CurrentAct == 2)
 	{
-		WriteData((char*)0x005ED1BA, 0x08, 1); //Sky rendering queue flags
 		CurrentSkyBoxScaleX = 1.0f;
 		CurrentSkyBoxScaleY = 1.0f;
 		CurrentSkyBoxScaleZ = 1.0f;
