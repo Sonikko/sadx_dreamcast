@@ -216,6 +216,11 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 
 	extern "C" __declspec(dllexport) void __cdecl Init()
 	{
+		HMODULE handle = GetModuleHandle(L"DC_EmeraldCoast");
+		if (handle == 0)
+		{
+		DataArray(PVMEntry, BeachTexlists, 0x0102F408, 25);
+		BeachTexlists[1].Name = "BEACH_SEAW";
 		for (int rq = 0; rq < LengthOfArray(uv_00CBB000_d); rq++)
 		{
 			uv_00CBB000_d[rq].u = round(0.5 * uv_00CBB000_d[rq].u);
@@ -252,28 +257,33 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 		WriteJump((void*)0x00501130, Obj_EC1Water_DisplayX); //Act 1
 		WriteJump((void*)0x004F7760, Obj_EC23Water_DisplayX); //Act 2
 		WriteJump((void*)0x004F76C0, Obj_EC23Water_DisplayX); //Act 3
+		}
 	}
 
 	extern "C" __declspec(dllexport) void __cdecl OnFrame()
 	{
-		if (CurrentLevel == 1 && GameState != 16)
+		HMODULE handle = GetModuleHandle(L"DC_EmeraldCoast");
+		if (handle == 0)
 		{
-			//Restore ocean UVs on level exit/restart
-			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
+			if (CurrentLevel == 1 && GameState != 16)
 			{
-				for (int r2 = 0; r2 < LengthOfArray(uv_00CBB000_d); r2++)
+				//Restore ocean UVs on level exit/restart
+				if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
 				{
-					uv_00CBB000_data[r2].u = uv_00CBB000_d[r2].u;
-					uv_00CBB000_data[r2].v = uv_00CBB000_d[r2].v;
-					uv_00CBB000[r2].u = uv_00CBB000_d[r2].u;
-					uv_00CBB000[r2].v = uv_00CBB000_d[r2].v;
+					for (int r2 = 0; r2 < LengthOfArray(uv_00CBB000_d); r2++)
+					{
+						uv_00CBB000_data[r2].u = uv_00CBB000_d[r2].u;
+						uv_00CBB000_data[r2].v = uv_00CBB000_d[r2].v;
+						uv_00CBB000[r2].u = uv_00CBB000_d[r2].u;
+						uv_00CBB000[r2].v = uv_00CBB000_d[r2].v;
+					}
 				}
+				animframe++;
+				if (beachsea_water > 14) beachsea_water = 0;
+				((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attr_texId = beachsea_water;
+				matlist_00CBA58C[0].attr_texId = beachsea_water;
+				if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2) beachsea_water++;
 			}
-			animframe++;
-			if (beachsea_water > 14) beachsea_water = 0;
-			((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attr_texId = beachsea_water;
-			matlist_00CBA58C[0].attr_texId = beachsea_water;
-			if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2) beachsea_water++;
 		}
 
 	}
