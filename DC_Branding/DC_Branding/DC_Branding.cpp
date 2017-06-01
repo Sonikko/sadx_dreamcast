@@ -1,6 +1,8 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 
+DataPointer(NJS_TEXLIST, ava_title_e_TEXLIST, 0x010D7C78);
+DataPointer(NJS_TEXLIST, ava_title_back_e_TEXLIST, 0x010D7C80);
 DataArray(PVMEntry, GUITexturePVMs, 0x007EECF0, 30);
 DataArray(PVMEntry, GUITexturePVMs2, 0x007EEDE0, 30);
 DataArray(PVMEntry, GUITexturePVMs3, 0x007EEED0, 30);
@@ -13,21 +15,63 @@ static float vstretchz = 0.4025f;
 static float rewritestretch = 0.5f;
 static float zero = 0.0f;
 static float one = 1.0f;
-static float minus1 = -1.0f;
-static float f128 = 128.0f;
-static float f256 = 256.0f;
-static float f512 = 512.0f;
-static float f384 = 384.0f;
-static float f768 = 768.0f;
-static float gamestretch = 0.0f;
+
+
 static float control_vertoffset = 455.0f;
 static float control_hzoffset = 566.0f;
 static float camera_vertoffset = 75.0f;
 static float camera_hzoffset = 215.0f;
-static float vertoffset = 0.0f;
-static float vertoffset128 = 128.0f;
-static float vertoffset256 = 256.0f;
-static float vertoffset384 = 384.0f;
+
+Sint32 __cdecl DrawAVA_TITLE_BACK_E_DC(float a1)
+{
+	float y; // ST08_4@1
+	float x; // ST04_4@1
+	float v3; // ST08_4@1
+	float v4; // ST04_4@1
+	float v5; // ST08_4@1
+	float v6; // ST04_4@1
+	float v7; // ST08_4@1
+	float v8; // ST04_4@1
+	float v9; // ST08_4@1
+	float v10; // ST04_4@1
+	float v11; // ST08_4@1
+	float v12; // ST04_4@1
+	float v13; // ST08_4@1
+	float v14; // ST04_4@1
+	float v15; // ST08_4@1
+	float v16; // ST04_4@1
+	NJS_TEXLIST *texturelist; // [sp+1Ch] [bp+4h]@1
+
+	njSetTexture(&ava_title_e_TEXLIST);
+	SetVtxColorB(0xFFFFFFFF);
+	njSetTexture(&ava_title_back_e_TEXLIST);
+	*(float *)&texturelist = a1 - 4.0f;
+	y = HorizontalStretch * 0.0f;
+	x = HorizontalStretch * 0.0f;
+	DrawBG(0, x, y, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
+	v3 = HorizontalStretch * 256.0f;
+	v4 = HorizontalStretch * 0.0f;
+	DrawBG(1, v4, v3, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
+	v5 = HorizontalStretch * 0.0f;
+	v6 = HorizontalStretch * 256.0f;
+	DrawBG(2, v6, v5, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
+	v7 = HorizontalStretch * 256.0f;
+	v8 = HorizontalStretch * 256.0f;
+	DrawBG(3, v8, v7, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
+	v9 = HorizontalStretch * 0.0f;
+	v10 = HorizontalStretch * 512.0f;
+	DrawBG(4, v10, v9, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
+	v11 = HorizontalStretch * 128.0f;
+	v12 = HorizontalStretch * 512.0f;
+	DrawBG(5, v12, v11, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
+	v13 = HorizontalStretch * 256.0f;
+	v14 = HorizontalStretch * 512.0f;
+	DrawBG(6, v14, v13, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
+	v15 = HorizontalStretch * 384.0f;
+	v16 = HorizontalStretch * 512.0f;
+	DrawBG(7, v16, v15, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
+	return njSetTexture(&ava_title_e_TEXLIST);
+}
 
 void BoxBackgroundColor()
 {
@@ -42,6 +86,7 @@ extern "C"
 		HMODULE DisableSA1Titlescreen = GetModuleHandle(L"DisableSA1Titlescreen");
 		if (DisableSA1Titlescreen == 0 && float(HorizontalResolution) / float(VerticalResolution) < 2.2f)
 		{
+			WriteJump((void*)0x50BA90, DrawAVA_TITLE_BACK_E_DC);
 			//PVMs
 			if (float(HorizontalResolution) / float(VerticalResolution) < 1.5f) //Non-widescreen
 			{
@@ -97,44 +142,6 @@ extern "C"
 				GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_E1";
 				GUITexturePVMs5[29].Name = "AVA_TITLE_CMN_SMALLS";
 			}
-			//Main menu BG
-			WriteData((float**)0x0050BAB7, (float*)0x008928C0);
-			WriteData((float**)0x0050BAFA, (float*)0x008928C0);
-			WriteData((float**)0x0050BB3A, (float*)0x008928C0);
-			WriteData((float**)0x0050BB46, (float*)0x008928C0);
-			WriteData((float**)0x0050BABD, (float*)0x008928C0);
-			WriteData((float**)0x0050BB74, (float*)0x008928C0);
-			WriteData((float**)0x0050BB80, (float*)0x008928C0);
-			WriteData((float**)0x0050BBA9, (float*)0x008928C0);
-			WriteData((float**)0x0050BBB1, (float*)0x008928C0);
-			WriteData((float**)0x0050BBB7, (float*)0x008928C0);
-			WriteData((float**)0x0050BBE3, (float*)0x008928C0);
-			WriteData((float**)0x0050BBE9, (float*)0x008928C0);
-			WriteData((float**)0x0050BBF5, (float*)0x008928C0);
-			WriteData((float**)0x0050BC1E, (float*)0x008928C0);
-			WriteData((float**)0x0050BC23, (float*)0x008928C0);
-			WriteData((float**)0x0050BC2F, (float*)0x008928C0);
-			WriteData((float**)0x0050BC58, (float*)0x008928C0);
-			WriteData((float**)0x0050BC5E, (float*)0x008928C0);
-			WriteData((float**)0x0050BC69, (float*)0x008928C0);
-			WriteData((float**)0x0050BB34, (float*)0x008928C0);
-			WriteData((float**)0x0050BB6F, (float*)0x008928C0);
-			WriteData((float**)0x0050BB00, (float*)0x008928C0);
-			WriteData((float**)0x0050BB0B, (float*)0x008928C0);
-			WriteData((float**)0x0050BB0B, (float*)0x008928C0);
-			//vertoffset = 0.5f*(480.0f - (float(VerticalResolution) / float(HorizontalResolution / 640.0f)))-1.0f;
-			vertoffset = 0.0f;
-			vertoffset128 = 128.0f;
-			vertoffset256 = 256.0f;
-			vertoffset384 = 384.0f;
-			WriteData((float**)0x0050BAD5, &vertoffset);
-			WriteData((float**)0x0050BB06, &vertoffset256);
-			WriteData((float**)0x0050BB40, &vertoffset);
-			WriteData((float**)0x0050BB7A, &vertoffset256);
-			WriteData((float**)0x0050BBBD, &vertoffset);
-			WriteData((float**)0x0050BBEF, &vertoffset128);
-			WriteData((float**)0x0050BC29, &vertoffset256);
-			WriteData((float**)0x0050BC64, &vertoffset384);
 			//Scrolling
 			WriteData((float**)0x0050E83B, &zero); //Disable titlescreen scrolling 
 			WriteData((float**)0x0050E5BB, &zero); //Disable titlescreen scrolling (640x480)
