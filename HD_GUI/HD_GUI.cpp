@@ -13,7 +13,7 @@ extern "C"
 		//*(NJS_MODEL_SADX*)0x008B6010 = attach_00197698; //Normal spring
 		//*(NJS_MODEL_SADX*)0x008B5498 = attach_00196B5C; //Spring B
 		//*(NJS_MODEL_SADX*)0x008C6624 = attach_001A7820; //Spring H
-		//*(NJS_MODEL_SADX*)0x008BFEC8 = attach_001A127C; //Rocket platform
+		*(NJS_MODEL_SADX*)0x008BFEC8 = attach_001A127C; //Rocket platform
 		//*(NJS_MODEL_SADX*)0x008BE168 = attach_0019F5CC; //Balloon
 		if (DC_SubGames == 0)
 		{
