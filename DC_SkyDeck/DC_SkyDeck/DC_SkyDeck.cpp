@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <lanternapi.h>
 #include "SkyDeck1.h"
 #include "SkyDeck2.h"
 #include "SkyDeck3.h"
@@ -153,6 +154,12 @@ void SkyDeckSky_original(ObjectMaster *_this)
 */
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+	if (Lantern != 0)
+	{
+		allow_landtable_specular(true);
+		allow_object_vcolor(false);
+	}
 	//Lol wtf is this? Disable robot underwear?
 	WriteData((float*)0x005F4D20, 1.0f);
 	WriteData((float*)0x005F4D28, 1.0f);

@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <lanternapi.h>
 #include "EggHornet.h"
 #include "EggWalker.h"
 #include "EggViper.h"
@@ -16,6 +17,12 @@
 #include "Zero.h"
 #include "E101R.h"
 #include "E101Kai_Model.h"
+#include "LightingArrays.h"
+
+//Chaos 6 material arrays
+DataArray(NJS_MATERIAL, matlist_01270910, 0x01270910, 4);
+DataArray(NJS_MATERIAL, matlist_0126C51C, 0x0126C51C, 2);
+DataArray(NJS_MATERIAL, matlist_01271BCC, 0x01271BCC, 2);
 
 DataPointer(float, Chaos4Hitpoints, 0x03C58158);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
@@ -365,11 +372,51 @@ void __cdecl sub_563620(int a1)
 	}
 }
 */
+
+bool Chaos6Function(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(4, false);
+	set_specular(5, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool Chaos0Function(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(3, false);
+	set_specular(3, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool CharacterFunction(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(2, false);
+	set_specular(2, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceObjectSpecularFunction(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		if (Lantern != 0)
+		{
+			material_register(Chaos6Materials, LengthOfArray(Chaos6Materials), &Chaos6Function);
+			material_register(CharacterMaterials, LengthOfArray(CharacterMaterials), &CharacterFunction);
+			material_register(Chaos0Materials, LengthOfArray(Chaos0Materials), &Chaos0Function);
+			material_register(ForceObjectSpecular, LengthOfArray(ForceObjectSpecular), &ForceObjectSpecularFunction);
+		}
 		WriteJump((void*)0x00556D60, SetClip_Chaos6KX);
 		WriteJump((void*)0x00556E40, SetClip_Chaos6SX);
 		//WriteJump((void*)0x563620, sub_563620); //Mist
@@ -444,6 +491,18 @@ extern "C"
 		((NJS_OBJECT*)0x014DC25C)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x014DD4A4)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		//Material fixes
+		//Eggmobiles
+		for (int e = 0; e < 24; e++)
+		{
+			((NJS_OBJECT *)0x269D214)->basicdxmodel->mats[e].diffuse.color = 0xFFB2B2B2;
+			((NJS_OBJECT *)0x1257754)->basicdxmodel->mats[e].diffuse.color = 0xFFB2B2B2;
+			((NJS_OBJECT *)0x1561A70)->basicdxmodel->mats[e].diffuse.color = 0xFFB2B2B2;
+			((NJS_OBJECT *)0x3306270)->basicdxmodel->mats[e].diffuse.color = 0xFFB2B2B2;
+			((NJS_OBJECT *)0x269D214)->basicdxmodel->mats[e].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+			((NJS_OBJECT *)0x1257754)->basicdxmodel->mats[e].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+			((NJS_OBJECT *)0x1561A70)->basicdxmodel->mats[e].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+			((NJS_OBJECT *)0x3306270)->basicdxmodel->mats[e].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		}
 		((NJS_OBJECT *)0x31A4DFC)->basicdxmodel->mats[11].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Zero holding Amy lighting fix
 		//Chaos 0
 		((NJS_OBJECT*)0x02C65CF8)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
@@ -496,7 +555,6 @@ extern "C"
 		((NJS_OBJECT*)0x03179D4C)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 		((NJS_OBJECT*)0x03179B7C)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 		//Chaos 2
-		((NJS_OBJECT*)0x011A652C)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2;
 		((NJS_OBJECT*)0x0114B918)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos2
 		((NJS_OBJECT*)0x011339EC)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2; //Chaos2 small ball
 		((NJS_OBJECT*)0x01139274)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2; //Chaos2 ball
@@ -532,6 +590,7 @@ extern "C"
 		((NJS_OBJECT*)0x01125C60)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos2
 		((NJS_OBJECT*)0x01121EE4)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos2
 		//Chaos 4
+		((NJS_OBJECT*)0x011A652C)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4 something?
 		((NJS_OBJECT*)0x011C1C24)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2; //Chaos4 ball
 		((NJS_OBJECT*)0x011EC85C)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2; //Chaos4 ball
 		((NJS_OBJECT*)0x0119E1A4)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
@@ -550,62 +609,12 @@ extern "C"
 		((NJS_OBJECT*)0x011913AC)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
 		((NJS_OBJECT*)0x01191018)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
 		//Chaos 6
-		((NJS_MATERIAL*)0x01262B88)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x01263064)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x012633C4)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126391C)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x012645D0)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x012653D0)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x01265890)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x01266488)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x012672E0)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x012677A0)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x01268D80)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x012694F0)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x01269800)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x01269CF4)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126A000)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126A51C)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126A7FC)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126AC60)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126AF14)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126B378)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126B684)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126BAE0)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126BDBC)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126D298)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126E20C)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126F174)->diffuse.color = 0x65B2B2B2;
-		((NJS_MATERIAL*)0x0126F6F4)->diffuse.color = 0xFFB2B2B2;
-		//((NJS_MATERIAL*)0x01264A58)->diffuse.color = 0xFFB2B2B2;  //eme
-		//((NJS_MATERIAL*)0x01266968)->diffuse.color = 0xFFB2B2B2;
-		//((NJS_MATERIAL*)0x0126F6F4)->diffuse.color = 0xFFB2B2B2;
-		//((NJS_MATERIAL*)0x0126F970)->diffuse.color = 0xFFB2B2B2;
-		//((NJS_MATERIAL*)0x0126FBE8)->diffuse.color = 0xFFB2B2B2;
-		//((NJS_MATERIAL*)0x0126FE60)->diffuse.color = 0xFFB2B2B2; //eme end
-		((NJS_MATERIAL*)0x012700A4)->diffuse.color = 0xFFB2B2B2;
-		((NJS_MATERIAL*)0x012702C0)->diffuse.color = 0xFFB2B2B2;
-		((NJS_MATERIAL*)0x012704E0)->diffuse.color = 0xFFB2B2B2;
-		((NJS_MATERIAL*)0x01270700)->diffuse.color = 0xFFB2B2B2;
-		((NJS_MATERIAL*)0x012640B8)->diffuse.color = 0xFFB2B2B2;
-		((NJS_MATERIAL*)0x0126C220)->diffuse.color = 0xFFB2B2B2;
-		((NJS_MATERIAL*)0x0126CA44)->diffuse.color = 0xFFB2B2B2;
-		((NJS_MATERIAL*)0x0126D778)->diffuse.color = 0xFFB2B2B2;
-		((NJS_MATERIAL*)0x0126DC00)->diffuse.color = 0xFFB2B2B2;
-		((NJS_MATERIAL*)0x0126E6EC)->diffuse.color = 0xFFB2B2B2;
-		((NJS_MATERIAL*)0x0126EB68)->diffuse.color = 0xFFB2B2B2;
-		((NJS_MATERIAL*)0x012718D4)->diffuse.color = 0xFFB2B2B2;
-		DataArray(NJS_MATERIAL, matlist_01270910, 0x01270910, 4);
-		DataArray(NJS_MATERIAL, matlist_0126C51C, 0x0126C51C, 2);
-		DataArray(NJS_MATERIAL, matlist_01271BCC, 0x01271BCC, 2);
-		matlist_0126C51C[0].diffuse.color = 0x65B2B2B2;
-		matlist_0126C51C[1].diffuse.color = 0x4CB2B2B2;
-		matlist_01270910[0].diffuse.color = 0xFFB2B2B2;
-		matlist_01270910[1].diffuse.color = 0xFFB2B2B2;
-		matlist_01270910[2].diffuse.color = 0xFFB2B2B2;
-		matlist_01270910[3].diffuse.color = 0xFFB2B2B2;
-		matlist_01271BCC[0].diffuse.color = 0x65B2B2B2;
-		matlist_01271BCC[1].diffuse.color = 0x4CB2B2B2;
+		//((NJS_MATERIAL*)0x01264A58)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		//((NJS_MATERIAL*)0x01266968)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		//((NJS_MATERIAL*)0x0126F6F4)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		//((NJS_MATERIAL*)0x0126F970)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		//((NJS_MATERIAL*)0x0126FBE8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		//((NJS_MATERIAL*)0x0126FE60)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //eme end
 		//Chaos 6 transforming
 		((NJS_MATERIAL*)0x01280AB0)->diffuse.color = 0x65B2B2B2;
 		((NJS_MATERIAL*)0x01280FC0)->diffuse.color = 0x65B2B2B2;
@@ -774,7 +783,6 @@ extern "C"
 		___BOSSCHAOS0_OBJECTS[33]->child->child->sibling->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 		___BOSSCHAOS0_ACTIONS[18]->object = &object_0005D234;
 		___BOSSCHAOS0_ACTIONS[18]->motion = &animation_0004CEA0;
-
 	}
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl OnFrame()
