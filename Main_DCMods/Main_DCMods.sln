@@ -43,8 +43,6 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_TwinklePark", "..\DC_Twi
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_WindyValley", "..\DC_WindyValley\DC_WindyValley\DC_WindyValley.vcxproj", "{2A737F45-C653-4E44-84EB-D00D307DC288}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ECGardenOceanFix", "..\ECGardenOceanFix\ECGardenOceanFix\ECGardenOceanFix.vcxproj", "{9347CE27-5BFB-4969-9F83-34D870284EFF}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "KillCream", "..\KillCream\KillCream\KillCream.vcxproj", "{3B5EFA3E-00D7-4C53-9457-D265346377BE}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SADXStyleWater", "..\SADXStyleWater\SADXStyleWater\SADXStyleWater.vcxproj", "{3206A000-F01D-4097-80B1-7ACE2667F7D3}"
@@ -53,11 +51,9 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoundOverhaul", "..\SoundOv
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TrainDaytime", "..\TrainDaytime\TrainDaytime\TrainDaytime.vcxproj", "{392AE35A-F746-421C-9566-E3ABBA9EECA0}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_MaterialOverride", "DC_MaterialOverride\DC_MaterialOverride.vcxproj", "{E9BA3C52-893B-47C9-98C5-31F84303BA31}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_General", "..\DC_General\DC_General.vcxproj", "{E39C7A2E-D939-4F4D-8C54-E54B452C931C}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_General", "DC_General\DC_General.vcxproj", "{E39C7A2E-D939-4F4D-8C54-E54B452C931C}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WaterEffect", "WaterEffect\WaterEffect.vcxproj", "{A9ABF1CE-1C33-4AE0-9812-69DFB47481E5}"
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WaterEffect", "..\WaterEffect\WaterEffect.vcxproj", "{A9ABF1CE-1C33-4AE0-9812-69DFB47481E5}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HD_GUI", "..\HD_GUI\HD_GUI.vcxproj", "{166D0676-BFF0-4F96-99A6-192FFC5F38CF}"
 EndProject

@@ -1,5 +1,5 @@
 #include "stdafx.h"
-#include "SADXModLoader.h"
+#include <SADXModLoader.h>
 #include "ADV01_0_animlist.h"
 #include "ADV01_0.h"
 #include "ADV01_1.h"
