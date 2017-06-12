@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <lanternapi.h>
 #include "windy1.h"
 #include "windy2.h"
 #include "windy3.h"
@@ -23,10 +24,135 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DA50, &landtable_0000F274),
 };
 
+bool ForceObjectorLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(0, false); else set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+NJS_MATERIAL* ObjectSpecular[] = {
+	//Leon
+	((NJS_MATERIAL*)0x00955080),
+	((NJS_MATERIAL*)0x00951848),
+	((NJS_MATERIAL*)0x0095185C),
+	((NJS_MATERIAL*)0x00951870),
+	((NJS_MATERIAL*)0x00952978),
+	((NJS_MATERIAL*)0x0095298C),
+	((NJS_MATERIAL*)0x009529A0),
+	((NJS_MATERIAL*)0x00955094),
+	((NJS_MATERIAL*)0x00954904),
+	((NJS_MATERIAL*)0x00954918),
+	((NJS_MATERIAL*)0x0095492C),
+	((NJS_MATERIAL*)0x009544C8),
+	((NJS_MATERIAL*)0x009544DC),
+	((NJS_MATERIAL*)0x009544F0),
+	((NJS_MATERIAL*)0x0095438C),
+	((NJS_MATERIAL*)0x00954178),
+	((NJS_MATERIAL*)0x00953EE4),
+	((NJS_MATERIAL*)0x00953EF8),
+	((NJS_MATERIAL*)0x00953AA8),
+	((NJS_MATERIAL*)0x00953ABC),
+	((NJS_MATERIAL*)0x00953AD0),
+	((NJS_MATERIAL*)0x00953920),
+	((NJS_MATERIAL*)0x00953540),
+	((NJS_MATERIAL*)0x00953554),
+	((NJS_MATERIAL*)0x00953568),
+	((NJS_MATERIAL*)0x0095357C),
+	((NJS_MATERIAL*)0x009533E8),
+	((NJS_MATERIAL*)0x00953290),
+	((NJS_MATERIAL*)0x009530B8),
+	((NJS_MATERIAL*)0x00952C9C),
+	((NJS_MATERIAL*)0x00952CB0),
+	((NJS_MATERIAL*)0x00952820),
+	((NJS_MATERIAL*)0x00952404),
+	((NJS_MATERIAL*)0x00952418),
+	((NJS_MATERIAL*)0x00951F88),
+	((NJS_MATERIAL*)0x00951B6C),
+	((NJS_MATERIAL*)0x00951B80),
+	((NJS_MATERIAL*)0x009516F0),
+	((NJS_MATERIAL*)0x009512D4),
+	((NJS_MATERIAL*)0x009512E8),
+	((NJS_MATERIAL*)0x00950E5C),
+	((NJS_MATERIAL*)0x00950B50),
+	((NJS_MATERIAL*)0x00950B64),
+	((NJS_MATERIAL*)0x00950B78),
+	((NJS_MATERIAL*)0x00950978),
+//St_brd
+	((NJS_MATERIAL*)0x00C3BBB8),
+	((NJS_MATERIAL*)0x00C3BBCC),
+	((NJS_MATERIAL*)0x00C3BBE0),
+	((NJS_MATERIAL*)0x00C3BBF4),
+	//Rocket
+	((NJS_MATERIAL*)0x008C24D0),
+	((NJS_MATERIAL*)0x008C24E4),
+	((NJS_MATERIAL*)0x008C24F8),
+	((NJS_MATERIAL*)0x008C250C),
+	//O Toge
+	((NJS_MATERIAL*)0x008BAAC8),
+	((NJS_MATERIAL*)0x008BAADC),
+	((NJS_MATERIAL*)0x008BAAF0),
+	((NJS_MATERIAL*)0x008BAB04),
+	((NJS_MATERIAL*)0x008BAB18),
+	((NJS_MATERIAL*)0x008BA708),
+	//Boa-boa
+	((NJS_MATERIAL*)0x0094F34C),
+	((NJS_MATERIAL*)0x0094F360),
+	((NJS_MATERIAL*)0x0094F008),
+	((NJS_MATERIAL*)0x0094F01C),
+	((NJS_MATERIAL*)0x0094FEB4),
+	((NJS_MATERIAL*)0x0094FEC8),
+	((NJS_MATERIAL*)0x0094FB6C),
+	((NJS_MATERIAL*)0x0094FB80),
+};
+
+NJS_MATERIAL* LevelSpecular[] = {
+	//Boa-boa
+	((NJS_MATERIAL*)0x00950200),
+	((NJS_MATERIAL*)0x00950214),
+	((NJS_MATERIAL*)0x00950228),
+	((NJS_MATERIAL*)0x0095023C),
+	((NJS_MATERIAL*)0x00950250),
+	((NJS_MATERIAL*)0x00950264),
+	//Leon
+	((NJS_MATERIAL*)0x009520E0),
+	((NJS_MATERIAL*)0x009520F4),
+	((NJS_MATERIAL*)0x00952108),
+	((NJS_MATERIAL*)0x00950FB0),
+	((NJS_MATERIAL*)0x00950FC4),
+	((NJS_MATERIAL*)0x00950FD8),
+	//Rocket
+	((NJS_MATERIAL*)0x008C2D38),
+	((NJS_MATERIAL*)0x008C2D4C),
+	((NJS_MATERIAL*)0x008C2D60),
+	((NJS_MATERIAL*)0x008C2D74),
+	((NJS_MATERIAL*)0x008C2D88),
+	((NJS_MATERIAL*)0x008C2D9C),
+};
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	{
+		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+	}
 	WriteData((void*)0x4DD120, 0xC3, sizeof(char));
 	*(NJS_OBJECT*)0x00C32DB8 = object_000D40D4; //grassy rock
 	*(NJS_OBJECT*)0xC0B188 = object_000B6C3C; //Skybox bottom in Act 3
