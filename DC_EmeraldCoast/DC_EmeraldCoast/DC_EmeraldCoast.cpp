@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <lanternapi.h>
 #include "EmeraldCoast1_PC.h"
 #include "EmeraldCoast1.h"
 #include "EmeraldCoast2.h"
@@ -60,7 +61,20 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 		njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
 		njPushMatrix(0);
 		njTranslate(0, v1->Position.x, v1->Position.y, v1->Position.z);
-		ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_3, 1.0f);
+		ProcessModelNode_AB_Wrapper((NJS_OBJECT*)0x10C05E8, 1.0f);
+		njPopMatrix(1u);
+	}
+	if (!DroppedFrames && CurrentAct == 2)
+	{
+		njSetTexture((NJS_TEXLIST*)0x00E9A4CC); //BEACH03
+		njPushMatrix(0);
+		njTranslate(0, 0, 0, 0);
+		ProcessModelNode_A_Wrapper(&object_00118268, QueuedModelFlagsB_3, 1.0f);
+		ProcessModelNode_A_Wrapper(&object_00118510, QueuedModelFlagsB_3, 1.0f);
+		ProcessModelNode_A_Wrapper(&object_0011877C, QueuedModelFlagsB_3, 1.0f);
+		ProcessModelNode_A_Wrapper(&object_00118A60, QueuedModelFlagsB_3, 1.0f);
+		ProcessModelNode_A_Wrapper(&object_00118D60, QueuedModelFlagsB_3, 1.0f);
+		ProcessModelNode_A_Wrapper(&object_001190C8, QueuedModelFlagsB_3, 1.0f);
 		njPopMatrix(1u);
 	}
 }
@@ -155,8 +169,8 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 		oldpos.z = v1->Position.z;
 		njPushMatrix(0);
 		njTranslate(0, v1->Position.x, EC1OceanYShift, v1->Position.z);
-		if (EC1OceanYShift > -1.5f) ProcessModelNode_D_Wrapper((NJS_OBJECT*)0x010C03FC, 1.0f);
-		else ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x010C03FC, QueuedModelFlagsB_3, 1.0f);
+		if (EC1OceanYShift > -1.5f) ProcessModelNode_D_Wrapper(&object_00CC03FC, 1.0f);
+		else ProcessModelNode_A_Wrapper(&object_00CC03FC, QueuedModelFlagsB_3, 1.0f);
 		njPopMatrix(1u);
 
 		njPushMatrix(0);
@@ -260,10 +274,144 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 		njPopMatrix(1u);
 	}
 }
+
+bool ForceObjectorLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(0, false); else set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+NJS_MATERIAL* ObjectSpecular[] = {
+	((NJS_MATERIAL*)0x010C0510),
+	((NJS_MATERIAL*)0x008BE2D0),
+	((NJS_MATERIAL*)0x008BE2E4),
+	((NJS_MATERIAL*)0x008BE1C8),
+	&matlist_00CBA58C[0],
+	((NJS_MATERIAL*)0x0109AF00),
+	((NJS_MATERIAL*)0x0109AF14),
+	((NJS_MATERIAL*)0x0109AF28),
+	((NJS_MATERIAL*)0x0109AF3C),
+	((NJS_MATERIAL*)0x0109AF50),
+	((NJS_MATERIAL*)0x0109B6C4),
+	((NJS_MATERIAL*)0x0109B6D8),
+};
+
+NJS_MATERIAL* LevelSpecular[] = {
+	&matlist_0014B7BC[0],
+	&matlist_0014B7BC[1],
+	&matlist_0014B7BC[2],
+	&matlist_0014B7BC[3],
+	&matlist_0014B7BC[4],
+	&matlist_00059D88[6],
+	&matlist_00108488[6],
+	((NJS_MATERIAL*)0x0109BB18),
+	((NJS_MATERIAL*)0x0109BB2C),
+	((NJS_MATERIAL*)0x0109BB40),
+	((NJS_MATERIAL*)0x01043278),
+	((NJS_MATERIAL*)0x0104328C),
+	((NJS_MATERIAL*)0x010432A0),
+	((NJS_MATERIAL*)0x010429D0),
+	((NJS_MATERIAL*)0x010429E4),
+	((NJS_MATERIAL*)0x010429F8),
+	((NJS_MATERIAL*)0x01042A0C),
+	((NJS_MATERIAL*)0x0109B388),
+	((NJS_MATERIAL*)0x0109B39C),
+	((NJS_MATERIAL*)0x0109B3B0),
+	((NJS_MATERIAL*)0x0109B688),
+	((NJS_MATERIAL*)0x0109B69C),
+	((NJS_MATERIAL*)0x0109B6B0),
+	((NJS_MATERIAL*)0x0109B6C4),
+	((NJS_MATERIAL*)0x0109B6D8),
+	((NJS_MATERIAL*)0x008B8828),
+	((NJS_MATERIAL*)0x008B883C),
+	((NJS_MATERIAL*)0x008B8850),
+	((NJS_MATERIAL*)0x008B8864),
+	((NJS_MATERIAL*)0x008B8878),
+	((NJS_MATERIAL*)0x010A6064),
+	((NJS_MATERIAL*)0x010A6078),
+	((NJS_MATERIAL*)0x010A5D9C),
+	((NJS_MATERIAL*)0x010A5DB0),
+	((NJS_MATERIAL*)0x010A5AD8),
+	((NJS_MATERIAL*)0x010A5AEC),
+	&matlist_0012C6E0[0],
+	&matlist_0012C6E0[1],
+	&matlist_0012C6E0[2],
+	&matlist_0012C6E0[3],
+	((NJS_MATERIAL*)0x038CA220),
+	((NJS_MATERIAL*)0x038CA234),
+	((NJS_MATERIAL*)0x038C9DF8),
+	((NJS_MATERIAL*)0x038C9E0C),
+	&matlist_00C1AC80[4],
+	&matlist_00BE30C0[16],
+	&matlist_0004DB6C[11],
+	((NJS_MATERIAL*)0x0108B9F0),
+	((NJS_MATERIAL*)0x0108BA04),
+	((NJS_MATERIAL*)0x0108BA18),
+	((NJS_MATERIAL*)0x0108BA2C),
+	((NJS_MATERIAL*)0x01083868),
+	((NJS_MATERIAL*)0x0108387C),
+	((NJS_MATERIAL*)0x01083890),
+	((NJS_MATERIAL*)0x010838A4),
+	((NJS_MATERIAL*)0x010840A0),
+	((NJS_MATERIAL*)0x01084C8C),
+	((NJS_MATERIAL*)0x01084CA0),
+	((NJS_MATERIAL*)0x01084CB4),
+	((NJS_MATERIAL*)0x01085478),
+	((NJS_MATERIAL*)0x01087080),
+	((NJS_MATERIAL*)0x01087094),
+	((NJS_MATERIAL*)0x01087C88),
+	((NJS_MATERIAL*)0x01087E20),
+	((NJS_MATERIAL*)0x01088090),
+	((NJS_MATERIAL*)0x01088328),
+	((NJS_MATERIAL*)0x01088598),
+	((NJS_MATERIAL*)0x01088700),
+	((NJS_MATERIAL*)0x01089354),
+	((NJS_MATERIAL*)0x01089670),
+	((NJS_MATERIAL*)0x01089898),
+	((NJS_MATERIAL*)0x01089A38),
+	((NJS_MATERIAL*)0x01089DB4),
+	((NJS_MATERIAL*)0x01089FD0),
+	((NJS_MATERIAL*)0x0108A3A8),
+	((NJS_MATERIAL*)0x0108A3BC),
+	((NJS_MATERIAL*)0x0108A3D0),
+	((NJS_MATERIAL*)0x0108AC94),
+	((NJS_MATERIAL*)0x0108ACA8),
+	((NJS_MATERIAL*)0x0108AFAC),
+	((NJS_MATERIAL*)0x0108AFC0),
+	((NJS_MATERIAL*)0x0108B19C),
+	((NJS_MATERIAL*)0x0108B1B0),
+	((NJS_MATERIAL*)0x0108B3DC),
+	((NJS_MATERIAL*)0x0108B3F0),
+	((NJS_MATERIAL*)0x0108B58C),
+	((NJS_MATERIAL*)0x0108B6E0),
+};
+
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 
 extern "C" __declspec(dllexport) void __cdecl Init()
 {
+	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	{
+		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+	}
+
 	WriteData((char*)0x004F7816, 0xFF, 2); //Disable water animation in Act 2
 	WriteData((char*)0x004F78E6, 0xFF, 2); //Disable water animation in Act 3
 	((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.argb.a = 0x99; //Match dynamic ocean alpha with normal ocean
@@ -271,6 +419,12 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	DataArray(PVMEntry, BeachTexlists, 0x0102F408, 25);
 	if (SADXStyleWater != 0)
 	{
+		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 1].Flags = 0x80000002;
+		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 2].Flags = 0x80000002;
+		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 3].Flags = 0x80000002;
+		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 4].Flags = 0x80000002;
+		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 5].Flags = 0x80000002;
+		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 6].Flags = 0x80000002;
 		for (int rq = 0; rq < LengthOfArray(uv_00CBB000_d); rq++)
 		{
 			uv_00CBB000_d[rq].u = round(0.5 * uv_00CBB000_d[rq].u);
