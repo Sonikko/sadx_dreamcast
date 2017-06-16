@@ -9,13 +9,14 @@ DataArray(PVMEntry, GUITexturePVMs3, 0x007EEED0, 30);
 DataArray(PVMEntry, GUITexturePVMs4, 0x007EEFC0, 30);
 DataArray(PVMEntry, GUITexturePVMs5, 0x007EF0B0, 30);
 
+Uint8 options;
+
 static float pausexpos = 137.0f;
 static float vstretchx = 0.3525f;
 static float vstretchz = 0.4025f;
 static float rewritestretch = 0.5f;
 static float zero = 0.0f;
 static float one = 1.0f;
-
 
 static float control_vertoffset = 455.0f;
 static float control_hzoffset = 566.0f;
@@ -197,17 +198,36 @@ extern "C"
 		WriteData((float*)0x0045812A, 0.7f); //Selection box G
 		WriteData((float*)0x0045812F, 0.0f); //Selection box R
 	}
-}
+	__declspec(dllexport) void __cdecl OnFrame()
+	{
+		if (GameState == 16)
+		{
+		char optionCount = SetPauseDisplayOptions(&options);
+		if (optionCount == 6)
+		{
+			WriteData((float*)0x0045852C, 21.0f); //Pause box Y scale (4 options)
+			WriteData((float*)0x00458523, 21.0f); //Pause box Y scale (3 options)
+			WriteData((float*)0x00458511, 21.0f); //Pause box Y scale (5 options)
+		}
+		if (optionCount == 5)
+		{
+			WriteData((float*)0x0045852C, 17.9f); //Pause box Y scale (4 options)
+			WriteData((float*)0x00458523, 17.9f); //Pause box Y scale (3 options)
+			WriteData((float*)0x00458511, 17.9f); //Pause box Y scale (5 options)
+		}
+		if (optionCount == 4)
+		{
+			WriteData((float*)0x0045852C, 17.15f); //Pause box Y scale (4 options)
+			WriteData((float*)0x00458523, 17.15f); //Pause box Y scale (3 options)
+			WriteData((float*)0x00458511, 17.15f); //Pause box Y scale (5 options)
+		}
+		if (optionCount == 3)
+		{
+			WriteData((float*)0x0045852C, 11.7f); //Pause box Y scale (4 options)
+			WriteData((float*)0x00458523, 11.7f); //Pause box Y scale (3 options)
+			WriteData((float*)0x00458511, 11.7f); //Pause box Y scale (5 options)
+		}
+		}
+	}
 
-/*Pause box Y scale disabled
-WriteData((float*)0x0045852C, 17.15f); //Pause box Y scale (4 options)
-WriteData((float*)0x00458523, 11.7f); //Pause box Y scale (3 options)
-WriteData((float*)0x00458511, 17.9f); //Pause box Y scale (5 options)
-WriteData((char*)0x0045850C, 0x7C, 1); //Change condition from "if <= 5 options" to "if < 5 options"
-WriteData((char*)0x0045851E, 0x74, 1); //Change condition from "if >= 4 options" to "if = 4 options"
-/*	__declspec(dllexport) void __cdecl OnFrame()
-{
-//Mission mode fix because SADX sucks
-if (GameMode == GameModes_Mission && (CurrentLevel != 33 && CurrentAct != 3)) WriteData((float*)0x00458511, 21.0f); //Pause box Y scale (6 options)
-else WriteData((float*)0x00458511, 17.9f); //Pause box Y scale (5 options)
-}*/
+}
