@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <lanternapi.h>
 #include "TwinklePark_objects.h"
 #include "Twinkle1.h"
 #include "Twinkle2.h"
@@ -24,12 +25,288 @@ NJS_MATERIAL matlist_034C3AD0[] = {
 
 NJS_TEXNAME textures_tpobjects[97];
 
+
+bool ForceObjectorLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(0, false); else set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(3, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+NJS_MATERIAL* ObjectSpecular[] = {
+//Zero
+	((NJS_MATERIAL*)0x00990BC0),
+	((NJS_MATERIAL*)0x00990BD4),
+	((NJS_MATERIAL*)0x00990BE8),
+	((NJS_MATERIAL*)0x00990BFC),
+	((NJS_MATERIAL*)0x00990C10),
+	((NJS_MATERIAL*)0x00990420),
+	((NJS_MATERIAL*)0x00990434),
+	((NJS_MATERIAL*)0x00990448),
+	((NJS_MATERIAL*)0x0099045C),
+	((NJS_MATERIAL*)0x00990470),
+	((NJS_MATERIAL*)0x0098FC60),
+	((NJS_MATERIAL*)0x0098FC74),
+	((NJS_MATERIAL*)0x0098F558),
+	((NJS_MATERIAL*)0x0098F56C),
+	((NJS_MATERIAL*)0x0098F580),
+	((NJS_MATERIAL*)0x0098F594),
+	((NJS_MATERIAL*)0x0098F5A8),
+	((NJS_MATERIAL*)0x0098F5BC),
+	((NJS_MATERIAL*)0x0098EE50),
+	((NJS_MATERIAL*)0x0098EE64),
+	((NJS_MATERIAL*)0x0098EE78),
+	((NJS_MATERIAL*)0x0098EE8C),
+	((NJS_MATERIAL*)0x0098EEA0),
+	((NJS_MATERIAL*)0x0098EEB4),
+	((NJS_MATERIAL*)0x0098D218),
+	((NJS_MATERIAL*)0x0098D22C),
+	((NJS_MATERIAL*)0x0098D240),
+	((NJS_MATERIAL*)0x0098D254),
+	((NJS_MATERIAL*)0x0098D268),
+	((NJS_MATERIAL*)0x0098D27C),
+	((NJS_MATERIAL*)0x0098D290),
+	((NJS_MATERIAL*)0x0098D2A4),
+	((NJS_MATERIAL*)0x0098D2B8),
+	((NJS_MATERIAL*)0x0098D2CC),
+	((NJS_MATERIAL*)0x0098D2E0),
+	((NJS_MATERIAL*)0x0098D2F4),
+	((NJS_MATERIAL*)0x0098D308),
+	((NJS_MATERIAL*)0x0098D31C),
+	((NJS_MATERIAL*)0x0098D330),
+	((NJS_MATERIAL*)0x0098CE30),
+	((NJS_MATERIAL*)0x0098CE44),
+	((NJS_MATERIAL*)0x0098CB90),
+	((NJS_MATERIAL*)0x0098CBA4),
+	((NJS_MATERIAL*)0x0098C868),
+	((NJS_MATERIAL*)0x0098C87C),
+	((NJS_MATERIAL*)0x0098C890),
+	((NJS_MATERIAL*)0x0098C550),
+	((NJS_MATERIAL*)0x0098C564),
+	((NJS_MATERIAL*)0x0098C578),
+	((NJS_MATERIAL*)0x0098BDA4),
+	((NJS_MATERIAL*)0x0098B9C0),
+	((NJS_MATERIAL*)0x0098B9D4),
+	((NJS_MATERIAL*)0x0098B720),
+	((NJS_MATERIAL*)0x0098B734),
+	((NJS_MATERIAL*)0x0098B3F8),
+	((NJS_MATERIAL*)0x0098B40C),
+	((NJS_MATERIAL*)0x0098B420),
+	((NJS_MATERIAL*)0x0098B0E0),
+	((NJS_MATERIAL*)0x0098B0F4),
+	((NJS_MATERIAL*)0x0098B108),
+	((NJS_MATERIAL*)0x0098A924),
+	((NJS_MATERIAL*)0x00989F70),
+	((NJS_MATERIAL*)0x00989F84),
+	((NJS_MATERIAL*)0x00989F98),
+	((NJS_MATERIAL*)0x00989C30),
+	((NJS_MATERIAL*)0x00989C44),
+	((NJS_MATERIAL*)0x00989C58),
+	((NJS_MATERIAL*)0x009899C0),
+	((NJS_MATERIAL*)0x009899D4),
+	((NJS_MATERIAL*)0x00989750),
+	((NJS_MATERIAL*)0x00989764),
+//Last mirror 
+&matlist_00091C40X[0],
+&matlist_00091F0CX[0],
+//O Arch 2
+((NJS_MATERIAL*)0x038BEF00),
+((NJS_MATERIAL*)0x038BEF14),
+((NJS_MATERIAL*)0x038BEF28),
+((NJS_MATERIAL*)0x038BEF3C),
+((NJS_MATERIAL*)0x038BEF50),
+((NJS_MATERIAL*)0x038BEF64),
+((NJS_MATERIAL*)0x038BEF78),
+((NJS_MATERIAL*)0x038BEF8C),
+((NJS_MATERIAL*)0x038BEFA0),
+((NJS_MATERIAL*)0x038BEFB4),
+((NJS_MATERIAL*)0x038BEFC8),
+((NJS_MATERIAL*)0x038BEFDC),
+};
+
+NJS_MATERIAL* WhiteDiffuse[] = {
+//Fence2
+	((NJS_MATERIAL*)0x027A24D8),
+//Barrel
+&matlist_000A075C[0],
+&matlist_000A075C[1],
+&matlist_000A075C[2],
+&matlist_000A075C[3],
+((NJS_MATERIAL*)0x038C23BC), //Pole
+((NJS_MATERIAL*)0x038C1700), //Panel
+((NJS_MATERIAL*)0x038C1714), //Panel
+((NJS_MATERIAL*)0x038C2D3C), //OLight
+((NJS_MATERIAL*)0x038C2D50), //OLight
+//Satellite
+((NJS_MATERIAL*)0x038AE590),
+((NJS_MATERIAL*)0x038AE5A4),
+	/*((NJS_MATERIAL*)0x038ADB18),
+	((NJS_MATERIAL*)0x038ADB2C),
+	((NJS_MATERIAL*)0x038ADB40),
+	((NJS_MATERIAL*)0x038ADB54),
+	((NJS_MATERIAL*)0x038ADED4),
+	((NJS_MATERIAL*)0x038AE254),*/
+	&matlist_000F28A0[1],// O CartStopper
+	&matlist_000F28A0[8],// O CartStopper
+};
+
+NJS_MATERIAL* LevelSpecular[] = {
+	//Barrel pieces
+	((NJS_MATERIAL*)0x0279D398),
+	((NJS_MATERIAL*)0x0279D3AC),
+	((NJS_MATERIAL*)0x0279D6E0),
+	((NJS_MATERIAL*)0x0279D828),
+	((NJS_MATERIAL*)0x0279D934),
+	((NJS_MATERIAL*)0x0279DA5C),
+	//Zero
+	((NJS_MATERIAL*)0x0098A2B0),
+	((NJS_MATERIAL*)0x0098A2C4),
+	((NJS_MATERIAL*)0x0098A2D8),
+	((NJS_MATERIAL*)0x0098A2EC),
+	((NJS_MATERIAL*)0x0098A300),
+	((NJS_MATERIAL*)0x0098ACD0),
+	((NJS_MATERIAL*)0x0098ACE4),
+	((NJS_MATERIAL*)0x0098ACF8),
+	((NJS_MATERIAL*)0x0098AAE0),
+	((NJS_MATERIAL*)0x0098C140),
+	((NJS_MATERIAL*)0x0098C154),
+	((NJS_MATERIAL*)0x0098C168),
+	((NJS_MATERIAL*)0x0098BF50),
+	((NJS_MATERIAL*)0x00990FE0),
+	((NJS_MATERIAL*)0x00990FF4),
+	//Amy's balloon
+	((NJS_MATERIAL*)0x008BD7A0),
+	//ODoor
+	((NJS_MATERIAL*)0x027B2418),
+	((NJS_MATERIAL*)0x027B242C),
+	((NJS_MATERIAL*)0x027B2440),
+	//Dash pad
+	((NJS_MATERIAL*)0x008B8828),
+	((NJS_MATERIAL*)0x008B883C),
+	((NJS_MATERIAL*)0x008B8850),
+	((NJS_MATERIAL*)0x008B8864),
+	((NJS_MATERIAL*)0x008B8878),
+	((NJS_MATERIAL*)0x008B8498),
+	((NJS_MATERIAL*)0x008B84AC),
+	//Buyon middle
+	((NJS_MATERIAL*)0x038E3B60),
+	((NJS_MATERIAL*)0x038E3E58),
+	//Sweep
+	((NJS_MATERIAL*)0x038D05C8),
+	((NJS_MATERIAL*)0x038D05DC),
+	((NJS_MATERIAL*)0x038D05F0),
+	((NJS_MATERIAL*)0x038D0604),
+	((NJS_MATERIAL*)0x038D0618),
+	((NJS_MATERIAL*)0x038CFB80),
+	((NJS_MATERIAL*)0x038CFB94),
+	((NJS_MATERIAL*)0x038CFBA8),
+	((NJS_MATERIAL*)0x038CFBBC),
+	((NJS_MATERIAL*)0x038CFBD0),
+	((NJS_MATERIAL*)0x038CFBE4),
+	((NJS_MATERIAL*)0x038CFBF8),
+	((NJS_MATERIAL*)0x038CFC0C),
+	((NJS_MATERIAL*)0x038CF850),
+	((NJS_MATERIAL*)0x038CF864),
+	((NJS_MATERIAL*)0x038CF878),
+	((NJS_MATERIAL*)0x038CF88C),
+	((NJS_MATERIAL*)0x038CF5E8),
+	((NJS_MATERIAL*)0x038CF5FC),
+	((NJS_MATERIAL*)0x038CF610),
+	((NJS_MATERIAL*)0x038CF260),
+	((NJS_MATERIAL*)0x038CF274),
+	((NJS_MATERIAL*)0x038CEF58),
+	((NJS_MATERIAL*)0x038CEF6C),
+	((NJS_MATERIAL*)0x038CEF80),
+	((NJS_MATERIAL*)0x038CEDE8),
+	((NJS_MATERIAL*)0x038CEA60),
+	((NJS_MATERIAL*)0x038CEA74),
+	((NJS_MATERIAL*)0x038CE758),
+	((NJS_MATERIAL*)0x038CE76C),
+	((NJS_MATERIAL*)0x038CE780),
+	((NJS_MATERIAL*)0x038CE5E8),
+	((NJS_MATERIAL*)0x038CE260),
+	((NJS_MATERIAL*)0x038CE274),
+	((NJS_MATERIAL*)0x038CDF58),
+	((NJS_MATERIAL*)0x038CDF6C),
+	((NJS_MATERIAL*)0x038CDF80),
+	((NJS_MATERIAL*)0x038CDDE8),
+	((NJS_MATERIAL*)0x038CDA60),
+	((NJS_MATERIAL*)0x038CDA74),
+	((NJS_MATERIAL*)0x038CD758),
+	((NJS_MATERIAL*)0x038CD76C),
+	((NJS_MATERIAL*)0x038CD780),
+	((NJS_MATERIAL*)0x038CD5E8),
+//Use_Env stuff
+	&matlist_000263FC[0],
+	&matlist_00026884[0],
+	&matlist_00026884[1],
+	&matlist_00028260[0],
+	&matlist_00028260[1],
+	&matlist_0002B274[0],
+	&matlist_0002B274[1],
+	&matlist_0002E288[0],
+	&matlist_0002E288[1],
+	&matlist_000312B8[0],
+	&matlist_000312B8[1],
+	&matlist_000342E8[0],
+	&matlist_000342E8[1],
+	&matlist_00035CA8[0],
+	&matlist_00035CA8[1],
+	&matlist_0003763C[0],
+	&matlist_0003763C[1],
+	&matlist_00038FD0[0],
+	&matlist_00038FD0[1],
+	&matlist_0003A974[0],
+	&matlist_0003A974[1],
+	&matlist_0003C0C8[0],
+	&matlist_0003C0C8[1],
+	//Buyon
+	//&matlist_034E23EC[0],
+};
+
 extern "C"
 {
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
-	__declspec(dllexport) void __cdecl Init()
+	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		//Amy's barrel fix
+		HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
+		if (CHRMODELS != nullptr)
+		{
+		NJS_OBJECT **___AMY_OBJECTS = (NJS_OBJECT **)GetProcAddress(CHRMODELS, "___AMY_OBJECTS");
+		___AMY_OBJECTS[1]->child->child->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		___AMY_OBJECTS[1]->child->child->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		}
+		((NJS_OBJECT*)0x008BF3A0)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //shadow blob
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+		{
+			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+		}
 		*(NJS_OBJECT*)0x27AF5EC = object_000ADBE0; //Double door
 		*(NJS_OBJECT*)0x27A3F5C = object_000A6CD8; //OFlyer
 		*(NJS_OBJECT*)0x27AFCF0 = object_000AE2BC; //Crown
@@ -60,7 +337,7 @@ extern "C"
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[8].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-
+		WriteData((char*)0x0079DB92, 0x01, 1); //OPanel blending
 		*(NJS_OBJECT*)0x027AAFF4 = object_000AA710; // pirate ship
 		*(NJS_MODEL_SADX*)0x027AC420 = attach_000AB6B4;//pirate ship blinking supporter
 		*(NJS_MODEL_SADX*)0x027AB6B4 = attach_000AACA0;//pirate ship rotating thing right
@@ -81,17 +358,12 @@ extern "C"
 		((NJS_OBJECT *)0x027B3DB8)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Bowling pin
 		((NJS_OBJECT *)0x027B3DB8)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Bowling pin
 		((NJS_OBJECT *)0x027B3DB8)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Bowling pin
-		((NJS_OBJECT *)0x0279D364)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Barrel
-		((NJS_OBJECT *)0x0279D364)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Barrel
-		((NJS_OBJECT *)0x0279D364)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Barrel
-		((NJS_OBJECT *)0x0279D364)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Barrel
 		((NJS_OBJECT *)0x027A4AD0)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag1 1
 		((NJS_OBJECT *)0x027A466C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag1 2
 		((NJS_OBJECT *)0x027A466C)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag1 3
 		((NJS_OBJECT *)0x027A5024)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag2 1
 		((NJS_OBJECT *)0x027A5024)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag2 2
 		((NJS_OBJECT *)0x027A5024)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag2 3
-		((NJS_OBJECT *)0x027A3358)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Fence2
 		((NJS_OBJECT *)0x027A5464)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 1
 		((NJS_OBJECT *)0x027A5464)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 2
 		((NJS_OBJECT *)0x027A58A4)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Flag with lamp 3
