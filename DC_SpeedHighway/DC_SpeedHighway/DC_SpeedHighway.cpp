@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include <string>
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "Highway1.h"
@@ -12,6 +13,8 @@
 #include "SH_turnasi.h"
 #include "SH_glass.h"
 #include "Highway_objects.h"
+
+std::string pl40xbin;
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA88, &landtable_0001853C),
@@ -105,18 +108,24 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 	((NJS_MATERIAL*)0x00971AF0),
 };
 
-void FuckThisShit()
+const char* __cdecl SetPL40X(int level, int act) 
 {
-	ProcessModelNode_A_WrapperB((NJS_OBJECT*)0x268CF20, QueuedModelFlagsB_SomeTextureThing);
-	ProcessModelNode_A_WrapperB((NJS_OBJECT*)0x268CF20, QueuedModelFlagsB_SomeTextureThing);
-	njPopMatrix(1u);
+	if (level == 4 && act == 0) 
+	{ 
+		return pl40xbin.c_str();
+	}
+	else { return nullptr; }
 }
+
+
 extern "C"
 {
 	__declspec(dllexport) PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
-	__declspec(dllexport) void __cdecl Init()
+	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		pl40xbin = path;
+		pl40xbin.append("\\system\\PL_40X.BIN");
 		//Enable antenna sprite
 		WriteData((float*)0x00615DD2, 182.0f);
 		WriteData((float*)0x00615D76, 1.0f);
@@ -124,6 +133,8 @@ extern "C"
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
+			typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
+			pl_load_register(SetPL40X);
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 		}
 		//Helicopter light
