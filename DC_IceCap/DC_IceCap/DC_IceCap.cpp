@@ -24,6 +24,21 @@ extern "C"
 	__declspec(dllexport) PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//Snowboard fix
+		HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
+		if (CHRMODELS != nullptr)
+		{
+			NJS_OBJECT **___SONIC_OBJECTS = (NJS_OBJECT **)GetProcAddress(CHRMODELS, "___SONIC_OBJECTS");
+			NJS_OBJECT **___MILES_OBJECTS = (NJS_OBJECT **)GetProcAddress(CHRMODELS, "___MILES_OBJECTS");
+			___SONIC_OBJECTS[71]->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			___SONIC_OBJECTS[71]->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			___SONIC_OBJECTS[71]->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
+			___SONIC_OBJECTS[71]->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
+			___MILES_OBJECTS[71]->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			___MILES_OBJECTS[71]->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			___MILES_OBJECTS[71]->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
+			___MILES_OBJECTS[71]->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
+		}
 		ResizeTextureList((NJS_TEXLIST*)0xDE3A74, textures_icecap1);
 		ResizeTextureList((NJS_TEXLIST*)0xD39744, textures_icecap2);
 		ResizeTextureList((NJS_TEXLIST*)0xC68408, textures_icecap3);
