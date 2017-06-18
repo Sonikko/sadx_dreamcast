@@ -1,10 +1,14 @@
 #include "stdafx.h"
 #include "math.h"
+#include <string>
 #include <SADXModLoader.h>
+#include <lanternapi.h>
 #include "Mountain1.h"
 #include "Mountain2.h"
 #include "Mountain3.h"
 #include "RM_Objects.h"
+
+std::string pl51xbin;
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DAA8, &landtable_00018CB8),
@@ -17,6 +21,60 @@ DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
 DataPointer(signed int, ClipLevel, 0x03ABDCF0);
 DataPointer(NJS_TEXLIST, OBJ_MOUNTAIN_TEXLIST, 0x024208A8);
 FunctionPointer(double, sub_789320, (float), 0x789320);
+
+NJS_MATERIAL* LevelSpecular[] = {
+	//OSaku2
+	((NJS_MATERIAL*)0x0243C108),
+	((NJS_MATERIAL*)0x0243C11C),
+	((NJS_MATERIAL*)0x0243C130),
+	((NJS_MATERIAL*)0x0243BB08),
+	((NJS_MATERIAL*)0x0243BB1C),
+};
+
+NJS_MATERIAL* ObjectSpecular[] = {
+	//Platform Asiba01
+	((NJS_MATERIAL*)0x0246AB58),
+	((NJS_MATERIAL*)0x0246AB6C),
+	((NJS_MATERIAL*)0x0246AB80),
+	//Propeller box
+	((NJS_MATERIAL*)0x02438C64),
+	((NJS_MATERIAL*)0x02438C78),
+};
+
+NJS_MATERIAL* WhiteDiffuse[] = {
+	//Stand light
+	((NJS_MATERIAL*)0x02439998),
+	((NJS_MATERIAL*)0x024399AC),
+	((NJS_MATERIAL*)0x024399C0),
+	((NJS_MATERIAL*)0x024399D4),
+	//Lamp1
+	&matlist_02081D98[0],
+	&matlist_02081D98[1],
+	//Lamp2
+	&matlist_020829F0[0],
+	&matlist_020829F0[1],
+};
+
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(1, false);
+	use_default_diffuse(true);
+	return true;
+}
 
 void __cdecl sub_600BF0(ObjectMaster *a1, NJS_OBJECT *a2)
 {
@@ -122,13 +180,40 @@ void __cdecl sub_600BF0Z(ObjectMaster *a1, NJS_OBJECT *a2)
 	njPopMatrix(1u);
 }
 
+const char* __cdecl SetPL51X(int level, int act)
+{
+	if (level == 5 && act == 1)
+	{
+		return pl51xbin.c_str();
+	}
+	else { return nullptr; }
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
-	__declspec(dllexport) void __cdecl Init()
+	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		pl51xbin = path;
+		pl51xbin.append("\\system\\PL_51X.BIN");
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+		{
+			typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
+			pl_load_register(SetPL51X);
+			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+		}
 		//WriteJump((void*)0x600BF0, sub_600BF0);
+		*(NJS_OBJECT*)0x248213C = object_0208213C; //Lamp1
+		*(NJS_OBJECT*)0x2482D94 = object_02082D94; //Lamp2
+		//Standing light specular
+		((NJS_MATERIAL*)0x02439998)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x024399AC)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x024399C0)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x024399D4)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		*(NJS_OBJECT*)0x246A624 = object_00181CE0; //O Bpole
 		*(NJS_OBJECT*)0x246AB24 = object_001821C0; //O Bpole 2
 		*(NJS_MODEL_SADX*)0x2466818 = attach_0017DF2C; //Bridge piece
@@ -139,10 +224,6 @@ extern "C"
 		*(NJS_MODEL_SADX*)0x24392C4 = attach_001513C8; //Light thing propeller 2
 		*(NJS_OBJECT*)0x2439964 = object_001511FC;
 		WriteData((void*)0x0060C981, 3, 1); //Light thing blending mode
-		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
-		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
-		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
-		((NJS_OBJECT*)0x243A220)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_LIGHT; //that standing light thing
 		matlist_0206C9D4_2[0].diffuse.color = 0xEFFFFFFF;
 		matlist_0206C9D4[0].diffuse.color = 0xEFFFFFFF;
 		WriteData((void*)0x00600C8F, 0x58, sizeof(char));
