@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <lanternapi.h>
 #include "Casino_objects.h"
 #include "Casino1.h"
 #include "Casino2.h"
@@ -154,12 +155,66 @@ void __cdecl OLhtg_Display(ObjectMaster *a1)
 	}
 }
 
+
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+NJS_MATERIAL* ObjectSpecular[] = {
+	//OLion
+	((NJS_MATERIAL*)0x01E01270),
+	((NJS_MATERIAL*)0x01E01284),
+	((NJS_MATERIAL*)0x01E01298),
+	((NJS_MATERIAL*)0x01E012AC),
+	((NJS_MATERIAL*)0x01E00364),
+	((NJS_MATERIAL*)0x01E00378),
+	((NJS_MATERIAL*)0x01E0038C),
+	((NJS_MATERIAL*)0x01DFDE88),
+	((NJS_MATERIAL*)0x01DFDE9C),
+	((NJS_MATERIAL*)0x01DFDEB0),
+	((NJS_MATERIAL*)0x01DFDEC4),
+	((NJS_MATERIAL*)0x01DFDED8),
+	((NJS_MATERIAL*)0x01DFDEEC),
+	((NJS_MATERIAL*)0x01DFDF00),
+	((NJS_MATERIAL*)0x01DFDF14),
+	((NJS_MATERIAL*)0x01DFDF28),
+	((NJS_MATERIAL*)0x01DFDF3C),
+	((NJS_MATERIAL*)0x01DFDF50),
+	((NJS_MATERIAL*)0x01DFDF64),
+	((NJS_MATERIAL*)0x01DFDF78),
+	((NJS_MATERIAL*)0x01DFCF7C),
+	((NJS_MATERIAL*)0x01DFCF90),
+	((NJS_MATERIAL*)0x01DFCFA4),
+	((NJS_MATERIAL*)0x01DF9718),
+	((NJS_MATERIAL*)0x01DF972C),
+	((NJS_MATERIAL*)0x01DF9740),
+	((NJS_MATERIAL*)0x01DF9754),
+	((NJS_MATERIAL*)0x01DF9768),
+	((NJS_MATERIAL*)0x01DF977C),
+};
+
 extern "C"
 {
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+		{
+			//material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+		}
 		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
 		if (Cowgirl != 0)
 		{
