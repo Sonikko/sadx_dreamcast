@@ -6,7 +6,7 @@
 #include "Twinkle2.h"
 #include "Twinkle3.h"
 #include "Buyon.h"
-
+HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 
 static int anim = 74;
@@ -55,6 +55,12 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 }
 
 NJS_MATERIAL* ObjectSpecular[] = {
+	//Amy's barrel
+	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x00016498)),
+	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x000164AC)),
+	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x000164C0)),
+	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x000164D4)),
+	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x000164E8)),
 //Zero
 	((NJS_MATERIAL*)0x00990BC0),
 	((NJS_MATERIAL*)0x00990BD4),
