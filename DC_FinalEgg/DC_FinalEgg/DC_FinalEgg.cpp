@@ -1,11 +1,15 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
+#include <lanternapi.h>
+#include <string>
 #include "FinalEgg1.h"
 #include "FinalEgg2.h"
 #include "FinalEgg3.h"
 #include "FinalEgg_objects.h"
 #include "stdlib.h"
 #include "math.h"
+
+std::string pla2xbin;
 
 NJS_TEXNAME textures_cylinder[259];
 NJS_TEXLIST texlist_cylinder = { arrayptrandlength(textures_cylinder) };
@@ -193,7 +197,6 @@ void __cdecl sub_5AE330(ObjectMaster *a1)
 		BackupConstantAttr();
 		AddConstantAttr(0, NJD_FLAG_USE_ALPHA);
 		AddConstantAttr(0, NJD_DA_ONE);
-		((NJS_OBJECT*)0x1A45620)->basicdxmodel->mats->diffuse.color = 0x9FFFFFFF;
 		njColorBlendingMode(0, 8);
 		njColorBlendingMode(1, 10);
 		njPushMatrix(0);
@@ -213,12 +216,249 @@ void __cdecl sub_5AE330(ObjectMaster *a1)
 		RestoreConstantAttr();
 	}
 }
+
+
+NJS_MATERIAL* LevelSpecular[] = {
+	((NJS_MATERIAL*)0x01A3AD08), //Glass tube elevator
+	//OHakidashi
+	((NJS_MATERIAL*)0x01A26E18),
+	((NJS_MATERIAL*)0x01A26E2C),
+	((NJS_MATERIAL*)0x01A26E40),
+	((NJS_MATERIAL*)0x01A26E54),
+	((NJS_MATERIAL*)0x01A26E68),
+	((NJS_MATERIAL*)0x01A26E7C),
+	((NJS_MATERIAL*)0x01A26E90),
+	((NJS_MATERIAL*)0x01A26EA4),
+	((NJS_MATERIAL*)0x01A26EB8),
+	((NJS_MATERIAL*)0x01A26ECC),
+	//OEggKanban
+	((NJS_MATERIAL*)0x01C26FBC),
+	//Side_Arm
+	((NJS_MATERIAL*)0x019DEB20),
+	((NJS_MATERIAL*)0x019DEB34),
+	((NJS_MATERIAL*)0x019DEB48),
+	((NJS_MATERIAL*)0x019DEB5C),
+	((NJS_MATERIAL*)0x019DEB70),
+	//Top_Arm
+	((NJS_MATERIAL*)0x019DC710),
+	((NJS_MATERIAL*)0x019DC724),
+};
+
+NJS_MATERIAL* ObjectSpecular[] = {
+	//OTexture
+	((NJS_MATERIAL*)0x01A45548),
+	//OContainer
+	((NJS_MATERIAL*)0x019D7590),
+	((NJS_MATERIAL*)0x019D75A4),
+	((NJS_MATERIAL*)0x019D75B8),
+	//Elevator door
+	((NJS_MATERIAL*)0x01A3AA44),
+	//Barrier
+	((NJS_MATERIAL*)0x01A45BF4),
+	((NJS_MATERIAL*)0x01A45C08),
+	((NJS_MATERIAL*)0x01A45C1C),
+	((NJS_MATERIAL*)0x01A45C44),
+	((NJS_MATERIAL*)0x01A45C58),
+	//OHammer
+	((NJS_MATERIAL*)0x019FA670),
+	((NJS_MATERIAL*)0x019FA684),
+	((NJS_MATERIAL*)0x019FA698),
+	((NJS_MATERIAL*)0x019FA6AC),
+	((NJS_MATERIAL*)0x019FA6C0),
+	((NJS_MATERIAL*)0x019FA6D4),
+	((NJS_MATERIAL*)0x019FA6E8),
+	((NJS_MATERIAL*)0x019F8EA8),
+	((NJS_MATERIAL*)0x019F8EBC),
+	((NJS_MATERIAL*)0x019F8ED0),
+	((NJS_MATERIAL*)0x019F8EE4),
+	((NJS_MATERIAL*)0x019F8EF8),
+	((NJS_MATERIAL*)0x019F8F0C),
+	((NJS_MATERIAL*)0x019F8F20),
+	//OGshooter
+	((NJS_MATERIAL*)0x01A20498),
+	((NJS_MATERIAL*)0x01A204AC),
+	((NJS_MATERIAL*)0x01A204C0),
+	((NJS_MATERIAL*)0x01A204D4),
+	((NJS_MATERIAL*)0x01A204E8),
+	((NJS_MATERIAL*)0x01A204FC),
+	((NJS_MATERIAL*)0x01A1FF94),
+	((NJS_MATERIAL*)0x01A1FFA8),
+	((NJS_MATERIAL*)0x01A1FFBC),
+	((NJS_MATERIAL*)0x01A1FE88),
+	((NJS_MATERIAL*)0x01A1FD7C),
+	((NJS_MATERIAL*)0x01A1FC70),
+	((NJS_MATERIAL*)0x01A1FB64),
+	((NJS_MATERIAL*)0x01A1FA58),
+	((NJS_MATERIAL*)0x01A1F94C),
+	//Rotating spikes
+	((NJS_MATERIAL*)0x019D23C4),
+	((NJS_MATERIAL*)0x019D23D8),
+	((NJS_MATERIAL*)0x019D23EC),
+	//OSetStep
+	((NJS_MATERIAL*)0x019D6A80),
+	((NJS_MATERIAL*)0x019D6A94),
+	((NJS_MATERIAL*)0x019D6AA8),
+	((NJS_MATERIAL*)0x019D6ABC),
+	((NJS_MATERIAL*)0x019D6AD0),
+	//Side_Arm
+	((NJS_MATERIAL*)0x019E0CA0),
+	((NJS_MATERIAL*)0x019E06A8),
+	((NJS_MATERIAL*)0x019E06BC),
+	((NJS_MATERIAL*)0x019E06D0),
+	((NJS_MATERIAL*)0x019E04A8),
+	((NJS_MATERIAL*)0x019DFE6C),
+	((NJS_MATERIAL*)0x019DFE80),
+	((NJS_MATERIAL*)0x019DFE94),
+	((NJS_MATERIAL*)0x019DF790),
+	((NJS_MATERIAL*)0x019DF7A4),
+	((NJS_MATERIAL*)0x019DF7B8),
+	((NJS_MATERIAL*)0x019DF7CC),
+	((NJS_MATERIAL*)0x019DF398),
+	((NJS_MATERIAL*)0x019DF3AC),
+	((NJS_MATERIAL*)0x019DF3C0),
+	((NJS_MATERIAL*)0x019DE738),
+	((NJS_MATERIAL*)0x019DE74C),
+	((NJS_MATERIAL*)0x019DE760),
+	((NJS_MATERIAL*)0x019DE774),
+	((NJS_MATERIAL*)0x019DE318),
+	((NJS_MATERIAL*)0x019DE32C),
+	((NJS_MATERIAL*)0x019DE340),
+	((NJS_MATERIAL*)0x019DE354),
+	((NJS_MATERIAL*)0x019DDEF8),
+	((NJS_MATERIAL*)0x019DDF0C),
+	((NJS_MATERIAL*)0x019DDF20),
+	((NJS_MATERIAL*)0x019DDF34),
+	((NJS_MATERIAL*)0x019DDB78),
+	((NJS_MATERIAL*)0x019DDB8C),
+	((NJS_MATERIAL*)0x019DD9EC),
+	//Top_Arm
+	((NJS_MATERIAL*)0x019DCC80),
+	((NJS_MATERIAL*)0x019DCC94),
+	((NJS_MATERIAL*)0x019DD1F0),
+	((NJS_MATERIAL*)0x019DD204),
+	((NJS_MATERIAL*)0x019DC120),
+	((NJS_MATERIAL*)0x019DC134),
+	((NJS_MATERIAL*)0x019DB890),
+	((NJS_MATERIAL*)0x019DB8A4),
+	((NJS_MATERIAL*)0x019DB8B8),
+	((NJS_MATERIAL*)0x019DB8CC),
+	((NJS_MATERIAL*)0x019DB8E0),
+	((NJS_MATERIAL*)0x019DB4A8),
+	((NJS_MATERIAL*)0x019DB4BC),
+	((NJS_MATERIAL*)0x019DB4D0),
+	((NJS_MATERIAL*)0x019DB4E4),
+	((NJS_MATERIAL*)0x019DB088),
+	((NJS_MATERIAL*)0x019DB09C),
+	((NJS_MATERIAL*)0x019DB0B0),
+	((NJS_MATERIAL*)0x019DB0C4),
+	((NJS_MATERIAL*)0x019DAC68),
+	((NJS_MATERIAL*)0x019DAC7C),
+	((NJS_MATERIAL*)0x019DAC90),
+	((NJS_MATERIAL*)0x019DACA4),
+};
+
+NJS_MATERIAL* WhiteDiffuse[] = {
+	//Egg Keeper
+	((NJS_MATERIAL*)0x0094B168),
+	//OTexture
+	((NJS_MATERIAL*)0x01A45548),
+	//Elevator (glass tube)
+	((NJS_MATERIAL*)0x01A3ACB8),
+	((NJS_MATERIAL*)0x01A3ACCC),
+	((NJS_MATERIAL*)0x01A3ACE0),
+	((NJS_MATERIAL*)0x01A3AD58),
+	//Cylinder
+	((NJS_MATERIAL*)0x01A44088),
+	//OLight1
+	((NJS_MATERIAL*)0x01A46C10),
+	((NJS_MATERIAL*)0x01A46C24),
+	//OEggKanban
+	((NJS_MATERIAL*)0x01C26FD0),
+	((NJS_MATERIAL*)0x01C26FE4),
+	//Level stuff
+	&matlist_000DA1C4[7],
+	&matlist_000D61B8[8],
+	&matlist_000D8E98[8],
+	&matlist_000D2870[9],
+	&matlist_000D0E5C[2],
+	&matlist_000D0E5C[3],
+	&matlist_000D0E5C[5],
+	&matlist_000D0E5C[6],
+	&matlist_000D0E5C[7],
+	&matlist_0009A5FC[0],
+	&matlist_0009A5FC[1],
+	&matlist_00085FB4[8],
+	&matlist_001357BC[0],
+	&matlist_001357BC[1],
+	&matlist_001357BC[2],
+	&matlist_001357BC[3],
+	&matlist_00148C90_2[0],
+	&matlist_00146E8C_2[0],
+	&matlist_00146E8C_2[0],
+	&matlist_001228E4[3],
+	&matlist_0002CF50[0],
+	&matlist_0002CF50[1],
+	&matlist_0002CF50[2],
+	&matlist_0002CF50[3],
+	&matlist_0002CF50[4],
+	&matlist_0002CF50[5],
+};
+
+
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	set_diffuse(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+{
+	if (CurrentAct == 0) set_diffuse(5, false); else set_diffuse(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+const char* __cdecl SetPLA2X(int level, int act)
+{
+	if (level == 10 && act == 2)
+	{
+		return pla2xbin.c_str();
+	}
+	else { return nullptr; }
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
-	__declspec(dllexport) void __cdecl Init()
+	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		pla2xbin = path;
+		pla2xbin.append("\\system\\PL_A2X.BIN");
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+		{
+			typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
+			pl_load_register(SetPLA2X);
+			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+		}
+		//OTexture lighting
+		((NJS_MATERIAL*)0x01A45548)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x01A45548)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		//OUkishima lighting
+		((NJS_MATERIAL*)0x01A27EC8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x01A27EDC)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		*(NJS_OBJECT*)0x1A37A6C = object_001E1EF8; //Elevator
 		*(NJS_OBJECT*)0x19D228C = object_0018E284; //OConvStop
 		memcpy((void*)0x019CDCD0, uv_0018AD48, sizeof(uv_0018AD48)); //Conveyour belt UVs
@@ -230,11 +470,11 @@ extern "C"
 		*(NJS_MODEL_SADX*)0x01A1ED18 = attach_001CE0D0; //Gachapon thing lid
 		*(NJS_MODEL_SADX*)0x01A1E758 = attach_001CDD00; //Gachapon thing left
 		*(NJS_MODEL_SADX*)0x01A1E458 = attach_001CDA74; //Gachapon thing right
+		((NJS_MATERIAL*)0x01C26FD0)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Egg Kanban stuff
+		((NJS_MATERIAL*)0x01C26FE4)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Egg Kanban stuff
 		((NJS_OBJECT*)0x1C26F74)->basicdxmodel->mats[0].diffuse.argb.g = 178; //Egg Kanban stuff
 		((NJS_OBJECT*)0x1C26F74)->basicdxmodel->mats[0].diffuse.argb.r = 152; //Egg Kanban stuff
 		((NJS_OBJECT*)0x1C26F74)->basicdxmodel->mats[0].diffuse.argb.b = 152; //Egg Kanban stuff
-		((NJS_OBJECT*)0x1A3D3EC)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Elevator
-		((NJS_OBJECT*)0x1A3D3EC)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Elevator
 		((NJS_OBJECT*)0x1A462EC)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Barrier
 		*(NJS_OBJECT*)0x19FEFE4 = object_001AEDFC;  // Light
 		*(NJS_MODEL_SADX*)0x19D8BC0 = attach_015D8BC0;  // Laser
