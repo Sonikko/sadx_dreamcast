@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <lanternapi.h>
 #include "LostWorld1.h"
 #include "LostWorld2.h"
 #include "LostWorld3.h"
@@ -18,12 +19,43 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DAF0, &landtable_000F928C)
 };
 
+NJS_MATERIAL* ObjectSpecular[] = {
+	//OSuimen
+	((NJS_MATERIAL*)0x01FE4CC8),
+	//OTap
+	((NJS_MATERIAL*)0x0202AA38),
+	((NJS_MATERIAL*)0x0202AA4C),
+
+};
+
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+		{
+			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+		}
+		((NJS_MATERIAL*)0x0201A13C)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //TurnCube
+		((NJS_MATERIAL*)0x0201A150)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //TurnCube
+		((NJS_MATERIAL*)0x0201A164)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //TurnCube
 		WriteData((void*)0x005E2090, 0xC3u, 1); //Kill water animation in Act 1
 		Hasira1Model.mats[0].diffuse.color = 0x99B2B2B2;
 		*(NJS_OBJECT*)0x20144CC = object_0013BB70; //Kusa02 type 1
@@ -53,15 +85,23 @@ extern "C"
 		*(NJS_OBJECT*)0x2024828 = object_001487A0; //Snake tail tip
 		*(NJS_MODEL_SADX*)0x2026E38 = attach_00149E7C; //Fire obstacle
 		*(NJS_OBJECT*)0x2031810 = object_01C31810; //Ceiling light imitation
+		((NJS_OBJECT*)0x01FE9D7C)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water in snake room
 		((NJS_OBJECT*)0x01FE9D7C)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Water in snake room
-		((NJS_OBJECT*)0x01FE9D7C)->basicdxmodel->mats[0].attr_texId = 44;
+		((NJS_OBJECT*)0x01FE9D7C)->basicdxmodel->mats[0].attr_texId = 44; //Water in snake room
 		((NJS_OBJECT*)0x01FE9F38)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Some other water
+		((NJS_OBJECT*)0x01FE9F38)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x01FEB668)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Some other water
+		((NJS_OBJECT*)0x01FEB668)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x01FEC26C)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Some other water
+		((NJS_OBJECT*)0x01FEC26C)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x1E9B594)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Some other water
+		((NJS_OBJECT*)0x1E9B594)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x202E404)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Some other water
+		((NJS_OBJECT*)0x202E404)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x279AC80)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Some other water
+		((NJS_OBJECT*)0x279AC80)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x279B014)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Some other water
+		((NJS_OBJECT*)0x279B014)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		WriteData((void*)0x814CB4, 0xc1c80000, 4); //LW2 fog stuff
 		WriteData((void*)0x005E315D, 0, 1); //Prevent the mirror room from disabling character lighting
 		ResizeTextureList((NJS_TEXLIST*)0x1F6F02C, textures_lw1);
