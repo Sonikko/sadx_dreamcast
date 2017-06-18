@@ -169,8 +169,8 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 		oldpos.z = v1->Position.z;
 		njPushMatrix(0);
 		njTranslate(0, v1->Position.x, EC1OceanYShift, v1->Position.z);
-		if (EC1OceanYShift > -1.5f) ProcessModelNode_D_Wrapper(&object_00CC03FC, 1.0f);
-		else ProcessModelNode_A_Wrapper(&object_00CC03FC, QueuedModelFlagsB_3, 1.0f);
+		if (EC1OceanYShift > -1.5f) ProcessModelNode_D_Wrapper((NJS_OBJECT*)0x010C03FC, 1.0f);
+		else ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x010C03FC, QueuedModelFlagsB_3, 1.0f);
 		njPopMatrix(1u);
 
 		njPushMatrix(0);
