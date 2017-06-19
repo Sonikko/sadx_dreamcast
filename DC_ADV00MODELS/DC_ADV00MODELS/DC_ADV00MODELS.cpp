@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <lanternapi.h>
 #include "SS_Objects.h"
 #include "ADVSS00 (City Hall).h"
 #include "ADVSS01 (Casino Area).h"
@@ -52,17 +53,157 @@ void __cdecl SSWater()
 	}
 }
 
+bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(3, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceWhiteDiffuse_Night(NJS_MATERIAL* material, Uint32 flags)
+{
+	if (GetTimeOfDay() == 2) set_diffuse(3, false); else set_diffuse(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+NJS_MATERIAL* WhiteDiffuse[] = {
+	//Level stuff
+	&matlist_0008E8EC[3],
+	&matlist_0008E8EC[4],
+	&matlist_0008E8EC[5],
+	&matlist_0008E8EC[6],
+	&matlist_0008E8EC[7],
+	&matlist_00082400[1],
+	&matlist_00082400[2],
+	&matlist_000D8D58[0],
+	&matlist_000D8D58[1],
+	&matlist_000D8D58[2],
+	&matlist_000D8D58[3],
+	&matlist_000D8D58[4],
+	&matlist_000D8D58[5],
+	&matlist_000D8D58[6],
+	&matlist_000D8D58[7],
+	&matlist_000D8D58[8],
+	&matlist_000D8D58[9],
+};
+
+NJS_MATERIAL* WhiteDiffuse_Night[] = {
+	&matlist_00126720[2],
+	&matlist_00126720[2],
+	&matlist_00125F20[2],
+	&matlist_00125408[1],
+};
+
+NJS_MATERIAL* ObjectSpecular[] = {
+	//OPoolChair
+	((NJS_MATERIAL*)0x02ACAF88),
+	((NJS_MATERIAL*)0x02ACAF9C),
+	((NJS_MATERIAL*)0x02ACAFB0),
+	((NJS_MATERIAL*)0x02ACAFC4),
+	((NJS_MATERIAL*)0x02ACAFD8),
+	((NJS_MATERIAL*)0x02ACAFEC),
+	//Station door
+	((NJS_MATERIAL*)0x02AC60D0),
+	((NJS_MATERIAL*)0x02AC60E4),
+	((NJS_MATERIAL*)0x02AC60F8),
+	((NJS_MATERIAL*)0x02AC610C),
+	((NJS_MATERIAL*)0x02AC6120),
+	((NJS_MATERIAL*)0x02AC6134),
+	((NJS_MATERIAL*)0x02AC6AD8),
+	((NJS_MATERIAL*)0x02AC6AEC),
+	((NJS_MATERIAL*)0x02AC6B00),
+	((NJS_MATERIAL*)0x02AC6B14),
+	((NJS_MATERIAL*)0x02AC6B28),
+	((NJS_MATERIAL*)0x02AC6B3C), 
+	//Burger shop door
+	((NJS_MATERIAL*)0x02AB1068),
+	((NJS_MATERIAL*)0x02AB107C),
+	((NJS_MATERIAL*)0x02AB0310),
+	((NJS_MATERIAL*)0x02AB0324),
+	((NJS_MATERIAL*)0x02AB0338),
+	((NJS_MATERIAL*)0x02AB034C),
+	((NJS_MATERIAL*)0x02AAF590),
+	((NJS_MATERIAL*)0x02AAF5A4),
+	((NJS_MATERIAL*)0x02AAF5B8),
+	((NJS_MATERIAL*)0x02AAF5CC),
+};
+
+NJS_MATERIAL* LevelSpecular[] = {
+	//Casino stuff
+	((NJS_MATERIAL*)0x02B02B18),
+	((NJS_MATERIAL*)0x02B02B2C),
+	((NJS_MATERIAL*)0x02B02B40),
+	((NJS_MATERIAL*)0x02B03358),
+	((NJS_MATERIAL*)0x02B0336C),
+	((NJS_MATERIAL*)0x02B03380),
+	((NJS_MATERIAL*)0x02B03394),
+	((NJS_MATERIAL*)0x02B033A8),
+	((NJS_MATERIAL*)0x02B00C48),
+	((NJS_MATERIAL*)0x02B009B8),
+	((NJS_MATERIAL*)0x02B009CC),
+	((NJS_MATERIAL*)0x02B009E0),
+	((NJS_MATERIAL*)0x02B00728),
+	((NJS_MATERIAL*)0x02B0073C),
+	((NJS_MATERIAL*)0x02B00750),
+	((NJS_MATERIAL*)0x02B00498),
+	((NJS_MATERIAL*)0x02B004AC),
+	((NJS_MATERIAL*)0x02B004C0),
+	((NJS_MATERIAL*)0x02B00208),
+	((NJS_MATERIAL*)0x02B0021C),
+	((NJS_MATERIAL*)0x02B00230),
+	((NJS_MATERIAL*)0x02AFFF78),
+	((NJS_MATERIAL*)0x02AFFF8C),
+	((NJS_MATERIAL*)0x02AFFFA0),
+	((NJS_MATERIAL*)0x02AFFCE8),
+	((NJS_MATERIAL*)0x02AFFCFC),
+	((NJS_MATERIAL*)0x02AFFD10),
+	((NJS_MATERIAL*)0x02AFFA58),
+	((NJS_MATERIAL*)0x02AFFA6C),
+	((NJS_MATERIAL*)0x02AFFA80),
+	((NJS_MATERIAL*)0x02AFF7C8),
+	((NJS_MATERIAL*)0x02AFF7DC),
+	((NJS_MATERIAL*)0x02AFF7F0),
+	((NJS_MATERIAL*)0x02AFF538),
+	((NJS_MATERIAL*)0x02AFF54C),
+	((NJS_MATERIAL*)0x02AFF560),
+	((NJS_MATERIAL*)0x02AFF2A8),
+	((NJS_MATERIAL*)0x02AFF2BC),
+	((NJS_MATERIAL*)0x02AFF2D0),
+};
+
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init()
 	{
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+		{
+			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+			material_register(WhiteDiffuse_Night, LengthOfArray(WhiteDiffuse_Night), &ForceWhiteDiffuse_Night);
+		}
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		if (SADXStyleWater != 0)
 		{
 			WriteCall((void*)0x006312BB, WaterTexture);
 			matlist_00123C24[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			matlist_00122894_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
-			matlist_000E7180_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			matlist_00133D3C[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x80000000; //SADX sea bottom
 			meshlist_00114DB0[0].vertcolor = vcolor_0015EFF0; //SADX sea bottom
@@ -90,7 +231,6 @@ extern "C"
 			WriteJump((void*)0x631140, SSWater);
 			matlist_00123C24[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			matlist_00122894_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
-			matlist_000E7180_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			matlist_00133D3C[0].attrflags |= NJD_FLAG_USE_ALPHA;
 			collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x00000000; //SADX sea bottom
 			meshlist_00114DB0[0].vertcolor = NULL; //SADX sea bottom
@@ -112,6 +252,8 @@ extern "C"
 		WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting
 		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31); //SS_TRAIN
 		//Objects
+		*(NJS_OBJECT*)0x2AB2CCC = object_001689C4; //Shop 2 door
+		((NJS_ACTION*)0x2AB2D9C)->object = &object_001689C4; //Shop 2 door
 		WriteData((void*)0x0063A6A4, 0x90, 5); // Pool chair
 		memcpy((void*)0x02AD4EA4, &object_00186E88, sizeof(object_00186E88)); //Hidden door 1
 		memcpy((void*)0x02AD4CD4, &object_00186CC4, sizeof(object_00186CC4)); //Hidden door 2
@@ -196,6 +338,19 @@ extern "C"
 		//Night reflections Act 0
 		if (CurrentLevel == 26 && CurrentAct == 0 && GetTimeOfDay() == 2)
 		{
+			matlist_0003B3C4[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_0003AFD4[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_000522AC[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_0004D3FC[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_0004F4B4[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_0004F4B4[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_0004F4B4[4].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_000642F8[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_00059BFC[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_000638C4[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_00066CF0[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_00066CF0[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_00066CF0[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			attach_0017D7A8.mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00031C48[3].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00030274[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -218,8 +373,6 @@ extern "C"
 			matlist_000309E0[3].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_000309E0[4].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_000309E0[6].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-			matlist_000585A4[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-			matlist_0002A1E4[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00046404[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00046404[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_000631AC[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -254,6 +407,19 @@ extern "C"
 		//Evening reflections Act 0
 		if (CurrentLevel == 26 && CurrentAct == 0 && GetTimeOfDay() == 1)
 		{
+			matlist_0003B3C4[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_0003AFD4[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_000522AC[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_0004D3FC[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_0004F4B4[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_0004F4B4[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_0004F4B4[4].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_000642F8[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00059BFC[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_000638C4[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00066CF0[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00066CF0[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00066CF0[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00031C48[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00030274[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00022CC0[5].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -275,8 +441,6 @@ extern "C"
 			matlist_000309E0[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000309E0[4].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000309E0[6].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_000585A4[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_0002A1E4[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00046404[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00046404[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000631AC[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -311,6 +475,19 @@ extern "C"
 		//Day reflections Act 0
 		if (CurrentLevel == 26 && CurrentAct == 0 && GetTimeOfDay() == 0)
 		{
+			matlist_0003B3C4[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_0003AFD4[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_000522AC[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_0004D3FC[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_0004F4B4[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_0004F4B4[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_0004F4B4[4].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_000642F8[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00059BFC[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_000638C4[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00066CF0[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00066CF0[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00066CF0[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00031C48[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00030274[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00022CC0[5].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -332,8 +509,6 @@ extern "C"
 			matlist_000309E0[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000309E0[4].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000309E0[6].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_000585A4[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_0002A1E4[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00046404[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00046404[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000631AC[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -383,6 +558,13 @@ extern "C"
 		if (CurrentLevel == 26 && GetTimeOfDay() != 2) attach_0017D7A8.mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		if (CurrentLevel == 26 && CurrentAct == 3 && GetTimeOfDay() == 2)
 		{
+			matlist_00103FFC[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_000FAA28[4].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_00129C8C[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_00129C8C[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_000F4178[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_00124B94[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			matlist_0012A874[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125F20_2[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00101184_2[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00126720_2[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -417,20 +599,15 @@ extern "C"
 			matlist_000FA4D4[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_000FBD0C[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_001209D8[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-			matlist_0011BE68[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_000EFA74[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-			matlist_000EF934[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_000F062C[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00128FA8[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00128FA8[3].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125408[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125408[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125038[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129814[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129814[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00124B94[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-			matlist_00102778[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-			matlist_00102778[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_000F062C[5].attr_texId = 259;
 			matlist_000EF934[0].attr_texId = 259;
 			matlist_000FA4D4[0].attr_texId = 263;
@@ -441,6 +618,13 @@ extern "C"
 		//Evening reflections Act 3 (Main area)
 		if (CurrentLevel == 26 && CurrentAct == 3 && GetTimeOfDay() == 1)
 		{
+			matlist_00103FFC[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_000FAA28[4].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00129C8C[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00129C8C[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_000F4178[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00124B94[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_0012A874[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125F20_2[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00101184_2[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00126720_2[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -475,20 +659,15 @@ extern "C"
 			matlist_000FA4D4[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000FBD0C[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_001209D8[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_0011BE68[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000EFA74[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_000EF934[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000F062C[5].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00128FA8[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00128FA8[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125408[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125408[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125038[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129814[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129814[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00124B94[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00102778[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00102778[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000F062C[5].attr_texId = 258;
 			matlist_000EF934[0].attr_texId = 258;
 			matlist_000FA4D4[0].attr_texId = 262;
@@ -499,6 +678,13 @@ extern "C"
 		//Day reflections Act 3 (Main area)
 		if (CurrentLevel == 26 && CurrentAct == 3 && GetTimeOfDay() == 0)
 		{
+			matlist_00103FFC[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_000FAA28[4].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00129C8C[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00129C8C[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_000F4178[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_00124B94[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+			matlist_0012A874[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125F20_2[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00101184_2[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00126720_2[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -533,20 +719,15 @@ extern "C"
 			matlist_000FA4D4[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000FBD0C[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_001209D8[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_0011BE68[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000EFA74[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_000EF934[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000F062C[5].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00128FA8[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00128FA8[3].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00125408[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125408[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00125038[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129814[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129814[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00124B94[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00102778[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			matlist_00102778[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000EF934[0].attr_texId = 52;
 			matlist_000F062C[5].attr_texId = 60;
 			matlist_000FA4D4[0].attr_texId = 89;
