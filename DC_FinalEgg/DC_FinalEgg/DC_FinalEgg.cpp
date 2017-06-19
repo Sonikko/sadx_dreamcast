@@ -113,7 +113,8 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 			scale = 1.0;
 		}
 		LastRenderFlags &= ~1;
-		ProcessModelNode_AB_Wrapper((NJS_OBJECT*)0x01A4583C, scale);
+		//ProcessModelNode_AB_Wrapper((NJS_OBJECT*)0x01A4583C, scale);
+		ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x01A4583C, QueuedModelFlagsB_3, scale);
 		njPopMatrix(1u);
 		njPopMatrix(1u);
 	}
