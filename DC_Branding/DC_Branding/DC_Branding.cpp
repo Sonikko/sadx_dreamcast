@@ -3,11 +3,19 @@
 
 DataPointer(NJS_TEXLIST, ava_title_e_TEXLIST, 0x010D7C78);
 DataPointer(NJS_TEXLIST, ava_title_back_e_TEXLIST, 0x010D7C80);
+DataPointer(int, DroppedFrames, 0x03B1117C);
 DataArray(PVMEntry, GUITexturePVMs, 0x007EECF0, 30);
 DataArray(PVMEntry, GUITexturePVMs2, 0x007EEDE0, 30);
 DataArray(PVMEntry, GUITexturePVMs3, 0x007EEED0, 30);
 DataArray(PVMEntry, GUITexturePVMs4, 0x007EEFC0, 30);
 DataArray(PVMEntry, GUITexturePVMs5, 0x007EF0B0, 30);
+
+static int titleframe = 0;
+static int titledrawn = -1;
+static int logoframe = 0;
+static int logodrawn = -1;
+static int startframe = 0;
+static int startdrawn = -1;
 
 Uint8 options;
 
@@ -79,70 +87,199 @@ void BoxBackgroundColor()
 	SetMaterialAndSpriteColor_Float(0.8f, 1.0f, 1.0f, 1.0f);
 }
 
+void DrawTitleBG_Ripples()
+{
+	int tn;
+	float xpos;
+	float ypos;
+	if (!DroppedFrames)
+	{
+		if (titledrawn != titleframe)
+		{
+			if (titleframe > 22) titleframe = 0;
+			tn = 10 + (titleframe * 8);
+			DrawBG(tn, 0.0f, 0.0f, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			DrawBG(tn + 1, 256.0f * HorizontalStretch, 0.0f, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			ypos = (VerticalStretch*rewritestretch) * 512.0f;
+			DrawBG(tn + 2, 0, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			DrawBG(tn + 3, 256.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			DrawBG(tn + 4, 512.0f * HorizontalStretch, 0.0f, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			ypos = (VerticalStretch*rewritestretch) * 256.0f;
+			DrawBG(tn + 5, 512.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			ypos = (VerticalStretch*rewritestretch) * 512.0f;
+			DrawBG(tn + 6, 512.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			ypos = (VerticalStretch*rewritestretch) * 768.0f;
+			DrawBG(tn + 7, 512.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			titledrawn = titleframe;
+		}
+	}
+}
+
+void DrawTitleBG()
+{
+	int tn;
+	float xpos;
+	float ypos;
+	if (!DroppedFrames)
+	{
+		if (titledrawn != titleframe)
+		{
+			if (titleframe > 128) titleframe = 0;
+			tn = 0;
+			DrawBG(tn, 0.0f, 0.0f, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			DrawBG(tn + 1, 256.0f * HorizontalStretch, 0.0f, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			ypos = (VerticalStretch*rewritestretch) * 512.0f;
+			DrawBG(tn + 2, 0, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			DrawBG(tn + 3, 256.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			DrawBG(tn + 4, 512.0f * HorizontalStretch, 0.0f, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			ypos = (VerticalStretch*rewritestretch) * 256.0f;
+			DrawBG(tn + 5, 512.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			ypos = (VerticalStretch*rewritestretch) * 512.0f;
+			DrawBG(tn + 6, 512.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			ypos = (VerticalStretch*rewritestretch) * 768.0f;
+			DrawBG(tn + 7, 512.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			titledrawn = titleframe;
+		}
+	}
+
+}
+
+void DrawTitle()
+{
+	int tnum2;
+	float ypos;
+	float surfacesucks = 0.0f;
+	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) surfacesucks = -48.0f;
+	if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) tnum2 = 9; else tnum2 = 8;
+	if (logodrawn != logoframe)
+	{
+		if (logoframe > 128) logoframe = 0;
+		DrawBG(tnum2, 64.0f*HorizontalStretch, surfacesucks, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+		logodrawn = logoframe;
+	}
+}
+
+
+void DrawPressStart()
+{
+	float yoff = 112.0f;
+	if (float(HorizontalResolution) / float(VerticalResolution) < 1.5f) yoff = 112.0f; //4:3
+	if (float(HorizontalResolution) / float(VerticalResolution) > 1.6f) yoff = 82.0f; //16:9
+	if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) yoff = 120.0f; //16:10
+	if (float(HorizontalResolution) / float(VerticalResolution) <= 1.3f) yoff = 134; //5:4
+	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) yoff = 82.0f; //3:2
+	if (startdrawn != startframe)
+	{
+		if (startframe > 128) startframe = 0;
+		DrawBG(8, HorizontalStretch*(320.0f - 128.0f), VerticalResolution - HorizontalStretch*yoff, 1.1f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+	}
+	startdrawn = startframe;
+}
+
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		HMODULE Ripples = GetModuleHandle(L"Ripples.dll");
 		HMODULE DisableSA1Titlescreen = GetModuleHandle(L"DisableSA1Titlescreen");
 		if (DisableSA1Titlescreen == 0 && float(HorizontalResolution) / float(VerticalResolution) < 2.2f)
 		{
 			WriteJump((void*)0x50BA90, DrawAVA_TITLE_BACK_E_DC);
 			//PVMs
-			if (float(HorizontalResolution) / float(VerticalResolution) < 1.5f) //Non-widescreen
+			GUITexturePVMs[17].Name = "AVA_GTITLE0_ES";
+			GUITexturePVMs2[17].Name = "AVA_GTITLE0_ES";
+			GUITexturePVMs3[17].Name = "AVA_GTITLE0_ES";
+			GUITexturePVMs4[17].Name = "AVA_GTITLE0_ES";
+			GUITexturePVMs5[17].Name = "AVA_GTITLE0_ES";
+			GUITexturePVMs[29].Name = "AVA_TITLE_CMN_SMALLS";
+			GUITexturePVMs2[29].Name = "AVA_TITLE_CMN_SMALLS";
+			GUITexturePVMs3[29].Name = "AVA_TITLE_CMN_SMALLS";
+			GUITexturePVMs4[29].Name = "AVA_TITLE_CMN_SMALLS";
+			GUITexturePVMs5[29].Name = "AVA_TITLE_CMN_SMALLS";
+			if (Ripples != 0)
 			{
-				GUITexturePVMs[17].Name = "AVA_GTITLE0_ES";
+				GUITexturePVMs[18].Name = "AVA_TITLE_CMNX";
+				GUITexturePVMs2[18].Name = "AVA_TITLE_CMNX";
+				GUITexturePVMs3[18].Name = "AVA_TITLE_CMNX";
+				GUITexturePVMs4[18].Name = "AVA_TITLE_CMNX";
+				GUITexturePVMs5[18].Name = "AVA_TITLE_CMNX";
+			}
+			else
+			{
 				GUITexturePVMs[18].Name = "AVA_TITLE_CMNS";
-				GUITexturePVMs[20].Name = "AVA_TITLE_BACK_ES";
-				GUITexturePVMs[29].Name = "AVA_TITLE_CMN_SMALLS";
-
-				GUITexturePVMs2[17].Name = "AVA_GTITLE0_ES";
 				GUITexturePVMs2[18].Name = "AVA_TITLE_CMNS";
-				GUITexturePVMs2[20].Name = "AVA_TITLE_BACK_ES";
-				GUITexturePVMs2[29].Name = "AVA_TITLE_CMN_SMALLS";
-
-				GUITexturePVMs3[17].Name = "AVA_GTITLE0_ES";
 				GUITexturePVMs3[18].Name = "AVA_TITLE_CMNS";
-				GUITexturePVMs3[20].Name = "AVA_TITLE_BACK_ES";
-				GUITexturePVMs3[29].Name = "AVA_TITLE_CMN_SMALLS";
-
-				GUITexturePVMs4[17].Name = "AVA_GTITLE0_ES";
 				GUITexturePVMs4[18].Name = "AVA_TITLE_CMNS";
-				GUITexturePVMs4[20].Name = "AVA_TITLE_BACK_ES";
-				GUITexturePVMs4[29].Name = "AVA_TITLE_CMN_SMALLS";
-
-				GUITexturePVMs5[17].Name = "AVA_GTITLE0_ES";
 				GUITexturePVMs5[18].Name = "AVA_TITLE_CMNS";
-				GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_ES";
-				GUITexturePVMs5[29].Name = "AVA_TITLE_CMN_SMALLS";
 			}
-			if (float(HorizontalResolution) / float(VerticalResolution) >= 1.5f) //Widescreen
-			{
-				GUITexturePVMs[17].Name = "AVA_GTITLE0_E1";
-				GUITexturePVMs[18].Name = "AVA_TITLE_CMN1";
-				GUITexturePVMs[20].Name = "AVA_TITLE_BACK_E1";
-				GUITexturePVMs[29].Name = "AVA_TITLE_CMN_SMALLS";
-
-				GUITexturePVMs2[17].Name = "AVA_GTITLE0_E1";
-				GUITexturePVMs2[18].Name = "AVA_TITLE_CMN1";
-				GUITexturePVMs2[20].Name = "AVA_TITLE_BACK_E1";
-				GUITexturePVMs2[29].Name = "AVA_TITLE_CMN_SMALLS";
-
-				GUITexturePVMs3[17].Name = "AVA_GTITLE0_E1";
-				GUITexturePVMs3[18].Name = "AVA_TITLE_CMN1";
-				GUITexturePVMs3[20].Name = "AVA_TITLE_BACK_E1";
-				GUITexturePVMs3[29].Name = "AVA_TITLE_CMN_SMALLS";
-
-				GUITexturePVMs4[17].Name = "AVA_GTITLE0_E1";
-				GUITexturePVMs4[18].Name = "AVA_TITLE_CMN1";
-				GUITexturePVMs4[20].Name = "AVA_TITLE_BACK_E1";
-				GUITexturePVMs4[29].Name = "AVA_TITLE_CMN_SMALLS";
-
-				GUITexturePVMs5[17].Name = "AVA_GTITLE0_E1";
-				GUITexturePVMs5[18].Name = "AVA_TITLE_CMN1";
-				GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_E1";
-				GUITexturePVMs5[29].Name = "AVA_TITLE_CMN_SMALLS";
-			}
+			if (float(HorizontalResolution) / float(VerticalResolution) < 1.5f) //Non-widescreen
+				{
+					GUITexturePVMs[20].Name = "AVA_TITLE_BACK_ES";
+					GUITexturePVMs2[20].Name = "AVA_TITLE_BACK_ES";
+					GUITexturePVMs3[20].Name = "AVA_TITLE_BACK_ES";
+					GUITexturePVMs4[20].Name = "AVA_TITLE_BACK_ES";
+					GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_ES";
+				}
+				if (float(HorizontalResolution) / float(VerticalResolution) >= 1.5f) //Widescreen
+				{
+					GUITexturePVMs[20].Name = "AVA_TITLE_BACK_E1";
+					GUITexturePVMs2[20].Name = "AVA_TITLE_BACK_E1";
+					GUITexturePVMs3[20].Name = "AVA_TITLE_BACK_E1";
+					GUITexturePVMs4[20].Name = "AVA_TITLE_BACK_E1";
+					GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_E1";
+				}
+			//Logo
+			if (float(HorizontalResolution) / float(VerticalResolution) <= 1.3f) rewritestretch = 0.48f; //5:4
+			if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) rewritestretch = 0.667f; //16:9
+			if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) rewritestretch = 0.55f; //3:2
+			if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) rewritestretch = 0.6f; //16:10
+			if (Ripples != 0) ResizeTextureList((NJS_TEXLIST*)0x010D7C58, 194);
+			if (Ripples != 0) WriteCall((void*)0x0050E6F4, DrawTitleBG_Ripples); else WriteCall((void*)0x0050E6F4, DrawTitleBG);
+			WriteCall((void*)0x0050E8AF, DrawTitle);
+			WriteCall((void*)0x0051002B, DrawPressStart);
+			//Kill other BG
+			WriteData((char*)0x0050E754, 0x90, 5);
+			WriteData((char*)0x0050E7B4, 0x90, 5);
+			WriteData((char*)0x0050E814, 0x90, 5);
+			WriteData((char*)0x0050EA11, 0x90, 5);
+			WriteData((char*)0x0050E99A, 0x90, 5);
+			WriteData((char*)0x0050E929, 0x90, 5);
+			//Kill Sonic
+			WriteData((char*)0x0050EC03, 0x90, 5);
+			WriteData((char*)0x0050EC6D, 0x90, 5);
+			WriteData((char*)0x0050ECD7, 0x90, 5);
+			WriteData((char*)0x0050ED4F, 0x90, 5);
+			WriteData((char*)0x0050EDC7, 0x90, 5);
+			WriteData((char*)0x0050EE31, 0x90, 5);
+			WriteData((char*)0x0050EEA9, 0x90, 5);
+			WriteData((char*)0x0050EF21, 0x90, 5);
+			WriteData((char*)0x0050EF99, 0x90, 5);
+			WriteData((char*)0x0050F003, 0x90, 5);
+			WriteData((char*)0x0050F07B, 0x90, 5);
+			WriteData((char*)0x0050F0F3, 0x90, 5);
+			WriteData((char*)0x0050F6BA, 0x90, 5);
+			WriteData((char*)0x0050F722, 0x90, 5);
+			WriteData((char*)0x0050F78A, 0x90, 5);
+			WriteData((char*)0x0050F800, 0x90, 5);
+			WriteData((char*)0x0050F876, 0x90, 5);
+			WriteData((char*)0x0050F8DE, 0x90, 5);
+			WriteData((char*)0x0050F954, 0x90, 5);
+			WriteData((char*)0x0050F9CA, 0x90, 5);
+			WriteData((char*)0x0050FA40, 0x90, 5);
+			WriteData((char*)0x0050FAA8, 0x90, 5);
+			WriteData((char*)0x0050FB1E, 0x90, 5);
+			WriteData((char*)0x0050FB94, 0x90, 5);
+			WriteData((char*)0x0050F16B, 0x90, 5);
+			WriteData((char*)0x0050FC0A, 0x90, 5);
+			//Kill PressEnter
+			WriteData((char*)0x00510085, 0x90, 5);
+			WriteData((char*)0x005100EB, 0x90, 5);
+			//Some other stuff
+			WriteData((char*)0x0050E8BA, 0x1, 1); //Draw logo only once
+			WriteData((char*)0x0050E81F, 0x1, 1); //Draw title screen BG only once)
+			WriteData((float**)0x0050E87C, &rewritestretch); //Disable logo stretching
 			//Scrolling
 			WriteData((float**)0x0050E83B, &zero); //Disable titlescreen scrolling 
 			WriteData((float**)0x0050E5BB, &zero); //Disable titlescreen scrolling (640x480)
@@ -152,30 +289,6 @@ extern "C"
 			WriteData((float**)0x0050E73D, &one); //Disable vertical offset row 2
 			WriteData((float**)0x0050E79D, &one); //Disable vertical offset row 3
 			WriteData((float**)0x0050E7FD, &one); //Disable vertical offset row 4
-			//PressStart for 4:3
-			WriteData((float*)0x0050FFAA, 191.0f); //PressStart texture X
-			WriteData((float*)0x0050FFB2, 363.0f); //PressStart texture Y
-			//Title screen vertical stretching
-			WriteData((float**)0x0050E7C1, &rewritestretch);
-			WriteData((float**)0x0050E761, &rewritestretch);
-			WriteData((float**)0x0050E701, &rewritestretch);
-			WriteData((float**)0x0050E6D2, &rewritestretch);
-			if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f)
-			{
-				WriteData((float**)0x0050E6CC, (float*)0x008928C0); //Widescreen
-				WriteData((float**)0x0050E6FB, (float*)0x008928C0); //Widescreen
-				WriteData((float**)0x0050E75B, (float*)0x008928C0); //Widescreen
-				WriteData((float**)0x0050E7BB, (float*)0x008928C0); //Widescreen
-				WriteData((float*)0x0050FFAA, 207.0f); //PressStart texture X for widescreen
-				WriteData((float*)0x0050FFB2, 375.0f); //PressStart texture Y for widescreen
-				WriteData((float**)0x0050FFFF, &vstretchx); //Stretch the PressStart texture at 16:9
-				if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) WriteData((float**)0x0050FFFF, &vstretchz); //Stretch the PressStart texture at 16:10
-				if (float(HorizontalResolution) / float(VerticalResolution) > 1.8f) WriteData((float*)0x0050FFB2, 390.0f); //PressStart texture for widescreen 4K
-				if (float(HorizontalResolution) / float(VerticalResolution) < 1.77f) WriteData((float*)0x0050FFB2, 360.0f); //PressStart texture Y for widescreen 1024x600
-				if (float(HorizontalResolution) / float(VerticalResolution) < 1.77f) WriteData((float*)0x0050FFAA, 215.0f); //PressStart texture X for widescreen 1024x600
-				if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) WriteData((float*)0x0050FFB2, 335.0f); //PressStart texture Y for widescreen 16:10
-				if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) WriteData((float*)0x0050FFAA, 190.0f); //PressStart texture X for widescreen 16:10
-			}
 		}
 		WriteData((void*)0x0042CCF3, 0x0F, 1); //Disable Sonic Team logo
 		//Pause box stuff
@@ -200,6 +313,13 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		HMODULE DisableSA1Titlescreen = GetModuleHandle(L"DisableSA1Titlescreen");
+		if (DisableSA1Titlescreen == 0 && GameState == 21)
+		{
+			if (titleframe == titledrawn) titleframe++;
+			if (logoframe == logodrawn) logoframe++;
+			if (startframe == startdrawn) startframe++;
+		}
 		if (GameState == 16)
 		{
 		char optionCount = SetPauseDisplayOptions(&options);
