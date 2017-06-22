@@ -92,7 +92,7 @@
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalDependencies>$(SolutionDir)..\sadx-dc-lighting\sadx-dc-lighting.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)..\ModLoaderCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <DelayLoadDLLs>sadx-dc-lighting.dll</DelayLoadDLLs>
     </Link>
   </ItemDefinitionGroup>
@@ -106,6 +106,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="..\..\Main_DCMods\sadx-mod-loader\IniFile.cpp" />
     <ClCompile Include="DC_Branding.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
