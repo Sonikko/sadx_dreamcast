@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <IniFile.hpp>
 
 DataPointer(NJS_TEXLIST, ava_title_e_TEXLIST, 0x010D7C78);
 DataPointer(NJS_TEXLIST, ava_title_back_e_TEXLIST, 0x010D7C80);
@@ -16,6 +17,18 @@ static int logoframe = 0;
 static int logodrawn = -1;
 static int startframe = 0;
 static int startdrawn = -1;
+
+//Ini stuff
+static bool RipplesOn = true;
+static bool DisableSA1Titlescreen = false;
+static int LogoOffsetX = 0;
+static int LogoOffsetY = 0;
+static float LogoScaleX = 1.0f;
+static float LogoScaleY = 1.0f;
+static int BackgroundOffsetX = 0;
+static int BackgroundOffsetY = 0;
+static float BackgroundScaleX = 1.0f;
+static float BackgroundScaleY = 1.0f;
 
 Uint8 options;
 
@@ -87,74 +100,69 @@ void BoxBackgroundColor()
 	SetMaterialAndSpriteColor_Float(0.8f, 1.0f, 1.0f, 1.0f);
 }
 
-void DrawTitleBG_Ripples()
-{
-	int tn;
-	float xpos;
-	float ypos;
-	if (!DroppedFrames)
-	{
-		if (titledrawn != titleframe)
-		{
-			if (titleframe > 22) titleframe = 0;
-			tn = 10 + (titleframe * 8);
-			DrawBG(tn, 0.0f, 0.0f, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			DrawBG(tn + 1, 256.0f * HorizontalStretch, 0.0f, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			ypos = (VerticalStretch*rewritestretch) * 512.0f;
-			DrawBG(tn + 2, 0, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			DrawBG(tn + 3, 256.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			DrawBG(tn + 4, 512.0f * HorizontalStretch, 0.0f, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			ypos = (VerticalStretch*rewritestretch) * 256.0f;
-			DrawBG(tn + 5, 512.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			ypos = (VerticalStretch*rewritestretch) * 512.0f;
-			DrawBG(tn + 6, 512.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			ypos = (VerticalStretch*rewritestretch) * 768.0f;
-			DrawBG(tn + 7, 512.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			titledrawn = titleframe;
-		}
-	}
-}
-
 void DrawTitleBG()
 {
 	int tn;
 	float xpos;
 	float ypos;
+	float scaleX;
+	float scaleY;
 	if (!DroppedFrames)
 	{
 		if (titledrawn != titleframe)
 		{
-			if (titleframe > 128) titleframe = 0;
-			tn = 0;
-			DrawBG(tn, 0.0f, 0.0f, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			DrawBG(tn + 1, 256.0f * HorizontalStretch, 0.0f, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			ypos = (VerticalStretch*rewritestretch) * 512.0f;
-			DrawBG(tn + 2, 0, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			DrawBG(tn + 3, 256.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			DrawBG(tn + 4, 512.0f * HorizontalStretch, 0.0f, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			ypos = (VerticalStretch*rewritestretch) * 256.0f;
-			DrawBG(tn + 5, 512.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			ypos = (VerticalStretch*rewritestretch) * 512.0f;
-			DrawBG(tn + 6, 512.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			ypos = (VerticalStretch*rewritestretch) * 768.0f;
-			DrawBG(tn + 7, 512.0f * HorizontalStretch, ypos, 2.0f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			if (titleframe > 22) titleframe = 0;
+			if (RipplesOn == false) tn = 0; else tn = 8 + (titleframe * 8);
+			xpos = BackgroundOffsetX * HorizontalStretch * BackgroundScaleX;
+			ypos = BackgroundOffsetY *  (VerticalStretch*rewritestretch) * BackgroundScaleY;
+			scaleX = HorizontalStretch * 0.5f * BackgroundScaleX;
+			scaleY = VerticalStretch * rewritestretch * BackgroundScaleY;
+			DrawBG(tn, xpos, ypos, 2.0f, scaleX, scaleY);
+
+			xpos = (BackgroundOffsetX + 256.0f)* HorizontalStretch * BackgroundScaleX;
+			ypos = BackgroundOffsetY * (VerticalStretch*rewritestretch) * BackgroundScaleY;
+			DrawBG(tn + 1, xpos, ypos, 2.0f, scaleX, scaleY);
+			
+			xpos = BackgroundOffsetX* HorizontalStretch * BackgroundScaleX;
+			ypos = (VerticalStretch*rewritestretch) * (512.0f+BackgroundOffsetY)*BackgroundScaleY;
+			DrawBG(tn + 2, xpos, ypos, 2.0f, scaleX, scaleY);
+			
+			xpos = (BackgroundOffsetX + 256.0f)*BackgroundScaleX * HorizontalStretch;
+			ypos = (VerticalStretch*rewritestretch) * (512.0f + BackgroundOffsetY)*BackgroundScaleY;
+			DrawBG(tn + 3, xpos, ypos, 2.0f, scaleX, scaleY);
+			
+			xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
+			ypos = BackgroundOffsetY * (VerticalStretch*rewritestretch) * BackgroundScaleY;
+			DrawBG(tn + 4, xpos, ypos, 2.0f, scaleX, scaleY);
+			
+			xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
+			ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY+256.0f)*BackgroundScaleY;
+			DrawBG(tn + 5, xpos, ypos, 2.0f, scaleX, scaleY);
+			
+			xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
+			ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY+512.0f)*BackgroundScaleY;	
+			DrawBG(tn + 6, xpos, ypos, 2.0f, scaleX, scaleY);
+			
+			xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
+			ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY+768.0f)*BackgroundScaleY;
+			DrawBG(tn + 7, xpos, ypos, 2.0f, scaleX, scaleY);
 			titledrawn = titleframe;
 		}
 	}
-
 }
 
-void DrawTitle()
+void DrawLogo()
 {
 	int tnum2;
 	float ypos;
 	float surfacesucks = 0.0f;
 	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) surfacesucks = -48.0f;
-	if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) tnum2 = 9; else tnum2 = 8;
+	if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) tnum2 = 1; else tnum2 = 0;
 	if (logodrawn != logoframe)
 	{
+		njSetTexture((NJS_TEXLIST*)0x010D7C48); //AVA_GTITLE0_E
 		if (logoframe > 128) logoframe = 0;
-		DrawBG(tnum2, 64.0f*HorizontalStretch, surfacesucks, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+		DrawBG(tnum2, LogoOffsetX*HorizontalStretch*LogoScaleX, (LogoOffsetY+surfacesucks)*LogoScaleY, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
 		logodrawn = logoframe;
 	}
 }
@@ -176,15 +184,27 @@ void DrawPressStart()
 	startdrawn = startframe;
 }
 
-
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
-	__declspec(dllexport) void __cdecl Init()
+	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{
-		HMODULE Ripples = GetModuleHandle(L"Ripples.dll");
-		HMODULE DisableSA1Titlescreen = GetModuleHandle(L"DisableSA1Titlescreen");
-		if (DisableSA1Titlescreen == 0 && float(HorizontalResolution) / float(VerticalResolution) < 2.2f)
+		std::string SectionName;
+		if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) SectionName = "Widescreen"; else SectionName = "Normal";
+		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
+		const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
+		RipplesOn = settings->getBool("", "RippleEffect", true);
+		DisableSA1Titlescreen = settings->getBool("", "DisableSA1TitleScreen", false);
+		BackgroundOffsetX = settings->getInt(SectionName, "BackgroundOffsetX", 0);
+		BackgroundOffsetY = settings->getInt(SectionName, "BackgroundOffsetY", 0);
+		BackgroundScaleX = settings->getFloat(SectionName, "BackgroundScaleX", 1.0f);
+		BackgroundScaleY = settings->getFloat(SectionName, "BackgroundScaleY", 1.0f);
+		LogoOffsetX = settings->getInt(SectionName, "LogoOffsetX", 0);
+		LogoOffsetY = settings->getInt(SectionName, "LogoOffsetY", 0);
+		LogoScaleX = settings->getFloat(SectionName, "LogoScaleX", 1.0f);
+		LogoScaleY = settings->getFloat(SectionName, "LogoScaleY", 1.0f);
+		delete settings;
+		if (DisableSA1Titlescreen == false && float(HorizontalResolution) / float(VerticalResolution) < 2.2f)
 		{
 			WriteJump((void*)0x50BA90, DrawAVA_TITLE_BACK_E_DC);
 			//PVMs
@@ -198,7 +218,7 @@ extern "C"
 			GUITexturePVMs3[29].Name = "AVA_TITLE_CMN_SMALLS";
 			GUITexturePVMs4[29].Name = "AVA_TITLE_CMN_SMALLS";
 			GUITexturePVMs5[29].Name = "AVA_TITLE_CMN_SMALLS";
-			if (Ripples != 0)
+			if (RipplesOn == true)
 			{
 				GUITexturePVMs[18].Name = "AVA_TITLE_CMNX";
 				GUITexturePVMs2[18].Name = "AVA_TITLE_CMNX";
@@ -235,9 +255,9 @@ extern "C"
 			if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) rewritestretch = 0.667f; //16:9
 			if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) rewritestretch = 0.55f; //3:2
 			if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) rewritestretch = 0.6f; //16:10
-			if (Ripples != 0) ResizeTextureList((NJS_TEXLIST*)0x010D7C58, 194);
-			if (Ripples != 0) WriteCall((void*)0x0050E6F4, DrawTitleBG_Ripples); else WriteCall((void*)0x0050E6F4, DrawTitleBG);
-			WriteCall((void*)0x0050E8AF, DrawTitle);
+			if (RipplesOn == true) ResizeTextureList((NJS_TEXLIST*)0x010D7C58, 192);
+			WriteCall((void*)0x0050E6F4, DrawTitleBG);
+			WriteCall((void*)0x0050E8AF, DrawLogo);
 			WriteCall((void*)0x0051002B, DrawPressStart);
 			//Kill other BG
 			WriteData((char*)0x0050E754, 0x90, 5);
@@ -273,6 +293,22 @@ extern "C"
 			WriteData((char*)0x0050FB94, 0x90, 5);
 			WriteData((char*)0x0050F16B, 0x90, 5);
 			WriteData((char*)0x0050FC0A, 0x90, 5);
+			//Kill Logo 1
+			WriteData((char*)0x0050FCAB, 0x90, 5);
+			WriteData((char*)0x0050FD07, 0x90, 5);
+			WriteData((char*)0x0050FD63, 0x90, 5);
+			WriteData((char*)0x0050FDBF, 0x90, 5);
+			WriteData((char*)0x0050FE1B, 0x90, 5);
+			WriteData((char*)0x0050FE85, 0x90, 5);
+			WriteData((char*)0x0050FEEF, 0x90, 5);
+			//Kill Logo 2
+			WriteData((char*)0x0050F1C5, 0x90, 5);
+			WriteData((char*)0x0050F223, 0x90, 5);
+			WriteData((char*)0x0050F281, 0x90, 5);
+			WriteData((char*)0x0050F2DF, 0x90, 5);
+			WriteData((char*)0x0050F33D, 0x90, 5);
+			WriteData((char*)0x0050F3A9, 0x90, 5);
+			WriteData((char*)0x0050F415, 0x90, 5);
 			//Kill PressEnter
 			WriteData((char*)0x00510085, 0x90, 5);
 			WriteData((char*)0x005100EB, 0x90, 5);
@@ -313,8 +349,7 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		HMODULE DisableSA1Titlescreen = GetModuleHandle(L"DisableSA1Titlescreen");
-		if (DisableSA1Titlescreen == 0 && GameState == 21)
+		if (DisableSA1Titlescreen == false && GameState == 21)
 		{
 			if (titleframe == titledrawn) titleframe++;
 			if (logoframe == logodrawn) logoframe++;
