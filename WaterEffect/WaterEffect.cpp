@@ -306,7 +306,6 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 				if (FramerateSetting < 2 && FrameCounterUnpaused % 4 == 0 || FramerateSetting == 2 && FrameCounterUnpaused % 2 == 0 || FramerateSetting > 2) beachsea_water++;
 			}
 		}
-
 	}
 
 	extern "C" __declspec(dllexport) const ModInfo SADXModInfo = { ModLoaderVer };
