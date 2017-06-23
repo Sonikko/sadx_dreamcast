@@ -63,7 +63,7 @@ Sint32 __cdecl DrawAVA_TITLE_BACK_E_DC(float a1)
 	float v15; // ST08_4@1
 	float v16; // ST04_4@1
 	NJS_TEXLIST *texturelist; // [sp+1Ch] [bp+4h]@1
-
+	njTextureShadingMode(1);
 	njSetTexture(&ava_title_e_TEXLIST);
 	SetVtxColorB(0xFFFFFFFF);
 	njSetTexture(&ava_title_back_e_TEXLIST);
@@ -160,6 +160,7 @@ void DrawLogo()
 	if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) tnum2 = 1; else tnum2 = 0;
 	if (logodrawn != logoframe)
 	{
+		njTextureShadingMode(1);
 		njSetTexture((NJS_TEXLIST*)0x010D7C48); //AVA_GTITLE0_E
 		if (logoframe > 128) logoframe = 0;
 		DrawBG(tnum2, LogoOffsetX*HorizontalStretch*LogoScaleX, (LogoOffsetY+surfacesucks)*LogoScaleY, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
