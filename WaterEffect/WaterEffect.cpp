@@ -145,7 +145,7 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 				uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
 				uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
 				uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
-				ProcessModelNode_AB_Wrapper((NJS_OBJECT*)0x10C05E8, 1.0f);
+				ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_3, 1.0f);
 				njPopMatrix(1u);
 			}
 		}
