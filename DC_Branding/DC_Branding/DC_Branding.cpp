@@ -21,6 +21,14 @@ static int startdrawn = -1;
 //Ini stuff
 static bool RipplesOn = true;
 static bool DisableSA1Titlescreen = false;
+static bool DisableFade = true;
+static bool DrawOverlay = true;
+static int TextOffsetX = 0;
+static int TextOffsetY = 0;
+static int SonicTeamOffsetX = 0;
+static int SonicTeamOffsetY = 0;
+static int PressStartOffsetX = 0;
+static int PressStartOffsetY = 0;
 static int LogoOffsetX = 0;
 static int LogoOffsetY = 0;
 static float LogoScaleX = 1.0f;
@@ -46,6 +54,12 @@ static float camera_hzoffset = 215.0f;
 
 Sint32 __cdecl DrawAVA_TITLE_BACK_E_DC(float a1)
 {
+	float xpos = 0;
+	float ypos = 0;
+	float scaleX = 0;
+	float scaleY = 0;
+	int tn = 0;
+	int surfacesucks = 0;
 	float y; // ST08_4@1
 	float x; // ST04_4@1
 	float v3; // ST08_4@1
@@ -68,30 +82,46 @@ Sint32 __cdecl DrawAVA_TITLE_BACK_E_DC(float a1)
 	SetVtxColorB(0xFFFFFFFF);
 	njSetTexture(&ava_title_back_e_TEXLIST);
 	*(float *)&texturelist = a1 - 4.0f;
-	y = HorizontalStretch * 0.0f;
-	x = HorizontalStretch * 0.0f;
-	DrawBG(0, x, y, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
-	v3 = HorizontalStretch * 256.0f;
-	v4 = HorizontalStretch * 0.0f;
-	DrawBG(1, v4, v3, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
-	v5 = HorizontalStretch * 0.0f;
-	v6 = HorizontalStretch * 256.0f;
-	DrawBG(2, v6, v5, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
-	v7 = HorizontalStretch * 256.0f;
-	v8 = HorizontalStretch * 256.0f;
-	DrawBG(3, v8, v7, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
-	v9 = HorizontalStretch * 0.0f;
-	v10 = HorizontalStretch * 512.0f;
-	DrawBG(4, v10, v9, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
-	v11 = HorizontalStretch * 128.0f;
-	v12 = HorizontalStretch * 512.0f;
-	DrawBG(5, v12, v11, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
-	v13 = HorizontalStretch * 256.0f;
-	v14 = HorizontalStretch * 512.0f;
-	DrawBG(6, v14, v13, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
-	v15 = HorizontalStretch * 384.0f;
-	v16 = HorizontalStretch * 512.0f;
+	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) surfacesucks = -48.0f;
+	//Draw main menu BG
+	xpos = BackgroundOffsetX * HorizontalStretch * BackgroundScaleX;
+	ypos = BackgroundOffsetY *  (VerticalStretch*rewritestretch) * BackgroundScaleY;
+	scaleX = HorizontalStretch * 0.5f * BackgroundScaleX;
+	scaleY = VerticalStretch * rewritestretch * BackgroundScaleY;
+	DrawBG(tn, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+
+	xpos = (BackgroundOffsetX + 256.0f)* HorizontalStretch * BackgroundScaleX;
+	ypos = BackgroundOffsetY * (VerticalStretch*rewritestretch) * BackgroundScaleY;
+	DrawBG(tn + 1, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+
+	xpos = BackgroundOffsetX* HorizontalStretch * BackgroundScaleX;
+	ypos = (VerticalStretch*rewritestretch) * (512.0f + BackgroundOffsetY)*BackgroundScaleY;
+	DrawBG(tn + 2, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+
+	xpos = (BackgroundOffsetX + 256.0f)*BackgroundScaleX * HorizontalStretch;
+	ypos = (VerticalStretch*rewritestretch) * (512.0f + BackgroundOffsetY)*BackgroundScaleY;
+	DrawBG(tn + 3, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+
+	xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
+	ypos = BackgroundOffsetY * (VerticalStretch*rewritestretch) * BackgroundScaleY;
+	DrawBG(tn + 4, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+
+	xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
+	ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY + 256.0f)*BackgroundScaleY;
+	DrawBG(tn + 5, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+
+	xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
+	ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY + 512.0f)*BackgroundScaleY;
+	DrawBG(tn + 6, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+
+	xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
+	ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY + 768.0f)*BackgroundScaleY;
+	DrawBG(tn + 7, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
 	DrawBG(7, v16, v15, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
+	//Draw logo
+	DrawBG(8, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, *(float *)&texturelist, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
+	//Draw logo overlay
+	if (DrawOverlay == true) DrawBG(9, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, *(float *)&texturelist, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
 	return njSetTexture(&ava_title_e_TEXLIST);
 }
 
@@ -153,17 +183,21 @@ void DrawTitleBG()
 
 void DrawLogo()
 {
-	int tnum2;
-	float ypos;
 	float surfacesucks = 0.0f;
 	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) surfacesucks = -48.0f;
-	if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) tnum2 = 1; else tnum2 = 0;
 	if (logodrawn != logoframe)
 	{
 		njTextureShadingMode(1);
 		njSetTexture((NJS_TEXLIST*)0x010D7C48); //AVA_GTITLE0_E
 		if (logoframe > 128) logoframe = 0;
-		DrawBG(tnum2, LogoOffsetX*HorizontalStretch*LogoScaleX, (LogoOffsetY+surfacesucks)*LogoScaleY, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
+		//Draw logo
+		DrawBG(0, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
+		//Draw logo overlay
+		if (DrawOverlay == true) DrawBG(1, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
+		//Draw Sonic Team logo
+		DrawBG(2, (320-32+SonicTeamOffsetX)*HorizontalStretch, (64 + surfacesucks+SonicTeamOffsetY)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+		//Draw copyright text
+		DrawBG(3, (64+TextOffsetX)*HorizontalStretch, (960 -168 + TextOffsetY+ surfacesucks)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
 		logodrawn = logoframe;
 	}
 }
@@ -176,11 +210,11 @@ void DrawPressStart()
 	if (float(HorizontalResolution) / float(VerticalResolution) > 1.6f) yoff = 82.0f; //16:9
 	if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) yoff = 120.0f; //16:10
 	if (float(HorizontalResolution) / float(VerticalResolution) <= 1.3f) yoff = 134; //5:4
-	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) yoff = 82.0f; //3:2
+	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) yoff = 92.0f; //3:2
 	if (startdrawn != startframe)
 	{
 		if (startframe > 128) startframe = 0;
-		DrawBG(8, HorizontalStretch*(320.0f - 128.0f), VerticalResolution - HorizontalStretch*yoff, 1.1f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+		DrawBG(8, HorizontalStretch*(320.0f - 128.0f+PressStartOffsetX), VerticalResolution - HorizontalStretch*(yoff-PressStartOffsetY), 1.1f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
 	}
 	startdrawn = startframe;
 }
@@ -190,23 +224,68 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		//Set up normal/widescreen setting
 		std::string SectionName;
 		if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) SectionName = "Widescreen"; else SectionName = "Normal";
+		//Load defaults first
+		const IniFile *defaults = new IniFile(std::string(path) + "\\default.ini");
+		RipplesOn = defaults->getBool("", "RippleEffect", true);
+		DisableFade = defaults->getBool("", "DisableFade", true);
+		DisableSA1Titlescreen = defaults->getBool("", "DisableSA1TitleScreen", false);
+		DrawOverlay = defaults->getBool("", "DrawOverlay", true);
+		TextOffsetX = defaults->getInt(SectionName, "CopyrightOffsetX", 0);
+		TextOffsetY = defaults->getInt(SectionName, "CopyrightOffsetY", 0);
+		PressStartOffsetX = defaults->getInt(SectionName, "PressStartOffsetX", 0);
+		PressStartOffsetY = defaults->getInt(SectionName, "PressStartOffsetY", 0);
+		SonicTeamOffsetX = defaults->getInt(SectionName, "SonicTeamOffsetX", 0);
+		SonicTeamOffsetY = defaults->getInt(SectionName, "SonicTeamOffsetY", 0);
+		BackgroundOffsetX = defaults->getInt(SectionName, "BackgroundOffsetX", -16);
+		BackgroundOffsetY = defaults->getInt(SectionName, "BackgroundOffsetY", 0);
+		BackgroundScaleX = defaults->getFloat(SectionName, "BackgroundScaleX", 1.0f);
+		BackgroundScaleY = defaults->getFloat(SectionName, "BackgroundScaleY", 1.0f);
+		LogoOffsetX = defaults->getInt(SectionName, "LogoOffsetX", 64);
+		LogoOffsetY = defaults->getInt(SectionName, "LogoOffsetY", 220);
+		LogoScaleX = defaults->getFloat(SectionName, "LogoScaleX", 1.0f);
+		LogoScaleY = defaults->getFloat(SectionName, "LogoScaleY", 1.0f);
+		delete defaults;
+		//If there is no config.ini, make one
 		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
+		//Check if config.ini is from an old version; if so, delete config.ini
+		const IniFile *checkthing = new IniFile(std::string(path) + "\\config.ini");
+		if (!checkthing->hasKey("", "DrawOverlay"))
+		{
+			delete checkthing;
+			DeleteFileA((std::string(path) + "\\config.ini").c_str());
+		}
+		//If there is no config.ini, make one
+		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
+		//Set up settings
 		const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
 		RipplesOn = settings->getBool("", "RippleEffect", true);
 		DisableSA1Titlescreen = settings->getBool("", "DisableSA1TitleScreen", false);
-		BackgroundOffsetX = settings->getInt(SectionName, "BackgroundOffsetX", 0);
+		DrawOverlay = settings->getBool("", "DrawOverlay", true);
+		DisableFade = settings->getBool("", "DisableFade", true);
+		TextOffsetX = settings->getInt(SectionName, "CopyrightOffsetX", 0);
+		TextOffsetY = settings->getInt(SectionName, "CopyrightOffsetY", 0);
+		PressStartOffsetX = settings->getInt(SectionName, "PressStartOffsetX", 0);
+		PressStartOffsetY = settings->getInt(SectionName, "PressStartOffsetY", 0);
+		SonicTeamOffsetX = settings->getInt(SectionName, "SonicTeamOffsetX", 0);
+		SonicTeamOffsetY = settings->getInt(SectionName, "SonicTeamOffsetY", 0);
+		BackgroundOffsetX = settings->getInt(SectionName, "BackgroundOffsetX", -16);
 		BackgroundOffsetY = settings->getInt(SectionName, "BackgroundOffsetY", 0);
 		BackgroundScaleX = settings->getFloat(SectionName, "BackgroundScaleX", 1.0f);
 		BackgroundScaleY = settings->getFloat(SectionName, "BackgroundScaleY", 1.0f);
-		LogoOffsetX = settings->getInt(SectionName, "LogoOffsetX", 0);
-		LogoOffsetY = settings->getInt(SectionName, "LogoOffsetY", 0);
+		LogoOffsetX = settings->getInt(SectionName, "LogoOffsetX", 64);
+		LogoOffsetY = settings->getInt(SectionName, "LogoOffsetY", 220);
 		LogoScaleX = settings->getFloat(SectionName, "LogoScaleX", 1.0f);
 		LogoScaleY = settings->getFloat(SectionName, "LogoScaleY", 1.0f);
 		delete settings;
+		//Main code
 		if (DisableSA1Titlescreen == false && float(HorizontalResolution) / float(VerticalResolution) < 2.2f)
 		{
+			//Kill titlescreen fade
+			if (DisableFade == true) WriteData((char*)0x0050E49B, 0x90, 5);
+			ResizeTextureList((NJS_TEXLIST*)0x010D7C80, 10);
 			WriteJump((void*)0x50BA90, DrawAVA_TITLE_BACK_E_DC);
 			//PVMs
 			GUITexturePVMs[17].Name = "AVA_GTITLE0_ES";
@@ -219,6 +298,11 @@ extern "C"
 			GUITexturePVMs3[29].Name = "AVA_TITLE_CMN_SMALLS";
 			GUITexturePVMs4[29].Name = "AVA_TITLE_CMN_SMALLS";
 			GUITexturePVMs5[29].Name = "AVA_TITLE_CMN_SMALLS";
+			GUITexturePVMs[20].Name = "AVA_TITLE_BACK_ES";
+			GUITexturePVMs2[20].Name = "AVA_TITLE_BACK_ES";
+			GUITexturePVMs3[20].Name = "AVA_TITLE_BACK_ES";
+			GUITexturePVMs4[20].Name = "AVA_TITLE_BACK_ES";
+			GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_ES";
 			if (RipplesOn == true)
 			{
 				GUITexturePVMs[18].Name = "AVA_TITLE_CMNX";
@@ -235,22 +319,6 @@ extern "C"
 				GUITexturePVMs4[18].Name = "AVA_TITLE_CMNS";
 				GUITexturePVMs5[18].Name = "AVA_TITLE_CMNS";
 			}
-			if (float(HorizontalResolution) / float(VerticalResolution) < 1.5f) //Non-widescreen
-				{
-					GUITexturePVMs[20].Name = "AVA_TITLE_BACK_ES";
-					GUITexturePVMs2[20].Name = "AVA_TITLE_BACK_ES";
-					GUITexturePVMs3[20].Name = "AVA_TITLE_BACK_ES";
-					GUITexturePVMs4[20].Name = "AVA_TITLE_BACK_ES";
-					GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_ES";
-				}
-				if (float(HorizontalResolution) / float(VerticalResolution) >= 1.5f) //Widescreen
-				{
-					GUITexturePVMs[20].Name = "AVA_TITLE_BACK_E1";
-					GUITexturePVMs2[20].Name = "AVA_TITLE_BACK_E1";
-					GUITexturePVMs3[20].Name = "AVA_TITLE_BACK_E1";
-					GUITexturePVMs4[20].Name = "AVA_TITLE_BACK_E1";
-					GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_E1";
-				}
 			//Logo
 			if (float(HorizontalResolution) / float(VerticalResolution) <= 1.3f) rewritestretch = 0.48f; //5:4
 			if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) rewritestretch = 0.667f; //16:9
