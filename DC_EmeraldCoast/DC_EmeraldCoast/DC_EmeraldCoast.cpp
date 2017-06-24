@@ -71,7 +71,7 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 		uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
 		uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
 		uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
-		ProcessModelNode_AB_Wrapper((NJS_OBJECT*)0x10C05E8, 1.0f);
+		ProcessModelNode_A_WrapperC((NJS_OBJECT*)0x10C05E8, 1.0f);
 		njPopMatrix(1u);
 	}
 	if (!DroppedFrames && CurrentAct == 2)
@@ -79,12 +79,7 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 		njSetTexture((NJS_TEXLIST*)0x00E9A4CC); //BEACH03
 		njPushMatrix(0);
 		njTranslate(0, 0, 0, 0);
-		ProcessModelNode_A_Wrapper(&object_00118268, QueuedModelFlagsB_3, 1.0f);
-		ProcessModelNode_A_Wrapper(&object_00118510, QueuedModelFlagsB_3, 1.0f);
-		ProcessModelNode_A_Wrapper(&object_0011877C, QueuedModelFlagsB_3, 1.0f);
-		ProcessModelNode_A_Wrapper(&object_00118A60, QueuedModelFlagsB_3, 1.0f);
-		ProcessModelNode_A_Wrapper(&object_00118D60, QueuedModelFlagsB_3, 1.0f);
-		ProcessModelNode_A_Wrapper(&object_001190C8, QueuedModelFlagsB_3, 1.0f);
+
 		njPopMatrix(1u);
 	}
 }
@@ -108,8 +103,8 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	float v2_add;
 	int u2_delta;
 	int v2_delta;
+	DisableFog();
 	if (*(signed int*)&v1->CharIndex)
-		DisableFog();
 	{
 		v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
 		EC1OceanYShift = v2;
@@ -149,7 +144,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
 			uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
 			uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
-			ProcessModelNode_AB_Wrapper((NJS_OBJECT*)0x10C05E8, 1.0f);
+			ProcessModelNode_A_WrapperC((NJS_OBJECT*)0x10C05E8, 1.0f);
 			njPopMatrix(1u);
 		}
 	}
@@ -187,7 +182,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			njPushMatrix(0);
 			njTranslate(0, v1->Position.x, EC1OceanYShift, v1->Position.z);
 			if (EC1OceanYShift > -1.5f) ProcessModelNode_D_Wrapper((NJS_OBJECT*)0x010C03FC, 1.0f);
-			else ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x010C03FC, QueuedModelFlagsB_3, 1.0f);
+			else ProcessModelNode_A_WrapperC((NJS_OBJECT*)0x010C03FC, 1.0f);
 			njPopMatrix(1u);
 
 			njPushMatrix(0);
