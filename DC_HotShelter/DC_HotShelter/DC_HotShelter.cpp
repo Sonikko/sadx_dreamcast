@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <lanternapi.h>
 #include "HotShelter_Objects.h"
 #include "HotShelter1.h"
 #include "HotShelter2.h"
@@ -20,12 +21,148 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DB90, &landtable_000B0DA4),
 };
 
+
+NJS_MATERIAL* LevelSpecular[] = {
+	((NJS_MATERIAL*)0x01A3AD08), //Glass tube elevator
+};
+
+NJS_MATERIAL* ObjectSpecular[] = {
+	//OCargoStart
+	((NJS_MATERIAL*)0x017E5458),
+	((NJS_MATERIAL*)0x017E546C),
+	((NJS_MATERIAL*)0x017E5480),
+	((NJS_MATERIAL*)0x017E5494),
+	((NJS_MATERIAL*)0x017E54A8),
+	((NJS_MATERIAL*)0x017E54BC),
+	((NJS_MATERIAL*)0x017E54D0),
+	((NJS_MATERIAL*)0x017E54E4),
+	((NJS_MATERIAL*)0x017E4B08),
+	((NJS_MATERIAL*)0x017E4B1C),
+	((NJS_MATERIAL*)0x017E4B30),
+	((NJS_MATERIAL*)0x017E4B44),
+	((NJS_MATERIAL*)0x017E4B58),
+	((NJS_MATERIAL*)0x017E4B6C),
+	((NJS_MATERIAL*)0x017E4B80),
+	((NJS_MATERIAL*)0x017E4B94),
+	//OCrane (OCarne)
+	((NJS_MATERIAL*)0x0185B800),
+	((NJS_MATERIAL*)0x0185B814),
+	((NJS_MATERIAL*)0x0185B828),
+	((NJS_MATERIAL*)0x0185B83C),
+	((NJS_MATERIAL*)0x0185B850),
+	((NJS_MATERIAL*)0x0185B864),
+	((NJS_MATERIAL*)0x0185B878),
+	((NJS_MATERIAL*)0x0185B88C),
+	((NJS_MATERIAL*)0x0185B8A0),
+	((NJS_MATERIAL*)0x0185B8B4),
+	//OBiribiri
+	((NJS_MATERIAL*)0x01862868),
+	((NJS_MATERIAL*)0x0186287C),
+	((NJS_MATERIAL*)0x01862890),
+	((NJS_MATERIAL*)0x018628A4),
+	((NJS_MATERIAL*)0x018628B8),
+	//OBridge
+	((NJS_MATERIAL*)0x0183CC70),
+	((NJS_MATERIAL*)0x0183CC84),
+	((NJS_MATERIAL*)0x0183CC98),
+	((NJS_MATERIAL*)0x0183CCAC),
+	//OKaidan
+	((NJS_MATERIAL*)0x01831460),
+	((NJS_MATERIAL*)0x01831474),
+	((NJS_MATERIAL*)0x01831488),
+	((NJS_MATERIAL*)0x0183149C),
+	((NJS_MATERIAL*)0x018314B0),
+	((NJS_MATERIAL*)0x018314C4),
+	((NJS_MATERIAL*)0x018309A0),
+	((NJS_MATERIAL*)0x018309B4),
+	((NJS_MATERIAL*)0x01830550),
+	((NJS_MATERIAL*)0x01830564),
+	((NJS_MATERIAL*)0x018300FC),
+	((NJS_MATERIAL*)0x01830110),
+	//OKaitenMeter
+	((NJS_MATERIAL*)0x0182E058),
+	((NJS_MATERIAL*)0x0182E06C),
+	((NJS_MATERIAL*)0x0182E094),
+	//Water
+	((NJS_MATERIAL*)0x01810150),
+	//OKaitenKey
+	((NJS_MATERIAL*)0x0182D758),
+	((NJS_MATERIAL*)0x0182D76C),
+	((NJS_MATERIAL*)0x0182D780),
+	((NJS_MATERIAL*)0x0182D794),
+	//OUkijima
+	((NJS_MATERIAL*)0x018136E0),
+	((NJS_MATERIAL*)0x018136F4),
+	((NJS_MATERIAL*)0x01813708),
+};
+
+NJS_MATERIAL* WhiteDiffuse[] = {
+	//Level stuff
+	&matlist_000D7B10[2],
+	&matlist_000D7878[2],
+	//Colored cubes
+	&matlist_00170E74[8],
+	&matlist_00170088[8],
+	&matlist_0016F29C[8],
+	&matlist_0016E4B0[8],
+	//OBoxAna
+	((NJS_MATERIAL*)0x01800E34),
+	//Light
+	&matlist_0015C248[0],
+	&matlist_0015C248[1],
+	&matlist_0015C248[2],
+	&matlist_0015C248[3],
+	&matlist_0015C248[4],
+	&matlist_0015C248[5],
+	&matlist_0015C248[6],
+	&matlist_0015C248[7],
+};
+
+
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(0, false);
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	set_diffuse(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+		{
+			typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
+			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+		}
+		*(NJS_OBJECT*)0x180391C = object_0016F268; //Colored cube 1
+		*(NJS_OBJECT*)0x1804CD4 = object_00170054; //Colored cube 2
+		*(NJS_OBJECT*)0x180608C = object_00170E40; //Colored cube 3
+		*(NJS_OBJECT*)0x1807444 = object_00171C2C; //Colored cube 4
+		//KaitenMeter lighting fixes
+		((NJS_MATERIAL*)0x0182E080)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x0182E080)->diffuse.color = 0x00000000;
 		//Waterfall UV fixes
 		WriteData((char*)0x005AD8EB, 0x00, 1);
 		WriteData((char*)0x005AD89B, 0x00, 1);
@@ -41,8 +178,7 @@ extern "C"
 		*(NJS_OBJECT*)0x184BA64 = object_0013C6AC; //Egghead door 2 part 2
 		*(NJS_OBJECT*)0x018136AC = object_0010A8AC; //Bathroom door
 		*(NJS_OBJECT*)0x0185A974 = object_00148A44; //O Computer
-		(*(NJS_OBJECT*)0x1810690).basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-		(*(NJS_OBJECT*)0x181406C).basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2; //fix weird material colors on OUkijima
+		(*(NJS_OBJECT*)0x1810690).basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
 		*(NJS_OBJECT*)0x1851CA4 = object_00140EBC; //Elevator
 		ResizeTextureList((NJS_TEXLIST*)0x180DFF4, textures_shelter1);
 		ResizeTextureList((NJS_TEXLIST*)0x17F56F4, textures_shelter2);

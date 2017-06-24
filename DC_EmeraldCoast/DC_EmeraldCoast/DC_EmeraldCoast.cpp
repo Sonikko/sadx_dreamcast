@@ -96,7 +96,6 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	auto entity = CharObj1Ptrs[0];
 	FunctionPointer(double, sub_789320, (float a2), 0x789320);
 	double v2;
-
 	int OceanUVShift1;
 	DataArray(NJS_TEX, uv_00CC0530, 0x10C0530, 4);
 	DataPointer(int, EffectActive, 0x3C5E4B0);
@@ -110,6 +109,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	int u2_delta;
 	int v2_delta;
 	if (*(signed int*)&v1->CharIndex)
+	DisableFog();
 	{
 		v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
 		EC1OceanYShift = v2;

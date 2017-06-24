@@ -152,8 +152,131 @@ void SkyDeckSky_original(ObjectMaster *_this)
 	Direct3D_SetNearFarPlanes(LevelDrawDistance.Minimum, LevelDrawDistance.Maximum);
 }
 */
+
+NJS_MATERIAL* LevelSpecular[] = {
+	//OSaku2
+	((NJS_MATERIAL*)0x0243C108),
+	((NJS_MATERIAL*)0x0243C11C),
+	((NJS_MATERIAL*)0x0243C130),
+	((NJS_MATERIAL*)0x0243BB08),
+	((NJS_MATERIAL*)0x0243BB1C),
+};
+
+NJS_MATERIAL* ObjectSpecular[] = {
+	//Broken pieces of Connect_0
+	((NJS_MATERIAL*)0x021E06F0),
+	((NJS_MATERIAL*)0x021E0704),
+	((NJS_MATERIAL*)0x021E0718),
+	((NJS_MATERIAL*)0x021E072C),
+	((NJS_MATERIAL*)0x021E0740),
+	((NJS_MATERIAL*)0x021E0754),
+	((NJS_MATERIAL*)0x021E0768),
+	((NJS_MATERIAL*)0x021E077C),
+	((NJS_MATERIAL*)0x021E0E08),
+	((NJS_MATERIAL*)0x021E0E1C),
+	((NJS_MATERIAL*)0x021E0E30),
+	((NJS_MATERIAL*)0x021E0E44),
+	((NJS_MATERIAL*)0x021E0E58),
+	((NJS_MATERIAL*)0x021E0E6C),
+	((NJS_MATERIAL*)0x021E0E80),
+	((NJS_MATERIAL*)0x021E0E94),
+	((NJS_MATERIAL*)0x021E1520),
+	((NJS_MATERIAL*)0x021E1534),
+	((NJS_MATERIAL*)0x021E1548),
+	((NJS_MATERIAL*)0x021E155C),
+	((NJS_MATERIAL*)0x021E1570),
+	((NJS_MATERIAL*)0x021E1584),
+	((NJS_MATERIAL*)0x021E1598),
+	((NJS_MATERIAL*)0x021E15AC),
+	((NJS_MATERIAL*)0x021E1C38),
+	((NJS_MATERIAL*)0x021E1C4C),
+	((NJS_MATERIAL*)0x021E1C60),
+	((NJS_MATERIAL*)0x021E1C74),
+	((NJS_MATERIAL*)0x021E1C88),
+	((NJS_MATERIAL*)0x021E1C9C),
+	((NJS_MATERIAL*)0x021E1CB0),
+	((NJS_MATERIAL*)0x021E1CC4),
+	((NJS_MATERIAL*)0x021E2350),
+	((NJS_MATERIAL*)0x021E2364),
+	((NJS_MATERIAL*)0x021E2378),
+	((NJS_MATERIAL*)0x021E2834),
+	((NJS_MATERIAL*)0x021E2848),
+	((NJS_MATERIAL*)0x021E29E8),
+	((NJS_MATERIAL*)0x021E29FC),
+	((NJS_MATERIAL*)0x021E2E0C),
+	((NJS_MATERIAL*)0x021E2E20),
+	((NJS_MATERIAL*)0x021E3048),
+	((NJS_MATERIAL*)0x021E305C),
+	((NJS_MATERIAL*)0x021E3070),
+	//Cannon_B
+		((NJS_MATERIAL*)0x02151EF0),
+		((NJS_MATERIAL*)0x02151F04),
+		((NJS_MATERIAL*)0x021512F8),
+		((NJS_MATERIAL*)0x0215130C),
+		((NJS_MATERIAL*)0x02151320),
+		((NJS_MATERIAL*)0x02151334),
+		((NJS_MATERIAL*)0x021508C4),
+		((NJS_MATERIAL*)0x021508D8),
+		((NJS_MATERIAL*)0x021508EC),
+		((NJS_MATERIAL*)0x02150234),
+		((NJS_MATERIAL*)0x02150248),
+		((NJS_MATERIAL*)0x0214FBA8),
+		((NJS_MATERIAL*)0x0214FBBC),
+		((NJS_MATERIAL*)0x0214F388),
+		((NJS_MATERIAL*)0x0214F39C),
+		((NJS_MATERIAL*)0x0214F3B0),
+		((NJS_MATERIAL*)0x0214F3C4),
+		((NJS_MATERIAL*)0x0214F3D8),
+		((NJS_MATERIAL*)0x0214F3EC),
+		((NJS_MATERIAL*)0x0214EDC0),
+		((NJS_MATERIAL*)0x0214EDD4),
+		((NJS_MATERIAL*)0x0214EDE8),
+		((NJS_MATERIAL*)0x0214EB58),
+		((NJS_MATERIAL*)0x0214EB6C),
+		((NJS_MATERIAL*)0x0214EB80),
+		((NJS_MATERIAL*)0x0214E4EC),
+		((NJS_MATERIAL*)0x0214E500),
+};
+
+NJS_MATERIAL* WhiteDiffuse[] = {
+	//Stand light
+	((NJS_MATERIAL*)0x02439998),
+};
+
+
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	{
+		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
+		//pl_load_register(SetPL51X);
+		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+		//material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+	}
 	//Lol wtf is this? Disable robot underwear?
 	WriteData((float*)0x005F4D20, 1.0f);
 	WriteData((float*)0x005F4D28, 1.0f);
