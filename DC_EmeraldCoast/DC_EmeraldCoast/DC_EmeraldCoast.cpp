@@ -61,6 +61,7 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 	EntityData1 *v1; // esi@1
 	v1 = a1->Data1;
 	int OceanUVShift1;
+
 	if (!DroppedFrames && inside_secret_area == 0)
 	{
 		njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
@@ -71,7 +72,7 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 		uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
 		uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
 		uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
-		ProcessModelNode_A_WrapperC((NJS_OBJECT*)0x10C05E8, 1.0f);
+		ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_3, 1.0f);
 		njPopMatrix(1u);
 	}
 	if (!DroppedFrames && CurrentAct == 2)
@@ -144,7 +145,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
 			uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
 			uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
-			ProcessModelNode_A_WrapperC((NJS_OBJECT*)0x10C05E8, 1.0f);
+			ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_3, 1.0f);
 			njPopMatrix(1u);
 		}
 	}
@@ -182,7 +183,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			njPushMatrix(0);
 			njTranslate(0, v1->Position.x, EC1OceanYShift, v1->Position.z);
 			if (EC1OceanYShift > -1.5f) ProcessModelNode_D_Wrapper((NJS_OBJECT*)0x010C03FC, 1.0f);
-			else ProcessModelNode_A_WrapperC((NJS_OBJECT*)0x010C03FC, 1.0f);
+			else ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x010C03FC, QueuedModelFlagsB_3, 1.0f);
 			njPopMatrix(1u);
 
 			njPushMatrix(0);
