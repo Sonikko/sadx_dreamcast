@@ -83,6 +83,7 @@ Sint32 __cdecl DrawAVA_TITLE_BACK_E_DC(float a1)
 	njSetTexture(&ava_title_back_e_TEXLIST);
 	*(float *)&texturelist = a1 - 4.0f;
 	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) surfacesucks = -48.0f;
+	if (float(HorizontalResolution) / float(VerticalResolution) >= 2.2f) surfacesucks = -96.0f;
 	//Draw main menu BG
 	xpos = BackgroundOffsetX * HorizontalStretch * BackgroundScaleX;
 	ypos = BackgroundOffsetY *  (VerticalStretch*rewritestretch) * BackgroundScaleY;
@@ -185,6 +186,7 @@ void DrawLogo()
 {
 	float surfacesucks = 0.0f;
 	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) surfacesucks = -48.0f;
+	if (float(HorizontalResolution) / float(VerticalResolution) > 2.2f)  surfacesucks = -96.0f;
 	if (logodrawn != logoframe)
 	{
 		njTextureShadingMode(1);
@@ -194,10 +196,14 @@ void DrawLogo()
 		DrawBG(0, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
 		//Draw logo overlay
 		if (DrawOverlay == true) DrawBG(1, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
-		//Draw Sonic Team logo
-		DrawBG(2, (320-32+SonicTeamOffsetX)*HorizontalStretch, (64 + surfacesucks+SonicTeamOffsetY)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-		//Draw copyright text
-		DrawBG(3, (64+TextOffsetX)*HorizontalStretch, (960 -168 + TextOffsetY+ surfacesucks)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+		//Disable this stuff for ultra wide screens because there isn't enough space
+		if (float(HorizontalResolution) / float(VerticalResolution) < 2.2f)
+		{
+			//Draw Sonic Team logo
+			DrawBG(2, (320 - 32 + SonicTeamOffsetX)*HorizontalStretch, (64 + surfacesucks + SonicTeamOffsetY)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			//Draw copyright text
+			DrawBG(3, (64 + TextOffsetX)*HorizontalStretch, (960 - 168 + TextOffsetY + surfacesucks)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+		}
 		logodrawn = logoframe;
 	}
 }
@@ -211,6 +217,7 @@ void DrawPressStart()
 	if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) yoff = 120.0f; //16:10
 	if (float(HorizontalResolution) / float(VerticalResolution) <= 1.3f) yoff = 134; //5:4
 	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) yoff = 92.0f; //3:2
+	if (float(HorizontalResolution) / float(VerticalResolution) > 2.2f) yoff = 48.0f; //Ultra wide
 	if (startdrawn != startframe)
 	{
 		if (startframe > 128) startframe = 0;
@@ -281,7 +288,7 @@ extern "C"
 		LogoScaleY = settings->getFloat(SectionName, "LogoScaleY", 1.0f);
 		delete settings;
 		//Main code
-		if (DisableSA1Titlescreen == false && float(HorizontalResolution) / float(VerticalResolution) < 2.2f)
+		if (DisableSA1Titlescreen == false)
 		{
 			//Kill titlescreen fade
 			if (DisableFade == true) WriteData((char*)0x0050E49B, 0x90, 5);
@@ -324,6 +331,7 @@ extern "C"
 			if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) rewritestretch = 0.667f; //16:9
 			if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) rewritestretch = 0.55f; //3:2
 			if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) rewritestretch = 0.6f; //16:10
+			if (float(HorizontalResolution) / float(VerticalResolution) > 2.2f)  rewritestretch = 0.9f; //Ultra wide
 			if (RipplesOn == true) ResizeTextureList((NJS_TEXLIST*)0x010D7C58, 192);
 			WriteCall((void*)0x0050E6F4, DrawTitleBG);
 			WriteCall((void*)0x0050E8AF, DrawLogo);
