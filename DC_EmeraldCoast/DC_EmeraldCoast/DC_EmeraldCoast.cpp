@@ -50,7 +50,7 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DA2C, &landtable_000DEB60),
 	ptrdecl(0x97DA30, &landtable_0011DD58),
 };
- 
+
 int round(float r) {
 	return (r > 0.0) ? (r + 0.5) : (r - 0.5);
 }
@@ -96,7 +96,6 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	auto entity = CharObj1Ptrs[0];
 	FunctionPointer(double, sub_789320, (float a2), 0x789320);
 	double v2;
-
 	int OceanUVShift1;
 	DataArray(NJS_TEX, uv_00CC0530, 0x10C0530, 4);
 	DataPointer(int, EffectActive, 0x3C5E4B0);
@@ -110,6 +109,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	int u2_delta;
 	int v2_delta;
 	if (*(signed int*)&v1->CharIndex)
+		DisableFog();
 	{
 		v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
 		EC1OceanYShift = v2;
@@ -125,11 +125,11 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	{
 		if (entity->Position.x>1800)
 		{
-		lilocean = true;
-		WriteData((float**)0x00501824, &flt_7E00DC);
-		WriteData((float**)0x00501849, &flt_7E00DC);
-		WriteData((float**)0x00501832, &flt_7DF1B0);
-		WriteData((float**)0x0050185B, &flt_7DF1B0);
+			lilocean = true;
+			WriteData((float**)0x00501824, &flt_7E00DC);
+			WriteData((float**)0x00501849, &flt_7E00DC);
+			WriteData((float**)0x00501832, &flt_7DF1B0);
+			WriteData((float**)0x0050185B, &flt_7DF1B0);
 		}
 		if (entity->Position.x < 1400) lilocean = false;
 	}
@@ -472,8 +472,8 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	*(NJS_MODEL_SADX*)0x010C06C8 = attach_001A1690; //Spike gate shadow
 	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
 	if (SADXStyleWater == false) ResizeTextureList((NJS_TEXLIST*)0x010C0508, 10); //BEACH_SEA
-	//Write floats to fix buggy SADX water positioning code
-	//Act 2
+																				  //Write floats to fix buggy SADX water positioning code
+																				  //Act 2
 	WriteData((float**)0x004F7876, &float1);
 	WriteData((float**)0x004F7891, &float1);
 	WriteData((float**)0x004F78A4, &float2);
@@ -536,19 +536,19 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
 	if (IamStupidAndIWantFuckedUpOcean == 0)
 	{
-	if (CurrentLevel == 1 && CurrentAct == 2 && Camera_Data1 != nullptr)
-	{
-		if (Camera_Data1->Position.y < 50 && SkyboxHidden == 0)
+		if (CurrentLevel == 1 && CurrentAct == 2 && Camera_Data1 != nullptr)
 		{
-			((NJS_OBJECT *)0x103B37C)->evalflags |= NJD_EVAL_HIDE;
-			SkyboxHidden = 1;
+			if (Camera_Data1->Position.y < 50 && SkyboxHidden == 0)
+			{
+				((NJS_OBJECT *)0x103B37C)->evalflags |= NJD_EVAL_HIDE;
+				SkyboxHidden = 1;
+			}
+			if (Camera_Data1->Position.y >= 50 && SkyboxHidden == 1)
+			{
+				((NJS_OBJECT *)0x103B37C)->evalflags &= ~NJD_EVAL_HIDE;
+				SkyboxHidden = 0;
+			}
 		}
-		if (Camera_Data1->Position.y >= 50 && SkyboxHidden == 1)
-		{
-			((NJS_OBJECT *)0x103B37C)->evalflags &= ~NJD_EVAL_HIDE;
-			SkyboxHidden = 0;
-		}
-	}
 	}
 	//Frame Counter and water animation
 	if (CurrentLevel == 1 && GameState != 16)
@@ -578,85 +578,85 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2) beachsea_water++;
 	}
 	if (CurrentLevel == 1 && CurrentAct == 0 && GameState != 16)
+	{
+		if (anim1 > 96) anim1 = 82;
+		if (anim2 > 81) anim2 = 67;
+		matlist_000755F8[0].attr_texId = anim1;
+		matlist_000759CC[0].attr_texId = anim1;
+		matlist_00075C74[0].attr_texId = anim1;
+		matlist_00075F1C[0].attr_texId = anim1;
+		matlist_00076278[0].attr_texId = anim1;
+		matlist_00076654[0].attr_texId = anim1;
+		matlist_00076FA0[0].attr_texId = anim1;
+		matlist_00076B90[0].attr_texId = anim1;
+		matlist_00078634[0].attr_texId = anim1;
+		matlist_00078120[0].attr_texId = anim1;
+		matlist_00078918[0].attr_texId = anim1;
+		matlist_000783C8[0].attr_texId = anim1;
+		matlist_00078C18[0].attr_texId = anim1;
+		matlist_00077EB4[0].attr_texId = anim1;
+		matlist_00077374[0].attr_texId = anim1;
+		matlist_000776D0[0].attr_texId = anim1;
+		matlist_00077A2C[0].attr_texId = anim1;
+		matlist_00BAC3E8[4].attr_texId = anim2;
+		matlist_00027A00[2].attr_texId = anim2;
+		matlist_00026CA0[2].attr_texId = anim2;
+		matlist_000246F8[0].attr_texId = anim2;
+		matlist_00023628[3].attr_texId = anim2;
+		matlist_0002276C[3].attr_texId = anim2;
+		matlist_000216E0[3].attr_texId = anim2;
+		matlist_0002091C[3].attr_texId = anim2;
+		matlist_0001F254[3].attr_texId = anim2;
+		matlist_0001E8C4[0].attr_texId = anim2;
+		matlist_0001FFE0[2].attr_texId = anim2;
+		matlist_0001FFE0[4].attr_texId = anim2;
+		matlist_0001DC78[1].attr_texId = anim2;
+		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
 		{
-			if (anim1 > 96) anim1 = 82;
-			if (anim2 > 81) anim2 = 67;
-			matlist_000755F8[0].attr_texId = anim1;
-			matlist_000759CC[0].attr_texId = anim1;
-			matlist_00075C74[0].attr_texId = anim1;
-			matlist_00075F1C[0].attr_texId = anim1;
-			matlist_00076278[0].attr_texId = anim1;
-			matlist_00076654[0].attr_texId = anim1;
-			matlist_00076FA0[0].attr_texId = anim1;
-			matlist_00076B90[0].attr_texId = anim1;
-			matlist_00078634[0].attr_texId = anim1;
-			matlist_00078120[0].attr_texId = anim1;
-			matlist_00078918[0].attr_texId = anim1;
-			matlist_000783C8[0].attr_texId = anim1;
-			matlist_00078C18[0].attr_texId = anim1;
-			matlist_00077EB4[0].attr_texId = anim1;
-			matlist_00077374[0].attr_texId = anim1;
-			matlist_000776D0[0].attr_texId = anim1;
-			matlist_00077A2C[0].attr_texId = anim1;
-			matlist_00BAC3E8[4].attr_texId = anim2;
-			matlist_00027A00[2].attr_texId = anim2;
-			matlist_00026CA0[2].attr_texId = anim2;
-			matlist_000246F8[0].attr_texId = anim2;
-			matlist_00023628[3].attr_texId = anim2;
-			matlist_0002276C[3].attr_texId = anim2;
-			matlist_000216E0[3].attr_texId = anim2;
-			matlist_0002091C[3].attr_texId = anim2;
-			matlist_0001F254[3].attr_texId = anim2;
-			matlist_0001E8C4[0].attr_texId = anim2;
-			matlist_0001FFE0[2].attr_texId = anim2;
-			matlist_0001FFE0[4].attr_texId = anim2;
-			matlist_0001DC78[1].attr_texId = anim2;
-			if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
-			{
-				anim1++;
-				anim2++;
-			}
+			anim1++;
+			anim2++;
 		}
+	}
 	if (CurrentLevel == 1 && CurrentAct == 1 && GameState != 16)
 	{
-			if (anim3 > 56) anim3 = 42;
-			if (anim4 > 85) anim4 = 71;
-			if (anim7 > 70) anim7 = 57;
-			matlist_000D7BB8[0].attr_texId = anim7;
-			matlist_0008F1FC[0].attr_texId = anim3;
-			matlist_0008F7CC[2].attr_texId = anim3;
-			matlist_000907D4[4].attr_texId = anim3;
-			matlist_00091358[3].attr_texId = anim3;
-			matlist_000920EC[1].attr_texId = anim3;
-			matlist_00092E40[2].attr_texId = anim3;
-			matlist_00094E34[0].attr_texId = anim3;
-			matlist_00095C20[0].attr_texId = anim3;
-			matlist_00093FE0[3].attr_texId = anim3;
-			matlist_00096A10[2].attr_texId = anim3;
-			matlist_0009712C[3].attr_texId = anim3;
-			matlist_000DBBA4[0].attr_texId = anim3;
-			matlist_000DBBA4[1].attr_texId = anim3;
-			matlist_000DBBA4[2].attr_texId = anim3;
-			matlist_000DA750[0].attr_texId = anim4;
-			matlist_000DA9BC[0].attr_texId = anim4;
-			matlist_000DA188[0].attr_texId = anim4;
-			matlist_000DA46C[0].attr_texId = anim4;
-			matlist_000D9B10[0].attr_texId = anim4;
-			matlist_000D9E30[0].attr_texId = anim4;
-			matlist_000D9584[0].attr_texId = anim4;
-			matlist_000D98A4[0].attr_texId = anim4;
-			matlist_000D9084[0].attr_texId = anim4;
-			matlist_000D8E18[0].attr_texId = anim4;
-			matlist_000D8BA0[0].attr_texId = anim4;
-			matlist_000D86A0[0].attr_texId = anim4;
-			matlist_000D8254[0].attr_texId = anim4;
-			matlist_000D7D64[0].attr_texId = anim4;
-			if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
-			{
-				anim3++;
-				anim4++;
-				anim7++;
-			}
+		if (anim3 > 56) anim3 = 42;
+		if (anim4 > 85) anim4 = 71;
+		if (anim7 > 70) anim7 = 57;
+		matlist_000D7BB8[0].attr_texId = anim7;
+		matlist_0008F1FC[0].attr_texId = anim3;
+		matlist_0008F7CC[2].attr_texId = anim3;
+		matlist_000907D4[4].attr_texId = anim3;
+		matlist_00091358[3].attr_texId = anim3;
+		matlist_000920EC[1].attr_texId = anim3;
+		matlist_00092E40[2].attr_texId = anim3;
+		matlist_00094E34[0].attr_texId = anim3;
+		matlist_00095C20[0].attr_texId = anim3;
+		matlist_00093FE0[3].attr_texId = anim3;
+		matlist_00096A10[2].attr_texId = anim3;
+		matlist_0009712C[3].attr_texId = anim3;
+		matlist_000DBBA4[0].attr_texId = anim3;
+		matlist_000DBBA4[1].attr_texId = anim3;
+		matlist_000DBBA4[2].attr_texId = anim3;
+		matlist_000DA750[0].attr_texId = anim4;
+		matlist_000DA9BC[0].attr_texId = anim4;
+		matlist_000DA188[0].attr_texId = anim4;
+		matlist_000DA46C[0].attr_texId = anim4;
+		matlist_000D9B10[0].attr_texId = anim4;
+		matlist_000D9E30[0].attr_texId = anim4;
+		matlist_000D9584[0].attr_texId = anim4;
+		matlist_000D98A4[0].attr_texId = anim4;
+		matlist_000D9084[0].attr_texId = anim4;
+		matlist_000D8E18[0].attr_texId = anim4;
+		matlist_000D8BA0[0].attr_texId = anim4;
+		matlist_000D86A0[0].attr_texId = anim4;
+		matlist_000D8254[0].attr_texId = anim4;
+		matlist_000D7D64[0].attr_texId = anim4;
+		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
+		{
+			anim3++;
+			anim4++;
+			anim7++;
+		}
 	}
 	if (CurrentLevel == 1 && CurrentAct == 2 && GameState != 16)
 	{
@@ -666,11 +666,11 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 			CurrentFogToggle = 0;
 			if (SADXStyleWater == true)
 			{
-			WriteData((void*)0x004F777E, 0xE8, 1); //Restore the ocean
-			WriteData((void*)0x004F777F, 0xBD, 1); //Restore the ocean
-			WriteData((void*)0x004F7780, 0xD0, 1); //Restore the ocean
-			WriteData((void*)0x004F7781, 0xF0, 1); //Restore the ocean
-			WriteData((void*)0x004F7782, 0xFF, 1); //Restore the ocean
+				WriteData((void*)0x004F777E, 0xE8, 1); //Restore the ocean
+				WriteData((void*)0x004F777F, 0xBD, 1); //Restore the ocean
+				WriteData((void*)0x004F7780, 0xD0, 1); //Restore the ocean
+				WriteData((void*)0x004F7781, 0xF0, 1); //Restore the ocean
+				WriteData((void*)0x004F7782, 0xFF, 1); //Restore the ocean
 			}
 		}
 		if (Camera_Data1 != nullptr && Camera_Data1->Position.z > 2000)
@@ -689,67 +689,67 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 				CurrentFogToggle = 0;
 				if (SADXStyleWater == true)
 				{
-				WriteData((void*)0x004F777E, 0xE8, 1); //Restore the ocean
-				WriteData((void*)0x004F777F, 0xBD, 1); //Restore the ocean
-				WriteData((void*)0x004F7780, 0xD0, 1); //Restore the ocean
-				WriteData((void*)0x004F7781, 0xF0, 1); //Restore the ocean
-				WriteData((void*)0x004F7782, 0xFF, 1); //Restore the ocean
+					WriteData((void*)0x004F777E, 0xE8, 1); //Restore the ocean
+					WriteData((void*)0x004F777F, 0xBD, 1); //Restore the ocean
+					WriteData((void*)0x004F7780, 0xD0, 1); //Restore the ocean
+					WriteData((void*)0x004F7781, 0xF0, 1); //Restore the ocean
+					WriteData((void*)0x004F7782, 0xFF, 1); //Restore the ocean
 				}
 			}
 		}
-			if (anim5 > 64) anim5 = 50;
-			if (anim6 > 79) anim6 = 65;
-			if (anim8 > 93) anim8 = 80;
-			matlist_00114D08[0].attr_texId = anim8;
-			matlist_00117310[0].attr_texId = anim5;
-			matlist_0011784C[0].attr_texId = anim5;
-			matlist_00117C5C[0].attr_texId = anim5;
-			matlist_00118030[0].attr_texId = anim5;
-			matlist_0011829C[0].attr_texId = anim5;
-			matlist_00118544[0].attr_texId = anim5;
-			matlist_001187B0[0].attr_texId = anim5;
-			matlist_00118A94[0].attr_texId = anim5;
-			matlist_00118D94[0].attr_texId = anim5;
-			matlist_000E5260[3].attr_texId = anim6;
-			matlist_000E611C[3].attr_texId = anim6;
-			matlist_000E71EC[0].attr_texId = anim6;
-			matlist_000E97EC[2].attr_texId = anim6;
-			matlist_000EA520[2].attr_texId = anim6;
-			matlist_000EB0E0[0].attr_texId = anim6;
-			matlist_000EF7E4[0].attr_texId = anim6;
-			matlist_000EF7E4[2].attr_texId = anim6;
-			matlist_000F8F6C[0].attr_texId = anim6;
-			matlist_000F95F0[0].attr_texId = anim6;
-			matlist_000F9D10[0].attr_texId = anim6;
-			matlist_000F9D10[1].attr_texId = anim6;
-			matlist_000FB004[0].attr_texId = anim6;
-			matlist_000FB004[1].attr_texId = anim6;
-			matlist_000FEE58[0].attr_texId = anim6;
-			matlist_000FF3A0[0].attr_texId = anim6;
-			matlist_000FFD48[0].attr_texId = anim6;
-			matlist_00101320[0].attr_texId = anim6;
-			matlist_00101E9C[0].attr_texId = anim6;
-			matlist_0010280C[0].attr_texId = anim6;
-			matlist_001033A8[0].attr_texId = anim6;
-			matlist_00103DC8[0].attr_texId = anim6;
-			matlist_00104920[0].attr_texId = anim6;
-			matlist_00105630[0].attr_texId = anim6;
-			matlist_00108120[0].attr_texId = anim6;
-			matlist_0010C7F4[0].attr_texId = anim6;
-			matlist_0010D618[0].attr_texId = anim6;
-			matlist_0010E304[0].attr_texId = anim6;
-			matlist_0010F148[0].attr_texId = anim6;
-			matlist_00110184[0].attr_texId = anim6;
-			matlist_00110184[1].attr_texId = anim6;
-			matlist_00110DFC[0].attr_texId = anim6;
-			matlist_0011B12C[0].attr_texId = anim6;
-			matlist_0011B12C[1].attr_texId = anim6;
-			if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
-			{
-				anim5++;
-				anim6++;
-				anim8++;
-			}
+		if (anim5 > 64) anim5 = 50;
+		if (anim6 > 79) anim6 = 65;
+		if (anim8 > 93) anim8 = 80;
+		matlist_00114D08[0].attr_texId = anim8;
+		matlist_00117310[0].attr_texId = anim5;
+		matlist_0011784C[0].attr_texId = anim5;
+		matlist_00117C5C[0].attr_texId = anim5;
+		matlist_00118030[0].attr_texId = anim5;
+		matlist_0011829C[0].attr_texId = anim5;
+		matlist_00118544[0].attr_texId = anim5;
+		matlist_001187B0[0].attr_texId = anim5;
+		matlist_00118A94[0].attr_texId = anim5;
+		matlist_00118D94[0].attr_texId = anim5;
+		matlist_000E5260[3].attr_texId = anim6;
+		matlist_000E611C[3].attr_texId = anim6;
+		matlist_000E71EC[0].attr_texId = anim6;
+		matlist_000E97EC[2].attr_texId = anim6;
+		matlist_000EA520[2].attr_texId = anim6;
+		matlist_000EB0E0[0].attr_texId = anim6;
+		matlist_000EF7E4[0].attr_texId = anim6;
+		matlist_000EF7E4[2].attr_texId = anim6;
+		matlist_000F8F6C[0].attr_texId = anim6;
+		matlist_000F95F0[0].attr_texId = anim6;
+		matlist_000F9D10[0].attr_texId = anim6;
+		matlist_000F9D10[1].attr_texId = anim6;
+		matlist_000FB004[0].attr_texId = anim6;
+		matlist_000FB004[1].attr_texId = anim6;
+		matlist_000FEE58[0].attr_texId = anim6;
+		matlist_000FF3A0[0].attr_texId = anim6;
+		matlist_000FFD48[0].attr_texId = anim6;
+		matlist_00101320[0].attr_texId = anim6;
+		matlist_00101E9C[0].attr_texId = anim6;
+		matlist_0010280C[0].attr_texId = anim6;
+		matlist_001033A8[0].attr_texId = anim6;
+		matlist_00103DC8[0].attr_texId = anim6;
+		matlist_00104920[0].attr_texId = anim6;
+		matlist_00105630[0].attr_texId = anim6;
+		matlist_00108120[0].attr_texId = anim6;
+		matlist_0010C7F4[0].attr_texId = anim6;
+		matlist_0010D618[0].attr_texId = anim6;
+		matlist_0010E304[0].attr_texId = anim6;
+		matlist_0010F148[0].attr_texId = anim6;
+		matlist_00110184[0].attr_texId = anim6;
+		matlist_00110184[1].attr_texId = anim6;
+		matlist_00110DFC[0].attr_texId = anim6;
+		matlist_0011B12C[0].attr_texId = anim6;
+		matlist_0011B12C[1].attr_texId = anim6;
+		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
+		{
+			anim5++;
+			anim6++;
+			anim8++;
+		}
 	}
 }
 
