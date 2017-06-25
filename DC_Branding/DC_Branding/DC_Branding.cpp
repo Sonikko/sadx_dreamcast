@@ -318,7 +318,7 @@ extern "C"
 		//Set up settings
 		const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
 		RipplesOn = settings->getBool("", "RippleEffect", true);
-		EnableTransition = defaults->getBool("", "EnableTransition", false);
+		EnableTransition = settings->getBool("", "EnableTransition", true);
 		DisableSA1Titlescreen = settings->getBool("", "DisableSA1TitleScreen", false);
 		DrawOverlay = settings->getBool("", "DrawOverlay", true);
 		DisableFade = settings->getBool("", "DisableFade", true);
