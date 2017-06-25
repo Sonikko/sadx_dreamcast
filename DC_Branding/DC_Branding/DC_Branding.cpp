@@ -17,9 +17,11 @@ static int logoframe = 0;
 static int logodrawn = -1;
 static int startframe = 0;
 static int startdrawn = -1;
-
+static int transitionframe = 0;
+static int TransitionMode = 0;
 //Ini stuff
 static bool RipplesOn = true;
+static bool EnableTransition = false;
 static bool DisableSA1Titlescreen = false;
 static bool DisableFade = true;
 static bool DrawOverlay = true;
@@ -33,6 +35,8 @@ static int LogoOffsetX = 0;
 static int LogoOffsetY = 0;
 static float LogoScaleX = 1.0f;
 static float LogoScaleY = 1.0f;
+static float LogoScaleXT = 1.0f;
+static float LogoScaleYT = 1.0f;
 static int BackgroundOffsetX = 0;
 static int BackgroundOffsetY = 0;
 static float BackgroundScaleX = 1.0f;
@@ -51,6 +55,12 @@ static float control_vertoffset = 455.0f;
 static float control_hzoffset = 566.0f;
 static float camera_vertoffset = 75.0f;
 static float camera_hzoffset = 215.0f;
+
+int __cdecl sub_505810()
+{
+	if (EnableTransition == true) TransitionMode = 1;
+	return PlaySound(2, 0, 0, 0);
+}
 
 Sint32 __cdecl DrawAVA_TITLE_BACK_E_DC(float a1)
 {
@@ -184,7 +194,12 @@ void DrawTitleBG()
 
 void DrawLogo()
 {
+	float xpos;
+	float smalloff;
+	float ypos;
 	float surfacesucks = 0.0f;
+	if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) smalloff = -60; //16:10
+	if (float(HorizontalResolution) / float(VerticalResolution) <= 1.3f) smalloff = -40; //5:4
 	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) surfacesucks = -48.0f;
 	if (float(HorizontalResolution) / float(VerticalResolution) > 2.2f)  surfacesucks = -96.0f;
 	if (logodrawn != logoframe)
@@ -193,6 +208,7 @@ void DrawLogo()
 		njSetTexture((NJS_TEXLIST*)0x010D7C48); //AVA_GTITLE0_E
 		if (logoframe > 128) logoframe = 0;
 		//Draw logo
+		SetVtxColorB(0xFFFFFFFF);
 		DrawBG(0, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
 		//Draw logo overlay
 		if (DrawOverlay == true) DrawBG(1, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
@@ -204,7 +220,38 @@ void DrawLogo()
 			//Draw copyright text
 			DrawBG(3, (64 + TextOffsetX)*HorizontalStretch, (960 - 168 + TextOffsetY + surfacesucks)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
 		}
+		//Ultra wide
+		if (float(HorizontalResolution) / float(VerticalResolution) >= 2.2f)
+		{
+			//Draw Sonic Team logo
+			DrawBG(2, (320 - 32 + SonicTeamOffsetX)*HorizontalStretch, (64 + surfacesucks + SonicTeamOffsetY)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f*0.8f, VerticalStretch * rewritestretch*0.8f);
+			//Draw copyright text
+			DrawBG(3, (64 + TextOffsetX)*HorizontalStretch, (960 - 168 + TextOffsetY + surfacesucks)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f*0.8f, VerticalStretch * rewritestretch*0.8f);
+		}
 		logodrawn = logoframe;
+		if (TransitionMode != 0)
+		{
+			if (TransitionMode == 1)
+			{
+				{
+					if (LogoScaleXT < LogoScaleX * 2)LogoScaleXT = LogoScaleXT*1.2f;
+					if (LogoScaleYT < LogoScaleY * 2)LogoScaleYT = LogoScaleYT*1.2f;
+				}
+				transitionframe++;
+			}
+			if (TransitionMode == 2)
+			{
+				if (LogoScaleXT > LogoScaleX) LogoScaleXT = LogoScaleXT / 1.2f;
+				if (LogoScaleYT > LogoScaleY) LogoScaleYT = LogoScaleYT / 1.2f;
+				transitionframe--;
+				if (transitionframe == 0) TransitionMode = 0;
+			}
+			xpos = (HorizontalResolution - LogoScaleXT * 512 * HorizontalStretch) / 2;
+			ypos = (VerticalResolution - LogoScaleYT * 256 * HorizontalStretch + smalloff * VerticalStretch * rewritestretch) / 2;
+			//Draw logo
+			SetVtxColorB(0x7FFFFFFF);
+			DrawBG(0, xpos,ypos, 1.2f, HorizontalStretch * 0.5f*LogoScaleXT, VerticalStretch * rewritestretch*LogoScaleYT);
+		}
 	}
 }
 
@@ -234,9 +281,11 @@ extern "C"
 		//Set up normal/widescreen setting
 		std::string SectionName;
 		if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) SectionName = "Widescreen"; else SectionName = "Normal";
+		if (float(HorizontalResolution) / float(VerticalResolution) >= 2.2f) SectionName = "Ultrawide";
 		//Load defaults first
 		const IniFile *defaults = new IniFile(std::string(path) + "\\default.ini");
 		RipplesOn = defaults->getBool("", "RippleEffect", true);
+		EnableTransition = defaults->getBool("", "EnableTransition", false);
 		DisableFade = defaults->getBool("", "DisableFade", true);
 		DisableSA1Titlescreen = defaults->getBool("", "DisableSA1TitleScreen", false);
 		DrawOverlay = defaults->getBool("", "DrawOverlay", true);
@@ -269,6 +318,7 @@ extern "C"
 		//Set up settings
 		const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
 		RipplesOn = settings->getBool("", "RippleEffect", true);
+		EnableTransition = defaults->getBool("", "EnableTransition", false);
 		DisableSA1Titlescreen = settings->getBool("", "DisableSA1TitleScreen", false);
 		DrawOverlay = settings->getBool("", "DrawOverlay", true);
 		DisableFade = settings->getBool("", "DisableFade", true);
@@ -286,6 +336,8 @@ extern "C"
 		LogoOffsetY = settings->getInt(SectionName, "LogoOffsetY", 220);
 		LogoScaleX = settings->getFloat(SectionName, "LogoScaleX", 1.0f);
 		LogoScaleY = settings->getFloat(SectionName, "LogoScaleY", 1.0f);
+		LogoScaleXT = LogoScaleX;
+		LogoScaleYT = LogoScaleY;
 		delete settings;
 		//Main code
 		if (DisableSA1Titlescreen == false)
@@ -293,6 +345,7 @@ extern "C"
 			//Kill titlescreen fade
 			if (DisableFade == true) WriteData((char*)0x0050E49B, 0x90, 5);
 			ResizeTextureList((NJS_TEXLIST*)0x010D7C80, 10);
+			WriteJump((void*)0x505810, sub_505810);
 			WriteJump((void*)0x50BA90, DrawAVA_TITLE_BACK_E_DC);
 			//PVMs
 			GUITexturePVMs[17].Name = "AVA_GTITLE0_ES";
@@ -426,6 +479,15 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		if (GameMode == GameModes_Menu && transitionframe > 15)
+		{
+			TransitionMode = 0;
+			transitionframe = 0;
+			LogoScaleXT = LogoScaleX;
+			LogoScaleYT = LogoScaleY;
+			//LogoScaleXT = LogoScaleX*2;
+			//LogoScaleYT = LogoScaleY*2;
+		}
 		if (DisableSA1Titlescreen == false && GameState == 21)
 		{
 			if (titleframe == titledrawn) titleframe++;
