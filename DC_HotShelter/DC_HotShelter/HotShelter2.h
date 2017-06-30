@@ -10192,8 +10192,8 @@ NJS_OBJECT object_00066490 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00066
 
 NJS_MATERIAL matlist_000664C4[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_DA_INV_SRC | NJD_SA_SRC },
-	{ { 0x87B2EAFF },{ 0xFFFFFFFF }, 11, 9, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
-	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ENV | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ENV | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC },
+	{ { 0x87B2B2B2 },{ 0xFFFFFFFF }, 11, 9, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
 Sint16 poly_00066500[] = {
@@ -10394,8 +10394,8 @@ NJS_TEX uv_0006668C[] = {
 };
 
 NJS_MESHSET_SADX meshlist_000668FC[] = {
-	{ NJD_MESHSET_TRIMESH | 1, 1, poly_00066500, NULL, NULL, NULL, uv_00066674, NULL },
-	{ NJD_MESHSET_TRIMESH | 2, 22, poly_0006650E, NULL, NULL, NULL, uv_0006668C, NULL }
+	{ NJD_MESHSET_TRIMESH | 1, 22, poly_0006650E, NULL, NULL, NULL, uv_0006668C, NULL },
+	{ NJD_MESHSET_TRIMESH | 2, 1, poly_00066500, NULL, NULL, NULL, uv_00066674, NULL },
 };
 
 NJS_VECTOR vertex_0006692C[] = {
@@ -45290,15 +45290,15 @@ COL collist_0004CDDC[] = {
 	{ { 810, 80.5f, -1930 }, 8.276472f, 0, 0, &object_000AA1E0, 0, 0xE0000001 },
 	{ { 810, 80.5f, -1884 }, 8.276472f, 0, 0, &object_000AA214, 0, 0xE0000001 },
 	{ { -347.5001f, 370, -3613.999f }, 16.91847f, 0, 0, &object_000AA248, 0, 0xC0000001 },//sadx start
-	//{ { 0.00003f, -483, -1812 }, 437.9326f, 0, 0, &object_01566A4C, 0, 0x80000000 },
-	//{ { 0.00003f, 850.7995f, -1812 }, 437.9326f, 0, 0, &object_01566A80, 0, 0x80000000 },
-	//{ { 0.00003f, 477.0001f, -1812 }, 437.9326f, 0, 0, &object_01566AB4, 0, 0x80000000 },
-	//{ { 0.00003f, -109, -1812 }, 438.9326f, 0, 0, &object_0152D9AC, 0, 0x80000000 },
-	//{ { -288, 300, -2750 }, 729.6261f, 0, 0, &object_01521BC0, 0, 0x80000000 },
-	//{ { 538, -6, -2607 }, 287.2447f, 0, 0, &object_01559B6C, 0, 0x80000000 },//pc4
-	//{ { 540.0247f, 150, -2605 }, 188.9312f, 0, 0, &object_015632D4, 0, 0xA0000001 },//pc3
-	//{ { 540, 135, -2605 }, 201.5617f, 0, 0, &object_0155C604, 0, 0x80000000 }, //pc2
-	//{ { 539.9999f, 150, -2605 }, 201, 0, 0, &object_01564554, 0, 0x80040001 }, //sadx finish
+																						  //{ { 0.00003f, -483, -1812 }, 437.9326f, 0, 0, &object_01566A4C, 0, 0x80000000 },
+																						  //{ { 0.00003f, 850.7995f, -1812 }, 437.9326f, 0, 0, &object_01566A80, 0, 0x80000000 },
+																						  //{ { 0.00003f, 477.0001f, -1812 }, 437.9326f, 0, 0, &object_01566AB4, 0, 0x80000000 },
+																						  //{ { 0.00003f, -109, -1812 }, 438.9326f, 0, 0, &object_0152D9AC, 0, 0x80000000 },
+																						  //{ { -288, 300, -2750 }, 729.6261f, 0, 0, &object_01521BC0, 0, 0x80000000 },
+																						  //{ { 538, -6, -2607 }, 287.2447f, 0, 0, &object_01559B6C, 0, 0x80000000 },//pc4
+																						  //{ { 540.0247f, 150, -2605 }, 188.9312f, 0, 0, &object_015632D4, 0, 0xA0000001 },//pc3
+																						  //{ { 540, 135, -2605 }, 201.5617f, 0, 0, &object_0155C604, 0, 0x80000000 }, //pc2
+																						  //{ { 539.9999f, 150, -2605 }, 201, 0, 0, &object_01564554, 0, 0x80040001 }, //sadx finish
 	{ { 538, -6, -2607 }, 350.2361f, 0, 0, &object_0009DAFC, 0, 0x80000000 },//inv
 	{ { 539.9999f, 135, -2605 }, 261.7427f, 0, 0, &object_0009FA8C, 0, 0x80000000 },
 	{ { 431.7003f, 133.5655f, -2665.412f }, 15.34494f, 0, 0, &object_000A7940, 0, 0xE0000001 },
