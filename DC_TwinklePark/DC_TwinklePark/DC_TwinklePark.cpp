@@ -55,6 +55,25 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 }
 
 NJS_MATERIAL* ObjectSpecular[] = {
+	//OFence2
+	((NJS_MATERIAL*)0x027A24B0),
+	((NJS_MATERIAL*)0x027A24C4),
+	//((NJS_MATERIAL*)0x027A24D8),
+	((NJS_MATERIAL*)0x027A24EC),
+	((NJS_MATERIAL*)0x027A2500),
+	//Rollercoaster
+	&matlist_023A0598[0],
+	&matlist_023A0598[1],
+	&matlist_023A0598[2],
+	&matlist_023A0598[3],
+	&matlist_023A0598[4],
+	&matlist_023A0598[5],
+	&matlist_023A0598[6],
+	&matlist_023A0598[7],
+	&matlist_023A0598[8],
+	&matlist_023A0598[9],
+	&matlist_023A0598[10],
+	&matlist_023A0598[11],
 	//Amy's barrel
 	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x00016498)),
 	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x000164AC)),
