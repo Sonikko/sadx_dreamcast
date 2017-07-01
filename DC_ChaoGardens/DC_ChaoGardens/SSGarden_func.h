@@ -20,6 +20,8 @@ ObjectFunc(OF_SS18, 0x007A1AA0); // O TIKAL
 ObjectFunc(OF_SS19, 0xC902DD2); // CAM COLLI
 ObjectFunc(OF_SS20, 0x004D4850); // WALL  
 ObjectFunc(OF_SS21, 0x007A9C60); // HINT BOX
+SETObjData setdata_ssg = {};
+
 void LoadObjects_SS()
 {
 	ObjectMaster *obj;
@@ -39,6 +41,7 @@ void LoadObjects_SS()
 	ent->Scale.z = -3.1f;
 	}
 	obj = LoadObject((LoadObj)6, 3, OF_SS9); //  O AR_ELE
+	obj->SETData.SETData = &setdata_ssg;
 	if (obj)
 	{
 		ent = obj->Data1;
