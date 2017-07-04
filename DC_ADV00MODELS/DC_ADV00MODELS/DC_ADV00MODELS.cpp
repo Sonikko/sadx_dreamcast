@@ -100,6 +100,7 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 	&matlist_000D8D58[7],
 	&matlist_000D8D58[8],
 	&matlist_000D8D58[9],
+	&matlist_00190C2C[8], //Train
 };
 
 NJS_MATERIAL* WhiteDiffuse_Night[] = {
