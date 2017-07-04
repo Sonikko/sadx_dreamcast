@@ -16,6 +16,9 @@
 #include "Tanken3.h"
 #include "Grass.h"
 #include "MR_Objects.h"
+#include "MR_Palms.h"
+#include <lanternapi.h>
+
 DataPointer(float, dword_111DB90, 0x111DB90);
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
 DataArray(FogData, MR2FogDay, 0x01103478, 3);
@@ -81,8 +84,84 @@ void __cdecl MRWater()
 	}
 }
 
+bool ForceObjectorLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(0, false); else set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(3, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceBlackSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(3, false);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+NJS_MATERIAL* WhiteDiffuse[] = {
+	&matlist_001FCA84[8], //MR train
+	//Palm trees
+	&matlist_001D76E0[1],
+	&matlist_001D85A8[1],
+	&matlist_001D9470[1],
+	&matlist_001DA32C[1],
+	&matlist_001DB210[1],
+	&matlist_001DC0BC[1],
+	&matlist_00148D38_3[0], //Jungle stuff
+	&matlist_00146334_3[0],
+	//Final Egg stuff
+	&matlist_002069C8[5],
+	&matlist_002069C8[6],
+	&matlist_002069C8[7],
+	&matlist_00208504Z[13],
+	&matlist_00208504[13],
+	//Jungle stuff
+	&matlist_0007ABA8[0],
+	&matlist_0007ABA8[1],
+	&matlist_0007ABA8[2],
+	&matlist_0007ABA8[3],
+	&matlist_0007ABA8[4],
+	&matlist_0007ABA8[5],
+	&matlist_0007ABA8[6],
+	//Final Egg Base stuff
+	&matlist_00025A74[0],
+	&matlist_00025A74[1],
+	&matlist_00025A74[2],
+	&matlist_00025A74[3],
+	&matlist_00025A74[4],
+	//OHiddenGate buttons
+	&matlist_0003CD28[0],
+};
+
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	{
+		//material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+		//material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+	}
 	WriteData((float*)0x111DBA4, 0.0f); //Master Emerald glow color
 	WriteData((float*)0x111DB9C, 0.0f); //Master Emerald glow color
 	*(NJS_OBJECT*)0x1108A18 = object_00226468; //TANKEN
@@ -147,7 +226,23 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___LANDTABLEMR[2] = &landtable_00000178;
 	___LANDTABLEMR[3] = &landtable_0000019C;
 	NJS_OBJECT **___ADV02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02_OBJECTS");
-	___ADV02_OBJECTS[23] = &object_001BACAC; //Ice Cap door
+	//Palm trees near Tails' house
+	___ADV02_OBJECTS[67]->child->model = &attach_001DCF1C;
+	___ADV02_OBJECTS[67]->child->child->model = &attach_001DCC88;
+	___ADV02_OBJECTS[67]->child->sibling->model = &attach_001DC060;
+	___ADV02_OBJECTS[67]->child->sibling->child->model = &attach_001DBDDC;
+	___ADV02_OBJECTS[67]->child->sibling->sibling->model = &attach_001DB1B4;
+	___ADV02_OBJECTS[67]->child->sibling->sibling->child->model = &attach_001DAF20;
+	___ADV02_OBJECTS[67]->child->sibling->sibling->sibling->model = &attach_001DA2D0;
+	___ADV02_OBJECTS[67]->child->sibling->sibling->sibling->child->model = &attach_001DA03C;
+	___ADV02_OBJECTS[67]->child->sibling->sibling->sibling->sibling->model = &attach_001D9414;
+	___ADV02_OBJECTS[67]->child->sibling->sibling->sibling->sibling->child->model = &attach_001D9174;
+	___ADV02_OBJECTS[67]->child->sibling->sibling->sibling->sibling->sibling->model = &attach_001D854C;
+	___ADV02_OBJECTS[67]->child->sibling->sibling->sibling->sibling->sibling->child->model = &attach_001D82AC;
+	//Material fixes
+	___ADV02_OBJECTS[90]->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+	___ADV02_OBJECTS[91]->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+	//Other objects
 	___ADV02_OBJECTS[25] = &object_001B9854; //Ice Cap door 1 
 	___ADV02_OBJECTS[26] = &object_001B9D9C; //Ice Cap door 2
 	___ADV02_OBJECTS[86] = &object_001BF00C; //Ice Cap lock
@@ -193,10 +288,12 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_ACTIONS[32]->object = &object_001F41C0;
 	___ADV02_ACTIONS[0]->motion = &animation_000862E8;
 	___ADV02_ACTIONS[10]->object = &object_00201C18;
-	___ADV02_ACTIONS[30]->object = &object_0020DC78;
-	___ADV02_ACTIONS[21]->object = &object_001DDBFC; //Plane platform
+	___ADV02_ACTIONS[30]->object = &object_0020DC78; //OFinalWay
+	___ADV02_ACTIONS[21]->object->child->sibling->model = &attach_001DD6F8; //Plane platform
+	___ADV02_ACTIONS[21]->object->child->sibling->sibling->model = &attach_001DD324; //Plane platform
 	___ADV02_ACTIONS[9]->object = &object_001B2D5C; //Final Egg base door
 	___ADV02_ACTIONS[17]->object = &object_001CCFBC; //OHiddenGate
+	___ADV02_MODELS[9] = &attach_0003D34C; //OHiddenGate button
 	___ADV02_MODELS[12] = &attach_001B412C; //Echidna statue
 }
 
@@ -211,9 +308,6 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		matlist_00208504Z[10].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		matlist_00208504Z[11].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		matlist_00208504Z[12].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		matlist_002069C8[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		matlist_002069C8[6].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		matlist_002069C8[7].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		matlist_00208504[9].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		matlist_00208504[10].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		matlist_00208504[11].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -261,6 +355,10 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 	}
 	if (GameState != 16 && CurrentLevel == 33 && CurrentAct == 2)
 	{
+		object_0007B4A8.ang[1] = (object_0007B4A8.ang[1] + 256) % 65535;
+		object_0007AB74.ang[1] = (object_0007AB74.ang[1] + 256) % 65535;
+		object_0007A904.ang[0] = (object_0007A904.ang[0] + 512) % 65535;
+		object_0007A6CC.ang[0] = (object_0007A6CC.ang[0] + 1024) % 65535;
 		if (Camera_Data1 != nullptr && Camera_Data1->Position.z < -548 && Camera_Data1->Position.z > -1560 && Camera_Data1->Position.x < -80 && Camera_Data1->Position.x > -900)
 		{
 			InsideTemple = 1;

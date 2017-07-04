@@ -1,6 +1,27 @@
 #include <SADXModLoader.h>
 HMODULE Chaos0 = GetModuleHandle(L"BOSSCHAOS0MODELS");
 
+NJS_MATERIAL* WhiteDiffuse[] = {
+	//Egg Hornet
+	((NJS_MATERIAL*)0x0155D1DC),
+	//Egg Hornet level
+	&matlist_0005B834[0],
+	//Chaos 0 helicopter
+	&matlist_0005528C[0],
+	&matlist_0005528C[1],
+	//Chaos 4 level
+	&matlist_0004C318[0],
+	//Egg Viper cockpit
+	((NJS_MATERIAL*)0x0166BD68),
+	((NJS_MATERIAL*)0x0166BD7C),
+	((NJS_MATERIAL*)0x0166BD90),
+	((NJS_MATERIAL*)0x0166BDA4),
+	((NJS_MATERIAL*)0x0166BDB8),
+	((NJS_MATERIAL*)0x0166BDCC),
+	((NJS_MATERIAL*)0x0166BDE0),
+	
+};
+
 NJS_MATERIAL* Chaos0Materials[] = {
 	//Pole
 	(NJS_MATERIAL*)((size_t)Chaos0 + 0x0004DA58),
@@ -46,6 +67,7 @@ NJS_MATERIAL* Chaos0Materials[] = {
 
 NJS_MATERIAL* ChaosPuddle[] = {
 	((NJS_MATERIAL*)0x038D936C),
+	((NJS_MATERIAL*)0x038DDA04),
 };
 
 NJS_MATERIAL* SpecialBossMaterials[] = {
@@ -889,7 +911,6 @@ NJS_MATERIAL* EggHornetMaterials[] = {
 	((NJS_MATERIAL*)0x0155D66C),
 	((NJS_MATERIAL*)0x0155D1B4),
 	((NJS_MATERIAL*)0x0155D1C8),
-	((NJS_MATERIAL*)0x0155D1DC),
 	((NJS_MATERIAL*)0x0155CEB8),
 	((NJS_MATERIAL*)0x0155CECC),
 	((NJS_MATERIAL*)0x0155C2F8),

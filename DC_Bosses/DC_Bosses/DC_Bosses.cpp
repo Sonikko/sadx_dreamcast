@@ -375,6 +375,27 @@ void __cdecl sub_563620(int a1)
 */
 
 
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(3, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
 bool ChaosPuddleFunc(NJS_MATERIAL* material, Uint32 flags)
 {
 	if (CurrentLevel == 18 || CurrentLevel == 16 || CurrentLevel == 19)
@@ -431,7 +452,7 @@ bool CharacterFunction_nospec(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-bool ForceObjectSpecularFunction(NJS_MATERIAL* material, Uint32 flags)
+bool ForceObjectOrLevelSpecularFunction(NJS_MATERIAL* material, Uint32 flags)
 {
 	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(0, false); else set_specular(1, false);
 	use_default_diffuse(true);
@@ -451,8 +472,9 @@ extern "C"
 			material_register(ChaosPuddle, LengthOfArray(ChaosPuddle), &ChaosPuddleFunc);
 			material_register(CharacterMaterials, LengthOfArray(CharacterMaterials), &CharacterFunction_nospec);
 			material_register(Chaos0Materials, LengthOfArray(Chaos0Materials), &Chaos0Function);
-			material_register(EggHornetMaterials, LengthOfArray(EggHornetMaterials), &ForceObjectSpecularFunction);
-			material_register(Chaos6ObjectMaterials, LengthOfArray(Chaos6ObjectMaterials), &ForceObjectSpecularFunction);
+			material_register(EggHornetMaterials, LengthOfArray(EggHornetMaterials), &ForceObjectOrLevelSpecularFunction);
+			material_register(Chaos6ObjectMaterials, LengthOfArray(Chaos6ObjectMaterials), &ForceObjectOrLevelSpecularFunction);
+			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 		}
 		WriteJump((void*)0x00556D60, SetClip_Chaos6KX);
 		WriteJump((void*)0x00556E40, SetClip_Chaos6SX);
@@ -658,6 +680,7 @@ extern "C"
 		((NJS_OBJECT*)0x03179D4C)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 		((NJS_OBJECT*)0x03179B7C)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 		//Chaos 2
+		((NJS_MATERIAL*)0x011835E8)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Chaos2 table
 		((NJS_OBJECT*)0x0114B918)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos2
 		((NJS_OBJECT*)0x011339EC)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2; //Chaos2 small ball
 		((NJS_OBJECT*)0x01139274)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2; //Chaos2 ball
@@ -711,6 +734,13 @@ extern "C"
 		((NJS_OBJECT*)0x01191764)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
 		((NJS_OBJECT*)0x011913AC)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
 		((NJS_OBJECT*)0x01191018)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
+		//Chaos 6 transformed emeralds lighting (well this still doesn't work)
+		/*((NJS_MATERIAL*)0x0128C194)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x0128BCB4)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x0128B7F4)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x0128B314)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x0128AE34)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x0128A954)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;*/
 		//Perfect Chaos misc
 		((NJS_OBJECT*)0x0248B1B4)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Egg Carrier 2
 		/*((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
@@ -805,6 +835,13 @@ extern "C"
 		((NJS_OBJECT*)0x01563614)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
 		((NJS_OBJECT*)0x01563614)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
 		((NJS_OBJECT*)0x01563614)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
+		//Egg Walker
+		((NJS_OBJECT*)0x162E0FC)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		//E101 rocket
+		((NJS_MATERIAL*)0x014DE5D0)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x014DE5E4)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x014DE5F8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x014DE60C)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		/*
 		((NJS_OBJECT*)0x0155B9E8)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x0155D5D0)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
