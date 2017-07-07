@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <lanternapi.h>
 #include "ADV01_0_animlist.h"
 #include "ADV01_0.h"
 #include "ADV01_1.h"
@@ -14,6 +15,7 @@
 #include "ADV01C_03.h"
 #include "ADV01C_04.h"
 #include "ADV01C_05.h"
+HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(__int16, EggCarrierSunk_CharacterFlag, 0x0090A41C);
@@ -28,6 +30,7 @@ static char water_sadx3 = 76;
 DataArray(DrawDistance, EggCarrierOutsideDrawDist1, 0x010F2264, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist2, 0x010F227C, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist3, 0x010F2294, 3);
+DataArray(DrawDistance, EggCarrierOutsideSkyDrawDist3, 0x010F2204, 3);
 DataArray(FogData, EggCarrierOutside2Fog, 0x010F233C, 3);
 DataArray(FogData, EggCarrierOutside3Fog, 0x010F236C, 3);
 DataArray(FogData, EggCarrierOutside4Fog, 0x010F239C, 3);
@@ -40,9 +43,9 @@ DataArray(FogData, EggCarrierInside3Fog, 0x01100C78, 3);
 DataArray(FogData, EggCarrierInside4Fog, 0x01100CA8, 3);
 DataArray(FogData, EggCarrierInside5Fog, 0x01100CD8, 3);
 DataArray(FogData, EggCarrierInside6Fog, 0x01100D08, 3);
+DataArray(NJS_VECTOR, SkyboxScale_EggCarrier4, 0x010F212C, 3);
 DataArray(PVMEntry, EggCarrierObjectTexlist_Sea, 0x010F34A8, 6);
 DataPointer(int, DroppedFrames, 0x03B1117C);
-HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
 HMODULE handle3 = GetModuleHandle(L"ADV01CMODELS");
 HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS");
 NJS_OBJECT **___MILES_OBJECTS = (NJS_OBJECT **)GetProcAddress(CHRMODELS, "___MILES_OBJECTS");
@@ -56,8 +59,100 @@ NJS_ACTION **___ADV01_ACTIONS = (NJS_ACTION **)GetProcAddress(handle2, "___ADV01
 NJS_OBJECT **___ADV01_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01_OBJECTS");
 NJS_OBJECT **___ADV01EC00_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01EC00_OBJECTS");
 NJS_MODEL_SADX **___ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle3, "___ADV01C_MODELS");
-static bool PinkMonitorMode = 0;
-static bool CurrentlyPink = 0;
+
+bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(3, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+NJS_MATERIAL* ObjectSpecular[] = {
+//OMast
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00216050),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00216050),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00216064),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00216078),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x0021608C),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002160A0),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002160B4),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002160C8),
+//OBChair
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00243B98),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00243BAC),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00243BC0),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00243BD4),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00243BE8),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00243BFC),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00243C10),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x0024398C),
+//Gunsight
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002336A0),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00233160),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00233174),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00231358),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x0023136C),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00231380),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00231394),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002313A8),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002313BC),
+//OEggmanBed
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002380D8),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002380EC),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00238100),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00238114),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00238128),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x0023813C),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00238150),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00238164),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x00238178),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x0023818C),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002381A0),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002381B4),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002381C8),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002381DC),
+	(NJS_MATERIAL*)((size_t)handle2 + 0x002381F0),
+};
+
+NJS_MATERIAL* WhiteDiffuse[] = {
+	//OTarai button
+	&matlist_0011154C[0],
+	&matlist_0011154C[1],
+	&matlist_0011154C[2],
+	&matlist_00111440[0],
+//OTaihou Cannon
+	&matlist_0017C018[3],
+	&matlist_0017C018[4],
+	&matlist_0017C018[5],
+	&matlist_0017C018[6],
+	&matlist_0017C018[7],
+//Captain room
+&matlist_000CB0BC[4],
+&matlist_000CB0BC[7],
+&matlist_000165BC[0],
+&matlist_000165BC[1],
+&matlist_000165BC[2],
+&matlist_000165BC[3],
+&matlist_000165BC[5],
+&matlist_000165BC[6],
+&matlist_000165BC[7],
+&matlist_000165BC[8],
+&matlist_000165BC[9],
+};
 
 void sub_10001050(NJS_OBJECT *a1)
 {
@@ -117,6 +212,13 @@ void __cdecl SetClip_EC01(signed int cliplevel)
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	{
+		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+		//material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+	}
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	if (SADXStyleWater != 0)
 	{
@@ -171,6 +273,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01C_MODELS[28] = &attach_00111938;
 	___ADV01C_MODELS[27] = &attach_001114EC;
 	___ADV01C_OBJECTS[7] = &object_00111964; //tarai button
+	___ADV01C_OBJECTS[7]->child = &object_00111518;
 	___ADV01C_OBJECTS[8] = &object_000D243C; //tarai
 	___ADV01_ACTIONS[2]->object = &object_0019795C; //OEggChair
 	___ADV01_ACTIONS[2]->motion = &_197dbc; //OEggChair
@@ -187,7 +290,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01_OBJECTS[58] = &object_0017BFE4; //OSLight
 	___ADV01_ACTIONS[0]->object = &object_00178BC4; //This thing is stupid
 	___ADV01_OBJECTS[5] = &object_00178BC4; //This thing is stupid
-	//___ADV01_OBJECTS[13] = &object_001A85F0; //OParasol
+	___ADV01_OBJECTS[13] = &object_001A85F0; //OParasol
 	___ADV01_OBJECTS[27] = &object_001782D4; //Door top
 	___ADV01_OBJECTS[14]->model = &attach_0017FD8C; //OTaihou (Cannon)
 	___ADV01_OBJECTS[14]->child->model = &attach_0017F618; //OTaihou (Cannon)
@@ -200,7 +303,6 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01_OBJECTS[69]->child->model = &attach_0016D524; //Monorail front
 	___ADV01_OBJECTS[70]->child->child->model = &attach_00170CFC; //Monorail back
 	___ADV01_OBJECTS[70]->child->model = &attach_001714D8; //Monorail back
-	___ADV01C_OBJECTS[7]->child = &object_00111518;
 	___ADV01C_OBJECTS[43]->child->child->model = &attach_000AEDD0; //Monorail 1 door
 	___ADV01C_OBJECTS[43]->child->model = &attach_000AF564; //Monorail 1 door thing
 	___ADV01C_OBJECTS[44]->child->child->model = &attach_000B2D3C; //Monorail 2 door 
@@ -213,6 +315,10 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	WriteData((void*)0x005244D6, 0x90, 5); //Disable light flickering
 	for (int i = 0; i < 3; i++)
 	{
+		SkyboxScale_EggCarrier4[i].x = 1.0f;
+		SkyboxScale_EggCarrier4[i].y = 1.0f;
+		SkyboxScale_EggCarrier4[i].z = 1.0f;
+		EggCarrierOutsideSkyDrawDist3[i].Maximum = -7000;
 		EggCarrierOutsideDrawDist1[i].Maximum = -11000;
 		EggCarrierOutsideDrawDist2[i].Maximum = -11000;
 		EggCarrierOutsideDrawDist3[i].Maximum = -11000;
@@ -341,31 +447,6 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 			}
 		}
 		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x80000000; else collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x00000000;
-	}
-	if (CurrentLevel == 32 && CurrentAct == 1) PinkMonitorMode = 1;
-	if (CurrentLevel == 32 && CurrentAct != 1) PinkMonitorMode = 0;
-	if (CurrentLevel == 12 && CurrentAct == 0) PinkMonitorMode = 1;
-	if (CurrentLevel == 12 && CurrentAct != 0) PinkMonitorMode = 0;
-	if (CurrentLevel != 32 && CurrentLevel != 12) PinkMonitorMode = 0;
-	if (PinkMonitorMode == 1 && CurrentlyPink == 0)
-	{
-		for (int p = 0; p < 17; p++)
-		{
-			((NJS_OBJECT*)0x38F4F04)->basicdxmodel->mats[p].diffuse.color = 0xFFFF40FF;
-			((NJS_OBJECT*)0x38F4F04)->basicdxmodel->mats[p].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-			CurrentlyPink = 1;
-		}
-	}
-	if (PinkMonitorMode == 0 && CurrentlyPink == 1)
-	{
-		for (int p = 0; p < 17; p++)
-		{
-			((NJS_OBJECT*)0x38F4F04)->basicdxmodel->mats[p].diffuse.color = 0xFFB2B2B2;
-			((NJS_OBJECT*)0x38F4F04)->basicdxmodel->mats[p].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-			CurrentlyPink = 0;
-		}
-		((NJS_OBJECT*)0x38F4F04)->basicdxmodel->mats[10].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		((NJS_OBJECT*)0x38F4F04)->basicdxmodel->mats[16].diffuse.color = 0x7FB2B2B2;
 	}
 }
 
