@@ -88,7 +88,6 @@ void __cdecl sub_72A8B0()
 void __cdecl LoadSSGardenX()
 {
 	PrintDebug("ChaoStgGarden00SS Prolog begin\n");
-	CurrentLevel = 39;
 	LoadPVM("OBJ_SS", (NJS_TEXLIST*)0x02AA4BF8);
 	LoadObject(LoadObj_Data1, 2, ChaoStgGarden00SS_Load);
 	LoadObjects_SS();
@@ -99,7 +98,6 @@ void __cdecl LoadSSGardenX()
 void __cdecl LoadECGardenX()
 {
 	PrintDebug("ChaoStgGarden01EC Prolog begin\n");
-	CurrentLevel = 40;
 	LoadObject(LoadObj_Data1, 2, ChaoStgGarden01EC_Load);
 	LoadObjects_EC();
 	SetChaoLandTable(&landtable_0000DF3C);
@@ -119,7 +117,6 @@ void __cdecl LoadMRGardenX()
 	LoadObject(LoadObj_Data1, 2, ChaoStgGarden02MR_Load);
 	LoadObjects_MR();
 	v0 = GetTimeOfDay();
-	CurrentLevel = 41;
 	if (v0)
 	{
 		v1 = v0 - 1;
@@ -176,13 +173,7 @@ void __cdecl sub_4145D0(unsigned __int8 a1, unsigned __int8 a2)
 {
 	DataPointer(int, CutsceneMode, 0x03B22E1C);
 	DataPointer(int, NextAct, 0x03B22E18);
-	if (CurrentLevel != 39)
-	{
-		CutsceneMode = 3;
-		NextLevel = a1;
-		NextAct = a2;
-	}
-	else
+	if (CurrentChaoStage == 4)
 	{
 		SetLevelEntrance(4);
 		sub_715730(26, 4);
@@ -190,11 +181,17 @@ void __cdecl sub_4145D0(unsigned __int8 a1, unsigned __int8 a2)
 		NextAct = 4;
 		CutsceneMode = 3;
 	}
+	else
+	{
+		CutsceneMode = 3;
+		NextLevel = a1;
+		NextAct = a2;
+	}
 }
 
 void cdecl SetElevatorTexlist()
 {
-	if (CurrentLevel == 39)
+	if (CurrentChaoStage == 4)
 	{
 		njSetTexture((NJS_TEXLIST*)0x02AA4BF8); //OBJ_SS
 	}
@@ -224,14 +221,14 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 	EntityData1 *ent; // eax@1
 	ObjectMaster *obj;
 	ent = LoadObject(LoadObj_Data1, 2, Chao_Name_Machine_Load)->Data1;
-	if (CurrentLevel == 39)
+	if (CurrentChaoStage == 4)
 	{
 		ent->Position.x = 178.03f;
 		ent->Position.y = 8.56f;
 		ent->Position.z = -128.44f;
 		ent->Rotation.y = 0xD7B8;
 	}
-	if (CurrentLevel == 40)
+	if (CurrentChaoStage == 5)
 	{
 		ent->Position.x = 131.67f;
 		ent->Position.y = 2.6f;
@@ -240,7 +237,7 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 		ent->Rotation.y = 0xAFD6;
 		ent->Rotation.z = 0xFFDE;
 	}
-	if (CurrentLevel == 41)
+	if (CurrentChaoStage == 6)
 	{
 		ent->Position.x = 239.4137f;
 		ent->Position.y = 15.10273f;

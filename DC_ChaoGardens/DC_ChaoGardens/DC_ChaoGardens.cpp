@@ -1,5 +1,10 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+
+static int vmuframe = 0;
+static float fruitscale = 0.65f;
+DataPointer(int, CurrentChaoStage, 0x0339F87C);
+
 #include "ChaoObjects.h"
 #include "ChaoRaceFunc.h"
 //#include "Elevator.h"
@@ -16,9 +21,6 @@
 #include "MainFunctions.h"
 #include <stdlib.h>  
 
-static int vmuframe = 0;
-static float fruitscale = 0.65f;
-
 PointerInfo pointers[] = {
 	ptrdecl(0x719DC9, &landtable_00000E64), //Chao Race
 	ptrdecl(0x719619, &landtable_00011DD4), //SS Garden
@@ -28,7 +30,6 @@ PointerInfo pointers[] = {
 void __cdecl LoadChaoRaceX()
 {
 	PrintDebug("SANICChaoStgRace _prolog begin.\n");
-	CurrentLevel = 42;
 	LoadObject(LoadObj_Data1, 2, ChaoStgRace_Main);
 	LoadObjects();
 	SetChaoLandTableX(&landtable_00000E64);
@@ -247,7 +248,7 @@ extern "C"
 __declspec(dllexport) void __cdecl OnFrame()
 	{
 //All gardens VMU
-	if (CurrentLevel == 39 || CurrentLevel == 40 || CurrentLevel == 41)
+	if (CurrentChaoStage >= 4 && CurrentChaoStage <= 6)
 	{
 		if (GameState != 16)
 		{
@@ -257,7 +258,7 @@ __declspec(dllexport) void __cdecl OnFrame()
 		}
 	}
 //Station Square garden
-		if (CurrentLevel == 39 && GameState != 16)
+		if (CurrentChaoStage == 4 && GameState != 16)
 		{
 			auto entity = CharObj1Ptrs[0];
 			if (entity != nullptr)
@@ -284,7 +285,7 @@ __declspec(dllexport) void __cdecl OnFrame()
 
 		}
 //Egg Carrier garden
-		if (CurrentLevel == 40 && GameState != 16)
+		if (CurrentChaoStage == 5 && GameState != 16)
 		{
 			auto entity = CharObj1Ptrs[0];
 			if (entity != nullptr)
@@ -307,7 +308,7 @@ __declspec(dllexport) void __cdecl OnFrame()
 			}
 		}
 //Mystic Ruins garden
-		if (CurrentLevel == 41 && GameState != 16)
+		if (CurrentChaoStage == 6 && GameState != 16)
 		{
 			for (int q3 = 0; q3 < LengthOfArray(uv_0000F184); q3++) { uv_0000F184[q3].v--; }
 			if (uv_0000F184[2].v <= -255)
@@ -334,7 +335,7 @@ __declspec(dllexport) void __cdecl OnFrame()
 			}
 		}
 //Chao Race
-		if (CurrentLevel == 42 && GameState != 16)
+		if (CurrentChaoStage == 1 && GameState != 16)
 		{
 			if (chaoracewater > 68) chaoracewater = 55;
 			matlist_0002A548[0].attr_texId = chaoracewater;
