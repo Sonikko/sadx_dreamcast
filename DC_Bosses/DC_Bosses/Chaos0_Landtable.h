@@ -11261,24 +11261,12 @@ COL collist_00005280[] = {
 
 //Chaos 0 texture list
 
-NJS_TEXNAME textures[36]; //number of textures in the PVM
-NJS_TEXLIST texlist = { arrayptrandlength(textures) };
+NJS_TEXNAME textures_chaos0[35]; //number of textures in the PVM
+NJS_TEXLIST texlist_chaos0 = { arrayptrandlength(textures_chaos0) };
 
 NJS_TEXNAME chaos0_obj_tex[33]; //number of textures in the PVM
 NJS_TEXLIST chaos0_object = { arrayptrandlength(chaos0_obj_tex) };
 
 //Initialize the landtable
 
-LandTable landtable_000001D8 = { LengthOfArray(collist_00005280), 0, 8, 0, collist_00005280, NULL, "LM_CHAOS0", (NJS_TEXLIST *)&texlist , 0, 0 }; //Replace the second NULL with the name of the PVM, replace the addres after (NJS_TEXLIST *) with "&texlist"
-
-																																				  //PVM entry for texture list
-
-PVMEntry Chaos0Textures_list[] = {
-	{ "LM_CHAOS0",(TexList *)&texlist }, //name of PVM and name of texture list (texlist)
-	{ 0 }
-};
-
-//Add PVM entry to level PVM list
-LevelPVMList Chaos0Textures = { levelact(LevelIDs_Chaos0, 0), arraylengthandptr(Chaos0Textures_list) };
-
-
+LandTable landtable_000001D8 = { LengthOfArray(collist_00005280), 0, 8, 0, collist_00005280, NULL, "LM_CHAOS0", (NJS_TEXLIST *)&texlist_chaos0 , 0, 0 }; //Replace the second NULL with the name of the PVM, replace the addres after (NJS_TEXLIST *) with "&texlist"

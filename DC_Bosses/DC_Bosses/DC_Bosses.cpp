@@ -775,6 +775,8 @@ extern "C"
 		((NJS_OBJECT*)0x02EE25AC)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 		((NJS_OBJECT*)0x02EE4194)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 		((NJS_OBJECT*)0x02EE3E98)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		ResizeTextureList((NJS_TEXLIST*)0x117C76C, textures_chaos2);
+		ResizeTextureList((NJS_TEXLIST*)0x117C2CC, 6); //Chaos 2 for CHAOS2.PVM (SADX bug)
 		ResizeTextureList((NJS_TEXLIST*)0x118FF08, textures_chaos4dc);
 		ResizeTextureList((NJS_TEXLIST*)0x121FF28, textures_chaos6);
 		ResizeTextureList((NJS_TEXLIST*)0x11F04A0, textures_chaos6_2);
@@ -900,7 +902,7 @@ extern "C"
 		NJS_ACTION **___BOSSCHAOS0_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___BOSSCHAOS0_ACTIONS");
 		NJS_OBJECT **___BOSSCHAOS0_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___BOSSCHAOS0_OBJECTS");
 		NJS_TEXLIST **___BOSSCHAOS0_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___BOSSCHAOS0_TEXLISTS");
-		___BOSSCHAOS0_TEXLISTS[2] = &texlist;
+		___BOSSCHAOS0_TEXLISTS[2] = &texlist_chaos0;
 		___BOSSCHAOS0_TEXLISTS[3] = &chaos0_object;
 		___BOSSCHAOS0_OBJECTS[0]->child->child->child->child->sibling->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 		___BOSSCHAOS0_OBJECTS[0]->child->child->child->child->sibling->child->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;

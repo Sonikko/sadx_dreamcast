@@ -17307,7 +17307,7 @@ GeoAnimData animlist_0014B62C[] = {
 	{ 0, 0.09999999f, 60, &object_00020ADC, &action_animation_00023D00, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_chaos6[79];
+NJS_TEXNAME textures_chaos6[77];
 NJS_TEXLIST texlist_chaos6 = { arrayptrandlength(textures_chaos6) };
 
 LandTable landtable_00000318 = { LengthOfArray(collist_0014AFB4), LengthOfArray(animlist_0014B62C), 9, 1700, collist_0014AFB4, animlist_0014B62C, "LM_CHAOS6", (NJS_TEXLIST *)&texlist_chaos6, 0, 0 };
