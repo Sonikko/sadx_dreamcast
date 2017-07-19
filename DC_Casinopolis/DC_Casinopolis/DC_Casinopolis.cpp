@@ -8,6 +8,7 @@
 #include "Casino4.h"
 #include "stdlib.h"
 #include "Cowgirl.h"
+#include <IniFile.hpp>
 
 static short CurrentPlayer = -1;
 static float distance_float;
@@ -24,6 +25,7 @@ static int carduv_reala = 1;
 static float cowgirlframe = 0;
 static int cowgirl_shift1 = 65;
 static int cowgirl_shift2 = 0;
+static bool CowgirlOn = true;
 FunctionPointer(void, sub_5DD900, (int a1, int a2), 0x5DD900);
 FunctionPointer(void, sub_5DD920, (int a1, int a2), 0x5DD920);
 FunctionPointer(void, sub_5C09D0, (int a1), 0x5C09D0);
@@ -207,16 +209,22 @@ extern "C"
 {
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
-	__declspec(dllexport) void __cdecl Init()
+	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		//Config stuff
+		//If there is no config.ini, make one
+		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
+		//Config stuff
+		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+		CowgirlOn = config->getBool("", "Cowgirl", true);
+		delete config;
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
 			//material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 		}
-		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
-		if (Cowgirl != 0)
+		if (CowgirlOn == true)
 		{
 			stru_1E763B8[0].scale.y = stru_1E763B8[0].scale.y * 4;
 			stru_1E763B8[1].scale.y = stru_1E763B8[1].scale.y * 4;
@@ -348,8 +356,7 @@ extern "C"
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
 		//Cowgirl
-		HMODULE Cowgirl = GetModuleHandle(L"Cowgirl");
-		if (CurrentLevel == 9 && CurrentCharacter == 3 && Cowgirl != 0 && GameState != 16)
+		if (CurrentLevel == 9 && CurrentCharacter == 3 && CowgirlOn == true && GameState != 16)
 		{
 		if (cowgirlframe > 30) cowgirlframe = 0;
 		cowgirlframe = cowgirlframe + 0.08f;
