@@ -3,6 +3,7 @@
 static int vmuframe = 0;
 static float fruitscale = 0.65f;
 DataPointer(int, CurrentChaoStage, 0x0339F87C);
+DataPointer(SecondaryEntrance, ECGardenStartPoint, 0x0339F8E8);
 #include <lanternapi.h>
 #include "ChaoObjects.h"
 #include "ChaoRaceFunc.h"
@@ -207,6 +208,7 @@ extern "C"
 		ChaoTreeSpawns[2].e.y = 7.5f;  //Palm tree 5
 		ChaoTreeSpawns[2].e.z = -47.53315f;  //Palm tree 5
 //Egg Carrier garden stuff
+		ECGardenStartPoint.Position.y = 71.0f;
 		WriteCall((void*)0x00729289, NameMachineTexlist);
 		WriteJump((void*)0x007191D0, LoadECGardenX);
 		WriteData((float*)0x007191BF, -12000.0f); //Draw distance
@@ -294,14 +296,6 @@ __declspec(dllexport) void __cdecl OnFrame()
 //Egg Carrier garden
 		if (CurrentChaoStage == 5 && GameState != 16)
 		{
-			auto entity = CharObj1Ptrs[0];
-			if (entity != nullptr)
-			{
-				if (entity->Position.y < 69 && entity->Position.x > 90 && entity->Position.x < 110 && entity->Position.z < 24 && entity->Position.z >-44)
-				{
-					entity->Position.y = 110;
-				}
-			}
 			if (ecgardenwater > 63) ecgardenwater = 54;
 			if (ecgardensand > 78) ecgardensand = 64;
 			matlist_00006510[0].attr_texId = ecgardensand;
