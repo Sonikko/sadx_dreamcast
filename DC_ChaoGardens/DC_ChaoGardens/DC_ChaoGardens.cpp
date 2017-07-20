@@ -1,13 +1,11 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
-
 static int vmuframe = 0;
 static float fruitscale = 0.65f;
 DataPointer(int, CurrentChaoStage, 0x0339F87C);
-
+#include <lanternapi.h>
 #include "ChaoObjects.h"
 #include "ChaoRaceFunc.h"
-//#include "Elevator.h"
 #include "Fountain.h"
 #include "SSGarden.h"
 #include "MRGarden.h"
@@ -20,6 +18,16 @@ DataPointer(int, CurrentChaoStage, 0x0339F87C);
 #include "MRGarden_func.h"
 #include "MainFunctions.h"
 #include <stdlib.h>  
+
+bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(3, false);
+	return true;
+}
+
+NJS_MATERIAL* WhiteDiffuse[] = {
+	&matlist_0017F64C_EC[1],
+};
 
 PointerInfo pointers[] = {
 	ptrdecl(0x719DC9, &landtable_00000E64), //Chao Race
@@ -55,6 +63,11 @@ extern "C"
 		WriteData((void*)0x00719978, 0x90, 5);
 		WriteData((void*)0x007199A0, 0x90, 5);*/
 //General
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		/*if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+		{
+			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+		}*/
 		WriteCall((void*)0x005262DE, SetTransporterTexture);// Garden transporter texture/texlist
 		WriteJump((void*)0x729260, (void*)0x5262B0);// Garden transporter effects
 		*(NJS_OBJECT*)0x33CB04C = object_001826E8; //Name machine button
@@ -68,11 +81,7 @@ extern "C"
 		WriteData((char*)0x007151D3, 0x1A, 1);//The secret EC egg is a two-tone black egg
 		ResizeTextureList(&ChaoTexLists[0], 144); //AL_BODY
 		ResizeTextureList((NJS_TEXLIST*)0x033A1338, 31); //AL_DX_OBJ_CMN
-		*(NJS_OBJECT*)0x036065B4 = object_00180454_EC; //EC garden to EC transporter
-		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_USE_ENV; //EC garden to EC transporter
-		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //EC garden to EC transporter
-		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[3].attr_texId = 23; //EC garden to EC transporter
-		((NJS_OBJECT*)0x036065B4)->basicdxmodel->mats[4].attr_texId = 24; //EC garden to EC transporter
+		*(NJS_OBJECT*)0x036065B4 = object_00134808; //EC garden to EC transporter
 		*(NJS_OBJECT*)0x03604540 = object_00180454; //All other transporters
 		*(NJS_MODEL_SADX*)0x036087C0 = attach_0017BAF8; //Tree trunk
 		*(NJS_MODEL_SADX*)0x03608064 = attach_0017B768; //Tree leaves 1
