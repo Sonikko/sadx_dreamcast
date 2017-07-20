@@ -19,16 +19,6 @@ DataPointer(int, CurrentChaoStage, 0x0339F87C);
 #include "MainFunctions.h"
 #include <stdlib.h>  
 
-bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
-{
-	set_diffuse(3, false);
-	return true;
-}
-
-NJS_MATERIAL* WhiteDiffuse[] = {
-	&matlist_0017F64C_EC[1],
-};
-
 PointerInfo pointers[] = {
 	ptrdecl(0x719DC9, &landtable_00000E64), //Chao Race
 	ptrdecl(0x719619, &landtable_00011DD4), //SS Garden
@@ -68,12 +58,24 @@ extern "C"
 		{
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 		}*/
+		//Garden transporters stuff
+		*(NJS_OBJECT*)0x036065B4 = object_00134808; //EC garden to EC transporter
+		*(NJS_OBJECT*)0x03604540 = object_00180454; //All other transporters
+		WriteData((char*)0x00729576, 0x90, 1); //Collision struct pointer
+		WriteData((char*)0x00729577, 0x8B, 1); //Collision struct pointer
+		WriteData((char*)0x00729578, 0x7F, 1); //Collision struct pointer
+		WriteData((char*)0x00729574, 0x04, 1); //Collision parameter for InitCollision
 		WriteCall((void*)0x005262DE, SetTransporterTexture);// Garden transporter texture/texlist
 		WriteJump((void*)0x729260, (void*)0x5262B0);// Garden transporter effects
-		*(NJS_OBJECT*)0x33CB04C = object_001826E8; //Name machine button
+		//Fruits
 		*(NJS_OBJECT*)0x3606D00 = object_0017C0BC; //Coconut
 		*(NJS_OBJECT*)0x3606958 = object_0017C0BC_green; //Coconut (unripe)
 		WriteData((float**)0x00722C33, &fruitscale);
+		//Trees
+		*(NJS_MODEL_SADX*)0x036087C0 = attach_0017BAF8; //Tree trunk
+		*(NJS_MODEL_SADX*)0x03608064 = attach_0017B768; //Tree leaves 1
+		*(NJS_MODEL_SADX*)0x036076E4 = attach_0017B034; //Tree leaves 2
+		//Misc
 		WriteData((void*)0x007195AE, 0x90, 5); //Don't load SADX button prompts in SS garden
 		WriteData((void*)0x00719181, 0x90, 5); //Don't load SADX button prompts in EC garden
 		WriteData((void*)0x00718E20, 0x90, 5); //Don't load SADX button prompts in MR garden
@@ -81,13 +83,9 @@ extern "C"
 		WriteData((char*)0x007151D3, 0x1A, 1);//The secret EC egg is a two-tone black egg
 		ResizeTextureList(&ChaoTexLists[0], 144); //AL_BODY
 		ResizeTextureList((NJS_TEXLIST*)0x033A1338, 31); //AL_DX_OBJ_CMN
-		*(NJS_OBJECT*)0x036065B4 = object_00134808; //EC garden to EC transporter
-		*(NJS_OBJECT*)0x03604540 = object_00180454; //All other transporters
-		*(NJS_MODEL_SADX*)0x036087C0 = attach_0017BAF8; //Tree trunk
-		*(NJS_MODEL_SADX*)0x03608064 = attach_0017B768; //Tree leaves 1
-		*(NJS_MODEL_SADX*)0x036076E4 = attach_0017B034; //Tree leaves 2
-//Name Machine stuff
+		//Name Machine stuff
 		*(NJS_OBJECT*)0x33CFC70 = object_001834CC; //Name Machine
+		*(NJS_OBJECT*)0x33CB04C = object_001826E8; //Name machine button
 		WriteCall((void*)0x00729DE9, NameMachineTexlist);
 		WriteData((void*)0x00729EBB, 0x90, 5);
 		WriteData((void*)0x00729E57, 0x90, 5);
