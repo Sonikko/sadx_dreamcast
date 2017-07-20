@@ -108,6 +108,7 @@
     <ClInclude Include="ADVSS05 (Twinkle Park Entrance).h" />
     <ClInclude Include="ADVSS04 Collision.h" />
     <ClInclude Include="ADVSS03 Fixes.h" />
+    <ClInclude Include="NPCMaterials.h" />
     <ClInclude Include="SS_Objects.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

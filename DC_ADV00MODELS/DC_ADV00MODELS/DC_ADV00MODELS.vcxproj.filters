@@ -51,6 +51,9 @@
     <ClInclude Include="SS_Objects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="NPCMaterials.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

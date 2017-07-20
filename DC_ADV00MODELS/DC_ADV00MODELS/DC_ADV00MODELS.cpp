@@ -8,6 +8,7 @@
 #include "ADVSS03 (StationMainArea).h"
 #include "ADVSS04 (Hotel).h"
 #include "ADVSS05 (Twinkle Park Entrance).h"
+#include "NPCMaterials.h"
 
 static int anim1 = 46;
 static int anim2 = 183;
@@ -56,6 +57,12 @@ void __cdecl SSWater()
 bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_diffuse(3, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceDefaultMaterialColor(NJS_MATERIAL* material, Uint32 flags)
+{
 	use_default_diffuse(true);
 	return true;
 }
@@ -198,6 +205,7 @@ extern "C"
 			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 			material_register(WhiteDiffuse_Night, LengthOfArray(WhiteDiffuse_Night), &ForceWhiteDiffuse_Night);
+			material_register(DefaultDiffuse, LengthOfArray(DefaultDiffuse), &ForceDefaultMaterialColor);
 		}
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		if (SADXStyleWater != 0)
