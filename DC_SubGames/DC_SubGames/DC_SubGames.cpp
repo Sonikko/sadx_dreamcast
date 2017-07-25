@@ -2,8 +2,11 @@
 #include <SADXModLoader.h>
 #include "SandHill.h"
 #include <lanternapi.h>
+#include <string>
 #include "TwinkleCircuit.h"
 #include "SkyChaseModels.h"
+
+std::string plz0xbin;
 
 DataArray(FogData, FogData_SandHill, 0x0173BB74, 3);
 DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
@@ -17,6 +20,15 @@ PointerInfo pointers[] = {
 };
 
 NJS_MATERIAL* WhiteDiffuse[] = {
+	//Start and goal robot (Twinkle Circuit)
+	((NJS_MATERIAL*)0x009CC010),
+	((NJS_MATERIAL*)0x009CC024),
+	((NJS_MATERIAL*)0x009CC038),
+	((NJS_MATERIAL*)0x009CC04C),
+	((NJS_MATERIAL*)0x009CC060),
+	((NJS_MATERIAL*)0x009CC074),
+	((NJS_MATERIAL*)0x009CC088),
+	((NJS_MATERIAL*)0x009CC09C),
 	&matlist_000293DC[33],
 	&matlist_000293DC[34],
 	&matlist_000293DC[35],
@@ -496,12 +508,25 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
-extern "C" __declspec(dllexport) void cdecl Init()
+const char* __cdecl SetPLZ0X(int level, int act)
 {
+	if (level == 35)
+	{
+		return plz0xbin.c_str();
+	}
+	else { return nullptr; }
+}
+
+extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
+extern "C" __declspec(dllexport) void cdecl Init(const char *path)
+{
+	plz0xbin = path;
+	plz0xbin.append("\\system\\PL_Z0X.BIN");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
+		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
+		pl_load_register(SetPLZ0X);
 		material_register(ObjectBaseAndSpecular, LengthOfArray(ObjectBaseAndSpecular), &ForceObjectBaseAndSpecular);
 //		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
