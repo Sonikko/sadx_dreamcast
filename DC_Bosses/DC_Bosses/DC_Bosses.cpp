@@ -968,9 +968,19 @@ extern "C"
 	{
 		//Egg Viper effect
 		DataPointer(int, EVEffect, 0x3C6E1EC);
+		if (GameMode == GameModes_Menu || GameMode == GameModes_CharSel)
+		{
+			EggViper_blendfactor_max = 0.005f;
+			EggViper_blendfactor_min = 0.005f;
+			EggViper_Timer = 0;
+			EggViper_EffectMode = 0;
+			EggViper_blendfactor = 0;
+			EggViper_blenddirection = 1;
+			set_shader_flags(ShaderFlags_Blend, false);
+		}
 		if (CurrentLevel == 22)
 		{
-			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
+			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21 || CurrentLevel != 22)
 			{
 				EggViper_blendfactor_max = 0.005f;
 				EggViper_blendfactor_min = 0.005f;
@@ -1102,7 +1112,10 @@ extern "C"
 				set_specular_blend(1);
 				set_blend_factor(EggViper_blendfactor);
 			}
-		
+			else
+			{
+				set_shader_flags(ShaderFlags_Blend, false);
+			}
 		}
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		//Super stupid hax to make Perfect Chaos' tornadoes fade in
