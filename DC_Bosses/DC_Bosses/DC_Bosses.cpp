@@ -966,21 +966,13 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		//Egg Viper effect
-		DataPointer(int, EVEffect, 0x3C6E1EC);
-		if (GameMode == GameModes_Menu || GameMode == GameModes_CharSel)
+		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
-			EggViper_blendfactor_max = 0.005f;
-			EggViper_blendfactor_min = 0.005f;
-			EggViper_Timer = 0;
-			EggViper_EffectMode = 0;
-			EggViper_blendfactor = 0;
-			EggViper_blenddirection = 1;
-			set_shader_flags(ShaderFlags_Blend, false);
-		}
-		if (CurrentLevel == 22)
-		{
-			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21 || CurrentLevel != 22)
+			
+			DataPointer(int, EVEffect, 0x3C6E1EC);
+			if (GameMode == GameModes_Menu || GameMode == GameModes_CharSel)
 			{
 				EggViper_blendfactor_max = 0.005f;
 				EggViper_blendfactor_min = 0.005f;
@@ -988,133 +980,147 @@ extern "C"
 				EggViper_EffectMode = 0;
 				EggViper_blendfactor = 0;
 				EggViper_blenddirection = 1;
+				set_shader_flags(ShaderFlags_Blend, false);
 			}
-			if (EggViperHitCount == 7) EggViperHitCount_Old = 7;
-			//activate a brief flash
-			if (EggViper_Timer <= 0 && EggViperHitCount < EggViperHitCount_Old && EggViperHitCount > 0)
+			if (CurrentLevel == 22)
 			{
-				EggViper_blendfactor_max = 0.005f;
-				EggViper_blendfactor_min = 0.005f;
-				EggViper_Timer = 200/FramerateSetting;
-				EggViper_EffectMode = 1;
-				EggViper_blendfactor = 0;
-				EggViper_blenddirection = 1;
-				EggViperHitCount_Old = EggViperHitCount;
-			}
-			//activate a longer flash
-			if (EggViper_Timer <= 0 && EggViper_EffectMode == 0 && EggViperHitCount == EggViperHitCount_Old && EVEffect == 1)
-			{
-				EggViper_blendfactor_max = 0.005f;
-				EggViper_blendfactor_min = 0.005f;
-				EggViper_Timer = 200 / FramerateSetting;
-				EggViper_EffectMode = 2;
-				if (EggViper_blendfactor == 0) EggViper_blenddirection = 1;
-			}
-			//activate a brief permanent flash
-			if (EggViper_EffectMode == 0 && EggViperHitCount == EggViperHitCount_Old && EVEffect == 0 && EggViperByteThing == 1)
-			{
-				EggViper_EffectMode = 5;
-				if (EggViper_blendfactor == 0) EggViper_blenddirection = 1;
-			}
-			//activate permanent flashing
-			if (EggViper_Timer <= 0 && EggViperHitCount < EggViperHitCount_Old && EggViperHitCount <= 0)
-			{
-				EggViper_Timer = 1040 / FramerateSetting;
-				EggViper_EffectMode = 3;
-				if (EggViper_blendfactor == 0) EggViper_blenddirection = 1;
-				EggViperHitCount_Old = EggViperHitCount;
-			}
-			//brief flash
-			if (EggViper_EffectMode == 1)
-			{
-				if (GameState != 16)
-				{
-					if (EggViper_blenddirection == 1 && EggViper_blendfactor < 1.0f) EggViper_blendfactor = EggViper_blendfactor + 0.08f*FramerateSetting;
-					if (EggViper_blenddirection == -1 && EggViper_blendfactor > 0.0f) EggViper_blendfactor = EggViper_blendfactor - 0.08f*FramerateSetting;
-				}
-				if (EggViper_blendfactor >= 1.0f) EggViper_blenddirection = -1;
-				if (EggViper_blenddirection == -1 && EggViper_blendfactor <= 0.0f)
-				{
-					EggViper_blendfactor = 0;
-					EggViper_EffectMode = 0;
-					set_shader_flags(ShaderFlags_Blend, false);
-				}
-			}
-			//longer flash
-			if (EggViper_EffectMode == 2)
-			{
-				if (GameState != 16 && EggViper_blenddirection == 1 && EggViper_blendfactor < 1.0f) EggViper_blendfactor = EggViper_blendfactor + 0.028f*FramerateSetting;
-				if (EggViper_blendfactor >= 1.0f) EggViper_blenddirection	= -1;
-				if (GameState != 16 && EggViper_blenddirection == -1 && EggViper_blendfactor > 0.0f) EggViper_blendfactor = EggViper_blendfactor - 0.028f*FramerateSetting;
-				if (EggViper_blenddirection == -1 && EggViper_blendfactor <= 0.0f)
-				{
-					EggViper_blendfactor = 0;
-					EggViper_EffectMode = 0;
-					set_shader_flags(ShaderFlags_Blend, false);
-				}
-			}
-			//permanent flash
-			if (EggViper_EffectMode == 3)
-			{
-				if (EggViper_Timer <= 0)
-				{
-					EggViper_blenddirection = 1;
-					EggViper_EffectMode = 4;
-				}
-				if (EggViper_blendfactor >= 1.0f) EggViper_blenddirection = -1;
-				if (EggViper_blendfactor <= 0.5f) EggViper_blenddirection = 1;
-				if (GameState != 16)
-				{
-				if (EggViper_blenddirection == 1 && EggViper_blendfactor < 1.0f) EggViper_blendfactor = EggViper_blendfactor + 0.08f*FramerateSetting;
-				if (EggViper_blenddirection == -1 && EggViper_blendfactor > 0.0f) EggViper_blendfactor = EggViper_blendfactor - 0.08f*FramerateSetting;
-				}
-			}
-			//final flash
-			if (EggViper_EffectMode == 4)
-			{
-				if (EggViper_blendfactor < 1.0f) EggViper_blendfactor = EggViper_blendfactor + 0.08f*FramerateSetting;
-			}
-			//fast flickering within an increasing range
-			if (EggViper_EffectMode == 5)
-			{
-				if (EggViperByteThing == 0)
+				if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21 || CurrentLevel != 22)
 				{
 					EggViper_blendfactor_max = 0.005f;
 					EggViper_blendfactor_min = 0.005f;
-					EggViper_blendfactor = 0.0f;
-					EggViper_blenddirection = 1;
+					EggViper_Timer = 0;
 					EggViper_EffectMode = 0;
-					set_blend_factor(0);
+					EggViper_blendfactor = 0;
+					EggViper_blenddirection = 1;
 				}
-				if (EggViper_blendfactor >= EggViper_blendfactor_max)
+				if (EggViperHitCount == 7) EggViperHitCount_Old = 7;
+				//activate a brief flash
+				if (EggViper_Timer <= 0 && EggViperHitCount < EggViperHitCount_Old && EggViperHitCount > 0)
 				{
-					EggViper_blenddirection = -1;
-					if (EggViper_blendfactor_max < 0.4f)
+					EggViper_blendfactor_max = 0.005f;
+					EggViper_blendfactor_min = 0.005f;
+					EggViper_Timer = 200 / FramerateSetting;
+					EggViper_EffectMode = 1;
+					EggViper_blendfactor = 0;
+					EggViper_blenddirection = 1;
+					EggViperHitCount_Old = EggViperHitCount;
+				}
+				//activate a longer flash
+				if (EggViper_Timer <= 0 && EggViper_EffectMode == 0 && EggViperHitCount == EggViperHitCount_Old && EVEffect == 1)
+				{
+					EggViper_blendfactor_max = 0.005f;
+					EggViper_blendfactor_min = 0.005f;
+					EggViper_Timer = 200 / FramerateSetting;
+					EggViper_EffectMode = 2;
+					if (EggViper_blendfactor == 0) EggViper_blenddirection = 1;
+				}
+				//activate a brief permanent flash
+				if (EggViper_EffectMode == 0 && EggViperHitCount == EggViperHitCount_Old && EVEffect == 0 && EggViperByteThing == 1)
+				{
+					EggViper_EffectMode = 5;
+					if (EggViper_blendfactor == 0) EggViper_blenddirection = 1;
+				}
+				//activate permanent flashing
+				if (EggViper_Timer <= 0 && EggViperHitCount < EggViperHitCount_Old && EggViperHitCount <= 0)
+				{
+					EggViper_Timer = 1040 / FramerateSetting;
+					EggViper_EffectMode = 3;
+					if (EggViper_blendfactor == 0) EggViper_blenddirection = 1;
+					EggViperHitCount_Old = EggViperHitCount;
+				}
+				//brief flash
+				if (EggViper_EffectMode == 1)
+				{
+					if (GameState != 16)
 					{
-						EggViper_blendfactor_max = EggViper_blendfactor_max+0.005f;
-					//	if (EggViper_blendfactor_min < 0.4f) EggViper_blendfactor_min = EggViper_blendfactor_min+0.01f;
+						if (EggViper_blenddirection == 1 && EggViper_blendfactor < 1.0f) EggViper_blendfactor = EggViper_blendfactor + 0.08f*FramerateSetting;
+						if (EggViper_blenddirection == -1 && EggViper_blendfactor > 0.0f) EggViper_blendfactor = EggViper_blendfactor - 0.08f*FramerateSetting;
+					}
+					if (EggViper_blendfactor >= 1.0f) EggViper_blenddirection = -1;
+					if (EggViper_blenddirection == -1 && EggViper_blendfactor <= 0.0f)
+					{
+						EggViper_blendfactor = 0;
+						EggViper_EffectMode = 0;
+						set_shader_flags(ShaderFlags_Blend, false);
 					}
 				}
-				if (EggViper_blendfactor <= EggViper_blendfactor_min) EggViper_blenddirection = 1;
-				if (GameState != 16)
+				//longer flash
+				if (EggViper_EffectMode == 2)
 				{
-					if (EggViper_blenddirection == 1 && EggViper_blendfactor < EggViper_blendfactor_max) EggViper_blendfactor = EggViper_blendfactor + (EggViper_blendfactor_max / 2.0f)*FramerateSetting;
-					if (EggViper_blenddirection == -1 && EggViper_blendfactor > EggViper_blendfactor_min) EggViper_blendfactor = EggViper_blendfactor - (EggViper_blendfactor_max / 2.0f)*FramerateSetting;
+					if (GameState != 16 && EggViper_blenddirection == 1 && EggViper_blendfactor < 1.0f) EggViper_blendfactor = EggViper_blendfactor + 0.028f*FramerateSetting;
+					if (EggViper_blendfactor >= 1.0f) EggViper_blenddirection = -1;
+					if (GameState != 16 && EggViper_blenddirection == -1 && EggViper_blendfactor > 0.0f) EggViper_blendfactor = EggViper_blendfactor - 0.028f*FramerateSetting;
+					if (EggViper_blenddirection == -1 && EggViper_blendfactor <= 0.0f)
+					{
+						EggViper_blendfactor = 0;
+						EggViper_EffectMode = 0;
+						set_shader_flags(ShaderFlags_Blend, false);
+					}
 				}
-			}
-			//subtract timer
-			if (GameState != 16 && EggViper_Timer > 0) EggViper_Timer--;
-			//general stuff
-			if (EggViper_EffectMode != 0)
-			{
-				set_shader_flags(ShaderFlags_Blend, true);
-				set_diffuse_blend(5);
-				set_specular_blend(1);
-				set_blend_factor(EggViper_blendfactor);
-			}
-			else
-			{
-				set_shader_flags(ShaderFlags_Blend, false);
+				//permanent flash
+				if (EggViper_EffectMode == 3)
+				{
+					if (EggViper_Timer <= 0)
+					{
+						EggViper_blenddirection = 1;
+						EggViper_EffectMode = 4;
+					}
+					if (EggViper_blendfactor >= 1.0f) EggViper_blenddirection = -1;
+					if (EggViper_blendfactor <= 0.5f) EggViper_blenddirection = 1;
+					if (GameState != 16)
+					{
+						if (EggViper_blenddirection == 1 && EggViper_blendfactor < 1.0f) EggViper_blendfactor = EggViper_blendfactor + 0.08f*FramerateSetting;
+						if (EggViper_blenddirection == -1 && EggViper_blendfactor > 0.0f) EggViper_blendfactor = EggViper_blendfactor - 0.08f*FramerateSetting;
+					}
+				}
+				//final flash
+				if (EggViper_EffectMode == 4)
+				{
+					if (EggViper_blendfactor < 1.0f) EggViper_blendfactor = EggViper_blendfactor + 0.08f*FramerateSetting;
+				}
+				//fast flickering within an increasing range
+				if (EggViper_EffectMode == 5)
+				{
+					if (EggViperByteThing == 0)
+					{
+						EggViper_blendfactor_max = 0.005f;
+						EggViper_blendfactor_min = 0.005f;
+						EggViper_blendfactor = 0.0f;
+						EggViper_blenddirection = 1;
+						EggViper_EffectMode = 0;
+						set_blend_factor(0);
+					}
+					if (EggViper_blendfactor >= EggViper_blendfactor_max)
+					{
+						EggViper_blenddirection = -1;
+						if (EggViper_blendfactor_max < 0.4f)
+						{
+							EggViper_blendfactor_max = EggViper_blendfactor_max + 0.005f;
+							//	if (EggViper_blendfactor_min < 0.4f) EggViper_blendfactor_min = EggViper_blendfactor_min+0.01f;
+						}
+					}
+					if (EggViper_blendfactor <= EggViper_blendfactor_min) EggViper_blenddirection = 1;
+					if (GameState != 16)
+					{
+						if (EggViper_blenddirection == 1 && EggViper_blendfactor < EggViper_blendfactor_max) EggViper_blendfactor = EggViper_blendfactor + (EggViper_blendfactor_max / 2.0f)*FramerateSetting;
+						if (EggViper_blenddirection == -1 && EggViper_blendfactor > EggViper_blendfactor_min) EggViper_blendfactor = EggViper_blendfactor - (EggViper_blendfactor_max / 2.0f)*FramerateSetting;
+					}
+				}
+				//subtract timer
+				if (GameState != 16 && EggViper_Timer > 0) EggViper_Timer--;
+				//general stuff
+				if (EggViper_EffectMode != 0)
+				{
+					set_shader_flags(ShaderFlags_Blend, true);
+					set_diffuse_blend(5);
+					set_specular_blend(1);
+					set_blend_factor(EggViper_blendfactor);
+				}
+				else
+				{
+					set_shader_flags(ShaderFlags_Blend, false);
+				}
+
 			}
 		}
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
