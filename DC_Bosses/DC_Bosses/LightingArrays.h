@@ -362,6 +362,17 @@ NJS_MATERIAL* SpecialBossMaterials[] = {
 };
 
 NJS_MATERIAL* CharacterMaterials_Specular[] = {
+	//Emeralds
+	((NJS_MATERIAL*)0x02D3D674),
+	((NJS_MATERIAL*)0x02D3D380),
+	((NJS_MATERIAL*)0x02D3CF8C),
+	((NJS_MATERIAL*)0x02D3C938),
+	//Emeralds brought by characters to Sonic
+	((NJS_MATERIAL*)0x02E2D5AC),
+	((NJS_MATERIAL*)0x02E2D2B8),
+	((NJS_MATERIAL*)0x02E2CEC4),
+	((NJS_MATERIAL*)0x02E2C860),
+	((NJS_MATERIAL*)0x02E2C874),
 	//Eggmobile
 	((NJS_MATERIAL*)0x02EE8418),
 	((NJS_MATERIAL*)0x02EE842C),

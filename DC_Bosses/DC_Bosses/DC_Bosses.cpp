@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
+#include <string>
 #include "EggHornet.h"
 #include "EggWalker.h"
 #include "EggViper.h"
@@ -20,6 +21,15 @@
 #include "E101Kai_Model.h"
 #include "LightingArrays.h"
 
+std::string plm0xbin;
+
+static float EggViper_blendfactor = 0.0f;
+static int EggViper_blenddirection = 1;
+static int EggViper_EffectMode = 0;
+static int EggViper_Timer = 0;
+static float EggViper_blendfactor_max = 0.005f;
+static float EggViper_blendfactor_min = 0.005f;
+
 //Chaos 6 material arrays
 DataArray(NJS_MATERIAL, matlist_01270910, 0x01270910, 4);
 DataArray(NJS_MATERIAL, matlist_0126C51C, 0x0126C51C, 2);
@@ -34,7 +44,9 @@ DataPointer(NJS_SPRITE, stru_1494030, 0x1494030);
 DataPointer(NJS_SPRITE, stru_1494064, 0x1494064);
 DataPointer(NJS_ARGB, stru_1494114, 0x1494114);
 DataPointer(NJS_ARGB, stru_1494124, 0x1494124);
+DataPointer(char, EggViperByteThing, 0x03C6E178);
 DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(float, EggViperHitCount, 0x03C58158);
 FunctionPointer(void, sub_5632F0, (ObjectMaster *a1), 0x5632F0);
 FunctionPointer(void, sub_563370, (ObjectMaster *a1), 0x563370);
 
@@ -43,6 +55,7 @@ static float TornadoAlpha = 1.0f;
 int TornadoTrigger = 0;
 static bool Chaos4Defeated = 0;
 static int Chaos4Water = 27;
+static float EggViperHitCount_Old = 0.0f;
 static int E101ROcean = 81;
 static int EggHornetWater1 = 118;
 static int EggHornetWater2 = 128;
@@ -459,14 +472,27 @@ bool ForceObjectOrLevelSpecularFunction(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
+const char* __cdecl SetPLM0X(int level, int act)
+{
+	if (level == 22)
+	{
+		return plm0xbin.c_str();
+	}
+	else { return nullptr; }
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
-	__declspec(dllexport) void __cdecl Init()
+	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		plm0xbin = path;
+		plm0xbin.append("\\system\\PL_M0X.BIN");
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
+			typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
+			pl_load_register(SetPLM0X);
 			material_register(CharacterMaterials_Specular, LengthOfArray(CharacterMaterials_Specular), &CharacterFunction_Specular);
 			material_register(SpecialBossMaterials, LengthOfArray(SpecialBossMaterials), &SpecialBossFunction);
 			material_register(ChaosPuddle, LengthOfArray(ChaosPuddle), &ChaosPuddleFunc);
@@ -743,11 +769,11 @@ extern "C"
 		((NJS_MATERIAL*)0x0128A954)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;*/
 		//Perfect Chaos misc
 		((NJS_OBJECT*)0x0248B1B4)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Egg Carrier 2
-		/*((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
+		((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
 		((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
 		((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
 		((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
-		((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[4].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile*/
+		((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[4].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
 		((NJS_OBJECT*)0x02EE7808)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
 		((NJS_OBJECT*)0x02EE7808)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
 		((NJS_OBJECT*)0x02EE7808)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
@@ -940,6 +966,144 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		//Egg Viper effect
+		DataPointer(int, EVEffect, 0x3C6E1EC);
+		if (CurrentLevel == 22)
+		{
+			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
+			{
+				EggViper_blendfactor_max = 0.005f;
+				EggViper_blendfactor_min = 0.005f;
+				EggViper_Timer = 0;
+				EggViper_EffectMode = 0;
+				EggViper_blendfactor = 0;
+				EggViper_blenddirection = 1;
+			}
+			if (EggViperHitCount == 7) EggViperHitCount_Old = 7;
+			//activate a brief flash
+			if (EggViper_Timer <= 0 && EggViperHitCount < EggViperHitCount_Old && EggViperHitCount > 0)
+			{
+				EggViper_blendfactor_max = 0.005f;
+				EggViper_blendfactor_min = 0.005f;
+				EggViper_Timer = 200/FramerateSetting;
+				EggViper_EffectMode = 1;
+				EggViper_blendfactor = 0;
+				EggViper_blenddirection = 1;
+				EggViperHitCount_Old = EggViperHitCount;
+			}
+			//activate a longer flash
+			if (EggViper_Timer <= 0 && EggViper_EffectMode == 0 && EggViperHitCount == EggViperHitCount_Old && EVEffect == 1)
+			{
+				EggViper_blendfactor_max = 0.005f;
+				EggViper_blendfactor_min = 0.005f;
+				EggViper_Timer = 200 / FramerateSetting;
+				EggViper_EffectMode = 2;
+				if (EggViper_blendfactor == 0) EggViper_blenddirection = 1;
+			}
+			//activate a brief permanent flash
+			if (EggViper_EffectMode == 0 && EggViperHitCount == EggViperHitCount_Old && EVEffect == 0 && EggViperByteThing == 1)
+			{
+				EggViper_EffectMode = 5;
+				if (EggViper_blendfactor == 0) EggViper_blenddirection = 1;
+			}
+			//activate permanent flashing
+			if (EggViper_Timer <= 0 && EggViperHitCount < EggViperHitCount_Old && EggViperHitCount <= 0)
+			{
+				EggViper_Timer = 1040 / FramerateSetting;
+				EggViper_EffectMode = 3;
+				if (EggViper_blendfactor == 0) EggViper_blenddirection = 1;
+				EggViperHitCount_Old = EggViperHitCount;
+			}
+			//brief flash
+			if (EggViper_EffectMode == 1)
+			{
+				if (GameState != 16)
+				{
+					if (EggViper_blenddirection == 1 && EggViper_blendfactor < 1.0f) EggViper_blendfactor = EggViper_blendfactor + 0.08f*FramerateSetting;
+					if (EggViper_blenddirection == -1 && EggViper_blendfactor > 0.0f) EggViper_blendfactor = EggViper_blendfactor - 0.08f*FramerateSetting;
+				}
+				if (EggViper_blendfactor >= 1.0f) EggViper_blenddirection = -1;
+				if (EggViper_blenddirection == -1 && EggViper_blendfactor <= 0.0f)
+				{
+					EggViper_blendfactor = 0;
+					EggViper_EffectMode = 0;
+					set_shader_flags(ShaderFlags_Blend, false);
+				}
+			}
+			//longer flash
+			if (EggViper_EffectMode == 2)
+			{
+				if (GameState != 16 && EggViper_blenddirection == 1 && EggViper_blendfactor < 1.0f) EggViper_blendfactor = EggViper_blendfactor + 0.028f*FramerateSetting;
+				if (EggViper_blendfactor >= 1.0f) EggViper_blenddirection	= -1;
+				if (GameState != 16 && EggViper_blenddirection == -1 && EggViper_blendfactor > 0.0f) EggViper_blendfactor = EggViper_blendfactor - 0.028f*FramerateSetting;
+				if (EggViper_blenddirection == -1 && EggViper_blendfactor <= 0.0f)
+				{
+					EggViper_blendfactor = 0;
+					EggViper_EffectMode = 0;
+					set_shader_flags(ShaderFlags_Blend, false);
+				}
+			}
+			//permanent flash
+			if (EggViper_EffectMode == 3)
+			{
+				if (EggViper_Timer <= 0)
+				{
+					EggViper_blenddirection = 1;
+					EggViper_EffectMode = 4;
+				}
+				if (EggViper_blendfactor >= 1.0f) EggViper_blenddirection = -1;
+				if (EggViper_blendfactor <= 0.5f) EggViper_blenddirection = 1;
+				if (GameState != 16)
+				{
+				if (EggViper_blenddirection == 1 && EggViper_blendfactor < 1.0f) EggViper_blendfactor = EggViper_blendfactor + 0.08f*FramerateSetting;
+				if (EggViper_blenddirection == -1 && EggViper_blendfactor > 0.0f) EggViper_blendfactor = EggViper_blendfactor - 0.08f*FramerateSetting;
+				}
+			}
+			//final flash
+			if (EggViper_EffectMode == 4)
+			{
+				if (EggViper_blendfactor < 1.0f) EggViper_blendfactor = EggViper_blendfactor + 0.08f*FramerateSetting;
+			}
+			//fast flickering within an increasing range
+			if (EggViper_EffectMode == 5)
+			{
+				if (EggViperByteThing == 0)
+				{
+					EggViper_blendfactor_max = 0.005f;
+					EggViper_blendfactor_min = 0.005f;
+					EggViper_blendfactor = 0.0f;
+					EggViper_blenddirection = 1;
+					EggViper_EffectMode = 0;
+					set_blend_factor(0);
+				}
+				if (EggViper_blendfactor >= EggViper_blendfactor_max)
+				{
+					EggViper_blenddirection = -1;
+					if (EggViper_blendfactor_max < 0.4f)
+					{
+						EggViper_blendfactor_max = EggViper_blendfactor_max+0.005f;
+					//	if (EggViper_blendfactor_min < 0.4f) EggViper_blendfactor_min = EggViper_blendfactor_min+0.01f;
+					}
+				}
+				if (EggViper_blendfactor <= EggViper_blendfactor_min) EggViper_blenddirection = 1;
+				if (GameState != 16)
+				{
+					if (EggViper_blenddirection == 1 && EggViper_blendfactor < EggViper_blendfactor_max) EggViper_blendfactor = EggViper_blendfactor + (EggViper_blendfactor_max / 2.0f)*FramerateSetting;
+					if (EggViper_blenddirection == -1 && EggViper_blendfactor > EggViper_blendfactor_min) EggViper_blendfactor = EggViper_blendfactor - (EggViper_blendfactor_max / 2.0f)*FramerateSetting;
+				}
+			}
+			//subtract timer
+			if (GameState != 16 && EggViper_Timer > 0) EggViper_Timer--;
+			//general stuff
+			if (EggViper_EffectMode != 0)
+			{
+				set_shader_flags(ShaderFlags_Blend, true);
+				set_diffuse_blend(5);
+				set_specular_blend(1);
+				set_blend_factor(EggViper_blendfactor);
+			}
+		
+		}
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		//Super stupid hax to make Perfect Chaos' tornadoes fade in
 		DataPointer(unsigned char, byte_03C5A7EF, 0x03C5A7EF);
@@ -957,6 +1121,12 @@ extern "C"
 		DataPointer(float, dword_3C6C930, 0x3C6C930);
 		if (CurrentLevel == 20 && GameState != 16)
 		{
+			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
+			{
+				static int EggHornet_Rotation = 0;
+				static int EggHornet_RotationDirection = 1;
+				EggHornetTrigger = 0;
+			}
 			if (dword_3C6C930 != 1 && byte_03C6C944 != EggHornetTrigger)
 			{
 				EggHornetTrigger = byte_03C6C944;
