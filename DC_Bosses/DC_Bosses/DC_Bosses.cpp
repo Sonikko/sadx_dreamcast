@@ -981,6 +981,7 @@ extern "C"
 				EggViper_blendfactor = 0;
 				EggViper_blenddirection = 1;
 				set_shader_flags(ShaderFlags_Blend, false);
+				EggViperByteThing = 0;
 			}
 			if (CurrentLevel == 22)
 			{
@@ -992,6 +993,7 @@ extern "C"
 					EggViper_EffectMode = 0;
 					EggViper_blendfactor = 0;
 					EggViper_blenddirection = 1;
+					EggViperByteThing = 0;
 				}
 				if (EggViperHitCount == 7) EggViperHitCount_Old = 7;
 				//activate a brief flash
