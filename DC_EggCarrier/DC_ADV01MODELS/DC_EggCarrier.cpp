@@ -403,7 +403,7 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (CurrentLevel == 32 && GameState != 16)
 	{
-		if (Lantern != nullptr && dword_3C85138 == 0)
+		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr && dword_3C85138 == 0)
 		{
 			set_blend_factor(0.0f);
 			set_shader_flags(ShaderFlags_Blend, false);
