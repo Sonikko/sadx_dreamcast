@@ -249,8 +249,6 @@ void TurnLightsOn()
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	WriteCall((void*)0x006F4577, TurnLightsOff); //Turn the lights off
-	WriteCall((void*)0x006F4620, TurnLightsOn); //Turn the lights on
 	plw1xbin = path;
 	plw1xbin.append("\\system\\PL_W1X.BIN");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
@@ -261,6 +259,8 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 		//material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+		WriteCall((void*)0x006F4577, TurnLightsOff); //Turn the lights off
+		WriteCall((void*)0x006F4620, TurnLightsOn); //Turn the lights on
 	}
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	if (SADXStyleWater != 0)
