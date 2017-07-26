@@ -1,6 +1,7 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
+#include <string>
 #include "ADV01_0_animlist.h"
 #include "ADV01_0.h"
 #include "ADV01_1.h"
@@ -15,8 +16,10 @@
 #include "ADV01C_03.h"
 #include "ADV01C_04.h"
 #include "ADV01C_05.h"
+FunctionPointer(void, sub_6F4570, (ObjectMaster *a1), 0x6F4570);
+DataPointer(ObjectMaster*, dword_3C85138, 0x3C85138);
 HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
-
+std::string plw1xbin;
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(__int16, EggCarrierSunk_CharacterFlag, 0x0090A41C);
 
@@ -59,6 +62,16 @@ NJS_ACTION **___ADV01_ACTIONS = (NJS_ACTION **)GetProcAddress(handle2, "___ADV01
 NJS_OBJECT **___ADV01_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01_OBJECTS");
 NJS_OBJECT **___ADV01EC00_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01EC00_OBJECTS");
 NJS_MODEL_SADX **___ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle3, "___ADV01C_MODELS");
+
+const char* __cdecl SetPLW1X(int level, int act)
+{
+	if (level == 32 && act == 1)
+	{
+		return plw1xbin.c_str();
+	}
+	else { return nullptr; }
+}
+
 
 bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
@@ -210,11 +223,41 @@ void __cdecl SetClip_EC01(signed int cliplevel)
 	}
 }
 
+ObjectMaster *__cdecl TurnLightsOff()
+{
+	set_shader_flags(ShaderFlags_Blend, true);
+	set_diffuse_blend(4);
+	set_specular_blend(3);
+	set_blend_factor(1.0f);
+	ObjectMaster *result; // eax@1
+	result = LoadObject((LoadObj)0, 1, sub_6F4570);
+	dword_3C85138 = result;
+	return result;
+}
+
+void TurnLightsOn()
+{
+	if (dword_3C85138)
+	{
+		CheckThingButThenDeleteObject(dword_3C85138);
+		dword_3C85138 = 0;
+	}
+
+	set_blend_factor(0.0f);
+	set_shader_flags(ShaderFlags_Blend, false);
+}
+
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	WriteCall((void*)0x006F4577, TurnLightsOff); //Turn the lights off
+	WriteCall((void*)0x006F4620, TurnLightsOn); //Turn the lights on
+	plw1xbin = path;
+	plw1xbin.append("\\system\\PL_W1X.BIN");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
+		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
+		pl_load_register(SetPLW1X);
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 		//material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
@@ -359,6 +402,11 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 {
 	if (CurrentLevel == 32 && GameState != 16)
 	{
+		if (dword_3C85138 == 0)
+		{
+			set_blend_factor(0.0f);
+			set_shader_flags(ShaderFlags_Blend, false);
+		}
 		//EC Interior barrier stuff
 		//Water reservoir and Ammunition Room
 		if (CurrentCharacter == 6)
