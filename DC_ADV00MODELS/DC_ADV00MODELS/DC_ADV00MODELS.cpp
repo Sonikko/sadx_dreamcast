@@ -74,6 +74,14 @@ bool ForceWhiteDiffuse_Night(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
+bool ForceCharacterDiffuseAndSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(2, false);
+	set_specular(2, false);
+	use_default_diffuse(true);
+	return true;
+}
+
 bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_specular(1, false);
@@ -88,7 +96,18 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
+NJS_MATERIAL* CharacterStuff[] = {
+	&matlist_0000DE08[0],
+};
+
 NJS_MATERIAL* WhiteDiffuse[] = {
+	//Helicopter
+	&matlist_0000E238[0],
+	&matlist_0000E238[1],
+	//Police car in cutscene
+	((NJS_MATERIAL*)0x02DBE574),
+	((NJS_MATERIAL*)0x02DBE588),
+	((NJS_MATERIAL*)0x02DBE59C),
 	//Level stuff
 	&matlist_0008E8EC[3],
 	&matlist_0008E8EC[4],
@@ -201,6 +220,7 @@ extern "C"
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
+			material_register(CharacterStuff, LengthOfArray(CharacterStuff), &ForceCharacterDiffuseAndSpecular);
 			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
@@ -264,8 +284,9 @@ extern "C"
 		*(NJS_OBJECT*)0x2AB2CCC = object_001689C4; //Shop 2 door
 		((NJS_ACTION*)0x2AB2D9C)->object = &object_001689C4; //Shop 2 door
 		WriteData((void*)0x0063A6A4, 0x90, 5); // Pool chair
-		memcpy((void*)0x02AD4EA4, &object_00186E88, sizeof(object_00186E88)); //Hidden door 1
-		memcpy((void*)0x02AD4CD4, &object_00186CC4, sizeof(object_00186CC4)); //Hidden door 2
+		memcpy((void*)0x02DBD6D0, &object_00011208, sizeof(object_00011208)); // Event helicopter
+		memcpy((void*)0x02AD4EA4, &object_00186E88, sizeof(object_00186E88)); // Hidden door 1
+		memcpy((void*)0x02AD4CD4, &object_00186CC4, sizeof(object_00186CC4)); // Hidden door 2
 		memcpy((void*)0x02AEE7B0, &object_0019AF04, sizeof(object_0019AF04)); // Boat
 		memcpy((void*)0x02AAB0E4, &object_00164444, sizeof(object_00164444)); // Hotel door 1
 		memcpy((void*)0x02AAE0BC, &object_00164444, sizeof(object_00164444)); // Hotel door 2
