@@ -467,8 +467,9 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	*(NJS_OBJECT*)0x106BB4C = object_0014DF28; //Whale
 	*(NJS_MODEL_SADX*)0x010C06C8 = attach_001A1690; //Spike gate shadow
 	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
-	if (SADXStyleWater == false) ResizeTextureList((NJS_TEXLIST*)0x010C0508, 10); //BEACH_SEA
-	else ResizeTextureList((NJS_TEXLIST*)0x010C0508, 17); //BEACH_SEA for SADX PVM (SADX bug)
+	//Some weird shit with texlists is going on and I have no other choice than disable this
+	//if (SADXStyleWater == true) ResizeTextureList((NJS_TEXLIST*)0x010C0508, 17); //BEACH_SEA
+	//else ResizeTextureList((NJS_TEXLIST*)0x010C0508, 10); //BEACH_SEA
 	//Write floats to fix buggy SADX water positioning code
 	//Act 2
 	WriteData((float**)0x004F7876, &float1);
