@@ -418,8 +418,8 @@ bool ChaosPuddleFunc(NJS_MATERIAL* material, Uint32 flags)
 	}
 	else
 	{
-		set_diffuse(0, false);
-		set_specular(1, false);
+	set_diffuse(0, false);
+	set_specular(1, false);
 	}
 	use_default_diffuse(true);
 	return true;
