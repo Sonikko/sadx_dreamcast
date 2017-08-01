@@ -5,6 +5,9 @@
 #include "ADV03_00.h"
 #include "ADV03_01.h"
 #include "ADV03_02.h"
+#include <lanternapi.h>
+
+HMODULE Past = GetModuleHandle(L"ADV03MODELS");
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 static int animframe1 = 75;
@@ -13,12 +16,53 @@ static int animframe3 = 59;
 static char animframe_water = 84;
 static char animframe_water2 = 86;
 
+NJS_MATERIAL* ChaoMaterials[] = {
+	(NJS_MATERIAL*)((size_t)Past + 0x0013CA54),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013C668),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013C190),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013BCB8),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013BB7C),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013BA40),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013B6F0),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013B184),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013ADEC),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013AA54),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013A94C),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013A4DC),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013A068),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013CA54),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013C668),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013C190),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013BCB8),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013BB7C),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013BA40),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013B6F0),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013B184),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013ADEC),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013AA54),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013A94C),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013A4DC),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013A068),
+};
+
+bool CharacterFunction_Specular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(2, false);
+	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(2, false); else set_specular(3, false);
+	use_default_diffuse(true);
+	return true;
+}
+
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	//Tikal lighting fixes
-	((NJS_OBJECT*)0x008CE058)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
-	((NJS_OBJECT*)0x008CC658)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+	HMODULE handle = GetModuleHandle(L"ADV03MODELS");
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
+	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+	/*if (handle != nullptr && Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	{
+		material_register(ChaoMaterials, LengthOfArray(ChaoMaterials), &CharacterFunction_Specular);
+	}
+	*/
 	if (SADXStyleWater != 0)
 	{
 		texlist_past01.nbTexture = 101;
@@ -58,7 +102,6 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		DrawDist_Past2[i].Maximum = -16000.0f;
 		DrawDist_Past3[i].Maximum = -16000.0f;
 	}
-	HMODULE handle = GetModuleHandle(L"ADV03MODELS");
 	NJS_TEXLIST **___ADV03_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV03_TEXLISTS");
 	___ADV03_TEXLISTS[4] = &texlist_past0;
 	___ADV03_TEXLISTS[5] = &texlist_past01;
