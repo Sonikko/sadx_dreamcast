@@ -12,6 +12,8 @@ struct OceanData
 	NJS_VECTOR PositionOffset;
 };
 
+FunctionPointer(void, DrawEmeraldCoastOcean, (OceanData *x), 0x004F8A30);
+
 //Big ocean default UVs (Acts 2/3)
 NJS_TEX uv_00CC0530_d[] = {
 	{ 0, 255 },
@@ -50,65 +52,97 @@ int round(float r) {
 	return (r > 0.0) ? (r + 0.5) : (r - 0.5);
 }
 
-void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
+void __cdecl sub_4F76C0(ObjectMaster *a1)
 {
-	FunctionPointer(void, DrawEmeraldCoastOcean, (OceanData *x), 0x004F8A30);
-	DataArray(NJS_TEX, uv_00CC0530, 0x10C0530, 4);
-	float v1x; // ST14_4@1
-	double v2x; // st7@1
-	double v3x; // st6@1
-	int OceanUVShift1;
-	EntityData1 *v1; // esi@1
-	v1 = a1->Data1;
-	if (!DroppedFrames)
+	float v1; // ST14_4@1
+	double v2; // st7@1
+	double v3; // st6@1
+
+	njSetTexture((NJS_TEXLIST*)0x010C0508);
+	AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
+	v1 = OceanDataB.Position.x - Camera_Data1->Position.x;
+	v2 = OceanDataB.Position.y - Camera_Data1->Position.y;
+	v3 = OceanDataB.Position.z - Camera_Data1->Position.z;
+	if (v3 * v3 + v2 * v2 + v1 * v1 < 9000000.0)
 	{
-		DisableFog();
-		njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
-		if (inside_secret_area == 0)
-		{
-			njPushMatrix(0);
-			njTranslate(0, v1->Position.x, v1->Position.y, v1->Position.z);
-			OceanUVShift1 = int(njSin(FrameCounterUnpaused << 7) * 96.0f + 2.5f) % 255;
-			uv_00CC0530[0].u = uv_00CC0530_d[0].u + OceanUVShift1;
-			uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
-			uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
-			uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
-			ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_3, 1.0f);
-			njPopMatrix(1u);
-		}
-		v1x = OceanDataB.Position.x - Camera_Data1->Position.x;
-		v2x = OceanDataB.Position.y - Camera_Data1->Position.y;
-		v3x = OceanDataB.Position.z - Camera_Data1->Position.z;
-		if (v3x * v3x + v2x * v2x + v1x * v1x < 9000000.0)
-		{
-			AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataB, -17952.0, QueuedModelFlagsB_SomeTextureThing);
-		}
+		OceanDataB.Position.z = -2153.0f;
+		AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataB, -17952.0, (QueuedModelFlagsB)0);
 	}
 }
-	void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
+
+void __cdecl sub_4F7760()
+{
+	float v0; // ST14_4@1
+	double v1; // st7@1
+	double v2; // st6@1
+
+	njSetTexture((NJS_TEXLIST*)0x010C0508);
+	if (inside_secret_area == 0)
 	{
-		DataPointer(float, flt_7E00DC, 0x7E00DC);
-		DataPointer(float, flt_7DF1B0, 0x7DF1B0);
-		auto entity = CharObj1Ptrs[0];
-		FunctionPointer(double, sub_789320, (float a2), 0x789320);
-		double v2;
-		int OceanUVShift1;
-		DataArray(NJS_TEX, uv_00CC0530, 0x10C0530, 4);
-		DataPointer(int, EffectActive, 0x3C5E4B0);
-		DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
-		EntityData1 *v1; // esi@1
-		v1 = a1->Data1;
-		int unitsize_u_small = 10;
-		int unitsize_v_small = 10;
-		float u2_add;
-		float v2_add;
-		int u2_delta;
-		int v2_delta;
-		DisableFog();
-		if (*(signed int*)&v1->CharIndex)
+		AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -37952.0, (QueuedModelFlagsB)0);
+	}
+	v0 = OceanDataB.Position.x - Camera_Data1->Position.x;
+	v1 = OceanDataB.Position.y - Camera_Data1->Position.y;
+	v2 = OceanDataB.Position.z - Camera_Data1->Position.z;
+	if (v2 * v2 + v1 * v1 + v0 * v0 < 9000000.0)
+	{
+		OceanDataB.Position.y=-109.0f;
+		AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataB, -37952.0, (QueuedModelFlagsB)0);
+	}
+}
+
+void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
+{
+	DataPointer(float, flt_7E00DC, 0x7E00DC);
+	DataPointer(float, flt_7DF1B0, 0x7DF1B0);
+	auto entity = CharObj1Ptrs[0];
+	FunctionPointer(double, sub_789320, (float a2), 0x789320);
+	double v2;
+	int OceanUVShift1;
+	DataArray(NJS_TEX, uv_00CC0530, 0x10C0530, 4);
+	DataPointer(int, EffectActive, 0x3C5E4B0);
+	DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
+	EntityData1 *v1; // esi@1
+	v1 = a1->Data1;
+	int unitsize_u_small = 10;
+	int unitsize_v_small = 10;
+	float u2_add;
+	float v2_add;
+	int u2_delta;
+	int v2_delta;
+	DisableFog();
+	if (*(signed int*)&v1->CharIndex)
+	{
+		v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
+		EC1OceanYShift = v2;
+	}
+	else
+	{
+		if (EC1OceanYShift > -1.5f)
 		{
-			v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
+			EC1OceanYShift = EC1OceanYShift - 0.1f;
+		}
+	}
+	if (entity != nullptr)
+	{
+		if (entity->Position.x > 1800)
+		{
+			DynamicOceanModel = true;
+			WriteData((float**)0x00501824, &flt_7E00DC);
+			WriteData((float**)0x00501849, &flt_7E00DC);
+			WriteData((float**)0x00501832, &flt_7DF1B0);
+			WriteData((float**)0x0050185B, &flt_7DF1B0);
+		}
+		if (entity->Position.x < 1400) DynamicOceanModel = false;
+	}
+	if (DynamicOceanModel == false)
+	{
+		njSetTexture((NJS_TEXLIST*)0x010C0508);
+		if (v1->CharIndex)
+		{
+			v2 = njSin(FrameCounterUnpaused << 11) * 3.0f + 2.5f;
 			EC1OceanYShift = v2;
+			OceanDataA.Position.y = v2;
 		}
 		else
 		{
@@ -116,39 +150,10 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 			{
 				EC1OceanYShift = EC1OceanYShift - 0.1f;
 			}
+			OceanDataA.Position.y = EC1OceanYShift;
 		}
-		if (entity != nullptr)
-		{
-			if (entity->Position.x>1800)
-			{
-				DynamicOceanModel = true;
-				WriteData((float**)0x00501824, &flt_7E00DC);
-				WriteData((float**)0x00501849, &flt_7E00DC);
-				WriteData((float**)0x00501832, &flt_7DF1B0);
-				WriteData((float**)0x0050185B, &flt_7DF1B0);
-			}
-			if (entity->Position.x < 1400) DynamicOceanModel = false;
-		}
-		if (DynamicOceanModel == false)
-		{
-			WriteData((float**)0x00501824, &float1);
-			WriteData((float**)0x00501849, &float1);
-			WriteData((float**)0x00501832, &float2);
-			WriteData((float**)0x0050185B, &float2);
-			if (!DroppedFrames);
-			{
-				njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
-				njPushMatrix(0);
-				njTranslate(0, v1->Position.x, v1->Position.y, v1->Position.z);
-				OceanUVShift1 = int(njSin(FrameCounterUnpaused << 7) * 96.0f + 2.5f) % 255;
-				uv_00CC0530[0].u = uv_00CC0530_d[0].u + OceanUVShift1;
-				uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
-				uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
-				uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
-				ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_3, 1.0f);
-				njPopMatrix(1u);
-			}
-		}
+		AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
+	}
 		else
 		{
 			if (!DroppedFrames)
@@ -306,13 +311,13 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 				SkyboxScale_EmeraldCoast3[i].x = 1.0f;
 				SkyboxScale_EmeraldCoast3[i].y = 1.0f;
 				SkyboxScale_EmeraldCoast3[i].z = 1.0f;
-				DrawDist_EmeraldCoast1[i].Maximum = -8000.0f;
+				DrawDist_EmeraldCoast1[i].Maximum = -6000.0f;
 				DrawDist_EmeraldCoast2[i].Maximum = -3900.0f;
 				DrawDist_EmeraldCoast3[i].Maximum = -4000.0f;
-				EmeraldCoast1Fog[i].Distance = -2500.0f;
-				EmeraldCoast1Fog[i].Layer = -6000.0f;
-				EmeraldCoast2Fog[i].Distance = -2500.0f;
-				EmeraldCoast2Fog[i].Layer = -6000.0f;
+				EmeraldCoast1Fog[i].Distance = -10000.0f;
+				EmeraldCoast1Fog[i].Layer = -1.0f;
+				EmeraldCoast2Fog[i].Distance = -10000.0f;
+				EmeraldCoast2Fog[i].Layer = -1.0f;
 				EmeraldCoast3Fog[i].Toggle = 0;
 				EmeraldCoast3Fog[i].Layer = -1200.0f;
 				EmeraldCoast3Fog[i].Distance = -3000.0f;
@@ -357,8 +362,8 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 			WriteData((float**)0x004F7998, &float2);
 			//Write water rendering functions
 			WriteJump((void*)0x00501130, Obj_EC1Water_DisplayX); //Act 1
-			WriteJump((void*)0x004F7760, Obj_EC23Water_DisplayX); //Act 2
-			WriteJump((void*)0x004F76C0, Obj_EC23Water_DisplayX); //Act 3
+			WriteJump((void*)0x004F76C0, sub_4F76C0); //Act 2
+			WriteJump((void*)0x004F7760, sub_4F7760); //Act 3
 		}
 	}
 
@@ -404,7 +409,7 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 			}
 			if (CurrentLevel == 1 && CurrentAct == 2 && GameState != 16)
 			{
-				if (GameState == 3 || GameState == 4)
+				if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
 				{
 					inside_secret_area = false;
 					CurrentFogToggle = 0;
