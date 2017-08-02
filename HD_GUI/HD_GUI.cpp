@@ -20,9 +20,7 @@ extern "C"
 		*(NJS_OBJECT *)0x02982F44 = object_0003FA40; //Egg Carrier model
 		*(NJS_OBJECT *)0x298A894 = object_00047110; //Hodai
 		*(NJS_OBJECT *)0x2941B2C = object_0001342C; //Kirai
-		((NJS_ACTION*)0x28E596C)->object = &object_0009153C; //Beam in Act 1
 		((NJS_ACTION*)0x2996C74)->object = &object_0004AEE0; //Beam in Act 2
-		*(NJS_OBJECT *)0x028E2C88 = object_0009153C; //Beam in Act 1
 		*(NJS_OBJECT *)0x0298E7D0 = object_0004AEE0; //Beam in Act 2
 		}
 	}
