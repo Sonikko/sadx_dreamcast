@@ -104,7 +104,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	float v2_add;
 	int u2_delta;
 	int v2_delta;
-	DisableFog();
+	if (SADXStyleWater == false) DisableFog();
 	if (*(signed int*)&v1->CharIndex)
 	{
 		v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
@@ -441,13 +441,13 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 		}
 		((NJS_OBJECT*)0x10C05E8)->basicdxmodel->mats[0].attrflags &= ~NJD_DA_INV_SRC;
 		((NJS_OBJECT*)0x10C05E8)->basicdxmodel->mats[0].attrflags |= NJD_DA_ONE;
-		((NJS_OBJECT*)0x10C05E8)->basicdxmodel->mats[0].diffuse.argb.a = 0xB2;
+		((NJS_OBJECT*)0x10C05E8)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
 		((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attrflags &= ~NJD_DA_INV_SRC;
 		((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attrflags |= NJD_DA_ONE;
-		((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.argb.a = 0xB2;
+		((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
 		object_00CC03FC.basicdxmodel->mats[0].attrflags &= ~NJD_DA_INV_SRC;
 		object_00CC03FC.basicdxmodel->mats[0].attrflags |= NJD_DA_ONE;
-		object_00CC03FC.basicdxmodel->mats[0].diffuse.argb.a = 0xB2;
+		object_00CC03FC.basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
 		WriteData((void*)0x004F7749, 0x90, 5); //Kill second water in Act 2
 		WriteData((void*)0x004F77E9, 0x90, 5); //Kill second water in Act 3
 		BeachTexlists[1].Name = "BEACH_SEAW";
