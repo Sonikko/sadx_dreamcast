@@ -104,7 +104,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	float v2_add;
 	int u2_delta;
 	int v2_delta;
-	if (SADXStyleWater == false) DisableFog();
+	DisableFog();
 	if (*(signed int*)&v1->CharIndex)
 	{
 		v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
