@@ -57,7 +57,7 @@ void __cdecl sub_4F76C0(ObjectMaster *a1)
 	float v1; // ST14_4@1
 	double v2; // st7@1
 	double v3; // st6@1
-
+	DisableFog();
 	njSetTexture((NJS_TEXLIST*)0x010C0508);
 	AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
 	v1 = OceanDataB.Position.x - Camera_Data1->Position.x;
@@ -75,7 +75,7 @@ void __cdecl sub_4F7760()
 	float v0; // ST14_4@1
 	double v1; // st7@1
 	double v2; // st6@1
-
+	DisableFog();
 	njSetTexture((NJS_TEXLIST*)0x010C0508);
 	if (inside_secret_area == 0)
 	{
@@ -110,7 +110,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	float v2_add;
 	int u2_delta;
 	int v2_delta;
-	//DisableFog();
+	DisableFog();
 	if (*(signed int*)&v1->CharIndex)
 	{
 		v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
@@ -293,7 +293,6 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			}
 		}
 	}
-
 
 	extern "C" __declspec(dllexport) void __cdecl Init()
 	{
