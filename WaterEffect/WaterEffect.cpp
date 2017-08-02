@@ -110,7 +110,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	float v2_add;
 	int u2_delta;
 	int v2_delta;
-	DisableFog();
+	//DisableFog();
 	if (*(signed int*)&v1->CharIndex)
 	{
 		v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
@@ -336,15 +336,19 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			((NJS_OBJECT*)0x10C05E8)->basicdxmodel->mats[0].attrflags &= ~NJD_DA_INV_SRC;
 			((NJS_OBJECT*)0x10C05E8)->basicdxmodel->mats[0].attrflags |= NJD_DA_ONE;
 			((NJS_OBJECT*)0x10C05E8)->basicdxmodel->mats[0].attrflags |= NJD_SA_SRC;
-			((NJS_OBJECT*)0x10C05E8)->basicdxmodel->mats[0].diffuse.argb.a = 0xB2;
+			//((NJS_OBJECT*)0x10C05E8)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			((NJS_OBJECT*)0x10C05E8)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
 			((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attrflags &= ~NJD_DA_INV_SRC;
 			((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attrflags |= NJD_DA_ONE;
 			((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attrflags |= NJD_SA_SRC;
-			((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.argb.a = 0xB2;
+			//((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
+
 			object_00CC03FC.basicdxmodel->mats[0].attrflags &= ~NJD_DA_INV_SRC;
 			object_00CC03FC.basicdxmodel->mats[0].attrflags |= NJD_DA_ONE;
 			object_00CC03FC.basicdxmodel->mats[0].attrflags |= NJD_SA_SRC;
-			object_00CC03FC.basicdxmodel->mats[0].diffuse.argb.a = 0xB2;
+			//object_00CC03FC.basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+			object_00CC03FC.basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
 			WriteData((void*)0x004F76DE, 0x90, 5); //Kill SADX ocean water in Act 2
 			WriteData((void*)0x004F777E, 0x90, 5); //Kill SADX ocean water in Act 3
 			WriteData((void*)0x004F783A, 0x0F, 1); //15 animation frames for water in Act 2
