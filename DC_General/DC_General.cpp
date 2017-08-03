@@ -11,6 +11,40 @@ DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
 
+void __cdecl FixedBubbleRipple(ObjectMaster *a1)
+{
+	DataPointer(int, MissedFrames, 0x03B1117C);
+	DataPointer(D3DCOLORVALUE, stru_3D0B7C8, 0x3D0B7C8);
+	DataPointer(NJS_OBJECT, stru_8B22F4, 0x8B22F4);
+	NJS_VECTOR *v1; // esi@1
+	double v2; // st7@2
+	v1 = (NJS_VECTOR *)a1->UnknownB_ptr;
+	if (!MissedFrames)
+	{
+		SetTextureToCommon();
+		njPushMatrix(0);
+		njTranslateV(0, v1);
+		BackupConstantAttr();
+		AddConstantAttr(0, NJD_FLAG_USE_ALPHA);
+		v2 = v1[1].z;
+		stru_3D0B7C8.g = v1[1].z;
+		stru_3D0B7C8.b = v2;
+		stru_3D0B7C8.a = v2;
+		SetMaterialAndSpriteColor((NJS_ARGB *)&stru_3D0B7C8);
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+		njScale(0, v1[2].z, 1.0f, v1[2].z);
+		SomeDepthThing = -17952;
+		ProcessModelNode_A_WrapperB(&stru_8B22F4, (QueuedModelFlagsB)0);
+		SomeDepthThing = 0;
+		ClampGlobalColorThing_Thing();
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		RestoreConstantAttr();
+		njPopMatrix(1u);
+	}
+}
+
 static PointerInfo jumps[] = {
 	// ItemBox
 	{ ItemBox_Display_Destroyed,	ItemBox_Display_Destroyed_Rotate },
@@ -24,6 +58,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteJump((void*)0x7A81A0, FixedBubbleRipple);
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "allow_landtable_specular") != nullptr)
 		{
