@@ -307,9 +307,9 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 				SkyboxScale_EmeraldCoast2[i].x = 1.0f;
 				SkyboxScale_EmeraldCoast2[i].y = 1.0f;
 				SkyboxScale_EmeraldCoast2[i].z = 1.0f;
-				SkyboxScale_EmeraldCoast3[i].x = 1.0f;
-				SkyboxScale_EmeraldCoast3[i].y = 1.0f;
-				SkyboxScale_EmeraldCoast3[i].z = 1.0f;
+				SkyboxScale_EmeraldCoast3[i].x = 0.7f;
+				SkyboxScale_EmeraldCoast3[i].y = 0.7f;
+				SkyboxScale_EmeraldCoast3[i].z = 0.7f;
 				DrawDist_EmeraldCoast1[i].Maximum = -6000.0f;
 				DrawDist_EmeraldCoast2[i].Maximum = -3900.0f;
 				DrawDist_EmeraldCoast3[i].Maximum = -4000.0f;
