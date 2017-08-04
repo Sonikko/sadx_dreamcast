@@ -44,6 +44,8 @@ DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(float, EC1OceanYShift, 0x010C85A8);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(OceanData, OceanDataA, 0x03D0B8F0);
+DataPointer(OceanData, OceanDataB, 0x03D0B90C);
+FunctionPointer(void, DrawEmeraldCoastOcean, (OceanData *x), 0x004F8A30);
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA28, &landtable_00081554),
@@ -61,28 +63,35 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 	EntityData1 *v1; // esi@1
 	v1 = a1->Data1;
 	int OceanUVShift1;
-
-	if (!DroppedFrames && inside_secret_area == 0)
+	float z1; // ST14_4@1
+	double z2; // st7@1
+	double z3; // st6@1
+	if (SADXStyleWater == false)
 	{
-		njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
-		njPushMatrix(0);
-		njTranslate(0, v1->Position.x, v1->Position.y, v1->Position.z);
-		OceanUVShift1 = int(njSin(FrameCounterUnpaused << 7) * 96.0f + 2.5f) % 255;
-		uv_00CC0530[0].u = uv_00CC0530_d[0].u + OceanUVShift1;
-		uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
-		uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
-		uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
-		ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_3, 1.0f);
-		njPopMatrix(1u);
+		if (!DroppedFrames && inside_secret_area == 0)
+		{
+			njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
+			njPushMatrix(0);
+			njTranslate(0, v1->Position.x, v1->Position.y, v1->Position.z);
+			OceanUVShift1 = int(njSin(FrameCounterUnpaused << 7) * 96.0f + 2.5f) % 255;
+			uv_00CC0530[0].u = uv_00CC0530_d[0].u + OceanUVShift1;
+			uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
+			uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
+			uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
+			ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_3, 1.0f);
+			njPopMatrix(1u);
+		}
 	}
-	if (!DroppedFrames && CurrentAct == 2)
+	else
 	{
-		njSetTexture((NJS_TEXLIST*)0x00E9A4CC); //BEACH03
-		njPushMatrix(0);
-		njTranslate(0, 0, 0, 0);
-
-		njPopMatrix(1u);
+		if (inside_secret_area == 0)
+		{
+			DisableFog();
+			njSetTexture((NJS_TEXLIST*)0x010C0508);
+			AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
+		}
 	}
+
 }
 
 void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
@@ -131,22 +140,44 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	}
 	if (lilocean == false)
 	{
-		WriteData((float**)0x00501824, &float1);
-		WriteData((float**)0x00501849, &float1);
-		WriteData((float**)0x00501832, &float2);
-		WriteData((float**)0x0050185B, &float2);
-		if (!DroppedFrames);
+		if (SADXStyleWater == false)
 		{
-			njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
-			njPushMatrix(0);
-			njTranslate(0, v1->Position.x, v1->Position.y, v1->Position.z);
-			OceanUVShift1 = int(njSin(FrameCounterUnpaused << 7) * 96.0f + 2.5f) % 255;
-			uv_00CC0530[0].u = uv_00CC0530_d[0].u + OceanUVShift1;
-			uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
-			uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
-			uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
-			ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_3, 1.0f);
-			njPopMatrix(1u);
+			WriteData((float**)0x00501824, &float1);
+			WriteData((float**)0x00501849, &float1);
+			WriteData((float**)0x00501832, &float2);
+			WriteData((float**)0x0050185B, &float2);
+			if (!DroppedFrames);
+			{
+				njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
+				njPushMatrix(0);
+				njTranslate(0, v1->Position.x, v1->Position.y, v1->Position.z);
+				OceanUVShift1 = int(njSin(FrameCounterUnpaused << 7) * 96.0f + 2.5f) % 255;
+				uv_00CC0530[0].u = uv_00CC0530_d[0].u + OceanUVShift1;
+				uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
+				uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
+				uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
+				ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_3, 1.0f);
+				njPopMatrix(1u);
+			}
+		}
+		else
+		{
+			njSetTexture((NJS_TEXLIST*)0x010C0508);
+			if (v1->CharIndex)
+			{
+				v2 = njSin(FrameCounterUnpaused << 11) * 3.0f + 2.5f;
+				EC1OceanYShift = v2;
+				OceanDataA.Position.y = v2;
+			}
+			else
+			{
+				if (EC1OceanYShift > -1.5f)
+				{
+					EC1OceanYShift = EC1OceanYShift - 0.1f;
+				}
+				OceanDataA.Position.y = EC1OceanYShift;
+			}
+			AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
 		}
 	}
 	else
@@ -467,8 +498,8 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	*(NJS_OBJECT*)0x106BB4C = object_0014DF28; //Whale
 	*(NJS_MODEL_SADX*)0x010C06C8 = attach_001A1690; //Spike gate shadow
 	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
-	//Some weird shit with texlists is going on and I have no other choice than disable this
-	//if (SADXStyleWater == true) ResizeTextureList((NJS_TEXLIST*)0x010C0508, 17); //BEACH_SEA
+	if (SADXStyleWater == true) ResizeTextureList((NJS_TEXLIST*)0x010C0508, 32); //BEACH_SEA
+    //Some weird shit with texlists is going on and I have no other choice than disable this
 	//else ResizeTextureList((NJS_TEXLIST*)0x010C0508, 10); //BEACH_SEA
 	//Write floats to fix buggy SADX water positioning code
 	//Act 2
@@ -482,7 +513,7 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	WriteData((float**)0x004F798B, &float2);
 	WriteData((float**)0x004F7998, &float2);
 	//Kill SADX shit
-	WriteData((void*)0x4F8A30, 0xC3u, sizeof(char));
+	if (SADXStyleWater == false) WriteData((void*)0x4F8A30, 0xC3u, sizeof(char));
 	//Write water rendering functions
 	WriteJump((void*)0x00501130, Obj_EC1Water_DisplayX); //Act 1
 	WriteJump((void*)0x004F76C0, Obj_EC23Water_DisplayX); //Act 2
@@ -514,9 +545,9 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 			SkyboxScale_EmeraldCoast2[i].x = 1.0f;
 			SkyboxScale_EmeraldCoast2[i].y = 1.0f;
 			SkyboxScale_EmeraldCoast2[i].z = 1.0f;
-			SkyboxScale_EmeraldCoast3[i].x = 1.0f;
-			SkyboxScale_EmeraldCoast3[i].y = 1.0f;
-			SkyboxScale_EmeraldCoast3[i].z = 1.0f;
+			SkyboxScale_EmeraldCoast3[i].x = 0.7f;
+			SkyboxScale_EmeraldCoast3[i].y = 0.7f;
+			SkyboxScale_EmeraldCoast3[i].z = 0.7f;
 			DrawDist_EmeraldCoast1[i].Maximum = -6000.0f;
 			DrawDist_EmeraldCoast2[i].Maximum = -3900.0f;
 			EmeraldCoast1Fog[i].Distance = -12000.0f;
@@ -570,9 +601,18 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		animframe++;
 		if (SADXStyleWater == false && beachsea_water > 9)beachsea_water = 0;
 		if (beachsea_water > 14) beachsea_water = 0;
-		((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attr_texId = beachsea_water;
-		((NJS_OBJECT*)0x010C05E8)->basicdxmodel->mats[0].attr_texId = beachsea_water;
-		matlist_00CBA58C[0].attr_texId = beachsea_water;
+		if (SADXStyleWater == true)
+		{
+			((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attr_texId = 17 + beachsea_water;
+			((NJS_OBJECT*)0x010C05E8)->basicdxmodel->mats[0].attr_texId = 17 + beachsea_water;
+			matlist_00CBA58C[0].attr_texId = 17 + beachsea_water;
+		}
+		else
+		{
+			((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attr_texId = beachsea_water;
+			((NJS_OBJECT*)0x010C05E8)->basicdxmodel->mats[0].attr_texId = beachsea_water;
+			matlist_00CBA58C[0].attr_texId = beachsea_water;
+		}
 		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2) beachsea_water++;
 	}
 	if (CurrentLevel == 1 && CurrentAct == 0 && GameState != 16)
