@@ -16,6 +16,7 @@
 #include "ADV01C_03.h"
 #include "ADV01C_04.h"
 #include "ADV01C_05.h"
+#include "EC_Tornado.h"
 FunctionPointer(void, sub_6F4570, (ObjectMaster *a1), 0x6F4570);
 DataPointer(ObjectMaster*, dword_3C85138, 0x3C85138);
 HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
@@ -331,6 +332,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01_OBJECTS[56] = &object_0017CBA0; //OSLight
 	___ADV01_OBJECTS[57] = &object_0017C970; //OSLight
 	___ADV01_OBJECTS[58] = &object_0017BFE4; //OSLight
+	___ADV01_OBJECTS[61] = &object_0024FFF8; //OTornado2
 	___ADV01_ACTIONS[0]->object = &object_00178BC4; //This thing is stupid
 	___ADV01_OBJECTS[5] = &object_00178BC4; //This thing is stupid
 	___ADV01_OBJECTS[13] = &object_001A85F0; //OParasol
