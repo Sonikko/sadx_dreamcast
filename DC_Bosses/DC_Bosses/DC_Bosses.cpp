@@ -964,7 +964,14 @@ extern "C"
 		//Egg Viper effect
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
-			
+		
+			//Hopefully disable all this before it gets ugly
+			if (EggViper_blendfactor != 0 && CurrentLevel != 22)
+			{
+				EggViper_blendfactor = 0;
+				EggViper_EffectMode = 0;
+				set_shader_flags(ShaderFlags_Blend, false);
+			}
 			DataPointer(int, EVEffect, 0x3C6E1EC);
 			if (GameMode == GameModes_Menu || GameMode == GameModes_CharSel)
 			{
