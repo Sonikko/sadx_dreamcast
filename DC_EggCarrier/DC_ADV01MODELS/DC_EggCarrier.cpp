@@ -83,7 +83,8 @@ bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 {
-	set_diffuse(3, false);
+	set_diffuse(1, false);
+	diffuse_override(true);
 	use_default_diffuse(true);
 	return true;
 }
@@ -143,6 +144,18 @@ NJS_MATERIAL* ObjectSpecular[] = {
 };
 
 NJS_MATERIAL* WhiteDiffuse[] = {
+	//Level stuff
+	&matlist_00081DF0[0],
+	&matlist_00081DF0[1],
+	&matlist_00081DF0[2],
+	&matlist_00081DF0[3],
+	&matlist_00082450[0],
+	&matlist_00082450[1],
+	&matlist_00082450[2],
+	&matlist_00082450[3],
+	//OTornado2
+	&matlist_0024BE40[23],
+	&matlist_0024BE40[24],
 	//OTarai button
 	&matlist_0011154C[0],
 	&matlist_0011154C[1],

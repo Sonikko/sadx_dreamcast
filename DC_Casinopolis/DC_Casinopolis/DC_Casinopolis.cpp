@@ -172,7 +172,51 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
+bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(1, false);
+	diffuse_override(true);
+	use_default_diffuse(true);
+	return true;
+}
+
+NJS_MATERIAL* WhiteDiffuse[] = {
+	//OSlotkan
+	((NJS_MATERIAL*)0x01E4D6B4),
+	//OCardkan
+	((NJS_MATERIAL*)0x01E4D144),
+	((NJS_MATERIAL*)0x01E4D16C),
+	((NJS_MATERIAL*)0x01E4D194),
+};
+
 NJS_MATERIAL* ObjectSpecular[] = {
+	//OFanfan
+	((NJS_MATERIAL*)0x01E4FDC8),
+	((NJS_MATERIAL*)0x01E4FDDC),
+	((NJS_MATERIAL*)0x01E4FDF0),
+	((NJS_MATERIAL*)0x01E4FE04),
+	((NJS_MATERIAL*)0x01E4FE18),
+	//Slot machine red
+	((NJS_MATERIAL*)0x01DF5198),
+	((NJS_MATERIAL*)0x01DF51C0),
+	//Slot machine blue
+	((NJS_MATERIAL*)0x01DF31C0),
+	((NJS_MATERIAL*)0x01DF31E8),
+	//Rotating medal
+	((NJS_MATERIAL*)0x01E0CA7C),
+	((NJS_MATERIAL*)0x01E0CA90),
+	//Slot machine
+	((NJS_MATERIAL*)0x01E49898),
+	((NJS_MATERIAL*)0x01E498AC),
+	((NJS_MATERIAL*)0x01E498C0),
+	((NJS_MATERIAL*)0x01E498D4),
+	((NJS_MATERIAL*)0x01E498E8),
+	//Card machine
+	((NJS_MATERIAL*)0x01E47CD8),
+	((NJS_MATERIAL*)0x01E47CEC),
+	((NJS_MATERIAL*)0x01E47D00),
+	((NJS_MATERIAL*)0x01E47D14),
+	((NJS_MATERIAL*)0x01E47D28),
 	//OLion
 	((NJS_MATERIAL*)0x01E01270),
 	((NJS_MATERIAL*)0x01E01284),
@@ -211,6 +255,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		((NJS_MATERIAL*)0x01E4D144)->attrflags |= NJD_FLAG_IGNORE_SPECULAR;
 		//Config stuff
 		//If there is no config.ini, make one
 		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
@@ -223,6 +268,7 @@ extern "C"
 		{
 			//material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 		}
 		if (CowgirlOn == true)
 		{

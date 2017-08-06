@@ -56,7 +56,8 @@ void __cdecl SSWater()
 
 bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 {
-	set_diffuse(3, false);
+	set_diffuse(1, false);
+	diffuse_override(true);
 	use_default_diffuse(true);
 	return true;
 }
@@ -280,6 +281,9 @@ extern "C"
 		WriteData((void*)0x00630AE0, 0x90, 4); //Hotel door fix
 		WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting
 		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31); //SS_TRAIN
+		//Material stuff
+		((NJS_OBJECT*)0x02AB757C)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_USE_ALPHA; //Speed Highway elevator door
+		((NJS_OBJECT*)0x02AB6E4C)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_USE_ALPHA; //Speed Highway elevator door
 		//Objects
 		*(NJS_OBJECT*)0x2AB2CCC = object_001689C4; //Shop 2 door
 		((NJS_ACTION*)0x2AB2D9C)->object = &object_001689C4; //Shop 2 door
@@ -588,6 +592,7 @@ extern "C"
 		if (CurrentLevel == 26 && GetTimeOfDay() != 2) attach_0017D7A8.mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		if (CurrentLevel == 26 && CurrentAct == 3 && GetTimeOfDay() == 2)
 		{
+			matlist_000E4358[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00103FFC[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_000FAA28[4].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129C8C[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -648,6 +653,7 @@ extern "C"
 		//Evening reflections Act 3 (Main area)
 		if (CurrentLevel == 26 && CurrentAct == 3 && GetTimeOfDay() == 1)
 		{
+			matlist_000E4358[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00103FFC[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000FAA28[4].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129C8C[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -708,6 +714,7 @@ extern "C"
 		//Day reflections Act 3 (Main area)
 		if (CurrentLevel == 26 && CurrentAct == 3 && GetTimeOfDay() == 0)
 		{
+			matlist_000E4358[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00103FFC[2].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_000FAA28[4].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			matlist_00129C8C[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;

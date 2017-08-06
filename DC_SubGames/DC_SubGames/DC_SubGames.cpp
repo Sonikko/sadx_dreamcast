@@ -2,11 +2,8 @@
 #include <SADXModLoader.h>
 #include "SandHill.h"
 #include <lanternapi.h>
-#include <string>
 #include "TwinkleCircuit.h"
 #include "SkyChaseModels.h"
-
-std::string plz0xbin;
 
 DataArray(FogData, FogData_SandHill, 0x0173BB74, 3);
 DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
@@ -17,6 +14,76 @@ DataPointer(float, SkyChase1_SkyboxScaleZ, 0x027D6CE8);
 PointerInfo pointers[] = {
 	ptrdecl(0x7D2051, &landtable_00002DEC),
 	ptrdecl(0x7D205B, &landtable_00001A3C)
+};
+
+NJS_MATERIAL* LevelSpecular[] = {
+	//Tornado 2 transformation cutscene
+	((NJS_MATERIAL*)0x0285F230),
+	((NJS_MATERIAL*)0x0285F028),
+	((NJS_MATERIAL*)0x0285EC58),
+	((NJS_MATERIAL*)0x0285EC6C),
+	((NJS_MATERIAL*)0x0285EA5C),
+	((NJS_MATERIAL*)0x0285E828),
+	((NJS_MATERIAL*)0x0285E638),
+	((NJS_MATERIAL*)0x0285E278),
+	((NJS_MATERIAL*)0x0285E28C),
+	((NJS_MATERIAL*)0x0285E06C),
+	((NJS_MATERIAL*)0x0285BC18),
+	((NJS_MATERIAL*)0x0285BC2C),
+	((NJS_MATERIAL*)0x0285BC40),
+	((NJS_MATERIAL*)0x0285BC54),
+	((NJS_MATERIAL*)0x0285B9B0),
+	((NJS_MATERIAL*)0x0285B9C4),
+	((NJS_MATERIAL*)0x0285CF20),
+	((NJS_MATERIAL*)0x0285EE2C),
+	((NJS_MATERIAL*)0x0285E44C),
+	((NJS_MATERIAL*)0x028535B8),
+	((NJS_MATERIAL*)0x028535CC),
+	((NJS_MATERIAL*)0x028535E0),
+	((NJS_MATERIAL*)0x028535F4),
+	((NJS_MATERIAL*)0x02853608),
+	((NJS_MATERIAL*)0x02852FE0),
+	((NJS_MATERIAL*)0x028529E4),
+	((NJS_MATERIAL*)0x028529F8),
+	((NJS_MATERIAL*)0x028522E0),
+	((NJS_MATERIAL*)0x028522F4),
+	((NJS_MATERIAL*)0x02852308),
+	((NJS_MATERIAL*)0x0285214C),
+	((NJS_MATERIAL*)0x02851B88),
+	((NJS_MATERIAL*)0x0285157C),
+	((NJS_MATERIAL*)0x02851590),
+	((NJS_MATERIAL*)0x02850E90),
+	((NJS_MATERIAL*)0x02850EA4),
+	((NJS_MATERIAL*)0x02850EB8),
+	((NJS_MATERIAL*)0x02850CFC),
+	((NJS_MATERIAL*)0x02850158),
+	((NJS_MATERIAL*)0x0285016C),
+	((NJS_MATERIAL*)0x0284FAD8),
+	((NJS_MATERIAL*)0x0284FAEC),
+	((NJS_MATERIAL*)0x0284FB00),
+	((NJS_MATERIAL*)0x0284F92C),
+	((NJS_MATERIAL*)0x0284ED88),
+	((NJS_MATERIAL*)0x0284ED9C),
+	((NJS_MATERIAL*)0x0284E708),
+	((NJS_MATERIAL*)0x0284E71C),
+	((NJS_MATERIAL*)0x0284E730),
+	((NJS_MATERIAL*)0x0284E560),
+	((NJS_MATERIAL*)0x0284E330),
+	((NJS_MATERIAL*)0x0284D738),
+	((NJS_MATERIAL*)0x0284D74C),
+	((NJS_MATERIAL*)0x0284A340),
+	((NJS_MATERIAL*)0x0284A354),
+	((NJS_MATERIAL*)0x0284A368),
+	((NJS_MATERIAL*)0x0284A37C),
+	((NJS_MATERIAL*)0x028497B8),
+	((NJS_MATERIAL*)0x028491A0),
+	((NJS_MATERIAL*)0x028491B4),
+	((NJS_MATERIAL*)0x02848FF4),
+	((NJS_MATERIAL*)0x02848490),
+	((NJS_MATERIAL*)0x02847E78),
+	((NJS_MATERIAL*)0x02847E8C),
+	((NJS_MATERIAL*)0x02847CCC),
+	((NJS_MATERIAL*)0x028472DC),
 };
 
 NJS_MATERIAL* WhiteDiffuse[] = {
@@ -270,6 +337,115 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 };
 
 NJS_MATERIAL* ObjectBaseAndSpecular[] = {
+	//Tornado 2 transformation cutscene
+	((NJS_MATERIAL*)0x028634D8),
+	((NJS_MATERIAL*)0x028634EC),
+	((NJS_MATERIAL*)0x02863500),
+	((NJS_MATERIAL*)0x02863514),
+	((NJS_MATERIAL*)0x02863528),
+	((NJS_MATERIAL*)0x0286353C),
+	((NJS_MATERIAL*)0x02862948),
+	((NJS_MATERIAL*)0x0286295C),
+	((NJS_MATERIAL*)0x02862970),
+	((NJS_MATERIAL*)0x02862984),
+	((NJS_MATERIAL*)0x028626C0),
+	((NJS_MATERIAL*)0x028626D4),
+	((NJS_MATERIAL*)0x02862428),
+	((NJS_MATERIAL*)0x0286243C),
+	((NJS_MATERIAL*)0x02862280),
+	((NJS_MATERIAL*)0x028620F0),
+	((NJS_MATERIAL*)0x02861F30),
+	((NJS_MATERIAL*)0x02861C98),
+	((NJS_MATERIAL*)0x02861CAC),
+	((NJS_MATERIAL*)0x02861AF0),
+	((NJS_MATERIAL*)0x02861960),
+	((NJS_MATERIAL*)0x028616D8),
+	((NJS_MATERIAL*)0x028616EC),
+	((NJS_MATERIAL*)0x02861420),
+	((NJS_MATERIAL*)0x02861434),
+	((NJS_MATERIAL*)0x02860E40),
+	((NJS_MATERIAL*)0x02860E54),
+	((NJS_MATERIAL*)0x02860E68),
+	((NJS_MATERIAL*)0x02860CB0),
+	((NJS_MATERIAL*)0x02860B20),
+	((NJS_MATERIAL*)0x02860538),
+	((NJS_MATERIAL*)0x0286054C),
+	((NJS_MATERIAL*)0x02860560),
+	((NJS_MATERIAL*)0x02860574),
+	((NJS_MATERIAL*)0x02860588),
+	((NJS_MATERIAL*)0x02860428),
+	((NJS_MATERIAL*)0x02860070),
+	((NJS_MATERIAL*)0x02860084),
+	((NJS_MATERIAL*)0x02860098),
+	((NJS_MATERIAL*)0x0285FCB4),
+	((NJS_MATERIAL*)0x0285FCC8),
+	((NJS_MATERIAL*)0x0285FCDC),
+	((NJS_MATERIAL*)0x0285FB78),
+	((NJS_MATERIAL*)0x0285F804),
+	((NJS_MATERIAL*)0x0285F818),
+	((NJS_MATERIAL*)0x0285F468),
+	((NJS_MATERIAL*)0x0285F47C),
+	((NJS_MATERIAL*)0x0285F490),
+	((NJS_MATERIAL*)0x0285F4A4),
+	((NJS_MATERIAL*)0x0285DEB0),
+	((NJS_MATERIAL*)0x0285DD28),
+	((NJS_MATERIAL*)0x0285DBA0),
+	((NJS_MATERIAL*)0x0285DA18),
+	((NJS_MATERIAL*)0x0285D890),
+	((NJS_MATERIAL*)0x0285D708),
+	((NJS_MATERIAL*)0x0285D580),
+	((NJS_MATERIAL*)0x0285D3F8),
+	((NJS_MATERIAL*)0x0285D270),
+	((NJS_MATERIAL*)0x0285C8B0),
+	((NJS_MATERIAL*)0x0285C8C4),
+	((NJS_MATERIAL*)0x0285C8D8),
+	((NJS_MATERIAL*)0x0285C8EC),
+	((NJS_MATERIAL*)0x0285C6E0),
+	((NJS_MATERIAL*)0x0285C3F8),
+	((NJS_MATERIAL*)0x0285C40C),
+	((NJS_MATERIAL*)0x0285C420),
+	((NJS_MATERIAL*)0x0285B550),
+	((NJS_MATERIAL*)0x0285B564),
+	((NJS_MATERIAL*)0x0285B268),
+	((NJS_MATERIAL*)0x0285ADA0),
+	((NJS_MATERIAL*)0x0285ADB4),
+	((NJS_MATERIAL*)0x0285ADC8),
+	((NJS_MATERIAL*)0x0285ADDC),
+	((NJS_MATERIAL*)0x0285AA48),
+	((NJS_MATERIAL*)0x0285AA5C),
+	((NJS_MATERIAL*)0x0285A820),
+	((NJS_MATERIAL*)0x0285A5F4),
+	((NJS_MATERIAL*)0x0285A448),
+	((NJS_MATERIAL*)0x0285A21C),
+	((NJS_MATERIAL*)0x02859FB4),
+	((NJS_MATERIAL*)0x02859FC8),
+	((NJS_MATERIAL*)0x02859C5C),
+	((NJS_MATERIAL*)0x02859C70),
+	((NJS_MATERIAL*)0x02859AB4),
+	((NJS_MATERIAL*)0x02859898),
+	((NJS_MATERIAL*)0x0285965C),
+	((NJS_MATERIAL*)0x02859484),
+	((NJS_MATERIAL*)0x02859268),
+	((NJS_MATERIAL*)0x02858D90),
+	((NJS_MATERIAL*)0x02858DA4),
+	((NJS_MATERIAL*)0x02858DB8),
+	((NJS_MATERIAL*)0x02858DCC),
+	((NJS_MATERIAL*)0x02858A48),
+	((NJS_MATERIAL*)0x02858A5C),
+	((NJS_MATERIAL*)0x02858820),
+	((NJS_MATERIAL*)0x028585E4),
+	((NJS_MATERIAL*)0x02858438),
+	((NJS_MATERIAL*)0x0285820C),
+	((NJS_MATERIAL*)0x02857FA4),
+	((NJS_MATERIAL*)0x02857FB8),
+	((NJS_MATERIAL*)0x02857C4C),
+	((NJS_MATERIAL*)0x02857C60),
+	((NJS_MATERIAL*)0x02857AA4),
+	((NJS_MATERIAL*)0x02857888),
+	((NJS_MATERIAL*)0x0285764C),
+	((NJS_MATERIAL*)0x02857474),
+	((NJS_MATERIAL*)0x02857268),
+	((NJS_MATERIAL*)0x028570A4),
 	//Tornado model 1
 	((NJS_MATERIAL*)0x028ADD58),
 	((NJS_MATERIAL*)0x028ADD6C),
@@ -454,6 +630,10 @@ NJS_MATERIAL* ObjectBaseAndSpecular[] = {
 		((NJS_MATERIAL*)0x027D80B0),
 		((NJS_MATERIAL*)0x027D80C4),
 		//Tornado 2 transformed
+		((NJS_MATERIAL*)0x027F8CB8),
+		((NJS_MATERIAL*)0x027F8CCC),
+		((NJS_MATERIAL*)0x027F8CE0),
+		((NJS_MATERIAL*)0x027F8CF4),
 		((NJS_MATERIAL*)0x02809E78),
 		((NJS_MATERIAL*)0x02809E8C),
 		((NJS_MATERIAL*)0x02809EA0),
@@ -496,7 +676,8 @@ bool ForceObjectBaseAndSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 {
-	set_diffuse(3, false);
+	set_diffuse(1, false);
+	diffuse_override(true);
 	use_default_diffuse(true);
 	return true;
 }
@@ -508,27 +689,14 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-const char* __cdecl SetPLZ0X(int level, int act)
-{
-	if (level == 35)
-	{
-		return plz0xbin.c_str();
-	}
-	else { return nullptr; }
-}
-
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 {
-	plz0xbin = path;
-	plz0xbin.append("\\system\\PL_Z0X.BIN");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
-		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
-		pl_load_register(SetPLZ0X);
 		material_register(ObjectBaseAndSpecular, LengthOfArray(ObjectBaseAndSpecular), &ForceObjectBaseAndSpecular);
-//		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 	}
 	//Tornado hit specular
@@ -536,8 +704,6 @@ extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 	((NJS_OBJECT*)0x02916ADC)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 	((NJS_OBJECT*)0x02918404)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 	((NJS_OBJECT*)0x02917F34)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-
-
 	SkyChase1_SkyboxScaleX = 5.0f;
 	SkyChase1_SkyboxScaleY = 5.0f;
 	SkyChase1_SkyboxScaleZ = 5.0f;

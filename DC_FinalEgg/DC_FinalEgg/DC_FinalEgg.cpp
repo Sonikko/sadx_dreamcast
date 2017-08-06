@@ -1,15 +1,12 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
 #include <lanternapi.h>
-#include <string>
 #include "FinalEgg1.h"
 #include "FinalEgg2.h"
 #include "FinalEgg3.h"
 #include "FinalEgg_objects.h"
 #include "stdlib.h"
 #include "math.h"
-
-std::string pla2xbin;
 
 NJS_TEXNAME textures_cylinder[259];
 NJS_TEXLIST texlist_cylinder = { arrayptrandlength(textures_cylinder) };
@@ -361,6 +358,8 @@ NJS_MATERIAL* ObjectSpecular[] = {
 NJS_MATERIAL* WhiteDiffuse[] = {
 	//Egg Keeper
 	((NJS_MATERIAL*)0x0094B168),
+	//OHasiGo
+	//&matlist_001E7318[2], //weird stuff happening
 	//OTexture
 	((NJS_MATERIAL*)0x01A45548),
 	//Elevator (glass tube)
@@ -423,18 +422,10 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 {
-	if (CurrentAct == 0) set_diffuse(5, false); else set_diffuse(1, false);
+	set_diffuse(1, false);
+	diffuse_override(true);
 	use_default_diffuse(true);
 	return true;
-}
-
-const char* __cdecl SetPLA2X(int level, int act)
-{
-	if (level == 10 && act == 2)
-	{
-		return pla2xbin.c_str();
-	}
-	else { return nullptr; }
 }
 
 extern "C"
@@ -443,13 +434,9 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
-		pla2xbin = path;
-		pla2xbin.append("\\system\\PL_A2X.BIN");
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
-			typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
-			pl_load_register(SetPLA2X);
 			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
@@ -471,6 +458,9 @@ extern "C"
 		*(NJS_MODEL_SADX*)0x01A1ED18 = attach_001CE0D0; //Gachapon thing lid
 		*(NJS_MODEL_SADX*)0x01A1E758 = attach_001CDD00; //Gachapon thing left
 		*(NJS_MODEL_SADX*)0x01A1E458 = attach_001CDA74; //Gachapon thing right
+		//*(NJS_MODEL_SADX*)0x01A44028 = attach_001EC828; //OHasiGo - weird stuff
+		*(NJS_MODEL_SADX*)0x01A301AC = attach_001DD1C0; //OFun
+		*(NJS_MODEL_SADX*)0x01A2EA10 = attach_001DC16C; //OFun
 		((NJS_MATERIAL*)0x01C26FD0)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Egg Kanban stuff
 		((NJS_MATERIAL*)0x01C26FE4)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Egg Kanban stuff
 		((NJS_OBJECT*)0x1C26F74)->basicdxmodel->mats[0].diffuse.argb.g = 178; //Egg Kanban stuff

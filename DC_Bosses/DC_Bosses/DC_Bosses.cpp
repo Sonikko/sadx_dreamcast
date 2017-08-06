@@ -37,7 +37,7 @@ DataArray(NJS_MATERIAL, matlist_01271BCC, 0x01271BCC, 2);
 
 DataPointer(float, Chaos4Hitpoints, 0x03C58158);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-
+DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(NJS_TEXANIM, stru_149401C, 0x149401C);
 DataPointer(NJS_TEXANIM, stru_1494050, 0x1494050);
 DataPointer(NJS_SPRITE, stru_1494030, 0x1494030);
@@ -397,7 +397,8 @@ bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 {
-	set_diffuse(3, false);
+	set_diffuse(1, false);
+	diffuse_override(true);
 	use_default_diffuse(true);
 	return true;
 }
@@ -420,6 +421,22 @@ bool ChaosPuddleFunc(NJS_MATERIAL* material, Uint32 flags)
 	{
 	set_diffuse(0, false);
 	set_specular(1, false);
+	}
+	use_default_diffuse(true);
+	return true;
+}
+
+bool Chaos2Function(NJS_MATERIAL* material, Uint32 flags)
+{
+	if (CurrentLevel == 16)
+	{
+		set_diffuse(4, false);
+		set_specular(5, false);
+	}
+	else
+	{
+		set_diffuse(2, false);
+		set_specular(3, false);
 	}
 	use_default_diffuse(true);
 	return true;
@@ -499,8 +516,11 @@ extern "C"
 			material_register(ChaosPuddle, LengthOfArray(ChaosPuddle), &ChaosPuddleFunc);
 			material_register(CharacterMaterials, LengthOfArray(CharacterMaterials), &CharacterFunction_nospec);
 			material_register(Chaos0Materials, LengthOfArray(Chaos0Materials), &Chaos0Function);
+			material_register(Chaos2Materials, LengthOfArray(Chaos2Materials), &Chaos2Function);
 			material_register(EggHornetMaterials, LengthOfArray(EggHornetMaterials), &ForceObjectOrLevelSpecularFunction);
 			material_register(Chaos6ObjectMaterials, LengthOfArray(Chaos6ObjectMaterials), &ForceObjectOrLevelSpecularFunction);
+			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 		}
 		WriteJump((void*)0x00556D60, SetClip_Chaos6KX);

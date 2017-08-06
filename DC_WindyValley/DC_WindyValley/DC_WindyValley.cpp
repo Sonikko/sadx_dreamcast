@@ -45,6 +45,14 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
+bool ForceWhiteDiffuseObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(3, false);
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
 NJS_MATERIAL* ObjectSpecular[] = {
 	//St_brd
 	((NJS_MATERIAL*)0x00C3BBB8),
@@ -90,15 +98,29 @@ NJS_MATERIAL* LevelSpecular[] = {
 	((NJS_MATERIAL*)0x008C2D88),
 	((NJS_MATERIAL*)0x008C2D9C),
 };
+
+NJS_MATERIAL* ObjectSpecularWhiteDiffuse[] = {
+//OPopo
+	((NJS_MATERIAL*)0x00C1C47C),
+//Leon eyes
+	((NJS_MATERIAL*)0x009544DC),
+	((NJS_MATERIAL*)0x009544F0),
+	((NJS_MATERIAL*)0x00953ABC),
+	((NJS_MATERIAL*)0x00953AD0),
+};
+
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	((NJS_MATERIAL*)0x00C1C468)->attr_texId &= ~NJD_FLAG_IGNORE_SPECULAR;
+	((NJS_MATERIAL*)0x00C1C47C)->attr_texId &= ~NJD_FLAG_IGNORE_SPECULAR;
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
 		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+		material_register(ObjectSpecularWhiteDiffuse, LengthOfArray(ObjectSpecularWhiteDiffuse), &ForceWhiteDiffuseObjectSpecular);
 	}
 	WriteData((void*)0x4DD120, 0xC3, sizeof(char));
 	*(NJS_OBJECT*)0x00C32DB8 = object_000D40D4; //grassy rock

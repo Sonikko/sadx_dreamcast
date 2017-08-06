@@ -18,7 +18,7 @@
 #include "MR_Objects.h"
 #include "MR_Palms.h"
 #include <lanternapi.h>
-
+HMODULE ADV02MODELS = GetModuleHandle(L"ADV02MODELS");
 DataPointer(float, dword_111DB90, 0x111DB90);
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
 DataArray(FogData, MR2FogDay, 0x01103478, 3);
@@ -100,7 +100,8 @@ bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 {
-	set_diffuse(3, false);
+	set_diffuse(1, false);
+	diffuse_override(true);
 	use_default_diffuse(true);
 	return true;
 }
@@ -117,6 +118,14 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 	use_default_diffuse(true);
 	return true;
 }
+
+NJS_MATERIAL* LevelSpecular[] = {
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002AD38),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002AD4C),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002AD60),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002AD74),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002AC2C),
+};
 
 NJS_MATERIAL* WhiteDiffuse[] = {
 	&matlist_001FCA84[8], //MR train
@@ -156,10 +165,12 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
+	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
+	if (handle != nullptr && Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
 		//material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
-		//material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 	}
 	WriteData((float*)0x111DBA4, 0.0f); //Master Emerald glow color
@@ -167,7 +178,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	*(NJS_OBJECT*)0x1108A18 = object_00226468; //TANKEN
 	*(NJS_OBJECT*)0x110CF34 = object2_00229334; //TANKEN 2
 	*(NJS_OBJECT*)0x11112CC = object_0022DDA4; //TANKEN 3
-	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
+
 	if (SADXStyleWater != 0) 
 	{
 		landtable_00017960.TexName = "ADV_MR00W";
@@ -212,7 +223,6 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		MR3DrawDist[i].Maximum = -12000.0f;
 		MR4DrawDist[i].Maximum = -4000.0f;
 	}
-	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
 	NJS_MODEL_SADX **___ADV02_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle, "___ADV02_MODELS");
 	___ADV02_TEXLISTS[4] = &texlist_mrtrain;

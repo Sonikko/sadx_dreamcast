@@ -40,9 +40,18 @@ bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+bool ForceWhiteDiffuseObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_diffuse(3, false);
+	set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(1, false);
+	diffuse_override(true);
 	use_default_diffuse(true);
 	return true;
 }
@@ -80,78 +89,6 @@ NJS_MATERIAL* ObjectSpecular[] = {
 	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x000164C0)),
 	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x000164D4)),
 	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x000164E8)),
-//Zero
-	((NJS_MATERIAL*)0x00990BC0),
-	((NJS_MATERIAL*)0x00990BD4),
-	((NJS_MATERIAL*)0x00990BE8),
-	((NJS_MATERIAL*)0x00990BFC),
-	((NJS_MATERIAL*)0x00990C10),
-	((NJS_MATERIAL*)0x00990420),
-	((NJS_MATERIAL*)0x00990434),
-	((NJS_MATERIAL*)0x00990448),
-	((NJS_MATERIAL*)0x0099045C),
-	((NJS_MATERIAL*)0x00990470),
-	((NJS_MATERIAL*)0x0098FC60),
-	((NJS_MATERIAL*)0x0098FC74),
-	((NJS_MATERIAL*)0x0098F558),
-	((NJS_MATERIAL*)0x0098F56C),
-	((NJS_MATERIAL*)0x0098F580),
-	((NJS_MATERIAL*)0x0098F594),
-	((NJS_MATERIAL*)0x0098F5A8),
-	((NJS_MATERIAL*)0x0098F5BC),
-	((NJS_MATERIAL*)0x0098EE50),
-	((NJS_MATERIAL*)0x0098EE64),
-	((NJS_MATERIAL*)0x0098EE78),
-	((NJS_MATERIAL*)0x0098EE8C),
-	((NJS_MATERIAL*)0x0098EEA0),
-	((NJS_MATERIAL*)0x0098EEB4),
-	((NJS_MATERIAL*)0x0098D218),
-	((NJS_MATERIAL*)0x0098D22C),
-	((NJS_MATERIAL*)0x0098D240),
-	((NJS_MATERIAL*)0x0098D254),
-	((NJS_MATERIAL*)0x0098D268),
-	((NJS_MATERIAL*)0x0098D27C),
-	((NJS_MATERIAL*)0x0098D290),
-	((NJS_MATERIAL*)0x0098D2A4),
-	((NJS_MATERIAL*)0x0098D2B8),
-	((NJS_MATERIAL*)0x0098D2CC),
-	((NJS_MATERIAL*)0x0098D2E0),
-	((NJS_MATERIAL*)0x0098D2F4),
-	((NJS_MATERIAL*)0x0098D308),
-	((NJS_MATERIAL*)0x0098D31C),
-	((NJS_MATERIAL*)0x0098D330),
-	((NJS_MATERIAL*)0x0098CE30),
-	((NJS_MATERIAL*)0x0098CE44),
-	((NJS_MATERIAL*)0x0098CB90),
-	((NJS_MATERIAL*)0x0098CBA4),
-	((NJS_MATERIAL*)0x0098C868),
-	((NJS_MATERIAL*)0x0098C87C),
-	((NJS_MATERIAL*)0x0098C890),
-	((NJS_MATERIAL*)0x0098C550),
-	((NJS_MATERIAL*)0x0098C564),
-	((NJS_MATERIAL*)0x0098C578),
-	((NJS_MATERIAL*)0x0098BDA4),
-	((NJS_MATERIAL*)0x0098B9C0),
-	((NJS_MATERIAL*)0x0098B9D4),
-	((NJS_MATERIAL*)0x0098B720),
-	((NJS_MATERIAL*)0x0098B734),
-	((NJS_MATERIAL*)0x0098B3F8),
-	((NJS_MATERIAL*)0x0098B40C),
-	((NJS_MATERIAL*)0x0098B420),
-	((NJS_MATERIAL*)0x0098B0E0),
-	((NJS_MATERIAL*)0x0098B0F4),
-	((NJS_MATERIAL*)0x0098B108),
-	((NJS_MATERIAL*)0x0098A924),
-	((NJS_MATERIAL*)0x00989F70),
-	((NJS_MATERIAL*)0x00989F84),
-	((NJS_MATERIAL*)0x00989F98),
-	((NJS_MATERIAL*)0x00989C30),
-	((NJS_MATERIAL*)0x00989C44),
-	((NJS_MATERIAL*)0x00989C58),
-	((NJS_MATERIAL*)0x009899C0),
-	((NJS_MATERIAL*)0x009899D4),
-	((NJS_MATERIAL*)0x00989750),
-	((NJS_MATERIAL*)0x00989764),
 //Last mirror 
 &matlist_00091C40X[0],
 &matlist_00091F0CX[0],
@@ -170,6 +107,11 @@ NJS_MATERIAL* ObjectSpecular[] = {
 ((NJS_MATERIAL*)0x038BEFDC),
 };
 
+NJS_MATERIAL* ObjectSpecularWhiteDiffuse[] = {
+((NJS_MATERIAL*)0x038C2D3C), //OLight
+((NJS_MATERIAL*)0x038C2D50), //OLight
+};
+
 NJS_MATERIAL* WhiteDiffuse[] = {
 //Fence2
 	((NJS_MATERIAL*)0x027A24D8),
@@ -181,8 +123,6 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 ((NJS_MATERIAL*)0x038C23BC), //Pole
 ((NJS_MATERIAL*)0x038C1700), //Panel
 ((NJS_MATERIAL*)0x038C1714), //Panel
-((NJS_MATERIAL*)0x038C2D3C), //OLight
-((NJS_MATERIAL*)0x038C2D50), //OLight
 //Satellite
 ((NJS_MATERIAL*)0x038AE590),
 ((NJS_MATERIAL*)0x038AE5A4),
@@ -331,6 +271,7 @@ extern "C"
 			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+			material_register(ObjectSpecularWhiteDiffuse, LengthOfArray(ObjectSpecularWhiteDiffuse), &ForceWhiteDiffuseObjectSpecular);
 		}
 		*(NJS_OBJECT*)0x27AF5EC = object_000ADBE0; //Double door
 		*(NJS_OBJECT*)0x27A3F5C = object_000A6CD8; //OFlyer

@@ -218,6 +218,7 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_diffuse(1, false);
+	diffuse_override(true);
 	use_default_diffuse(true);
 	return true;
 }

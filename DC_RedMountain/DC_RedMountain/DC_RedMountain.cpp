@@ -1,14 +1,11 @@
 #include "stdafx.h"
 #include "math.h"
-#include <string>
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "Mountain1.h"
 #include "Mountain2.h"
 #include "Mountain3.h"
 #include "RM_Objects.h"
-
-std::string pl51xbin;
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DAA8, &landtable_00018CB8),
@@ -72,6 +69,7 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_diffuse(1, false);
+	diffuse_override(true);
 	use_default_diffuse(true);
 	return true;
 }
@@ -180,28 +178,15 @@ void __cdecl sub_600BF0Z(ObjectMaster *a1, NJS_OBJECT *a2)
 	njPopMatrix(1u);
 }
 
-const char* __cdecl SetPL51X(int level, int act)
-{
-	if (level == 5 && act == 1)
-	{
-		return pl51xbin.c_str();
-	}
-	else { return nullptr; }
-}
-
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
-		pl51xbin = path;
-		pl51xbin.append("\\system\\PL_51X.BIN");
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
-			typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
-			pl_load_register(SetPL51X);
 			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
