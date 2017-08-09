@@ -225,6 +225,19 @@ NJS_MATERIAL* ObjectSpecular[] = {
 	((NJS_MATERIAL*)0x01E00364),
 	((NJS_MATERIAL*)0x01E00378),
 	((NJS_MATERIAL*)0x01E0038C),
+	((NJS_MATERIAL*)0x01DFCF7C),
+	((NJS_MATERIAL*)0x01DFCF90),
+	((NJS_MATERIAL*)0x01DFCFA4),
+	((NJS_MATERIAL*)0x01DF9718),
+	((NJS_MATERIAL*)0x01DF972C),
+	((NJS_MATERIAL*)0x01DF9740),
+	((NJS_MATERIAL*)0x01DF9754),
+	((NJS_MATERIAL*)0x01DF9768),
+	((NJS_MATERIAL*)0x01DF977C),
+};
+
+NJS_MATERIAL* LevelSpecular[] = {
+//OLion
 	((NJS_MATERIAL*)0x01DFDE88),
 	((NJS_MATERIAL*)0x01DFDE9C),
 	((NJS_MATERIAL*)0x01DFDEB0),
@@ -238,15 +251,6 @@ NJS_MATERIAL* ObjectSpecular[] = {
 	((NJS_MATERIAL*)0x01DFDF50),
 	((NJS_MATERIAL*)0x01DFDF64),
 	((NJS_MATERIAL*)0x01DFDF78),
-	((NJS_MATERIAL*)0x01DFCF7C),
-	((NJS_MATERIAL*)0x01DFCF90),
-	((NJS_MATERIAL*)0x01DFCFA4),
-	((NJS_MATERIAL*)0x01DF9718),
-	((NJS_MATERIAL*)0x01DF972C),
-	((NJS_MATERIAL*)0x01DF9740),
-	((NJS_MATERIAL*)0x01DF9754),
-	((NJS_MATERIAL*)0x01DF9768),
-	((NJS_MATERIAL*)0x01DF977C),
 };
 
 extern "C"
@@ -266,7 +270,7 @@ extern "C"
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
-			//material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 		}
