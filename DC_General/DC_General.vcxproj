@@ -152,6 +152,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Animals.h" />
+    <ClInclude Include="EmeraldGlow.h" />
     <ClInclude Include="EmeShard.h" />
     <ClInclude Include="Itembox.h" />
     <ClInclude Include="stdafx.h" />
