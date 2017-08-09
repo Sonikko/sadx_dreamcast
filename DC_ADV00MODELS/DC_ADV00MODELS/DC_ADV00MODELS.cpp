@@ -62,9 +62,12 @@ bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-bool ForceDefaultMaterialColor(NJS_MATERIAL* material, Uint32 flags)
+bool NPCModelsFunction(NJS_MATERIAL* material, Uint32 flags)
 {
 	use_default_diffuse(true);
+	if (get_diffuse() != 2) set_diffuse(2, false);
+	if (get_specular() == 0) set_specular (2, false);
+	if (get_specular() == 1) set_specular(3, false);
 	return true;
 }
 
@@ -138,6 +141,16 @@ NJS_MATERIAL* WhiteDiffuse_Night[] = {
 };
 
 NJS_MATERIAL* ObjectSpecular[] = {
+	//OTWADoor
+	((NJS_MATERIAL*)0x02AB5180),
+	((NJS_MATERIAL*)0x02AB5194),
+	((NJS_MATERIAL*)0x02AB51A8),
+	((NJS_MATERIAL*)0x02AB4F08),
+	((NJS_MATERIAL*)0x02AB4F1C),
+	((NJS_MATERIAL*)0x02AB4F30),
+	((NJS_MATERIAL*)0x02AB4C8C),
+	((NJS_MATERIAL*)0x02AB4CA0),
+	((NJS_MATERIAL*)0x02AB4CB4),
 	//OPoolChair
 	((NJS_MATERIAL*)0x02ACAF88),
 	((NJS_MATERIAL*)0x02ACAF9C),
@@ -159,8 +172,6 @@ NJS_MATERIAL* ObjectSpecular[] = {
 	((NJS_MATERIAL*)0x02AC6B28),
 	((NJS_MATERIAL*)0x02AC6B3C), 
 	//Burger shop door
-	((NJS_MATERIAL*)0x02AB1068),
-	((NJS_MATERIAL*)0x02AB107C),
 	((NJS_MATERIAL*)0x02AB0310),
 	((NJS_MATERIAL*)0x02AB0324),
 	((NJS_MATERIAL*)0x02AB0338),
@@ -172,6 +183,9 @@ NJS_MATERIAL* ObjectSpecular[] = {
 };
 
 NJS_MATERIAL* LevelSpecular[] = {
+	//Burger shop door
+	((NJS_MATERIAL*)0x02AB1068),
+	((NJS_MATERIAL*)0x02AB107C),
 	//Casino stuff
 	((NJS_MATERIAL*)0x02B02B18),
 	((NJS_MATERIAL*)0x02B02B2C),
@@ -226,7 +240,7 @@ extern "C"
 			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 			material_register(WhiteDiffuse_Night, LengthOfArray(WhiteDiffuse_Night), &ForceWhiteDiffuse_Night);
-			material_register(DefaultDiffuse, LengthOfArray(DefaultDiffuse), &ForceDefaultMaterialColor);
+			material_register(NPCMaterials, LengthOfArray(NPCMaterials), &NPCModelsFunction);
 		}
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		if (SADXStyleWater != 0)
