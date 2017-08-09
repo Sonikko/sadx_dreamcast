@@ -356,10 +356,10 @@ NJS_MATERIAL* ObjectSpecular[] = {
 };
 
 NJS_MATERIAL* WhiteDiffuse[] = {
+	//OHasiGo
+	&matlist_001E7318[2],
 	//Egg Keeper
 	((NJS_MATERIAL*)0x0094B168),
-	//OHasiGo
-	//&matlist_001E7318[2], //weird stuff happening
 	//OTexture
 	((NJS_MATERIAL*)0x01A45548),
 	//Elevator (glass tube)
@@ -458,7 +458,7 @@ extern "C"
 		*(NJS_MODEL_SADX*)0x01A1ED18 = attach_001CE0D0; //Gachapon thing lid
 		*(NJS_MODEL_SADX*)0x01A1E758 = attach_001CDD00; //Gachapon thing left
 		*(NJS_MODEL_SADX*)0x01A1E458 = attach_001CDA74; //Gachapon thing right
-		//*(NJS_MODEL_SADX*)0x01A44028 = attach_001EC828; //OHasiGo - weird stuff
+		*(NJS_MODEL_SADX*)0x01A44028 = attach_001EC828; //OHasiGo
 		*(NJS_MODEL_SADX*)0x01A301AC = attach_001DD1C0; //OFun
 		*(NJS_MODEL_SADX*)0x01A2EA10 = attach_001DC16C; //OFun
 		((NJS_MATERIAL*)0x01C26FD0)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Egg Kanban stuff
