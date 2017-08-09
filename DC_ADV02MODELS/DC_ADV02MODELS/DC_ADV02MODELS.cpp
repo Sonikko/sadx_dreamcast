@@ -120,6 +120,30 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 }
 
 NJS_MATERIAL* LevelSpecular[] = {
+	//ODigPlace1
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x000168E8),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x000168FC),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x00017B40),
+	//Echidna statue
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002C8F8),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002C90C),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002C920),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002C934),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002C948),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002C95C),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002C970),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002C984),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002C998),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002BC60),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002BC74),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002BC88),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002BC9C),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002BCB0),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002BCC4),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002BCD8),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002BCEC),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002BD00),
+	//Other stuff
 	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002AD38),
 	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002AD4C),
 	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002AD60),
@@ -127,7 +151,20 @@ NJS_MATERIAL* LevelSpecular[] = {
 	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0002AC2C),
 };
 
+NJS_MATERIAL* ObjectSpecular[] = {
+	//ODigPlace1
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x00017150),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x00017164),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x00017178),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0001718C),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x000171A0),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x000171B4),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x00016698),
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x00016448),
+};
+
 NJS_MATERIAL* WhiteDiffuse[] = {
+	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0003CD50), //Button on HiddenGate
 	&matlist_001FCA84[8], //MR train
 	//Palm trees
 	&matlist_001D76E0[1],
@@ -169,7 +206,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	if (handle != nullptr && Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
-		//material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 	}
@@ -274,6 +311,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_OBJECTS[53]->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2; //Diggable place
 	___ADV02_OBJECTS[103] = &object_001C76EC; //Master Emerald (complete)
 	___ADV02_OBJECTS[71]->model = &attach_001D6AA0; //The gate for Tails' Tornado
+	___ADV02_OBJECTS[71]->child->sibling->sibling->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 	___ADV02_OBJECTS[71]->child->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
 	___ADV02_OBJECTS[71]->child->sibling->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
 	___ADV02_OBJECTS[70]->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
@@ -309,7 +347,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_ACTIONS[9]->object = &object_001B2D5C; //Final Egg base door
 	___ADV02_ACTIONS[17]->object = &object_001CCFBC; //OHiddenGate
 	___ADV02_MODELS[9] = &attach_0003D34C; //OHiddenGate button
-	___ADV02_MODELS[12] = &attach_001B412C; //Echidna statue
+	___ADV02_MODELS[12] = &attach_001B412C; //OSandSwitch
 }
 
 extern "C"  __declspec(dllexport) void __cdecl OnFrame()
@@ -379,7 +417,8 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 			InsideTemple = 1;
 		}
 		else InsideTemple = 0;
-		if (CurrentCharacter == 7)  InsideTemple = 1; //208, 226
+		if (CurrentCharacter == 7 && CutsceneID == 208)  InsideTemple = 1;
+		if (CurrentCharacter == 7 && CutsceneID == 226)  InsideTemple = 1;
 		if (Camera_Data1 != nullptr && Camera_Data1->Position.y < 300.0f && InsideTemple == 0)
 		{
 			if (CurrentFogLayer < -65.0f) CurrentFogLayer = CurrentFogLayer + 64.0f;
@@ -420,4 +459,5 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		for (int q5 = 0; q5 < LengthOfArray(uv_00161C18); q5++) { uv_00161C18[q5].v = uv_00161C18_0[q5].v+uv_anim; }
 	}
 }
+
 extern "C" __declspec(dllexport) const ModInfo SADXModInfo = { ModLoaderVer };
