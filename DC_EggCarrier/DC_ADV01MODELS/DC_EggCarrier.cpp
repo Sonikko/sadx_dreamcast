@@ -241,8 +241,8 @@ void __cdecl SetClip_EC01(signed int cliplevel)
 ObjectMaster *__cdecl TurnLightsOff()
 {
 	set_shader_flags(ShaderFlags_Blend, true);
-	set_diffuse_blend(4);
-	set_specular_blend(3);
+	set_diffuse_blend(0, 4);
+	set_specular_blend(0, 0);
 	set_blend_factor(1.0f);
 	ObjectMaster *result; // eax@1
 	result = LoadObject((LoadObj)0, 1, sub_6F4570);
