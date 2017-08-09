@@ -86,6 +86,17 @@ bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 }
 
 NJS_MATERIAL* WhiteDiffuse[] = {
+	//Level stuff
+	&matlist_000774B8[0],
+	&matlist_000774B8[1],
+	&matlist_000774B8[2],
+	&matlist_000774B8[3],
+	&matlist_000774B8[4],
+	&matlist_000774B8[5],
+	&matlist_000774B8[6],
+	&matlist_000774B8[7],
+	&matlist_000774B8[8],
+	&matlist_000774B8[9],
 	//OAntena
 	((NJS_MATERIAL*)0x02691188),
 	((NJS_MATERIAL*)0x0269119C),
