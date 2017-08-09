@@ -517,7 +517,6 @@ extern "C"
 			material_register(CharacterMaterials, LengthOfArray(CharacterMaterials), &CharacterFunction_nospec);
 			material_register(Chaos0Materials, LengthOfArray(Chaos0Materials), &Chaos0Function);
 			material_register(Chaos2Materials, LengthOfArray(Chaos2Materials), &Chaos2Function);
-			material_register(EggHornetMaterials, LengthOfArray(EggHornetMaterials), &ForceObjectOrLevelSpecularFunction);
 			material_register(Chaos6ObjectMaterials, LengthOfArray(Chaos6ObjectMaterials), &ForceObjectOrLevelSpecularFunction);
 			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
@@ -590,18 +589,6 @@ extern "C"
 		WriteData((char*)0x0054E12C, 0x00, 1); //Chandelier lighting in Chaos 2
 		((NJS_MATERIAL*)0x011E2C00)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Lilypad in Chaos 4
 		((NJS_MATERIAL*)0x011E2C14)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Lilypad in Chaos 4
-		//E101 Beta lighting fix
-		((NJS_OBJECT*)0x014D76B4)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
-		((NJS_OBJECT*)0x014D76B4)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
-		((NJS_OBJECT*)0x014D76B4)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
-		((NJS_OBJECT*)0x014D76B4)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
-		((NJS_OBJECT*)0x014D76B4)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
-		((NJS_OBJECT*)0x014D857C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		((NJS_OBJECT*)0x014D857C)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		((NJS_OBJECT*)0x014D887C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		((NJS_OBJECT*)0x014D943C)->basicdxmodel->mats[7].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		((NJS_OBJECT*)0x014DC25C)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		((NJS_OBJECT*)0x014DD4A4)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		//Egg Viper platforms specular fix
 		((NJS_MATERIAL*)0x01672848)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		((NJS_MATERIAL*)0x0167285C)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
@@ -664,17 +651,6 @@ extern "C"
 		((NJS_MATERIAL*)0x016702DC)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		*(NJS_OBJECT*)0x01669DA8 = object_000434A0;
 		//Material fixes
-		//Eggmobiles
-		if (SA1Chars == 0)
-		{
-			for (int e = 0; e < 24; e++)
-			{
-				((NJS_OBJECT *)0x269D214)->basicdxmodel->mats[e].diffuse.color = 0xFFB2B2B2;
-				((NJS_OBJECT *)0x1257754)->basicdxmodel->mats[e].diffuse.color = 0xFFB2B2B2;
-				((NJS_OBJECT *)0x269D214)->basicdxmodel->mats[e].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-				((NJS_OBJECT *)0x1257754)->basicdxmodel->mats[e].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-			}
-		}
 		((NJS_OBJECT *)0x31A4DFC)->basicdxmodel->mats[11].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Zero holding Amy lighting fix
 		//Chaos 0
 		((NJS_OBJECT*)0x02C65CF8)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
@@ -790,20 +766,6 @@ extern "C"
 		((NJS_MATERIAL*)0x0128A954)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;*/
 		//Perfect Chaos misc
 		((NJS_OBJECT*)0x0248B1B4)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Egg Carrier 2
-		if (SA1Chars == 0)
-		{
-			((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
-			((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
-			((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
-			((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
-			((NJS_OBJECT*)0x02EE83E0)->basicdxmodel->mats[4].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
-			((NJS_OBJECT*)0x02EE7808)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
-			((NJS_OBJECT*)0x02EE7808)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
-			((NJS_OBJECT*)0x02EE7808)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
-			((NJS_OBJECT*)0x02EE7808)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
-			((NJS_OBJECT*)0x02EE7808)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
-			((NJS_OBJECT*)0x02EE7808)->basicdxmodel->mats[5].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggmobile
-		}
 		DataArray(NJS_MATERIAL, matlist_00F975B0, 0x013975B0, 3);
 		DataArray(NJS_MATERIAL, matlist_00F98C98, 0x01398C98, 6);
 		matlist_00F975B0[0].diffuse.color = 0xFFB2B2B2;
@@ -854,29 +816,6 @@ extern "C"
 		((NJS_OBJECT*)0x0155B9E8)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //drills
 		((NJS_OBJECT*)0x01561A70)->basicdxmodel->mats[18].attrflags |= NJD_FLAG_IGNORE_LIGHT; //front light
 		((NJS_OBJECT*)0x01561A70)->basicdxmodel->mats[8].attrflags |= NJD_FLAG_IGNORE_LIGHT; //computer
-		((NJS_OBJECT*)0x015650D8)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman head
-		((NJS_OBJECT*)0x015650D8)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman head
-		((NJS_OBJECT*)0x015650D8)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman head
-		((NJS_OBJECT*)0x015650D8)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman head
-		((NJS_OBJECT*)0x015650D8)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman head
-		((NJS_OBJECT*)0x015650D8)->basicdxmodel->mats[5].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman head
-		((NJS_OBJECT*)0x01564040)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman head
-		((NJS_OBJECT*)0x01562DA4)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x01562DA4)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x01562DA4)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x01562DA4)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x01562DA4)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x01563A9C)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x01563A9C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x01563A9C)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x01563A9C)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x01563A9C)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x0156291C)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x0156291C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x0156291C)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x01563614)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x01563614)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
-		((NJS_OBJECT*)0x01563614)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Eggman arms
 		//Egg Walker
 		((NJS_OBJECT*)0x162E0FC)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		//E101 rocket
@@ -1135,8 +1074,8 @@ extern "C"
 				if (EggViper_EffectMode != 0)
 				{
 					set_shader_flags(ShaderFlags_Blend, true);
-					set_diffuse_blend(5);
-					set_specular_blend(1);
+					set_diffuse_blend(0, 5);
+					set_specular_blend(0, 0);
 					set_blend_factor(EggViper_blendfactor);
 				}
 				else
