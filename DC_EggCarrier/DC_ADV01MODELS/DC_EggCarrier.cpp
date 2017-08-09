@@ -20,6 +20,7 @@
 FunctionPointer(void, sub_6F4570, (ObjectMaster *a1), 0x6F4570);
 DataPointer(ObjectMaster*, dword_3C85138, 0x3C85138);
 HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
+HMODULE ADV01CMODELS = GetModuleHandle(L"ADV01CMODELS");
 std::string plw1xbin;
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(__int16, EggCarrierSunk_CharacterFlag, 0x0090A41C);
@@ -72,7 +73,6 @@ const char* __cdecl SetPLW1X(int level, int act)
 	}
 	else { return nullptr; }
 }
-
 
 bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
@@ -144,6 +144,12 @@ NJS_MATERIAL* ObjectSpecular[] = {
 };
 
 NJS_MATERIAL* WhiteDiffuse[] = {
+	//OHammerSW
+	(NJS_MATERIAL*)((size_t)ADV01CMODELS + 0x00110B04),
+	//Tarai button
+	//&matlist_0011154C[0],
+	//&matlist_0011154C[1],
+	//&matlist_0011154C[2],
 	//Level stuff
 	&matlist_00081DF0[0],
 	&matlist_00081DF0[1],
@@ -156,29 +162,24 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 	//OTornado2
 	&matlist_0024BE40[23],
 	&matlist_0024BE40[24],
-	//OTarai button
-	&matlist_0011154C[0],
-	&matlist_0011154C[1],
-	&matlist_0011154C[2],
-	&matlist_00111440[0],
-//OTaihou Cannon
+	//OTaihou Cannon
 	&matlist_0017C018[3],
 	&matlist_0017C018[4],
 	&matlist_0017C018[5],
 	&matlist_0017C018[6],
 	&matlist_0017C018[7],
-//Captain room
-&matlist_000CB0BC[4],
-&matlist_000CB0BC[7],
-&matlist_000165BC[0],
-&matlist_000165BC[1],
-&matlist_000165BC[2],
-&matlist_000165BC[3],
-&matlist_000165BC[5],
-&matlist_000165BC[6],
-&matlist_000165BC[7],
-&matlist_000165BC[8],
-&matlist_000165BC[9],
+	//Captain room
+	&matlist_000CB0BC[4],
+	&matlist_000CB0BC[7],
+	&matlist_000165BC[0],
+	&matlist_000165BC[1],
+	&matlist_000165BC[2],
+	&matlist_000165BC[3],
+	&matlist_000165BC[5],
+	&matlist_000165BC[6],
+	&matlist_000165BC[7],
+	&matlist_000165BC[8],
+	&matlist_000165BC[9],
 };
 
 void sub_10001050(NJS_OBJECT *a1)
@@ -391,9 +392,9 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		EggCarrierOutside6Fog[i].Distance = -12000;
 		EggCarrierOutside6Fog[i].Layer = -12000;
 		EggCarrierOutside7Fog[i].Toggle = 1;
-		EggCarrierOutside7Fog[i].Layer = 3000;
+		EggCarrierOutside7Fog[i].Layer = 6500;
 		EggCarrierOutside7Fog[i].Color = 0xFF000000;
-		EggCarrierOutside7Fog[i].Distance = 21500;
+		EggCarrierOutside7Fog[i].Distance = 17000;
 		EggCarrierInside1Fog[i].Distance = -12000;
 		EggCarrierInside1Fog[i].Layer = -12000;
 		EggCarrierInside2Fog[i].Toggle = 1;
