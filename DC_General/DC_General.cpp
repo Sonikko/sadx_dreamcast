@@ -1792,7 +1792,8 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 		WriteJump((void*)0x004CB590, Switch_DisplayX);
-		*(NJS_OBJECT*)0x010FEF74 = object_00CFEF74; //Fix materials on Eggmobile NPC model
+		*(NJS_OBJECT*)0x010FEF74 = object_02AEB524; //Fix materials on Eggmobile NPC model
+		WriteData((NJS_TEXLIST**)0x007D2B22, (NJS_TEXLIST*)0x02EE0AA4); //Replace the texlist for the above model in the NPC data array
 		*(NJS_TEXLIST**)0x02BD5FE4 = (NJS_TEXLIST*)0x02EE0AA4; //Eggman Super Sonic cutscene texlist fix
 		//Emblem field model
 		((NJS_MATERIAL*)0x009740FC)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
