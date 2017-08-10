@@ -6,6 +6,7 @@
 #include "EmeShard.h"
 #include "EmeraldGlow.h"
 #include "TornadoCrash.h"
+//#include "EggmobileNPC.h"
 
 HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 HMODULE ADV01MODELS = GetModuleHandle(L"ADV01MODELS");
@@ -1791,8 +1792,9 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 		WriteJump((void*)0x004CB590, Switch_DisplayX);
-		*(NJS_OBJECT *)0x010FEF74 = *(NJS_OBJECT *)0x02EEB524; //Replace the non-updated Eggmobile model with a high-poly one
+		*(NJS_OBJECT *)0x010FEF74 = *(NJS_OBJECT *)0x02EEB524; //Replace the non-updated Eggmobile NPC model with a high-poly one to resolve a texture issue
 		WriteData((NJS_TEXLIST**)0x007D2B22, (NJS_TEXLIST*)0x02EE0AA4); //Replace the texlist for the above model in the NPC data array
+		((NJS_OBJECT*)0x02EEB524)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 		*(NJS_TEXLIST**)0x02BD5FE4 = (NJS_TEXLIST*)0x02EE0AA4; //Eggman Super Sonic cutscene texlist fix
 		//Emblem field model
 		((NJS_MATERIAL*)0x009740FC)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
