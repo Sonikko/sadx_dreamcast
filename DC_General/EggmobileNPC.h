@@ -6564,5 +6564,3 @@ NJS_VECTOR normal_00CFE168[] = {
 NJS_MODEL_SADX attach_00CFEF48 = { vertex_00CFD388, normal_00CFE168, LengthOfArray<Sint32>(vertex_00CFD388), meshlist_00CFCFE8, matlist_00CFB7F0, LengthOfArray<Uint16>(meshlist_00CFCFE8), LengthOfArray<Uint16>(matlist_00CFB7F0),{ 1.352989f, 6.389788f, -0.00003f }, 19.33517f, NULL };
 
 NJS_OBJECT object_00CFEF74 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attach_00CFEF48, 0, 0.176446f, 0, 0, 0, 0, 1, 1, 1, &object_00CFB7B8, NULL };
-
-//*(NJS_OBJECT*)0x010FEF74 = object_00CFEF74; //Fix materials on Eggmobile NPC model
