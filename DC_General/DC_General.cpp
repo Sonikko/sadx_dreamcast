@@ -1791,34 +1791,30 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//Common switch function
 		WriteJump((void*)0x004CB590, Switch_DisplayX);
+		//Various bugfixes
+		//Ripple fix
+		WriteJump((void*)0x7A81A0, FixedBubbleRipple);
+		//Zero holding Amy lighting fix
+		((NJS_OBJECT *)0x31A4DFC)->basicdxmodel->mats[11].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; 
+		//Tikal lighting fixes
+		((NJS_OBJECT*)0x008CE058)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		((NJS_OBJECT*)0x008CC658)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		//Eggman fingers fix
+		((NJS_OBJECT*)0x008961E0)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		((NJS_OBJECT*)0x008964CC)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		((NJS_OBJECT*)0x008980DC)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		((NJS_OBJECT*)0x00897DE0)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		((NJS_OBJECT*)0x02EE22C0)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		((NJS_OBJECT*)0x02EE25AC)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		((NJS_OBJECT*)0x02EE4194)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		((NJS_OBJECT*)0x02EE3E98)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		//Eggmobile NPC model fix
 		*(NJS_OBJECT*)0x010FEF74 = object_02AEB524; //Fix materials on Eggmobile NPC model
 		WriteData((NJS_TEXLIST**)0x007D2B22, (NJS_TEXLIST*)0x02EE0AA4); //Replace the texlist for the above model in the NPC data array
 		*(NJS_TEXLIST**)0x02BD5FE4 = (NJS_TEXLIST*)0x02EE0AA4; //Eggman Super Sonic cutscene texlist fix
-		//Emblem field model
-		((NJS_MATERIAL*)0x009740FC)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-		((NJS_MATERIAL*)0x00974110)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-		((NJS_MATERIAL*)0x00974124)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-		((NJS_MATERIAL*)0x00974138)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-		//Emeralds glow
-		//((NJS_OBJECT*)0xC3F050)->sibling = &object_8D48F39A4A35FE206B1;
-		//((NJS_OBJECT*)0xC3E300)->sibling = &object_8D48F39A4A35FE206B1;
-		//((NJS_OBJECT*)0xC3FDA0)->sibling = &object_8D48F39A4A35FE206B1;
-		WriteJump((void*)0x7A81A0, FixedBubbleRipple);
-		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-		if (Lantern != nullptr && GetProcAddress(Lantern, "allow_landtable_specular") != nullptr)
-		{
-			allow_landtable_specular(true);
-			//allow_object_vcolor(false);
-			material_register(FirstCharacterSpecular, LengthOfArray(FirstCharacterSpecular), &ForceFirstCharacterSpecular);
-			material_register(SecondCharacterSpecular, LengthOfArray(SecondCharacterSpecular), &ForceSecondCharacterSpecular);
-			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
-			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
-			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
-			material_register(WhiteDiffuseSecondCharSpecular, LengthOfArray(WhiteDiffuseSecondCharSpecular), &ForceWhiteDiffuseSecondCharSpecular);
-			material_register(E101Material, LengthOfArray(E101Material), &E101Function);
-		}
-		//E101 Beta lighting fix
+		//E101 Beta lighting fixes
 		((NJS_OBJECT*)0x014D76B4)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
 		((NJS_OBJECT*)0x014D76B4)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
 		((NJS_OBJECT*)0x014D76B4)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
@@ -1830,7 +1826,28 @@ extern "C"
 		((NJS_OBJECT*)0x014D943C)->basicdxmodel->mats[7].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x014DC25C)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x014DD4A4)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		//Hedgehog Hammer targets
+		//Emblem field model
+		((NJS_MATERIAL*)0x009740FC)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x00974110)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x00974124)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x00974138)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		//Emeralds glow
+		//((NJS_OBJECT*)0xC3F050)->sibling = &object_8D48F39A4A35FE206B1;
+		//((NJS_OBJECT*)0xC3E300)->sibling = &object_8D48F39A4A35FE206B1;
+		//((NJS_OBJECT*)0xC3FDA0)->sibling = &object_8D48F39A4A35FE206B1;
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		if (Lantern != nullptr && GetProcAddress(Lantern, "allow_landtable_specular") != nullptr)
+		{
+			allow_landtable_specular(true);
+			material_register(FirstCharacterSpecular, LengthOfArray(FirstCharacterSpecular), &ForceFirstCharacterSpecular);
+			material_register(SecondCharacterSpecular, LengthOfArray(SecondCharacterSpecular), &ForceSecondCharacterSpecular);
+			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+			material_register(WhiteDiffuseSecondCharSpecular, LengthOfArray(WhiteDiffuseSecondCharSpecular), &ForceWhiteDiffuseSecondCharSpecular);
+			material_register(E101Material, LengthOfArray(E101Material), &E101Function);
+		}
+		//Hedgehog Hammer targets (possibly SL objects?)
 		((NJS_MATERIAL*)((size_t)ADV01CMODELS + 0x0011C478))->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_MATERIAL*)((size_t)ADV01CMODELS + 0x0011BF60))->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_MATERIAL*)((size_t)ADV01CMODELS + 0x0011BF74))->attrflags |= NJD_FLAG_IGNORE_LIGHT;

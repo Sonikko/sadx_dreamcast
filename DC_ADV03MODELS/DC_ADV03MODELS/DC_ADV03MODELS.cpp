@@ -23,7 +23,7 @@ NJS_MATERIAL* SecondCharacterSpecular[] = {
 };
 
 NJS_MATERIAL* ObjectSpecular[] = {
-//Tree
+	//Tree
 	(NJS_MATERIAL*)((size_t)Past + 0x0011F030),
 	(NJS_MATERIAL*)((size_t)Past + 0x0011F044),
 	(NJS_MATERIAL*)((size_t)Past + 0x0011E100),
@@ -31,7 +31,6 @@ NJS_MATERIAL* ObjectSpecular[] = {
 };
 
 NJS_MATERIAL* FirstCharacterSpecular[] = {
-	//Tikal (NPC model I guess?)
 	//Chao
 	(NJS_MATERIAL*)((size_t)Past + 0x0013C668),
 	(NJS_MATERIAL*)((size_t)Past + 0x0013C190),

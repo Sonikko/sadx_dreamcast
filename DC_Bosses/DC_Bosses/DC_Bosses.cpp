@@ -650,8 +650,6 @@ extern "C"
 		((NJS_MATERIAL*)0x016702C8)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		((NJS_MATERIAL*)0x016702DC)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		*(NJS_OBJECT*)0x01669DA8 = object_000434A0;
-		//Material fixes
-		((NJS_OBJECT *)0x31A4DFC)->basicdxmodel->mats[11].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Zero holding Amy lighting fix
 		//Chaos 0
 		((NJS_OBJECT*)0x02C65CF8)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 		((NJS_OBJECT*)0x02C5DD18)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
