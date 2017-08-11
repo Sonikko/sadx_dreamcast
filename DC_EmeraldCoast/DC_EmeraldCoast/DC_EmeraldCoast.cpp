@@ -459,12 +459,46 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	DataArray(PVMEntry, BeachTexlists, 0x0102F408, 25);
 	if (SADXStyleWater == true)
 	{
-		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 1].Flags = 0x80000002;
-		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 2].Flags = 0x80000002;
-		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 3].Flags = 0x80000002;
-		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 4].Flags = 0x80000002;
-		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 5].Flags = 0x80000002;
-		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 6].Flags = 0x80000002;
+		//Act 1
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 1].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 2].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 3].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 4].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 5].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 6].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 7].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 8].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 9].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 10].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 11].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 12].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 13].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 14].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 15].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 16].Flags = 0x80000402;
+		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 17].Flags = 0x80000402;
+		//Act 2
+		collist_000DD600[LengthOfArray(collist_000DD600) - 1].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 2].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 3].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 4].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 5].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 6].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 7].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 8].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 9].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 10].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 11].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 12].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 13].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 14].Flags = 0x80000402;
+		//Act 3
+		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 1].Flags = 0x80000402;
+		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 2].Flags = 0x80000402;
+		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 3].Flags = 0x80000402;
+		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 4].Flags = 0x80000402;
+		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 5].Flags = 0x80000402;
+		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 6].Flags = 0x80000402;
 		for (int rq = 0; rq < LengthOfArray(uv_00CBB000_d); rq++)
 		{
 			uv_00CBB000_d[rq].u = round(0.5 * uv_00CBB000_d[rq].u);
@@ -624,6 +658,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		matlist_00075C74[0].attr_texId = anim1;
 		matlist_00075F1C[0].attr_texId = anim1;
 		matlist_00076278[0].attr_texId = anim1;
+		matlist_00076278[1].attr_texId = anim1;
 		matlist_00076654[0].attr_texId = anim1;
 		matlist_00076FA0[0].attr_texId = anim1;
 		matlist_00076B90[0].attr_texId = anim1;
