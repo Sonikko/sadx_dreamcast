@@ -6,6 +6,7 @@
 #include "SkyChaseModels.h"
 
 DataArray(FogData, FogData_SandHill, 0x0173BB74, 3);
+DataArray(FogData, FogData_HedgehogHammer, 0x027C69C4, 3);
 DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
 DataPointer(float, SkyChase1_SkyboxScaleX, 0x027D6CE0);
 DataPointer(float, SkyChase1_SkyboxScaleY, 0x027D6CE4);
@@ -720,6 +721,8 @@ extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 	for (int i = 0; i < 3; i++)
 	{
 		FogData_SandHill[i].Color = 0xFFAAAA8C;
+		FogData_HedgehogHammer[i].Distance = 16000.0f;
+		FogData_HedgehogHammer[i].Layer = 5000.0f;
 	}
 }
 
