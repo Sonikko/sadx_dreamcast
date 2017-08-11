@@ -484,6 +484,7 @@ bool CharacterFunction_nospec(NJS_MATERIAL* material, Uint32 flags)
 
 bool ForceObjectOrLevelSpecularFunction(NJS_MATERIAL* material, Uint32 flags)
 {
+	set_diffuse(0, false);
 	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(0, false); else set_specular(1, false);
 	use_default_diffuse(true);
 	return true;
