@@ -19,7 +19,7 @@ DataPointer(float, CurrentSkyBoxScaleY, 0x03ABDC98);
 DataPointer(float, CurrentSkyBoxScaleZ, 0x03ABDC9C);
 DataPointer(NJS_VECTOR, SkyDeck_SkyPosition, 0x03C7F038);
 DataPointer(NJS_COLOR, CurrentFogColor, 0x03ABDC68);
-
+FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
 
 bool ForceObjectorLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
@@ -357,8 +357,6 @@ void SkyDeckSky_original(ObjectMaster *_this)
 	DataArray(NJS_TEX, SkyDeck_SkyUVsB, 0x03C804F8, 32);
 	DataPointer(NJS_TEXLIST, OBJ_SKYDECK_TEXLIST, 0x0214BE40);
 	DataPointer(NJS_VECTOR, Skybox_Scale, 0x03ABDC94);
-	FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
-
 	njControl3D_Backup();
 	njControl3D_Add(NJD_CONTROL_3D_OFFSET_MATERIAL);
 	DisableFog();

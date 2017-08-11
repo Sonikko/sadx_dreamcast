@@ -13,6 +13,7 @@ struct OceanData
 };
 
 FunctionPointer(void, DrawEmeraldCoastOcean, (OceanData *x), 0x004F8A30);
+FunctionPointer(double, sub_789320, (float a2), 0x789320);
 
 //Big ocean default UVs (Acts 2/3)
 NJS_TEX uv_00CC0530_d[] = {
@@ -96,7 +97,6 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	DataPointer(float, flt_7E00DC, 0x7E00DC);
 	DataPointer(float, flt_7DF1B0, 0x7DF1B0);
 	auto entity = CharObj1Ptrs[0];
-	FunctionPointer(double, sub_789320, (float a2), 0x789320);
 	double v2;
 	int OceanUVShift1;
 	DataArray(NJS_TEX, uv_00CC0530, 0x10C0530, 4);

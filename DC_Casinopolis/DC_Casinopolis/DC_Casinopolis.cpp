@@ -30,11 +30,18 @@ static int cowgirl_shift2 = 0;
 static bool CowgirlOn = true;
 FunctionPointer(void, sub_5DD900, (int a1, int a2), 0x5DD900);
 FunctionPointer(void, sub_5DD920, (int a1, int a2), 0x5DD920);
+FunctionPointer(void, sub_5D04C0, (ObjectMaster *a1), 0x5D04C0);
+FunctionPointer(double, sub_789320, (float a2), 0x789320);
 FunctionPointer(void, sub_5C09D0, (int a1), 0x5C09D0);
+FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
 FunctionPointer(bool, IsVisible2, (NJS_VECTOR *center, float radius), 0x00403330);
+FunctionPointer(void, sub_5D4230, (int a1, int a2, int a3, float a4), 0x5D4230);
+FunctionPointer(int, sub_5D4600, (int a1, int a2, float a3, int a4), 0x5D4600);
+FunctionPointer(int, sub_5D4300, (int result, float a2), 0x5D4300);
+FunctionPointer(void, sub_407870, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x407870);
+FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 NJS_VECTOR Cowgirl1{ 457.6972f, 45.06788f, 390 };
 NJS_VECTOR Cowgirl2{ 340.3949, 51.20071, 480 };
-
 DataArray(CollisionData, stru_1E763B8, 0x1E763B8, 3);
 DataPointer(ObjectMaster*, off_1E75DC8, 0x01E75DC8);
 DataPointer(ObjectMaster*, off_1E75DE0, 0x01E75DE0);
@@ -61,7 +68,6 @@ void __cdecl Cowgirl_Display(ObjectMaster *a1)
 	NJS_OBJECT *v7; // edi@9
 	Sint16 v8; // ax@9
 	NJS_VECTOR distance_vector;
-	FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
 	v1 = a1->Data1;
 	if (!ClipObject(a1, 640010.0) && IsVisible(&v1->Position, 280.0))
 	{
@@ -78,7 +84,6 @@ void __cdecl Cowgirl_Display(ObjectMaster *a1)
 
 void __cdecl sub_5D0560(ObjectMaster *obj)
 {
-	FunctionPointer(double, sub_789320, (float a2), 0x789320);
 	DataPointer(int, dword_1E77568, 0x1E77568);
 	DataPointer(int, MissedFrames, 0x03B1117C);
 	EntityData1 *v1; // esi@1
@@ -136,7 +141,6 @@ void __cdecl sub_5D0560(ObjectMaster *obj)
 
 void __cdecl sub_5D0560_KazB(ObjectMaster *obj)
 {
-	FunctionPointer(double, sub_789320, (float a2), 0x789320);
 	DataPointer(int, dword_1E77568, 0x1E77568);
 	DataPointer(int, MissedFrames, 0x03B1117C);
 	EntityData1 *v1; // esi@1
@@ -198,7 +202,6 @@ void __cdecl OKazeX(ObjectMaster *a1)
 	DataPointer(NJS_OBJECT*, unk_1E05954, 0x1E05954);
 	DataPointer(CollisionData, stru_1E77604, 0x1E77604);
 	signed int result; // eax@1
-	FunctionPointer(void, sub_5D04C0, (ObjectMaster *a1), 0x5D04C0);
 	v4 = a1->Data1;
 	result = ClipObject(a1, 62510.0);
 	if (!result)
@@ -222,7 +225,6 @@ void __cdecl OKazcX(ObjectMaster *a1)
 	DataPointer(NJS_OBJECT*, unk_1E04CDC, 0x1E04CDC);
 	DataPointer(CollisionData, stru_1E775A4, 0x1E775A4);
 	signed int result; // eax@1
-	FunctionPointer(void, sub_5D04C0, (ObjectMaster *a1), 0x5D04C0);
 	v4 = a1->Data1;
 	result = ClipObject(a1, 62510.0);
 	if (!result)
@@ -246,7 +248,6 @@ void __cdecl OKazdX(ObjectMaster *a1)
 	DataPointer(NJS_OBJECT*, unk_1E050FC, 0x1E050FC);
 	DataPointer(CollisionData, stru_1E775D4, 0x1E775D4);
 	signed int result; // eax@1
-	FunctionPointer(void, sub_5D04C0, (ObjectMaster *a1), 0x5D04C0);
 	v4 = a1->Data1;
 	result = ClipObject(a1, 62510.0);
 	if (!result)
@@ -266,7 +267,6 @@ void __cdecl OKazdX(ObjectMaster *a1)
 
 void __cdecl OKazbX(ObjectMaster *a1)
 {
-	FunctionPointer(void, sub_5D04C0, (ObjectMaster *a1), 0x5D04C0);
 	DataPointer(NJS_OBJECT*, stru_1E03AB8, 0x01E03AB8);
 	DataPointer(CollisionData, stru_1E77574, 0x1E77574);
 	EntityData1 *v4; // esi@1
@@ -295,7 +295,6 @@ void __cdecl OKazfX(ObjectMaster *a1)
 	DataPointer(NJS_OBJECT*, unk_1E06274, 0x1E06274);
 	DataPointer(CollisionData, stru_1E77638, 0x1E77638);
 	signed int result; // eax@1
-	FunctionPointer(void, sub_5D04C0, (ObjectMaster *a1), 0x5D04C0);
 	v4 = a1->Data1;
 	result = ClipObject(a1, 62510.0);
 	if (!result)
@@ -320,86 +319,11 @@ void FixedGear1()
 	njAction(&off_1E06634, gearframe1);
 }
 
-void __cdecl sub_5D48B0(int obj)
-{
-	int v1; // esi@1
-	EntityData1 *v2; // ebx@1
-	char *v3; // eax@3
-	double v4; // st7@5
-	int v5; // ebp@6
-	int v6; // edi@6
-	double v7; // st7@9
-	ObjectMaster *obja; // [sp+8h] [bp+4h]@8
-	DataArray(EntityData1*, EntityData1Ptrs, 0x03B42E10, 8);
-	FunctionPointer(void, sub_5D4230, (int a1, int a2, int a3, float a4), 0x5D4230);
-	FunctionPointer(double, sub_789320, (float a2), 0x789320);
-	FunctionPointer(int, sub_5D4600, (int a1, int a2, float a3, int a4), 0x5D4600);
-	FunctionPointer(int, sub_5D4300, (int result, float a2), 0x5D4300);
-	FunctionPointer(void, sub_5D43F0, (int a2), 0x5D43F0);
-	DataPointer(NJS_OBJECT, stru_1DF259C, 0x1DF259C);
-	DataPointer(int, dword_1E77E58, 0x1E77E58);
-	DataPointer(float, flt_1E77E5C, 0x1E77E5C);
-	DataPointer(float, dword_1E77F34, 0x1E77F34);
-	v1 = obj;
-	v2 = *(EntityData1 **)(obj + 32);
-	if (!ClipObject((ObjectMaster *)obj, 62510.0))
-	{
-		sub_5D43F0(obj);
-		if (ObjectSelectedDebug((ObjectMaster *)obj))
-		{
-			v3 = "RotDir:Migi";
-			if (!((unsigned __int64)v2->Scale.x & 1))
-			{
-				v3 = "RotDir:Hidari";
-			}
-			DisplayDebugString(1179667, v3);
-			DisplayDebugString(1179668, "RotSpd:");
-			v4 = sub_789320(v2->Scale.y);
-			PrintDebugNumber(1703956, (unsigned __int64)v4, 4);
-		}
-		else
-		{
-			//v5 = *(Sint32 *)&v2->CharIndex;
-			v6 = *(_DWORD *)(obj + 32);
-			if (*(_DWORD *)(v6 + 8))
-			{
-				DynamicCOL_Remove((ObjectMaster *)obj, *(NJS_OBJECT **)(v6 + 8));
-				ObjectArray_Remove(*(NJS_OBJECT **)(v6 + 8));
-				*(_DWORD *)(v6 + 8) = 0;
-			}
-			sub_5D4230(128, (int)stru_1DF259C.child, obj, 200.0f);
-			obja = (ObjectMaster *)dword_1E77E58;
-			if ((unsigned __int64)v2->Scale.x & 1)
-			{
-				v7 = sub_789320(v2->Scale.y) * flt_1E77E5C;
-			}
-			else
-			{
-				v7 = -(sub_789320(v2->Scale.y) * flt_1E77E5C);
-			}
-			//int(obja) = (unsigned __int64)((double)(obja) * v7);
-			//sub_5D4600(v1, (int)obja, *(float *)&dword_1E77F34, v5);
-			//sub_5D4300(v1, 200.0);
-			if (v2->Status & 0x100)
-			{
-				if (v2->Position.y + 140.0 < EntityData1Ptrs[0]->Position.y)
-				{
-					v2->Status &= 0xFEFFu;
-				}
-			}
-			AddToCollisionList(v2);
-			++v2->InvulnerableTime;
-		}
-	}
-}
-
 void __cdecl sub_5D43F0(int a2)
 {
 	DataPointer(int, MissedFrames, 0x03B1117C);
 	DataPointer(NJS_MODEL_SADX, stru_1DF2570, 0x01DF2570);
 	DataPointer(NJS_OBJECT, stru_1DF230C, 0x1DF230C);
-	FunctionPointer(void, sub_407870, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x407870);
-	FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 	EntityData1 *v1; // esi@1
 	unsigned __int16 v2; // ax@3
 	int GearRotationDirection;
@@ -435,8 +359,6 @@ void __cdecl sub_5D44A0(int a2)
 	DataPointer(int, MissedFrames, 0x03B1117C);
 	DataPointer(NJS_MODEL_SADX, stru_1DF2B60, 0x1DF2B60);
 	DataPointer(NJS_OBJECT, stru_1DF2908, 0x1DF2908);
-	FunctionPointer(void, sub_407870, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x407870);
-	FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 	EntityData1 *v1; // esi@1
 	unsigned __int16 v2; // ax@3
 	int GearRotationDirection;
@@ -469,8 +391,6 @@ void __cdecl sub_5D4550(int a2)
 	DataPointer(int, MissedFrames, 0x03B1117C);
 	DataPointer(NJS_MODEL_SADX, stru_1DF3160, 0x1DF3160);
 	DataPointer(NJS_OBJECT, stru_1DF2EF8, 0x1DF2EF8);
-	FunctionPointer(void, sub_407870, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x407870);
-	FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 	EntityData1 *v1; // esi@1
 	unsigned __int16 v2; // ax@3
 	int GearRotationDirection;
@@ -501,7 +421,6 @@ void __cdecl sub_5D3A90(int a2)
 {
 	DataPointer(int, MissedFrames, 0x03B1117C);
 	DataPointer(NJS_OBJECT, stru_1DF198C, 0x1DF198C);
-	FunctionPointer(void, sub_5C09D0, (int a1), 0x5C09D0);
 	EntityData1 *v1; // esi@1
 	Angle v2; // eax@3
 	Angle v3;

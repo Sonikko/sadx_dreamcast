@@ -1,4 +1,3 @@
-
 void __cdecl LoadRaceEntryX()
 {
 	PrintDebug("ChaoStgEntrance _prolog begin.\n");
@@ -15,9 +14,6 @@ void __cdecl LoadRaceEntryX()
 
 ObjectMaster *__cdecl sub_72C2E0()
 {
-	FunctionPointer(void, sub_72C280, (int a1), 0x72C280);
-	FunctionPointer(void, sub_72C210, (int a1), 0x72C210);
-	FunctionPointer(void, sub_72C240, (int a1), 0x72C240);
 	DataPointer(int, dword_3CDC6B4, 0x3CDC6B4);
 	DataPointer(NJS_OBJECT, stru_366C124, 0x366C124);
 	ObjectMaster *v0; // eax@1
@@ -35,25 +31,11 @@ ObjectMaster *__cdecl sub_72C2E0()
 
 void __cdecl ChaoStgEntrance_MainX(ObjectMaster *a1)
 {
-	FunctionPointer(void, sub_7197E0, (ObjectMaster *a1), 0x7197E0);
-	FunctionPointer(void, sub_7197C0, (ObjectMaster *a1), 0x7197C0);
-	FunctionPointer(int, sub_72CC30, (), 0x72CC30);
-	FunctionPointer(char, sub_72CD70, (), 0x72CD70);
-	FunctionPointer(int, sub_72CC00, (NJS_TEXLIST *a1, int a2, int a3, int a4), 0x72CC00);
-	FunctionPointer(char, sub_716A90, (), 0x716A90);
-	FunctionPointer(int, sub_72CBC0, (), 0x72CBC0);
-	FunctionPointer(signed int, sub_717160, (), 0x717160);
 	DataPointer(int, TextLanguage, 0x03B0F0E8);
 	DataPointer(int, dword_3CA6EB8, 0x3CA6EB8);
 	DataPointer(NJS_TEXLIST, AL_TEX_ENT_COMMON_TEXLIST, 0x034232E8);
 	DataPointer(NJS_TEXLIST, AL_ENT_CHAR_X_TEX_TEXLIST, 0x034232F0);
 	DataPointer(NJS_TEXLIST, AL_ENT_TITLE_X_TEX_TEXLIST, 0x034232F8);
-	FunctionPointer(void, SetGlobalPoint2Col_Colors, (Uint32 a1, Uint32 a2, Uint32 a3), 0x00402F10);
-	FunctionPointer(ObjectMaster *, sub_72CB40, (), 0x72CB40);
-	FunctionPointer(ObjectMaster *, sub_72C4A0, (), 0x72C4A0);
-	FunctionPointer(ObjectMaster *, sub_72C3A0, (), 0x72C3A0);
-	FunctionPointer(ObjectMaster *, sub_72C2E0, (), 0x72C2E0);
-	FunctionPointer(void, sub_7153F0, (), 0x7153F0);
 	const char *v1; // [sp-24h] [bp-24h]@5
 	NJS_TEXLIST *v2; // [sp-20h] [bp-20h]@5
 	unsigned __int16 v3; // [sp-1Ch] [bp-1Ch]@5

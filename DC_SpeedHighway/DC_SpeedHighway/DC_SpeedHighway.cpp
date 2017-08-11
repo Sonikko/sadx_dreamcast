@@ -13,6 +13,9 @@
 #include "SH_glass.h"
 #include "Highway_objects.h"
 
+FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *a1, int a2, float a3), 0x409E70);
+FunctionPointer(long double, sub_49CC70, (float a1, float a2, float a3), 0x49CC70);
+
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA88, &landtable_0001853C),
 	ptrdecl(0x97DA8C, &landtable_00019178),
@@ -24,8 +27,6 @@ void __cdecl sub_61BA10(int a1)
 	DataPointer(int, MissedFrames, 0x03B1117C);
 	DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
 	DataArray(NJS_MATERIAL, stru_25802C0, 0x025802C0, 2);
-	FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *a1, int a2, float a3), 0x409E70);
-	FunctionPointer(long double, sub_49CC70, (float a1, float a2, float a3), 0x49CC70);
 	int v1; // esi@1
 	int v2; // ebx@1
 	NJS_TEXLIST *v3; // ST1C_4@2

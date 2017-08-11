@@ -18,6 +18,24 @@ struct ChaoTreeSpawn
 FunctionPointer(void, SetChaoLandTableX, (LandTable *geo), 0x0043A4C0);
 FunctionPointer(void, sub_715700, (int a1), 0x00715700);
 FunctionPointer(void, sub_715730, (int a1, int a2), 0x00715730);
+FunctionPointer(void, sub_745A20, (NJS_TEX*, int), 0x745A20);
+FunctionPointer(void, sub_78A320, (int a1), 0x0078A320);
+FunctionPointer(void, sub_72C280, (int a1), 0x72C280);
+FunctionPointer(void, sub_72C210, (int a1), 0x72C210);
+FunctionPointer(void, sub_72C240, (int a1), 0x72C240);
+FunctionPointer(void, sub_7197E0, (ObjectMaster *a1), 0x7197E0);
+FunctionPointer(void, sub_7197C0, (ObjectMaster *a1), 0x7197C0);
+FunctionPointer(int, sub_72CC30, (), 0x72CC30);
+FunctionPointer(char, sub_72CD70, (), 0x72CD70);
+FunctionPointer(int, sub_72CC00, (NJS_TEXLIST *a1, int a2, int a3, int a4), 0x72CC00);
+FunctionPointer(char, sub_716A90, (), 0x716A90);
+FunctionPointer(int, sub_72CBC0, (), 0x72CBC0);
+FunctionPointer(signed int, sub_717160, (), 0x717160);
+FunctionPointer(ObjectMaster *, sub_72CB40, (), 0x72CB40);
+FunctionPointer(ObjectMaster *, sub_72C4A0, (), 0x72C4A0);
+FunctionPointer(ObjectMaster *, sub_72C3A0, (), 0x72C3A0);
+FunctionPointer(ObjectMaster *, sub_72C2E0, (), 0x72C2E0);
+FunctionPointer(void, sub_7153F0, (), 0x7153F0);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataArray(NJS_VECTOR, Chao_SSChaoSpawnPoints, 0x033A0AF8, 16);
 DataArray(NJS_VECTOR, Chao_ECChaoSpawnPoints, 0x033A0BB8, 16);
@@ -35,7 +53,6 @@ static int mrgardenwater = 36;
 //MR Garden DLL functions
 void __cdecl sub_72A790()
 {
-	FunctionPointer(void, sub_745A20, (NJS_TEX*, int), 0x745A20);
 	DataPointer(NJS_TEXLIST*, texlist_garden02mr_daytime, 0x03CA6E84);
 	DataPointer(LandTable*, objLandTableGarden02_Daytime, 0x03CA6E88);
 	DataPointer(int, dword_3CA6E8C, 0x3CA6E8C);
@@ -52,7 +69,6 @@ void __cdecl sub_72A790()
 
 void __cdecl sub_72A820()
 {
-	FunctionPointer(void, sub_745A20, (NJS_TEX*, int), 0x745A20);
 	HMODULE handle = GetModuleHandle(L"CHAOSTGGARDEN02MR_EVENING");
 	DataPointer(NJS_TEXLIST*, texlist_garden02mr_evening, 0x03CA6E84);
 	DataPointer(LandTable*, objLandTableGarden02_Evening, 0x03CA6E88);
@@ -69,7 +85,6 @@ void __cdecl sub_72A820()
 
 void __cdecl sub_72A8B0()
 {
-	FunctionPointer(void, sub_745A20, (NJS_TEX*, int), 0x745A20);
 	HMODULE handle = GetModuleHandle(L"CHAOSTGGARDEN02MR_NIGHT");
 	DataPointer(NJS_TEXLIST*, texlist_garden02mr_night, 0x03CA6E84);
 	DataPointer(LandTable*, objLandTableGarden02_Night, 0x03CA6E88);
@@ -108,9 +123,6 @@ void __cdecl LoadMRGardenX()
 {
 	DataPointer(LandTable*, LandTable_ChaoGardenMR, 0x03CA6E88);
 	DataArray(void*, ModuleDestructors, 0x03CA6E70, 4);
-	FunctionPointer(void, ChaoGardenMR_SetLandTable_Evening, (), 0x0072A820);
-	FunctionPointer(void, ChaoGardenMR_SetLandTable_Night, (), 0x0072A8B0);
-	FunctionPointer(void, ChaoGardenMR_SetLandTable_Day, (), 0x0072A790);
 	int v0; // eax@1
 	int v1; // eax@2
 	PrintDebug("ChaoStgGarden02MR Prolog\n");
@@ -256,13 +268,6 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	__int16 v3; // ax@5
 	int v4; // ecx@6
 	__int16 v5; // ax@8
-	FunctionPointer(void, DisableChunkMaterialFlags, (), 0x0078A2E0);
-	FunctionPointer(void, EnableChunkMaterialFlags, (), 0x0078A2D0);
-	FunctionPointer(__int16, GetChunkTextureIndex, (NJS_CNK_MODEL *a1), 0x0078ABE0);
-	FunctionPointer(void, SetChunkTextureIndexA, (Uint32 a1), 0x0078A300);
-	FunctionPointer(void, SetChunkTextureIndexB, (Uint32 index), 0x0078A310);
-	FunctionPointer(void, SetChunkMaterialFlags, (Uint32 flag), 0x0078A2F0);
-	FunctionPointer(void, sub_78A320, (int a1), 0x0078A320);
 	DataArray(int, off_389D780, 0x389D780, 4);
 	DataArray(int, off_389D7B8, 0x389D7B8, 4);
 	DataArray(int, dword_389D7B8, 0x389D7B8, 6);
