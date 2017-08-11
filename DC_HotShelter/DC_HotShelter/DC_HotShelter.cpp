@@ -7,20 +7,25 @@
 #include "HotShelter3.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-static float suimen_increment = 0.0f;
-static int suimen_direction = 1;
-static int anim = 78;
-static int WaterThing_VShift = 0;
 DataPointer(float, HotShelterWaterThing, 0x3C72E54);
 DataArray(NJS_TEX, uv_01410790, 0x01810790, 20); //water thing UVs 1
 DataArray(NJS_TEX, uv_014107E0, 0x018107E0, 56); //water thing UVs 2
+DataArray(FogData, FogData_HotShelter1, 0x017C3450, 3);
+DataArray(FogData, FogData_HotShelter2, 0x017C3480, 3);
+DataArray(FogData, FogData_HotShelter3, 0x017C34B0, 3);
+DataArray(DrawDistance, DrawDist_HotShelter1, 0x017C3408, 3);
+DataArray(DrawDistance, DrawDist_HotShelter2, 0x017C3420, 3);
+
+static float suimen_increment = 0.0f;
+static int suimen_direction = 1;
+static int TextureAnim = 78;
+static int WaterThing_VShift = 0;
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB88, &landtable_0001970C),
 	ptrdecl(0x97DB8C, &landtable_0005277C),
 	ptrdecl(0x97DB90, &landtable_000B0DA4),
 };
-
 
 NJS_MATERIAL* LevelSpecular[] = {
 	((NJS_MATERIAL*)0x01A3AD08), //Glass tube elevator
@@ -198,19 +203,18 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 	&matlist_0015C248[7],
 };
 
+bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_specular(0, false);
+	set_diffuse(0, false);
+	use_default_diffuse(true);
+	return true;
+}
 
 bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_diffuse(0, false);
 	set_specular(1, false);
-	use_default_diffuse(true);
-	return true;
-}
-
-bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
-{
-	set_specular(0, false);
-	set_diffuse(0, false);
 	use_default_diffuse(true);
 	return true;
 }
@@ -230,53 +234,43 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		//Texlists
+		ResizeTextureList((NJS_TEXLIST*)0x180DFF4, textures_shelter1);
+		ResizeTextureList((NJS_TEXLIST*)0x17F56F4, textures_shelter2);
+		ResizeTextureList((NJS_TEXLIST*)0x17F4F74, textures_shelter3);
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
-			typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
 			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 		}
+		//Material fixes
 		((NJS_MATERIAL*)0x01810150)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
 		((NJS_MATERIAL*)0x0180F608)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
 		((NJS_MATERIAL*)0x0180FA60)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
 		((NJS_MATERIAL*)0x0180FBE8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
 		((NJS_MATERIAL*)0x0180FCF4)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
 		((NJS_MATERIAL*)0x0180EED8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
+		(*(NJS_OBJECT*)0x1810690).basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
+		((NJS_MATERIAL*)0x0182E080)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //KaitenMeter
+		((NJS_MATERIAL*)0x0182E080)->diffuse.color = 0x00000000; //KaitenMeter
+		//Object replacements
 		*(NJS_OBJECT*)0x180391C = object_0016F268; //Colored cube 1
 		*(NJS_OBJECT*)0x1804CD4 = object_00170054; //Colored cube 2
 		*(NJS_OBJECT*)0x180608C = object_00170E40; //Colored cube 3
 		*(NJS_OBJECT*)0x1807444 = object_00171C2C; //Colored cube 4
-		//KaitenMeter lighting fixes
-		((NJS_MATERIAL*)0x0182E080)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		((NJS_MATERIAL*)0x0182E080)->diffuse.color = 0x00000000;
-		//Waterfall UV fixes
-		WriteData((char*)0x005AD8EB, 0x00, 1);
-		WriteData((char*)0x005AD89B, 0x00, 1);
-		WriteData((char*)0x005AD9CE, 0x01, 1);
-		WriteData((char*)0x005ADA7B, 0x01, 1);
-		WriteData((void*)0x005AD896, 0x90, 3);
-		WriteData((void*)0x005AD8E6, 0x90, 3);
+		*(NJS_OBJECT*)0x018136AC = object_0010A8AC; //Bathroom door
+		*(NJS_OBJECT*)0x0185A974 = object_00148A44; //O Computer
 		*(NJS_OBJECT*)0x18608A4 = object_0014D13C; //Broken wall (full)
 		*(NJS_OBJECT*)0x1862834 = object_0014E514; //Broken wall (broken)
 		*(NJS_OBJECT*)0x185F280 = object_0014C23C; //Broken wall (pieces)
 		*(NJS_OBJECT*)0x1812D34 = object_00109F58; //Egghead door 1
 		*(NJS_OBJECT*)0x184C22C = object_0013CDD4; //Egghead door 2 part 1
 		*(NJS_OBJECT*)0x184BA64 = object_0013C6AC; //Egghead door 2 part 2
-		*(NJS_OBJECT*)0x018136AC = object_0010A8AC; //Bathroom door
-		*(NJS_OBJECT*)0x0185A974 = object_00148A44; //O Computer
-		(*(NJS_OBJECT*)0x1810690).basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
 		*(NJS_OBJECT*)0x1851CA4 = object_00140EBC; //Elevator
-		ResizeTextureList((NJS_TEXLIST*)0x180DFF4, textures_shelter1);
-		ResizeTextureList((NJS_TEXLIST*)0x17F56F4, textures_shelter2);
-		ResizeTextureList((NJS_TEXLIST*)0x17F4F74, textures_shelter3);
-		memcpy((void*)0x0183C594, &attach_0012AB9C, sizeof(attach_0012AB9C));  // Bridge
-		memcpy((void*)0x0187201C, &object_0015CC48, sizeof(object_0015CC48));  // Light
-		DataArray(FogData, FogData_HotShelter1, 0x017C3450, 3);
-		DataArray(FogData, FogData_HotShelter2, 0x017C3480, 3);
-		DataArray(FogData, FogData_HotShelter3, 0x017C34B0, 3);
-		DataArray(DrawDistance, DrawDist_HotShelter1, 0x017C3408, 3);
-		DataArray(DrawDistance, DrawDist_HotShelter2, 0x017C3420, 3);
+		*(NJS_OBJECT*)0x0187201C = object_0015CC48; // Light
+		*(NJS_MODEL_SADX*)0x0183C594 = attach_0012AB9C;  // Bridge
+		//Fog/draw distance data
 		for (int i = 0; i < 3; i++)
 		{
 			DrawDist_HotShelter1[i].Maximum = -3000.0;
@@ -299,6 +293,7 @@ extern "C"
 		{
 			if (CurrentLevel == 12 && CurrentAct == 0 && GameState != 16)
 			{
+				//Waterfall UVs
 				if (HotShelterWaterThing < 65.0f && HotShelterWaterThing > 0.0f)
 				{
 					WaterThing_VShift = (WaterThing_VShift - 16 * FramerateSetting) % 255;
@@ -320,12 +315,12 @@ extern "C"
 				if (suimen_increment >= 1.5f) suimen_direction = -1;
 				if (suimen_direction == -1)	suimen_increment = suimen_increment - 0.005f;
 				if (suimen_increment <= -1.5f) suimen_direction = 1;
-				if (anim > 91) anim = 78;
-				matlist_0140FBE8[0].attr_texId = anim;
-				matlist_0140F824[0].attr_texId = anim;
-				matlist_0140F608[0].attr_texId = anim;
-				matlist_0140FA60[0].attr_texId = anim;
-				if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)anim++;
+				if (TextureAnim > 91) TextureAnim = 78;
+				matlist_0140FBE8[0].attr_texId = TextureAnim;
+				matlist_0140F824[0].attr_texId = TextureAnim;
+				matlist_0140F608[0].attr_texId = TextureAnim;
+				matlist_0140FA60[0].attr_texId = TextureAnim;
+				if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)TextureAnim++;
 			}
 		}
 	}
