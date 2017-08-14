@@ -512,15 +512,15 @@ extern "C"
 		{
 			typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
 			pl_load_register(SetPLM0X);
-			material_register(CharacterMaterials_Specular, LengthOfArray(CharacterMaterials_Specular), &CharacterFunction_Specular);
-			material_register(SpecialBossMaterials, LengthOfArray(SpecialBossMaterials), &SpecialBossFunction);
-			material_register(ChaosPuddle, LengthOfArray(ChaosPuddle), &ChaosPuddleFunc);
-			material_register(CharacterMaterials, LengthOfArray(CharacterMaterials), &CharacterFunction_nospec);
-			material_register(Chaos0Materials, LengthOfArray(Chaos0Materials), &Chaos0Function);
-			material_register(Chaos2Materials, LengthOfArray(Chaos2Materials), &Chaos2Function);
+			//material_register(CharacterMaterials_Specular, LengthOfArray(CharacterMaterials_Specular), &CharacterFunction_Specular);
+			//material_register(SpecialBossMaterials, LengthOfArray(SpecialBossMaterials), &SpecialBossFunction);
+			//material_register(ChaosPuddle, LengthOfArray(ChaosPuddle), &ChaosPuddleFunc);
+			//material_register(CharacterMaterials, LengthOfArray(CharacterMaterials), &CharacterFunction_nospec);
+			//material_register(Chaos0Materials, LengthOfArray(Chaos0Materials), &Chaos0Function);
+			//material_register(Chaos2Materials, LengthOfArray(Chaos2Materials), &Chaos2Function);
 			material_register(Chaos6ObjectMaterials, LengthOfArray(Chaos6ObjectMaterials), &ForceObjectOrLevelSpecularFunction);
-			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
-			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+			//material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+			//material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 		}
 		WriteJump((void*)0x00556D60, SetClip_Chaos6KX);
@@ -777,7 +777,6 @@ extern "C"
 		matlist_00F98C98[4].diffuse.color = 0xFFB2B2B2;
 		matlist_00F98C98[5].diffuse.color = 0xFFB2B2B2;
 		ResizeTextureList((NJS_TEXLIST*)0x117C76C, textures_chaos2);
-		ResizeTextureList((NJS_TEXLIST*)0x117C2CC, 6); //Chaos 2 for CHAOS2.PVM (SADX bug)
 		ResizeTextureList((NJS_TEXLIST*)0x118FF08, textures_chaos4dc);
 		ResizeTextureList((NJS_TEXLIST*)0x121FF28, textures_chaos6);
 		ResizeTextureList((NJS_TEXLIST*)0x11F04A0, textures_chaos6_2);
