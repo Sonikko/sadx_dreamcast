@@ -232,6 +232,9 @@ extern "C"
 {
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//Fix camera in Light Speed Shoes cutscene
+		WriteData((float*)0x00652F74, 800.0f);
+		WriteData((float*)0x00652F79, -92.6f);
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
