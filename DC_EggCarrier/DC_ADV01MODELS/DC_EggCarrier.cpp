@@ -264,6 +264,20 @@ void TurnLightsOn()
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	//Fix camera in Amy-Gamma prison cutscene
+	WriteData((float*)0x006A4EBE, -134.0f); //X1
+	WriteData((float*)0x006A4EB9, 15.0f); //Y1
+	WriteData((float*)0x006A4EB4, 54.0f); //Z1
+	WriteData((float*)0x006A4F41, -143.85f); //X2
+	WriteData((float*)0x006A4F3C, 15.93f); //Y2
+	WriteData((float*)0x006A4F37, 80.25f); //Z2
+	//Fix camera in Gamma-Amy prison cutscene
+	WriteData((float*)0x00678C48, -134.0f); //X1
+	WriteData((float*)0x00678C43, 15.0f); //Y1
+	WriteData((float*)0x00678C3E, 54.0f); //Z1
+	WriteData((float*)0x00678CCB, -143.85f); //X2
+	WriteData((float*)0x00678CC6, 15.93f); //Y2
+	WriteData((float*)0x00678CC1, 80.25f); //Z2
 	plw1xbin = path;
 	plw1xbin.append("\\system\\PL_W1X.BIN");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
