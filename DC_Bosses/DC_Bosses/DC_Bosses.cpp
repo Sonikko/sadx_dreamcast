@@ -504,6 +504,17 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		//Egg Carrier 2 crash in Perfect Chaos cutscene
+		WriteData((float*)0x0065D8D1, 837.418f); //X1
+		WriteData((float*)0x0065D8CC, 412.38f); //Y1
+		WriteData((float*)0x0065D8C7, -406.796f); //Z1
+		WriteData((int*)0x0065D8E3, 65238); //XA1
+		WriteData((int*)0x0065D8DE, 29421); //YA1
+		WriteData((float*)0x0065D8FC, 1148.37f); //X2
+		WriteData((float*)0x0065D8F7, 423.5f); //Y2
+		WriteData((float*)0x0065D8F2, -325.65f); //Z2
+		WriteData((int*)0x0065D912, 64083); //XA2
+		WriteData((int*)0x0065D90D, 28705); //YA2
 		plm0xbin = path;
 		plm0xbin.append("\\system\\PL_M0X.BIN");
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
