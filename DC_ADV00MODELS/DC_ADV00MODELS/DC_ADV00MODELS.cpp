@@ -22,6 +22,8 @@ static int anim_sadx2 = 132;
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(int, CutsceneID, 0x3B2C570);
+DataPointer(void*, EV_MainThread_ptr, 0x3B2C578);
 
 void __cdecl WaterTexture()
 {
@@ -233,8 +235,11 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init()
 	{
 		//Fix camera in Light Speed Shoes cutscene
-		WriteData((float*)0x00652F74, 800.0f);
-		WriteData((float*)0x00652F79, -92.6f);
+		WriteData((float*)0x00652F74, 800.0f); //X1
+		WriteData((float*)0x00652F79, -92.6f); //Y1
+		WriteData((float*)0x006532BB, 509.9f); //X2
+		WriteData((float*)0x006532B6, -89.4f); //Y2
+		WriteData((float*)0x006532B1, 812.3f); //Z2
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
@@ -375,16 +380,28 @@ extern "C"
 
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		auto CharObj1PtrsThing = CharObj1Ptrs[0];
 		if (CurrentLevel == 26 && GetTimeOfDay() == 0) WriteData((void*)0x0063A906, 0x01, 1); else WriteData((void*)0x0063A906, 0x05, 1);
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
-		//Water animation in Act 2 (Sewers)
-		if (CurrentLevel == 26 && CurrentAct == 2 && GameState == 15)
+		//Act 2 (Sewers)
+		if (CurrentLevel == 26 && CurrentAct == 2)
 		{
-			if (anim1 > 55) anim1 = 46;
-			matlist_000D9890[0].attr_texId = anim1;
-			matlist_000C24BC[0].attr_texId = anim1;
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim1++;
+			//Fix Sonic's rotation in the Light Speed Shoes cutscene
+			if (CharObj1PtrsThing != nullptr && EV_MainThread_ptr != nullptr && CutsceneID == 358)
+			{
+				CharObj1PtrsThing->Rotation.x = 0;
+				CharObj1PtrsThing->Rotation.z = 0;
+				CharObj1PtrsThing->Rotation.y = 49072;
+			}
+		//Water animation
+			if (GameState != 16)
+			{
+				if (anim1 > 55) anim1 = 46;
+				matlist_000D9890[0].attr_texId = anim1;
+				matlist_000C24BC[0].attr_texId = anim1;
+				if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim1++;
+			}
 		}
 		//Night reflections Act 0
 		if (CurrentLevel == 26 && CurrentAct == 0 && GetTimeOfDay() == 2)
