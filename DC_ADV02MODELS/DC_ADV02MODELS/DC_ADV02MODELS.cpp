@@ -211,7 +211,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	//Cutscene after Lost World
 	WriteData((float*)0x006D2537, 16.0f); //Y1
 	WriteData((float*)0x006D2507, 16.0f); //Y2
-	WriteData((float*)0x006D1CF6, 16.0f); //Y after cutscene
+	WriteData((float*)0x006D1CF6, 14.52f); //Y after cutscene
 	WriteData((int*)0x006D1D13, 0); //
 	WriteData((int*)0x006D1D18, 0); //
 	WriteData((int*)0x006D1D1D, 0); //
