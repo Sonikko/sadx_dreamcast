@@ -18,6 +18,7 @@
 #include "MR_Objects.h"
 #include "MR_Palms.h"
 #include <lanternapi.h>
+
 HMODULE ADV02MODELS = GetModuleHandle(L"ADV02MODELS");
 DataPointer(float, dword_111DB90, 0x111DB90);
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
@@ -37,6 +38,7 @@ DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(void*, EV_MainThread_ptr, 0x3B2C578);
 static bool InsideTemple = 0;
 static int anim1 = 130;
 static int anim2 = 140;
@@ -429,8 +431,8 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 			InsideTemple = 1;
 		}
 		else InsideTemple = 0;
-		if (CurrentCharacter == 7 && CutsceneID == 208)  InsideTemple = 1;
-		if (CurrentCharacter == 7 && CutsceneID == 226)  InsideTemple = 1;
+		if (EV_MainThread_ptr != 0 && CurrentCharacter == 7 && CutsceneID == 208)  InsideTemple = 1;
+		if (EV_MainThread_ptr != 0 && CurrentCharacter == 7 && CutsceneID == 226)  InsideTemple = 1;
 		if (Camera_Data1 != nullptr && Camera_Data1->Position.y < 300.0f && InsideTemple == 0)
 		{
 			if (CurrentFogLayer < -65.0f) CurrentFogLayer = CurrentFogLayer + 64.0f;
