@@ -14,9 +14,17 @@ DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, LastRenderFlags, 0x03D08498);
 DataPointer(float, SomeDepthThing, 0x03ABD9C0);
+DataPointer(float, EnvMap1, 0x038A5DD0);
+DataPointer(float, EnvMap2, 0x038A5DE4);
+DataPointer(float, EnvMap3, 0x038A5E00);
+DataPointer(float, EnvMap4, 0x038A5E04);
+DataPointer(NJS_ACTION, off_1A1F944, 0x1A1F944);
 FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 FunctionPointer(void, sub_4094D0, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x4094D0);
 FunctionPointer(void, sub_408530, (NJS_OBJECT*), 0x408530);
+FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
+FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
+
 static int cylinderframe = 0;
 
 PVMEntry FinalEggObjectTextures[] = {
@@ -428,6 +436,48 @@ bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
+
+void SetGachaponEnvMaps1()
+{
+	EnvMap1 = 1.0f;
+	EnvMap2 = 1.0f;
+	EnvMap3 = 0.5f;
+	EnvMap4 = 0.5f;
+	sub_407A00((NJS_MODEL_SADX*)0x19CA3F0, 1.5f);
+	EnvMap1 = 0.5f;
+	EnvMap2 = 0.5f;
+	EnvMap3 = 0.5f;
+	EnvMap4 = 0.5f;
+}
+
+void __cdecl SetGachaponEnvMaps2(int a1, EntityData1 *a2)
+{
+	EnvMap1 = 1.0f;
+	EnvMap2 = 1.0f;
+	EnvMap3 = 0.5f;
+	EnvMap4 = 0.5f;
+	sub_405450(&off_1A1F944, *(float *)&a2->LoopData, 1.5f);
+	EnvMap1 = 0.5f;
+	EnvMap2 = 0.5f;
+	EnvMap3 = 0.5f;
+	EnvMap4 = 0.5f;
+}
+
+static void __declspec(naked) sub_5B36E0X()
+{
+	__asm
+	{
+		push esi // a2
+		push ecx // a1
+
+				 // Call your __cdecl function here:
+				 call SetGachaponEnvMaps2
+				 pop ecx // a1
+				 pop esi // a2
+				 retn
+	}
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
@@ -441,6 +491,9 @@ extern "C"
 			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 		}
+		//Environment maps thing
+		WriteCall((void*)0x005B3785, SetGachaponEnvMaps1);
+		WriteCall((void*)0x005B3744, sub_5B36E0X);
 		//OTexture lighting
 		((NJS_MATERIAL*)0x01A45548)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		((NJS_MATERIAL*)0x01A45548)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
