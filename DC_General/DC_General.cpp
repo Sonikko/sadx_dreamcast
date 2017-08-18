@@ -19,6 +19,8 @@ DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
 
+static Int EnvMapMode = 0;
+
 void __cdecl Switch_DisplayX(ObjectMaster *a1)
 {
 	DataArray(char, byte_3C5B37C, 0x3C5B37C, 52);
@@ -292,6 +294,11 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		//Environment maps
+		EnvMap1 = 0.5f;
+		EnvMap2 = 0.5f;
+		EnvMap3 = 0.5f;
+		EnvMap4 = 0.5f;
 		//Common switch function
 		WriteJump((void*)0x004CB590, Switch_DisplayX);
 		//Various bugfixes
@@ -390,23 +397,26 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		//Chaos 1 puddle
-		if (CurrentLevel == 33 && CutsceneID != 57) ((NJS_MATERIAL*)0x02D64FD8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		else ((NJS_MATERIAL*)0x02D64FD8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-		if (CurrentLevel == 20)
+		//Environment maps
+		if (EnvMapMode == 0 && CurrentLevel == 20)
 		{
+			EnvMapMode = 1;
 			EnvMap1 = 2.0f;
 			EnvMap2 = 2.0f;
 			EnvMap3 = 0.5f;
 			EnvMap4 = 0.5f;
 		}
-		else
+		if (EnvMapMode == 1 && CurrentLevel != 20)
 		{
+			EnvMapMode = 0;
 			EnvMap1 = 0.5f;
 			EnvMap2 = 0.5f;
 			EnvMap3 = 0.5f;
 			EnvMap4 = 0.5f;
 		}
+		//Chaos 1 puddle
+		if (CurrentLevel == 33 && CutsceneID != 57) ((NJS_MATERIAL*)0x02D64FD8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		else ((NJS_MATERIAL*)0x02D64FD8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 	}
 }
 
