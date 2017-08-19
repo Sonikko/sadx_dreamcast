@@ -1059,16 +1059,30 @@ extern "C"
 		}
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		//Super stupid hax to make Perfect Chaos' tornadoes fade in
-		DataPointer(unsigned char, byte_03C5A7EF, 0x03C5A7EF);
-		if (byte_03C5A7EF == 0) TornadoTrigger = 0;
-		if (byte_03C5A7EF == 3)
+		DataPointer(unsigned char, byte_3C5A7EF, 0x3C5A7EF);
+		DataPointer(unsigned char, byte_3C5A7ED, 0x3C5A7ED);
+		if (byte_3C5A7ED != 11)
 		{
-			TornadoTrigger = 1;
-			TornadoAlpha = 0;
+			if (byte_3C5A7EF == 0) TornadoTrigger = 0;
+			if (byte_3C5A7EF == 3)
+			{
+				TornadoTrigger = 1;
+				TornadoAlpha = 0;
+			}
+			if (TornadoTrigger == 1 && byte_3C5A7EF != 3) TornadoTrigger = 2;
+			if (TornadoTrigger == 2) TornadoAlpha = TornadoAlpha + 0.04f;
+			if (TornadoAlpha >= 1.0f) TornadoTrigger = 0;
 		}
-		if (TornadoTrigger == 1 && byte_03C5A7EF != 3) TornadoTrigger = 2;
-		if (TornadoTrigger == 2) TornadoAlpha = TornadoAlpha + 0.04f;
-		if (TornadoAlpha >= 1.0f) TornadoTrigger = 0;
+		else
+		{
+			if (TornadoAlpha > 0.0f) TornadoTrigger = 3;
+			if (TornadoTrigger == 3) TornadoAlpha = TornadoAlpha - 0.01f;
+			if (TornadoTrigger == 3 && TornadoAlpha <= 0.01f)
+			{
+				TornadoTrigger = 4;
+				TornadoAlpha = 0.0f;
+			}
+		}
 		//Egg Hornet rotation
 		DataPointer(unsigned char, byte_03C6C944, 0x03C6C944);
 		DataPointer(float, dword_3C6C930, 0x3C6C930);
