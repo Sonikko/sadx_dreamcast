@@ -12,6 +12,7 @@ void LoadObjects_EC()
 	ObjectMaster *obj;
 	EntityData1 *ent;
 	setdata.Distance = 900000.0f;
+	/*
 	obj = LoadObject((LoadObj)2, 5, EC_OF0); // RING   
 	obj->SETData.SETData = &setdata;
 	if (obj)
@@ -23,6 +24,7 @@ void LoadObjects_EC()
 		ent->Rotation.y = 0xDFE5;
 		ent->Rotation.z = 0x14FD;
 	}
+	*/
 	obj = LoadObject((LoadObj)2, 2, EC_OF17); // WALL  
 	obj->SETData.SETData = &setdata;
 	if (obj)
