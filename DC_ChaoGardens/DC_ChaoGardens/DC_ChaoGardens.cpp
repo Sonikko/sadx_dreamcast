@@ -3,7 +3,9 @@
 static int vmuframe = 0;
 static float fruitscale = 0.65f;
 DataPointer(int, CurrentChaoStage, 0x0339F87C);
+DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(SecondaryEntrance, ECGardenStartPoint, 0x0339F8E8);
+DataPointer(SecondaryEntrance, SSGardenStartPoint, 0x0339F888);
 #include <lanternapi.h>
 #include "ChaoObjects.h"
 #include "ChaoRaceFunc.h"
@@ -11,13 +13,15 @@ DataPointer(SecondaryEntrance, ECGardenStartPoint, 0x0339F8E8);
 #include "SSGarden.h"
 #include "MRGarden.h"
 #include "ChaoRace.h"
-#include "RaceEntry_DX.h"
+//#include "ChaoRaceEntry.h"
+//#include "RaceEntry_DX.h"
 #include "ECGarden_DC.h"
 #include "ECGarden_func.h"
 #include "RaceEntry_func.h"
 #include "SSGarden_func.h"
 #include "MRGarden_func.h"
 #include "MainFunctions.h"
+//#include "WIP.h"
 #include <stdlib.h>  
 
 PointerInfo pointers[] = {
@@ -45,14 +49,6 @@ extern "C"
 		//WriteJump((void*)0x007199B0, LoadRaceEntryX);
 		//ResizeTextureList((NJS_TEXLIST *)0x340E934, 62); //Race Entry texlist
 		//WriteJump((void*)0x00719880, ChaoStgEntrance_MainX);
-		//WriteJump((void*)0x0072C2E0, sub_72C2E0);
-		/*WriteData((void*)0x007197E0, 0xC3u, sizeof(char));
-		WriteData((void*)0x007198B2, 0x90, 5);
-		WriteData((void*)0x00719969, 0x90, 5);
-		WriteData((void*)0x0071996E, 0x90, 5);
-		WriteData((void*)0x00719973, 0x90, 5);
-		WriteData((void*)0x00719978, 0x90, 5);
-		WriteData((void*)0x007199A0, 0x90, 5);*/
 //General
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		/*if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)

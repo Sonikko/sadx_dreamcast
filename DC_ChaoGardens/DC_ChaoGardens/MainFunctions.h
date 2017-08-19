@@ -110,10 +110,44 @@ void __cdecl LoadSSGardenX()
 	PrintDebug("ChaoStgGarden00SS Prolog end\n");
 }
 
+void __cdecl ECGardenWater_Display(ObjectMaster *a1)
+{
+	if (!DroppedFrames)
+	{
+		njSetTexture((NJS_TEXLIST*)&texlist_ecgarden);
+		njPushMatrix(0);
+		njTranslate(0, 0, -4415.8f, 0);
+		ProcessModelNode_A_Wrapper((NJS_OBJECT*)&object_0000F01CX, QueuedModelFlagsB_3, 1.0f); //Bottom of the skybox
+		njPopMatrix(1u);
+		njPushMatrix(0);
+		njTranslate(0, 0, -415.8f, 0);
+		ProcessModelNode_A_Wrapper((NJS_OBJECT*)&object_0000F01C, QueuedModelFlagsB_3 , 1.0f); //Water
+		njPopMatrix(1u);
+	}
+}
+
+void __cdecl ECGardenWater_Main(ObjectMaster *a1)
+{
+	ECGardenWater_Display(a1);
+}
+
+void __cdecl ECGardenWater_Load(ObjectMaster *a1)
+{
+	EntityData1 *v1; // eax@1
+	float *v2; // eax@1
+	signed int v3; // edx@1
+
+	v1 = a1->Data1;
+	a1->MainSub = ECGardenWater_Main;
+	a1->DisplaySub = ECGardenWater_Display;
+	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))nullsub;
+}
+
 void __cdecl LoadECGardenX()
 {
 	PrintDebug("ChaoStgGarden01EC Prolog begin\n");
 	LoadObject(LoadObj_Data1, 2, ChaoStgGarden01EC_Load);
+	LoadObject(LoadObj_Data1, 2, ECGardenWater_Load);
 	LoadObjects_EC();
 	SetChaoLandTable(&landtable_0000DF3C);
 	PrintDebug("ChaoStgGarden01EC Prolog end\n");
@@ -216,6 +250,7 @@ void SetTransporterTexture()
 	DataPointer(PVMEntry *, ADV01C_TEXLISTS, 0x038F6EC8);
 	HMODULE handle = GetModuleHandle(L"ADV01CMODELS");
 	NJS_MODEL_SADX **ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle, "___ADV01C_MODELS");
+	ADV01C_MODELS[32]->mats[0].diffuse.color = 0xFFFFFFFF;
 	if (CurrentLevel != 32) njSetTexture((NJS_TEXLIST*)0x033A0788); //CHAO_OBJECT
 	else njSetTexture(ADV01C_TEXLISTS[6].TexList);
 	if (CurrentLevel != 32) ADV01C_MODELS[32]->mats[0].attr_texId = 68;
