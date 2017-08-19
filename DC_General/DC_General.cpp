@@ -18,8 +18,10 @@ DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
+DataPointer(int, MissedFrames, 0x03B1117C);
 
-static Int EnvMapMode = 0;
+static int EnvMapMode = 0;
+static int AlphaRejectionMode = 0;
 
 void __cdecl Switch_DisplayX(ObjectMaster *a1)
 {
@@ -288,6 +290,20 @@ static PointerInfo jumps[] = {
 	{ ItemBox_Display,				ItemBox_Display_Rotate },
 };
 
+void __cdecl njDrawSprite3D_NoSkippedFramesX(NJS_SPRITE *a1, Int n, NJD_SPRITE attr)
+{
+	DataPointer(float, Sprite3DDepth_Current, 0x03ABD9B8);
+	DataPointer(float, Sprite3DDepth, 0x03ABD9BC);
+	if (!MissedFrames)
+	{
+		njTextureShadingMode(1);
+		Sprite3DDepth_Current = Sprite3DDepth;
+		//njDrawSprite3D_Queue(a1, n, attr, (QueuedModelFlagsB)0);
+		Sprite3DDepth_Current = 0;
+		njTextureShadingMode(2);
+	}
+}
+
 extern "C"
 {
 	__declspec(dllexport) PointerList Jumps[] = { { arrayptrandlength(jumps) } };
@@ -397,6 +413,21 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		//Alpha rejection
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		if (Lantern != nullptr)
+		{
+			if (AlphaRejectionMode == 0 && CurrentLevel != 25 && GameMode != GameModes_CharSel && GameMode != GameModes_Menu)
+			{
+				WriteData((char*)0x007919CD, 0i8);
+				AlphaRejectionMode = 1;
+			}
+			if (AlphaRejectionMode == 1 && (CurrentLevel == 25 || GameMode == GameModes_CharSel || GameMode == GameModes_Menu))
+			{
+				WriteData((char*)0x007919CD, 16, 1);
+				AlphaRejectionMode = 0;
+			}
+		}
 		//Environment maps
 		if (EnvMapMode == 0 && CurrentLevel == 20)
 		{
