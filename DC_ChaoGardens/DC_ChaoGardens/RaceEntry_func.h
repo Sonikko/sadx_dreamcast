@@ -17,11 +17,14 @@ ObjectFunc(OF_E15, 0x71C180); // CHEER CHAO
 ObjectFunc(OF_E16, 0x71BFF0); // BOW CHAO
 ObjectFunc(OF_E17, 0x71BEA0); // CRACKER
 ObjectFunc(OF_E18, 0x71BBB0); // BUTTERFLY
+SETObjData setdata_e = {};
+
 void LoadObjects_E()
 {
 	ObjectMaster *obj;
 	EntityData1 *ent;
 	obj = LoadObject((LoadObj)2, 3, OF_E16); // BOW CHAO
+	obj->SETData.SETData = &setdata_e;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -31,6 +34,7 @@ void LoadObjects_E()
 		ent->Rotation.y = 0xA000;
 	}
 	obj = LoadObject((LoadObj)6, 3, OF_E1); // ENTRY BUTTON
+	obj->SETData.SETData = &setdata_e;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -40,6 +44,7 @@ void LoadObjects_E()
 	}
 	
 	obj = LoadObject((LoadObj)2, 3, OF_E0); // RING   
+	obj->SETData.SETData = &setdata_e;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -51,6 +56,7 @@ void LoadObjects_E()
 	}
 	
 	obj = LoadObject((LoadObj)2, 3, OF_E14); // HINT BOX
+	obj->SETData.SETData = &setdata_e;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -64,6 +70,7 @@ void LoadObjects_E()
 	}
 	
 	obj = LoadObject((LoadObj)2, 3, OF_E16); // BOW CHAO
+	obj->SETData.SETData = &setdata_e;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -73,6 +80,7 @@ void LoadObjects_E()
 		ent->Rotation.y = 0xD000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF_E16); // BOW CHAO
+	obj->SETData.SETData = &setdata_e;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -82,6 +90,7 @@ void LoadObjects_E()
 		ent->Rotation.y = 0xC000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF_E16); // BOW CHAO
+	obj->SETData.SETData = &setdata_e;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -91,6 +100,7 @@ void LoadObjects_E()
 		ent->Rotation.y = 0xC000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF_E16); // BOW CHAO
+	obj->SETData.SETData = &setdata_e;
 	if (obj)
 	{
 		ent = obj->Data1;
@@ -100,6 +110,7 @@ void LoadObjects_E()
 		ent->Rotation.y = 0x8FAD;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF_E16); // BOW CHAO
+	obj->SETData.SETData = &setdata_e;
 	if (obj)
 	{
 		ent = obj->Data1;
