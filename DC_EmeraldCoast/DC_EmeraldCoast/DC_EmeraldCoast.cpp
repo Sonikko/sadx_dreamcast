@@ -89,6 +89,11 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 		{
 			DisableFog();
 			njSetTexture((NJS_TEXLIST*)0x010C0508);
+			if (CurrentAct == 2)
+			{
+				OceanDataA.Position.z = -800.0f;
+				OceanDataA.Position.x = 4000.0f;
+			}
 			AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
 		}
 	}
@@ -320,6 +325,11 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	}
 }
 
+void EC1WaterAnimation_SADX()
+{
+	if (SADXStyleWater == true && beachsea_water <=14) njSetTextureNum(beachsea_water);
+}
+
 bool ForceObjectorLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
 	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(0, false); else set_specular(1, false);
@@ -451,6 +461,7 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 	}
+	WriteData((void*)0x004F8A9A, 0x90, 2); //Disable water animation in Act 1
 	WriteData((char*)0x004F7816, 0xFF, 2); //Disable water animation in Act 2
 	WriteData((char*)0x004F78E6, 0xFF, 2); //Disable water animation in Act 3
 	((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.argb.a = 0x99; //Match dynamic ocean alpha with normal ocean
@@ -518,6 +529,7 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 		BeachTexlists[1].Name = "BEACH_SEAW";
 		WriteData((void*)0x004F783A, 0x0F, 1); //15 animation frames for water in Act 2
 		WriteData((void*)0x004F790A, 0x0F, 1); //15 animation frames for water in Act 3
+		WriteCall((void*)0x004F8B23, EC1WaterAnimation_SADX); //Sea animation in Acts 1/2
 	}
 	ResizeTextureList((NJS_TEXLIST*)0xF812AC, textures_ecoast1);
 	ResizeTextureList((NJS_TEXLIST*)0xEF553C, textures_ecoast2);
@@ -533,8 +545,6 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	*(NJS_MODEL_SADX*)0x010C06C8 = attach_001A1690; //Spike gate shadow
 	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
 	if (SADXStyleWater == true) ResizeTextureList((NJS_TEXLIST*)0x010C0508, 32); //BEACH_SEA
-    //Some weird shit with texlists is going on and I have no other choice than disable this
-	//else ResizeTextureList((NJS_TEXLIST*)0x010C0508, 10); //BEACH_SEA
 	//Write floats to fix buggy SADX water positioning code
 	//Act 2
 	WriteData((float**)0x004F7876, &float1);
@@ -579,9 +589,9 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 			SkyboxScale_EmeraldCoast2[i].x = 1.0f;
 			SkyboxScale_EmeraldCoast2[i].y = 1.0f;
 			SkyboxScale_EmeraldCoast2[i].z = 1.0f;
-			SkyboxScale_EmeraldCoast3[i].x = 0.7f;
-			SkyboxScale_EmeraldCoast3[i].y = 0.7f;
-			SkyboxScale_EmeraldCoast3[i].z = 0.7f;
+			SkyboxScale_EmeraldCoast3[i].x = 1.0f;
+			SkyboxScale_EmeraldCoast3[i].y = 1.0f;
+			SkyboxScale_EmeraldCoast3[i].z = 1.0f;
 			DrawDist_EmeraldCoast1[i].Maximum = -6000.0f;
 			DrawDist_EmeraldCoast2[i].Maximum = -3900.0f;
 			EmeraldCoast1Fog[i].Distance = -12000.0f;

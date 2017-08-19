@@ -53,7 +53,7 @@ int round(float r) {
 	return (r > 0.0) ? (r + 0.5) : (r - 0.5);
 }
 
-void __cdecl sub_4F76C0(ObjectMaster *a1)
+void __cdecl sub_4F76C0(ObjectMaster *a1) //Act 2
 {
 	float v1; // ST14_4@1
 	double v2; // st7@1
@@ -71,7 +71,7 @@ void __cdecl sub_4F76C0(ObjectMaster *a1)
 	}
 }
 
-void __cdecl sub_4F7760()
+void __cdecl sub_4F7760() //Act 3
 {
 	float v0; // ST14_4@1
 	double v1; // st7@1
@@ -80,6 +80,8 @@ void __cdecl sub_4F7760()
 	njSetTexture((NJS_TEXLIST*)0x010C0508);
 	if (inside_secret_area == 0)
 	{
+		OceanDataA.Position.z = -800.0f;
+		OceanDataA.Position.x = 4000.0f;
 		AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -37952.0, (QueuedModelFlagsB)0);
 	}
 	v0 = OceanDataB.Position.x - Camera_Data1->Position.x;
@@ -87,12 +89,12 @@ void __cdecl sub_4F7760()
 	v2 = OceanDataB.Position.z - Camera_Data1->Position.z;
 	if (v2 * v2 + v1 * v1 + v0 * v0 < 9000000.0)
 	{
-		OceanDataB.Position.y=-109.0f;
+		OceanDataB.Position.y = -109.0f;
 		AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataB, -37952.0, (QueuedModelFlagsB)0);
 	}
 }
 
-void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
+void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1) //Act 1
 {
 	DataPointer(float, flt_7E00DC, 0x7E00DC);
 	DataPointer(float, flt_7DF1B0, 0x7DF1B0);
@@ -294,6 +296,11 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 		}
 	}
 
+	void EC1WaterAnimation_SADX()
+	{
+		if (beachsea_water <= 14) njSetTextureNum(beachsea_water);
+	}
+
 	extern "C" __declspec(dllexport) void __cdecl Init()
 	{
 		HMODULE handle = GetModuleHandle(L"DC_EmeraldCoast");
@@ -307,9 +314,9 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 				SkyboxScale_EmeraldCoast2[i].x = 1.0f;
 				SkyboxScale_EmeraldCoast2[i].y = 1.0f;
 				SkyboxScale_EmeraldCoast2[i].z = 1.0f;
-				SkyboxScale_EmeraldCoast3[i].x = 0.7f;
-				SkyboxScale_EmeraldCoast3[i].y = 0.7f;
-				SkyboxScale_EmeraldCoast3[i].z = 0.7f;
+				SkyboxScale_EmeraldCoast3[i].x = 1.0f;
+				SkyboxScale_EmeraldCoast3[i].y = 1.0f;
+				SkyboxScale_EmeraldCoast3[i].z = 1.0f;
 				DrawDist_EmeraldCoast1[i].Maximum = -6000.0f;
 				DrawDist_EmeraldCoast2[i].Maximum = -3900.0f;
 				DrawDist_EmeraldCoast3[i].Maximum = -4000.0f;
@@ -322,8 +329,10 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 				EmeraldCoast3Fog[i].Distance = -3000.0f;
 				EmeraldCoast3Fog[i].Color = 0xFFFFFFFF;
 			}
+			WriteData((void*)0x004F8A9A, 0x90, 2); //Disable built-in water animation in Act 1
 			WriteData((char*)0x004F7816, 0xFF, 2); //Disable built-in water animation in Act 2
 			WriteData((char*)0x004F78E6, 0xFF, 2); //Disable built-in water animation in Act 3
+			WriteCall((void*)0x004F8B23, EC1WaterAnimation_SADX); //Sea animation in Acts 1/2
 			ResizeTextureList((NJS_TEXLIST*)0x010C0508, 32); //BEACH_SEA texlist
 			DataArray(PVMEntry, BeachTexlists, 0x0102F408, 32);
 			BeachTexlists[1].Name = "BEACH_SEAWX";
