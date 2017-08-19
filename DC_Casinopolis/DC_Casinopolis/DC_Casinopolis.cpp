@@ -15,6 +15,7 @@ static float distance_float;
 static int anim1 = 75;
 static int anim2 = 7;
 static int anim1_actual = 0;
+static int monitorimage = 0;
 static float gearframe1 = 0;
 static int anim2_actual = 0;
 static int CowgirlDelay = 0;
@@ -750,7 +751,7 @@ extern "C"
 		//Lion top animation
 		DataArray(NJS_MESHSET_SADX, lionmesh, 0x1DFF0F8, 13);
 		lionmesh[0].vertuv = uv_019FEA58;
-		((NJS_OBJECT*)0x01E47B1C)->evalflags |= NJD_EVAL_HIDE; //Hid MizuA
+		((NJS_OBJECT*)0x01E47B1C)->evalflags |= NJD_EVAL_HIDE; //Hide MizuA
 		((NJS_OBJECT*)0x01E47CA4)->evalflags |= NJD_EVAL_HIDE; //Hide MizuB
 		((NJS_OBJECT*)0x01E3FD04)->evalflags |= NJD_EVAL_HIDE; //Hide OKbS
 		((NJS_OBJECT*)0x01E3D734)->evalflags |= NJD_EVAL_HIDE; //Hide OKbC
@@ -761,7 +762,7 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x1C8AF04, textures_casino3);
 		ResizeTextureList((NJS_TEXLIST*)0x1C47004, textures_casino4);
 		*(NJS_MODEL_SADX*)0x01E74A68 = attach_01A74A68; //billboard
-		*(NJS_MODEL_SADX*)0x01E46F30 = attach_001C4DCC; //rotating thing
+		*(NJS_MODEL_SADX*)0x01E46F30 = attach_001C4DCC; //OCfa rotating thing
 		DataArray(FogData, Casino1Fog, 0x01C46990, 3);
 		DataArray(FogData, Casino2Fog, 0x01C469C0, 3);
 		DataArray(DrawDistance, DrawDist_Casino2, 0x01C46948, 3);
@@ -897,6 +898,13 @@ extern "C"
 		}
 		if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
 		{
+			//Rotating thing
+			matlist_001C448C[3].attr_texId = monitorimage + 140;
+			if (FrameCounter % (240 / FramerateSetting) == 0)
+			{
+				monitorimage++;
+				if (monitorimage > 7) monitorimage = 0;
+			}
 			//Water
 			if (anim1_actual == 0) anim1 = 75;
 			if (anim1_actual == 1) anim1 = 68;
