@@ -348,45 +348,6 @@ void WaterTexture_BossWaves()
 		}
 	}
 }
-/*
-void __cdecl sub_563620(int a1)
-{
-	NJS_TEXANIM sanic { 0x190, 0x190, 0xC8, 0xC8, 0, 0, 0xFF, 0xFF, 0, 0 };
-	int v1; // esi@1
-	long double v2; // st7@3
-	double v3; // st7@3
-	DataPointer(float, flt_14940DC, 0x14940DC);
-	DataPointer(float, flt_1494098, 0x1494098);
-	DataPointer(D3DCOLORVALUE, stru_3C6AC98, 0x3C6AC98);
-	DataPointer(NJS_SPRITE, stru_14940BC, 0x14940BC);
-	DataPointer(__int16, word_14940B8, 0x14940B8);
-	DataPointer(NJS_TEXANIM, stru_14940A8, 0x014940A8);
-	v1 = *(_DWORD *)(a1 + 32);
-	if (!DroppedFrames && flt_14940DC != 0.0f)
-	{
-		DisableFog();
-		v2 = fabs(njSin((v1 + 20))) * flt_1494098 * flt_14940DC;
-		stru_3C6AC98.a = 255;
-		stru_3C6AC98.b = 255;
-		stru_3C6AC98.g = 255;
-		SetMaterialAndSpriteColor((NJS_ARGB *)&stru_3C6AC98);
-		njColorBlendingMode(0, NJD_COLOR_BLENDING_ONE);
-		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
-		njPushMatrix(0);
-		njTranslateV(0, (NJS_VECTOR *)(v1 + 32));
-		v3 = *(float *)(v1 + 44);
-		stru_14940BC.sy = 0;
-		stru_14940BC.sx = 0;
-		//stru_14940A8.texid = 0;
-		word_14940B8 = (v1 + 12);
-		njDrawSprite3D_Queue(&stru_14940BC,	0, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE | NJD_SPRITE_COLOR, QueuedModelFlagsB_SomeTextureThing);
-		njPopMatrix(1u);
-		ToggleStageFog();
-		ClampGlobalColorThing_Thing();
-	}
-}
-*/
-
 
 bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
