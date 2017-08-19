@@ -1076,7 +1076,7 @@ extern "C"
 		else
 		{
 			if (TornadoAlpha > 0.0f) TornadoTrigger = 3;
-			if (TornadoTrigger == 3) TornadoAlpha = TornadoAlpha - 0.01f;
+			if (TornadoTrigger == 3) TornadoAlpha = TornadoAlpha - 0.01f * FramerateSetting;
 			if (TornadoTrigger == 3 && TornadoAlpha <= 0.01f)
 			{
 				TornadoTrigger = 4;
