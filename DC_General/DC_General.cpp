@@ -19,6 +19,7 @@ DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
 DataPointer(int, MissedFrames, 0x03B1117C);
+DataPointer(int, CurrentChaoStage, 0x0339F87C);
 
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
@@ -417,12 +418,12 @@ extern "C"
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr)
 		{
-			if (AlphaRejectionMode == 0 && CurrentLevel != 25 && GameMode != GameModes_CharSel && GameMode != GameModes_Menu)
+			if (AlphaRejectionMode == 0 && CurrentLevel != 25 && GameMode != GameModes_CharSel && GameMode != GameModes_Menu && CurrentChaoStage != 2)
 			{
 				WriteData((char*)0x007919CD, 0i8);
 				AlphaRejectionMode = 1;
 			}
-			if (AlphaRejectionMode == 1 && (CurrentLevel == 25 || GameMode == GameModes_CharSel || GameMode == GameModes_Menu))
+			if (AlphaRejectionMode == 1 && (CurrentLevel == 25 || GameMode == GameModes_CharSel || GameMode == GameModes_Menu || CurrentChaoStage == 2))
 			{
 				WriteData((char*)0x007919CD, 16, 1);
 				AlphaRejectionMode = 0;
