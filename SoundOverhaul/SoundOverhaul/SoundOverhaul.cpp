@@ -32,9 +32,10 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteData((void*)0x0053881F, 0x90u, 2); // Enable ambient sound in MR Final Egg base
+		WriteData((char*)0x00571AAF, 0x08, 1); // Fix Egg Hornet sound loop
 		*(SoundList*)0x90FDD0 = E101mkIISoundList;
 		*(SoundList*)0x90FFB8 = soundlist97;
 		*(SoundList*)0x90FDE0 = FinalEggSoundList;
-		WriteData((void*)0x0053881F, 0x90u, 2); // Enable ambient sound in MR Final Egg base
 	}
 }
