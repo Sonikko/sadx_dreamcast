@@ -558,8 +558,10 @@ extern "C"
 		((NJS_OBJECT *)0x118CBB4)->evalflags |= NJD_EVAL_HIDE;
 		((NJS_OBJECT *)0x118CBE8)->evalflags |= NJD_EVAL_HIDE;
 		((NJS_OBJECT *)0x118C910)->evalflags |= NJD_EVAL_HIDE;
-		WriteData((char*)0x0054E12F, 0xFF, 1); //Chandelier lighting in Chaos 2
-		WriteData((char*)0x0054E12C, 0x00, 1); //Chandelier lighting in Chaos 2
+		WriteData((float*)0x117EBDC, 1.0f); //Top light in Chaos 2
+		WriteData((float*)0x117EBD8, 1.0f); //Top light in Chaos 2
+		WriteData((float*)0x117EBE0, 1.0f); //Top light in Chaos 2
+		WriteData((float*)0x117EBE4, 1.0f); //Top light in Chaos 2
 		((NJS_MATERIAL*)0x011E2C00)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Lilypad in Chaos 4
 		((NJS_MATERIAL*)0x011E2C14)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Lilypad in Chaos 4
 		//Egg Viper platforms specular fix
