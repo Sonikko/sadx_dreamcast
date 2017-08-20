@@ -812,6 +812,12 @@ extern "C"
 		{
 			((NJS_OBJECT*)0x01561A70)->basicdxmodel->mats[m].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		}
+		for (int p = 0; p < LengthOfArray(PerfectChaosCars); p++)
+		{
+			PerfectChaosCars[p]->diffuse.argb.r = 0xB2;
+			PerfectChaosCars[p]->diffuse.argb.g = 0xB2;
+			PerfectChaosCars[p]->diffuse.argb.b = 0xB2;
+		}
 		DataArray(FogData, Chaos2Fog, 0x01120638, 3);
 		DataArray(FogData, Chaos6SFog, 0x011EF0E8, 3);
 		DataArray(FogData, Chaos6KFog, 0x011EF118, 3);
