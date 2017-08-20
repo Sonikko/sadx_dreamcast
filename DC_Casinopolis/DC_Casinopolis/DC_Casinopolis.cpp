@@ -18,6 +18,7 @@ static int anim1_actual = 0;
 static int monitorimage = 0;
 static float gearframe1 = 0;
 static int anim2_actual = 0;
+static int LoopDelay = 0;
 static int CowgirlDelay = 0;
 static int RotationAngle1 = 0;
 static int RotationAngle2 = 0;
@@ -49,6 +50,8 @@ DataPointer(ObjectMaster*, off_1E75DE0, 0x01E75DE0);
 DataPointer(NJS_OBJECT, stru_1E5EC4C, 0x01E5EC4C);
 DataPointer(NJS_OBJECT, stru_1E5E7BC, 0x01E5E7BC);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, dword_1E77568, 0x1E77568);
+DataPointer(int, MissedFrames, 0x03B1117C);
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB28, &landtable_00025EAC),
@@ -56,6 +59,66 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DB30, &landtable_000AF120),
 	ptrdecl(0x97DB34, &landtable_000D8440),
 };
+
+void __cdecl Loop_Display(ObjectMaster *a1)
+{
+	DataPointer(NJS_TEXLIST, stru_1D8B384, 0x1D8B384);
+	DataPointer(NJS_SPRITE, stru_3C75098, 0x3C75098);
+	EntityData1 *v1; // esi@1
+	Angle v2; // eax@2
+	Angle v3; // eax@4
+	Angle v4; // eax@6
+	Angle v5; // edi@8
+	double v6; // st7@9
+	float v7; // [sp+8h] [bp+4h]@9
+
+	v1 = a1->Data1;
+	if (!MissedFrames)
+	{
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		njSetTexture(&stru_1D8B384 + 1);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		v2 = v1->Rotation.z;
+		if (IsPlayerInsideSphere(&v1->Position, 10.0f))
+		{
+			if (LoopDelay <= 0) 
+			{
+				PlaySound(239, 0, 0, 0);
+				LoopDelay = 5;
+			}
+		}
+		if (v2)
+		{
+			njRotateZ(0, (unsigned __int16)v2);
+		}
+		v3 = v1->Rotation.x;
+		if (v3)
+		{
+			njRotateX(0, (unsigned __int16)v3);
+		}
+		v4 = v1->Rotation.y;
+		if (v4)
+		{
+			njRotateY(0, (unsigned __int16)v4);
+		}
+		v5 = 0;
+		do
+		{
+			v7 = njSin(v5) * *(float *)&v1->CharIndex;
+			v6 = njCos(v5) * *(float *)&v1->CharIndex;
+			stru_3C75098.p.x = v7;
+			stru_3C75098.p.z = 0;
+			stru_3C75098.p.y = v6;
+			njDrawSprite3D(&stru_3C75098, v1->Action, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE);
+			v5 += 4096;
+		} while (v5 < 0x10000);
+		njPopMatrix(1u);
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+	}
+}
 
 void __cdecl Cowgirl_Display(ObjectMaster *a1)
 {
@@ -85,8 +148,6 @@ void __cdecl Cowgirl_Display(ObjectMaster *a1)
 
 void __cdecl sub_5D0560(ObjectMaster *obj)
 {
-	DataPointer(int, dword_1E77568, 0x1E77568);
-	DataPointer(int, MissedFrames, 0x03B1117C);
 	EntityData1 *v1; // esi@1
 	Angle v2; // eax@3
 	Angle v7;
@@ -628,6 +689,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		WriteJump((void*)0x5D5E50, Loop_Display); //Add sound
 		//Fixed gears
 		WriteCall((void*)0x005D09C7, FixedGear1);
 		WriteJump((void*)0x5D3A90, sub_5D3A90); //Gears main
@@ -781,6 +843,11 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		//Loop sound
+		if (CurrentLevel == 9 && CurrentAct == 3 && GameState != 16)
+		{
+			if (LoopDelay > 0) LoopDelay=LoopDelay - FramerateSetting;
+		}
 		//Gears
 		if (CurrentLevel == 9 && CurrentCharacter == 3 && GameState != 16)
 		{
