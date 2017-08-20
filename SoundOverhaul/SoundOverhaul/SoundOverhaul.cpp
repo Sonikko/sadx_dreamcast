@@ -31,6 +31,11 @@ void PlayBomb()
 	PlaySound(232, 0, 0, 0);
 }
 
+void PlaySpindash(int id, EntityData1 *Data1, int a3, EntityData1 *a4, int a5)
+{
+	QueueSound_DualEntity(767, Data1, 1, 0, 160);
+}
+
 SoundFileInfo E101mkIISoundList_list[] = {
 	{ 0, "COMMON_BANK00" },
 	{ 1, "E101_BANK01" },
@@ -61,7 +66,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		WriteData((char*)0x00496F28, 0x72, 1); //Spindash charge
+		WriteCall((void*)0x00496F33, PlaySpindash);
 		WriteJump((void*)0x004EC370, sub_4EC370); //Ice Cap bomber 1
 		WriteCall((void*)0x004EC573, PlayBomb); //Ice Cap bomber 2
 		WriteCall((void*)0x005ECB4F, PlaySound2); //Go up! Full speed ahead!
