@@ -269,7 +269,7 @@ void __cdecl FixedBubbleRipple(ObjectMaster *a1)
 		stru_3D0B7C8.g = v1[1].z;
 		stru_3D0B7C8.b = v2;
 		stru_3D0B7C8.a = v2;
-		SetMaterialAndSpriteColor((NJS_ARGB *)&stru_3D0B7C8);
+		//SetMaterialAndSpriteColor((NJS_ARGB *)&stru_3D0B7C8);
 		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
 		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
 		njScale(0, v1[2].z, 1.0f, v1[2].z);
@@ -311,6 +311,8 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		((NJS_MATERIAL*)0x008B1CE0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Ripple
+		((NJS_MATERIAL*)0x008B1CE0)->diffuse.color = 0xFFFFFFFF;
 		//Environment maps
 		EnvMap1 = 0.5f;
 		EnvMap2 = 0.5f;
