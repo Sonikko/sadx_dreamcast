@@ -1,11 +1,14 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+
 static int vmuframe = 0;
-static float fruitscale = 0.65f;
 DataPointer(int, CurrentChaoStage, 0x0339F87C);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(SecondaryEntrance, ECGardenStartPoint, 0x0339F8E8);
 DataPointer(SecondaryEntrance, SSGardenStartPoint, 0x0339F888);
+DataPointer(NJS_OBJECT, ChaoNormalFruit, 0x03606D00);
+FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
+
 #include <lanternapi.h>
 #include "ChaoObjects.h"
 #include "ChaoRaceFunc.h"
@@ -24,12 +27,6 @@ DataPointer(SecondaryEntrance, SSGardenStartPoint, 0x0339F888);
 //#include "WIP.h"
 #include <stdlib.h>  
 
-PointerInfo pointers[] = {
-	ptrdecl(0x719DC9, &landtable_00000E64), //Chao Race
-	ptrdecl(0x719619, &landtable_00011DD4), //SS Garden
-	ptrdecl(0x7191E9, &landtable_0000DF3C) //EC Garden
-};
-
 void __cdecl LoadChaoRaceX()
 {
 	PrintDebug("SANICChaoStgRace _prolog begin.\n");
@@ -37,6 +34,12 @@ void __cdecl LoadChaoRaceX()
 	LoadObjects();
 	SetChaoLandTableX(&landtable_00000E64);
 	PrintDebug("ChaoStgRace _prolog end.\n");
+}
+
+void ScaleFruit()
+{
+	njScale(0, 0.7f, 0.7f, 0.7f);
+	sub_408530(&ChaoNormalFruit);
 }
 
 extern "C"
@@ -67,7 +70,7 @@ extern "C"
 		//Fruits
 		*(NJS_OBJECT*)0x3606D00 = object_0017C0BC; //Coconut
 		*(NJS_OBJECT*)0x3606958 = object_0017C0BC_green; //Coconut (unripe)
-		WriteData((float**)0x00722C33, &fruitscale);
+		WriteCall((void*)0x00722D59, ScaleFruit); //Scale normal fruit
 		//Trees
 		*(NJS_MODEL_SADX*)0x036087C0 = attach_0017BAF8; //Tree trunk
 		*(NJS_MODEL_SADX*)0x03608064 = attach_0017B768; //Tree leaves 1
