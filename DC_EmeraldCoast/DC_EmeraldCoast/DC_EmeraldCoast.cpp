@@ -330,15 +330,9 @@ void EC1WaterAnimation_SADX()
 	if (SADXStyleWater == true && beachsea_water <=14) njSetTextureNum(beachsea_water);
 }
 
-bool ForceObjectorLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
-{
-	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(0, false); else set_specular(1, false);
-	use_default_diffuse(true);
-	return true;
-}
-
 bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
+	set_diffuse(0, false);
 	set_specular(1, false);
 	use_default_diffuse(true);
 	return true;
@@ -346,6 +340,7 @@ bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
+	set_diffuse(0, false);
 	set_specular(0, false);
 	use_default_diffuse(true);
 	return true;
@@ -362,8 +357,6 @@ NJS_MATERIAL* ObjectSpecular[] = {
 	((NJS_MATERIAL*)0x0109AF28),
 	((NJS_MATERIAL*)0x0109AF3C),
 	((NJS_MATERIAL*)0x0109AF50),
-	((NJS_MATERIAL*)0x0109B6C4),
-	((NJS_MATERIAL*)0x0109B6D8),
 };
 
 NJS_MATERIAL* LevelSpecular[] = {
