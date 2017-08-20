@@ -333,6 +333,12 @@ void WaterTexture_BossOcean()
 	if (CurrentLevel == 23 || CurrentLevel == 25) njSetTextureNum(102);
 }
 
+void DisableSADXWaterFog()
+{
+	SetOceanAlphaModeAndFVF(1);
+	DisableFog();
+}
+
 void WaterTexture_BossWaves()
 {
 	if (egghornetwater > 157) egghornetwater = 143;
@@ -512,6 +518,7 @@ extern "C"
 			landtable_00000180.TexName = "E101R_TIKEIW";
 			WriteCall((void*)0x00572310, WaterTexture_BossWaves); //Egg Hornet ocean
 			WriteCall((void*)0x0057236D, WaterTexture_BossOcean); //Egg Hornet ocean
+			WriteCall((void*)0x005722A3, DisableSADXWaterFog); //Egg Hornet ocean
 			WriteCall((void*)0x0056CD15, WaterTexture_BossWaves); //E101R ocean
 			WriteCall((void*)0x0056CD7B, WaterTexture_BossOcean); //E101R ocean
 			WriteCall((void*)0x00587EF5, WaterTexture_BossWaves); //Zero ocean
@@ -837,9 +844,10 @@ extern "C"
 			Chaos7Fog[i].Toggle = 1;
 			DrawDist_Chaos7[i].Maximum = -6500.0;
 			DrawDist_EggHornet[i].Maximum = -12500.0;
-			EggHornetFog[i].Layer = -2000.0f;
-			EggHornetFog[i].Distance= -8000.0f;
-			EggHornetFog[i].Toggle = 0;
+			EggHornetFog[i].Distance = -9000.0f;
+			EggHornetFog[i].Layer = -1500.0f;
+			EggHornetFog[i].Toggle = 1;
+			EggHornetFog[i].Color = 0xFF646464;
 			EggWalkerFog[i].Toggle = 0;
 			EggViperFog[i].Toggle = 0;
 			Fog_Zero[i].Toggle = 0;

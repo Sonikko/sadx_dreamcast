@@ -54,6 +54,12 @@ void __cdecl SetWaterTexture()
 	njSetTextureNum(155);
 }
 
+void DisableSADXWaterFog()
+{
+	SetOceanAlphaModeAndFVF(1);
+	DisableFog();
+}
+
 void __cdecl MRWater()
 {
 	if (CurrentAct == 0)
@@ -232,6 +238,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 
 	if (SADXStyleWater != 0) 
 	{
+		WriteCall((void*)0x00532551, DisableSADXWaterFog);
 		landtable_00017960.TexName = "ADV_MR00W";
 		WriteCall((void*)0x005325C9, SetWaterTexture);
 		WriteData((int*)0x00532611, 156);
