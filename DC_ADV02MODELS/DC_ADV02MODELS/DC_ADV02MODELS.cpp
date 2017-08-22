@@ -36,7 +36,7 @@ DataArray(DrawDistance, MR4DrawDist, 0x01103430, 3);
 DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, FramerateSetting, 0x0089295C);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(void*, EV_MainThread_ptr, 0x3B2C578);
 static bool InsideTemple = 0;

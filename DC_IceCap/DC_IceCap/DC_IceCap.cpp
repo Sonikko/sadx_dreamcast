@@ -8,7 +8,7 @@
 #include "IceCap4.h"
 
 DataPointer(int, MissedFrames, 0x03B1117C);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, FramerateSetting, 0x0089295C);
 static int animframe = 41;
 
 PointerInfo pointers[] = {

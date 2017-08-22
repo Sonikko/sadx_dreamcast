@@ -20,7 +20,7 @@ static int anim7 = 120;
 static int anim_sadx = 268;
 static int anim_sadx2 = 132;
 
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, FramerateSetting, 0x0089295C);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(void*, EV_MainThread_ptr, 0x3B2C578);

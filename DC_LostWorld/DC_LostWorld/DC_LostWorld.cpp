@@ -10,7 +10,7 @@ DataPointer(float, CurrentDrawDist, 0x03ABDC74);
 
 static int animw1 = 44;
 static int animw2 = 81;
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, FramerateSetting, 0x0089295C);
 DataPointer(NJS_MODEL_SADX, Hasira1Model, 0x2004E80);
 
 PointerInfo pointers[] = {

@@ -6,7 +6,7 @@
 #include "HotShelter2.h"
 #include "HotShelter3.h"
 
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, FramerateSetting, 0x0089295C);
 DataPointer(float, HotShelterWaterThing, 0x3C72E54);
 DataArray(NJS_TEX, uv_01410790, 0x01810790, 20); //water thing UVs 1
 DataArray(NJS_TEX, uv_014107E0, 0x018107E0, 56); //water thing UVs 2

@@ -1,13 +1,62 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
 
-static int vmuframe = 0;
+//Stuff
+
+struct ChaoTreeSpawn
+{
+	NJS_VECTOR a;
+	NJS_VECTOR b;
+	NJS_VECTOR c;
+	NJS_VECTOR d;
+	NJS_VECTOR e;
+	NJS_VECTOR f;
+	NJS_VECTOR g;
+	NJS_VECTOR h;
+	NJS_VECTOR i;
+	NJS_VECTOR j;
+};
+
+FunctionPointer(void, SetChaoLandTableX, (LandTable *geo), 0x0043A4C0);
+FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
+FunctionPointer(void, sub_715700, (int a1), 0x00715700);
+FunctionPointer(void, sub_715730, (int a1, int a2), 0x00715730);
+FunctionPointer(void, sub_745A20, (NJS_TEX*, int), 0x745A20);
+FunctionPointer(void, sub_78A320, (int a1), 0x0078A320);
+FunctionPointer(void, sub_72C280, (int a1), 0x72C280);
+FunctionPointer(void, sub_72C210, (int a1), 0x72C210);
+FunctionPointer(void, sub_72C240, (int a1), 0x72C240);
+FunctionPointer(void, sub_7197E0, (ObjectMaster *a1), 0x7197E0);
+FunctionPointer(void, sub_7197C0, (ObjectMaster *a1), 0x7197C0);
+FunctionPointer(int, sub_72CC30, (), 0x72CC30);
+FunctionPointer(char, sub_72CD70, (), 0x72CD70);
+FunctionPointer(int, sub_72CC00, (NJS_TEXLIST *a1, int a2, int a3, int a4), 0x72CC00);
+FunctionPointer(char, sub_716A90, (), 0x716A90);
+FunctionPointer(int, sub_72CBC0, (), 0x72CBC0);
+FunctionPointer(signed int, sub_717160, (), 0x717160);
+FunctionPointer(ObjectMaster *, sub_72CB40, (), 0x72CB40);
+FunctionPointer(ObjectMaster *, sub_72C4A0, (), 0x72C4A0);
+FunctionPointer(ObjectMaster *, sub_72C3A0, (), 0x72C3A0);
+FunctionPointer(ObjectMaster *, sub_72C2E0, (), 0x72C2E0);
+FunctionPointer(void, sub_7153F0, (), 0x7153F0);
+DataArray(NJS_VECTOR, Chao_SSChaoSpawnPoints, 0x033A0AF8, 16);
+DataArray(NJS_VECTOR, Chao_ECChaoSpawnPoints, 0x033A0BB8, 16);
+DataArray(NJS_VECTOR, Chao_MRChaoSpawnPoints, 0x033A0C78, 16);
+DataArray(ChaoTreeSpawn, ChaoTreeSpawns, 0x033A0D78, 3);
+DataArray(NJS_TEXLIST, ChaoTexLists, 0x033A1038, 7);
 DataPointer(int, CurrentChaoStage, 0x0339F87C);
 DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(int, FramerateSetting, 0x0089295C);
 DataPointer(SecondaryEntrance, ECGardenStartPoint, 0x0339F8E8);
 DataPointer(SecondaryEntrance, SSGardenStartPoint, 0x0339F888);
 DataPointer(NJS_OBJECT, ChaoNormalFruit, 0x03606D00);
-FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
+
+static int chaoracewater = 55;
+static int ssgardenwater = 0;
+static int ecgardensand = 64;
+static int ecgardenwater = 54;
+static int mrgardenwater = 36;
+static int vmuframe = 0;
 
 #include <lanternapi.h>
 #include "ChaoObjects.h"

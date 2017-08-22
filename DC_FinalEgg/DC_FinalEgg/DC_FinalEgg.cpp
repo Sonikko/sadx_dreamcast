@@ -10,7 +10,7 @@
 
 NJS_TEXNAME textures_cylinder[259];
 NJS_TEXLIST texlist_cylinder = { arrayptrandlength(textures_cylinder) };
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, FramerateSetting, 0x0089295C);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, LastRenderFlags, 0x03D08498);
 DataPointer(float, SomeDepthThing, 0x03ABD9C0);

@@ -10,7 +10,7 @@
 
 HMODULE Past = GetModuleHandle(L"ADV03MODELS");
 
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, FramerateSetting, 0x0089295C);
 static int animframe1 = 75;
 static int animframe2 = 72;
 static int animframe3 = 59;
