@@ -14,6 +14,7 @@ struct OceanData
 
 FunctionPointer(void, DrawEmeraldCoastOcean, (OceanData *x), 0x004F8A30);
 FunctionPointer(double, sub_789320, (float a2), 0x789320);
+DataArray(COL, Col_ECoast1, 0x00E95938, 480);
 
 //Big ocean default UVs (Acts 2/3)
 NJS_TEX uv_00CC0530_d[] = {
@@ -40,7 +41,7 @@ DataArray(NJS_VECTOR, SkyboxScale_EmeraldCoast3, 0x00E99D28, 3);
 DataArray(FogData, EmeraldCoast1Fog, 0x00E99DDC, 3);
 DataArray(FogData, EmeraldCoast2Fog, 0x00E99E0C, 3);
 DataArray(FogData, EmeraldCoast3Fog, 0x00E99E3C, 3);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, FramerateSetting, 0x0089295C);
 DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
 DataPointer(float, EC1OceanYShift, 0x010C85A8);
 DataPointer(int, DroppedFrames, 0x03B1117C);
@@ -385,6 +386,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1) //Act 1
 		HMODULE handle = GetModuleHandle(L"DC_EmeraldCoast");
 		if (handle == 0)
 		{
+			Col_ECoast1[455].Flags = 0x80040000; //Prevent some seashore object from clipping
 			//Hide skybox bottom in Act 3
 			if (CurrentLevel == 1 && CurrentAct == 2 && Camera_Data1 != nullptr)
 			{
