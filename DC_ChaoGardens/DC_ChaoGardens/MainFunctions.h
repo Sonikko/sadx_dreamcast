@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <SADXModLoader.h>
 
 //MR Garden DLL functions
@@ -54,6 +55,10 @@ void __cdecl LoadSSGardenX()
 {
 	PrintDebug("ChaoStgGarden00SS Prolog begin\n");
 	LoadPVM("OBJ_SS", (NJS_TEXLIST*)0x02AA4BF8);
+	SSGardenStartPoint.Position.x = BK_SSGardenStartPoint.Position.x;
+	SSGardenStartPoint.Position.y = BK_SSGardenStartPoint.Position.y;
+	SSGardenStartPoint.Position.z = BK_SSGardenStartPoint.Position.z;
+	SSGardenStartPoint.YRot = BK_SSGardenStartPoint.YRot;
 	LoadObject(LoadObj_Data1, 2, ChaoStgGarden00SS_Load);
 	LoadObjects_SS();
 	SetChaoLandTable(&landtable_00011DD4);
@@ -387,4 +392,101 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	}
 }
 
+void ScaleFruit()
+{
+	njScale(0, 0.7f, 0.7f, 0.7f);
+	sub_408530(&ChaoNormalFruit);
+}
 
+//Chao Race Entry stuff
+
+ObjectMaster *__cdecl sub_72C2E0X()
+{
+	ObjectMaster *v0; // eax@1
+	ObjectMaster *v1; // esi@1
+	LoadPVM("OBJ_AL_RACE", (NJS_TEXLIST*)0x033A6404);
+	LoadObjects_E();
+	return v1;
+}
+
+void __cdecl ChaoStgEntrance_MainX(ObjectMaster *a1)
+{
+	DataPointer(int, TextLanguage, 0x03B0F0E8);
+	DataPointer(int, dword_3CA6EB8, 0x3CA6EB8);
+	DataPointer(NJS_TEXLIST, AL_TEX_ENT_COMMON_TEXLIST, 0x034232E8);
+	DataPointer(NJS_TEXLIST, AL_ENT_CHAR_X_TEX_TEXLIST, 0x034232F0);
+	DataPointer(NJS_TEXLIST, AL_ENT_TITLE_X_TEX_TEXLIST, 0x034232F8);
+	const char *v1; // [sp-24h] [bp-24h]@5
+	NJS_TEXLIST *v2; // [sp-20h] [bp-20h]@5
+	unsigned __int16 v3; // [sp-1Ch] [bp-1Ch]@5
+	const char *v4; // [sp-Ch] [bp-Ch]@3
+	a1->MainSub = sub_7197E0;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))nullsub;
+	a1->DeleteSub = sub_7197C0;
+	SetGlobalPoint2Col_Colors(0xFF000000, 0xFF000000, 0xFF000000);
+	sub_72A750();
+	sub_72A570();
+	sub_724E60();
+	sub_722500();
+	LoadChaoTexlist("AL_TEX_COMMON", &ChaoTexLists[1], 1u);
+	sub_72C2E0X();
+	InitializeSoundManager();
+	PlayMusic(MusicIDs_ChaoRaceEntrance_OLD);
+	DataPointer(DrawDistance, LevelDrawDistance, 0x03ABDC70);
+	LevelDrawDistance.Minimum = -1.0f;
+	LevelDrawDistance.Maximum = -12000.0f;
+}
+
+void __cdecl LoadRaceEntryX()
+{
+	if (SkipSA1Entry == 1)
+	{
+		LoadPVM("CHAO_ENTRANCE", (NJS_TEXLIST*)0x340E934);
+		SSGardenStartPoint.Position.x = BK_SSGardenStartPoint.Position.x;
+		SSGardenStartPoint.Position.y = BK_SSGardenStartPoint.Position.y;
+		SSGardenStartPoint.Position.z = BK_SSGardenStartPoint.Position.z;
+		SSGardenStartPoint.YRot = BK_SSGardenStartPoint.YRot;
+		PrintDebug("ChaoStgEntrance _prolog begin.\n");
+		LoadObject(LoadObj_Data1, 5, ChaoStgEntrance_Main);
+		SetChaoLandTable((LandTable*)0x03423700); //PC
+		PrintDebug("ChaoStgEntrance _prolog end.\n");
+		SkipSA1Entry = 0;
+	}
+	else
+	{
+		LoadPVM("AL_RACE01", (NJS_TEXLIST*)0x340E934);
+		SSGardenStartPoint.Position.x = 2052;
+		SSGardenStartPoint.Position.y = 0;
+		SSGardenStartPoint.Position.z = 0;
+		SSGardenStartPoint.YRot = NJM_DEG_ANG(180);
+		PrintDebug("ChaoStgEntrance _prolog begin.\n");
+		LoadObject(LoadObj_Data1, 5, ChaoStgEntrance_MainX);
+		SetChaoLandTable(&landtable_00000270); //DC
+		PrintDebug("ChaoStgEntrance _prolog end.\n");
+	}
+}
+
+void LoadSADXEntry()
+{
+	sub_79E400(2, 0, 0); //Play sound
+	SkipSA1Entry = 1;
+	sub_715700(2);
+}
+
+void ExitRaceEntry()
+{
+	SkipSA1Entry = 0;
+	sub_715700(2);
+}
+
+//Chao Race stuff
+
+void __cdecl LoadChaoRaceX()
+{
+	SkipSA1Entry = 0;
+	PrintDebug("ChaoStgRace _prolog begin.\n");
+	LoadObject(LoadObj_Data1, 2, ChaoStgRace_Main);
+	LoadObjects();
+	SetChaoLandTableX(&landtable_00000E64);
+	PrintDebug("ChaoStgRace _prolog end.\n");
+}

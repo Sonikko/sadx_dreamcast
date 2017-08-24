@@ -64,9 +64,9 @@ void LoadObjects_E()
 		ent->Position.y = 21;
 		ent->Position.z = -49.3f;
 		ent->Rotation.y = 0x5F46;
-		ent->Scale.x = 25;
-		ent->Scale.y = 10;
-		ent->Scale.z = 8;
+		ent->Scale.x = 25;//25
+		ent->Scale.y = 10;//10
+		ent->Scale.z = 7;//8
 	}
 	
 	obj = LoadObject((LoadObj)2, 3, OF_E16); // BOW CHAO

@@ -1,7 +1,5 @@
-#include "stdafx.h"
+﻿#include "stdafx.h"
 #include <SADXModLoader.h>
-
-//Stuff
 
 struct ChaoTreeSpawn
 {
@@ -17,46 +15,77 @@ struct ChaoTreeSpawn
 	NJS_VECTOR j;
 };
 
-FunctionPointer(void, SetChaoLandTableX, (LandTable *geo), 0x0043A4C0);
-FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
-FunctionPointer(void, sub_715700, (int a1), 0x00715700);
-FunctionPointer(void, sub_715730, (int a1, int a2), 0x00715730);
-FunctionPointer(void, sub_745A20, (NJS_TEX*, int), 0x745A20);
-FunctionPointer(void, sub_78A320, (int a1), 0x0078A320);
-FunctionPointer(void, sub_72C280, (int a1), 0x72C280);
-FunctionPointer(void, sub_72C210, (int a1), 0x72C210);
-FunctionPointer(void, sub_72C240, (int a1), 0x72C240);
-FunctionPointer(void, sub_7197E0, (ObjectMaster *a1), 0x7197E0);
-FunctionPointer(void, sub_7197C0, (ObjectMaster *a1), 0x7197C0);
-FunctionPointer(int, sub_72CC30, (), 0x72CC30);
-FunctionPointer(char, sub_72CD70, (), 0x72CD70);
-FunctionPointer(int, sub_72CC00, (NJS_TEXLIST *a1, int a2, int a3, int a4), 0x72CC00);
-FunctionPointer(char, sub_716A90, (), 0x716A90);
-FunctionPointer(int, sub_72CBC0, (), 0x72CBC0);
-FunctionPointer(signed int, sub_717160, (), 0x717160);
-FunctionPointer(ObjectMaster *, sub_72CB40, (), 0x72CB40);
-FunctionPointer(ObjectMaster *, sub_72C4A0, (), 0x72C4A0);
-FunctionPointer(ObjectMaster *, sub_72C3A0, (), 0x72C3A0);
-FunctionPointer(ObjectMaster *, sub_72C2E0, (), 0x72C2E0);
-FunctionPointer(void, sub_7153F0, (), 0x7153F0);
-DataArray(NJS_VECTOR, Chao_SSChaoSpawnPoints, 0x033A0AF8, 16);
-DataArray(NJS_VECTOR, Chao_ECChaoSpawnPoints, 0x033A0BB8, 16);
-DataArray(NJS_VECTOR, Chao_MRChaoSpawnPoints, 0x033A0C78, 16);
-DataArray(ChaoTreeSpawn, ChaoTreeSpawns, 0x033A0D78, 3);
-DataArray(NJS_TEXLIST, ChaoTexLists, 0x033A1038, 7);
-DataPointer(int, CurrentChaoStage, 0x0339F87C);
-DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(int, FramerateSetting, 0x0089295C);
-DataPointer(SecondaryEntrance, ECGardenStartPoint, 0x0339F8E8);
-DataPointer(SecondaryEntrance, SSGardenStartPoint, 0x0339F888);
-DataPointer(NJS_OBJECT, ChaoNormalFruit, 0x03606D00);
-
 static int chaoracewater = 55;
 static int ssgardenwater = 0;
 static int ecgardensand = 64;
 static int ecgardenwater = 54;
 static int mrgardenwater = 36;
 static int vmuframe = 0;
+static int SkipSA1Entry = 0;
+static float OpenDoorThing = 0;
+static bool c1 = false;
+static bool h1 = false;
+static bool a1 = false;
+static bool o1 = false;
+static bool r2 = false;
+static bool a2 = false;
+static bool c2 = false;
+static bool e2 = false;
+static int letterframe = 0;
+static bool cheerchaoanim = false;
+static SecondaryEntrance BK_SSGardenStartPoint;
+
+NJS_VECTOR racebutton{ 2020, 0, -0.68f };
+NJS_VECTOR exitdoor{ 2099.42f, 13.49f, -0.8400002f };
+
+FunctionPointer(void, SetChaoLandTableX, (LandTable *geo), 0x43A4C0);
+FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
+FunctionPointer(void, sub_715700, (int a1), 0x715700);
+FunctionPointer(void, sub_715730, (int a1, int a2), 0x715730);
+FunctionPointer(void, sub_745A20, (NJS_TEX*, int), 0x745A20);
+FunctionPointer(void, sub_78A320, (int a1), 0x78A320);
+FunctionPointer(void, sub_715640, (int a1), 0x715640);
+FunctionPointer(void, sub_72C280, (int a1), 0x72C280);
+FunctionPointer(void, sub_72C210, (int a1), 0x72C210);
+FunctionPointer(void, sub_72C240, (int a1), 0x72C240);
+FunctionPointer(void, sub_46C3D0, (ObjectMaster *a1), 0x46C3D0);
+FunctionPointer(void, sub_7197E0, (ObjectMaster *a1), 0x7197E0);
+FunctionPointer(void, sub_7197C0, (ObjectMaster *a1), 0x7197C0);
+FunctionPointer(int, sub_72CC30, (), 0x72CC30);
+FunctionPointer(void, sub_415210, (), 0x415210);
+FunctionPointer(char, sub_72CD70, (), 0x72CD70);
+FunctionPointer(int, sub_72CC00, (NJS_TEXLIST *a1, int a2, int a3, int a4), 0x72CC00);
+FunctionPointer(char, sub_716A90, (), 0x716A90);
+FunctionPointer(int, sub_72CBC0, (), 0x72CBC0);
+FunctionPointer(signed int, sub_717160, (), 0x717160);
+FunctionPointer(void, sub_72A750, (), 0x72A750);
+FunctionPointer(void, sub_72A570, (), 0x72A570);
+FunctionPointer(void, sub_724E60, (), 0x724E60);
+FunctionPointer(void, sub_722500, (), 0x722500);
+FunctionPointer(void, sub_79E400, (int ID, int a2, NJS_VECTOR *a3), 0x79E400);
+FunctionPointer(ObjectMaster *, sub_72CB40, (), 0x72CB40);
+FunctionPointer(ObjectMaster *, sub_72C4A0, (), 0x72C4A0);
+FunctionPointer(ObjectMaster *, sub_72C3A0, (), 0x72C3A0);
+FunctionPointer(ObjectMaster *, sub_72C2E0, (), 0x72C2E0);
+FunctionPointer(void, sub_7153F0, (), 0x7153F0);
+
+DataArray(NJS_VECTOR, Chao_SSChaoSpawnPoints, 0x033A0AF8, 16);
+DataArray(NJS_VECTOR, Chao_ECChaoSpawnPoints, 0x033A0BB8, 16);
+DataArray(NJS_VECTOR, Chao_MRChaoSpawnPoints, 0x033A0C78, 16);
+DataArray(ChaoTreeSpawn, ChaoTreeSpawns, 0x033A0D78, 3);
+DataArray(NJS_TEXLIST, ChaoTexLists, 0x033A1038, 7);
+DataPointer(NJS_TEXLIST, AL_DX_ETC_TEXLIST, 0x033A1350);
+DataPointer(NJS_TEXLIST, AL_OBJECT_TEXLIST, 0x033A11F0);
+DataPointer(NJS_TEXLIST, AL_TOY_TEXLIST, 0x033A11F8);
+DataPointer(NJS_TEXLIST, AL_DX_OBJ_CMN_TEXLIST, 0x033A1200);
+DataPointer(int, CurrentChaoStage, 0x0339F87C);
+DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(int, FramerateSetting, 0x0089295C);
+DataPointer(SecondaryEntrance, ECGardenStartPoint, 0x0339F8E8);
+DataPointer(SecondaryEntrance, SSGardenStartPoint, 0x0339F888);
+DataPointer(NJS_OBJECT, ChaoNormalFruit, 0x03606D00);
+DataPointer(int, dword_3CDC6B4, 0x3CDC6B4);
+DataPointer(NJS_OBJECT, stru_366C124, 0x366C124);
 
 #include <lanternapi.h>
 #include "ChaoObjects.h"
@@ -65,47 +94,125 @@ static int vmuframe = 0;
 #include "SSGarden.h"
 #include "MRGarden.h"
 #include "ChaoRace.h"
-//#include "ChaoRaceEntry.h"
-//#include "RaceEntry_DX.h"
+#include "ChaoRaceEntry.h"
 #include "ECGarden_DC.h"
 #include "ECGarden_func.h"
 #include "RaceEntry_func.h"
 #include "SSGarden_func.h"
 #include "MRGarden_func.h"
+#include "HintMessages.h"
 #include "MainFunctions.h"
-//#include "WIP.h"
 #include <stdlib.h>  
 
-void __cdecl LoadChaoRaceX()
-{
-	PrintDebug("SANICChaoStgRace _prolog begin.\n");
-	LoadObject(LoadObj_Data1, 2, ChaoStgRace_Main);
-	LoadObjects();
-	SetChaoLandTableX(&landtable_00000E64);
-	PrintDebug("ChaoStgRace _prolog end.\n");
-}
+bool letteranims[][8] = {
+	{ true, false, false, false, false,	false, false, false }, 
+	{ false, true, false, false, false,	false, false, false },
+	{ false, false, true, false, false,	false, false, false },
+	{ false, false, false, true, false,	false, false, false },
+	{ false, false, false, false, true,	false, false, false },
+	{ false, false, false, false, false, true, false, false },
+	{ false, false, false, false, false, false, true, false },
+	{ false, false, false, false, false, false, false, true },
 
-void ScaleFruit()
-{
-	njScale(0, 0.7f, 0.7f, 0.7f);
-	sub_408530(&ChaoNormalFruit);
-}
+	{ true, false, false, false, false,	false, false, true },
+	{ false, true, false, false, false,	false, false, true },
+	{ false, false, true, false, false,	false, false, true },
+	{ false, false, false, true, false,	false, false, true },
+	{ false, false, false, false, true,	false, false, true },
+	{ false, false, false, false, false, true, false, true },
+	{ false, false, false, false, false, false, true, true },
+
+	{ true, false, false, false, false,	false, true, true },
+	{ false, true, false, false, false,	false, true, true },
+	{ false, false, true, false, false,	false, true, true },
+	{ false, false, false, true, false,	false, true, true },
+	{ false, false, false, false, true,	false, true, true },
+	{ false, false, false, false, false, true, true, true },
+
+	{ true, false, false, false, false,	true, true, true },
+	{ false, true, false, false, false,	true, true, true },
+	{ false, false, true, false, false,	true, true, true },
+	{ false, false, false, true, false,	true, true, true },
+	{ false, false, false, false, true,	true, true, true },
+
+	{ true, false, false, false, true, true, true, true },
+	{ false, true, false, false, true, true, true, true },
+	{ false, false, true, false, true, true, true, true },
+	{ false, false, false, true, true, true, true, true },
+
+	{ true, false, false, true, true, true, true, true },
+	{ false, true, false, true, true, true, true, true },
+	{ false, false, true, true, true, true, true, true },
+
+	{ true, false, true, true, true, true, true, true },
+	{ false, true, true, true, true, true, true, true },
+
+	{ true, true, true, true, true,	true, true, true },
+
+	{ false, false, false, false, false, false, false, false },
+
+	{ true, true, true, true, true,	true, true, true },
+
+	{ false, false, false, false, false, false, false, false },
+
+	{ true, true, true, true, true,	true, true, true },
+
+	{ false, false, false, false, false, false, false, false },
+
+	{ true, true, true, true, true,	true, true, true },
+
+	{ false, false, false, false, false, false, false, false },
+
+	{ false, false, false, true, true, false, false, false },
+
+	{ false, false, true, false, false, true, false, false },
+
+	{ false, false, false, false, false, false, false, false },
+	{ false, true, false, false, false, false, true, false },
+	{ true, false, false, false, false, false, false, true },
+	{ false, false, false, false, false, false, false, false },
+	{ false, false, false, true, true, false, false, false },
+	{ false, false, true, false, false, true, false, false },
+	{ true, false, true, false, false, true, false, true },
+	{ false, true, false, true, true, false, true, false },
+	{ false, false, false, false, false, false, false, false },
+	{ true, false, true, false, false, true, false, true },
+	{ false, true, false, true, true, false, true, false },
+	{ false, false, false, false, false, false, false, false },
+	{ true, false, false, false, false, false, false, false },
+	{ false, true, false, false, false, false, false, false },
+	{ true, false, true, false, false, false, false, false },
+	{ true, false, true, false, true, false, false, false },
+	{ false, true, false, true, false, true, false, false },
+	{ true, false, true, false, true, false, true, false },
+	{ false, true, false, true, false, true, false, true },
+	{ true, false, true, false, true, false, true, false },
+	{ false, true, false, true, false, true, false, true },
+	{ true, false, true, false, true, false, true, false },
+	{ false, true, false, true, false, true, false, true },
+	{ true, false, true, false, true, false, true, false },
+	{ false, false, false, false, false, false, false, false },
+};
+
+PointerInfo pointers[] = {
+	ptrdecl(0x9BF06C, &ChaoGardenMessages_Japanese),
+	ptrdecl(0x9BF070, &ChaoGardenMessages_English),
+	ptrdecl(0x9BF074, &ChaoGardenMessages_French),
+	ptrdecl(0x9BF078, &ChaoGardenMessages_Spanish),
+	ptrdecl(0x9BF07C, &ChaoGardenMessages_German)
+};
 
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
-	//__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
-	__declspec(dllexport) void __cdecl Init()
+	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
+	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
-//Chao Race Entry
-		//WriteJump((void*)0x007199B0, LoadRaceEntryX);
-		//ResizeTextureList((NJS_TEXLIST *)0x340E934, 62); //Race Entry texlist
-		//WriteJump((void*)0x00719880, ChaoStgEntrance_MainX);
 //General
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-		/*if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	/*	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
-			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+		//	material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 		}*/
 		//Garden transporters stuff
 		*(NJS_OBJECT*)0x036065B4 = object_00134808; //EC garden to EC transporter
@@ -147,10 +254,21 @@ extern "C"
 			stru_33D0B50[i].scale.y = 0;
 			stru_33D0B50[i].scale.z = 0;
 		}
+//Chao Race Entry
+		BK_SSGardenStartPoint.Position.x = SSGardenStartPoint.Position.x;
+		BK_SSGardenStartPoint.Position.y = SSGardenStartPoint.Position.y;
+		BK_SSGardenStartPoint.Position.z = SSGardenStartPoint.Position.z;
+		BK_SSGardenStartPoint.YRot = SSGardenStartPoint.YRot;
+		WriteJump((void*)0x007199B0, LoadRaceEntryX);
+		ResizeTextureList((NJS_TEXLIST *)0x340E934, 49); //Race Entry texlist
+		WriteCall((void*)0x0072C618, ExitRaceEntry);
+		WriteCall((void*)0x0071D17A, LoadSADXEntry);
+		WriteData((void*)0x0071D158, 0x90, 5); //Don't move Sanic
+		WriteData((void*)0x0071CEE0, 0x90, 5); //Don't mess with entry button
+		WriteData((void*)0x0071CEC2, 0x90, 5); //Don't mess with entry button
 //Chao Race stuff
 		WriteJump((void*)0x00719DB0, LoadChaoRaceX);
 		WriteData((float*)0x00719D74, -16000.0f); //Draw distance
-		//WriteData((void*)0x0071C293, 0x90, 5); //Prevent the Cheering Omochaos from disappearing
 //Station Square garden stuff
 		WriteJump((void*)0x4145D0, sub_4145D0); //Elevator function
 		WriteJump((void*)0x0072AB80, LoadChaoRaceDoorX);
@@ -302,6 +420,7 @@ extern "C"
 		ChaoTreeSpawns[1].e.y = 72.0f;  //Palm tree 5
 		ChaoTreeSpawns[1].e.z = -65.27f;  //Palm tree 5
 	}
+
 __declspec(dllexport) void __cdecl OnFrame()
 	{
 //All gardens VMU
@@ -381,6 +500,71 @@ __declspec(dllexport) void __cdecl OnFrame()
 				object_00018AF4.pos[0] = Camera_Data1->Position.x;
 				object_00018AF4.pos[1] = 0;
 				object_00018AF4.pos[2] = Camera_Data1->Position.z;
+			}
+		}
+//Chao Race Entry
+		if (CurrentChaoStage == 2 && GameState != 16)
+		{
+			DataPointer(NJS_ACTION, xxxa, 0x33B7340);
+			
+			if (SkipSA1Entry == true)
+			{
+				((NJS_MATERIAL*)0x033AEB70)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+				((NJS_MATERIAL*)0x033AEB70)->diffuse.color=0xFFFFFFFF;
+			}
+			else
+			{
+				((NJS_MATERIAL*)0x033AEB70)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+				((NJS_MATERIAL*)0x033AEB70)->diffuse.color = 0xFFB2B2B2;
+			}
+			//Cheer Chao
+			if (FrameCounter % (35/FramerateSetting) == 0) cheerchaoanim = !cheerchaoanim;
+			if (cheerchaoanim == true)matlist_03270F10[0].attr_texId = 48; else matlist_03270F10[0].attr_texId = 39;
+			//Letters
+			c1 = letteranims[letterframe][0];
+			h1 = letteranims[letterframe][1];
+			a1 = letteranims[letterframe][2];
+			o1 = letteranims[letterframe][3];
+			r2 = letteranims[letterframe][4];
+			a2 = letteranims[letterframe][5];
+			c2 = letteranims[letterframe][6];
+			e2 = letteranims[letterframe][7];
+			if (c1 == true) matlist_00047DEC[0].attr_texId = 31; else matlist_00047DEC[0].attr_texId = 40;
+			if (h1 == true) matlist_00047DEC[1].attr_texId = 32; else matlist_00047DEC[1].attr_texId = 41;
+			if (a1 == true) matlist_00047DEC[2].attr_texId = 33; else matlist_00047DEC[2].attr_texId = 42;
+			if (o1 == true) matlist_00047DEC[3].attr_texId = 34; else matlist_00047DEC[3].attr_texId = 43;
+			if (r2 == true) matlist_00047DEC[6].attr_texId = 35; else matlist_00047DEC[6].attr_texId = 44;
+			if (a2 == true) matlist_00047DEC[7].attr_texId = 36; else matlist_00047DEC[7].attr_texId = 45;
+			if (c2 == true) matlist_00047DEC[5].attr_texId = 37; else matlist_00047DEC[5].attr_texId = 46;
+			if (e2 == true) matlist_00047DEC[4].attr_texId = 38; else matlist_00047DEC[4].attr_texId = 47;
+			if (FrameCounter % (10 / FramerateSetting) == 0) letterframe++;
+			if (letterframe > LengthOfArray(letteranims)) letterframe = 0;
+			//Exit
+			auto entity = CharObj1Ptrs[0];
+			if (entity != nullptr)
+			{
+				if (entity->Position.x > 2110 && SkipSA1Entry == 0)
+				{
+					sub_715700(4);
+				}
+			}
+			if (SkipSA1Entry == 0 && IsPlayerInsideSphere(&racebutton, 5.0f))
+			{
+				SkipSA1Entry = 1;
+				sub_715700(2);
+			}
+			//Door
+			collist_000000E4[LengthOfArray(collist_000000E4) - 1].Model->pos[2] = OpenDoorThing;
+			collist_000000E4[LengthOfArray(collist_000000E4) - 2].Model->pos[2] = -1 * OpenDoorThing;
+			if (IsPlayerInsideSphere(&exitdoor, 30.0f))
+			{
+				if (OpenDoorThing < 25.0f) OpenDoorThing = OpenDoorThing + 0.8f;
+				if (OpenDoorThing > 25.0f) OpenDoorThing = 25.0f;
+			}
+			else
+			{
+				if (OpenDoorThing > 0.0f) OpenDoorThing = OpenDoorThing - 0.8f;
+				if (OpenDoorThing < 0) OpenDoorThing = 0;
 			}
 		}
 //Chao Race

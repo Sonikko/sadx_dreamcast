@@ -33,9 +33,6 @@
     <ClInclude Include="Fountain.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MainFunctions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="MRGarden.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -43,9 +40,6 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ninja.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="RaceEntry_DX.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="RaceEntry_func.h">
@@ -66,7 +60,10 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="WIP.h">
+    <ClInclude Include="..\..\DC_Bosses\DC_Bosses\HintMessages.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
