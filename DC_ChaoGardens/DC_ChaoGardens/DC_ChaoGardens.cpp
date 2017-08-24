@@ -31,7 +31,9 @@ static bool r2 = false;
 static bool a2 = false;
 static bool c2 = false;
 static bool e2 = false;
+static float bowchaoframe = 0;
 static int letterframe = 0;
+static int bowchaoanim = 0;
 static bool cheerchaoanim = false;
 static SecondaryEntrance BK_SSGardenStartPoint;
 
@@ -255,6 +257,7 @@ extern "C"
 			stru_33D0B50[i].scale.z = 0;
 		}
 //Chao Race Entry
+		WriteCall((void*)0x0071C0CF, BowChaoThing);
 		BK_SSGardenStartPoint.Position.x = SSGardenStartPoint.Position.x;
 		BK_SSGardenStartPoint.Position.y = SSGardenStartPoint.Position.y;
 		BK_SSGardenStartPoint.Position.z = SSGardenStartPoint.Position.z;
@@ -558,14 +561,27 @@ __declspec(dllexport) void __cdecl OnFrame()
 			collist_000000E4[LengthOfArray(collist_000000E4) - 2].Model->pos[2] = -1 * OpenDoorThing;
 			if (IsPlayerInsideSphere(&exitdoor, 30.0f))
 			{
+				if (bowchaoanim != 2 ) bowchaoanim = 1;
 				if (OpenDoorThing < 25.0f) OpenDoorThing = OpenDoorThing + 0.8f;
 				if (OpenDoorThing > 25.0f) OpenDoorThing = 25.0f;
 			}
 			else
 			{
+				if (bowchaoanim == 2) bowchaoanim = 0;
 				if (OpenDoorThing > 0.0f) OpenDoorThing = OpenDoorThing - 0.8f;
 				if (OpenDoorThing < 0) OpenDoorThing = 0;
 			}
+			//Chao bowing when player leaves the room
+			if (bowchaoanim == 1)
+			{
+				bowchaoframe = bowchaoframe + (0.25f*FramerateSetting);
+			}
+			if (bowchaoframe >= 20)
+			{
+				bowchaoanim = 2;
+				bowchaoframe = 0;
+			}
+			
 		}
 //Chao Race
 		if (CurrentChaoStage == 1 && GameState != 16)

@@ -400,6 +400,13 @@ void ScaleFruit()
 
 //Chao Race Entry stuff
 
+//Bow Chao
+
+void __cdecl BowChaoThing(NJS_ACTION *action, float frame)
+{
+	if (bowchaoanim == 1) njAction(action, bowchaoframe); else njAction(action, frame);
+}
+
 ObjectMaster *__cdecl sub_72C2E0X()
 {
 	ObjectMaster *v0; // eax@1
