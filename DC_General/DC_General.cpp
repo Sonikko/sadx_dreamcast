@@ -319,6 +319,7 @@ void RenderEmeraldWithGlow(NJS_OBJECT *a1, int scale)
 	if (EmeraldGlowAlpha >= 255) EmeraldGlowDirection = false;
 	if (EmeraldGlowAlpha <= 128) EmeraldGlowDirection = true;
 	if (EmeraldGlowDirection == true) EmeraldGlowAlpha = EmeraldGlowAlpha + 2; else EmeraldGlowAlpha = EmeraldGlowAlpha - 2;
+	if (CurrentLevel == 2) EmeraldGlow.pos[2] = -6; else EmeraldGlow.pos[2] = 0;
 	ProcessModelNode_D_Wrapper(&EmeraldGlow, scale);
 }
 
