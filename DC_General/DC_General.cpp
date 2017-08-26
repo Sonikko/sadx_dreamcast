@@ -334,8 +334,8 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
-		((NJS_MATERIAL*)0x008B1CE0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Ripple
-		((NJS_MATERIAL*)0x008B1CE0)->diffuse.color = 0x99FFFFFF;
+		//((NJS_MATERIAL*)0x008B1CE0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Ripple
+		//((NJS_MATERIAL*)0x008B1CE0)->diffuse.color = 0xFFFFFFFF;
 		//Environment maps
 		EnvMap1 = 0.5f;
 		EnvMap2 = 0.5f;
