@@ -20,9 +20,12 @@ DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
 DataPointer(int, MissedFrames, 0x03B1117C);
 DataPointer(int, CurrentChaoStage, 0x0339F87C);
+DataPointer(int, FramerateSetting, 0x0089295C);
 
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
+static int EmeraldGlowAlpha = 255;
+static bool EmeraldGlowDirection = false;
 
 void __cdecl Switch_DisplayX(ObjectMaster *a1)
 {
@@ -305,6 +308,25 @@ void __cdecl njDrawSprite3D_NoSkippedFramesX(NJS_SPRITE *a1, Int n, NJD_SPRITE a
 	}
 }
 
+void RenderEmeraldWithGlow(NJS_OBJECT *a1, int scale)
+{
+	ProcessModelNode_D_Wrapper(a1, scale);
+	EmeraldGlow.ang[1] = Camera_Data1->Rotation.y;
+	if (CurrentLevel == 2) matlist_0007C334[0].attr_texId = 3;
+	if (CurrentLevel == 9) matlist_0007C334[0].attr_texId = 4;
+	if (CurrentLevel == 8) matlist_0007C334[0].attr_texId = 5;
+	matlist_0007C334[0].diffuse.argb.a = EmeraldGlowAlpha;
+	if (EmeraldGlowAlpha >= 255) EmeraldGlowDirection = false;
+	if (EmeraldGlowAlpha <= 128) EmeraldGlowDirection = true;
+	if (EmeraldGlowDirection == true) EmeraldGlowAlpha = EmeraldGlowAlpha + 2; else EmeraldGlowAlpha = EmeraldGlowAlpha - 2;
+	ProcessModelNode_D_Wrapper(&EmeraldGlow, scale);
+}
+
+void RotateEmerald()
+{
+	njRotateY(0, Camera_Data1->Rotation.y);
+}
+
 extern "C"
 {
 	__declspec(dllexport) PointerList Jumps[] = { { arrayptrandlength(jumps) } };
@@ -359,9 +381,15 @@ extern "C"
 		((NJS_MATERIAL*)0x00974124)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		((NJS_MATERIAL*)0x00974138)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		//Emeralds glow
-		//((NJS_OBJECT*)0xC3F050)->sibling = &object_8D48F39A4A35FE206B1;
-		//((NJS_OBJECT*)0xC3E300)->sibling = &object_8D48F39A4A35FE206B1;
-		//((NJS_OBJECT*)0xC3FDA0)->sibling = &object_8D48F39A4A35FE206B1;
+		//Windy Valley
+		WriteCall((void*)0x004DF27F, RenderEmeraldWithGlow); 
+		WriteCall((void*)0x004DF250, RotateEmerald);
+		//Ice Cap
+		WriteCall((void*)0x004ECEC4, RenderEmeraldWithGlow);
+		WriteCall((void*)0x004ECE90, RotateEmerald);
+		//Casino
+		WriteCall((void*)0x005DCFB0, RenderEmeraldWithGlow);
+		WriteCall((void*)0x005DCF7D, RotateEmerald);
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "allow_landtable_specular") != nullptr)
 		{
