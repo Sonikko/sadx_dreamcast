@@ -367,8 +367,6 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 	&matlist_001E7318[2],
 	//Egg Keeper
 	((NJS_MATERIAL*)0x0094B168),
-	//OTexture
-	((NJS_MATERIAL*)0x01A45548),
 	//Elevator (glass tube)
 	((NJS_MATERIAL*)0x01A3ACB8),
 	((NJS_MATERIAL*)0x01A3ACCC),
@@ -392,7 +390,7 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 	&matlist_000D0E5C[5],
 	&matlist_000D0E5C[6],
 	&matlist_000D0E5C[7],
-	&matlist_0009A5FC[0],
+	&matlist_000D0E5C[8],
 	&matlist_0009A5FC[1],
 	&matlist_00085FB4[8],
 	&matlist_001357BC[0],
@@ -494,7 +492,6 @@ extern "C"
 		WriteCall((void*)0x005B3785, SetGachaponEnvMaps1);
 		WriteCall((void*)0x005B3744, sub_5B36E0X);
 		//OTexture lighting
-		((NJS_MATERIAL*)0x01A45548)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		((NJS_MATERIAL*)0x01A45548)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		//OUkishima lighting
 		((NJS_MATERIAL*)0x01A27EC8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;

@@ -19,7 +19,7 @@
 #include "EC_Tornado.h"
 FunctionPointer(void, sub_6F4570, (ObjectMaster *a1), 0x6F4570);
 DataPointer(ObjectMaster*, dword_3C85138, 0x3C85138);
-HMODULE handle2 = GetModuleHandle(L"ADV01MODELS");
+HMODULE ADV01MODELS = GetModuleHandle(L"ADV01MODELS");
 HMODULE ADV01CMODELS = GetModuleHandle(L"ADV01CMODELS");
 std::string plw1xbin;
 DataPointer(int, FramerateSetting, 0x0089295C);
@@ -51,19 +51,19 @@ DataArray(FogData, EggCarrierInside6Fog, 0x01100D08, 3);
 DataArray(NJS_VECTOR, SkyboxScale_EggCarrier4, 0x010F212C, 3);
 DataArray(PVMEntry, EggCarrierObjectTexlist_Sea, 0x010F34A8, 6);
 DataPointer(int, DroppedFrames, 0x03B1117C);
-HMODULE handle3 = GetModuleHandle(L"ADV01CMODELS");
 HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS");
 NJS_OBJECT **___MILES_OBJECTS = (NJS_OBJECT **)GetProcAddress(CHRMODELS, "___MILES_OBJECTS");
-NJS_TEXLIST **___ADV01_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle2, "___ADV01_TEXLISTS");
-NJS_TEXLIST **___ADV01C_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle3, "___ADV01C_TEXLISTS");
-LandTable **___LANDTABLEEC = (LandTable **)GetProcAddress(handle2, "___LANDTABLEEC");
-LandTable **___LANDTABLEECC = (LandTable **)GetProcAddress(handle3, "___LANDTABLEEC");
-NJS_OBJECT **___ADV01C_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle3, "___ADV01C_OBJECTS");
-NJS_ACTION **___ADV01C_ACTIONS = (NJS_ACTION **)GetProcAddress(handle3, "___ADV01C_ACTIONS");
-NJS_ACTION **___ADV01_ACTIONS = (NJS_ACTION **)GetProcAddress(handle2, "___ADV01_ACTIONS");
-NJS_OBJECT **___ADV01_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01_OBJECTS");
-NJS_OBJECT **___ADV01EC00_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle2, "___ADV01EC00_OBJECTS");
-NJS_MODEL_SADX **___ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle3, "___ADV01C_MODELS");
+NJS_TEXLIST **___ADV01_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV01MODELS, "___ADV01_TEXLISTS");
+NJS_MODEL_SADX **___ADV01_MODELS = (NJS_MODEL_SADX **)GetProcAddress(ADV01MODELS, "___ADV01_MODELS");
+NJS_TEXLIST **___ADV01C_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV01CMODELS, "___ADV01C_TEXLISTS");
+LandTable **___LANDTABLEEC = (LandTable **)GetProcAddress(ADV01MODELS, "___LANDTABLEEC");
+LandTable **___LANDTABLEECC = (LandTable **)GetProcAddress(ADV01CMODELS, "___LANDTABLEEC");
+NJS_OBJECT **___ADV01C_OBJECTS = (NJS_OBJECT **)GetProcAddress(ADV01CMODELS, "___ADV01C_OBJECTS");
+NJS_ACTION **___ADV01C_ACTIONS = (NJS_ACTION **)GetProcAddress(ADV01CMODELS, "___ADV01C_ACTIONS");
+NJS_ACTION **___ADV01_ACTIONS = (NJS_ACTION **)GetProcAddress(ADV01MODELS, "___ADV01_ACTIONS");
+NJS_OBJECT **___ADV01_OBJECTS = (NJS_OBJECT **)GetProcAddress(ADV01MODELS, "___ADV01_OBJECTS");
+NJS_OBJECT **___ADV01EC00_OBJECTS = (NJS_OBJECT **)GetProcAddress(ADV01MODELS, "___ADV01EC00_OBJECTS");
+NJS_MODEL_SADX **___ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(ADV01CMODELS, "___ADV01C_MODELS");
 
 const char* __cdecl SetPLW1X(int level, int act)
 {
@@ -98,49 +98,49 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 NJS_MATERIAL* ObjectSpecular[] = {
 //OMast
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00216050),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00216050),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00216064),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00216078),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x0021608C),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002160A0),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002160B4),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002160C8),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00216050),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00216050),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00216064),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00216078),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x0021608C),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002160A0),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002160B4),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002160C8),
 //OBChair
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00243B98),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00243BAC),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00243BC0),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00243BD4),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00243BE8),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00243BFC),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00243C10),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x0024398C),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00243B98),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00243BAC),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00243BC0),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00243BD4),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00243BE8),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00243BFC),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00243C10),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x0024398C),
 //Gunsight
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002336A0),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00233160),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00233174),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00231358),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x0023136C),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00231380),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00231394),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002313A8),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002313BC),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002336A0),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00233160),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00233174),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00231358),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x0023136C),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00231380),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00231394),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002313A8),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002313BC),
 //OEggmanBed
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002380D8),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002380EC),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00238100),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00238114),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00238128),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x0023813C),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00238150),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00238164),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x00238178),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x0023818C),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002381A0),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002381B4),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002381C8),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002381DC),
-	(NJS_MATERIAL*)((size_t)handle2 + 0x002381F0),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002380D8),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002380EC),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00238100),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00238114),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00238128),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x0023813C),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00238150),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00238164),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x00238178),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x0023818C),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002381A0),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002381B4),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002381C8),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002381DC),
+	(NJS_MATERIAL*)((size_t)ADV01MODELS + 0x002381F0),
 };
 
 NJS_MATERIAL* WhiteDiffuse[] = {
@@ -314,8 +314,8 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		landtable_001631F0.TexName = "ADV_EC01";
 		landtable_00163CE8.TexName = "ADV_EC02";
 	}
-	WriteJump((char *)GetProcAddress(handle2, "SetClip_EC00"), SetClip_EC00);
-	WriteJump((char *)GetProcAddress(handle2, "SetClip_EC01"), SetClip_EC01);
+	WriteJump((char *)GetProcAddress(ADV01MODELS, "SetClip_EC00"), SetClip_EC00);
+	WriteJump((char *)GetProcAddress(ADV01MODELS, "SetClip_EC01"), SetClip_EC01);
 	WriteData((void *)0x0051BB8C, 0x90, 5); //disable that stupid DisableFog thing
 	((NJS_OBJECT*)0x03104130)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
 	___ADV01_TEXLISTS[0] = &texlist_ec00;
@@ -349,6 +349,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01C_OBJECTS[8] = &object_000D243C; //tarai
 	___ADV01_ACTIONS[2]->object = &object_0019795C; //OEggChair
 	___ADV01_ACTIONS[2]->motion = &_197dbc; //OEggChair
+	___ADV01_MODELS[13]->mats[1].diffuse.color = 0xFFFFFFFF; //Slot machine
 	___ADV01_OBJECTS[21] = &object_001972E4;
 	___ADV01_OBJECTS[22] = &object_0018C098;
 	___ADV01_OBJECTS[23] = &object_0018BD3C;

@@ -71,6 +71,7 @@ FunctionPointer(ObjectMaster *, sub_72C3A0, (), 0x72C3A0);
 FunctionPointer(ObjectMaster *, sub_72C2E0, (), 0x72C2E0);
 FunctionPointer(void, sub_7153F0, (), 0x7153F0);
 
+DataArray(NJS_VECTOR, ChaoRaceSpawnThing, 0x00887910, 8);
 DataArray(NJS_VECTOR, Chao_SSChaoSpawnPoints, 0x033A0AF8, 16);
 DataArray(NJS_VECTOR, Chao_ECChaoSpawnPoints, 0x033A0BB8, 16);
 DataArray(NJS_VECTOR, Chao_MRChaoSpawnPoints, 0x033A0C78, 16);
@@ -210,6 +211,8 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		WriteCall((void*)0x72CCF0, sub_72CCF0);
+		ChaoRaceSpawnThing[0].x = 2000.0f;
 //General
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	/*	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
@@ -234,9 +237,9 @@ extern "C"
 		*(NJS_MODEL_SADX*)0x03608064 = attach_0017B768; //Tree leaves 1
 		*(NJS_MODEL_SADX*)0x036076E4 = attach_0017B034; //Tree leaves 2
 		//Misc
-		WriteData((void*)0x007195AE, 0x90, 5); //Don't load SADX button prompts in SS garden
-		WriteData((void*)0x00719181, 0x90, 5); //Don't load SADX button prompts in EC garden
-		WriteData((void*)0x00718E20, 0x90, 5); //Don't load SADX button prompts in MR garden
+		//WriteData((void*)0x007195AE, 0x90, 5); //Don't load SADX button prompts in SS garden
+		//WriteData((void*)0x00719181, 0x90, 5); //Don't load SADX button prompts in EC garden
+		//WriteData((void*)0x00718E20, 0x90, 5); //Don't load SADX button prompts in MR garden
 		WriteJump((void*)0x0078AC80, sub_78AC80X); //Eggs
 		WriteData((char*)0x007151D3, 0x1A, 1);//The secret EC egg is a two-tone black egg
 		ResizeTextureList(&ChaoTexLists[0], 144); //AL_BODY

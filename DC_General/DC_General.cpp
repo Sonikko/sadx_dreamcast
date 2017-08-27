@@ -144,6 +144,32 @@ NJS_MATERIAL* LevelSpecular[] = {
 };
 
 NJS_MATERIAL* ObjectSpecular[] = { 
+	//Chaos6 eggmobile
+	((NJS_MATERIAL*)0x012545E0),
+	((NJS_MATERIAL*)0x012545F4),
+	((NJS_MATERIAL*)0x01254608),
+	((NJS_MATERIAL*)0x0125461C),
+	((NJS_MATERIAL*)0x01254630),
+	((NJS_MATERIAL*)0x01254644),
+	((NJS_MATERIAL*)0x01254658),
+	((NJS_MATERIAL*)0x0125466C),
+	((NJS_MATERIAL*)0x01254680),
+	((NJS_MATERIAL*)0x01254694),
+	((NJS_MATERIAL*)0x012546A8),
+	((NJS_MATERIAL*)0x012546BC),
+	((NJS_MATERIAL*)0x012546D0),
+	((NJS_MATERIAL*)0x012546E4),
+	((NJS_MATERIAL*)0x012546F8),
+	((NJS_MATERIAL*)0x0125470C),
+	((NJS_MATERIAL*)0x01254720),
+	((NJS_MATERIAL*)0x01254734),
+	((NJS_MATERIAL*)0x01254748),
+	((NJS_MATERIAL*)0x0125475C),
+	((NJS_MATERIAL*)0x01254770),
+	((NJS_MATERIAL*)0x01254784),
+	((NJS_MATERIAL*)0x01254798),
+	((NJS_MATERIAL*)0x012547AC),
+	((NJS_MATERIAL*)0x012547C0),
 	//Sewers elevator
 	((NJS_MATERIAL*)0x02AB7798),
 	((NJS_MATERIAL*)0x02AB77AC),
@@ -348,6 +374,7 @@ extern "C"
 		WriteJump((void*)0x7A81A0, FixedBubbleRipple);
 		//Zero holding Amy lighting fix
 		((NJS_OBJECT *)0x31A4DFC)->basicdxmodel->mats[11].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; 
+		((NJS_OBJECT *)0x31A4DFC)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		//Tikal lighting fixes
 		((NJS_OBJECT*)0x008CE058)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 		((NJS_OBJECT*)0x008CC658)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
@@ -362,6 +389,7 @@ extern "C"
 		((NJS_OBJECT*)0x02EE3E98)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 		//Eggmobile NPC model fix
 		*(NJS_OBJECT*)0x010FEF74 = object_02AEB524; //Fix materials on Eggmobile NPC model
+		((NJS_OBJECT*)0x01257754)->basicdxmodel->mats[15].diffuse.color = 0xFFFFFFFF; //Chaos6 Eggmobile
 		WriteData((NJS_TEXLIST**)0x007D2B22, (NJS_TEXLIST*)0x02EE0AA4); //Replace the texlist for the above model in the NPC data array
 		*(NJS_TEXLIST**)0x02BD5FE4 = (NJS_TEXLIST*)0x02EE0AA4; //Eggman Super Sonic cutscene texlist fix
 		//E101 Beta lighting fixes
