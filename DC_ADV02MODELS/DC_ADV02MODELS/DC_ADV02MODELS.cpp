@@ -209,7 +209,7 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 	&matlist_00025A74[3],
 	&matlist_00025A74[4],
 	//OHiddenGate buttons
-	&matlist_0003CD28[0],
+	&matlist_0003CD28[2],
 };
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
@@ -307,6 +307,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_OBJECTS[67]->child->sibling->sibling->sibling->sibling->child->model = &attach_001D9174;
 	___ADV02_OBJECTS[67]->child->sibling->sibling->sibling->sibling->sibling->model = &attach_001D854C;
 	___ADV02_OBJECTS[67]->child->sibling->sibling->sibling->sibling->sibling->child->model = &attach_001D82AC;
+	___ADV02_OBJECTS[84] = &object_000690B8; //Light above the door of Tails' house
 	//Material fixes
 	___ADV02_OBJECTS[90]->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 	___ADV02_OBJECTS[91]->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
@@ -363,8 +364,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_ACTIONS[0]->motion = &animation_000862E8;
 	___ADV02_ACTIONS[10]->object = &object_00201C18;
 	___ADV02_ACTIONS[30]->object = &object_0020DC78; //OFinalWay
-	___ADV02_ACTIONS[21]->object->child->sibling->model = &attach_001DD6F8; //Plane platform
-	___ADV02_ACTIONS[21]->object->child->sibling->sibling->model = &attach_001DD324; //Plane platform
+	___ADV02_ACTIONS[21]->object = &object_001DDBFC; //Plane platform
 	___ADV02_ACTIONS[9]->object = &object_001B2D5C; //Final Egg base door
 	___ADV02_ACTIONS[17]->object = &object_001CCFBC; //OHiddenGate
 	___ADV02_MODELS[9] = &attach_0003D34C; //OHiddenGate button
