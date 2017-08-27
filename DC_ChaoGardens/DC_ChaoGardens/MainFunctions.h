@@ -76,7 +76,7 @@ void __cdecl ECGardenWater_Display(ObjectMaster *a1)
 		njPopMatrix(1u);
 		njPushMatrix(0);
 		njTranslate(0, 0, -415.8f, 0);
-		ProcessModelNode_A_Wrapper((NJS_OBJECT*)&object_0000F01C, QueuedModelFlagsB_3 , 1.0f); //Water
+		ProcessModelNode_A_Wrapper((NJS_OBJECT*)&object_0000F01C, QueuedModelFlagsB_3, 1.0f); //Water
 		njPopMatrix(1u);
 	}
 }
@@ -473,73 +473,11 @@ void __cdecl LoadRaceEntryX()
 	}
 }
 
-NJS_COLOR *__cdecl sub_72CCF0()
-{
-	DataPointer(int, dword_3423304, 0x3423304);
-	DataPointer(int, dword_3423300, 0x3423300);
-	DataPointer(int, dword_3423308, 0x3423308);
-	DataArray(NJS_COLOR, stru_3B2C658, 0x3B2C658, 13);
-	double v0; // st7@1
-	double v1; // st7@3
-	NJS_COLOR *result; // eax@3
-
-	v0 = *(float *)&dword_3423304 - 0.050000001;
-	*(float *)&dword_3423304 = v0;
-	if (v0 < -11.0)
-	{
-		dword_3423304 = 0xC1300000;
-	}
-	v1 = *(float *)&dword_3423300;
-	stru_3B2C658[11].color = dword_3423308;
-	stru_3B2C658[12].color = 0;
-	stru_3B2C658[13].color = 0;
-	stru_3B2C658[5].color = 0;
-	result = &stru_3B2C658[2];
-	*(float *)&stru_3B2C658[6].color = v1;
-	stru_3B2C658[7].color = dword_3423304;
-	return result;
-}
-
 void LoadSADXEntry()
 {
-	// 3423308 - Camera up/down tilt
-
-	DataPointer(int, TextLanguage, 0x03B0F0E8);
 	sub_79E400(2, 0, 0); //Play sound
 	SkipSA1Entry = 1;
-	ChaoManager_Load();
-	//sub_72CD70();
-	LoadChaoTexlist("AL_TEX_COMMON", &ChaoTexLists[1], 1u);
-	sub_72CC30();
-	if (TextLanguage)
-	{
-		if (TextLanguage == 2)
-		{
-			LoadChaoTexlist("AL_TEX_ENT_COMMON_FR", (NJS_TEXLIST*)0x034232E8, 1u);
-		}
-		else
-		{
-			LoadChaoTexlist("AL_TEX_ENT_COMMON_EN", (NJS_TEXLIST*)0x034232E8, 1u);
-		}
-		LoadChaoTexlist("AL_ENT_CHAR_E_TEX", (NJS_TEXLIST*)0x034232F0, 1u);
-		LoadChaoTexlist("AL_ENT_TITLE_E_TEX", (NJS_TEXLIST*)0x034232F8, 1u);
-	}
-	else
-	{
-		LoadChaoTexlist("AL_TEX_ENT_COMMON_JP", (NJS_TEXLIST*)0x034232E8, 1u);
-		LoadChaoTexlist("AL_ENT_CHAR_J_TEX", (NJS_TEXLIST*)0x034232F0, 1u);
-		LoadChaoTexlist("AL_ENT_TITLE_J_TEX", (NJS_TEXLIST*)0x034232F8, 1u);
-	}
-	sub_72CC00((NJS_TEXLIST*)0x034232E8, 3, 2, 4);
-	sub_716A90();
-	sub_72CBC0();
-	//dword_3CA6EB8 = sub_717160();
-	sub_72CB40();
-	sub_72C4A0();
-	sub_72C3A0();
-	sub_72C2E0();
-	sub_7153F0();
-	//sub_715700(2);
+	sub_715700(2);
 }
 
 void ExitRaceEntry()
