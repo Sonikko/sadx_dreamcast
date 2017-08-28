@@ -18,7 +18,7 @@ static int logodrawn = -1;
 static int startframe = 0;
 static int startdrawn = -1;
 static int transitionframe = 0;
-static int TransitionMode = 0;
+static int transitionmode = 0;
 //Ini stuff
 static bool RipplesOn = true;
 static bool EnableTransition = false;
@@ -58,7 +58,10 @@ static float camera_hzoffset = 215.0f;
 
 int __cdecl sub_505810()
 {
-	if (EnableTransition == true) TransitionMode = 1;
+	if (EnableTransition == true)
+	{
+		transitionmode = 1;
+	}
 	return PlaySound(2, 0, 0, 0);
 }
 
@@ -229,28 +232,21 @@ void DrawLogo()
 			DrawBG(3, (64 + TextOffsetX)*HorizontalStretch, (960 - 168 + TextOffsetY + surfacesucks)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f*0.8f, VerticalStretch * rewritestretch*0.8f);
 		}
 		logodrawn = logoframe;
-		if (TransitionMode != 0)
+		if (transitionmode != 0)
 		{
-			if (TransitionMode == 1)
+			if (transitionmode == 1)
 			{
 				{
-					if (LogoScaleXT < LogoScaleX * 2)LogoScaleXT = LogoScaleXT*1.2f;
-					if (LogoScaleYT < LogoScaleY * 2)LogoScaleYT = LogoScaleYT*1.2f;
+					if (LogoScaleXT < LogoScaleX * 2.0f)LogoScaleXT = LogoScaleXT*1.12f;
+					if (LogoScaleYT < LogoScaleY * 2.0f)LogoScaleYT = LogoScaleYT*1.12f;
 				}
 				transitionframe++;
 			}
-			if (TransitionMode == 2)
-			{
-				if (LogoScaleXT > LogoScaleX) LogoScaleXT = LogoScaleXT / 1.2f;
-				if (LogoScaleYT > LogoScaleY) LogoScaleYT = LogoScaleYT / 1.2f;
-				transitionframe--;
-				if (transitionframe == 0) TransitionMode = 0;
-			}
-			xpos = (HorizontalResolution - LogoScaleXT * 512 * HorizontalStretch) / 2;
-			ypos = (VerticalResolution - LogoScaleYT * 256 * HorizontalStretch + smalloff * VerticalStretch * rewritestretch) / 2;
-			//Draw logo
+			xpos = (HorizontalResolution - LogoScaleXT * 512.0f * HorizontalStretch) / 2.0f;
+			ypos = (VerticalResolution - LogoScaleYT * 256.0f * HorizontalStretch + smalloff * VerticalStretch * rewritestretch) / 2.0f;
+			//Draw logo transition
 			SetVtxColorB(0x7FFFFFFF);
-			DrawBG(0, xpos,ypos, 1.2f, HorizontalStretch * 0.5f*LogoScaleXT, VerticalStretch * rewritestretch*LogoScaleYT);
+			if (LogoScaleXT <= 2.0f) DrawBG(0, xpos,ypos, 1.2f, HorizontalStretch * 0.5f*LogoScaleXT, VerticalStretch * rewritestretch*LogoScaleYT);
 		}
 	}
 }
@@ -479,14 +475,12 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		if (GameMode == GameModes_Menu && transitionframe > 15)
+		if (transitionmode != 0 && transitionframe >= 15)
 		{
-			TransitionMode = 0;
+			transitionmode = 0;
 			transitionframe = 0;
 			LogoScaleXT = LogoScaleX;
 			LogoScaleYT = LogoScaleY;
-			//LogoScaleXT = LogoScaleX*2;
-			//LogoScaleYT = LogoScaleY*2;
 		}
 		if (DisableSA1Titlescreen == false && GameState == 21)
 		{
