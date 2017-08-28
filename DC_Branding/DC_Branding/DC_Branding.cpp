@@ -25,6 +25,7 @@ static bool EnableTransition = false;
 static bool DisableSA1Titlescreen = false;
 static bool DisableFade = true;
 static bool DrawOverlay = true;
+static bool RemoveCream = false;
 static int TextOffsetX = 0;
 static int TextOffsetY = 0;
 static int SonicTeamOffsetX = 0;
@@ -285,6 +286,7 @@ extern "C"
 		DisableFade = defaults->getBool("", "DisableFade", true);
 		DisableSA1Titlescreen = defaults->getBool("", "DisableSA1TitleScreen", false);
 		DrawOverlay = defaults->getBool("", "DrawOverlay", true);
+		RemoveCream = defaults->getBool("", "RemoveCream", false);
 		TextOffsetX = defaults->getInt(SectionName, "CopyrightOffsetX", 0);
 		TextOffsetY = defaults->getInt(SectionName, "CopyrightOffsetY", 0);
 		PressStartOffsetX = defaults->getInt(SectionName, "PressStartOffsetX", 0);
@@ -317,6 +319,7 @@ extern "C"
 		EnableTransition = settings->getBool("", "EnableTransition", true);
 		DisableSA1Titlescreen = settings->getBool("", "DisableSA1TitleScreen", false);
 		DrawOverlay = settings->getBool("", "DrawOverlay", true);
+		RemoveCream = settings->getBool("", "RemoveCream", false);
 		DisableFade = settings->getBool("", "DisableFade", true);
 		TextOffsetX = settings->getInt(SectionName, "CopyrightOffsetX", 0);
 		TextOffsetY = settings->getInt(SectionName, "CopyrightOffsetY", 0);
@@ -338,6 +341,8 @@ extern "C"
 		//Main code
 		if (DisableSA1Titlescreen == false)
 		{
+			//Kill Cream
+			if (RemoveCream == true) WriteData((void*)0x6353A0, 0xC3u, 1);
 			//Kill titlescreen fade
 			if (DisableFade == true) WriteData((char*)0x0050E49B, 0x90, 5);
 			ResizeTextureList((NJS_TEXLIST*)0x010D7C80, 10);
