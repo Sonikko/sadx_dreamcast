@@ -18,7 +18,13 @@ DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
+DataPointer(float, CurrentFogDist, 0x03ABDC64);
+DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(NJS_ACTION, off_1A1F944, 0x1A1F944);
+DataArray(FogData, FinalEgg1Fog, 0x019C8FF0, 3);
+DataArray(FogData, FinalEgg2Fog, 0x019C9020, 3);
+DataArray(FogData, FinalEgg3Fog, 0x019C9050, 3);
+DataArray(DrawDistance, DrawDist_FinalEgg2, 0x019C8FC0, 3);
 FunctionPointer(void, sub_4094D0, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x4094D0);
 FunctionPointer(void, sub_408530, (NJS_OBJECT*), 0x408530);
 FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
@@ -528,10 +534,6 @@ extern "C"
 		((LandTable *)0x19C8ED0)->COLCount = LengthOfArray(collist_00081980); //Final Egg 2 COL list
 		((LandTable *)0x19C8ED0)->Col = collist_00081980; //Final Egg 2 COL list
 		WriteJump((void*)0x5ADC40, SetClip_FEgg2_r); //Final Egg 2 clip function
-		DataArray(FogData, FinalEgg1Fog, 0x019C8FF0, 3);
-		DataArray(FogData, FinalEgg2Fog, 0x019C9020, 3);
-		DataArray(FogData, FinalEgg3Fog, 0x019C9050, 3);
-		DataArray(DrawDistance, DrawDist_FinalEgg2, 0x019C8FC0, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			FinalEgg1Fog[i].Color = 0xFF000000;
@@ -549,8 +551,39 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		auto entity = CharObj1Ptrs[0];
 		if (CurrentLevel == 10 && GameState != 16)
 		{
+			if (CurrentAct == 0 && entity != nullptr)
+			{
+				if (entity->Position.z >= 0)
+				{
+					if (CurrentFogLayer < 1400) CurrentFogLayer = CurrentFogLayer + 8; else CurrentFogLayer = 1400;
+					if (CurrentFogDist < 3400) CurrentFogDist = CurrentFogDist + 16; else CurrentFogDist = 3400;
+				}
+				else
+				{
+					if (CurrentFogLayer > FinalEgg1Fog[0].Layer) CurrentFogLayer = CurrentFogLayer - 16; else CurrentFogLayer = FinalEgg1Fog[0].Layer;
+					if (CurrentFogDist > FinalEgg1Fog[0].Distance) CurrentFogDist = CurrentFogDist - 8; else CurrentFogDist = FinalEgg1Fog[0].Distance;
+				}
+			}
+			if (CurrentAct == 1 && entity != nullptr)
+			{
+				if (Camera_Data1 != nullptr && Camera_Data1->Position.y <= -200) collist_00081980[132].Flags = 0xC0000001; else collist_00081980[132].Flags = 0x00000001;
+				if (entity->Position.x >= 900 && entity->Position.x <=1250 && entity->Position.z >= -1050 && entity->Position.z <= -605 && entity->Position.y > -700)
+				{
+					if (CurrentFogLayer > 500) CurrentFogLayer = CurrentFogLayer - 8; else CurrentFogLayer = 500;
+					if (CurrentFogDist > 1500) CurrentFogDist = CurrentFogDist - 16; else CurrentFogDist = 1500;
+				}
+				else
+				{
+					if (entity->Status & Status_Ground )
+					{
+						if (CurrentFogLayer < FinalEgg2Fog[0].Layer) CurrentFogLayer = CurrentFogLayer + 8; else CurrentFogLayer = FinalEgg2Fog[0].Layer;
+						if (CurrentFogDist < FinalEgg2Fog[0].Distance) CurrentFogDist = CurrentFogDist + 16; else CurrentFogDist = FinalEgg2Fog[0].Distance;
+					}
+				}
+			}
 			if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) cylinderframe++;
 			if (cylinderframe >= 257) cylinderframe = 0;
 			((NJS_OBJECT*)0x01A4583C)->basicdxmodel->mats[0].attr_texId = cylinderframe;

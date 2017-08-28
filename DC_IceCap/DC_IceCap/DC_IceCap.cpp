@@ -9,6 +9,16 @@
 
 DataPointer(int, MissedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0089295C);
+DataPointer(float, CurrentFogDist, 0x03ABDC64);
+DataPointer(float, CurrentFogLayer, 0x03ABDC60);
+DataArray(FogData, IceCap1Fog, 0x00C67EA0, 3);
+DataArray(FogData, IceCap2Fog, 0x00C67ED0, 3);
+DataArray(FogData, IceCap3Fog, 0x00C67F00, 3);
+DataArray(FogData, IceCap4Fog, 0x00C67F30, 3);
+DataArray(DrawDistance, DrawDist_IceCap1, 0x00C67E40, 3);
+DataArray(DrawDistance, DrawDist_IceCap2, 0x00C67E58, 3);
+DataArray(DrawDistance, DrawDist_IceCap3, 0x00C67E70, 3);
+
 static int animframe = 41;
 
 PointerInfo pointers[] = {
@@ -58,16 +68,10 @@ extern "C"
 		{
 			((LandTable *)0x0E3E024)->Col[inv2].Flags &= ~ColFlags_Solid;
 		}
-		memcpy((void*)0x0E537D8, &object_00162694, sizeof(object_00162694));  // Icicle inner part
+		*(NJS_OBJECT*)0xE537D8 = object_00162694; //Icicle inner part
 		*(NJS_OBJECT*)0xE6E0E0 = object_0017BD64; //MizuIwa B
 		*(NJS_OBJECT*)0xE6E694 = object_0017C308; //MizuIwa C
 		*(NJS_OBJECT*)0xE52FCC = object_00161838; //OIceJmp
-		DataArray(FogData, IceCap1Fog, 0x00C67EA0, 3);
-		DataArray(FogData, IceCap2Fog, 0x00C67ED0, 3);
-		DataArray(FogData, IceCap3Fog, 0x00C67F00, 3);
-		DataArray(FogData, IceCap4Fog, 0x00C67F30, 3);
-		DataArray(DrawDistance, DrawDist_IceCap1, 0x00C67E40, 3);
-		DataArray(DrawDistance, DrawDist_IceCap2, 0x00C67E58, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			IceCap1Fog[i].Color = 0xFFFFFFFF;
@@ -80,6 +84,7 @@ extern "C"
 			IceCap2Fog[i].Distance = 3800.0f;
 			IceCap2Fog[i].Toggle = 1;
 			DrawDist_IceCap2[i].Maximum = -4000.0;
+			DrawDist_IceCap3[i].Maximum = -8000.0;
 			IceCap3Fog[i].Layer = 2500.0f;
 			IceCap3Fog[i].Color = 0xFFFFFFFF;
 			IceCap4Fog[i].Color = 0xFF575757;
@@ -90,7 +95,24 @@ extern "C"
 	};
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		if (CurrentLevel == 8 && CurrentAct == 3 && GameState == 15)
+		auto entity = CharObj1Ptrs[0];
+		if (CurrentLevel == 8 && CurrentAct == 2 && GameState != 16)
+		{
+			if (entity != nullptr)
+			{
+				if (entity->Position.x <= -8000)
+				{
+					if (CurrentFogLayer > 800) CurrentFogLayer = CurrentFogLayer - 16; else CurrentFogLayer = 800;
+					if (CurrentFogDist > 3000) CurrentFogDist = CurrentFogDist - 8; else CurrentFogDist = 3000;
+				}
+				if (entity->Position.x >= -5000)
+				{
+					if (CurrentFogLayer < IceCap3Fog[0].Layer) CurrentFogLayer = CurrentFogLayer + 8; else CurrentFogLayer = IceCap3Fog[0].Layer;
+					if (CurrentFogDist < IceCap3Fog[0].Distance) CurrentFogDist = CurrentFogDist + 16; else CurrentFogDist = IceCap3Fog[0].Distance;
+				}
+			}
+		}
+		if (CurrentLevel == 8 && CurrentAct == 3 && GameState != 16)
 		{
 				if (animframe > 54) animframe = 16;
 				if (animframe > 16 && animframe < 41) animframe = 41;
