@@ -212,6 +212,11 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 	&matlist_0003CD28[2],
 };
 
+void SetColor(float a, float r, float g, float b)
+{
+ SetMaterialAndSpriteColor_Float(a, 0, g, 0);
+}
+
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	//Cutscene after Lost World
@@ -230,12 +235,11 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 	}
-	WriteData((float*)0x111DBA4, 0.0f); //Master Emerald glow color
-	WriteData((float*)0x111DB9C, 0.0f); //Master Emerald glow color
+
 	*(NJS_OBJECT*)0x1108A18 = object_00226468; //TANKEN
 	*(NJS_OBJECT*)0x110CF34 = object2_00229334; //TANKEN 2
 	*(NJS_OBJECT*)0x11112CC = object_0022DDA4; //TANKEN 3
-
+	WriteCall((void*)0x0053CD37, SetColor); //Master Emerald glow
 	if (SADXStyleWater != 0) 
 	{
 		WriteCall((void*)0x00532551, DisableSADXWaterFog);
