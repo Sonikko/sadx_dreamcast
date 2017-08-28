@@ -246,7 +246,7 @@ void DrawLogo()
 			ypos = (VerticalResolution - LogoScaleYT * 256.0f * HorizontalStretch + smalloff * VerticalStretch * rewritestretch) / 2.0f;
 			//Draw logo transition
 			SetVtxColorB(0x7FFFFFFF);
-			if (LogoScaleXT <= 2.0f) DrawBG(0, xpos,ypos, 1.2f, HorizontalStretch * 0.5f*LogoScaleXT, VerticalStretch * rewritestretch*LogoScaleYT);
+			if (LogoScaleXT <= 2.0f*LogoScaleX) DrawBG(0, xpos,ypos, 1.2f, HorizontalStretch * 0.5f*LogoScaleXT, VerticalStretch * rewritestretch*LogoScaleYT);
 		}
 	}
 }
