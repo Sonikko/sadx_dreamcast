@@ -13,6 +13,9 @@ HMODULE ADV01MODELS = GetModuleHandle(L"ADV01MODELS");
 HMODULE ADV01CMODELS = GetModuleHandle(L"ADV01CMODELS");
 HMODULE ADV03MODELS = GetModuleHandle(L"ADV03MODELS");
 
+NJS_TEXANIM EmeraldGlowTexanim = { 32, 32, 0, 0, 0, 0, 0xFF, 0xFF, 3, 0 };
+NJS_SPRITE EmeraldGlowSprite = { { -16.0f, -10.5f, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00C3FE20, &EmeraldGlowTexanim };
+
 DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
@@ -320,33 +323,17 @@ static PointerInfo jumps[] = {
 	{ ItemBox_Display,				ItemBox_Display_Rotate },
 };
 
-void __cdecl njDrawSprite3D_NoSkippedFramesX(NJS_SPRITE *a1, Int n, NJD_SPRITE attr)
-{
-	DataPointer(float, Sprite3DDepth_Current, 0x03ABD9B8);
-	DataPointer(float, Sprite3DDepth, 0x03ABD9BC);
-	if (!MissedFrames)
-	{
-		njTextureShadingMode(1);
-		Sprite3DDepth_Current = Sprite3DDepth;
-		//njDrawSprite3D_Queue(a1, n, attr, (QueuedModelFlagsB)0);
-		Sprite3DDepth_Current = 0;
-		njTextureShadingMode(2);
-	}
-}
-
 void RenderEmeraldWithGlow(NJS_OBJECT *a1, int scale)
 {
 	ProcessModelNode_D_Wrapper(a1, scale);
-	EmeraldGlow.ang[1] = Camera_Data1->Rotation.y;
-	if (CurrentLevel == 2) matlist_0007C334[0].attr_texId = 3;
-	if (CurrentLevel == 9) matlist_0007C334[0].attr_texId = 4;
-	if (CurrentLevel == 8) matlist_0007C334[0].attr_texId = 5;
-	matlist_0007C334[0].diffuse.argb.a = EmeraldGlowAlpha;
 	if (EmeraldGlowAlpha >= 255) EmeraldGlowDirection = false;
 	if (EmeraldGlowAlpha <= 128) EmeraldGlowDirection = true;
 	if (EmeraldGlowDirection == true) EmeraldGlowAlpha = EmeraldGlowAlpha + 2; else EmeraldGlowAlpha = EmeraldGlowAlpha - 2;
-	if (CurrentLevel == 2) EmeraldGlow.pos[2] = -6; else EmeraldGlow.pos[2] = 0;
-	ProcessModelNode_D_Wrapper(&EmeraldGlow, scale);
+	if (CurrentLevel == 2) EmeraldGlowTexanim.texid = 3;
+	if (CurrentLevel == 9) EmeraldGlowTexanim.texid = 4;
+	if (CurrentLevel == 8) EmeraldGlowTexanim.texid = 5;
+	SetMaterialAndSpriteColor_Float((EmeraldGlowAlpha / 255.0f), 1.0f, 1.0f, 1.0f);
+	njDrawSprite3D(&EmeraldGlowSprite, 0, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR);
 }
 
 void RotateEmerald()
