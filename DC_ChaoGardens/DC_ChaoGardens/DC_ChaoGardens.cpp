@@ -210,13 +210,13 @@ extern "C"
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
-		//General
+//General
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		/*	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
 		//	material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 		}*/
-		//Garden transporters stuff
+//Garden transporters stuff
 		*(NJS_OBJECT*)0x036065B4 = object_00134808; //EC garden to EC transporter
 		*(NJS_OBJECT*)0x03604540 = object_00180454; //All other transporters
 		WriteData((char*)0x00729576, 0x90, 1); //Collision struct pointer
@@ -225,15 +225,15 @@ extern "C"
 		WriteData((char*)0x00729574, 0x04, 1); //Collision parameter for InitCollision
 		WriteCall((void*)0x005262DE, SetTransporterTexture);// Garden transporter texture/texlist
 		WriteJump((void*)0x729260, (void*)0x5262B0);// Garden transporter effects
-													//Fruits
+//Fruits
 		*(NJS_OBJECT*)0x3606D00 = object_0017C0BC; //Coconut
 		*(NJS_OBJECT*)0x3606958 = object_0017C0BC_green; //Coconut (unripe)
 		WriteCall((void*)0x00722D59, ScaleFruit); //Scale normal fruit
-												  //Trees
+//Trees
 		*(NJS_MODEL_SADX*)0x036087C0 = attach_0017BAF8; //Tree trunk
 		*(NJS_MODEL_SADX*)0x03608064 = attach_0017B768; //Tree leaves 1
 		*(NJS_MODEL_SADX*)0x036076E4 = attach_0017B034; //Tree leaves 2
-														//Misc
+//Misc
 		WriteData((void*)0x007195AE, 0x90, 5); //Don't load SADX button prompts in SS garden
 		WriteData((void*)0x00719181, 0x90, 5); //Don't load SADX button prompts in EC garden
 		WriteData((void*)0x00718E20, 0x90, 5); //Don't load SADX button prompts in MR garden
@@ -241,7 +241,7 @@ extern "C"
 		WriteData((char*)0x007151D3, 0x1A, 1);//The secret EC egg is a two-tone black egg
 		ResizeTextureList(&ChaoTexLists[0], 144); //AL_BODY
 		ResizeTextureList((NJS_TEXLIST*)0x033A1338, 31); //AL_DX_OBJ_CMN
-														 //Name Machine stuff
+//Name Machine stuff
 		*(NJS_OBJECT*)0x33CFC70 = object_001834CC; //Name Machine
 		*(NJS_OBJECT*)0x33CB04C = object_001826E8; //Name machine button
 		WriteCall((void*)0x00729DE9, NameMachineTexlist);
@@ -256,7 +256,7 @@ extern "C"
 			stru_33D0B50[i].scale.y = 0;
 			stru_33D0B50[i].scale.z = 0;
 		}
-		//Chao Race Entry
+//Chao Race Entry
 		WriteCall((void*)0x0071C0CF, BowChaoThing);
 		BK_SSGardenStartPoint.Position.x = SSGardenStartPoint.Position.x;
 		BK_SSGardenStartPoint.Position.y = SSGardenStartPoint.Position.y;
@@ -269,10 +269,11 @@ extern "C"
 		WriteData((void*)0x0071D158, 0x90, 5); //Don't move Sanic
 		WriteData((void*)0x0071CEE0, 0x90, 5); //Don't mess with entry button
 		WriteData((void*)0x0071CEC2, 0x90, 5); //Don't mess with entry button
-											   //Chao Race stuff
+//Chao Race stuff
 		WriteJump((void*)0x00719DB0, LoadChaoRaceX);
 		WriteData((float*)0x00719D74, -16000.0f); //Draw distance
-												  //Station Square garden stuff
+//Station Square garden stuff
+		WriteData((void*)0x0071957E, 0x90, 5); //Disable the Sonic Team homepage prompt
 		WriteJump((void*)0x4145D0, sub_4145D0); //Elevator function
 		WriteJump((void*)0x0072AB80, LoadChaoRaceDoorX);
 		WriteCall((void*)0x00638DD7, SetElevatorTexlist);
@@ -335,7 +336,7 @@ extern "C"
 		WriteData((void*)0x0071946E, 0x90, 5); //Kill SADX fountain
 		WriteData((float*)0x0071949E, -1000.0f); //Kill hintbox
 		WriteData((float*)0x00719496, -1000.0f); //Kill hintbox
-												 //Mystic Ruins garden stuff
+//Mystic Ruins garden stuff
 		WriteJump((void*)0x00718E90, LoadMRGardenX);
 		WriteJump((void*)0x0072A790, sub_72A790); //Mystic Ruins garden function 1
 		WriteJump((void*)0x0072A820, sub_72A820); //Mystic Ruins garden function 2
@@ -376,7 +377,7 @@ extern "C"
 		ChaoTreeSpawns[2].e.x = 83.6948f; //Palm tree 5
 		ChaoTreeSpawns[2].e.y = 7.5f;  //Palm tree 5
 		ChaoTreeSpawns[2].e.z = -47.53315f;  //Palm tree 5
-											 //Egg Carrier garden stuff
+//Egg Carrier garden stuff
 		ECGardenStartPoint.Position.y = 71.0f;
 		WriteCall((void*)0x00729289, NameMachineTexlist);
 		WriteJump((void*)0x007191D0, LoadECGardenX);
@@ -426,7 +427,7 @@ extern "C"
 
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		//All gardens VMU
+//All gardens VMU
 		if (CurrentChaoStage >= 4 && CurrentChaoStage <= 6)
 		{
 			if (GameState != 16)
@@ -436,7 +437,7 @@ extern "C"
 				if (FrameCounter % 120 == 0) vmuframe++;
 			}
 		}
-		//Station Square garden
+//Station Square garden
 		if (CurrentChaoStage == 4 && GameState != 16)
 		{
 			auto entity = CharObj1Ptrs[0];
@@ -463,7 +464,7 @@ extern "C"
 			}
 
 		}
-		//Egg Carrier garden
+//Egg Carrier garden
 		if (CurrentChaoStage == 5 && GameState != 16)
 		{
 			if (ecgardenwater > 63) ecgardenwater = 54;
@@ -478,7 +479,7 @@ extern "C"
 				ecgardensand++;
 			}
 		}
-		//Mystic Ruins garden
+//Mystic Ruins garden
 		if (CurrentChaoStage == 6 && GameState != 16)
 		{
 			for (int q3 = 0; q3 < LengthOfArray(uv_0000F184); q3++) { uv_0000F184[q3].v--; }
@@ -505,7 +506,7 @@ extern "C"
 				object_00018AF4.pos[2] = Camera_Data1->Position.z;
 			}
 		}
-		//Chao Race Entry
+//Chao Race Entry
 		if (CurrentChaoStage == 2 && GameState != 16)
 		{
 			DataPointer(NJS_ACTION, xxxa, 0x33B7340);
@@ -583,7 +584,7 @@ extern "C"
 			}
 
 		}
-		//Chao Race
+//Chao Race
 		if (CurrentChaoStage == 1 && GameState != 16)
 		{
 			if (chaoracewater > 68) chaoracewater = 55;
