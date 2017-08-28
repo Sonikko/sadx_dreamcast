@@ -1,7 +1,6 @@
 #include "stdafx.h"
 #include "SADXModLoader.h"
 
-
 NJS_MATERIAL matlist_0001BFDC[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 8, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_TEXTURE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -200,9 +199,9 @@ NJS_VECTOR normal_0001C414[] = {
 	{ -0.275679f, -0.9208699f, -0.275679f }
 };
 
-NJS_MODEL_SADX attach_0001C600 = { vertex_0001C228, normal_0001C414, LengthOfArray(vertex_0001C228), meshlist_0001C210, matlist_0001BFDC, LengthOfArray(meshlist_0001C210), LengthOfArray(matlist_0001BFDC),{ 0, 260.0137f, 0 }, 1323.704f, NULL };
+NJS_MODEL_SADX attach_0001C600 = { vertex_0001C228, normal_0001C414, LengthOfArray<Sint32>(vertex_0001C228), meshlist_0001C210, matlist_0001BFDC, LengthOfArray<Uint16>(meshlist_0001C210), LengthOfArray<Uint16>(matlist_0001BFDC),{ 0, 260.0137f, 0 }, 1323.704f, NULL };
 
-NJS_OBJECT object_03028784 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0001C600, -167, 114.3956f, 156.6f, 0, 0, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT object_0001C628 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0001C600, -167, 114.3956f, 156.6f, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_MATERIAL matlist_03054D38[] = {
 	{ { 0xCCB2B2B2 },{ 0x00FFFFFF }, 11, 66, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC | 0x40 }
@@ -14308,7 +14307,7 @@ NJS_OBJECT object_030B36E4 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_03055
 
 COL collist_00000294[] = {
 	{ { -156.2124f, -12.32002f, 153.2005f }, 1145.704f, 0, 0, &object_0002A888, 0, 0x80000020 }, //bottom thing
-	{ { -135.9999f, 232.5f, 168.9999f }, 1378.426f, 0, 0, &object_03028784, 0, 0x80000020 }, //skybox
+	{ { -135.9999f, 232.5f, 168.9999f }, 1378.426f, 0, 0, &object_0001C628, 0, 0x80000020 }, //skybox
 	{ { -489.0073f, 60.42033f, 27.44495f }, 54.7897f, 0, 0, &object_00024420, 0, 0x40000001 },
 	{ { -66.36366f, 11.64826f, 336.2733f }, 3.523886f, 0, 0, &object_03055450, 0, 0x80000000 },	//crackers
 	{ { -54.91699f, 11.64826f, 385.5159f }, 2.523886f, 0, 0, &object_030B367C, 0, 0x80000000 },	//crackers
