@@ -60,7 +60,7 @@ extern "C"
 		Hasira1Model.mats[0].diffuse.color = 0x99B2B2B2;
 		*(NJS_OBJECT*)0x20144CC = object_0013BB70; //Kusa02 type 1
 		*(NJS_OBJECT*)0x2015968 = object_0013CA2C; //Kusa02 type 2
-
+		*(NJS_MODEL_SADX*)0x0202FF74 = attach_00151E30; //Aokiswitch
 		*(NJS_OBJECT*)0x201AF8C = object_00140C64; //Box part 1
 		*(NJS_OBJECT*)0x201B1C4 = object_00140E84; //Box part 2
 		*(NJS_OBJECT*)0x201B40C = object_001410B4; //Box part 3

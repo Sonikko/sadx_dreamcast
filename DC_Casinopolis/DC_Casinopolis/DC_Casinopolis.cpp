@@ -745,6 +745,7 @@ extern "C"
 		*(NJS_MODEL_SADX*)0x01D9CB7C = attach_0011F490; //Bottom decoration in Act 3 (dark)
 		*(NJS_MODEL_SADX*)0x01DDF318 = attach_00160DA4; //CardUV 1
 		*(NJS_MODEL_SADX*)0x01DDF180 = attach_00160C14_2; //CardUV 2
+		*(NJS_MODEL_SADX*)0x01E5DBC8 = attach_001DA2E0; //OKDAnm
 		//UV fixes
 		memcpy((void*)0x1E3C3C8, uv_001BA8B0, sizeof(uv_001BA8B0)); //O KBB
 		memcpy((void*)0x1E3C868, uv_001BAD3C, sizeof(uv_001BAD3C)); //O KBR
