@@ -204,6 +204,8 @@ extern "C"
 		*(NJS_MODEL_SADX*)0x2466818 = attach_0017DF2C; //Bridge piece
 		*(NJS_MODEL_SADX*)0x2466568 = attach_0017DC94; //Bridge piece 2
 		*(NJS_OBJECT*)0x246CAA8 = object_0206CAA8_2; //Cloud
+		WriteData((float*)0x006011ED, 30.0f); //Cloud height (Knuckles)
+		WriteData((float*)0x006011A9, 60.0f); //Cloud height (Knuckles)
 		*(NJS_MODEL_SADX*)0x24390BC = attach_00151A8C; //Light thing
 		*(NJS_MODEL_SADX*)0x24394CC = attach_001515D8; //Light thing propeller 1
 		*(NJS_MODEL_SADX*)0x24392C4 = attach_001513C8; //Light thing propeller 2
