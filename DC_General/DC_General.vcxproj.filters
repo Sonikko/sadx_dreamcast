@@ -30,9 +30,6 @@
     <ClInclude Include="Itembox.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="EmeShard.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="TornadoCrash.h">
       <Filter>Header Files</Filter>
     </ClInclude>

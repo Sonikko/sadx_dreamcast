@@ -3,7 +3,6 @@
 #include <lanternapi.h>
 #include "Animals.h"
 #include "Itembox.h"
-#include "EmeShard.h"
 #include "EmeraldGlow.h"
 #include "TornadoCrash.h"
 #include "EggmobileNPC.h"
@@ -423,8 +422,6 @@ extern "C"
 		//((NJS_OBJECT*)0x008BE194)->basicdxmodel->mats[0].diffuse.argb.a = 0xB2; //Balloon transparency
 		//((NJS_OBJECT*)0x008BE194)->basicdxmodel->mats[1].diffuse.argb.a = 0xB2; //Balloon transparency
 		WriteData((char*)0x004D7712, 2, 1); //Animal bubble blending mode
-		WriteData((char*)0x004A2DBB, 1, 1); //Emerald piece blending mode
-		*(NJS_OBJECT*)0x008BA6D4 = object_0019BC48; //Emerald piece
 		*(NJS_OBJECT*)0x02F67B78 = object_0021BD90; //Tornado 2 crashed
 		ResizeTextureList((NJS_TEXLIST*)0x0092ACE4, 5); //GOMA texlist
 		((NJS_OBJECT*)0x929E1C)->model = &attach_001568D8; //Goma left whisker
