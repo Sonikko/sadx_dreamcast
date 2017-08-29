@@ -705,6 +705,20 @@ extern "C"
 		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 swamp water
 		WriteData((float*)0x00557064, 0.0f); //Move Chaos 6 skybox animation to the bottom
 		//*(NJS_OBJECT*)0x1561A70 = object_000104E8; //Egg Hornet model
+		//Chaos 6 emeralds
+		((NJS_MATERIAL*)0x01264A58)->diffuse.color = 0xFFB2B2B2;
+		((NJS_MATERIAL*)0x01266968)->diffuse.color = 0xFFB2B2B2;
+		((NJS_MATERIAL*)0x0126F6F4)->diffuse.color = 0xFFB2B2B2;
+		((NJS_MATERIAL*)0x0126F970)->diffuse.color = 0xFFB2B2B2;
+		((NJS_MATERIAL*)0x0126FBE8)->diffuse.color = 0xFFB2B2B2;
+		((NJS_MATERIAL*)0x0126FE60)->diffuse.color = 0xFFB2B2B2;
+		((NJS_MATERIAL*)0x01264A58)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x01266968)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x0126F6F4)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x0126F970)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x0126FBE8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		((NJS_MATERIAL*)0x0126FE60)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		//Egg Hornet model stuff
 		((NJS_OBJECT*)0x0155AA54)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
 		((NJS_OBJECT*)0x0155AA54)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
 		((NJS_OBJECT*)0x0155AA54)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
@@ -732,8 +746,10 @@ extern "C"
 		((NJS_OBJECT*)0x0155B9E8)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_LIGHT; //drills
 		((NJS_OBJECT*)0x01561A70)->basicdxmodel->mats[18].attrflags |= NJD_FLAG_IGNORE_LIGHT; //front light
 		((NJS_OBJECT*)0x01561A70)->basicdxmodel->mats[8].attrflags |= NJD_FLAG_IGNORE_LIGHT; //computer
+		((NJS_MATERIAL*)0x015570AC)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		//Egg Walker
 		((NJS_OBJECT*)0x162E0FC)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x0162E158)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		//E101 rocket
 		((NJS_MATERIAL*)0x014DE5D0)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_MATERIAL*)0x014DE5E4)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
