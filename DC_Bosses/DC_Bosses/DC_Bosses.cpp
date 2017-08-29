@@ -565,10 +565,7 @@ extern "C"
 		((NJS_OBJECT *)0x118CBB4)->evalflags |= NJD_EVAL_HIDE;
 		((NJS_OBJECT *)0x118CBE8)->evalflags |= NJD_EVAL_HIDE;
 		((NJS_OBJECT *)0x118C910)->evalflags |= NJD_EVAL_HIDE;
-		WriteData((float*)0x117EBDC, 1.0f); //Top light in Chaos 2
-		WriteData((float*)0x117EBD8, 1.0f); //Top light in Chaos 2
-		WriteData((float*)0x117EBE0, 1.0f); //Top light in Chaos 2
-		WriteData((float*)0x117EBE4, 1.0f); //Top light in Chaos 2
+		((NJS_MATERIAL*)0x0117E8A0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Top light in Chaos 2
 		((NJS_MATERIAL*)0x011E2C00)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Lilypad in Chaos 4
 		((NJS_MATERIAL*)0x011E2C14)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Lilypad in Chaos 4
 		*(NJS_OBJECT*)0x01669DA8 = object_000434A0; //part of Egg Viper model
