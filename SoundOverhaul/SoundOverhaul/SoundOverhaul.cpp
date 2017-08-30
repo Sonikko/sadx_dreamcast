@@ -63,11 +63,6 @@ void TailsWhatAmIGonnaDoWithYou()
 	sub_64FD00(0, 1335, 1800);
 }
 
-void GoinDownAaaah()
-{
-	sub_64FD00(0, 1332, 1800);
-}
-
 SoundList FinalEggSoundList = { arraylengthandptr(FinalEggSoundList_list) };
 SoundList E101mkIISoundList = { arraylengthandptr(E101mkIISoundList_list) };
 SoundList soundlist97 = { arraylengthandptr(soundlist97_list) };
