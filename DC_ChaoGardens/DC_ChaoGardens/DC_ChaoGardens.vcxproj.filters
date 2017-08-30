@@ -60,10 +60,10 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="..\..\DC_Bosses\DC_Bosses\HintMessages.h">
+    <ClInclude Include="MainFunctions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="MainFunctions.h">
+    <ClInclude Include="HintMessages.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

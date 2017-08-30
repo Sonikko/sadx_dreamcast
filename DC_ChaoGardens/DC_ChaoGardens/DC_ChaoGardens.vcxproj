@@ -101,13 +101,13 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="..\..\DC_Bosses\DC_Bosses\HintMessages.h" />
     <ClInclude Include="ChaoRace.h" />
     <ClInclude Include="ChaoRaceEntry.h" />
     <ClInclude Include="ChaoRaceFunc.h" />
     <ClInclude Include="ECGarden_DC.h" />
     <ClInclude Include="ECGarden_func.h" />
     <ClInclude Include="Fountain.h" />
+    <ClInclude Include="HintMessages.h" />
     <ClInclude Include="MainFunctions.h" />
     <ClInclude Include="MRGarden.h" />
     <ClInclude Include="MRGarden_func.h" />
