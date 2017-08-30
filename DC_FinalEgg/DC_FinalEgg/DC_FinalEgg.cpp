@@ -122,9 +122,8 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 		{
 			scale = 1.0;
 		}
-		LastRenderFlags &= ~1;
-		//ProcessModelNode_AB_Wrapper((NJS_OBJECT*)0x01A4583C, scale);
-		ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x01A4583C, QueuedModelFlagsB_3, scale);
+		if (CurrentCharacter == 5) ProcessModelNode_AB_Wrapper((NJS_OBJECT*)0x01A4583C, scale);
+		else ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x01A4583C, QueuedModelFlagsB_3, scale);
 		njPopMatrix(1u);
 		njPopMatrix(1u);
 	}
@@ -369,6 +368,14 @@ NJS_MATERIAL* ObjectSpecular[] = {
 };
 
 NJS_MATERIAL* WhiteDiffuse[] = {
+	//0LightCamera
+	((NJS_MATERIAL*)0x019FD098),
+	((NJS_MATERIAL*)0x019FD0AC),
+	((NJS_MATERIAL*)0x019FD0C0),
+	((NJS_MATERIAL*)0x019FD0D4),
+	((NJS_MATERIAL*)0x019FD0E8),
+	((NJS_MATERIAL*)0x019FD0FC),
+	((NJS_MATERIAL*)0x019FD110),
 	//OHasiGo
 	&matlist_001E7318[2],
 	//Egg Keeper
@@ -499,6 +506,14 @@ extern "C"
 		WriteCall((void*)0x005B3744, sub_5B36E0X);
 		//OTexture lighting
 		((NJS_MATERIAL*)0x01A45548)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		//0LightCamera lighting
+		((NJS_MATERIAL*)0x019FD098)->attrflags |= NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x019FD0AC)->attrflags |= NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x019FD0C0)->attrflags |= NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x019FD0D4)->attrflags |= NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x019FD0E8)->attrflags |= NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x019FD0FC)->attrflags |= NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_MATERIAL*)0x019FD110)->attrflags |= NJD_FLAG_IGNORE_SPECULAR;
 		//OUkishima lighting
 		((NJS_MATERIAL*)0x01A27EC8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_MATERIAL*)0x01A27EDC)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
