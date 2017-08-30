@@ -5,6 +5,7 @@ FunctionPointer(Sint32, sub_424FC0, (int a1, EntityData1 *a2, int a3, int a4, fl
 FunctionPointer(ObjectMaster*, sub_4F5E50, (int a1), 0x4F5E50);
 FunctionPointer(void, sub_4EC2E0, (ObjectMaster *), 0x4EC2E0);
 FunctionPointer(void, sub_4EC310, (int a2), 0x4EC310);
+FunctionPointer(ObjectMaster*, sub_64FD00, (int a1, int a2, int a3), 0x64FD00);
 DataPointer(CollisionData, stru_E94844, 0xE94844);
 
 void __cdecl sub_4EC370(ObjectMaster *a1) //Ice Cap bomber
@@ -57,6 +58,16 @@ SoundFileInfo FinalEggSoundList_list[] = {
 	{ 5, "FINAL_EGG_BANK05" }
 };
 
+void TailsWhatAmIGonnaDoWithYou()
+{
+	sub_64FD00(0, 1335, 1800);
+}
+
+void GoinDownAaaah()
+{
+	sub_64FD00(0, 1332, 1800);
+}
+
 SoundList FinalEggSoundList = { arraylengthandptr(FinalEggSoundList_list) };
 SoundList E101mkIISoundList = { arraylengthandptr(E101mkIISoundList_list) };
 SoundList soundlist97 = { arraylengthandptr(soundlist97_list) };
@@ -72,6 +83,10 @@ extern "C"
 		WriteCall((void*)0x005ECB4F, PlaySound2); //Go up! Full speed ahead!
 		WriteData((void*)0x0053881F, 0x90u, 2); // Enable ambient sound in MR Final Egg base
 		WriteData((char*)0x00571AAF, 0x08, 1); // Fix Egg Hornet sound loop
+		WriteData((char*)0x006AF86B, 0, 1); // I forgot to put in the landing gear!
+		WriteData((char*)0x006CE07B, 0, 1); // There's no landing gear in this mode!
+		WriteData((char*)0x006CA530, 0x34, 1); //Goin' down! Aaaah! Look out below!
+		WriteCall((void*)0x006E96B9, TailsWhatAmIGonnaDoWithYou);
 		*(SoundList*)0x90FDD0 = E101mkIISoundList;
 		*(SoundList*)0x90FFB8 = soundlist97;
 		*(SoundList*)0x90FDE0 = FinalEggSoundList;
