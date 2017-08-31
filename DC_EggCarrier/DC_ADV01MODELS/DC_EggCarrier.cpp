@@ -22,7 +22,7 @@ DataPointer(ObjectMaster*, dword_3C85138, 0x3C85138);
 HMODULE ADV01MODELS = GetModuleHandle(L"ADV01MODELS");
 HMODULE ADV01CMODELS = GetModuleHandle(L"ADV01CMODELS");
 std::string plw1xbin;
-DataPointer(int, FramerateSetting, 0x0089295C);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(__int16, EggCarrierSunk_CharacterFlag, 0x0090A41C);
 
 static int water1 = 98;

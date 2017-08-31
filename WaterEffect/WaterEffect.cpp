@@ -41,7 +41,7 @@ DataArray(NJS_VECTOR, SkyboxScale_EmeraldCoast3, 0x00E99D28, 3);
 DataArray(FogData, EmeraldCoast1Fog, 0x00E99DDC, 3);
 DataArray(FogData, EmeraldCoast2Fog, 0x00E99E0C, 3);
 DataArray(FogData, EmeraldCoast3Fog, 0x00E99E3C, 3);
-DataPointer(int, FramerateSetting, 0x0089295C);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
 DataPointer(float, EC1OceanYShift, 0x010C85A8);
 DataPointer(int, DroppedFrames, 0x03B1117C);

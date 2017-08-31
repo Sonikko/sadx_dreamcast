@@ -8,7 +8,7 @@
 #include "IceCap4.h"
 
 DataPointer(int, MissedFrames, 0x03B1117C);
-DataPointer(int, FramerateSetting, 0x0089295C);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataArray(FogData, IceCap1Fog, 0x00C67EA0, 3);

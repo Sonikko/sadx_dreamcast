@@ -8,7 +8,7 @@ void __cdecl sub_72A790()
 	DataPointer(LandTable*, objLandTableGarden02_Daytime, 0x03CA6E88);
 	DataPointer(int, dword_3CA6E8C, 0x3CA6E8C);
 	HMODULE handle = GetModuleHandle(L"CHAOSTGGARDEN02MR_DAYTIME");
-	PrintDebug("ChaoStgGarden02MR_Daytime _prolog\n");
+	PrintDebug("547369736F626C7961646920736F736E6F6F6C6579\n");
 	dword_3CA6E8C = (int)GetProcAddress(handle, "stg_garden02_mr_objects");
 	texlist_garden02mr_daytime = (NJS_TEXLIST *)&texlist_mrgarden;
 	objLandTableGarden02_Daytime = (LandTable *)&landtable_0000FD3C;

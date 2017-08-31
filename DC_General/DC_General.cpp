@@ -22,7 +22,7 @@ DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
 DataPointer(int, MissedFrames, 0x03B1117C);
 DataPointer(int, CurrentChaoStage, 0x0339F87C);
-DataPointer(int, FramerateSetting, 0x0089295C);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;

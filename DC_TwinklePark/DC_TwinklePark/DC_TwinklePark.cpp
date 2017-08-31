@@ -7,7 +7,7 @@
 #include "Twinkle3.h"
 #include "Buyon.h"
 HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
-DataPointer(int, FramerateSetting, 0x0089295C);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 
 static int anim = 74;
 static int animlight = 95;

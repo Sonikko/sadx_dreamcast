@@ -82,7 +82,7 @@ DataPointer(NJS_TEXLIST, AL_TOY_TEXLIST, 0x033A11F8);
 DataPointer(NJS_TEXLIST, AL_DX_OBJ_CMN_TEXLIST, 0x033A1200);
 DataPointer(int, CurrentChaoStage, 0x0339F87C);
 DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(int, FramerateSetting, 0x0089295C);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(SecondaryEntrance, ECGardenStartPoint, 0x0339F8E8);
 DataPointer(SecondaryEntrance, SSGardenStartPoint, 0x0339F888);
 DataPointer(NJS_OBJECT, ChaoNormalFruit, 0x03606D00);

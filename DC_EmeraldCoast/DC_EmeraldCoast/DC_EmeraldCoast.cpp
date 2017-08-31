@@ -36,7 +36,7 @@ static bool lilocean = false;
 static bool SADXStyleWater = false;
 static NJS_VECTOR oldpos{ 0,0,0 };
 DataArray(NJS_TEX, uv_00CBB000_data, 0x10BB000, LengthOfArray(uv_00CBB000));
-DataPointer(int, FramerateSetting, 0x0089295C);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
 DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
 DataPointer(int, CurrentFogToggle, 0x03ABDC6C);

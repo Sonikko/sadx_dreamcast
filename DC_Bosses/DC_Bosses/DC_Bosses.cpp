@@ -22,7 +22,6 @@
 #include "LightingArrays.h"
 
 std::string plm0xbin;
-
 static float EggViper_blendfactor = 0.0f;
 static int EggViper_blenddirection = 1;
 static int EggViper_EffectMode = 0;
@@ -36,7 +35,7 @@ DataArray(NJS_MATERIAL, matlist_0126C51C, 0x0126C51C, 2);
 DataArray(NJS_MATERIAL, matlist_01271BCC, 0x01271BCC, 2);
 
 DataPointer(float, Chaos4Hitpoints, 0x03C58158);
-DataPointer(int, FramerateSetting, 0x0089295C);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(NJS_TEXANIM, stru_149401C, 0x149401C);
 DataPointer(NJS_TEXANIM, stru_1494050, 0x1494050);
@@ -63,6 +62,31 @@ static int EggHornet_Rotation = 0;
 static int EggHornet_RotationDirection = 1;
 static int egghornetwater = 143;
 static int e101rwater = 87;
+
+void __cdecl EggHornetWaterFunc()
+{
+	if (!DroppedFrames)
+	{
+		DisableFog();
+		njSetTexture((NJS_TEXLIST *)0x1557064);
+		njPushMatrix(0);
+		njTranslate(0, 0, 0, 0);
+		ProcessModelNode_A_Wrapper(&object_00048F9C, QueuedModelFlagsB_3, 1.0f);
+		njPopMatrix(1u);
+		njPushMatrix(0);
+		njTranslate(0, 0, 0, 0);
+		ProcessModelNode_A_Wrapper(&object_00049370, QueuedModelFlagsB_3, 1.0f);
+		njPopMatrix(1u);
+		njPushMatrix(0);
+		njTranslate(0, 0, 0, 0);
+		ProcessModelNode_A_Wrapper(&object_0004EB6C, QueuedModelFlagsB_3, 1.0f);
+		njPopMatrix(1u);
+		njPushMatrix(0);
+		njTranslate(0, 0, 0, 0);
+		ProcessModelNode_A_Wrapper(&object_0004EE14, QueuedModelFlagsB_3, 1.0f);
+		njPopMatrix(1u);
+	}
+}
 
 void __cdecl SetClip_Chaos6KX(signed int a1)
 {
@@ -512,13 +536,17 @@ extern "C"
 			ResizeTextureList((NJS_TEXLIST*)0x16B460C, 104); //Zero/E101R texlist
 			collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x00000000;
 			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x00000000;
-			collist_0001E294[0].Flags = 0x00000000;
 			landtable_00000128.TexName = "EGM1LANDW";
 			landtable_00000110.TexName = "E101R_TIKEIW";
 			landtable_00000180.TexName = "E101R_TIKEIW";
 			WriteCall((void*)0x00572310, WaterTexture_BossWaves); //Egg Hornet ocean
 			WriteCall((void*)0x0057236D, WaterTexture_BossOcean); //Egg Hornet ocean
 			WriteCall((void*)0x005722A3, DisableSADXWaterFog); //Egg Hornet ocean
+			collist_0001E294[LengthOfArray(collist_0001E294) - 1].Flags = 0x81000000;
+			collist_0001E294[LengthOfArray(collist_0001E294) - 2].Flags = 0x81000000;
+			collist_0001E294[LengthOfArray(collist_0001E294) - 3].Flags = 0x81000000;
+			collist_0001E294[LengthOfArray(collist_0001E294) - 4].Flags = 0x81000000;
+			collist_0001E294[LengthOfArray(collist_0001E294) - 5].Flags = 0x00000000;
 			WriteCall((void*)0x0056CD15, WaterTexture_BossWaves); //E101R ocean
 			WriteCall((void*)0x0056CD7B, WaterTexture_BossOcean); //E101R ocean
 			WriteCall((void*)0x00587EF5, WaterTexture_BossWaves); //Zero ocean
@@ -530,11 +558,15 @@ extern "C"
 			ResizeTextureList((NJS_TEXLIST*)0x16B460C, 87); //Zero/E101R texlist
 			collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x80000000;
 			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x80000000;
-			collist_0001E294[0].Flags = 0x80040000;
 			landtable_00000128.TexName = "EGM1LAND";
 			landtable_00000110.TexName = "E101R_TIKEI";
 			landtable_00000180.TexName = "E101R_TIKEI";
-			WriteData((void*)0x572270, 0xC3u, 1); //Egg Hornet water
+			WriteCall((void*)0x0057192A, EggHornetWaterFunc); //Egg Hornet water
+			collist_0001E294[LengthOfArray(collist_0001E294) - 1].Flags = 0x00000000;
+			collist_0001E294[LengthOfArray(collist_0001E294) - 2].Flags = 0x00000000;
+			collist_0001E294[LengthOfArray(collist_0001E294) - 3].Flags = 0x00000000;
+			collist_0001E294[LengthOfArray(collist_0001E294) - 4].Flags = 0x00000000;
+			collist_0001E294[LengthOfArray(collist_0001E294) - 5].Flags = 0x80040400;
 			WriteData((void*)0x587E10, 0xC3u, 1); //E101R water
 			WriteData((void*)0x56CC30, 0xC3u, 1); //Zero water
 		}
