@@ -269,6 +269,7 @@ extern "C"
 		*(NJS_OBJECT*)0x184BA64 = object_0013C6AC; //Egghead door 2 part 2
 		*(NJS_OBJECT*)0x1851CA4 = object_00140EBC; //Elevator
 		*(NJS_OBJECT*)0x0187201C = object_0015CC48; //Light
+		*(NJS_OBJECT*)0x0186FC1C = object_0146FC1C; //OKaitenashiba
 		*(NJS_MODEL_SADX*)0x0183C594 = attach_0012AB9C; // Bridge
 		((NJS_MATERIAL*)0x018136E0)->diffuse.color = 0xFFB2B2B2; //OUkijima material colors
 		((NJS_MATERIAL*)0x018136F4)->diffuse.color = 0xFFB2B2B2; //OUkijima material colors
