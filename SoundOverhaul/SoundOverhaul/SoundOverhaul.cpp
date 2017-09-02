@@ -8,6 +8,8 @@ FunctionPointer(void, sub_4EC310, (int a2), 0x4EC310);
 FunctionPointer(ObjectMaster*, sub_64FD00, (int a1, int a2, int a3), 0x64FD00);
 DataPointer(CollisionData, stru_E94844, 0xE94844);
 
+static bool SnowSoundFixed = false;
+
 void __cdecl sub_4EC370(ObjectMaster *a1) //Ice Cap bomber
 {
 	EntityData1 *v1; // esi@1
@@ -85,5 +87,19 @@ extern "C"
 		*(SoundList*)0x90FDD0 = E101mkIISoundList;
 		*(SoundList*)0x90FFB8 = soundlist97;
 		*(SoundList*)0x90FDE0 = FinalEggSoundList;
+	}
+	__declspec(dllexport) void __cdecl OnFrame()
+	{
+		auto entity = CharObj1Ptrs[0];
+		if (CurrentLevel != 8 || CurrentAct != 2 || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21) SnowSoundFixed = false;
+		if (entity != nullptr)
+		{
+			if (SnowSoundFixed == false && entity->Status & Status_Ground && entity->Action == 62)
+			{
+				entity->Status &= ~Status_Ground;
+				entity->Status &= ~Status_Unknown3;
+				SnowSoundFixed = true;
+			}
+		}
 	}
 }
