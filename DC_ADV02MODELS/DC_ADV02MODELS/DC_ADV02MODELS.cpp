@@ -345,6 +345,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_MODELS[15] = &attach_0007C3B8; //Master Emerald glow
 	//___ADV02_OBJECTS[67] = &object_001DCF78; //Palm trees near Tails' workshop
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
+	WriteData((void*)0x52F800, 0xC3u, 1); //Disable SADX jungle
 	___ADV02MR02_OBJECTS[141] = &object_001615BC;
 	___ADV02MR02_OBJECTS[142] = &object_00161B8C;
 	___ADV02MR02_OBJECTS[143] = &object_00161FD8;
