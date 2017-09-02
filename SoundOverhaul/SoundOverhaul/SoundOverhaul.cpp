@@ -6,6 +6,8 @@ FunctionPointer(ObjectMaster*, sub_4F5E50, (int a1), 0x4F5E50);
 FunctionPointer(void, sub_4EC2E0, (ObjectMaster *), 0x4EC2E0);
 FunctionPointer(void, sub_4EC310, (int a2), 0x4EC310);
 FunctionPointer(ObjectMaster*, sub_64FD00, (int a1, int a2, int a3), 0x64FD00);
+FunctionPointer(void, sub_42FE00, (ObjectMaster *a1, NJS_ACTION *a2, NJS_TEXLIST *a3, float a4, char a5, char a6), 0x42FE00);
+FunctionPointer(void, sub_4314D0, (int a1), 0x4314D0);
 DataPointer(CollisionData, stru_E94844, 0xE94844);
 
 static bool SnowSoundFixed = false;
@@ -69,11 +71,26 @@ SoundList FinalEggSoundList = { arraylengthandptr(FinalEggSoundList_list) };
 SoundList E101mkIISoundList = { arraylengthandptr(E101mkIISoundList_list) };
 SoundList soundlist97 = { arraylengthandptr(soundlist97_list) };
 
+void WhoahSomethingBuggingYou()
+{
+	if (VoiceLanguage)
+	{
+	LoadSoundList(70);
+	LoadSoundList(72);
+	}
+	else
+	{
+	LoadSoundList(69);
+	LoadSoundList(71);
+	}
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteCall((void*)0x006CE25C, WhoahSomethingBuggingYou);
 		WriteCall((void*)0x00496F33, PlaySpindash);
 		WriteJump((void*)0x004EC370, sub_4EC370); //Ice Cap bomber 1
 		WriteCall((void*)0x004EC573, PlayBomb); //Ice Cap bomber 2
