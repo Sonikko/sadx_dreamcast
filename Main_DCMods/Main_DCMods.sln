@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26430.12
+VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_ADV00MODELS", "..\DC_ADV00MODELS\DC_ADV00MODELS\DC_ADV00MODELS.vcxproj", "{AB522621-A943-4F4C-A23B-3461F31A9C1E}"
 EndProject
@@ -54,6 +54,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HD_GUI", "..\HD_GUI\HD_GUI.vcxproj", "{166D0676-BFF0-4F96-99A6-192FFC5F38CF}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ModLoaderCommon", "..\mod-loader-common\ModLoaderCommon\ModLoaderCommon.vcxproj", "{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLC_SambaGP", "..\DLC_SambaGP\DLC_SambaGP.vcxproj", "{9470DBEE-6F72-4EB4-94D4-77DA51B90503}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -377,8 +379,23 @@ Global
 		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Release|x64.ActiveCfg = Release|Win32
 		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Release|x86.ActiveCfg = Release|Win32
 		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Release|x86.Build.0 = Release|Win32
+		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Debug|Win32.Build.0 = Debug|Win32
+		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Debug|x64.ActiveCfg = Debug|x64
+		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Debug|x64.Build.0 = Debug|x64
+		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Debug|x86.ActiveCfg = Debug|Win32
+		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Debug|x86.Build.0 = Debug|Win32
+		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Release|Win32.ActiveCfg = Release|Win32
+		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Release|Win32.Build.0 = Release|Win32
+		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Release|x64.ActiveCfg = Release|x64
+		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Release|x64.Build.0 = Release|x64
+		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Release|x86.ActiveCfg = Release|Win32
+		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {DA312A56-F5A6-472A-B095-C14062784EAB}
 	EndGlobalSection
 EndGlobal
