@@ -238,7 +238,7 @@ void LoadSambaGate(ObjectMaster *a1)
 	v4->model = &attach_00000ED0;
 	v4->child = 0;
 	v4->sibling = 0;
-	DynamicCOL_Add((ColFlags)0x20000001, a1, v4);
+	DynamicCOL_Add((ColFlags)0x20001001, a1, v4);
 	if (IsPlayerInsideSphere(&v3->Position, 140.0f))
 	{
 		v3->Status |= 1u;
