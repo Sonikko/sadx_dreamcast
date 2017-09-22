@@ -910,6 +910,21 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char* path, const HelperFunctions& helperFunctions)
 	{
+		HMODULE SONICADV_000 = GetModuleHandle(L"SONICADV_000");
+		HMODULE SONICADV_001 = GetModuleHandle(L"SONICADV_001");
+		HMODULE SONICADV_002 = GetModuleHandle(L"SONICADV_002");
+		HMODULE SONICADV_003 = GetModuleHandle(L"SONICADV_003");
+		HMODULE SONICADV_501 = GetModuleHandle(L"SONICADV_501");
+		HMODULE SONICADV_502 = GetModuleHandle(L"SONICADV_502");
+		HMODULE SONICADV_503 = GetModuleHandle(L"SONICADV_503");
+		HMODULE SONICADV_504 = GetModuleHandle(L"SONICADV_504");
+		HMODULE SONICADV_505 = GetModuleHandle(L"SONICADV_505");
+		HMODULE SONICADV_506 = GetModuleHandle(L"SONICADV_506");
+		HMODULE SONICADV_507 = GetModuleHandle(L"SONICADV_507");
+		HMODULE SONICADV_508 = GetModuleHandle(L"SONICADV_508");
+		HMODULE SONICADV_509 = GetModuleHandle(L"SONICADV_509");
+		HMODULE SONICADV_510 = GetModuleHandle(L"SONICADV_510");
+		HMODULE SONICADV_511 = GetModuleHandle(L"SONICADV_511");
 		if (SONICADV_000 != nullptr) ModFailsafe = true;
 		if (SONICADV_001 != nullptr) ModFailsafe = true;
 		if (SONICADV_002 != nullptr) ModFailsafe = true;
