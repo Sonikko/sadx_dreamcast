@@ -57,6 +57,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ModLoaderCommon", "..\mod-l
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLC_SambaGP", "..\DLC_SambaGP\DLC_SambaGP.vcxproj", "{9470DBEE-6F72-4EB4-94D4-77DA51B90503}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLC_Y2K", "..\DLC_Y2K\DLC_Y2K.vcxproj", "{259CB435-38B2-4F78-A400-3BA5B420B055}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -391,6 +393,18 @@ Global
 		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Release|x64.Build.0 = Release|x64
 		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Release|x86.ActiveCfg = Release|Win32
 		{9470DBEE-6F72-4EB4-94D4-77DA51B90503}.Release|x86.Build.0 = Release|Win32
+		{259CB435-38B2-4F78-A400-3BA5B420B055}.Debug|Win32.ActiveCfg = Debug|Win32
+		{259CB435-38B2-4F78-A400-3BA5B420B055}.Debug|Win32.Build.0 = Debug|Win32
+		{259CB435-38B2-4F78-A400-3BA5B420B055}.Debug|x64.ActiveCfg = Debug|x64
+		{259CB435-38B2-4F78-A400-3BA5B420B055}.Debug|x64.Build.0 = Debug|x64
+		{259CB435-38B2-4F78-A400-3BA5B420B055}.Debug|x86.ActiveCfg = Debug|Win32
+		{259CB435-38B2-4F78-A400-3BA5B420B055}.Debug|x86.Build.0 = Debug|Win32
+		{259CB435-38B2-4F78-A400-3BA5B420B055}.Release|Win32.ActiveCfg = Release|Win32
+		{259CB435-38B2-4F78-A400-3BA5B420B055}.Release|Win32.Build.0 = Release|Win32
+		{259CB435-38B2-4F78-A400-3BA5B420B055}.Release|x64.ActiveCfg = Release|x64
+		{259CB435-38B2-4F78-A400-3BA5B420B055}.Release|x64.Build.0 = Release|x64
+		{259CB435-38B2-4F78-A400-3BA5B420B055}.Release|x86.ActiveCfg = Release|Win32
+		{259CB435-38B2-4F78-A400-3BA5B420B055}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
