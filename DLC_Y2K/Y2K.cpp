@@ -187,7 +187,7 @@ void Y2KRing_Load(ObjectMaster *a1)
 	v1 = a1->Data1;
 	if (v1->CharID == 1)
 	{
-		v5 = sub_49D6C0(&object_00001514, a1, ColFlags_Solid);
+		v5 = sub_49D6C0(&object_00001514, a1, (ColFlags)0x20001001);
 		v5->scl[0] = 1.0f;
 		v5->scl[1] = 1.0f;
 		v5->scl[2] = 1.0f;
