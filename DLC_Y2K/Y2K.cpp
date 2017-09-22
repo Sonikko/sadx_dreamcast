@@ -10,6 +10,7 @@ FunctionPointer(void, sub_413CB0, (), 0x413CB0);
 FunctionPointer(void, sub_425800, (int a1), 0x425800);
 FunctionPointer(void, sub_42F880, (), 0x42F880);
 FunctionPointer(signed int, sub_4570B0, (), 0x4570B0);
+FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColFlags surfaceFlags), 0x49D6C0);
 
 HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
 
@@ -176,33 +177,25 @@ void Y2KRing_Main(ObjectMaster *a1)
 		}
 		HintTimer = 30;
 	}
-	if (v1->CharID == 1)
-	{
-		v5 = ObjectArray_GetFreeObject();
-		*(NJS_OBJECT **)&v1->CharIndex = v5;
-		v5->evalflags = 16;
-		v5->ang[0] = v2;
-		v5->ang[1] = v3;
-		v5->ang[2] = v4;
-		v5->scl[0] = 1.0f;
-		v5->scl[1] = 1.0f;
-		v5->scl[2] = 1.0f;
-		v5->pos[0] = v1->Position.x;
-		v5->pos[1] = v1->Position.y;
-		v5->pos[2] = v1->Position.z;
-		v5->model = &attach_000014EC;
-		v5->child = 0;
-		v5->sibling = 0;
-		DynamicCOL_Add((ColFlags)0x20001001, a1, v5);
-	}
 	Y2KRing_Display(a1);
 }
 
 void Y2KRing_Load(ObjectMaster *a1)
 {
-	a1->DeleteSub = DeleteObject_DynamicCOL;
+	EntityData1* v1;
+	NJS_OBJECT* v5;
+	v1 = a1->Data1;
+	if (v1->CharID == 1)
+	{
+		v5 = sub_49D6C0(&object_00001514, a1, ColFlags_Solid);
+		v5->scl[0] = 1.0f;
+		v5->scl[1] = 1.0f;
+		v5->scl[2] = 1.0f;
+	}
+	else v5 = nullptr;
 	a1->MainSub = (void(__cdecl *)(ObjectMaster *))Y2KRing_Main;
 	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))Y2KRing_Display;
+	a1->DeleteSub = DeleteObject_DynamicCOL;
 }
 
 void LoadY2KRings_StationSquare(ObjectMaster *a1)
