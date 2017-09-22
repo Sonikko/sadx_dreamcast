@@ -164,6 +164,7 @@ void Y2KRing_Main(ObjectMaster *a1)
 	{
 		if (SonicCDMusic == false)
 		{
+			StopMusic();
 			sub_425800(MusicIDs_PalmtreePanic);
 			SonicCDMusic = true;
 			if (CurrentLevel == 26) WriteData((char*)0x0062EEF9, MusicIDs_PalmtreePanic, 1);
