@@ -117,6 +117,7 @@ void Poster_Main(ObjectMaster *a1)
 				if (v1->CharIndex == 2) sub_4B79C0((char *)(&LaunchPartyMessage3), 180);
 				if (v1->CharIndex == 3 && DLCMode == 0) sub_4B79C0((char *)(&LaunchPartyMessage4_US), 180);
 				if (v1->CharIndex == 3 && DLCMode == 1) sub_4B79C0((char *)(&LaunchPartyMessage4_EU), 180);
+				if (v1->CharIndex == 3 && DLCMode == 2) sub_4B79C0((char *)(&LaunchPartyMessage4_US), 180);
 				if (v1->CharIndex == 4) sub_4B79C0((char *)(&LaunchPartyMessage5), 180);
 				if (v1->CharIndex == 5) sub_4B79C0((char *)(&LaunchPartyMessage6), 180);
 			}
