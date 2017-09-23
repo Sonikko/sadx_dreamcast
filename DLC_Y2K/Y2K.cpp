@@ -156,7 +156,7 @@ void Y2KRing_Main(ObjectMaster *a1)
 	v2 = v1->Rotation.x;
 	v3 = v1->Rotation.y;
 	v4 = v1->Rotation.z;
-	if (v1->CharID == 2) v3 = (v3 + 528) % 65536;
+	if (v1->CharID == 2) v3 = (v3 + 528) % 65535;
 	v1->Rotation.x = v2;
 	v1->Rotation.y = v3;
 	v1->Rotation.z = v4;
