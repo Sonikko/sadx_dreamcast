@@ -6,6 +6,7 @@ FunctionPointer(void, sub_412D80, (int a1, int a2), 0x412D80);
 FunctionPointer(void, sub_62E980, (), 0x62E980);
 FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79A0);
 FunctionPointer(void, sub_4145D0, (unsigned __int8 a1, unsigned __int8 a2), 0x4145D0);
+FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColFlags surfaceFlags), 0x49D6C0);
 
 HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
 
@@ -203,14 +204,14 @@ void SambaGate_Display(ObjectMaster *a1)
 void SambaGate_Main(ObjectMaster *a1)
 {
 	DataPointer(char, off_2BBF4A0, 0x02BBF450);
-	NJS_VECTOR WarpPosition = { 683, 1.4f, 1570 };
-	if (MessageOn == false && IsPlayerInsideSphere(&WarpPosition, 20))
+	NJS_VECTOR WarpPosition = { 698, 1.4f, 1600 };
+	if (MessageOn == false && IsPlayerInsideSphere(&WarpPosition, 25))
 	{
 		MessageOn = true;
 		sub_4B79C0((char *)(&SambaGPMessage0), 360);
 	}
-	if (!IsPlayerInsideSphere(&WarpPosition, 20)) MessageOn = false;
-	if (IsPlayerInsideSphere(&WarpPosition, 20))
+	if (!IsPlayerInsideSphere(&WarpPosition, 25)) MessageOn = false;
+	if (IsPlayerInsideSphere(&WarpPosition, 25))
 	{
 		CallSambaCircuit();
 	}
@@ -222,27 +223,10 @@ void LoadSambaGate(ObjectMaster *a1)
 	ObjectMaster *v1; // esi@1
 	EntityData1 *v3; // edi@1
 	NJS_OBJECT *v4; // eax@2
-	v4 = ObjectArray_GetFreeObject();
-	v3 = a1->Data1;
-	*(NJS_OBJECT **)&v3->CharIndex = v4;
-	v4->evalflags = 16;
-	v4->ang[0] = 0;
-	v4->ang[1] = v3->Rotation.y;
-	v4->ang[2] = 0;
+	v4 = sub_49D6C0(&object_00000EF8, a1, (ColFlags)0x20001001);
 	v4->scl[0] = 1.0f;
 	v4->scl[1] = 1.0f;
 	v4->scl[2] = 1.0f;
-	v4->pos[0] = v3->Position.x;
-	v4->pos[1] = v3->Position.y;
-	v4->pos[2] = v3->Position.z;
-	v4->model = &attach_00000ED0;
-	v4->child = 0;
-	v4->sibling = 0;
-	DynamicCOL_Add((ColFlags)0x20001001, a1, v4);
-	if (IsPlayerInsideSphere(&v3->Position, 140.0f))
-	{
-		v3->Status |= 1u;
-	}
 	a1->DeleteSub = DeleteObject_DynamicCOL;
 	a1->MainSub = (void(__cdecl *)(ObjectMaster *))SambaGate_Main;
 	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))SambaGate_Display;
@@ -259,7 +243,7 @@ void Poster_Display(ObjectMaster *a1)
 		njPushMatrix(0);
 		njTranslateV(0, &v1->Position);
 		njScale(0, v1->Scale.x, v1->Scale.y, v1->Scale.z);
-		v2 = v1->Rotation.y;
+		v2 = v1->Rotation.y + 0xC000;
 		njRotateY(0, v2);
 		ProcessModelNode_AB_Wrapper(&poster1, v1->Scale.x);
 		njPopMatrix(1u);
@@ -303,11 +287,11 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 263.15332f;
-			ent->Position.y = 24;
-			ent->Position.z = 833.388733;
+			ent->Position.x = 263;
+			ent->Position.y = 21;
+			ent->Position.z = 832;
 			ent->Rotation.x = 0;
-			ent->Rotation.y = 0x7FFF;
+			ent->Rotation.y = 0xC000;
 			ent->Rotation.z = 0;
 			ent->Scale.x = 1.0f;
 			ent->Scale.y = 1.0f;
@@ -319,11 +303,11 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 263.159515f;
-			ent->Position.y = 24;
-			ent->Position.z = 773.763733f;
+			ent->Position.x = 263;
+			ent->Position.y = 21;
+			ent->Position.z = 773;
 			ent->Rotation.x = 0;
-			ent->Rotation.y = 0x7FFF;
+			ent->Rotation.y = 0xC000;
 			ent->Rotation.z = 0;
 			ent->Scale.x = 1.0f;
 			ent->Scale.y = 1.0f;
@@ -335,11 +319,11 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 422.0f;
+			ent->Position.x = 422;
 			ent->Position.y = 26;
-			ent->Position.z = 729;
+			ent->Position.z = 730;
 			ent->Rotation.x = 0;
-			ent->Rotation.y = 0x7FFF;
+			ent->Rotation.y = 0xC000;
 			ent->Rotation.z = 0;
 			ent->Scale.x = 1.0f;
 			ent->Scale.y = 1.0f;
@@ -354,11 +338,11 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 123.0f;
-			ent->Position.y = 164.757736f;
-			ent->Position.z = 1073.44507f;
+			ent->Position.x = 126;
+			ent->Position.y = 163;
+			ent->Position.z = 1077;
 			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xFFFFA25A;
+			ent->Rotation.y = 0xE16C;
 			ent->Rotation.z = 0;
 			ent->Scale.x = 1.0f;
 			ent->Scale.y = 1.0f;
@@ -370,11 +354,11 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -281.0f;
-			ent->Position.y = 164.757736f;
-			ent->Position.z = 1280.4574f;
+			ent->Position.x = -279;
+			ent->Position.y = 163;
+			ent->Position.z = 1285;
 			ent->Rotation.x = 0;
-			ent->Rotation.y = 0x268;
+			ent->Rotation.y = 0x438E;
 			ent->Rotation.z = 0;
 			ent->Scale.x = 1.0f;
 			ent->Scale.y = 1.0f;
@@ -386,11 +370,11 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -543.115f;
-			ent->Position.y = 54.7749977f;
-			ent->Position.z = 1225.04f;
+			ent->Position.x = -545;
+			ent->Position.y = 48;
+			ent->Position.z = 1226;
 			ent->Rotation.x = 0;
-			ent->Rotation.y = 0;
+			ent->Rotation.y = 0x4000;
 			ent->Rotation.z = 0;
 			ent->Scale.x = 2.0f;
 			ent->Scale.y = 2.0f;
@@ -406,14 +390,14 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 		{
 			ent = obj->Data1;
 			ent->Position.x = -175;
-			ent->Position.y = 10.625f;
-			ent->Position.z = 1742.375f;
+			ent->Position.y = 12;
+			ent->Position.z = 1743;
 			ent->Rotation.x = 0;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0x4000;
-			ent->Scale.x = 0.8f;
-			ent->Scale.y = 0.8f;
-			ent->Scale.z = 0.8f;
+			ent->Rotation.y = 0x416C;
+			ent->Rotation.z = 0;
+			ent->Scale.x = 1.0f;
+			ent->Scale.y = 1.0f;
+			ent->Scale.z = 1.0f;
 			ent->CharIndex = 0;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF1);
@@ -421,23 +405,23 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 699.0f;
+			ent->Position.x = 698;
 			ent->Position.y = 0;
-			ent->Position.z = 1570.0f;
-			ent->Rotation.y = 0xFFFFC000;
+			ent->Position.z = 1600;
+			ent->Rotation.y = 0xC000;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 112.1277f;
-			ent->Position.y = 44.875f;
-			ent->Position.z = 1342.1f;
-			ent->Rotation.y = 0xFFFFD2B3;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
+			ent->Position.x = 109;
+			ent->Position.y = 47;
+			ent->Position.z = 1344;
+			ent->Rotation.y = 0x127D;
+			ent->Scale.x = 1.5f;
+			ent->Scale.y = 1.5f;
+			ent->Scale.z = 1.5f;
 			ent->CharIndex = 0;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF2);
@@ -445,13 +429,13 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -55.30893f;
-			ent->Position.y = 44.875f;
-			ent->Position.z = 1425.988f;
-			ent->Rotation.y = 0xFFFFD2B3;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
+			ent->Position.x = -54;
+			ent->Position.y = 49;
+			ent->Position.z = 1426;
+			ent->Rotation.y = 0x127D;
+			ent->Scale.x = 1.5f;
+			ent->Scale.y = 1.5f;
+			ent->Scale.z = 1.5f;
 			ent->CharIndex = 0;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF2);
@@ -459,27 +443,27 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 408.8f;
-			ent->Position.y = 22.7500019f;
-			ent->Position.z = 1232.8f;
-			ent->Rotation.y = 0xFFFF566A;
-			ent->Scale.x = 2.0f;
-			ent->Scale.y = 1.6f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 0;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF2);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 504.0f;
-			ent->Position.y = 19.75f;
-			ent->Position.z = 1662.65f;
-			ent->Rotation.y = 0xFFFF4060;
+			ent->Position.x = 410;
+			ent->Position.y = 23;
+			ent->Position.z = 1233;
+			ent->Rotation.y = 0x8B60;
 			ent->Scale.x = 2.0f;
 			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
+			ent->Scale.z = 2.0f;
+			ent->CharIndex = 0;
+		}
+		obj = LoadObject((LoadObj)2, 3, OF2);
+		obj->SETData.SETData = &setdata_dlc;
+		if (obj)
+		{
+			ent = obj->Data1;
+			ent->Position.x = 510;
+			ent->Position.y = 17;
+			ent->Position.z = 1657;
+			ent->Rotation.y = 0x8000;
+			ent->Scale.x = 2.0f;
+			ent->Scale.y = 2.0f;
+			ent->Scale.z = 2.0f;
 			ent->CharIndex = 1;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF2);
@@ -487,13 +471,13 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 586.958252f;
-			ent->Position.y = 19.75f;
-			ent->Position.z = 1661.8938f;
-			ent->Rotation.y = 0xFFFF4060;
+			ent->Position.x = 577;
+			ent->Position.y = 17;
+			ent->Position.z = 1657;
+			ent->Rotation.y = 0x8000;
 			ent->Scale.x = 2.0f;
 			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
+			ent->Scale.z = 2.0f;
 			ent->CharIndex = 2;
 		}
 	}

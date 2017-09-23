@@ -571,8 +571,6 @@ NJS_MODEL_SADX attach_00000ED0 = { vertex_00000750, normal_00000B10, LengthOfArr
 
 NJS_OBJECT object_00000EF8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00000ED0, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
-NJS_OBJECT object_00000EF8_COL = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00000ED0, 699.0f, 1.4f, 1570, 0, 0xFFFFC000, 0, 1, 1, 1, NULL, NULL };
-
 //Poster
 
 NJS_MATERIAL matlist_00116FA0X[] = {
@@ -595,10 +593,10 @@ NJS_MESHSET_SADX meshlist_00116FD0X[] = {
 };
 
 NJS_VECTOR vertex_00116FE8X[] = {
-	{ 0, 12.0f, -12.0f },
-	{ 0, 12.0f, 12.0f },
-	{ 0, -12.0f, -12.0f },
-	{ 0, -12.0f, 12.0f }
+	{ 0, 10.0f, -10.0f },
+	{ 0, 10.0f, 10.0f },
+	{ 0, -10.0f, -10.0f },
+	{ 0, -10.0f, 10.0f }
 };
 
 NJS_VECTOR normal_00117018X[] = {
