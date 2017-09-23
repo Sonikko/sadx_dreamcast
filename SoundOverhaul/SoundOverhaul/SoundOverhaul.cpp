@@ -111,11 +111,14 @@ extern "C"
 		if (CurrentLevel != 8 || CurrentAct != 2 || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21) SnowSoundFixed = false;
 		if (entity != nullptr)
 		{
-			if (SnowSoundFixed == false && entity->Status & Status_Ground && entity->Action == 62)
+			if (CurrentLevel == 8 && CurrentAct == 2)
 			{
-				entity->Status &= ~Status_Ground;
-				entity->Status &= ~Status_Unknown3;
-				SnowSoundFixed = true;
+				if (SnowSoundFixed == false && entity->Status & Status_Ground && entity->Action == 62)
+				{
+					entity->Status &= ~Status_Ground;
+					entity->Status &= ~Status_Unknown3;
+					SnowSoundFixed = true;
+				}
 			}
 		}
 	}
