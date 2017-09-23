@@ -86,7 +86,7 @@ void Poster_Display(ObjectMaster *a1)
 		njSetTexture(&texlist_y2k);
 		njPushMatrix(0);
 		njTranslateV(0, &v1->Position);
-		njRotateXYZ(0, -0x427, v3, 0x500);
+		njRotateY(0, v3+0xC000);
 		ProcessModelNode_AB_Wrapper(&poster, 1.0f);
 		njPopMatrix(1u);
 	}
@@ -156,8 +156,7 @@ void Y2KRing_Main(ObjectMaster *a1)
 	v2 = v1->Rotation.x;
 	v3 = v1->Rotation.y;
 	v4 = v1->Rotation.z;
-	if (v1->CharID == 1 && v2 == 0) v2 = 16384;
-	if (v1->CharID == 2) v3 = (v3 + 512*FramerateSetting) % 65536;
+	if (v1->CharID == 2) v3 = (v3 + 528) % 65536;
 	v1->Rotation.x = v2;
 	v1->Rotation.y = v3;
 	v1->Rotation.z = v4;
@@ -212,11 +211,11 @@ void LoadY2KRings_StationSquare(ObjectMaster *a1)
 	if (obj)
 	{
 		ent = obj->Data1;
-		ent->Position.x = 108.950706f;
-		ent->Position.y = 25.375f;
-		ent->Position.z = 1440.8999f;
+		ent->Position.x = 103;
+		ent->Position.y = 20;
+		ent->Position.z = 1436;
 		ent->Rotation.x = 0;
-		ent->Rotation.y = 0x126D;
+		ent->Rotation.y = 0x127D;
 		ent->Rotation.z = 0;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF1);
@@ -224,10 +223,10 @@ void LoadY2KRings_StationSquare(ObjectMaster *a1)
 	if (obj)
 	{
 		ent = obj->Data1;
-		ent->Position.x = 85.6455f;
+		ent->Position.x = 87;
 		ent->Position.y = 30.0f;
-		ent->Position.z = 1406.8f;
-		ent->Rotation.y = 0xFFFFD3CC;
+		ent->Position.z = 1407;
+		ent->Rotation.y = 0x0FA4;
 		ent->CharIndex = 3;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF1);
@@ -235,10 +234,10 @@ void LoadY2KRings_StationSquare(ObjectMaster *a1)
 	if (obj)
 	{
 		ent = obj->Data1;
-		ent->Position.x = 8.236785f;
+		ent->Position.x = 8;
 		ent->Position.y = 30.0f;
-		ent->Position.z = 1445.5f;
-		ent->Rotation.y = 0xFFFFD3CC;
+		ent->Position.z = 1447;
+		ent->Rotation.y = 0x0FA4;
 		ent->CharIndex = 4;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF1);
@@ -246,10 +245,10 @@ void LoadY2KRings_StationSquare(ObjectMaster *a1)
 	if (obj)
 	{
 		ent = obj->Data1;
-		ent->Position.x = -31.0f;
+		ent->Position.x = -32;
 		ent->Position.y = 30.0f;
-		ent->Position.z = 1465.0f;
-		ent->Rotation.y = 0xFFFFD3CC;
+		ent->Position.z = 1467;
+		ent->Rotation.y = 0x0FA4;
 		ent->CharIndex = 5;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF1);
@@ -257,10 +256,10 @@ void LoadY2KRings_StationSquare(ObjectMaster *a1)
 	if (obj)
 	{
 		ent = obj->Data1;
-		ent->Position.x = 123.2f;
+		ent->Position.x = 126;
 		ent->Position.y = 30.0f;
-		ent->Position.z = 1388.2f;
-		ent->Rotation.y = 0xFFFFD3CC;
+		ent->Position.z = 1388;
+		ent->Rotation.y = 0x0FA4;
 		ent->CharIndex = 2;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF1);
@@ -268,10 +267,10 @@ void LoadY2KRings_StationSquare(ObjectMaster *a1)
 	if (obj)
 	{
 		ent = obj->Data1;
-		ent->Position.x = 26.5124512f;
-		ent->Position.y = 66.75f;
-		ent->Position.z = 1387.0249f;
-		ent->Rotation.y = 0xFFFFD3CC;
+		ent->Position.x = 27;
+		ent->Position.y = 67;
+		ent->Position.z = 1386;
+		ent->Rotation.y = 0x0FA4;
 		ent->CharIndex = 1;
 	}
 }
@@ -291,9 +290,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -633.5f;
+			ent->Position.x = -641;
 			ent->Position.y = 130.0f;
-			ent->Position.z = 1212.185f;
+			ent->Position.z = 1209;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -308,9 +307,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 981.8434f;
-			ent->Position.y = 522.0f;
-			ent->Position.z = -891.2174f;
+			ent->Position.x = 1004;
+			ent->Position.y = 515;
+			ent->Position.z = -900;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -325,9 +324,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 5535.48f;
-			ent->Position.y = 20.04f;
-			ent->Position.z = 1078.805f;
+			ent->Position.x = 5534;
+			ent->Position.y = 22;
+			ent->Position.z = 1070;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -342,10 +341,10 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 3058.42f;
+			ent->Position.x = 3054;
 			ent->Position.y = -482.0f;
-			ent->Position.z = -1141.43f;
-			ent->Rotation.x = 0;
+			ent->Position.z = -1143;
+			ent->Rotation.x = 0xC000;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
 			ent->CharID = 1;
@@ -359,9 +358,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 635.3f;
-			ent->Position.y = -128.0f;
-			ent->Position.z = 247.38f;
+			ent->Position.x = 630;
+			ent->Position.y = -125;
+			ent->Position.z = 250;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -376,11 +375,11 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 88.996254f;
-			ent->Position.y = 716.955f;
-			ent->Position.z = 9.36886f;
+			ent->Position.x = 90;
+			ent->Position.y = 714;
+			ent->Position.z = 7;
 			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xD040;
+			ent->Rotation.y = 0xC7D2;
 			ent->Rotation.z = 0;
 			ent->CharID = 0;
 		}
@@ -393,9 +392,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 4884.99f;
+			ent->Position.x = 4883;
 			ent->Position.y = -4030;
-			ent->Position.z = -2132.28f;
+			ent->Position.z = -2129;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -410,10 +409,10 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -1995.74f;
-			ent->Position.y = 1814.63f;
-			ent->Position.z = -389.845f;
-			ent->Rotation.x = 0xC000;
+			ent->Position.x = -1998;
+			ent->Position.y = 1821;
+			ent->Position.z = -388;
+			ent->Rotation.x = 0x4000;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
 			ent->CharID = 1;
@@ -427,10 +426,10 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 220.19f;
-			ent->Position.y = -115.865f;
-			ent->Position.z = -720.245f;
-			ent->Rotation.x = 0;
+			ent->Position.x = 210;
+			ent->Position.y = -116;
+			ent->Position.z = -715;
+			ent->Rotation.x = 0xC000;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
 			ent->CharID = 1;
@@ -444,9 +443,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -150.375f;
-			ent->Position.y = 14.5f;
-			ent->Position.z = -269.0f;
+			ent->Position.x = -145;
+			ent->Position.y = 12;
+			ent->Position.z = -270;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0xC000;
 			ent->Rotation.z = 0;
@@ -457,9 +456,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -12.0f;
-			ent->Position.y = 14.5f;
-			ent->Position.z = -269.0f;
+			ent->Position.x = -15;
+			ent->Position.y = 12;
+			ent->Position.z = -270;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0xC000;
 			ent->Rotation.z = 0;
@@ -474,11 +473,11 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 7060.805f;
-			ent->Position.y = -1982.75f;
-			ent->Position.z = 5930.385f;
+			ent->Position.x = 7042;
+			ent->Position.y = -1985;
+			ent->Position.z = 5915;
 			ent->Rotation.x = 0;
-			ent->Rotation.y = 0;
+			ent->Rotation.y = 0xC000;
 			ent->Rotation.z = 0;
 			ent->CharID = 2;
 		}
@@ -491,9 +490,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 163.4f;
-			ent->Position.y = -19177.375f;
-			ent->Position.z = 97.4f;
+			ent->Position.x = 160;
+			ent->Position.y = -19170;
+			ent->Position.z = 80;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -508,9 +507,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -310.125f;
-			ent->Position.y = 200.375f;
-			ent->Position.z = -1075.375f;
+			ent->Position.x = -320;
+			ent->Position.y = 203;
+			ent->Position.z = -1076;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0xC000;
 			ent->Rotation.z = 0;
@@ -525,11 +524,11 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -3406.8f;
-			ent->Position.y = 479.7f;
-			ent->Position.z = -1149.4f;
-			ent->Rotation.x = -0x71C;
-			ent->Rotation.y = 0x1767F;
+			ent->Position.x = -3395;
+			ent->Position.y = 475;
+			ent->Position.z = -1152;
+			ent->Rotation.x = 0x0888;
+			ent->Rotation.y = 0x7DDD;
 			ent->Rotation.z = 0;
 			ent->CharID = 0;
 		}
@@ -542,9 +541,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -1011.285f;
-			ent->Position.y = 311.265f;
-			ent->Position.z = 596.635f;
+			ent->Position.x = -1011;
+			ent->Position.y = 313;
+			ent->Position.z = 611;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -559,9 +558,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -1754.98f;
-			ent->Position.y = 62.035f;
-			ent->Position.z = 2582.04f;
+			ent->Position.x = -1750;
+			ent->Position.y = 65;
+			ent->Position.z = 2576;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -576,11 +575,11 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -3616.30371f;
-			ent->Position.y = 1281.9f;
-			ent->Position.z = -2076.68066;
-			ent->Rotation.x = -0xAAA;
-			ent->Rotation.y = 0xFFFFAEA6;
+			ent->Position.x = -3618;
+			ent->Position.y = 1282;
+			ent->Position.z = -2079;
+			ent->Rotation.x = 0xEFA4;
+			ent->Rotation.y = 0xAFA4;
 			ent->Rotation.z = 0;
 			ent->CharID = 0;
 		}
@@ -594,8 +593,8 @@ void LoadY2KRings()
 		{
 			ent = obj->Data1;
 			ent->Position.x = 0;
-			ent->Position.y = -322.775f;
-			ent->Position.z = 910;
+			ent->Position.y = -323;
+			ent->Position.z = 909;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -610,9 +609,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -760;
-			ent->Position.y = 115;
-			ent->Position.z = -99.88f;
+			ent->Position.x = -790;
+			ent->Position.y = 117;
+			ent->Position.z = -80;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -627,12 +626,12 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 160;
+			ent->Position.x = 156;
 			ent->Position.y = 292;
-			ent->Position.z = -120;
-			ent->Rotation.x = 1;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
+			ent->Position.z = -98;
+			ent->Rotation.x = 0xC000;
+			ent->Rotation.y = 0;
+			ent->Rotation.z = 0xC000;
 			ent->CharID = 1;
 		}
 	}
@@ -644,9 +643,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 77.06f;
-			ent->Position.y = -17.125f;
-			ent->Position.z = 199.77f;
+			ent->Position.x = 80;
+			ent->Position.y = -19;
+			ent->Position.z = 195;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -661,11 +660,11 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 540.165f;
+			ent->Position.x = 540;
 			ent->Position.y = 180;
-			ent->Position.z = 767.92f;
+			ent->Position.z = 762;
 			ent->Rotation.x = 0;
-			ent->Rotation.y = 0x7C88;
+			ent->Rotation.y = 0x8000;
 			ent->Rotation.z = 0;
 			ent->CharID = 0;
 		}
@@ -679,12 +678,12 @@ void LoadY2KRings()
 		{
 			ent = obj->Data1;
 			ent->Position.x = 7453;
-			ent->Position.y = -2185;
-			ent->Position.z = 1267;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0;
+			ent->Position.y = -2192;
+			ent->Position.z = 1275;
+			ent->Rotation.x = 0x2000;
+			ent->Rotation.y = 0x6FA4;
 			ent->Rotation.z = 0;
-			ent->CharID = 2;
+			ent->CharID = 0;
 		} 
 	}
 	//Ice Cap Act 1
@@ -695,11 +694,11 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 935.95f;
-			ent->Position.y = -350.0f;
-			ent->Position.z = 1645.41f;
-			ent->Rotation.x = 0x56AC;
-			ent->Rotation.y = 0;
+			ent->Position.x = 915;
+			ent->Position.y = -303;
+			ent->Position.z = 1557;
+			ent->Rotation.x = 0xCFA4;
+			ent->Rotation.y = 0x07D2;
 			ent->Rotation.z = 0;
 			ent->CharID = 1;
 		}
@@ -712,9 +711,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -3510;
-			ent->Position.y = -23299.29f;
-			ent->Position.z = -5642.11f;
+			ent->Position.x = -3503;
+			ent->Position.y = -23304;
+			ent->Position.z = -5649;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -729,9 +728,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 2250.615f;
-			ent->Position.y = 209.325f;
-			ent->Position.z = -196.980011f;
+			ent->Position.x = 2200;
+			ent->Position.y = 176;
+			ent->Position.z = -165;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -746,9 +745,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -362.8563f;
-			ent->Position.y = 138.3028;
-			ent->Position.z = -223.577484f;
+			ent->Position.x = -373;
+			ent->Position.y = 135;
+			ent->Position.z = -226;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -763,12 +762,12 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -1484.725f;
-			ent->Position.y = -2190.5f;
-			ent->Position.z = 1940.41f;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC7D2;
-			ent->Rotation.z = 0;
+			ent->Position.x = -1483;
+			ent->Position.y = -2189;
+			ent->Position.z = 1938;
+			ent->Rotation.x = 0xFA4F;
+			ent->Rotation.y = 0xCAAA;
+			ent->Rotation.z = 0x0222;
 			ent->CharID = 0;
 		}
 	}
@@ -780,9 +779,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 1957;
-			ent->Position.y = 165;
-			ent->Position.z = 344.25;
+			ent->Position.x = 1967;
+			ent->Position.y = 166;
+			ent->Position.z = 345;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0x4000;
 			ent->Rotation.z = 0;
@@ -797,9 +796,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 2681.44287f;
-			ent->Position.y = 5266.74;
-			ent->Position.z = -2095.02734f;
+			ent->Position.x = 2663;
+			ent->Position.y = 5272;
+			ent->Position.z = -2095;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0xC000;
 			ent->Rotation.z = 0;
@@ -814,9 +813,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 1145;
-			ent->Position.y = -828;
-			ent->Position.z = -1095;
+			ent->Position.x = 1138;
+			ent->Position.y = -836;
+			ent->Position.z = -1092;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -831,9 +830,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 899.085f;
-			ent->Position.y = -3168;
-			ent->Position.z = -222;
+			ent->Position.x = 889;
+			ent->Position.y = -3167;
+			ent->Position.z = -228;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -848,9 +847,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 750.21f;
-			ent->Position.y = 20;
-			ent->Position.z = -648.67f;
+			ent->Position.x = 750;
+			ent->Position.y = 22;
+			ent->Position.z = -650;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -865,9 +864,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = 540.6f;
+			ent->Position.x = 540;
 			ent->Position.y = 180;
-			ent->Position.z = -2788.3f;
+			ent->Position.z = -2780;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -882,9 +881,9 @@ void LoadY2KRings()
 		if (obj)
 		{
 			ent = obj->Data1;
-			ent->Position.x = -51;
-			ent->Position.y = 10032;
-			ent->Position.z = 3245;
+			ent->Position.x = -52;
+			ent->Position.y = 10030;
+			ent->Position.z = 3240;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0x8000;
 			ent->Rotation.z = 0;
