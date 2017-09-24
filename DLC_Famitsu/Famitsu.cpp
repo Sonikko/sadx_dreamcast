@@ -470,22 +470,79 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 	ObjectFunc(OF1, Poster_Load);
 	ObjectFunc(OF2, Timer_Load);
 	setdata_dlc.Distance = 612800.0f;
-	//Timer
-	if (TimerLoaded == false)
+	if (GameMode == GameModes_Adventure_Field)
 	{
-		obj = LoadObject((LoadObj)2, 3, OF2);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
+		//Timer
+		if (TimerLoaded == false)
 		{
-			ent = obj->Data1;
-			ent->Position.x = 64;
-			ent->Position.y = 64;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
+			obj = LoadObject((LoadObj)2, 3, OF2);
+			obj->SETData.SETData = &setdata_dlc;
+			if (obj)
+			{
+				ent = obj->Data1;
+				ent->Position.x = 64;
+				ent->Position.y = 64;
+				ent->Scale.x = 1.0f;
+				ent->Scale.y = 1.0f;
+				ent->Scale.z = 1.0f;
+			}
+			//Balloons
+			obj = LoadObject((LoadObj)2, 3, OF0);
+			obj->SETData.SETData = &setdata_dlc;
+			if (obj)
+			{
+				ent = obj->Data1;
+				ent->Position.x = 102;
+				ent->Position.y = 30;
+				ent->Position.z = 1495;
+				ent->Rotation.x = 0;
+				ent->Rotation.y = 0;
+				ent->Rotation.z = 0;
+				if (ChallengeAction == false)
+				{
+					ent->Scale.x = 1.5f;
+					ent->Scale.y = 1.5f;
+					ent->Scale.z = 1.5f;
+				}
+				else
+				{
+					ent->Scale.x = 0.05f;
+					ent->Scale.y = 0.05f;
+					ent->Scale.z = 0.05f;
+				}
+				ent->CharIndex = 9;
+				ent->CharID = 10;
+				ent->NextAction = 3;
+			}
+			obj = LoadObject((LoadObj)2, 3, OF0);
+			obj->SETData.SETData = &setdata_dlc;
+			if (obj)
+			{
+				ent = obj->Data1;
+				ent->Position.x = -15;
+				ent->Position.y = 105;
+				ent->Position.z = 1305;
+				ent->Rotation.x = 0;
+				ent->Rotation.y = 0;
+				ent->CharIndex = 1;
+				ent->Rotation.z = 0;
+				if (ChallengeAction == true)
+				{
+					ent->Scale.x = 1.5f;
+					ent->Scale.y = 1.5f;
+					ent->Scale.z = 1.5f;
+				}
+				else
+				{
+					ent->Scale.x = 0.05f;
+					ent->Scale.y = 0.05f;
+					ent->Scale.z = 0.05f;
+				}
+				ent->CharID = 10;
+				ent->NextAction = 1;
+			}
+			TimerLoaded = true;
 		}
-		TimerLoaded = true;
-	}
 		obj = LoadObject((LoadObj)2, 3, OF1);
 		obj->SETData.SETData = &setdata_dlc;
 		if (obj)
@@ -554,59 +611,6 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 			ent->Scale.z = 1.0f;
 			ent->NextAction = 1;
 		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -15;
-			ent->Position.y = 105;
-			ent->Position.z = 1305;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0;
-			ent->CharIndex = 1;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.5f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.5f;
-			ent->CharID = 10;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 102;
-			ent->Position.y = 30;
-			ent->Position.z = 1495;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.5f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.5f;
-			ent->CharIndex = 9;
-			ent->CharID = 10;
-			ent->NextAction = 3;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 0;
-			ent->Position.y = 9999;
-			ent->Position.z = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.5f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.5f;
-			ent->CharID = 10;
-			ent->NextAction = 3;
-		}
 		obj = LoadObject((LoadObj)2, 3, OF1);
 		obj->SETData.SETData = &setdata_dlc;
 		if (obj)
@@ -625,6 +629,7 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 			ent->NextAction = 3;
 		}
 	}
+}
 
 extern "C"
 {
@@ -679,13 +684,20 @@ extern "C"
 				COL_whatever.Flags = 0x80040000;
 				___ADV00SS01_OBJECTS[28]->pos[1] = 20;
 			}
-			if (CurrentLevel != 26)
+			if (CurrentLevel != 26 || GameMode != GameModes_Adventure_Field)
 			{
 				TimerLoaded = false;
+				Collected1 = false;
+				Collected2 = false;
+				Collected3 = false;
+				Collected4 = false;
+				Collected5 = false;
+				CollectedAll = 0;
+				ChallengeAction = false;
+				ChallengeTimer = 0;
 			}
 		}
 	}
-
 	__declspec(dllexport) void __cdecl OnInput()
 	{
 		if (GameState == 16)
