@@ -72,7 +72,7 @@ char *FamitsuMessage1[] = {
 
 char *FamitsuMessage2[] = {
 	"\aYou aren't done yet!\nFind the remaining Sonics!",
-	"\aThe quit the challenge,\npress Y in the pause menu.",
+	"\aTo quit the challenge,\npress Y in the pause menu.",
 	NULL,
 };
 
