@@ -18,7 +18,7 @@ static bool Collected2 = false;
 static bool Collected3 = false;
 static bool Collected4 = false;
 static bool Collected5 = false;
-static bool TimerLoaded = false;
+static bool ObjectsLoaded = false;
 static int ChallengeTimer = 0;
 static int ChallengeAction = false;
 char ResultText[100];
@@ -149,9 +149,6 @@ void Poster_Main(ObjectMaster *a1)
 	{
 		if (ChallengeAction == false)
 		{
-			v1->Scale.x = 1.0f;
-			v1->Scale.y = 1.0f;
-			v1->Scale.z = 1.0f;
 			Collected1 = false;
 			Collected2 = false;
 			Collected3 = false;
@@ -159,9 +156,12 @@ void Poster_Main(ObjectMaster *a1)
 			Collected5 = false;
 		}
 		else
-		{	
+		{
 			if ((Collected1 == false && v1->CharIndex == 4) || (Collected2 == false && v1->CharIndex == 5) || (Collected3 == false && v1->CharIndex == 6) || (Collected4 == false && v1->CharIndex == 7) || (Collected5 == false && v1->CharIndex == 8))
 			{
+				v1->Scale.x = 1.0f;
+				v1->Scale.y = 1.0f;
+				v1->Scale.z = 1.0f;
 				if (IsPlayerInsideSphere(&v1->Position, 15))
 				{
 					if (v1->CharIndex == 4)
@@ -472,9 +472,9 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 	setdata_dlc.Distance = 612800.0f;
 	if (GameMode == GameModes_Adventure_Field)
 	{
-		//Timer
-		if (TimerLoaded == false)
+		if (ObjectsLoaded == false)
 		{
+			//Timer
 			obj = LoadObject((LoadObj)2, 3, OF2);
 			obj->SETData.SETData = &setdata_dlc;
 			if (obj)
@@ -541,92 +541,92 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 				ent->CharID = 10;
 				ent->NextAction = 1;
 			}
-			TimerLoaded = true;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF1);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 435;
-			ent->Position.y = 26;
-			ent->Position.z = 652;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0x4000;
-			ent->Rotation.z = 0;
-			ent->CharIndex = 5;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->NextAction = 0;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF1);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -275;
-			ent->Position.y = -10;
-			ent->Position.z = 1938;
-			ent->Rotation.x = 0x4000;
-			ent->Rotation.y = 0x4000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 6;
-			ent->NextAction = 4;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF1);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -535;
-			ent->Position.y = 27;
-			ent->Position.z = 1458;
-			ent->Rotation.x = 0x4000;
-			ent->Rotation.y = 0x4000;
-			ent->Rotation.z = 0;
-			ent->CharIndex = 7;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF1);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -66;
-			ent->Position.y = 229;
-			ent->Position.z = 1205;
-			ent->Rotation.x = 0x4000;
-			ent->Rotation.y = 0x93E9;
-			ent->Rotation.z = 0;
-			ent->CharIndex = 8;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF1);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 236;
-			ent->Position.y = 18;
-			ent->Position.z = 1033;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 4;
-			ent->NextAction = 3;
+			obj = LoadObject((LoadObj)2, 3, OF1);
+			obj->SETData.SETData = &setdata_dlc;
+			if (obj)
+			{
+				ent = obj->Data1;
+				ent->Position.x = 435;
+				ent->Position.y = 26;
+				ent->Position.z = 652;
+				ent->Rotation.x = 0;
+				ent->Rotation.y = 0x4000;
+				ent->Rotation.z = 0;
+				ent->CharIndex = 5;
+				ent->Scale.x = 1.0f;
+				ent->Scale.y = 1.0f;
+				ent->Scale.z = 1.0f;
+				ent->NextAction = 0;
+			}
+			obj = LoadObject((LoadObj)2, 3, OF1);
+			obj->SETData.SETData = &setdata_dlc;
+			if (obj)
+			{
+				ent = obj->Data1;
+				ent->Position.x = -275;
+				ent->Position.y = -10;
+				ent->Position.z = 1938;
+				ent->Rotation.x = 0x4000;
+				ent->Rotation.y = 0x4000;
+				ent->Rotation.z = 0;
+				ent->Scale.x = 1.0f;
+				ent->Scale.y = 1.0f;
+				ent->Scale.z = 1.0f;
+				ent->CharIndex = 6;
+				ent->NextAction = 4;
+			}
+			obj = LoadObject((LoadObj)2, 3, OF1);
+			obj->SETData.SETData = &setdata_dlc;
+			if (obj)
+			{
+				ent = obj->Data1;
+				ent->Position.x = -535;
+				ent->Position.y = 27;
+				ent->Position.z = 1458;
+				ent->Rotation.x = 0x4000;
+				ent->Rotation.y = 0x4000;
+				ent->Rotation.z = 0;
+				ent->CharIndex = 7;
+				ent->Scale.x = 1.0f;
+				ent->Scale.y = 1.0f;
+				ent->Scale.z = 1.0f;
+				ent->NextAction = 1;
+			}
+			obj = LoadObject((LoadObj)2, 3, OF1);
+			obj->SETData.SETData = &setdata_dlc;
+			if (obj)
+			{
+				ent = obj->Data1;
+				ent->Position.x = -66;
+				ent->Position.y = 229;
+				ent->Position.z = 1205;
+				ent->Rotation.x = 0x4000;
+				ent->Rotation.y = 0x93E9;
+				ent->Rotation.z = 0;
+				ent->CharIndex = 8;
+				ent->Scale.x = 1.0f;
+				ent->Scale.y = 1.0f;
+				ent->Scale.z = 1.0f;
+				ent->NextAction = 1;
+			}
+			obj = LoadObject((LoadObj)2, 3, OF1);
+			obj->SETData.SETData = &setdata_dlc;
+			if (obj)
+			{
+				ent = obj->Data1;
+				ent->Position.x = 236;
+				ent->Position.y = 18;
+				ent->Position.z = 1033;
+				ent->Rotation.x = 0;
+				ent->Rotation.y = 0;
+				ent->Rotation.z = 0;
+				ent->Scale.x = 1.0f;
+				ent->Scale.y = 1.0f;
+				ent->Scale.z = 1.0f;
+				ent->CharIndex = 4;
+				ent->NextAction = 3;
+			}
+			ObjectsLoaded = true;
 		}
 	}
 }
@@ -682,7 +682,7 @@ extern "C"
 		{
 			if (GameState == 6)
 			{
-				TimerLoaded = false;
+				ObjectsLoaded = false;
 				Collected1 = false;
 				Collected2 = false;
 				Collected3 = false;
@@ -700,7 +700,7 @@ extern "C"
 			}
 			if (CurrentLevel != 26 || GameMode != GameModes_Adventure_Field)
 			{
-				TimerLoaded = false;
+				ObjectsLoaded = false;
 				Collected1 = false;
 				Collected2 = false;
 				Collected3 = false;
@@ -716,7 +716,7 @@ extern "C"
 	{
 		if (GameState == 16)
 		{
-			if ((ControllerPointers[0]->PressedButtons & Buttons_Y) == Buttons_Y)
+			if (ChallengeAction == true && (ControllerPointers[0]->PressedButtons & Buttons_Y) == Buttons_Y)
 			{
 				CollectedAll = 0;
 				Collected1 = false;
