@@ -680,6 +680,18 @@ extern "C"
 		NJS_OBJECT **___ADV00SS01_OBJECTS = (NJS_OBJECT **)GetProcAddress(ADV00MODELS, "___ADV00SS01_OBJECTS");
 		if (ModFailsafe == false && GameState != 16)
 		{
+			if (GameState == 6)
+			{
+				TimerLoaded = false;
+				Collected1 = false;
+				Collected2 = false;
+				Collected3 = false;
+				Collected4 = false;
+				Collected5 = false;
+				CollectedAll = 0;
+				ChallengeAction = false;
+				ChallengeTimer = 0;
+			}
 			if (HintTimer > 0) HintTimer--;
 			if (DC_ADV00MODELS == nullptr && ChallengeAction == true && ADV00MODELS!=nullptr)
 			{
