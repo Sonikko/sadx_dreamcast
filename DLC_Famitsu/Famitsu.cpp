@@ -654,6 +654,8 @@ extern "C"
 		if (SONICADV_000 != nullptr) ModFailsafe = true;
 		if (SONICADV_001 != nullptr) ModFailsafe = true;
 		if (SONICADV_002 != nullptr) ModFailsafe = true;
+		if (SONICADV_501 != nullptr) ModFailsafe = true;
+		if (SONICADV_502 != nullptr) ModFailsafe = true;
 		if (SONICADV_503 != nullptr) ModFailsafe = true;
 		if (SONICADV_504 != nullptr) ModFailsafe = true;
 		if (SONICADV_505 != nullptr) ModFailsafe = true;
