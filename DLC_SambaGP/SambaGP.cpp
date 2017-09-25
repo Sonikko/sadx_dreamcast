@@ -64,7 +64,7 @@ PVMEntry SambaGPTextures = { "SONICADV_511", (TexList *)&texlist_sambagp };
 
 void CallSambaCircuit()
 {
-	int CircuitID = 2;
+	int CircuitID = 0;
 	if (CurrentAct == 3)
 	{
 		if (CurrentCharacter == 0) WriteData((char*)0x004DAB4E, 87, 1); else WriteData((char*)0x004DAB4E, 25, 1);
@@ -105,12 +105,16 @@ void CallSambaCircuit()
 		E102SSStartArray[5].YRot = NJM_DEG_ANG(180);
 		LastLevel = 26;
 		LastAct = 3;
+		
+		GetCharacterID(0);
+		SetLevelEntrance(((unsigned int)0x2300 >> 4) & 0xF);
+		camerahax_adventurefields();
 		sub_412D80(LevelIDs_TwinkleCircuit, CircuitID);
 	}
 	else
 	{
 		WriteData((char*)0x004DAB4E, 25, 1);
-		sub_412D80(LevelIDs_TwinkleCircuit, 0);
+
 		SonicSSStartArray[11].Position.x = 757.7f;
 		SonicSSStartArray[11].Position.y = 50.0f;
 		SonicSSStartArray[11].Position.z = 1747.0f;
@@ -140,6 +144,25 @@ void CallSambaCircuit()
 		E102SSStartArray[5].Position.y = 50.0f;
 		E102SSStartArray[5].Position.z = 1747.0f;
 		E102SSStartArray[5].YRot = 0x4000;
+
+		LastLevel = 26;
+		LastAct = 5;
+
+		GetCharacterID(0);
+		SetLevelEntrance((unsigned int)(0x2300 >> 4) & 0xF);
+		camerahax_adventurefields();
+		sub_412D80(LevelIDs_TwinkleCircuit, 0);
+	}
+}
+
+void QuitTwinkleCircuit()
+{
+	if (CurrentAct == 0) StartLevelCutscene(1);
+	else
+	{
+		GetCharacterID(0);
+		SetLevelEntrance((unsigned int)(0x2300 >> 4) & 0xF);
+		sub_412D80(26, 3);
 	}
 }
 
@@ -492,6 +515,7 @@ extern "C"
 		if (ModFailsafe == false)		
 		{
 			helperFunctions.RegisterCommonObjectPVM(SambaGPTextures);
+			WriteCall((void*)0x004DB126, QuitTwinkleCircuit);
 			WriteCall((void*)0x0062F098, LoadSambaGateEntry);
 			WriteCall((void*)0x0062F102, LoadSambaGateEntry);
 			WriteCall((void*)0x00640684, CallSambaCircuit);
