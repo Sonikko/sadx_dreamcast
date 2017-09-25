@@ -2,13 +2,10 @@
 #include <SADXModLoader.h>
 #include "Y2KRing.h"
 
-FunctionPointer(void, sub_412D80, (int a1, int a2), 0x412D80);
 FunctionPointer(void, sub_62E980, (), 0x62E980);
-FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79A0);
-FunctionPointer(void, sub_4145D0, (unsigned __int8 a1, unsigned __int8 a2), 0x4145D0);
+FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79C0);
 FunctionPointer(void, sub_413CB0, (), 0x413CB0);
 FunctionPointer(void, sub_425800, (int a1), 0x425800);
-FunctionPointer(void, sub_42F880, (), 0x42F880);
 FunctionPointer(signed int, sub_4570B0, (), 0x4570B0);
 FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColFlags surfaceFlags), 0x49D6C0);
 
@@ -35,7 +32,7 @@ DataPointer(int, FramerateSetting, 0x0389D7DC);
 
 static bool SonicCDMusic = false;
 static bool ModFailsafe = false;
-
+static bool ObjectsLoaded = false;
 static int HintTimer = 0;
 static int PreviousLevel = 0;
 static int PreviousAct = 0;
@@ -74,7 +71,6 @@ char *Y2KMessage6[] = {
 	NULL,
 };
 
-
 void Poster_Display(ObjectMaster *a1)
 {
 	Angle v3;
@@ -109,8 +105,8 @@ void Poster_Main(ObjectMaster *a1)
 				if (v1->CharIndex == 3) sub_4B79C0((char *)(&Y2KMessage4), 180);
 				if (v1->CharIndex == 4) sub_4B79C0((char *)(&Y2KMessage5), 180);
 				if (v1->CharIndex == 5) sub_4B79C0((char *)(&Y2KMessage6), 180);
+				HintTimer = 120;
 			}
-			HintTimer = 30;
 		}
 		Poster_Display(a1);
 	}
@@ -162,19 +158,19 @@ void Y2KRing_Main(ObjectMaster *a1)
 	v1->Rotation.z = v4;
 	if (IsPlayerInsideSphere(&v1->Position, 15))
 	{
-		if (SonicCDMusic == false)
-		{
-			StopMusic();
-			sub_425800(MusicIDs_PalmtreePanic);
-			SonicCDMusic = true;
-			if (CurrentLevel == 26) WriteData((char*)0x0062EEF9, MusicIDs_PalmtreePanic, 1);
-		}
 		if (HintTimer <= 0)
 		{
 			PlaySound(6, 0, 0, 0);
 			if (CurrentLevel == 26) sub_4B79C0((char *)(&Y2KMessage1), 180); else sub_4B79C0((char *)(&Y2KMessage2), 180);
+			if (SonicCDMusic == false)
+			{
+				StopMusic();
+				sub_425800(MusicIDs_PalmtreePanic);
+				SonicCDMusic = true;
+				if (CurrentLevel == 26) WriteData((char*)0x0062EEF9, MusicIDs_PalmtreePanic, 1);
+			}
+			HintTimer = 120;
 		}
-		HintTimer = 30;
 	}
 	Y2KRing_Display(a1);
 }
@@ -184,7 +180,7 @@ void Y2KRing_Load(ObjectMaster *a1)
 	EntityData1* v1;
 	NJS_OBJECT* v5;
 	v1 = a1->Data1;
-	if (v1->CharID == 1)
+	if (v1->CharID == 1) //Only add collision for rings that are horizontal
 	{
 		v5 = sub_49D6C0(&object_00001514, a1, (ColFlags)0x20001001);
 		v5->scl[0] = 1.0f;
@@ -206,72 +202,76 @@ void LoadY2KRings_StationSquare(ObjectMaster *a1)
 	ObjectFunc(OF1, Y2KPoster_Load);
 	setdata_dlc.Distance = 612800.0f;
 	//Station Square
-	obj = LoadObject((LoadObj)2, 3, OF0);
-	obj->SETData.SETData = &setdata_dlc;
-	if (obj)
+	if (ObjectsLoaded == false)
 	{
-		ent = obj->Data1;
-		ent->Position.x = 103;
-		ent->Position.y = 20;
-		ent->Position.z = 1436;
-		ent->Rotation.x = 0;
-		ent->Rotation.y = 0x127D;
-		ent->Rotation.z = 0;
-	}
-	obj = LoadObject((LoadObj)2, 3, OF1);
-	obj->SETData.SETData = &setdata_dlc;
-	if (obj)
-	{
-		ent = obj->Data1;
-		ent->Position.x = 87;
-		ent->Position.y = 30.0f;
-		ent->Position.z = 1407;
-		ent->Rotation.y = 0x0FA4;
-		ent->CharIndex = 3;
-	}
-	obj = LoadObject((LoadObj)2, 3, OF1);
-	obj->SETData.SETData = &setdata_dlc;
-	if (obj)
-	{
-		ent = obj->Data1;
-		ent->Position.x = 8;
-		ent->Position.y = 30.0f;
-		ent->Position.z = 1447;
-		ent->Rotation.y = 0x0FA4;
-		ent->CharIndex = 4;
-	}
-	obj = LoadObject((LoadObj)2, 3, OF1);
-	obj->SETData.SETData = &setdata_dlc;
-	if (obj)
-	{
-		ent = obj->Data1;
-		ent->Position.x = -32;
-		ent->Position.y = 30.0f;
-		ent->Position.z = 1467;
-		ent->Rotation.y = 0x0FA4;
-		ent->CharIndex = 5;
-	}
-	obj = LoadObject((LoadObj)2, 3, OF1);
-	obj->SETData.SETData = &setdata_dlc;
-	if (obj)
-	{
-		ent = obj->Data1;
-		ent->Position.x = 126;
-		ent->Position.y = 30.0f;
-		ent->Position.z = 1388;
-		ent->Rotation.y = 0x0FA4;
-		ent->CharIndex = 2;
-	}
-	obj = LoadObject((LoadObj)2, 3, OF1);
-	obj->SETData.SETData = &setdata_dlc;
-	if (obj)
-	{
-		ent = obj->Data1;
-		ent->Position.x = 27;
-		ent->Position.y = 67;
-		ent->Position.z = 1386;
-		ent->Rotation.y = 0x0FA4;
-		ent->CharIndex = 1;
+		obj = LoadObject((LoadObj)2, 3, OF0);
+		obj->SETData.SETData = &setdata_dlc;
+		if (obj)
+		{
+			ent = obj->Data1;
+			ent->Position.x = 103;
+			ent->Position.y = 20;
+			ent->Position.z = 1436;
+			ent->Rotation.x = 0;
+			ent->Rotation.y = 0x127D;
+			ent->Rotation.z = 0;
+		}
+		obj = LoadObject((LoadObj)2, 3, OF1);
+		obj->SETData.SETData = &setdata_dlc;
+		if (obj)
+		{
+			ent = obj->Data1;
+			ent->Position.x = 87;
+			ent->Position.y = 30.0f;
+			ent->Position.z = 1407;
+			ent->Rotation.y = 0x0FA4;
+			ent->CharIndex = 3;
+		}
+		obj = LoadObject((LoadObj)2, 3, OF1);
+		obj->SETData.SETData = &setdata_dlc;
+		if (obj)
+		{
+			ent = obj->Data1;
+			ent->Position.x = 8;
+			ent->Position.y = 30.0f;
+			ent->Position.z = 1447;
+			ent->Rotation.y = 0x0FA4;
+			ent->CharIndex = 4;
+		}
+		obj = LoadObject((LoadObj)2, 3, OF1);
+		obj->SETData.SETData = &setdata_dlc;
+		if (obj)
+		{
+			ent = obj->Data1;
+			ent->Position.x = -32;
+			ent->Position.y = 30.0f;
+			ent->Position.z = 1467;
+			ent->Rotation.y = 0x0FA4;
+			ent->CharIndex = 5;
+		}
+		obj = LoadObject((LoadObj)2, 3, OF1);
+		obj->SETData.SETData = &setdata_dlc;
+		if (obj)
+		{
+			ent = obj->Data1;
+			ent->Position.x = 126;
+			ent->Position.y = 30.0f;
+			ent->Position.z = 1388;
+			ent->Rotation.y = 0x0FA4;
+			ent->CharIndex = 2;
+		}
+		obj = LoadObject((LoadObj)2, 3, OF1);
+		obj->SETData.SETData = &setdata_dlc;
+		if (obj)
+		{
+			ent = obj->Data1;
+			ent->Position.x = 27;
+			ent->Position.y = 67;
+			ent->Position.z = 1386;
+			ent->Rotation.y = 0x0FA4;
+			ent->CharIndex = 1;
+		}
+		ObjectsLoaded = true;
 	}
 }
 
@@ -946,14 +946,29 @@ extern "C"
 		if (ModFailsafe == false && GameState != 16)
 		{
 			if (HintTimer > 0) HintTimer--;
-			if (PreviousLevel != CurrentLevel || PreviousAct != CurrentAct)
+			if (CurrentLevel != 26)
+			{
+				ObjectsLoaded = false;
+				WriteData((char*)0x0062EEF9, MusicIDs_s_square, 1);
+			}
+			if (GameState == 6 || GameState == 7 || GameState == 21)
+			{
+				SonicCDMusic = false;
+				ObjectsLoaded = false;
+				WriteData((char*)0x0062EEF9, MusicIDs_s_square, 1);
+			}
+			if (PreviousLevel != CurrentLevel)
 			{
 				SonicCDMusic = false;
 				PreviousLevel = CurrentLevel;
 				PreviousAct = CurrentAct;
-				if (CurrentLevel != 26) WriteData((char*)0x0062EEF9, MusicIDs_s_square, 1);
 			}
-			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21) SonicCDMusic = false;
+			if (CurrentLevel != 26 && PreviousAct != CurrentAct)
+			{
+				SonicCDMusic = false;
+				PreviousLevel = CurrentLevel;
+				PreviousAct = CurrentAct;
+			}
 		}
 	}
 }

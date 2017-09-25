@@ -444,7 +444,6 @@ void Timer_Main(ObjectMaster *a1)
 		ChallengeTimer = 0;
 		sub_4B79C0((char *)(&FamitsuMessage3), 180);
 	}
-	
 }
 
 void Timer_Load(ObjectMaster *a1)
