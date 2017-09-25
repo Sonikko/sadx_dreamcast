@@ -3,14 +3,13 @@
 #include "Quo.h"
 #include <cstdio>
 
-HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
 FunctionPointer(void, sub_412D80, (int a1, int a2), 0x412D80);
 FunctionPointer(void, sub_62E980, (), 0x62E980);
 FunctionPointer(void, sub_52F240, (), 0x52F240);
 FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79C0);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(COL, COL_whatever, ((size_t)ADV00MODELS + 0x001D8144));
+
 static bool ModFailsafe = false;
 static int PreviousLevel = 0;
 static int PreviousAct = 0;
@@ -500,7 +499,7 @@ void LoadEverythingInStationSquareOrMysticRuinsActually(ObjectMaster *a1)
 	ObjectFunc(OF1, Poster_Load);
 	ObjectFunc(OF2, Timer_Load);
 	setdata_dlc.Distance = 612800.0f;
-	if (GameMode != GameModes_CharSel)
+	if (GameMode == GameModes_Adventure_Field)
 	{
 		if (TimerLoaded == false)
 		{
@@ -757,10 +756,23 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		HMODULE DC_ADV00MODELS = GetModuleHandle(L"DC_ADV00MODELS");
-		NJS_OBJECT **___ADV00SS01_OBJECTS = (NJS_OBJECT **)GetProcAddress(ADV00MODELS, "___ADV00SS01_OBJECTS");
 		if (ModFailsafe == false && GameState != 16)
 		{
+			if (GameMode != GameModes_Adventure_Field)
+			{
+				CollectedAll = 0;
+				CollectedSS1 = false;
+				CollectedSS2 = false;
+				CollectedSS3 = false;
+				CollectedMR1 = false;
+				CollectedMR2 = false;
+				CollectedMR3 = false;
+				ChallengeTimer = 0;
+				ChallengeAction = false;
+				ObjectsLoaded_SS = false;
+				ObjectsLoaded_MR = false;
+				TimerLoaded = false;
+			}
 			if (GameState == 6)
 			{
 				ObjectsLoaded_SS = false;
@@ -768,16 +780,11 @@ extern "C"
 				TimerLoaded = false;
 			}
 			if (HintTimer > 0) HintTimer--;
-			if (DC_ADV00MODELS == nullptr && ChallengeAction == true && ADV00MODELS != nullptr)
-			{
-				COL_whatever.Flags = 0x80040000;
-				___ADV00SS01_OBJECTS[28]->pos[1] = 20;
-			}
-			if (CurrentLevel != 26)// || GameMode != GameModes_Adventure_Field)
+			if (CurrentLevel != 26)
 			{
 				ObjectsLoaded_SS = false;
 			}
-			if (CurrentLevel != 33)// || GameMode != GameModes_Adventure_Field)
+			if (CurrentLevel != 33)
 			{
 				ObjectsLoaded_MR = false;
 			}
@@ -802,6 +809,7 @@ extern "C"
 				CollectedSS3 = false;
 				CollectedMR1 = false;
 				CollectedMR2 = false;
+				CollectedMR3 = false;
 				ChallengeTimer = 0;
 				ChallengeAction = false;
 			}
