@@ -3,41 +3,20 @@
 #include "Balloon.h"
 #include <IniFile.hpp>
 
-FunctionPointer(void, sub_412D80, (int a1, int a2), 0x412D80);
 FunctionPointer(void, sub_62E980, (), 0x62E980);
-FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79A0);
-FunctionPointer(void, sub_4145D0, (unsigned __int8 a1, unsigned __int8 a2), 0x4145D0);
-FunctionPointer(void, sub_413CB0, (), 0x413CB0);
-FunctionPointer(void, sub_425800, (int a1), 0x425800);
-FunctionPointer(void, sub_42F880, (), 0x42F880);
-FunctionPointer(signed int, sub_4570B0, (), 0x4570B0);
+FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79C0);
 FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColFlags surfaceFlags), 0x49D6C0);
 
 HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
-
-HMODULE SONICADV_000 = GetModuleHandle(L"SONICADV_000");
-HMODULE SONICADV_001 = GetModuleHandle(L"SONICADV_001");
-HMODULE SONICADV_002 = GetModuleHandle(L"SONICADV_002");
-HMODULE SONICADV_003 = GetModuleHandle(L"SONICADV_003");
-HMODULE SONICADV_501 = GetModuleHandle(L"SONICADV_501");
-HMODULE SONICADV_502 = GetModuleHandle(L"SONICADV_502");
-HMODULE SONICADV_503 = GetModuleHandle(L"SONICADV_503");
-HMODULE SONICADV_504 = GetModuleHandle(L"SONICADV_504");
-HMODULE SONICADV_505 = GetModuleHandle(L"SONICADV_505");
-HMODULE SONICADV_506 = GetModuleHandle(L"SONICADV_506");
-HMODULE SONICADV_507 = GetModuleHandle(L"SONICADV_507");
-HMODULE SONICADV_508 = GetModuleHandle(L"SONICADV_508");
-HMODULE SONICADV_509 = GetModuleHandle(L"SONICADV_509");
-HMODULE SONICADV_510 = GetModuleHandle(L"SONICADV_510");
-HMODULE SONICADV_511 = GetModuleHandle(L"SONICADV_511");
 
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 
 static bool ModFailsafe = false;
 
-static int DLCMode = 2;
+static int DLCMode = 0;
 static int HintTimer = 0;
+static bool ObjectsLoaded = false;
 
 SETObjData setdata_dlc = {};
 
@@ -120,8 +99,8 @@ void Poster_Main(ObjectMaster *a1)
 				if (v1->CharIndex == 3 && DLCMode == 2) sub_4B79C0((char *)(&LaunchPartyMessage4_US), 180);
 				if (v1->CharIndex == 4) sub_4B79C0((char *)(&LaunchPartyMessage5), 180);
 				if (v1->CharIndex == 5) sub_4B79C0((char *)(&LaunchPartyMessage6), 180);
+				HintTimer = 120;
 			}
-			HintTimer = 30;
 		}
 		Poster_Display(a1);
 	}
@@ -208,8 +187,8 @@ void Balloons_Main(ObjectMaster *a1)
 			{
 				PlaySound(23, 0, 0, 0);
 				sub_4B79C0((char *)(&LaunchPartyMessage1), 180);
+				HintTimer = 180;
 			}
-			HintTimer = 30;
 		}
 		Balloons_Display(a1);
 	}
@@ -231,8 +210,9 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 	ObjectFunc(OF1, Poster_Load);
 	ObjectFunc(OF2, Poster_Colli_Load);
 	setdata_dlc.Distance = 612800.0f;
-	if (CurrentAct == 4)
+	if (ObjectsLoaded == false)
 	{
+//Act 5 (CurrentAct 4)
 		//Posters
 		obj = LoadObject((LoadObj)2, 3, OF1);
 		obj->SETData.SETData = &setdata_dlc;
@@ -302,9 +282,7 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 			ent->Scale.z = 1.0f;
 			ent->NextAction = 4;
 		}
-	}
-	if (CurrentAct == 3)
-	{
+//Act 4 (CurrentAct 3)
 		//Poster collision
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
@@ -548,9 +526,7 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 			ent->Scale.z = 1.0f;
 			ent->NextAction = 3;
 		}
-	}
-	if (CurrentAct == 0)
-	{
+//Act 1 (CurrentAct 0)
 		//Posters
 		obj = LoadObject((LoadObj)2, 3, OF1);
 		obj->SETData.SETData = &setdata_dlc;
@@ -716,9 +692,7 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 			ent->Scale.z = 1.0f;
 			ent->NextAction = 0;
 		}
-	}
-	if (CurrentAct == 1)
-	{
+//Act 2 (CurrentAct 1)
 		//Posters
 		obj = LoadObject((LoadObj)2, 3, OF1);
 		obj->SETData.SETData = &setdata_dlc;
@@ -934,9 +908,10 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 			ent->CharIndex = 2;
 			ent->Scale.x = 1.0f;
 			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f; 
+			ent->Scale.z = 1.0f;
 			ent->NextAction = 1;
 		}
+		ObjectsLoaded = true;
 	}
 }
 
@@ -990,6 +965,10 @@ extern "C"
 		if (ModFailsafe == false && GameState != 16)
 		{
 			if (HintTimer > 0) HintTimer--;
+		}
+		if (CurrentLevel != 26 || GameState == 6 || GameState == 21)
+		{
+			ObjectsLoaded = false;
 		}
 	}
 }
