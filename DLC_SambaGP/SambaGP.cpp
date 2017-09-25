@@ -4,8 +4,7 @@
 
 FunctionPointer(void, sub_412D80, (int a1, int a2), 0x412D80);
 FunctionPointer(void, sub_62E980, (), 0x62E980);
-FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79A0);
-FunctionPointer(void, sub_4145D0, (unsigned __int8 a1, unsigned __int8 a2), 0x4145D0);
+FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79C0);
 FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColFlags surfaceFlags), 0x49D6C0);
 
 HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
@@ -35,6 +34,7 @@ DataArray(FieldStartPosition, E102SSStartArray, 0x0090BE70, 7);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 
 static bool MessageOn = false;
+static bool ObjectsLoaded = false;
 static bool ModFailsafe = false;
 static int HintTimer = 0;
 
@@ -60,50 +60,7 @@ char *SambaGPMessage3[] = {
 	NULL,
 };
 
-PVMEntry StationSquareObjectTextures[] = {
-	{ "OBJ_SS", (TexList *)0x2AA4BF8 },
-	{ "SS_BG", (TexList *)0x2AA4C30 },
-	{ "SS_PEOPLE", NULL },
-	{ "NULL", NULL },
-	{ "NULL", NULL },
-	{ "NULL", NULL },
-	{ "NULL", NULL },
-	{ "NULL", NULL },
-	{ "NULL", NULL },
-	{ "NULL", NULL },
-	{ "NULL", NULL },
-	{ "NULL", NULL },
-	{ 0 }
-};
-
-int __cdecl sub_7C4EB0()
-{
-	int result; // eax@1
-	NJS_TEXLIST **ADV00_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV00MODELS, "___ADV00_TEXLISTS");
-	StationSquareObjectTextures[2].TexList = ADV00_TEXLISTS[6];
-	StationSquareObjectTextures[3].Name = "SSCAR";
-	StationSquareObjectTextures[3].TexList = (NJS_TEXLIST*)0x2AEE920;
-	StationSquareObjectTextures[4].Name = "SS_BURGER";
-	StationSquareObjectTextures[4].TexList = ADV00_TEXLISTS[9];
-	StationSquareObjectTextures[5].Name = "EMBLEM";
-	StationSquareObjectTextures[5].TexList = (NJS_TEXLIST*)0x009740DC;
-	StationSquareObjectTextures[6].Name = "SS_EKIIN";
-	StationSquareObjectTextures[6].TexList = ADV00_TEXLISTS[7];
-	StationSquareObjectTextures[7].Name = "SS_MIZUGI";
-	result = 0;
-	StationSquareObjectTextures[7].TexList = ADV00_TEXLISTS[8];
-	StationSquareObjectTextures[8].Name = "SS_KANBAN";
-	StationSquareObjectTextures[8].TexList = (NJS_TEXLIST*)0x2AEAA88;
-	StationSquareObjectTextures[9].Name = "SS_DENTOU";
-	StationSquareObjectTextures[9].TexList = (NJS_TEXLIST*)0x2AEAA50;
-	StationSquareObjectTextures[10].Name = "Cream";
-	StationSquareObjectTextures[10].TexList = (NJS_TEXLIST*)0x2BBA8C4;
-	StationSquareObjectTextures[11].Name = "SONICADV_511";
-	StationSquareObjectTextures[11].TexList = &texlist_sambagp;
-	StationSquareObjectTextures[12].Name = 0;
-	StationSquareObjectTextures[12].TexList = 0;
-	return result;
-}
+PVMEntry SambaGPTextures = { "SONICADV_511", (TexList *)&texlist_sambagp };
 
 void CallSambaCircuit()
 {
@@ -205,17 +162,20 @@ void SambaGate_Main(ObjectMaster *a1)
 {
 	DataPointer(char, off_2BBF4A0, 0x02BBF450);
 	NJS_VECTOR WarpPosition = { 698, 1.4f, 1600 };
-	if (MessageOn == false && IsPlayerInsideSphere(&WarpPosition, 25))
+	if (CurrentLevel == 26 && CurrentAct == 3)
 	{
-		MessageOn = true;
-		sub_4B79C0((char *)(&SambaGPMessage0), 360);
+		if (MessageOn == false && IsPlayerInsideSphere(&WarpPosition, 25))
+		{
+			MessageOn = true;
+			sub_4B79C0((char *)(&SambaGPMessage0), 180);
+		}
+		if (!IsPlayerInsideSphere(&WarpPosition, 25)) MessageOn = false;
+		if (IsPlayerInsideSphere(&WarpPosition, 25))
+		{
+			CallSambaCircuit();
+		}
+		SambaGate_Display(a1);
 	}
-	if (!IsPlayerInsideSphere(&WarpPosition, 25)) MessageOn = false;
-	if (IsPlayerInsideSphere(&WarpPosition, 25))
-	{
-		CallSambaCircuit();
-	}
-	SambaGate_Display(a1);
 }
 
 void LoadSambaGate(ObjectMaster *a1)
@@ -243,7 +203,7 @@ void Poster_Display(ObjectMaster *a1)
 		njPushMatrix(0);
 		njTranslateV(0, &v1->Position);
 		njScale(0, v1->Scale.x, v1->Scale.y, v1->Scale.z);
-		v2 = v1->Rotation.y + 0xC000;
+		v2 = v1->Rotation.y;
 		njRotateY(0, v2);
 		ProcessModelNode_AB_Wrapper(&poster1, v1->Scale.x);
 		njPopMatrix(1u);
@@ -254,15 +214,18 @@ void Poster_Main(ObjectMaster *a1)
 {
 	EntityData1 *v1;
 	v1 = a1->Data1;
-	if (IsPlayerInsideSphere(&v1->Position, 20) && HintTimer <= 0)
+	if (v1->CharID == CurrentAct)
 	{
-		HintTimer = 150;
-		PlaySound(6, 0, 0, 0);
-		if (v1->CharIndex == 0) sub_4B79C0((char *)(&SambaGPMessage1), 180);
-		if (v1->CharIndex == 1) sub_4B79C0((char *)(&SambaGPMessage2), 180);
-		if (v1->CharIndex == 2) sub_4B79C0((char *)(&SambaGPMessage3), 180);
+		if (IsPlayerInsideSphere(&v1->Position, 15) && HintTimer <= 0)
+		{
+			PlaySound(6, 0, 0, 0);
+			if (v1->CharIndex == 0) sub_4B79C0((char *)(&SambaGPMessage1), 180);
+			if (v1->CharIndex == 1) sub_4B79C0((char *)(&SambaGPMessage2), 180);
+			if (v1->CharIndex == 2) sub_4B79C0((char *)(&SambaGPMessage3), 180);
+			HintTimer = 120;
+		}
+		Poster_Display(a1);
 	}
-	Poster_Display(a1);
 }
 
 void LoadPoster(ObjectMaster *a1)
@@ -280,8 +243,9 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 	ObjectFunc(OF1, LoadSambaGate); // Samba Gate
 	ObjectFunc(OF2, LoadPoster); // Samba Poster
 	setdata_dlc.Distance = 612800.0f;
-	if (CurrentAct == 0)
+	if (ObjectsLoaded == false)
 	{
+		//Act 1
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
 		if (obj)
@@ -297,6 +261,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->Scale.y = 1.0f;
 			ent->Scale.z = 1.0f;
 			ent->CharIndex = 0;
+			ent->CharID = 0;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
@@ -313,6 +278,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->Scale.y = 1.0f;
 			ent->Scale.z = 1.0f;
 			ent->CharIndex = 0;
+			ent->CharID = 0;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
@@ -329,10 +295,9 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->Scale.y = 1.0f;
 			ent->Scale.z = 1.0f;
 			ent->CharIndex = 0;
+			ent->CharID = 0;
 		}
-	}
-	if (CurrentAct == 1)
-	{
+	//Act 2
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
 		if (obj)
@@ -348,6 +313,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->Scale.y = 1.0f;
 			ent->Scale.z = 1.0f;
 			ent->CharIndex = 0;
+			ent->CharID = 1;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
@@ -364,6 +330,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->Scale.y = 1.0f;
 			ent->Scale.z = 1.0f;
 			ent->CharIndex = 0;
+			ent->CharID = 1;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
@@ -380,10 +347,10 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->Scale.y = 2.0f;
 			ent->Scale.z = 2.0f;
 			ent->CharIndex = 0;
+			ent->CharID = 1;
 		}
 	}
-	if (CurrentAct == 3)
-	{
+	//Act 4
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
 		if (obj)
@@ -399,6 +366,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->Scale.y = 1.0f;
 			ent->Scale.z = 1.0f;
 			ent->CharIndex = 0;
+			ent->CharID = 3;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF1);
 		obj->SETData.SETData = &setdata_dlc;
@@ -423,6 +391,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->Scale.y = 1.5f;
 			ent->Scale.z = 1.5f;
 			ent->CharIndex = 0;
+			ent->CharID = 3;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
@@ -437,6 +406,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->Scale.y = 1.5f;
 			ent->Scale.z = 1.5f;
 			ent->CharIndex = 0;
+			ent->CharID = 3;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
@@ -451,6 +421,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->Scale.y = 2.0f;
 			ent->Scale.z = 2.0f;
 			ent->CharIndex = 0;
+			ent->CharID = 3;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
@@ -465,6 +436,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->Scale.y = 2.0f;
 			ent->Scale.z = 2.0f;
 			ent->CharIndex = 1;
+			ent->CharID = 3;
 		}
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
@@ -479,14 +451,14 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->Scale.y = 2.0f;
 			ent->Scale.z = 2.0f;
 			ent->CharIndex = 2;
+			ent->CharID = 3;
 		}
-	}
 }
 
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
-	__declspec(dllexport) void __cdecl Init()
+	__declspec(dllexport) void __cdecl Init(const char* path, const HelperFunctions& helperFunctions)
 	{
 		HMODULE SONICADV_000 = GetModuleHandle(L"SONICADV_000");
 		HMODULE SONICADV_001 = GetModuleHandle(L"SONICADV_001");
@@ -519,10 +491,7 @@ extern "C"
 		if (SONICADV_510 != nullptr) ModFailsafe = true;
 		if (ModFailsafe == false)		
 		{
-			WriteData((void**)0x90EBD0, (void*)&StationSquareObjectTextures);
-			WriteData((void**)0x90EBD4, (void*)&StationSquareObjectTextures);
-			WriteData((void**)0x90EBD8, (void*)&StationSquareObjectTextures);
-			WriteJump((void*)0x7C4EB0, sub_7C4EB0);
+			helperFunctions.RegisterCommonObjectPVM(SambaGPTextures);
 			WriteCall((void*)0x0062F098, LoadSambaGateEntry);
 			WriteCall((void*)0x0062F102, LoadSambaGateEntry);
 			WriteCall((void*)0x00640684, CallSambaCircuit);
@@ -533,6 +502,10 @@ extern "C"
 		if (ModFailsafe == false && CurrentLevel == 26 && GameState != 16)
 		{
 			if (HintTimer > 0) HintTimer--;
+		}
+		if (CurrentLevel != 26 || GameState == 6 || GameState == 21)
+		{
+			ObjectsLoaded = false;
 		}
 	}
 }
