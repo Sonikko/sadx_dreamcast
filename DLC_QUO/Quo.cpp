@@ -349,7 +349,7 @@ void Balloons_Main(ObjectMaster *a1)
 			}
 			if (ChallengeAction == true && IsPlayerInsideSphere(&v1->Position, 15))
 			{
-				if (CollectedAll >= 5)
+				if (CollectedAll >= 6)
 				{
 					if (HintTimer <= 0)
 					{
@@ -430,35 +430,35 @@ void Timer_Display(ObjectMaster *a1)
 	CardCountTotalTexanim.texid = 6;
 	njDrawSprite2D_3(&CardCountTotal, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw timer tenminutes
-	TimerTenMinutesTexanim.texid = (ChallengeTimer / 72000) % 10;
+	TimerTenMinutesTexanim.texid = (((ChallengeTimer / 3600) % 60) / 10) % 10;
 	njDrawSprite2D_3(&TimerTenMinutes, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw timer minutes
-	TimerMinutesTexanim.texid = (ChallengeTimer / 7200) % 10;
+	TimerMinutesTexanim.texid = ((ChallengeTimer / 3600) % 60) % 10;
 	njDrawSprite2D_3(&TimerMinutes, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw minute colon
 	TimerColon1Texanim.texid = 10;
 	njDrawSprite2D_3(&TimerColon1, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw timer tenseconds
-	TimerTenSecondsTexanim.texid = (ChallengeTimer / 1200) % 6;
+	TimerTenSecondsTexanim.texid = (((ChallengeTimer / 60) % 60) / 10) % 10;
 	njDrawSprite2D_3(&TimerTenSeconds, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw timer seconds
-	TimerSecondsTexanim.texid = (ChallengeTimer / 120) % 10;
+	TimerSecondsTexanim.texid = ((ChallengeTimer / 60) % 60) % 10;
 	njDrawSprite2D_3(&TimerSeconds, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw minute colon
 	TimerColon2Texanim.texid = 10;
 	njDrawSprite2D_3(&TimerColon2, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw timer militenseconds
-	TimerMTenSecondsTexanim.texid = (ChallengeTimer / 10) % 10;
+	TimerMTenSecondsTexanim.texid = (((ChallengeTimer * 5 / 3) % 1000) / 10) % 10;
 	njDrawSprite2D_3(&TimerMTenSeconds, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw timer miliseconds
-	TimerMSecondsTexanim.texid = ChallengeTimer % 10;
+	TimerMSecondsTexanim.texid = ((ChallengeTimer *5/3) % 1000) % 10;
 	njDrawSprite2D_3(&TimerMSeconds, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	ClampGlobalColorThing_Thing();
 }
 
 void Timer_Main(ObjectMaster *a1)
 {
-	if (ChallengeTimer < 72000) //72000
+	if (((ChallengeTimer / 3600) % 60) / 10 < 1)
 	{
 		if (ChallengeAction == true)
 		{
@@ -467,7 +467,7 @@ void Timer_Main(ObjectMaster *a1)
 			Timer_Display(a1);
 		}
 	}
-	if (ChallengeTimer >= 72000)
+	if (((ChallengeTimer / 3600) % 60) / 10 >= 1)
 	{
 		ChallengeAction = false;
 		ChallengeTimer = 0;
