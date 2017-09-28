@@ -1616,8 +1616,6 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		HMODULE DC_ADV00MODELS = GetModuleHandle(L"DC_ADV00MODELS");
-		NJS_OBJECT **___ADV00SS01_OBJECTS = (NJS_OBJECT **)GetProcAddress(ADV00MODELS, "___ADV00SS01_OBJECTS");
 		if (ModFailsafe == false && GameState != 16)
 		{
 			if (GameState == 6)
