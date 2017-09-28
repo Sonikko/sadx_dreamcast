@@ -1089,8 +1089,8 @@ extern "C"
 		{
 			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
 			{
-				static int EggHornet_Rotation = 0;
-				static int EggHornet_RotationDirection = 1;
+				EggHornet_Rotation = 0;
+				EggHornet_RotationDirection = 1;
 				EggHornetTrigger = 0;
 			}
 			if (dword_3C6C930 != 1 && byte_03C6C944 != EggHornetTrigger)
