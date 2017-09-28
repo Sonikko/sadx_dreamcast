@@ -30,12 +30,36 @@ static float EggViper_blendfactor_max = 0.005f;
 static float EggViper_blendfactor_min = 0.005f;
 
 //Chaos 6 material arrays
+DataArray(NJS_MATERIAL, matlist_00F975B0, 0x013975B0, 3);
+DataArray(NJS_MATERIAL, matlist_00F98C98, 0x01398C98, 6);
 DataArray(NJS_MATERIAL, matlist_01270910, 0x01270910, 4);
 DataArray(NJS_MATERIAL, matlist_0126C51C, 0x0126C51C, 2);
 DataArray(NJS_MATERIAL, matlist_01271BCC, 0x01271BCC, 2);
-
+DataArray(FogData, Chaos2Fog, 0x01120638, 3);
+DataArray(FogData, Chaos6SFog, 0x011EF0E8, 3);
+DataArray(FogData, Chaos6KFog, 0x011EF118, 3);
+DataArray(FogData, Chaos4Fog, 0x0118FA00, 3);
+DataArray(FogData, Chaos7Fog, 0x01420E30, 3);
+DataArray(FogData, EggHornetFog, 0x01556B34, 3);
+DataArray(FogData, EggWalkerFog, 0x015E87F4, 3);
+DataArray(FogData, EggViperFog, 0x0165D334, 3);
+DataArray(FogData, Fog_E101R, 0x015225F0, 3);
+DataArray(FogData, Fog_Zero, 0x016B4DB0, 3);
+DataArray(DrawDistance, DrawDist_Chaos7, 0x01420E00, 3);
+DataArray(DrawDistance, DrawDist_EggHornet, 0x01556B1C, 3);
+DataArray(DrawDistance, DrawDist_E101R, 0x015225D8, 3);
+DataArray(DrawDistance, DrawDist_Zero, 0x016B4D98, 3);
+DataPointer(unsigned char, byte_3C5A7EF, 0x3C5A7EF);
+DataPointer(unsigned char, byte_3C5A7ED, 0x3C5A7ED);
+DataPointer(unsigned char, byte_03C6C944, 0x03C6C944);
+DataPointer(float, dword_3C6C930, 0x3C6C930);
+DataPointer(unsigned char, byte_03C5A7EF, 0x03C5A7EF);
+DataPointer(float, dword_3C6A998, 0x3C6A998);
+DataPointer(NJS_OBJECT, stru_13A6E8C, 0x13A6E8C);
+DataPointer(NJS_ARGB, nj_constant_material_temp, 0x03B18220);
 DataPointer(float, Chaos4Hitpoints, 0x03C58158);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, EVEffect, 0x3C6E1EC);
 DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(NJS_TEXANIM, stru_149401C, 0x149401C);
 DataPointer(NJS_TEXANIM, stru_1494050, 0x1494050);
@@ -274,10 +298,6 @@ NJS_TEXANIM texanim_array[] =
 
 void __cdecl TornadoFunc()
 {
-	DataPointer(unsigned char, byte_03C5A7EF, 0x03C5A7EF);
-	DataPointer(float, dword_3C6A998, 0x3C6A998);
-	DataPointer(NJS_OBJECT, stru_13A6E8C, 0x13A6E8C);
-	DataPointer(NJS_ARGB, nj_constant_material_temp, 0x03B18220);
 	nj_constant_material_temp.a = TornadoAlpha;
 	nj_constant_material_temp.r = 1.0f;
 	nj_constant_material_temp.g = 1.0f;
@@ -715,8 +735,6 @@ extern "C"
 		((NJS_MATERIAL*)0x0128A954)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;*/
 		//Perfect Chaos misc
 		((NJS_OBJECT*)0x0248B1B4)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Egg Carrier 2
-		DataArray(NJS_MATERIAL, matlist_00F975B0, 0x013975B0, 3);
-		DataArray(NJS_MATERIAL, matlist_00F98C98, 0x01398C98, 6);
 		matlist_00F975B0[0].diffuse.color = 0xFFB2B2B2;
 		matlist_00F975B0[1].diffuse.color = 0xFFB2B2B2;
 		matlist_00F975B0[2].diffuse.color = 0xFFB2B2B2;
@@ -803,20 +821,6 @@ extern "C"
 			PerfectChaosCars[p]->diffuse.argb.g = 0xB2;
 			PerfectChaosCars[p]->diffuse.argb.b = 0xB2;
 		}
-		DataArray(FogData, Chaos2Fog, 0x01120638, 3);
-		DataArray(FogData, Chaos6SFog, 0x011EF0E8, 3);
-		DataArray(FogData, Chaos6KFog, 0x011EF118, 3);
-		DataArray(FogData, Chaos4Fog, 0x0118FA00, 3);
-		DataArray(FogData, Chaos7Fog, 0x01420E30, 3);
-		DataArray(FogData, EggHornetFog, 0x01556B34, 3);
-		DataArray(FogData, EggWalkerFog, 0x015E87F4, 3);
-		DataArray(FogData, EggViperFog, 0x0165D334, 3);
-		DataArray(FogData, Fog_E101R, 0x015225F0, 3);
-		DataArray(FogData, Fog_Zero, 0x016B4DB0, 3);
-		DataArray(DrawDistance, DrawDist_Chaos7, 0x01420E00, 3);
-		DataArray(DrawDistance, DrawDist_EggHornet, 0x01556B1C, 3);
-		DataArray(DrawDistance, DrawDist_E101R, 0x015225D8, 3);
-		DataArray(DrawDistance, DrawDist_Zero, 0x016B4D98, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			Chaos2Fog[i].Color = 0xFF000000;
@@ -902,7 +906,6 @@ extern "C"
 				EggViper_EffectMode = 0;
 				set_shader_flags(ShaderFlags_Blend, false);
 			}
-			DataPointer(int, EVEffect, 0x3C6E1EC);
 			if (GameMode == GameModes_Menu || GameMode == GameModes_CharSel)
 			{
 				EggViper_blendfactor_max = 0.005f;
@@ -1058,8 +1061,6 @@ extern "C"
 		}
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		//Super stupid hax to make Perfect Chaos' tornadoes fade in
-		DataPointer(unsigned char, byte_3C5A7EF, 0x3C5A7EF);
-		DataPointer(unsigned char, byte_3C5A7ED, 0x3C5A7ED);
 		if (byte_3C5A7ED != 11)
 		{
 			if (byte_3C5A7EF == 0) TornadoTrigger = 0;
@@ -1083,8 +1084,6 @@ extern "C"
 			}
 		}
 		//Egg Hornet rotation
-		DataPointer(unsigned char, byte_03C6C944, 0x03C6C944);
-		DataPointer(float, dword_3C6C930, 0x3C6C930);
 		if (CurrentLevel == 20 && GameState != 16)
 		{
 			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)

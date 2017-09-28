@@ -11,6 +11,12 @@
 HMODULE Past = GetModuleHandle(L"ADV03MODELS");
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataArray(DrawDistance, DrawDist_Past1, 0x0111E540, 3);
+DataArray(DrawDistance, DrawDist_Past2, 0x0111E558, 3);
+DataArray(DrawDistance, DrawDist_Past3, 0x0111E570, 3);
+DataArray(FogData, FogData_Past1, 0x0111E588, 3);
+DataArray(FogData, FogData_Past2, 0x0111E5B8, 3);
+DataArray(FogData, FogData_Past3, 0x0111E5E8, 3);
 static int animframe1 = 75;
 static int animframe2 = 72;
 static int animframe3 = 59;
@@ -114,12 +120,6 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		landtable_0000029C.TexName = "PAST01";
 		landtable_000002C0.TexName = "PAST02";
 	}
-	DataArray(DrawDistance, DrawDist_Past1, 0x0111E540, 3);
-	DataArray(DrawDistance, DrawDist_Past2, 0x0111E558, 3);
-	DataArray(DrawDistance, DrawDist_Past3, 0x0111E570, 3);
-	DataArray(FogData, FogData_Past1, 0x0111E588, 3);
-	DataArray(FogData, FogData_Past2, 0x0111E5B8, 3);
-	DataArray(FogData, FogData_Past3, 0x0111E5E8, 3);
 	for (int i = 0; i < 3; i++)
 	{
 		FogData_Past1[i].Layer = -12000.0f;

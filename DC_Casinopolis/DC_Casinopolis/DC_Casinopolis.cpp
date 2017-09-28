@@ -45,13 +45,44 @@ FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 NJS_VECTOR Cowgirl1{ 457.6972f, 45.06788f, 390 };
 NJS_VECTOR Cowgirl2{ 340.3949, 51.20071, 480 };
 DataArray(CollisionData, stru_1E763B8, 0x1E763B8, 3);
+DataArray(NJS_TEX, uv_01A4BD38, 0x01E4BD38, LengthOfArray(uv_001C8C9C));
+DataArray(NJS_TEX, uv_01A4BD98, 0x01E4BD98, LengthOfArray(uv_001C8CFC));
+DataArray(NJS_TEX, yajitex, 0x01DDB544, 4);
+DataArray(NJS_TEX, bumpertex, 0x01D98418, LengthOfArray(uv_01998418));
+DataArray(NJS_TEX, bumpertex2, 0x01D98EC0, LengthOfArray(uv_0011B8B4));
+DataArray(NJS_TEX, bill1, 0x01E6D7C8, LengthOfArray(uv_001E9ABC));
+DataArray(NJS_TEX, bill2, 0x01E6D900, LengthOfArray(uv_001E9BF4));
+DataArray(NJS_MESHSET_SADX, lionmesh, 0x1DFF0F8, 13);
+DataArray(FogData, Casino1Fog, 0x01C46990, 3);
+DataArray(FogData, Casino2Fog, 0x01C469C0, 3);
+DataArray(DrawDistance, DrawDist_Casino2, 0x01C46948, 3);
+DataPointer(int, MissedFrames, 0x03B1117C);
+DataPointer(NJS_MODEL_SADX, stru_1DF3160, 0x1DF3160);
+DataPointer(NJS_OBJECT, stru_1DF2EF8, 0x1DF2EF8);
+DataPointer(NJS_MODEL_SADX, stru_1DF2B60, 0x1DF2B60);
+DataPointer(NJS_OBJECT, stru_1DF2908, 0x1DF2908);
+DataPointer(NJS_MODEL_SADX, stru_1DF2570, 0x01DF2570);
+DataPointer(NJS_OBJECT, stru_1DF230C, 0x1DF230C);
+DataPointer(NJS_ACTION, off_1E06634, 0x1E06634);
+DataPointer(NJS_OBJECT*, stru_1E03AB8, 0x01E03AB8);
+DataPointer(CollisionData, stru_1E77574, 0x1E77574);
+DataPointer(NJS_OBJECT*, unk_1E050FC, 0x1E050FC);
+DataPointer(CollisionData, stru_1E775D4, 0x1E775D4);
+DataPointer(NJS_TEXLIST, stru_1D8B384, 0x1D8B384);
+DataPointer(NJS_SPRITE, stru_3C75098, 0x3C75098);
 DataPointer(ObjectMaster*, off_1E75DC8, 0x01E75DC8);
 DataPointer(ObjectMaster*, off_1E75DE0, 0x01E75DE0);
+DataPointer(NJS_OBJECT*, unk_1E06274, 0x1E06274);
+DataPointer(CollisionData, stru_1E77638, 0x1E77638);
 DataPointer(NJS_OBJECT, stru_1E5EC4C, 0x01E5EC4C);
 DataPointer(NJS_OBJECT, stru_1E5E7BC, 0x01E5E7BC);
+DataPointer(NJS_OBJECT*, unk_1E04CDC, 0x1E04CDC);
+DataPointer(CollisionData, stru_1E775A4, 0x1E775A4);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, dword_1E77568, 0x1E77568);
-DataPointer(int, MissedFrames, 0x03B1117C);
+DataPointer(NJS_OBJECT*, unk_1E05954, 0x1E05954);
+DataPointer(CollisionData, stru_1E77604, 0x1E77604);
+DataPointer(NJS_OBJECT, stru_1DF198C, 0x1DF198C);
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB28, &landtable_00025EAC),
@@ -62,8 +93,6 @@ PointerInfo pointers[] = {
 
 void __cdecl Loop_Display(ObjectMaster *a1)
 {
-	DataPointer(NJS_TEXLIST, stru_1D8B384, 0x1D8B384);
-	DataPointer(NJS_SPRITE, stru_3C75098, 0x3C75098);
 	EntityData1 *v1; // esi@1
 	Angle v2; // eax@2
 	Angle v3; // eax@4
@@ -203,8 +232,6 @@ void __cdecl sub_5D0560(ObjectMaster *obj)
 
 void __cdecl sub_5D0560_KazB(ObjectMaster *obj)
 {
-	DataPointer(int, dword_1E77568, 0x1E77568);
-	DataPointer(int, MissedFrames, 0x03B1117C);
 	EntityData1 *v1; // esi@1
 	Angle v2; // eax@3
 	Angle v7;
@@ -261,8 +288,6 @@ void __cdecl sub_5D0560_KazB(ObjectMaster *obj)
 void __cdecl OKazeX(ObjectMaster *a1)
 {
 	EntityData1 *v4; // esi@1
-	DataPointer(NJS_OBJECT*, unk_1E05954, 0x1E05954);
-	DataPointer(CollisionData, stru_1E77604, 0x1E77604);
 	signed int result; // eax@1
 	v4 = a1->Data1;
 	result = ClipObject(a1, 62510.0);
@@ -284,8 +309,6 @@ void __cdecl OKazeX(ObjectMaster *a1)
 void __cdecl OKazcX(ObjectMaster *a1)
 {
 	EntityData1 *v4; // esi@1
-	DataPointer(NJS_OBJECT*, unk_1E04CDC, 0x1E04CDC);
-	DataPointer(CollisionData, stru_1E775A4, 0x1E775A4);
 	signed int result; // eax@1
 	v4 = a1->Data1;
 	result = ClipObject(a1, 62510.0);
@@ -307,8 +330,6 @@ void __cdecl OKazcX(ObjectMaster *a1)
 void __cdecl OKazdX(ObjectMaster *a1)
 {
 	EntityData1 *v4; // esi@1
-	DataPointer(NJS_OBJECT*, unk_1E050FC, 0x1E050FC);
-	DataPointer(CollisionData, stru_1E775D4, 0x1E775D4);
 	signed int result; // eax@1
 	v4 = a1->Data1;
 	result = ClipObject(a1, 62510.0);
@@ -329,8 +350,6 @@ void __cdecl OKazdX(ObjectMaster *a1)
 
 void __cdecl OKazbX(ObjectMaster *a1)
 {
-	DataPointer(NJS_OBJECT*, stru_1E03AB8, 0x01E03AB8);
-	DataPointer(CollisionData, stru_1E77574, 0x1E77574);
 	EntityData1 *v4; // esi@1
 	signed int result; // eax@1
 
@@ -354,8 +373,6 @@ void __cdecl OKazbX(ObjectMaster *a1)
 void __cdecl OKazfX(ObjectMaster *a1)
 {
 	EntityData1 *v4; // esi@1
-	DataPointer(NJS_OBJECT*, unk_1E06274, 0x1E06274);
-	DataPointer(CollisionData, stru_1E77638, 0x1E77638);
 	signed int result; // eax@1
 	v4 = a1->Data1;
 	result = ClipObject(a1, 62510.0);
@@ -377,15 +394,11 @@ void __cdecl OKazfX(ObjectMaster *a1)
 void FixedGear1()
 {
 //	005D09C7
-	DataPointer(NJS_ACTION, off_1E06634, 0x1E06634);
 	njAction(&off_1E06634, gearframe1);
 }
 
 void __cdecl sub_5D43F0(int a2)
 {
-	DataPointer(int, MissedFrames, 0x03B1117C);
-	DataPointer(NJS_MODEL_SADX, stru_1DF2570, 0x01DF2570);
-	DataPointer(NJS_OBJECT, stru_1DF230C, 0x1DF230C);
 	EntityData1 *v1; // esi@1
 	unsigned __int16 v2; // ax@3
 	int GearRotationDirection;
@@ -418,9 +431,6 @@ void __cdecl sub_5D43F0(int a2)
 
 void __cdecl sub_5D44A0(int a2)
 {
-	DataPointer(int, MissedFrames, 0x03B1117C);
-	DataPointer(NJS_MODEL_SADX, stru_1DF2B60, 0x1DF2B60);
-	DataPointer(NJS_OBJECT, stru_1DF2908, 0x1DF2908);
 	EntityData1 *v1; // esi@1
 	unsigned __int16 v2; // ax@3
 	int GearRotationDirection;
@@ -450,9 +460,6 @@ void __cdecl sub_5D44A0(int a2)
 
 void __cdecl sub_5D4550(int a2)
 {
-	DataPointer(int, MissedFrames, 0x03B1117C);
-	DataPointer(NJS_MODEL_SADX, stru_1DF3160, 0x1DF3160);
-	DataPointer(NJS_OBJECT, stru_1DF2EF8, 0x1DF2EF8);
 	EntityData1 *v1; // esi@1
 	unsigned __int16 v2; // ax@3
 	int GearRotationDirection;
@@ -481,8 +488,6 @@ void __cdecl sub_5D4550(int a2)
 
 void __cdecl sub_5D3A90(int a2)
 {
-	DataPointer(int, MissedFrames, 0x03B1117C);
-	DataPointer(NJS_OBJECT, stru_1DF198C, 0x1DF198C);
 	EntityData1 *v1; // esi@1
 	Angle v2; // eax@3
 	Angle v3;
@@ -729,8 +734,6 @@ extern "C"
 			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 4].Flags = 0x00000000;
 			WriteJump((void*)0x5CAA90, Cowgirl_Display);
 		}
-		DataArray(NJS_TEX, uv_01A4BD38, 0x01E4BD38, LengthOfArray(uv_001C8C9C));
-		DataArray(NJS_TEX, uv_01A4BD98, 0x01E4BD98, LengthOfArray(uv_001C8CFC));
 		*(NJS_MODEL_SADX*)0x01DF7140 = attach_00177188; //Slot red
 		*(NJS_MODEL_SADX*)0x01DF5138 = attach_00175E44; //Slot blue
 		*(NJS_MODEL_SADX*)0x01D8BC10 = attach_0010E984; //FlipperL
@@ -771,17 +774,12 @@ extern "C"
 		*(NJS_OBJECT*)0x1DC6114 = object_001483B8; //Reala thing 3
 		*(NJS_OBJECT*)0x1DC7BE4 = object_00149DF8; //Reala thing 4
 		//Yaji (arrow object) fixes
-		DataArray(NJS_TEX, yajitex, 0x01DDB544, 4);
 		yajitex[0].u = 509;
 		yajitex[1].u = 510;
 		((NJS_MODEL_SADX*)0x01DDB5D0)->mats[0].attrflags |= NJD_FLAG_FLIP_U;
 		//Bumper1 fixes
 		((NJS_MODEL_SADX*)0x01D98CE8)->mats[0].attrflags |= NJD_FLAG_FLIP_U;
 		((NJS_MODEL_SADX*)0x01D99790)->mats[0].attrflags |= NJD_FLAG_FLIP_U;
-		DataArray(NJS_TEX, bumpertex, 0x01D98418, LengthOfArray(uv_01998418));
-		DataArray(NJS_TEX, bumpertex2, 0x01D98EC0, LengthOfArray(uv_0011B8B4));
-		DataArray(NJS_TEX, bill1, 0x01E6D7C8, LengthOfArray(uv_001E9ABC));
-		DataArray(NJS_TEX, bill2, 0x01E6D900, LengthOfArray(uv_001E9BF4));
 		for (int uv_bill1 = 0; uv_bill1 < LengthOfArray(uv_001E9ABC); uv_bill1++)
 		{
 			bill1[uv_bill1].u = uv_001E9ABC[uv_bill1].u;
@@ -812,7 +810,6 @@ extern "C"
 		memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //O LIGHTA model
 		WriteData((char*)0x005DDBE2, 0x08, 1); //O LIGHTA blending mode
 		//Lion top animation
-		DataArray(NJS_MESHSET_SADX, lionmesh, 0x1DFF0F8, 13);
 		lionmesh[0].vertuv = uv_019FEA58;
 		((NJS_OBJECT*)0x01E47B1C)->evalflags |= NJD_EVAL_HIDE; //Hide MizuA
 		((NJS_OBJECT*)0x01E47CA4)->evalflags |= NJD_EVAL_HIDE; //Hide MizuB
@@ -826,9 +823,6 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x1C47004, textures_casino4);
 		*(NJS_MODEL_SADX*)0x01E74A68 = attach_01A74A68; //billboard
 		*(NJS_MODEL_SADX*)0x01E46F30 = attach_001C4DCC; //OCfa rotating thing
-		DataArray(FogData, Casino1Fog, 0x01C46990, 3);
-		DataArray(FogData, Casino2Fog, 0x01C469C0, 3);
-		DataArray(DrawDistance, DrawDist_Casino2, 0x01C46948, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			Casino1Fog[i].Color = 0xFF000000;

@@ -24,6 +24,13 @@ DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(void*, EV_MainThread_ptr, 0x3B2C578);
+DataArray(FogData, StationSquare1Fog, 0x02AA3D10, 3);
+DataArray(FogData, StationSquare2Fog, 0x02AA3D40, 3);
+DataArray(FogData, StationSquare3Fog, 0x02AA3D70, 3);
+DataArray(FogData, StationSquare4Fog, 0x02AA3DA0, 3);
+DataArray(FogData, StationSquare5Fog, 0x02AA3DD0, 3);
+DataArray(FogData, StationSquare6Fog, 0x02AA3E00, 3);
+DataArray(DrawDistance, StationSquare6DrawDist, 0x02AA3CF8, 3);
 
 void __cdecl WaterTexture()
 {
@@ -346,13 +353,6 @@ extern "C"
 		___ADV00_TEXLISTS[4] = &texlist5;
 		___ADV00_TEXLISTS[5] = &texlist6;
 		//Fog data
-		DataArray(FogData, StationSquare1Fog, 0x02AA3D10, 3);
-		DataArray(FogData, StationSquare2Fog, 0x02AA3D40, 3);
-		DataArray(FogData, StationSquare3Fog, 0x02AA3D70, 3);
-		DataArray(FogData, StationSquare4Fog, 0x02AA3DA0, 3);
-		DataArray(FogData, StationSquare5Fog, 0x02AA3DD0, 3);
-		DataArray(FogData, StationSquare6Fog, 0x02AA3E00, 3);
-		DataArray(DrawDistance, StationSquare6DrawDist, 0x02AA3CF8, 3);
 		for (int i = 0; i < 3; i++)
 		{
 			StationSquare1Fog[i].Toggle = 1;
