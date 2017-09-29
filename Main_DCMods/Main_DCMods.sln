@@ -67,6 +67,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLC_QUO", "..\DLC_QUO\DLC_Q
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLC_Reebok", "..\DLC_Reebok\DLC_Reebok.vcxproj", "{F66A67E3-C452-4B47-8344-EECD12D9DB22}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLC_ATT1", "..\DLC_ATT1\DLC_ATT1.vcxproj", "{9D83905B-E41C-4C3E-A298-DBB3A4915081}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -461,6 +463,18 @@ Global
 		{F66A67E3-C452-4B47-8344-EECD12D9DB22}.Release|x64.Build.0 = Release|x64
 		{F66A67E3-C452-4B47-8344-EECD12D9DB22}.Release|x86.ActiveCfg = Release|Win32
 		{F66A67E3-C452-4B47-8344-EECD12D9DB22}.Release|x86.Build.0 = Release|Win32
+		{9D83905B-E41C-4C3E-A298-DBB3A4915081}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9D83905B-E41C-4C3E-A298-DBB3A4915081}.Debug|Win32.Build.0 = Debug|Win32
+		{9D83905B-E41C-4C3E-A298-DBB3A4915081}.Debug|x64.ActiveCfg = Debug|x64
+		{9D83905B-E41C-4C3E-A298-DBB3A4915081}.Debug|x64.Build.0 = Debug|x64
+		{9D83905B-E41C-4C3E-A298-DBB3A4915081}.Debug|x86.ActiveCfg = Debug|Win32
+		{9D83905B-E41C-4C3E-A298-DBB3A4915081}.Debug|x86.Build.0 = Debug|Win32
+		{9D83905B-E41C-4C3E-A298-DBB3A4915081}.Release|Win32.ActiveCfg = Release|Win32
+		{9D83905B-E41C-4C3E-A298-DBB3A4915081}.Release|Win32.Build.0 = Release|Win32
+		{9D83905B-E41C-4C3E-A298-DBB3A4915081}.Release|x64.ActiveCfg = Release|x64
+		{9D83905B-E41C-4C3E-A298-DBB3A4915081}.Release|x64.Build.0 = Release|x64
+		{9D83905B-E41C-4C3E-A298-DBB3A4915081}.Release|x86.ActiveCfg = Release|Win32
+		{9D83905B-E41C-4C3E-A298-DBB3A4915081}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

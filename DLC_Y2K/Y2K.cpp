@@ -180,14 +180,10 @@ void Y2KRing_Load(ObjectMaster *a1)
 	EntityData1* v1;
 	NJS_OBJECT* v5;
 	v1 = a1->Data1;
-	if (v1->CharID == 1) //Only add collision for rings that are horizontal
-	{
 		v5 = sub_49D6C0(&object_00001514, a1, (ColFlags)0x20001001);
 		v5->scl[0] = 1.0f;
 		v5->scl[1] = 1.0f;
 		v5->scl[2] = 1.0f;
-	}
-	else v5 = nullptr;
 	a1->MainSub = (void(__cdecl *)(ObjectMaster *))Y2KRing_Main;
 	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))Y2KRing_Display;
 	a1->DeleteSub = DeleteObject_DynamicCOL;
