@@ -126,7 +126,7 @@ void Poster_Display(ObjectMaster *a1)
 	Angle v3;
 	Angle v4;
 	v1 = a1->Data1;
-	if (!DroppedFrames)
+	if (!DroppedFrames && GameState != 16)
 	{
 		njSetTexture(&texlist_famitsu);
 		njPushMatrix(0);

@@ -139,7 +139,7 @@ void Poster_Display(ObjectMaster *a1)
 	Angle v4;
 	int RotationSpeed;
 	v1 = a1->Data1;
-	if (!DroppedFrames)
+	if (!DroppedFrames && GameState != 16)
 	{
 		njSetTexture(&texlist_quo);
 		njPushMatrix(0);
