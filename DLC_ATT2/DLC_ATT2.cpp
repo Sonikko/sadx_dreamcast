@@ -31,7 +31,7 @@ static int ChallengeAction = false;
 char ResultText[100];
 SETObjData setdata_dlc = {};
 
-PVMEntry ATT1Textures = { "SONICADV_506", (TexList *)&texlist_att2 };
+PVMEntry ATT2Textures = { "SONICADV_506", (TexList *)&texlist_att2 };
 PVMEntry TimerTextures = { "CON_REGULAR_E", (TexList *)0x00912DF4 };
 
 NJS_TEXANIM CardCountTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
@@ -178,7 +178,6 @@ void DLCObject_Display(ObjectMaster *a1)
 		v4 = v1->Rotation.z;
 		njRotateXYZ(0, v2, v3, v4);
 		njScale(0, v1->Scale.x, v1->Scale.y, v1->Scale.z);
-		if (v1->CharID == 0) ProcessModelNode_AB_Wrapper(&billboard_big, v1->Scale.x);
 		if (v1->CharID == 1) ProcessModelNode_AB_Wrapper(&object_000006D0, v1->Scale.x);
 		if (v1->CharID == 2) ProcessModelNode_AB_Wrapper(&poster_goal, v1->Scale.x);
 		if (v1->CharID == 3) ProcessModelNode_AB_Wrapper(&poster_start, v1->Scale.x);
@@ -1238,7 +1237,7 @@ extern "C"
 		if (ModFailsafe == false)
 		{
 			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot);
-			helperFunctions.RegisterCommonObjectPVM(ATT1Textures);
+			helperFunctions.RegisterCommonObjectPVM(ATT2Textures);
 			helperFunctions.RegisterCommonObjectPVM(TimerTextures);
 			WriteCall((void*)0x0062F098, LoadEverythingInStationSquareOrMysticRuinsActually);
 			WriteCall((void*)0x0062F102, LoadEverythingInStationSquareOrMysticRuinsActually);

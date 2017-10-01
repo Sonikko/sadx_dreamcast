@@ -310,13 +310,9 @@ NJS_VECTOR normal_00117018X[] = {
 	{ 0, 0, 1 }
 };
 
-NJS_MODEL_SADX attach_00117048X = { vertex_00116FE8X, normal_00117018X, LengthOfArray(vertex_00116FE8X), meshlist_00116FD0X, matlist_00116FA0X, LengthOfArray(meshlist_00116FD0X), LengthOfArray(matlist_00116FA0X),{ 0, 1.5f, 0 }, 11.71537f, NULL };
-
 NJS_MODEL_SADX attach_00117048Z = { vertex_00116FE8X, normal_00117018X, LengthOfArray(vertex_00116FE8X), meshlist_00116FD0X, matlist_00116FA0Z, LengthOfArray(meshlist_00116FD0X), LengthOfArray(matlist_00116FA0Z),{ 0, 1.5f, 0 }, 11.71537f, NULL };
 
 NJS_MODEL_SADX attach_00117048W = { vertex_00116FE8X, normal_00117018X, LengthOfArray(vertex_00116FE8X), meshlist_00116FD0X, matlist_00116FA0W, LengthOfArray(meshlist_00116FD0X), LengthOfArray(matlist_00116FA0W),{ 0, 1.5f, 0 }, 11.71537f, NULL };
-
-NJS_OBJECT billboard_big = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00117048X, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_OBJECT poster_start = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00117048Z, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
