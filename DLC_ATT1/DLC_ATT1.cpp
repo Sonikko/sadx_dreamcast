@@ -106,8 +106,36 @@ void DLCObject_Display(ObjectMaster *a1)
 		njScale(0, v1->Scale.x, v1->Scale.y, v1->Scale.z);
 		if (v1->CharID == 0) ProcessModelNode_AB_Wrapper(&billboard_big, v1->Scale.x);
 		if (v1->CharID == 2) ProcessModelNode_AB_Wrapper(&object_00000CE4, v1->Scale.x);
-		if (v1->CharID == 3) ProcessModelNode_AB_Wrapper(&poster_start, v1->Scale.x);
-		if (v1->CharID == 4 && HighwayGoal == true) ProcessModelNode_AB_Wrapper(&poster_goal, v1->Scale.x);
+		if (v1->CharID == 3)
+		{
+			if (v1->Action == 1)
+			{
+				matlist_00116FA0Z[0].attrflags |= NJD_FLAG_USE_ALPHA;
+				if (matlist_00116FA0Z[0].diffuse.argb.a > 8) matlist_00116FA0Z[0].diffuse.argb.a = matlist_00116FA0Z[0].diffuse.argb.a - 8;
+			}
+			else
+			{
+				matlist_00116FA0Z[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				if (matlist_00116FA0Z[0].diffuse.argb.a < 255) matlist_00116FA0Z[0].diffuse.argb.a = matlist_00116FA0Z[0].diffuse.argb.a + 8;
+			}
+			if (matlist_00116FA0Z[0].diffuse.argb.a > 255) matlist_00116FA0Z[0].diffuse.argb.a = 255;
+			ProcessModelNode_AB_Wrapper(&poster_start, v1->Scale.x);
+		}
+		if (v1->CharID == 4 && HighwayGoal == true)
+		{
+			if (v1->Action == 1)
+			{
+				matlist_00116FA0W[0].attrflags |= NJD_FLAG_USE_ALPHA;
+				if (matlist_00116FA0W[0].diffuse.argb.a > 8) matlist_00116FA0W[0].diffuse.argb.a = matlist_00116FA0W[0].diffuse.argb.a - 8;
+			}
+			else
+			{
+				matlist_00116FA0W[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				if (matlist_00116FA0W[0].diffuse.argb.a < 255) matlist_00116FA0W[0].diffuse.argb.a = matlist_00116FA0W[0].diffuse.argb.a + 8;
+			}
+			if (matlist_00116FA0W[0].diffuse.argb.a > 255) matlist_00116FA0W[0].diffuse.argb.a = 255;
+			ProcessModelNode_AB_Wrapper(&poster_goal, v1->Scale.x);
+		}
 		njPopMatrix(1u);
 	}
 }
