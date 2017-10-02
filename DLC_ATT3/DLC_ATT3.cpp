@@ -489,9 +489,10 @@ void Timer_Main(ObjectMaster *a1)
 		ChallengeTimer++;
 		Timer_Display(a1);
 	}
-	if ((((ChallengeTimer / 3600) % 60) % 10) >= 5)
+	if ((((ChallengeTimer / 3600) % 60) % 10) >= 3 && ChallengeOver == false)
 	{
 		ChallengeOver = true;
+		sub_4B79C0((char *)(&ATT3_Message2), 120);
 	}
 	if (ChallengeAction == true && ChallengeTimer % 3600 == 0)
 	{
@@ -1284,6 +1285,28 @@ extern "C"
 				ChallengeTimer = 0;
 				ChallengeOver = false;
 				ChallengeAction = false;
+			}
+		}
+	}
+	__declspec(dllexport) void __cdecl OnInput()
+	{
+		if (GameState == 16)
+		{
+			if (ChallengeAction == true && (ControllerPointers[0]->PressedButtons & Buttons_Y) == Buttons_Y)
+			{
+				ChallengeAction = false;
+				ChallengeOver = false;
+				Gate1 = false;
+				Gate2 = false;
+				Gate3 = false;
+				Gate4 = false;
+				Gate5 = false;
+				Gate6 = false;
+				Gate7 = false;
+				Gate8 = false;
+				Gate9 = false;
+				Gate10 = false;
+				ChallengeTimer = 0;
 			}
 		}
 	}
