@@ -66,56 +66,56 @@ void StopVoicesButMaybeNot()
 }
 
 char *FamitsuMessage1[] = {
-	"\aOh no, I'm beaten!\nGotta rush to the goal now!",
+	"	Oh no, I'm beaten!\n	Gotta rush to the goal now!",
 	NULL,
 };
 
 char *FamitsuMessage2[] = {
-	"\aYou aren't done yet!\nFind the remaining Sonics!",
-	"\aTo quit the challenge,\npress Y in the pause menu.",
+	"	You aren't done yet!\n	Find the remaining Sonics!",
+	"	To quit the challenge,\n	press Y in the pause menu.",
 	NULL,
 };
 
 char *FamitsuMessage3[] = {
-	"\aTime over!\nTry again from the beginning.",
+	"	Time over!\n	Try again from the beginning.",
 	NULL,
 };
 
 char* FamitsuMessage4[] = {
-	"\a      - Challenge start -      \nFind Sonic in 5 secret spots!",
+	"	- Challenge start -\n	Find Sonic in 5 secret spots!",
 	NULL,
 };
 
 char *FamitsuMessage5[] = {
-	"\aI'm Famitsu's special hedgehog friend!",
+	"	I'm Famitsu's special hedgehog friend!",
 	NULL,
 };
 
 char *FamitsuMessage6[] = {
-	"\aI wanna become a blue hedgehog!",
+	"	I wanna become a blue hedgehog!",
 	NULL,
 };
 
 char *FamitsuMessage7[] = {
-	"\aNew Famitsu issue\nevery Friday!",
+	"	New Famitsu issue\n	every Friday!",
 	NULL,
 };
 
 char *FamitsuMessage8[] = {
-	"\aThank you for staying\nwith Sonic and Famitsu!",
-	"\aLet's be good friends, alright?",
+	"	Thank you for staying\n	with Sonic and Famitsu!",
+	"	Let's be good friends, alright?",
 	NULL,
 };
 
 char *FamitsuMessage9[] = {
-	"\aYou can meet\nme at Famitsu, too!",
+	"	You can meet\n	me at Famitsu, too!",
 	NULL,
 };
 
 char *FamitsuMessage10[] = {
-	"\aCongratulations!\nYou've won the game of hide-and-seek!",
+	"	Congratulations!\n	You've won the game of hide-and-seek!",
 	ResultText,
-	"\aThe challenge is over.\nTouch the red balloon again to restart.",
+	"	The challenge is over.\n	Touch the red balloon again to restart.",
 	NULL,
 };
 
@@ -136,7 +136,14 @@ void Poster_Display(ObjectMaster *a1)
 		v4 = v1->Rotation.z;
 		njRotateXYZ(0, v2, v3, v4);
 		njScale(0, v1->Scale.z, v1->Scale.y, v1->Scale.x);
+		if ((Collected1 == true && v1->CharIndex == 4) || (Collected2 == true && v1->CharIndex == 5) || (Collected3 == true && v1->CharIndex == 6) || (Collected4 == true && v1->CharIndex == 7) || (Collected5 == true && v1->CharIndex == 8))
+		{
+			matlist_00116FA0X[0].attrflags |= NJD_FLAG_USE_ALPHA;
+			matlist_00116FA0X[0].diffuse.argb.a = 255 - v1->InvulnerableTime;
+		}
 		ProcessModelNode_AB_Wrapper(&poster, v1->Scale.x);
+		matlist_00116FA0X[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		matlist_00116FA0X[0].diffuse.argb.a = 255;
 		njPopMatrix(1u);
 	}
 }
@@ -159,6 +166,7 @@ void Poster_Main(ObjectMaster *a1)
 		{
 			if ((Collected1 == false && v1->CharIndex == 4) || (Collected2 == false && v1->CharIndex == 5) || (Collected3 == false && v1->CharIndex == 6) || (Collected4 == false && v1->CharIndex == 7) || (Collected5 == false && v1->CharIndex == 8))
 			{
+				v1->InvulnerableTime = 0;
 				v1->Scale.x = 1.0f;
 				v1->Scale.y = 1.0f;
 				v1->Scale.z = 1.0f;
@@ -203,11 +211,13 @@ void Poster_Main(ObjectMaster *a1)
 			}
 			if ((Collected1 == true && v1->CharIndex == 4) || (Collected2 == true && v1->CharIndex == 5) || (Collected3 == true && v1->CharIndex == 6) || (Collected4 == true && v1->CharIndex == 7) || (Collected5 == true && v1->CharIndex == 8))
 			{
+				if (v1->InvulnerableTime < 255) v1->InvulnerableTime = v1->InvulnerableTime + 8;
+				if (v1->InvulnerableTime > 255) v1->InvulnerableTime = 255;
 				if (v1->Scale.x > 0.05f)
 				{
-					v1->Scale.x = v1->Scale.x*0.9f;
-					v1->Scale.y = v1->Scale.y*0.9f;
-					v1->Scale.z = v1->Scale.z*0.9f;
+					v1->Scale.x = v1->Scale.x*0.95f;
+					v1->Scale.y = v1->Scale.y*0.95f;
+					v1->Scale.z = v1->Scale.z*0.95f;
 				}
 			}
 			if (v1->Scale.x > 0.05f) Poster_Display(a1);
@@ -264,22 +274,34 @@ void Balloons_Main(ObjectMaster *a1)
 		v1->Rotation.y = v3;
 		if (v1->CharIndex == 9)
 		{
-			if (ChallengeAction == true && v1->Scale.x > 0.05f)
+			if (ChallengeAction == true)
 			{
-				v1->Scale.x = v1->Scale.x*0.95f;
-				v1->Scale.y = v1->Scale.y*0.95f;
-				v1->Scale.z = v1->Scale.z*0.95f;
-			}
-			if (ChallengeAction == false && v1->Scale.x < 1.5f)
-			{
-				v1->Scale.x = v1->Scale.x*1.05f;
-				v1->Scale.y = v1->Scale.y*1.05f;
-				v1->Scale.z = v1->Scale.z*1.05f;
-				if (v1->Scale.y >= 1.5f)
+				matlist_00000008[0].attrflags |= NJD_FLAG_USE_ALPHA;
+				if (matlist_00000008[0].diffuse.argb.a > 8) matlist_00000008[0].diffuse.argb.a = matlist_00000008[0].diffuse.argb.a - 8;
+				if (matlist_00000008[0].diffuse.argb.a < 8) matlist_00000008[0].diffuse.argb.a = 0;
+				if (v1->Scale.x > 0.05f)
 				{
-					v1->Scale.x = 1.5f;
-					v1->Scale.y = 1.5f;
-					v1->Scale.z = 1.5f;
+					v1->Scale.x = v1->Scale.x*0.95f;
+					v1->Scale.y = v1->Scale.y*0.95f;
+					v1->Scale.z = v1->Scale.z*0.95f;
+				}
+			}
+			if (ChallengeAction == false)
+			{
+				matlist_00000008[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				matlist_00000008[0].diffuse.argb.a = 255;
+				if (v1->Scale.x < 1.5f)
+				{
+
+					v1->Scale.x = v1->Scale.x*1.05f;
+					v1->Scale.y = v1->Scale.y*1.05f;
+					v1->Scale.z = v1->Scale.z*1.05f;
+					if (v1->Scale.y >= 1.5f)
+					{
+						v1->Scale.x = 1.5f;
+						v1->Scale.y = 1.5f;
+						v1->Scale.z = 1.5f;
+					}
 				}
 			}
 			if (ChallengeAction == false && IsPlayerInsideSphere(&v1->Position, 15))
@@ -301,22 +323,33 @@ void Balloons_Main(ObjectMaster *a1)
 		}
 		else
 		{
-			if (ChallengeAction == false && v1->Scale.x > 0.05f)
+			if (ChallengeAction == false)
 			{
-				v1->Scale.x = v1->Scale.x*0.95f;
-				v1->Scale.y = v1->Scale.y*0.95f;
-				v1->Scale.z = v1->Scale.z*0.95f;
-			}
-			if (ChallengeAction == true && v1->Scale.x < 1.5f)
-			{
-				v1->Scale.x = v1->Scale.x*1.05f;
-				v1->Scale.y = v1->Scale.y*1.05f;
-				v1->Scale.z = v1->Scale.z*1.05f;
-				if (v1->Scale.y >= 1.5f)
+				matlist_00000008_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
+				if (matlist_00000008_2[0].diffuse.argb.a > 8) matlist_00000008_2[0].diffuse.argb.a = matlist_00000008_2[0].diffuse.argb.a - 8;
+				if (matlist_00000008_2[0].diffuse.argb.a < 8) matlist_00000008_2[0].diffuse.argb.a = 0;
+				if (v1->Scale.x > 0.05f)
 				{
-					v1->Scale.x = 1.5f;
-					v1->Scale.y = 1.5f;
-					v1->Scale.z = 1.5f;
+					v1->Scale.x = v1->Scale.x*0.95f;
+					v1->Scale.y = v1->Scale.y*0.95f;
+					v1->Scale.z = v1->Scale.z*0.95f;
+				}
+			}
+			if (ChallengeAction == true)
+			{
+				matlist_00000008_2[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				matlist_00000008_2[0].diffuse.argb.a = 255;
+				if (v1->Scale.x < 1.5f)
+				{
+					v1->Scale.x = v1->Scale.x*1.05f;
+					v1->Scale.y = v1->Scale.y*1.05f;
+					v1->Scale.z = v1->Scale.z*1.05f;
+					if (v1->Scale.y >= 1.5f)
+					{
+						v1->Scale.x = 1.5f;
+						v1->Scale.y = 1.5f;
+						v1->Scale.z = 1.5f;
+					}
 				}
 			}
 			if (ChallengeAction == true && IsPlayerInsideSphere(&v1->Position, 15))

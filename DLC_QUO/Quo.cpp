@@ -71,63 +71,63 @@ void StopVoicesButMaybeNot()
 }
 
 char *QuoMessage1[] = {
-	"\aRush to the Mystic Ruins goal, now!",
+	"	Rush to the Mystic Ruins goal, now!",
 	NULL,
 };
 
 char *QuoMessage2[] = {
-	"\aYou aren't done yet!\nFind the remaining QUO cards!",
-	"\aTo quit the challenge,\npress Y in the pause menu.",
+	"	You aren't done yet!\n	Find the remaining QUO cards!",
+	"	To quit the challenge,\n	press Y in the pause menu.",
 	NULL,
 };
 
 char *QuoMessage3[] = {
-	"\aTime over!\nTry again from the beginning.",
+	"	Time over!\n	Try again from the beginning.",
 	NULL,
 };
 
 char* QuoMessage4[] = {
-	"\a      - Challenge start -      \nCollect 6 MD Yukawa QUO cards!",
+	"	- Challenge start -\n	Collect 6 MD Yukawa QUO cards!",
 	NULL,
 };
 
 char *QuoMessage5[] = {
-	"\aOops, you've got the old man there!\n      - Hidekazu Yukawa -      ",
+	"	Oops, you've got the old man there!\n	- Hidekazu Yukawa -",
 	NULL,
 };
 
 char *QuoMessage6[] = {
-	"\aSo you found me, huh.\n      - Hidekazu Yukawa -      ",
+	"	So you found me, huh.\n	- Hidekazu Yukawa -",
 	NULL,
 };
 
 char *QuoMessage7[] = {
-	"\aThe Hidekazu Yukawa man is going\nto work even harder from now on.",
-	"\a      - Hidekazu Yukawa -      ",
+	"	The Hidekazu Yukawa man is going\n	to work even harder from now on.",
+	"	- Hidekazu Yukawa -",
 	NULL,
 };
 
 char *QuoMessage8[] = {
-	"\aYou might break a nail\nif you fell from here.",
-	"\a      - Hidekazu Yukawa -      ",
+	"	You might break a nail\n	if you fell from here.",
+	"	- Hidekazu Yukawa -",
 	NULL,
 };
 
 char *QuoMessage9[] = {
-	"\aOoh! You've gone so far to find these!\n      - Hidekazu Yukawa -      ",
+	"	Ooh! You've gone so far to find these!\n	- Hidekazu Yukawa -",
 	NULL,
 };
 
 char *QuoMessage10[] = {
-	"\aThe cards can be used nationwide.\nUse them well!",
-	"\a      - Hidekazu Yukawa -      ",
+	"	The cards can be used nationwide.\n	Use them well!",
+	"	- Hidekazu Yukawa -",
 	NULL,
 };
 
 char *QuoMessage11[] = {
-	"\aCongratulations!\nYou've cleared the card hunting game!",
+	"	Congratulations!\n	You've cleared the card hunting game!",
 	ResultText,
-	"\aThe challenge is over.\nTouch the red balloon again to restart.",
+	"	The challenge is over.\n	Touch the red balloon again to restart.",
 	NULL,
 };
 
@@ -149,7 +149,14 @@ void Poster_Display(ObjectMaster *a1)
 		v4 = v1->Rotation.z;
 		njRotateXYZ(0, v2, v3, v4);
 		njScale(0, v1->Scale.z, v1->Scale.y, v1->Scale.x);
+		if ((CollectedSS1 == true && v1->Index == 0) || (CollectedSS2 == true && v1->Index == 1) || (CollectedSS3 == true && v1->Index == 2) || (CollectedMR1 == true && v1->Index == 3) || (CollectedMR2 == true && v1->Index == 4) || (CollectedMR3 == true && v1->Index == 5))
+		{
+			matlist_00116FA0X[0].attrflags |= NJD_FLAG_USE_ALPHA;
+			matlist_00116FA0X[0].diffuse.argb.a = 255- v1->InvulnerableTime;
+		}
 		ProcessModelNode_AB_Wrapper(&poster, v1->Scale.x);
+		matlist_00116FA0X[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+		matlist_00116FA0X[0].diffuse.argb.a = 255;
 		njPopMatrix(1u);
 	}
 }
@@ -175,6 +182,7 @@ void Poster_Main(ObjectMaster *a1)
 		{
 			if ((CollectedSS1 == false && v1->Index == 0) || (CollectedSS2 == false && v1->Index == 1) || (CollectedSS3 == false && v1->Index == 2) || (CollectedMR1 == false && v1->Index == 3) || (CollectedMR2 == false && v1->Index == 4) || (CollectedMR3 == false && v1->Index == 5))
 			{
+				v1->InvulnerableTime = 0;
 				v1->Scale.x = 1.0f;
 				v1->Scale.y = 1.0f;
 				v1->Scale.z = 1.0f;
@@ -226,11 +234,13 @@ void Poster_Main(ObjectMaster *a1)
 			}
 			if ((CollectedSS1 == true && v1->Index == 0) || (CollectedSS2 == true && v1->Index == 1) || (CollectedSS3 == true && v1->Index == 2) || (CollectedMR1 == true && v1->Index == 3) || (CollectedMR2 == true && v1->Index == 4) || (CollectedMR3 == true && v1->Index == 5))
 			{
+				if (v1->InvulnerableTime < 255) v1->InvulnerableTime = v1->InvulnerableTime + 8;
+				if (v1->InvulnerableTime > 255) v1->InvulnerableTime = 255;
 				if (v1->Scale.x > 0.05f)
 				{
-					v1->Scale.x = v1->Scale.x*0.9f;
-					v1->Scale.y = v1->Scale.y*0.9f;
-					v1->Scale.z = v1->Scale.z*0.9f;
+					v1->Scale.x = v1->Scale.x*0.95f;
+					v1->Scale.y = v1->Scale.y*0.95f;
+					v1->Scale.z = v1->Scale.z*0.95f;
 				}
 			}
 			SpeedY = v1->CharID;
@@ -291,22 +301,34 @@ void Balloons_Main(ObjectMaster *a1)
 		v1->Rotation.y = v3;
 		if (v1->CharIndex == 3)
 		{
-			if (ChallengeAction == true && v1->Scale.x > 0.05f)
+			if (ChallengeAction == true)
 			{
-				v1->Scale.x = v1->Scale.x*0.95f;
-				v1->Scale.y = v1->Scale.y*0.95f;
-				v1->Scale.z = v1->Scale.z*0.95f;
-			}
-			if (ChallengeAction == false && v1->Scale.x < 1.5f)
-			{
-				v1->Scale.x = v1->Scale.x*1.05f;
-				v1->Scale.y = v1->Scale.y*1.05f;
-				v1->Scale.z = v1->Scale.z*1.05f;
-				if (v1->Scale.y >= 1.5f)
+				matlist_00000008[0].attrflags |= NJD_FLAG_USE_ALPHA;
+				if (matlist_00000008[0].diffuse.argb.a > 8) matlist_00000008[0].diffuse.argb.a = matlist_00000008[0].diffuse.argb.a - 8;
+				if (matlist_00000008[0].diffuse.argb.a < 8) matlist_00000008[0].diffuse.argb.a = 0;
+				if (v1->Scale.x > 0.05f)
 				{
-					v1->Scale.x = 1.5f;
-					v1->Scale.y = 1.5f;
-					v1->Scale.z = 1.5f;
+					v1->Scale.x = v1->Scale.x*0.95f;
+					v1->Scale.y = v1->Scale.y*0.95f;
+					v1->Scale.z = v1->Scale.z*0.95f;
+				}
+			}
+			if (ChallengeAction == false)
+			{
+				matlist_00000008[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				matlist_00000008[0].diffuse.argb.a = 255;
+				if (v1->Scale.x < 1.5f)
+				{
+
+					v1->Scale.x = v1->Scale.x*1.05f;
+					v1->Scale.y = v1->Scale.y*1.05f;
+					v1->Scale.z = v1->Scale.z*1.05f;
+					if (v1->Scale.y >= 1.5f)
+					{
+						v1->Scale.x = 1.5f;
+						v1->Scale.y = 1.5f;
+						v1->Scale.z = 1.5f;
+					}
 				}
 			}
 			if (ChallengeAction == false && IsPlayerInsideSphere(&v1->Position, 15))
@@ -329,22 +351,33 @@ void Balloons_Main(ObjectMaster *a1)
 		}
 		else
 		{
-			if (ChallengeAction == false && v1->Scale.x > 0.05f)
+			if (ChallengeAction == false)
 			{
-				v1->Scale.x = v1->Scale.x*0.95f;
-				v1->Scale.y = v1->Scale.y*0.95f;
-				v1->Scale.z = v1->Scale.z*0.95f;
-			}
-			if (ChallengeAction == true && v1->Scale.x < 1.5f)
-			{
-				v1->Scale.x = v1->Scale.x*1.05f;
-				v1->Scale.y = v1->Scale.y*1.05f;
-				v1->Scale.z = v1->Scale.z*1.05f;
-				if (v1->Scale.y >= 1.5f)
+				matlist_00000008_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
+				if (matlist_00000008_2[0].diffuse.argb.a > 8) matlist_00000008_2[0].diffuse.argb.a = matlist_00000008_2[0].diffuse.argb.a - 8;
+				if (matlist_00000008_2[0].diffuse.argb.a < 8) matlist_00000008_2[0].diffuse.argb.a = 0;
+				if (v1->Scale.x > 0.05f)
 				{
-					v1->Scale.x = 1.5f;
-					v1->Scale.y = 1.5f;
-					v1->Scale.z = 1.5f;
+					v1->Scale.x = v1->Scale.x*0.95f;
+					v1->Scale.y = v1->Scale.y*0.95f;
+					v1->Scale.z = v1->Scale.z*0.95f;
+				}
+			}
+			if (ChallengeAction == true)
+			{
+				matlist_00000008_2[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				matlist_00000008_2[0].diffuse.argb.a = 255;
+				if (v1->Scale.x < 1.5f)
+				{
+					v1->Scale.x = v1->Scale.x*1.05f;
+					v1->Scale.y = v1->Scale.y*1.05f;
+					v1->Scale.z = v1->Scale.z*1.05f;
+					if (v1->Scale.y >= 1.5f)
+					{
+						v1->Scale.x = 1.5f;
+						v1->Scale.y = 1.5f;
+						v1->Scale.z = 1.5f;
+					}
 				}
 			}
 			if (ChallengeAction == true && IsPlayerInsideSphere(&v1->Position, 15))
@@ -780,14 +813,6 @@ extern "C"
 				TimerLoaded = false;
 			}
 			if (HintTimer > 0) HintTimer--;
-			if (CurrentLevel != 26)
-			{
-				ObjectsLoaded_SS = false;
-			}
-			if (CurrentLevel != 33)
-			{
-				ObjectsLoaded_MR = false;
-			}
 			if (PreviousLevel != CurrentLevel)
 			{
 				if (PreviousLevel == 26) ObjectsLoaded_SS = false;
