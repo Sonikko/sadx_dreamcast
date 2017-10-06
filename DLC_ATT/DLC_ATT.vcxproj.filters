@@ -15,12 +15,12 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="DLC_ATT2.cpp">
+    <ClCompile Include="DLC_ATT.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="ATT2.h">
+    <ClInclude Include="DLC_ATT.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
