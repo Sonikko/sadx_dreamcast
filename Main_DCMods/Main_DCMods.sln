@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
-VisualStudioVersion = 15.0.26730.12
+VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_ADV00MODELS", "..\DC_ADV00MODELS\DC_ADV00MODELS\DC_ADV00MODELS.vcxproj", "{AB522621-A943-4F4C-A23B-3461F31A9C1E}"
 EndProject
@@ -76,6 +76,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLC_Halloween", "..\DLC_Halloween\DLC_Halloween.vcxproj", "{38F82008-E6AE-4861-87AD-26B8C8CAB8AB}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLC_Christmas99", "..\DLC_Christmas99\DLC_Christmas99.vcxproj", "{F4129C6F-157F-40BC-B75A-2EFAD4A27F75}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLC_Christmas98", "..\DLC_Christmas98\DLC_Christmas98.vcxproj", "{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -531,6 +533,18 @@ Global
 		{F4129C6F-157F-40BC-B75A-2EFAD4A27F75}.Release|x64.Build.0 = Release|x64
 		{F4129C6F-157F-40BC-B75A-2EFAD4A27F75}.Release|x86.ActiveCfg = Release|Win32
 		{F4129C6F-157F-40BC-B75A-2EFAD4A27F75}.Release|x86.Build.0 = Release|Win32
+		{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}.Debug|Win32.ActiveCfg = Debug|Win32
+		{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}.Debug|Win32.Build.0 = Debug|Win32
+		{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}.Debug|x64.ActiveCfg = Debug|x64
+		{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}.Debug|x64.Build.0 = Debug|x64
+		{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}.Debug|x86.ActiveCfg = Debug|Win32
+		{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}.Debug|x86.Build.0 = Debug|Win32
+		{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}.Release|Win32.ActiveCfg = Release|Win32
+		{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}.Release|Win32.Build.0 = Release|Win32
+		{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}.Release|x64.ActiveCfg = Release|x64
+		{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}.Release|x64.Build.0 = Release|x64
+		{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}.Release|x86.ActiveCfg = Release|Win32
+		{69DFC6AE-16F5-4EE8-9BAB-7D310E56B600}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
