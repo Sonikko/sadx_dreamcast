@@ -545,1651 +545,1660 @@ void LoadStuffInStationSquare(ObjectMaster *a1)
 
 }
 
-void LoadHalloweenStuff()
+void LoadHalloweenStuff_Act1()
 {
 	ObjectMaster *obj;
 	EntityData1 *ent;
 	ObjectFunc(OF0, DLCObject_Load);
 	setdata_dlc.Distance = 612800.0f;
 	//Act 1
-	if (CurrentAct == 0)
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
 	{
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -2023;
-			ent->Position.y = 1750;
-			ent->Position.z = -970;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 0;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 0;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -1963;
-			ent->Position.y = 1750;
-			ent->Position.z = -1001;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0xAFA4;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 0;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 0;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -1999;
-			ent->Position.y = 1750;
-			ent->Position.z = -917;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0x8000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 0;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 0;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -2000;
-			ent->Position.y = 1750;
-			ent->Position.z = -409;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0x6000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 4.0f;
-			ent->Scale.y = 3.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 0;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 0;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -1962;
-			ent->Position.y = 1749;
-			ent->Position.z = -925;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 0;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -2038;
-			ent->Position.y = 1749;
-			ent->Position.z = -926;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 0;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -1999;
-			ent->Position.y = 1749;
-			ent->Position.z = -953;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 0;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -6522;
-			ent->Position.y = -6616;
-			ent->Position.z = 23309;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 0;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -6578;
-			ent->Position.y = -6616;
-			ent->Position.z = 23311;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 0;
-		}
+		ent = obj->Data1;
+		ent->Position.x = -2023;
+		ent->Position.y = 1750;
+		ent->Position.z = -970;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 0;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 0;
 	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -1963;
+		ent->Position.y = 1750;
+		ent->Position.z = -1001;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0xAFA4;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 0;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 0;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -1999;
+		ent->Position.y = 1750;
+		ent->Position.z = -917;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0x8000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 0;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 0;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -2000;
+		ent->Position.y = 1750;
+		ent->Position.z = -409;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0x6000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 4.0f;
+		ent->Scale.y = 3.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 0;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 0;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -1962;
+		ent->Position.y = 1749;
+		ent->Position.z = -925;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 0;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -2038;
+		ent->Position.y = 1749;
+		ent->Position.z = -926;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 0;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -1999;
+		ent->Position.y = 1749;
+		ent->Position.z = -953;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 0;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -6522;
+		ent->Position.y = -6616;
+		ent->Position.z = 23309;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 0;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -6578;
+		ent->Position.y = -6616;
+		ent->Position.z = 23311;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 0;
+	}
+}
+
+void LoadHalloweenStuff_Act2()
+{
+	ObjectMaster *obj;
+	EntityData1 *ent;
+	ObjectFunc(OF0, DLCObject_Load);
+	setdata_dlc.Distance = 612800.0f;
 	//Act 2
-	if (CurrentAct == 1)
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
 	{
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -37;
-			ent->Position.y = 19;
-			ent->Position.z = -950;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 2.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -90;
-			ent->Position.y = 1;
-			ent->Position.z = -963;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0x4000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -63;
-			ent->Position.y = 1;
-			ent->Position.z = -813;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0x1555;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -113;
-			ent->Position.y = 1;
-			ent->Position.z = -867;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0x65B0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 722;
-			ent->Position.y = 51;
-			ent->Position.z = -352;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 4.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 378;
-			ent->Position.y = -114;
-			ent->Position.z = -760;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 6.0f;
-			ent->Scale.y = 4.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 74;
-			ent->Position.y = 266;
-			ent->Position.z = -151;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 5.0f;
-			ent->Scale.y = 3.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 74;
-			ent->Position.y = 224;
-			ent->Position.z = -86;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 335;
-			ent->Position.y = 226;
-			ent->Position.z = 516;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0x07D2;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 423;
-			ent->Position.y = 306;
-			ent->Position.z = 480;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0x1777;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -287;
-			ent->Position.y = 311;
-			ent->Position.z = -365;
-			ent->Index = 0;
-			ent->Rotation.x = 0x4000;
-			ent->Rotation.y = 0x2FA4;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 3.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 158;
-			ent->Position.y = 566;
-			ent->Position.z = -115;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xA888;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 4.0f;
-			ent->Scale.y = 2.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 125;
-			ent->Position.y = 600;
-			ent->Position.z = -29;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xB777;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 4.0f;
-			ent->Scale.y = 2.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 214;
-			ent->Position.y = 551;
-			ent->Position.z = -171;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0x98E3;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 4.0f;
-			ent->Scale.y = 2.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 117;
-			ent->Position.y = 407;
-			ent->Position.z = 719;
-			ent->Index = 0;
-			ent->Rotation.x = 0xF3E9;
-			ent->Rotation.y = 0x8000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 176;
-			ent->Position.y = 714;
-			ent->Position.z = 306;
-			ent->Index = 0;
-			ent->Rotation.x = 0xFBBB;
-			ent->Rotation.y = 0x2FA4;
-			ent->Rotation.z = 0x0CCC;
-			ent->Scale.x = 2.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -95;
-			ent->Position.y = 372;
-			ent->Position.z = -895;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 8.0f;
-			ent->Scale.y = 5.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 320;
-			ent->Position.y = 621;
-			ent->Position.z = 339;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 8.0f;
-			ent->Scale.y = 5.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 329;
-			ent->Position.y = 733;
-			ent->Position.z = -53;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 5.0f;
-			ent->Scale.y = 3.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 589;
-			ent->Position.y = 163;
-			ent->Position.z = 31;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC9F4;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 4.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 627;
-			ent->Position.y = 150;
-			ent->Position.z = 81;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC9F4;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 4.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 157;
-			ent->Position.y = 567;
-			ent->Position.z = -250;
-			ent->Index = 0;
-			ent->Rotation.x = 0xF8E3;
-			ent->Rotation.y = 0x2FA4;
-			ent->Rotation.z = 0x0AAA;
-			ent->Scale.x = 2.0f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 3;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -70;
-			ent->Position.y = 0;
-			ent->Position.z = -958;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -114;
-			ent->Position.y = 0;
-			ent->Position.z = 983;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -90;
-			ent->Position.y = 0;
-			ent->Position.z = -383;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -90;
-			ent->Position.y = 3;
-			ent->Position.z = 88;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -99;
-			ent->Position.y = 7;
-			ent->Position.z = 568;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -45;
-			ent->Position.y = 7;
-			ent->Position.z = 668;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 520;
-			ent->Position.y = 5;
-			ent->Position.z = 669;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 598;
-			ent->Position.y = 5;
-			ent->Position.z = 522;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 844;
-			ent->Position.y = 1;
-			ent->Position.z = 314;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 653;
-			ent->Position.y = 49;
-			ent->Position.z = -407;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 696;
-			ent->Position.y = 49;
-			ent->Position.z = -441;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 363;
-			ent->Position.y = 253;
-			ent->Position.z = 592;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 587;
-			ent->Position.y = 326;
-			ent->Position.z = 425;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -290;
-			ent->Position.y = 310;
-			ent->Position.z = -362;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -299;
-			ent->Position.y = 336;
-			ent->Position.z = -183;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -18;
-			ent->Position.y = 402;
-			ent->Position.z = -14;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -21;
-			ent->Position.y = 440;
-			ent->Position.z = 180;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -19;
-			ent->Position.y = 491;
-			ent->Position.z = 319;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 165;
-			ent->Position.y = 579;
-			ent->Position.z = 482;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 324;
-			ent->Position.y = 571;
-			ent->Position.z = 520;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 446;
-			ent->Position.y = 553;
-			ent->Position.z = 481;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 259;
-			ent->Position.y = 700;
-			ent->Position.z = 236;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 398;
-			ent->Position.y = 700;
-			ent->Position.z = 235;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 307;
-			ent->Position.y = 657;
-			ent->Position.z = 182;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 361;
-			ent->Position.y = 657;
-			ent->Position.z = 182;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 331;
-			ent->Position.y = 671;
-			ent->Position.z = 34;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 1;
-		}
+		ent = obj->Data1;
+		ent->Position.x = -37;
+		ent->Position.y = 19;
+		ent->Position.z = -950;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 2.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
 	}
-	//Act 3
-	if (CurrentAct == 2)
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
 	{
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 241;
-			ent->Position.y = 0;
-			ent->Position.z = -114;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 246;
-			ent->Position.y = 0;
-			ent->Position.z = -91;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 686;
-			ent->Position.y = 0;
-			ent->Position.z = -97;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 910;
-			ent->Position.y = 0;
-			ent->Position.z = -160;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 933;
-			ent->Position.y = 0;
-			ent->Position.z = -152;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 876;
-			ent->Position.y = -32;
-			ent->Position.z = -419;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 626;
-			ent->Position.y = -35;
-			ent->Position.z = 575;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -105;
-			ent->Position.y = 0;
-			ent->Position.z = -267;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -106;
-			ent->Position.y = 0;
-			ent->Position.z = -69;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -108;
-			ent->Position.y = 91;
-			ent->Position.z = 195;
-			ent->Index = 10;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 1;
-			ent->CharID = 1;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 604;
-			ent->Position.y = 130;
-			ent->Position.z = 164;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC9F4;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 4.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 75;
-			ent->Position.y = 1;
-			ent->Position.z = -282;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0x6FA4;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 927;
-			ent->Position.y = 19;
-			ent->Position.z = -113;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xA38E;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.5f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 752;
-			ent->Position.y = -12;
-			ent->Position.z = -492;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0x44FA;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 2.0f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 901;
-			ent->Position.y = 16;
-			ent->Position.z = -219;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0x4000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 2.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 927;
-			ent->Position.y = 27;
-			ent->Position.z = -233;
-			ent->Index = 0;
-			ent->Rotation.x = 0x2666;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 2.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -52;
-			ent->Position.y = 101;
-			ent->Position.z = 537;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0x6000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -86;
-			ent->Position.y = 139;
-			ent->Position.z = 489;
-			ent->Index = 0;
-			ent->Rotation.x = 0x4000;
-			ent->Rotation.y = 0xE000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 27;
-			ent->Position.y = 0;
-			ent->Position.z = -11;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0x4000;
-			ent->Rotation.z = 0x33E9;
-			ent->Scale.x = 2.0f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 114;
-			ent->Position.y = 23;
-			ent->Position.z = -286;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -151;
-			ent->Position.y = 91;
-			ent->Position.z = 172;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -11;
-			ent->Position.y = 91;
-			ent->Position.z = 172;
-			ent->Index = 0;
-			ent->Rotation.x = 0xC000;
-			ent->Rotation.y = 0x4000;
-			ent->Rotation.z = 0x8000;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 1.5f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -81;
-			ent->Position.y = 34;
-			ent->Position.z = -163;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 4.0f;
-			ent->Scale.y = 3.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = 18;
-			ent->Position.y = 99;
-			ent->Position.z = -2;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 5.0f;
-			ent->Scale.y = 3.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -78;
-			ent->Position.y = 37;
-			ent->Position.z = -301;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
-		{
-			ent = obj->Data1;
-			ent->Position.x = -81;
-			ent->Position.y = 125;
-			ent->Position.z = 277;
-			ent->Index = 0;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0xC000;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 3.0f;
-			ent->Scale.y = 2.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharID = 2;
-			ent->Action = 3;
-			ent->NextAction = 2;
-		}
+		ent = obj->Data1;
+		ent->Position.x = -90;
+		ent->Position.y = 1;
+		ent->Position.z = -963;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0x4000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 1.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -63;
+		ent->Position.y = 1;
+		ent->Position.z = -813;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0x1555;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 1.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -113;
+		ent->Position.y = 1;
+		ent->Position.z = -867;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0x65B0;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 1.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 722;
+		ent->Position.y = 51;
+		ent->Position.z = -352;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 4.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 378;
+		ent->Position.y = -114;
+		ent->Position.z = -760;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 6.0f;
+		ent->Scale.y = 4.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 74;
+		ent->Position.y = 266;
+		ent->Position.z = -151;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 5.0f;
+		ent->Scale.y = 3.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 74;
+		ent->Position.y = 224;
+		ent->Position.z = -86;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 335;
+		ent->Position.y = 226;
+		ent->Position.z = 516;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0x07D2;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 423;
+		ent->Position.y = 306;
+		ent->Position.z = 480;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0x1777;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -287;
+		ent->Position.y = 311;
+		ent->Position.z = -365;
+		ent->Index = 0;
+		ent->Rotation.x = 0x4000;
+		ent->Rotation.y = 0x2FA4;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 3.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 158;
+		ent->Position.y = 566;
+		ent->Position.z = -115;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xA888;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 4.0f;
+		ent->Scale.y = 2.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 125;
+		ent->Position.y = 600;
+		ent->Position.z = -29;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xB777;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 4.0f;
+		ent->Scale.y = 2.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 214;
+		ent->Position.y = 551;
+		ent->Position.z = -171;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0x98E3;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 4.0f;
+		ent->Scale.y = 2.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 117;
+		ent->Position.y = 407;
+		ent->Position.z = 719;
+		ent->Index = 0;
+		ent->Rotation.x = 0xF3E9;
+		ent->Rotation.y = 0x8000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 176;
+		ent->Position.y = 714;
+		ent->Position.z = 306;
+		ent->Index = 0;
+		ent->Rotation.x = 0xFBBB;
+		ent->Rotation.y = 0x2FA4;
+		ent->Rotation.z = 0x0CCC;
+		ent->Scale.x = 2.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -95;
+		ent->Position.y = 372;
+		ent->Position.z = -895;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 8.0f;
+		ent->Scale.y = 5.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 320;
+		ent->Position.y = 621;
+		ent->Position.z = 339;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 8.0f;
+		ent->Scale.y = 5.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 329;
+		ent->Position.y = 733;
+		ent->Position.z = -53;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 5.0f;
+		ent->Scale.y = 3.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 589;
+		ent->Position.y = 163;
+		ent->Position.z = 31;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC9F4;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 4.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 627;
+		ent->Position.y = 150;
+		ent->Position.z = 81;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC9F4;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 4.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 157;
+		ent->Position.y = 567;
+		ent->Position.z = -250;
+		ent->Index = 0;
+		ent->Rotation.x = 0xF8E3;
+		ent->Rotation.y = 0x2FA4;
+		ent->Rotation.z = 0x0AAA;
+		ent->Scale.x = 2.0f;
+		ent->Scale.y = 1.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 3;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -70;
+		ent->Position.y = 0;
+		ent->Position.z = -958;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -114;
+		ent->Position.y = 0;
+		ent->Position.z = 983;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -90;
+		ent->Position.y = 0;
+		ent->Position.z = -383;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -90;
+		ent->Position.y = 3;
+		ent->Position.z = 88;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -99;
+		ent->Position.y = 7;
+		ent->Position.z = 568;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -45;
+		ent->Position.y = 7;
+		ent->Position.z = 668;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 520;
+		ent->Position.y = 5;
+		ent->Position.z = 669;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 598;
+		ent->Position.y = 5;
+		ent->Position.z = 522;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 844;
+		ent->Position.y = 1;
+		ent->Position.z = 314;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 653;
+		ent->Position.y = 49;
+		ent->Position.z = -407;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 696;
+		ent->Position.y = 49;
+		ent->Position.z = -441;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 363;
+		ent->Position.y = 253;
+		ent->Position.z = 592;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 587;
+		ent->Position.y = 326;
+		ent->Position.z = 425;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -290;
+		ent->Position.y = 310;
+		ent->Position.z = -362;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -299;
+		ent->Position.y = 336;
+		ent->Position.z = -183;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -18;
+		ent->Position.y = 402;
+		ent->Position.z = -14;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -21;
+		ent->Position.y = 440;
+		ent->Position.z = 180;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -19;
+		ent->Position.y = 491;
+		ent->Position.z = 319;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 165;
+		ent->Position.y = 579;
+		ent->Position.z = 482;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 324;
+		ent->Position.y = 571;
+		ent->Position.z = 520;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 446;
+		ent->Position.y = 553;
+		ent->Position.z = 481;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 259;
+		ent->Position.y = 700;
+		ent->Position.z = 236;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 398;
+		ent->Position.y = 700;
+		ent->Position.z = 235;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 307;
+		ent->Position.y = 657;
+		ent->Position.z = 182;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 361;
+		ent->Position.y = 657;
+		ent->Position.z = 182;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 331;
+		ent->Position.y = 671;
+		ent->Position.z = 34;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 1;
+	}
+}
+
+void LoadHalloweenStuff_Act3()
+{
+	ObjectMaster *obj;
+	EntityData1 *ent;
+	ObjectFunc(OF0, DLCObject_Load);
+	setdata_dlc.Distance = 612800.0f;
+	//Act 3
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 241;
+		ent->Position.y = 0;
+		ent->Position.z = -114;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 246;
+		ent->Position.y = 0;
+		ent->Position.z = -91;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 686;
+		ent->Position.y = 0;
+		ent->Position.z = -97;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 910;
+		ent->Position.y = 0;
+		ent->Position.z = -160;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 933;
+		ent->Position.y = 0;
+		ent->Position.z = -152;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 876;
+		ent->Position.y = -32;
+		ent->Position.z = -419;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 626;
+		ent->Position.y = -35;
+		ent->Position.z = 575;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -105;
+		ent->Position.y = 0;
+		ent->Position.z = -267;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -106;
+		ent->Position.y = 0;
+		ent->Position.z = -69;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -108;
+		ent->Position.y = 91;
+		ent->Position.z = 195;
+		ent->Index = 10;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharIndex = 1;
+		ent->CharID = 1;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 604;
+		ent->Position.y = 130;
+		ent->Position.z = 164;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC9F4;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 4.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 75;
+		ent->Position.y = 1;
+		ent->Position.z = -282;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0x6FA4;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 1.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 927;
+		ent->Position.y = 19;
+		ent->Position.z = -113;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xA38E;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 1.5f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 752;
+		ent->Position.y = -12;
+		ent->Position.z = -492;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0x44FA;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 2.0f;
+		ent->Scale.y = 1.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 901;
+		ent->Position.y = 16;
+		ent->Position.z = -219;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0x4000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 2.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 927;
+		ent->Position.y = 27;
+		ent->Position.z = -233;
+		ent->Index = 0;
+		ent->Rotation.x = 0x2666;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 2.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -52;
+		ent->Position.y = 101;
+		ent->Position.z = 537;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0x6000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 1.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -86;
+		ent->Position.y = 139;
+		ent->Position.z = 489;
+		ent->Index = 0;
+		ent->Rotation.x = 0x4000;
+		ent->Rotation.y = 0xE000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 1.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 27;
+		ent->Position.y = 0;
+		ent->Position.z = -11;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0x4000;
+		ent->Rotation.z = 0x33E9;
+		ent->Scale.x = 2.0f;
+		ent->Scale.y = 1.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 114;
+		ent->Position.y = 23;
+		ent->Position.z = -286;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 1.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -151;
+		ent->Position.y = 91;
+		ent->Position.z = 172;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 1.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -11;
+		ent->Position.y = 91;
+		ent->Position.z = 172;
+		ent->Index = 0;
+		ent->Rotation.x = 0xC000;
+		ent->Rotation.y = 0x4000;
+		ent->Rotation.z = 0x8000;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 1.5f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -81;
+		ent->Position.y = 34;
+		ent->Position.z = -163;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 4.0f;
+		ent->Scale.y = 3.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 18;
+		ent->Position.y = 99;
+		ent->Position.z = -2;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 5.0f;
+		ent->Scale.y = 3.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -78;
+		ent->Position.y = 37;
+		ent->Position.z = -301;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_dlc;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -81;
+		ent->Position.y = 125;
+		ent->Position.z = 277;
+		ent->Index = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0xC000;
+		ent->Rotation.z = 0;
+		ent->Scale.x = 3.0f;
+		ent->Scale.y = 2.0f;
+		ent->Scale.z = 1.0f;
+		ent->CharID = 2;
+		ent->Action = 3;
+		ent->NextAction = 2;
 	}
 }
 
 void LoadStuffInTwinklePark()
 {
-	if (CurrentLevel == 3) LoadHalloweenStuff();
+	if (CurrentLevel == 3 && CurrentAct == 0) LoadHalloweenStuff_Act1();
+	if (CurrentLevel == 3 && CurrentAct == 1) LoadHalloweenStuff_Act2();
+	if (CurrentLevel == 3 && CurrentAct == 2) LoadHalloweenStuff_Act3();
 	sub_4570B0();
 }
 
@@ -2231,6 +2240,7 @@ extern "C"
 		{
 			helperFunctions.RegisterCommonObjectPVM(HalloweenTextures);
 			WriteCall((void*)0x00415A6D, LoadStuffInTwinklePark);
+			WriteCall((void*)0x004147B6, LoadStuffInTwinklePark);
 			WriteCall((void*)0x0062F098, LoadStuffInStationSquare);
 			WriteCall((void*)0x0062F102, LoadStuffInStationSquare);
 		}
