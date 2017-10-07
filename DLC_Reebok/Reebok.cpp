@@ -128,8 +128,36 @@ void Poster_Display(ObjectMaster *a1)
 		v4 = v1->Rotation.z;
 		njRotateXYZ(0, v2, v3, v4);
 		njScale(0, v1->Scale.z, v1->Scale.y, v1->Scale.x);
-		if (v1->CharID == 3) ProcessModelNode_AB_Wrapper(&poster_start, v1->Scale.x);
-		if (v1->CharID == 4) ProcessModelNode_AB_Wrapper(&poster_goal, v1->Scale.x);
+		if (v1->CharID == 3)
+		{
+			if (v1->Action == 1)
+			{
+				matlist_00116FA0Z[0].attrflags |= NJD_FLAG_USE_ALPHA;
+				if (matlist_00116FA0Z[0].diffuse.argb.a > 8) matlist_00116FA0Z[0].diffuse.argb.a = matlist_00116FA0Z[0].diffuse.argb.a - 8;
+			}
+			else
+			{
+				matlist_00116FA0Z[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				if (matlist_00116FA0Z[0].diffuse.argb.a < 255) matlist_00116FA0Z[0].diffuse.argb.a = matlist_00116FA0Z[0].diffuse.argb.a + 8;
+			}
+			if (matlist_00116FA0Z[0].diffuse.argb.a > 255) matlist_00116FA0Z[0].diffuse.argb.a = 255;
+			ProcessModelNode_AB_Wrapper(&poster_start, v1->Scale.x);
+		}
+		if (v1->CharID == 4)
+		{
+				if (v1->Action == 1)
+				{
+					matlist_00116FA0W[0].attrflags |= NJD_FLAG_USE_ALPHA;
+					if (matlist_00116FA0W[0].diffuse.argb.a > 8) matlist_00116FA0W[0].diffuse.argb.a = matlist_00116FA0W[0].diffuse.argb.a - 8;
+				}
+				else
+				{
+					matlist_00116FA0W[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+					if (matlist_00116FA0W[0].diffuse.argb.a < 255) matlist_00116FA0W[0].diffuse.argb.a = matlist_00116FA0W[0].diffuse.argb.a + 8;
+				}
+				if (matlist_00116FA0W[0].diffuse.argb.a > 255) matlist_00116FA0W[0].diffuse.argb.a = 255;
+			ProcessModelNode_AB_Wrapper(&poster_goal, v1->Scale.x);
+		}
 		if (v1->CharID == 8) ProcessModelNode_AB_Wrapper(&poster, v1->Scale.x);
 		if (v1->CharID == 7) ProcessModelNode_AB_Wrapper(&poster_small, v1->Scale.x);
 		njPopMatrix(1u);
@@ -147,22 +175,28 @@ void Poster_Main(ObjectMaster *a1)
 		v3 = (v1->Index) * 16;
 		v2 = (v1->Rotation.y + v3) % 65535;
 		v1->Rotation.y = v2;
-		if (v1->Action == 1 && v1->Scale.x > 0.05f)
+		if (v1->Action == 1)
 		{
-			v1->Scale.x = v1->Scale.x*0.95f;
-			v1->Scale.y = v1->Scale.y*0.95f;
-			v1->Scale.z = v1->Scale.z*0.95f;
-		}
-		if (v1->Action != 1 && v1->Scale.x < 1.0f)
-		{
-			v1->Scale.x = v1->Scale.x*1.05f;
-			v1->Scale.y = v1->Scale.y*1.05f;
-			v1->Scale.z = v1->Scale.z*1.05f;
-			if (v1->Scale.y >= 1.0f)
+			if (v1->Scale.x > 0.05f)
 			{
-				v1->Scale.x = 1.0f;
-				v1->Scale.y = 1.0f;
-				v1->Scale.z = 1.0f;
+				v1->Scale.x = v1->Scale.x*0.95f;
+				v1->Scale.y = v1->Scale.y*0.95f;
+				v1->Scale.z = v1->Scale.z*0.95f;
+			}
+		}
+		if (v1->Action != 1)
+		{
+			if (v1->Scale.x < 1.0f)
+			{
+				v1->Scale.x = v1->Scale.x*1.05f;
+				v1->Scale.y = v1->Scale.y*1.05f;
+				v1->Scale.z = v1->Scale.z*1.05f;
+				if (v1->Scale.y >= 1.0f)
+				{
+					v1->Scale.x = 1.0f;
+					v1->Scale.y = 1.0f;
+					v1->Scale.z = 1.0f;
+				}
 			}
 		}
 		if (IsPlayerInsideSphere(&v1->Position, 15))
@@ -281,6 +315,26 @@ void Shoes_Display(ObjectMaster *a1)
 		v3 = v1->Rotation.y;
 		v4 = v1->Rotation.z;
 		njRotateXYZ(0, v2, v3, v4);
+		if (v1->Action == 1)
+		{
+			matlist_00000004[0].attrflags |= NJD_FLAG_USE_ALPHA;
+			matlist_00000004[1].attrflags |= NJD_FLAG_USE_ALPHA;
+			matlist_00000004[2].attrflags |= NJD_FLAG_USE_ALPHA;
+			matlist_00000004[0].diffuse.argb.a = 255 - v1->InvulnerableTime;
+			matlist_00000004[1].diffuse.argb.a = 255 - v1->InvulnerableTime;
+			matlist_00000004[2].diffuse.argb.a = 255 - v1->InvulnerableTime;
+			matlist_00000004_2[0].diffuse.argb.a = 38 - (v1->InvulnerableTime/7.0f);
+		}
+		else
+		{
+			matlist_00000004[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+			matlist_00000004[1].attrflags &= ~NJD_FLAG_USE_ALPHA;
+			matlist_00000004[2].attrflags &= ~NJD_FLAG_USE_ALPHA;
+			matlist_00000004[0].diffuse.argb.a = 255;
+			matlist_00000004[1].diffuse.argb.a = 255;
+			matlist_00000004[2].diffuse.argb.a = 255;
+			matlist_00000004_2[0].diffuse.argb.a = 38;
+		}
 		ProcessModelNode_AB_Wrapper(&object_000010AC, v1->Scale.x);
 		ProcessModelNode(&object_000010AC_2, QueuedModelFlagsB_3, v1->Scale.x);
 		njPopMatrix(1u);
@@ -298,6 +352,12 @@ void Shoes_Main(ObjectMaster *a1)
 	v1 = a1->Data1;
 	if (v1->NextAction == CurrentAct && ChallengeOver == false && ChallengeAction == true)
 	{
+		if (v1->Action != 1) v1->InvulnerableTime = 0;
+		if (v1->Action == 1)
+		{
+			if (v1->InvulnerableTime < 255) v1->InvulnerableTime = v1->InvulnerableTime + 8;
+			if (v1->InvulnerableTime > 255) v1->InvulnerableTime = 255;
+		}
 		SpeedY = 246;
 		v2 = v1->Rotation.x;
 		v3 = v1->Rotation.y;
