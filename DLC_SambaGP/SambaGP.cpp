@@ -41,22 +41,22 @@ static int HintTimer = 0;
 SETObjData setdata_dlc = {};
 
 char *SambaGPMessage0[] = {
-	"\aSamba GP\nSTART!",
+	"	Samba GP\n	START!",
 	NULL,
 };
 
 char *SambaGPMessage1[] = {
-	"\aTwinkle Circuit\nSamba GP Grand Opening!",
+	"	Twinkle Circuit\n	Samba GP Grand Opening!",
 	NULL,
 };
 
 char *SambaGPMessage2[] = {
-	"\aThe contest is over,\nbut you can still play the course.",
+	"	The contest is over,\n	but you can still play the course.",
 	NULL,
 };
 
 char *SambaGPMessage3[] = {
-	"\aCollecting the rings increases\nbumper car acceleration.",
+	"	Collecting the rings increases\n	bumper car acceleration.",
 	NULL,
 };
 
@@ -239,13 +239,16 @@ void Poster_Main(ObjectMaster *a1)
 	v1 = a1->Data1;
 	if (v1->CharID == CurrentAct)
 	{
-		if (IsPlayerInsideSphere(&v1->Position, 15) && HintTimer <= 0)
+		if (IsPlayerInsideSphere(&v1->Position, 15))
 		{
-			PlaySound(6, 0, 0, 0);
-			if (v1->CharIndex == 0) sub_4B79C0((char *)(&SambaGPMessage1), 180);
-			if (v1->CharIndex == 1) sub_4B79C0((char *)(&SambaGPMessage2), 180);
-			if (v1->CharIndex == 2) sub_4B79C0((char *)(&SambaGPMessage3), 180);
-			HintTimer = 120;
+			if (HintTimer <= 0)
+			{
+				PlaySound(6, 0, 0, 0);
+				if (v1->CharIndex == 0) sub_4B79C0((char *)(&SambaGPMessage1), 180);
+				if (v1->CharIndex == 1) sub_4B79C0((char *)(&SambaGPMessage2), 180);
+				if (v1->CharIndex == 2) sub_4B79C0((char *)(&SambaGPMessage3), 180);
+				HintTimer = 120;
+			}
 		}
 		Poster_Display(a1);
 	}
@@ -266,7 +269,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 	ObjectFunc(OF1, LoadSambaGate); // Samba Gate
 	ObjectFunc(OF2, LoadPoster); // Samba Poster
 	setdata_dlc.Distance = 612800.0f;
-	if (ObjectsLoaded == false)
+	if (GameMode == GameModes_Adventure_Field && ObjectsLoaded == false)
 	{
 		//Act 1
 		obj = LoadObject((LoadObj)2, 3, OF2);
@@ -320,7 +323,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->CharIndex = 0;
 			ent->CharID = 0;
 		}
-	//Act 2
+		//Act 2
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
 		if (obj)
@@ -372,8 +375,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->CharIndex = 0;
 			ent->CharID = 1;
 		}
-	}
-	//Act 4
+		//Act 4
 		obj = LoadObject((LoadObj)2, 3, OF2);
 		obj->SETData.SETData = &setdata_dlc;
 		if (obj)
@@ -476,6 +478,8 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 			ent->CharIndex = 2;
 			ent->CharID = 3;
 		}
+		ObjectsLoaded = true;
+	}
 }
 
 extern "C"
@@ -527,7 +531,7 @@ extern "C"
 		{
 			if (HintTimer > 0) HintTimer--;
 		}
-		if (CurrentLevel != 26 || GameState == 6 || GameState == 21)
+		if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || GameMode != GameModes_Adventure_Field)
 		{
 			ObjectsLoaded = false;
 		}
