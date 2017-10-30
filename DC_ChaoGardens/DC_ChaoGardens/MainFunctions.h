@@ -1,6 +1,20 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
 
+//Chao Name Machine load function
+
+void __cdecl ChaoNameMachineCollision(ObjectMaster *a1)
+{
+	EntityData1* v1;
+	NJS_OBJECT* v5;
+	v1 = a1->Data1;
+	v5 = sub_49D6C0(&object_001834CC, a1, (ColFlags)0x20001001);
+	v5->scl[0] = 1.0f;
+	v5->scl[1] = 1.0f;
+	v5->scl[2] = 1.0f;
+	InitCollision(a1, &stru_33D0B50, 9, 4u);
+}
+
 //MR Garden DLL functions
 void __cdecl sub_72A790()
 {

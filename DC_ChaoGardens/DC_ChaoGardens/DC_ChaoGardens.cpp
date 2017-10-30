@@ -70,6 +70,7 @@ FunctionPointer(ObjectMaster *, sub_72C4A0, (), 0x72C4A0);
 FunctionPointer(ObjectMaster *, sub_72C3A0, (), 0x72C3A0);
 FunctionPointer(ObjectMaster *, sub_72C2E0, (), 0x72C2E0);
 FunctionPointer(void, sub_7153F0, (), 0x7153F0);
+FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColFlags surfaceFlags), 0x49D6C0);
 
 DataArray(NJS_VECTOR, Chao_SSChaoSpawnPoints, 0x033A0AF8, 16);
 DataArray(NJS_VECTOR, Chao_ECChaoSpawnPoints, 0x033A0BB8, 16);
@@ -88,6 +89,7 @@ DataPointer(SecondaryEntrance, SSGardenStartPoint, 0x0339F888);
 DataPointer(NJS_OBJECT, ChaoNormalFruit, 0x03606D00);
 DataPointer(int, dword_3CDC6B4, 0x3CDC6B4);
 DataPointer(NJS_OBJECT, stru_366C124, 0x366C124);
+DataPointer(CollisionData, stru_33D0B50, 0x33D0B50);
 
 #include <lanternapi.h>
 #include "ChaoObjects.h"
@@ -244,6 +246,7 @@ extern "C"
 //Name Machine stuff
 		*(NJS_OBJECT*)0x33CFC70 = object_001834CC; //Name Machine
 		*(NJS_OBJECT*)0x33CB04C = object_001826E8; //Name machine button
+		WriteCall((void*)0x00729EEF, ChaoNameMachineCollision);
 		WriteCall((void*)0x00729DE9, NameMachineTexlist);
 		WriteData((void*)0x00729EBB, 0x90, 5);
 		WriteData((void*)0x00729E57, 0x90, 5);

@@ -26,20 +26,6 @@ void LoadObjects_SS()
 {
 	ObjectMaster *obj;
 	EntityData1 *ent;
-	obj = LoadObject((LoadObj)2, 3, OF_SS4); // CYLINDER
-	if (obj)
-	{
-	ent = obj->Data1;
-	ent->Position.x = 183.03f;
-	ent->Position.y = 8.56f;
-	ent->Position.z = -133.44f;
-	ent->Rotation.x = 0;
-	ent->Rotation.y = 0xD7B8;
-	ent->Rotation.z = 0;
-	ent->Scale.x = -7.2f;
-	ent->Scale.y = 5.9f;
-	ent->Scale.z = -3.1f;
-	}
 	obj = LoadObject((LoadObj)6, 3, OF_SS9); //  O AR_ELE
 	obj->SETData.SETData = &setdata_ssg;
 	if (obj)
