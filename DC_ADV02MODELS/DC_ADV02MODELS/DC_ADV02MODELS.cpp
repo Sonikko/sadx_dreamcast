@@ -56,7 +56,7 @@ NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
 
 const char* __cdecl SetSLX0X(int level, int act)
 {
-	if (level == 33)
+	if (level == 33 && act != 3)
 	{
 		if (GetTimeOfDay() == 0) return slx0xbin.c_str();
 		if (GetTimeOfDay() == 1) return slx1xbin.c_str();
