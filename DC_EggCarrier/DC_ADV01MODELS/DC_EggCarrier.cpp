@@ -17,6 +17,8 @@
 #include "ADV01C_04.h"
 #include "ADV01C_05.h"
 #include "EC_Tornado.h"
+#include "EC_Transform.h"
+
 FunctionPointer(void, sub_6F4570, (ObjectMaster *a1), 0x6F4570);
 DataPointer(ObjectMaster*, dword_3C85138, 0x3C85138);
 HMODULE ADV01MODELS = GetModuleHandle(L"ADV01MODELS");
@@ -354,6 +356,8 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01_OBJECTS[22] = &object_0018C098;
 	___ADV01_OBJECTS[23] = &object_0018BD3C;
 	___ADV01_OBJECTS[24] = &object_0018B9E0;
+	___ADV01_ACTIONS[7]->object = &object_00209538; //EC transform
+	___ADV01_OBJECTS[64] = &object_00209538; //EC transform
 	___ADV01_OBJECTS[0] = &object_00182160; //SideLift
 	___ADV01_OBJECTS[1] = &object_00181DBC; //SideLift
 	___ADV01_OBJECTS[2] = &object_00181684; //SideLift
