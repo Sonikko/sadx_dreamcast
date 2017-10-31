@@ -18,6 +18,11 @@
 #include "MR_Objects.h"
 #include "MR_Palms.h"
 #include <lanternapi.h>
+#include <string>
+
+std::string slx0xbin;
+std::string slx1xbin;
+std::string slx2xbin;
 
 HMODULE ADV02MODELS = GetModuleHandle(L"ADV02MODELS");
 DataPointer(float, dword_111DB90, 0x111DB90);
@@ -48,6 +53,17 @@ static int uv_anim = 1;
 
 NJS_TEXNAME textures_mrtrain[31];
 NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
+
+const char* __cdecl SetSLX0X(int level, int act)
+{
+	if (level == 33)
+	{
+		if (GetTimeOfDay() == 0) return slx0xbin.c_str();
+		if (GetTimeOfDay() == 1) return slx1xbin.c_str();
+		if (GetTimeOfDay() == 2) return slx2xbin.c_str();
+	}
+	else { return nullptr; }
+}
 
 void __cdecl SetWaterTexture()
 {
@@ -229,8 +245,16 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
+	slx0xbin = path;
+	slx0xbin.append("\\system\\SL_X0X.BIN");
+	slx1xbin = path;
+	slx1xbin.append("\\system\\SL_X1X.BIN");
+	slx2xbin = path;
+	slx2xbin.append("\\system\\SL_X2X.BIN");
 	if (handle != nullptr && Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
+		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
+		sl_load_register(SetSLX0X);
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
