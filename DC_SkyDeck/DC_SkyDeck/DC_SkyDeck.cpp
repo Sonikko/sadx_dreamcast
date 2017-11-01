@@ -522,6 +522,7 @@ extern "C" __declspec(dllexport) void cdecl Init()
 	*(NJS_OBJECT *)0x21CAE18 = object_00168CFC; //Another big object
 	*(NJS_OBJECT *)0x2194F44 = object_001370C4; //OAnaA
 	*(NJS_OBJECT *)0x218C52C = object_00130724; //ORaneA
+	*(NJS_MODEL_SADX *)0x2177AC8 = attach_0011E83C; //Cyl_S
 	*(NJS_OBJECT *)0x218E0BC = object_00131D70; //ORaneC
 	*(NJS_OBJECT *)0x218F7CC = object_00132DE4; //ORaneD
 	*(NJS_OBJECT *)0x2190D94 = object_00133CD0; //ORaneE
