@@ -14,6 +14,7 @@ DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(NJS_BGRA, CurrentFogColor, 0x03ABDC68);
 DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
+FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *a1, int a2, float a3), 0x409E70);
 static int TornadoActive = 0;
 static int fadeout = 255;
 static int fadeout2 = 255;
@@ -123,6 +124,10 @@ extern "C" __declspec(dllexport) void cdecl Init()
 		material_register(ObjectSpecularWhiteDiffuse, LengthOfArray(ObjectSpecularWhiteDiffuse), &ForceWhiteDiffuseObjectSpecular);
 	}
 	WriteData((void*)0x4DD120, 0xC3, sizeof(char));
+	WriteCall((void*)0x004E1E35, sub_409E70); //Wind gate rendering function
+	WriteCall((void*)0x004E1E9A, sub_409E70); //Wind gate rendering function
+	WriteCall((void*)0x004E1F08, sub_409E70); //Wind gate rendering function
+	WriteCall((void*)0x004E1F77, sub_409E70); //Wind gate rendering function
 	*(NJS_OBJECT*)0x00C32DB8 = object_000D40D4; //grassy rock
 	*(NJS_OBJECT*)0xC0B188 = object_000B6C3C; //Skybox bottom in Act 3
 	*(NJS_OBJECT*)0xC2B860 = object_0082B860; //broken fan piece
