@@ -8,7 +8,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		if (GameMode == GameModes_Adventure_Field && IsAdventureComplete(CurrentCharacter) && PreviousLevel != CurrentLevel)
+		if (GameMode == GameModes_Adventure_Field && IsAdventureComplete(GetCharacterSelection()) && PreviousLevel != CurrentLevel)
 		{
 			if (CurrentLevel != 33 && CurrentLevel != 26) PreviousLevel = -1;
 			if (PreviousLevel == 33 && CurrentLevel == 26 || PreviousLevel == 26 && CurrentLevel == 33)
