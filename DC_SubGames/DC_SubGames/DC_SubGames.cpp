@@ -8,6 +8,7 @@
 DataArray(FogData, FogData_SandHill, 0x0173BB74, 3);
 DataArray(FogData, FogData_HedgehogHammer, 0x027C69C4, 3);
 DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
+DataPointer(float, SomeDepthThing, 0x03ABD9C0);
 DataPointer(float, SkyChase1_SkyboxScaleX, 0x027D6CE0);
 DataPointer(float, SkyChase1_SkyboxScaleY, 0x027D6CE4);
 DataPointer(float, SkyChase1_SkyboxScaleZ, 0x027D6CE8);
@@ -690,9 +691,26 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
+void FixSky1(NJS_OBJECT *a1, float scale)
+{
+	SomeDepthThing = -2000;
+	ProcessModelNode(a1, QueuedModelFlagsB_3, scale);
+	SomeDepthThing = 0;
+}
+
+void FixSky2(NJS_OBJECT *a1, float scale)
+{
+	DataPointer(float, SomeDepthThing, 0x03ABD9C0);
+	SomeDepthThing = -4000;
+	ProcessModelNode(a1, (QueuedModelFlagsB)0, scale);
+	SomeDepthThing = 0;
+}
+
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 {
+	WriteCall((void*)0x0062BF35, FixSky1);
+	WriteCall((void*)0x0062C01D, FixSky2);
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
@@ -707,6 +725,7 @@ extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 	((NJS_OBJECT*)0x02917F34)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 	//Sky in Sky Chase 1
 	((NJS_OBJECT*)0x028DFD34)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
+	((NJS_OBJECT*)0x028175F4)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
 	SkyChase1_SkyboxScaleX = 5.0f;
 	SkyChase1_SkyboxScaleY = 5.0f;
 	SkyChase1_SkyboxScaleZ = 5.0f;
