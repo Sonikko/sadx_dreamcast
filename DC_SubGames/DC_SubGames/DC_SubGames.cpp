@@ -693,15 +693,14 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 void FixSky1(NJS_OBJECT *a1, float scale)
 {
-	SomeDepthThing = -2000;
+	SomeDepthThing = -30000;
 	ProcessModelNode(a1, QueuedModelFlagsB_3, scale);
 	SomeDepthThing = 0;
 }
 
 void FixSky2(NJS_OBJECT *a1, float scale)
 {
-	DataPointer(float, SomeDepthThing, 0x03ABD9C0);
-	SomeDepthThing = -4000;
+	SomeDepthThing = -28000;
 	ProcessModelNode(a1, (QueuedModelFlagsB)0, scale);
 	SomeDepthThing = 0;
 }
