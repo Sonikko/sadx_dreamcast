@@ -705,6 +705,8 @@ extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 	((NJS_OBJECT*)0x02916ADC)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 	((NJS_OBJECT*)0x02918404)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 	((NJS_OBJECT*)0x02917F34)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+	//Sky in Sky Chase 1
+	((NJS_OBJECT*)0x028DFD34)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
 	SkyChase1_SkyboxScaleX = 5.0f;
 	SkyChase1_SkyboxScaleY = 5.0f;
 	SkyChase1_SkyboxScaleZ = 5.0f;
