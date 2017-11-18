@@ -262,7 +262,7 @@ extern "C"
 		{
 			SpeedHighway1Fog[i].Layer = 2000.0f;
 			SpeedHighway1Fog[i].Distance = 5200.0f;
-			SpeedHighway3Fog[i].Color = 0xFF6497C8;
+			SpeedHighway3Fog[i].Color = 0xFF7FB2E5;
 			SpeedHighway3Fog[i].Layer = 1200.0f;
 			SpeedHighway3Fog[i].Distance = 2900.0f;
 			SpeedHighway3Fog[i].Toggle = 1;
