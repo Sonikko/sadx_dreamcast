@@ -473,7 +473,7 @@ extern "C"
 			}
 		}
 		//Environment maps
-		if (EnvMapMode == 0 && CurrentLevel == 20)
+		if (EnvMapMode == 0 && CurrentLevel == 20 && MetalSonicFlag == 0)
 		{
 			EnvMapMode = 1;
 			EnvMap1 = 2.0f;
@@ -482,6 +482,14 @@ extern "C"
 			EnvMap4 = 0.5f;
 		}
 		if (EnvMapMode == 1 && CurrentLevel != 20)
+		{
+			EnvMapMode = 0;
+			EnvMap1 = 0.5f;
+			EnvMap2 = 0.5f;
+			EnvMap3 = 0.5f;
+			EnvMap4 = 0.5f;
+		}
+		if (EnvMapMode == 1 && MetalSonicFlag != 0)
 		{
 			EnvMapMode = 0;
 			EnvMap1 = 0.5f;
