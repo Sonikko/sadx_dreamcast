@@ -7,11 +7,10 @@
 
 DataArray(FogData, FogData_SandHill, 0x0173BB74, 3);
 DataArray(FogData, FogData_HedgehogHammer, 0x027C69C4, 3);
+DataArray(SkyboxScale, SkyboxScale_SkyChase1, 0x027D6CE0, 3);
+DataArray(DrawDistance, DrawDist_SkyChase1, 0x027D6D58, 3);
 DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
 DataPointer(float, SomeDepthThing, 0x03ABD9C0);
-DataPointer(float, SkyChase1_SkyboxScaleX, 0x027D6CE0);
-DataPointer(float, SkyChase1_SkyboxScaleY, 0x027D6CE4);
-DataPointer(float, SkyChase1_SkyboxScaleZ, 0x027D6CE8);
 
 PointerInfo pointers[] = {
 	ptrdecl(0x7D2051, &landtable_00002DEC),
@@ -554,119 +553,112 @@ NJS_MATERIAL* ObjectBaseAndSpecular[] = {
 	((NJS_MATERIAL*)0x0291C770),
 	((NJS_MATERIAL*)0x0291C784),
 	((NJS_MATERIAL*)0x0291C798),
-		((NJS_MATERIAL*)0x0291D088),
-		((NJS_MATERIAL*)0x0291D09C),
-		((NJS_MATERIAL*)0x0291D0B0),
-		((NJS_MATERIAL*)0x0291D0C4),
-		((NJS_MATERIAL*)0x0291D0D8),
-		((NJS_MATERIAL*)0x0291D0EC),
-		((NJS_MATERIAL*)0x0291D100),
-		((NJS_MATERIAL*)0x0291D114),
-		((NJS_MATERIAL*)0x0291D128),
-		((NJS_MATERIAL*)0x0291D13C),
-		((NJS_MATERIAL*)0x0291D150),
-		((NJS_MATERIAL*)0x0291D164),
-		((NJS_MATERIAL*)0x0291D178),
-		((NJS_MATERIAL*)0x0291D18C),
-		((NJS_MATERIAL*)0x0291D1A0),
-		((NJS_MATERIAL*)0x0291D1B4),
-		((NJS_MATERIAL*)0x0291D1C8),
-		((NJS_MATERIAL*)0x0291D1DC),
-		((NJS_MATERIAL*)0x0291D1F0),
-		((NJS_MATERIAL*)0x0291D204),
-		((NJS_MATERIAL*)0x0291D218),
-		((NJS_MATERIAL*)0x0291D22C),
-		((NJS_MATERIAL*)0x0291D240),
-		((NJS_MATERIAL*)0x0291D254),
-		((NJS_MATERIAL*)0x0291D268),
-		((NJS_MATERIAL*)0x0291D27C),
-		((NJS_MATERIAL*)0x0291D290),
-		((NJS_MATERIAL*)0x0291D2A4),
-		((NJS_MATERIAL*)0x0291D2B8),
-		((NJS_MATERIAL*)0x0291D2CC),
-		((NJS_MATERIAL*)0x0291D2E0),
-		((NJS_MATERIAL*)0x0290BDF8),
-		((NJS_MATERIAL*)0x0290BE0C),
-		//Tornado 1 hit Sonic shoes
-		((NJS_MATERIAL*)0x02916B10),
-		((NJS_MATERIAL*)0x02916504),
-		((NJS_MATERIAL*)0x02916518),
-		((NJS_MATERIAL*)0x02917F68),
-		((NJS_MATERIAL*)0x0291796C),
-		((NJS_MATERIAL*)0x02917980),
-		//Tornado model 2
-		((NJS_MATERIAL*)0x027E8AA0),
-		((NJS_MATERIAL*)0x027E8AB4),
-		((NJS_MATERIAL*)0x027E8AC8),
-		((NJS_MATERIAL*)0x027E8ADC),
-		((NJS_MATERIAL*)0x027E8AF0),
-		((NJS_MATERIAL*)0x027E8B04),
-		((NJS_MATERIAL*)0x027E8B18),
-		((NJS_MATERIAL*)0x027E8B2C),
-		((NJS_MATERIAL*)0x027E8B40),
-		((NJS_MATERIAL*)0x027E8B54),
-		((NJS_MATERIAL*)0x027E8B68),
-		((NJS_MATERIAL*)0x027E8B7C),
-		((NJS_MATERIAL*)0x027E8B90),
-		((NJS_MATERIAL*)0x027E8BA4),
-		((NJS_MATERIAL*)0x027E8BB8),
-		((NJS_MATERIAL*)0x027E8BCC),
-		((NJS_MATERIAL*)0x027E8BE0),
-		((NJS_MATERIAL*)0x027E8BF4),
-		((NJS_MATERIAL*)0x027E8C08),
-		((NJS_MATERIAL*)0x027E8C1C),
-		((NJS_MATERIAL*)0x027E8C30),
-		((NJS_MATERIAL*)0x027E8C44),
-		((NJS_MATERIAL*)0x027E8C58),
-		((NJS_MATERIAL*)0x027E82D8),
-		((NJS_MATERIAL*)0x027E82EC),
-		((NJS_MATERIAL*)0x027D793C),
-		((NJS_MATERIAL*)0x027D7950),
-		((NJS_MATERIAL*)0x027D7964),
-		((NJS_MATERIAL*)0x027D8038),
-		((NJS_MATERIAL*)0x027D804C),
-		((NJS_MATERIAL*)0x027D8060),
-		((NJS_MATERIAL*)0x027D8074),
-		((NJS_MATERIAL*)0x027D8088),
-		((NJS_MATERIAL*)0x027D809C),
-		((NJS_MATERIAL*)0x027D80B0),
-		((NJS_MATERIAL*)0x027D80C4),
-		//Tornado 2 transformed
-		((NJS_MATERIAL*)0x027F8CB8),
-		((NJS_MATERIAL*)0x027F8CCC),
-		((NJS_MATERIAL*)0x027F8CE0),
-		((NJS_MATERIAL*)0x027F8CF4),
-		((NJS_MATERIAL*)0x02809E78),
-		((NJS_MATERIAL*)0x02809E8C),
-		((NJS_MATERIAL*)0x02809EA0),
-		((NJS_MATERIAL*)0x02809EB4),
-		((NJS_MATERIAL*)0x02809EC8),
-		((NJS_MATERIAL*)0x02809EDC),
-		((NJS_MATERIAL*)0x02809EF0),
-		((NJS_MATERIAL*)0x02809F04),
-		((NJS_MATERIAL*)0x02809F18),
-		((NJS_MATERIAL*)0x02809F2C),
-		((NJS_MATERIAL*)0x02809F40),
-		((NJS_MATERIAL*)0x02809F54),
-		((NJS_MATERIAL*)0x02809F68),
-		((NJS_MATERIAL*)0x02809F7C),
-		((NJS_MATERIAL*)0x02809F90),
-		((NJS_MATERIAL*)0x02809FA4),
-		((NJS_MATERIAL*)0x02809FB8),
-		((NJS_MATERIAL*)0x02809FCC),
-		((NJS_MATERIAL*)0x028097A0),
-		((NJS_MATERIAL*)0x028097B4),
-		((NJS_MATERIAL*)0x028097C8),
-		((NJS_MATERIAL*)0x028097DC),
-		((NJS_MATERIAL*)0x028092C0),
+	((NJS_MATERIAL*)0x0291D088),
+	((NJS_MATERIAL*)0x0291D09C),
+	((NJS_MATERIAL*)0x0291D0B0),
+	((NJS_MATERIAL*)0x0291D0C4),
+	((NJS_MATERIAL*)0x0291D0D8),
+	((NJS_MATERIAL*)0x0291D0EC),
+	((NJS_MATERIAL*)0x0291D100),
+	((NJS_MATERIAL*)0x0291D114),
+	((NJS_MATERIAL*)0x0291D128),
+	((NJS_MATERIAL*)0x0291D13C),
+	((NJS_MATERIAL*)0x0291D150),
+	((NJS_MATERIAL*)0x0291D164),
+	((NJS_MATERIAL*)0x0291D178),
+	((NJS_MATERIAL*)0x0291D18C),
+	((NJS_MATERIAL*)0x0291D1A0),
+	((NJS_MATERIAL*)0x0291D1B4),
+	((NJS_MATERIAL*)0x0291D1C8),
+	((NJS_MATERIAL*)0x0291D1DC),
+	((NJS_MATERIAL*)0x0291D1F0),
+	((NJS_MATERIAL*)0x0291D204),
+	((NJS_MATERIAL*)0x0291D218),
+	((NJS_MATERIAL*)0x0291D22C),
+	((NJS_MATERIAL*)0x0291D240),
+	((NJS_MATERIAL*)0x0291D254),
+	((NJS_MATERIAL*)0x0291D268),
+	((NJS_MATERIAL*)0x0291D27C),
+	((NJS_MATERIAL*)0x0291D290),
+	((NJS_MATERIAL*)0x0291D2A4),
+	((NJS_MATERIAL*)0x0291D2B8),
+	((NJS_MATERIAL*)0x0291D2CC),
+	((NJS_MATERIAL*)0x0291D2E0),
+	((NJS_MATERIAL*)0x0290BDF8),
+	((NJS_MATERIAL*)0x0290BE0C),
+	//Tornado 1 hit Sonic shoes
+	((NJS_MATERIAL*)0x02916B10),
+	((NJS_MATERIAL*)0x02916504),
+	((NJS_MATERIAL*)0x02916518),
+	((NJS_MATERIAL*)0x02917F68),
+	((NJS_MATERIAL*)0x0291796C),
+	((NJS_MATERIAL*)0x02917980),
+	//Tornado model 2
+	((NJS_MATERIAL*)0x027E8AA0),
+	((NJS_MATERIAL*)0x027E8AB4),
+	((NJS_MATERIAL*)0x027E8AC8),
+	((NJS_MATERIAL*)0x027E8ADC),
+	((NJS_MATERIAL*)0x027E8AF0),
+	((NJS_MATERIAL*)0x027E8B04),
+	((NJS_MATERIAL*)0x027E8B18),
+	((NJS_MATERIAL*)0x027E8B2C),
+	((NJS_MATERIAL*)0x027E8B40),
+	((NJS_MATERIAL*)0x027E8B54),
+	((NJS_MATERIAL*)0x027E8B68),
+	((NJS_MATERIAL*)0x027E8B7C),
+	((NJS_MATERIAL*)0x027E8B90),
+	((NJS_MATERIAL*)0x027E8BA4),
+	((NJS_MATERIAL*)0x027E8BB8),
+	((NJS_MATERIAL*)0x027E8BCC),
+	((NJS_MATERIAL*)0x027E8BE0),
+	((NJS_MATERIAL*)0x027E8BF4),
+	((NJS_MATERIAL*)0x027E8C08),
+	((NJS_MATERIAL*)0x027E8C1C),
+	((NJS_MATERIAL*)0x027E8C30),
+	((NJS_MATERIAL*)0x027E8C44),
+	((NJS_MATERIAL*)0x027E8C58),
+	((NJS_MATERIAL*)0x027E82D8),
+	((NJS_MATERIAL*)0x027E82EC),
+	((NJS_MATERIAL*)0x027D793C),
+	((NJS_MATERIAL*)0x027D7950),
+	((NJS_MATERIAL*)0x027D7964),
+	((NJS_MATERIAL*)0x027D8038),
+	((NJS_MATERIAL*)0x027D804C),
+	((NJS_MATERIAL*)0x027D8060),
+	((NJS_MATERIAL*)0x027D8074),
+	((NJS_MATERIAL*)0x027D8088),
+	((NJS_MATERIAL*)0x027D809C),
+	((NJS_MATERIAL*)0x027D80B0),
+	((NJS_MATERIAL*)0x027D80C4),
+	//Tornado 2 transformed
+	((NJS_MATERIAL*)0x027F8CB8),
+	((NJS_MATERIAL*)0x027F8CCC),
+	((NJS_MATERIAL*)0x027F8CE0),
+	((NJS_MATERIAL*)0x027F8CF4),
+	((NJS_MATERIAL*)0x02809E78),
+	((NJS_MATERIAL*)0x02809E8C),
+	((NJS_MATERIAL*)0x02809EA0),
+	((NJS_MATERIAL*)0x02809EB4),
+	((NJS_MATERIAL*)0x02809EC8),
+	((NJS_MATERIAL*)0x02809EDC),
+	((NJS_MATERIAL*)0x02809EF0),
+	((NJS_MATERIAL*)0x02809F04),
+	((NJS_MATERIAL*)0x02809F18),
+	((NJS_MATERIAL*)0x02809F2C),
+	((NJS_MATERIAL*)0x02809F40),
+	((NJS_MATERIAL*)0x02809F54),
+	((NJS_MATERIAL*)0x02809F68),
+	((NJS_MATERIAL*)0x02809F7C),
+	((NJS_MATERIAL*)0x02809F90),
+	((NJS_MATERIAL*)0x02809FA4),
+	((NJS_MATERIAL*)0x02809FB8),
+	((NJS_MATERIAL*)0x02809FCC),
+	((NJS_MATERIAL*)0x028097A0),
+	((NJS_MATERIAL*)0x028097B4),
+	((NJS_MATERIAL*)0x028097C8),
+	((NJS_MATERIAL*)0x028097DC),
+	((NJS_MATERIAL*)0x028092C0),
 };
-
-bool ForceObjectorLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
-{
-	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(1, false); else set_specular(0, false);
-	use_default_diffuse(true);
-	return true;
-}
 
 bool ForceObjectBaseAndSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
@@ -693,23 +685,57 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 void FixSky1(NJS_OBJECT *a1, float scale)
 {
-	SomeDepthThing = -30000;
+	SomeDepthThing = -12000;
 	ProcessModelNode(a1, QueuedModelFlagsB_3, scale);
 	SomeDepthThing = 0;
 }
 
 void FixSky2(NJS_OBJECT *a1, float scale)
 {
-	SomeDepthThing = -28000;
-	ProcessModelNode(a1, (QueuedModelFlagsB)0, scale);
+	SomeDepthThing = -13000;
+	if (CurrentLevel == 36) ProcessModelNode(a1, QueuedModelFlagsB_3, scale);
+	else ProcessModelNode(a1, (QueuedModelFlagsB)0, scale);
 	SomeDepthThing = 0;
+}
+
+void FixSkybox(NJS_OBJECT *a1, float scale)
+{
+	if (CurrentLevel == 36)
+	{
+		SomeDepthThing = -10000;
+		ProcessModelNode(&object_024E0CD8_2, (QueuedModelFlagsB)0, scale); //Skybox top and middle
+		SomeDepthThing = -15000;
+		ProcessModelNode(&object_024E0CD8, (QueuedModelFlagsB)0, scale); //Skybox bottom
+		SomeDepthThing = 0;
+	}
+	else
+	{
+		SomeDepthThing = -30000;
+		ProcessModelNode(&object_02418598_2, (QueuedModelFlagsB)0, scale); //Skybox top and middle
+		SomeDepthThing = -15000;
+		ProcessModelNode(&object_02418598, (QueuedModelFlagsB)0, scale); //Skybox bottom
+		SomeDepthThing = 0;
+	}
 }
 
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 {
-	WriteCall((void*)0x0062BF35, FixSky1);
-	WriteCall((void*)0x0062C01D, FixSky2);
+	//Sky Chase fixes
+	((NJS_OBJECT*)0x028DFD34)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Sky materials in Act 1
+	((NJS_OBJECT*)0x028175F4)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Sky materials in Act 1
+	SkyboxScale_SkyChase1->Far.x = 4.0f;
+	SkyboxScale_SkyChase1->Far.y = 4.0f;
+	SkyboxScale_SkyChase1->Far.z = 4.0f;
+	SkyboxScale_SkyChase1->Near.x = 4.0f;
+	SkyboxScale_SkyChase1->Near.y = 4.0f;
+	SkyboxScale_SkyChase1->Near.z = 4.0f;
+	SkyboxScale_SkyChase1->Normal.x = 4.0f;
+	SkyboxScale_SkyChase1->Normal.y = 4.0f;
+	SkyboxScale_SkyChase1->Normal.z = 4.0f;
+	WriteCall((void*)0x0062BF35, FixSky1); //Sky piece 1
+	WriteCall((void*)0x0062C01D, FixSky2);  //Sky piece 2
+	WriteCall((void*)0x0062C161, FixSkybox); //Skybox rendering function for both acts
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
@@ -722,12 +748,7 @@ extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 	((NJS_OBJECT*)0x02916ADC)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 	((NJS_OBJECT*)0x02918404)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 	((NJS_OBJECT*)0x02917F34)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-	//Sky in Sky Chase 1
-	((NJS_OBJECT*)0x028DFD34)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
-	((NJS_OBJECT*)0x028175F4)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
-	SkyChase1_SkyboxScaleX = 5.0f;
-	SkyChase1_SkyboxScaleY = 5.0f;
-	SkyChase1_SkyboxScaleZ = 5.0f;
+
 	WriteData((char*)0x0062751B, 0x00, 1); //Force Tornado light type
 	WriteData((char*)0x0062AC1F, 0x00, 1); //Force Tornado light type (transformation cutscene)
 	*(NJS_OBJECT *)0x02982F44 = object_0003FA40; //Egg Carrier model
@@ -740,6 +761,7 @@ extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 	*(NJS_OBJECT *)0x0298E7D0 = object_0004AEE0; //Beam in Act 2
 	for (int i = 0; i < 3; i++)
 	{
+		DrawDist_SkyChase1[i].Maximum = -60000.0f;
 		FogData_SandHill[i].Color = 0xFFAAAA8C;
 		FogData_HedgehogHammer[i].Distance = 16000.0f;
 		FogData_HedgehogHammer[i].Layer = 5000.0f;
