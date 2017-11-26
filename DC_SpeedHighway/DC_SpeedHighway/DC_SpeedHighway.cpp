@@ -125,7 +125,6 @@ extern "C"
 		//Enable antenna sprite
 		WriteData((float*)0x00615DD2, 182.0f);
 		WriteData((float*)0x00615D76, 1.0f);
-		WriteData((char*)0x0040889C, 0x90, 10); //Lighting wtf
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{

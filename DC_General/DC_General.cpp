@@ -350,6 +350,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteData((char*)0x0040889C, 0x90, 10); //Queued model lighting/specular fix
 		//((NJS_MATERIAL*)0x008B1CE0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Ripple
 		//((NJS_MATERIAL*)0x008B1CE0)->diffuse.color = 0xFFFFFFFF;
 		//Environment maps
