@@ -15,12 +15,18 @@ HMODULE ADV03MODELS = GetModuleHandle(L"ADV03MODELS");
 NJS_TEXANIM EmeraldGlowTexanim = { 32, 32, 0, 0, 0, 0, 0xFF, 0xFF, 3, 0 };
 NJS_SPRITE EmeraldGlowSprite = { { -16.0f, -10.5f, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00C3FE20, &EmeraldGlowTexanim };
 
+DataArray(char, byte_3C5B37C, 0x3C5B37C, 52);
+DataPointer(NJS_MODEL_SADX, stru_8BC0F4, 0x8BC0F4);
+DataPointer(NJS_MODEL_SADX, stru_8BBD84, 0x8BBD84);
+DataPointer(NJS_MODEL_SADX, stru_989384, 0x989384);
+DataPointer(D3DCOLORVALUE, stru_3D0B7C8, 0x3D0B7C8);
+DataPointer(NJS_OBJECT, stru_8B22F4, 0x8B22F4);
+DataPointer(int, MissedFrames, 0x03B1117C);
 DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
-DataPointer(int, MissedFrames, 0x03B1117C);
 DataPointer(int, CurrentChaoStage, 0x0339F87C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 
@@ -31,11 +37,6 @@ static bool EmeraldGlowDirection = false;
 
 void __cdecl Switch_DisplayX(ObjectMaster *a1)
 {
-	DataArray(char, byte_3C5B37C, 0x3C5B37C, 52);
-	DataPointer(NJS_MODEL_SADX, stru_8BC0F4, 0x8BC0F4);
-	DataPointer(NJS_MODEL_SADX, stru_8BBD84, 0x8BBD84);
-	DataPointer(NJS_MODEL_SADX, stru_989384, 0x989384);
-	DataPointer(int, MissedFrames, 0x03B1117C);
 	EntityData1 *v1; // esi@1
 	Angle v2; // eax@4
 	Angle v3; // eax@6
@@ -283,9 +284,6 @@ bool ForceWhiteDiffuseSecondCharSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 void __cdecl FixedBubbleRipple(ObjectMaster *a1)
 {
-	DataPointer(int, MissedFrames, 0x03B1117C);
-	DataPointer(D3DCOLORVALUE, stru_3D0B7C8, 0x3D0B7C8);
-	DataPointer(NJS_OBJECT, stru_8B22F4, 0x8B22F4);
 	NJS_VECTOR *v1; // esi@1
 	double v2; // st7@2
 	v1 = (NJS_VECTOR *)a1->UnknownB_ptr;
