@@ -7,6 +7,7 @@ NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV02MODELS, "_
 NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(ADV02MODELS, "___ADV02_ACTIONS");
 
 FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
+FunctionPointer(void, sub_405470, (NJS_ACTION *a1, float frame, float scale), 0x405470);
 DataPointer(DrawDistance, LevelDrawDistance, 0x03ABDC70);
 DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
 
@@ -30,7 +31,7 @@ void FixMRBase(ObjectMaster *a1)
 	//Render the animation without the lights
 	sub_405450(*___ADV02_ACTIONS, v2->Scale.x, 1.0f);
 	//Render the lights
-	DisplayAnimationFrame(&MRBase_LightsOnly, v2->Scale.x, 4, 1.0f, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModel_Queue);
+	sub_405470(&MRBase_LightsOnly, v2->Scale.x, 1.0f);
 	//Render the EfHikari thing
 	ProcessModelNode(&object2_002062F3, QueuedModelFlagsB_3, 1.0f);
 	njPopMatrix(1u);
