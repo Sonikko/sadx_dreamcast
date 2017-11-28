@@ -25,7 +25,17 @@ std::string slx1xbin;
 std::string slx2xbin;
 
 HMODULE ADV02MODELS = GetModuleHandle(L"ADV02MODELS");
+NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV02MODELS, "___ADV02_TEXLISTS");
+NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(ADV02MODELS, "___ADV02_ACTIONS");
 DataPointer(float, dword_111DB90, 0x111DB90);
+DataPointer(float, SomeDepthThing, 0x03ABD9C0);
+DataPointer(DrawDistance, LevelDrawDistance, 0x03ABDC70);
+DataPointer(int, CutsceneID, 0x3B2C570);
+DataPointer(float, CurrentFogDist, 0x03ABDC64);
+DataPointer(float, CurrentFogLayer, 0x03ABDC60);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(void*, EV_MainThread_ptr, 0x3B2C578);
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
 DataArray(FogData, MR2FogDay, 0x01103478, 3);
 DataArray(FogData, MR3FogDay, 0x011034A8, 3);
@@ -38,12 +48,8 @@ DataArray(DrawDistance, MR1DrawDist, 0x011033E8, 3);
 DataArray(DrawDistance, MR2DrawDist, 0x01103400, 3);
 DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
 DataArray(DrawDistance, MR4DrawDist, 0x01103430, 3);
-DataPointer(int, CutsceneID, 0x3B2C570);
-DataPointer(float, CurrentFogDist, 0x03ABDC64);
-DataPointer(float, CurrentFogLayer, 0x03ABDC60);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(void*, EV_MainThread_ptr, 0x3B2C578);
+FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
+FunctionPointer(void, sub_409450, (NJS_MODEL_SADX *a1, char a2), 0x409450);
 static bool InsideTemple = 0;
 static int anim1 = 130;
 static int anim2 = 140;
@@ -233,8 +239,47 @@ void SetColor(float a, float r, float g, float b)
  SetMaterialAndSpriteColor_Float(a, 0, g, 0);
 }
 
+void FixMRBase(ObjectMaster *a1)
+{
+	Angle v1; // eax
+	EntityData1 *v2; // esi
+
+	v2 = a1->Data1;
+	Direct3D_SetNearFarPlanes(-1.0, -100000.0);
+	DisableFog();
+	njSetTexture(___ADV02_TEXLISTS[1]);
+	njPushMatrix(0);
+	njTranslateV(0, &v2->Position);
+	v1 = v2->Rotation.y;
+	if (v1)
+	{
+		njRotateY(0, (unsigned __int16)v1);
+	}
+	//Render the FinalWay
+	sub_405450(___ADV02_ACTIONS[30], v2->Scale.y, 1.0);
+	//Render the animation without the lights
+	sub_405450(*___ADV02_ACTIONS, v2->Scale.x, 1.0f);
+	//Render the lights
+	DisplayAnimationFrame(&MRBase_LightsOnly, v2->Scale.x, 4, 1.0f, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModel_Queue);
+	//Render the EfHikari thing
+	ProcessModelNode(&object2_002062F3, QueuedModelFlagsB_3, 1.0f);
+	njPopMatrix(1u);
+	ToggleStageFog();
+	Direct3D_SetNearFarPlanes(LevelDrawDistance.Minimum, LevelDrawDistance.Maximum);
+}
+
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	//MR Base stuff
+	object_0020454C.evalflags |= NJD_EVAL_HIDE;
+	object_002046C8.evalflags |= NJD_EVAL_HIDE;
+	object_00204BC4.evalflags |= NJD_EVAL_HIDE;
+	object_00204D40.evalflags |= NJD_EVAL_HIDE;
+	object_0020523C.evalflags |= NJD_EVAL_HIDE;
+	object_002053B8.evalflags |= NJD_EVAL_HIDE;
+	object_002058B4.evalflags |= NJD_EVAL_HIDE;
+	object_00205A30.evalflags |= NJD_EVAL_HIDE;
+	WriteJump((void*)0x538430, FixMRBase);
 	//Cutscene after Lost World
 	WriteData((float*)0x006D2537, 16.0f); //Y1
 	WriteData((float*)0x006D2507, 16.0f); //Y2
@@ -386,13 +431,13 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02MR02_OBJECTS[119] = &object_001A08EC;
 	___ADV02MR02_OBJECTS[178] = &object_001A08EC;
 	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
-	___ADV02_ACTIONS[0]->object = &object_0020C3B0;
+	___ADV02_ACTIONS[0]->object = &object_0020C3B0; //OFinalEgg
+	___ADV02_ACTIONS[0]->motion = &animation_000862E8; //OFinalEgg animation
+	___ADV02_ACTIONS[30]->object = &object_0020DC78; //OFinalWay
 	___ADV02_ACTIONS[11]->object = &object_001B5F40; //Torokko
 	___ADV02_ACTIONS[29]->object = &object_001BBA04; //Ice Stone
 	___ADV02_ACTIONS[32]->object = &object_001F41C0;
-	___ADV02_ACTIONS[0]->motion = &animation_000862E8;
 	___ADV02_ACTIONS[10]->object = &object_00201C18;
-	___ADV02_ACTIONS[30]->object = &object_0020DC78; //OFinalWay
 	___ADV02_ACTIONS[21]->object = &object_001DDBFC; //Plane platform
 	___ADV02_ACTIONS[9]->object = &object_001B2D5C; //Final Egg base door
 	___ADV02_ACTIONS[17]->object = &object_001CCFBC; //OHiddenGate
