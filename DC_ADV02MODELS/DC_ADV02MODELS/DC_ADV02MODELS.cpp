@@ -315,7 +315,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		landtable_00017960.TexName = "ADV_MR00W";
 		WriteCall((void*)0x005325C9, SetWaterTexture);
 		WriteData((int*)0x00532611, 156);
-		texlist_mr00.nbTexture = 171;
+		ResizeTextureList(&texlist_mr00, 171);
 		collist_00015E60[LengthOfArray(collist_00015E60) - 2].Flags = 0x81000000;
 		collist_00015E60[LengthOfArray(collist_00015E60) - 3].Flags = 0x81000000;
 		collist_00015E60[LengthOfArray(collist_00015E60) - 4].Flags = 0x81000000;
