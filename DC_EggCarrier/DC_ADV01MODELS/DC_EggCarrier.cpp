@@ -300,9 +300,9 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		landtable_00162260.TexName = "ADV_EC00W";
 		landtable_001631F0.TexName = "ADV_EC01W";
 		landtable_00163CE8.TexName = "ADV_EC02W";
-		texlist_ec00.nbTexture = 125;
-		texlist_ec01.nbTexture = 117;
-		texlist_ec02.nbTexture = 93;
+		ResizeTextureList(&texlist_ec00, 125);
+		ResizeTextureList(&texlist_ec01, 117);
+		ResizeTextureList(&texlist_ec02, 93);
 		WriteData((char*)0x0051C4E8, 0x7B, 1); //act 1 water
 		WriteData((char*)0x0051C50B, 0x73, 1); //act 2 water
 		WriteData((char*)0x0051C529, 0x5B, 1); //act 3 water

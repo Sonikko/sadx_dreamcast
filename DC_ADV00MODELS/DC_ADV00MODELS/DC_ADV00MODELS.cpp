@@ -279,8 +279,8 @@ extern "C"
 			landtable_000C21F0.TexName = "ADVSS02W";
 			landtable_000DCEBC.TexName = "ADVSS03W";
 			landtable_00135A90.TexName = "ADVSS04W";
-			texlist4.nbTexture = 283;
-			texlist5.nbTexture = 147;
+			ResizeTextureList(&texlist4, 283);
+			ResizeTextureList(&texlist5, 147);
 			WriteData((int*)0x006311BB, 268);
 			WriteData((int*)0x006311D9, 266);
 			WriteData((int*)0x006311D2, 267);

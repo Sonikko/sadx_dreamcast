@@ -101,8 +101,8 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	}
 	if (SADXStyleWater != 0)
 	{
-		texlist_past01.nbTexture = 101;
-		texlist_past02.nbTexture = 103;
+		ResizeTextureList(&texlist_past01, 101);
+		ResizeTextureList(&texlist_past02, 103);
 		WriteData((char*)0x0054287B, 0x56, 1); // wave texture ID act 2
 		WriteData((char*)0x00542880, 0x63, 1); // water texture ID act 2
 		WriteData((char*)0x005428A0, 0x56, 1); // wave texture ID act 3
