@@ -1,4 +1,5 @@
 #include "stdafx.h"
+#include "stdlib.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "Animals.h"
@@ -342,12 +343,20 @@ void RotateEmerald()
 	njRotateY(0, Camera_Data1->Rotation.y);
 }
 
+void SonicDashTrailFix(NJS_OBJECT *a1, QueuedModelFlagsB a2)
+{
+	a1->basicdxmodel->mats[0].attr_texId = rand() % 2;
+	ProcessModelNode_A_WrapperB(a1, a2);
+	a1->basicdxmodel->mats[0].attr_texId = 0;
+}
+
 extern "C"
 {
 	__declspec(dllexport) PointerList Jumps[] = { { arrayptrandlength(jumps) } };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteCall((void*)0x4A0F56, SonicDashTrailFix);
 		WriteData((char*)0x0040889C, 0x90, 10); //Queued model lighting/specular fix
 		//((NJS_MATERIAL*)0x008B1CE0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Ripple
 		//((NJS_MATERIAL*)0x008B1CE0)->diffuse.color = 0xFFFFFFFF;
@@ -505,5 +514,3 @@ extern "C"
 		else ((NJS_MATERIAL*)0x02D64FD8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 	}
 }
-
-
