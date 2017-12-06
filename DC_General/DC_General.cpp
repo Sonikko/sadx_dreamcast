@@ -7,6 +7,7 @@
 #include "EmeraldGlow.h"
 #include "TornadoCrash.h"
 #include "EggmobileNPC.h"
+#include "CharacterEffects.h"
 
 HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 HMODULE ADV01MODELS = GetModuleHandle(L"ADV01MODELS");
@@ -15,6 +16,12 @@ HMODULE ADV03MODELS = GetModuleHandle(L"ADV03MODELS");
 
 NJS_TEXANIM EmeraldGlowTexanim = { 32, 32, 0, 0, 0, 0, 0xFF, 0xFF, 3, 0 };
 NJS_SPRITE EmeraldGlowSprite = { { -16.0f, -10.5f, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00C3FE20, &EmeraldGlowTexanim };
+
+NJS_TEXANIM Heat1Texanim = { 56, 64, 28, 32, 0, 0, 0xFF, 0xFF, 2, 0 };
+NJS_TEXANIM Heat2Texanim = { 56, 64, 28, 32, 0, 0, 0xFF, 0xFF, 2, 0 };
+
+NJS_SPRITE Heat1Sprite = { { 0, 0, 0 }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x0091BD28, &Heat1Texanim };
+NJS_SPRITE Heat2Sprite = { { 0, 0, 0 }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x0091BD28, &Heat2Texanim };
 
 DataArray(char, byte_3C5B37C, 0x3C5B37C, 52);
 DataPointer(NJS_MODEL_SADX, stru_8BC0F4, 0x8BC0F4);
@@ -28,13 +35,20 @@ DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
+DataPointer(NJS_TEXLIST, KNU_EFF_TEXLIST, 0x0091BD28);
 DataPointer(int, CurrentChaoStage, 0x0339F87C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
+FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
+
 
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
 static int EmeraldGlowAlpha = 255;
 static bool EmeraldGlowDirection = false;
+static float heat_float1 = 1.0f; //1
+static float heat_float2 = 0.2f; //0.5
+static float alphathing = 1.0f;
 
 void __cdecl Switch_DisplayX(ObjectMaster *a1)
 {
@@ -345,9 +359,150 @@ void RotateEmerald()
 
 void SonicDashTrailFix(NJS_OBJECT *a1, QueuedModelFlagsB a2)
 {
-	a1->basicdxmodel->mats[0].attr_texId = rand() % 2;
+	a1->basicdxmodel->mats->attr_texId = rand() % 2;
 	ProcessModelNode_A_WrapperB(a1, a2);
-	a1->basicdxmodel->mats[0].attr_texId = 0;
+	a1->basicdxmodel->mats->attr_texId = 0;
+}
+
+void __cdecl Knuckles_MaximumHeat_Draw(NJS_VECTOR *position, float alpha)
+{
+	float a; // ST00_4
+	float s; // ST10_4
+	double y; // st7
+
+	if (!MissedFrames)
+	{
+		a = alpha * -0.6f;
+		object_003291C4.basicdxmodel->mats[0].attr_texId = 1;
+		matlist_003288AC[0].diffuse.argb.a = 255*(1.0f-alpha*1.1f)*0.7f;
+		njPushMatrix(0);
+		njTranslateV(0, position);
+		s = 1.2f - alpha * alpha;
+		njScale(0, s, s, s);
+		y = alpha * 262144.0f;
+		if ((unsigned int)(unsigned __int64)y)
+		{
+			njRotateY(0, (unsigned __int16)(unsigned __int64)y);
+		}
+		njSetTexture(&KNU_EFF_TEXLIST);
+		SomeDepthThing = 2000.0f;
+		ProcessModelNode_A_WrapperB(&object_003291C4, QueuedModelFlagsB_SomeTextureThing);
+		SomeDepthThing = 0.0f;
+		njPopMatrix(1u);
+		ClampGlobalColorThing_Thing();
+	}
+}
+
+void __cdecl Knuckles_MaximumHeatSprite_Draw(ObjectMaster *sx)
+{
+	auto entity = CharObj1Ptrs[0];
+	float *v1; // eax
+	EntityData1 *v2; // esi
+	float a; // ST00_4
+	Float sxa; // [esp+18h] [ebp+4h]
+	DataArray(EntityData1*, EntityData1Ptrs, 0x03B42E10, 8);
+	NJS_VECTOR pos;
+	float scl1;
+	float scl2;
+	v1 = (float *)&sx->Data1->Action;
+	v2 = EntityData1Ptrs[0];
+	if (EntityData1Ptrs[0])
+	{
+		if (!MissedFrames)
+		{
+			sxa = (v1[13] - v1[12]) * v1[3] + v1[12];
+			a = (v1[2] - v1[4]) * v1[3] + v1[4];
+			SetMaterialAndSpriteColor_Float(a, 1.0, 1.0, 1.0);
+			pos = v2->CollisionInfo->CollisionArray->v;
+			pos.x = entity->Position.x;
+			pos.y = entity->Position.y+5.0f;
+			pos.z = entity->Position.z;
+			njSetTexture(&KNU_EFF_TEXLIST);
+			njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+			//Sprite 1
+			scl1 = sxa*0.09f;
+			njPushMatrix(0);
+			njTranslateV(0, &pos);
+			njRotateX(0, Camera_Data1->Rotation.x);
+			njRotateZ(0, Camera_Data1->Rotation.z);
+			njRotateY(0, Camera_Data1->Rotation.y);
+			njScale(0, scl1, scl1, scl1);
+			njDrawSprite3D(&Heat1Sprite, 0, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR);
+			njPopMatrix(1u);
+			//Sprite 2
+			scl2 = 0.05f/scl1;
+			njPushMatrix(0);
+			njTranslateV(0, &pos);
+			njRotateX(0, Camera_Data1->Rotation.x);
+			njRotateZ(0, Camera_Data1->Rotation.z);
+			njRotateY(0, Camera_Data1->Rotation.y);
+			njScale(0, scl2, scl2, scl2);
+			njDrawSprite3D(&Heat2Sprite, 0, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR);
+			njPopMatrix(1u);
+			ClampGlobalColorThing_Thing();
+			njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		}
+	}
+}
+
+void KnucklesPunch_RetrieveAlpha(float a, float r, float g, float b)
+{
+	alphathing = a;
+}
+
+void KnucklesPunch_Render(NJS_OBJECT *a1, QueuedModelFlagsB a2)
+{
+	a1->basicdxmodel->mats[0].diffuse.argb.a = alphathing*255;
+	ProcessModelNode_A_WrapperB(a1, a2);
+}
+
+void __cdecl Sonic_DisplayLightDashModel(EntityData1 *data1, CharObj2 **data2_pp, CharObj2 *data2)
+{
+	int v3; // eax
+	__int16 v4; // t1
+	double v5; // st7
+	float v6; // ST28_4
+	double v7; // st7
+	NJS_ACTION v8; // [esp+4h] [ebp-18h]
+	NJS_ARGB a1; // [esp+Ch] [ebp-10h]
+	NJS_OBJECT **___SONIC_OBJECTS = (NJS_OBJECT **)GetProcAddress(CHRMODELS, "___SONIC_OBJECTS");
+	if (!MissedFrames)
+	{
+		v3 = (unsigned __int16)data2->AnimationThing.Index;
+		v8.object = ___SONIC_OBJECTS[54];
+		if (data2->AnimationThing.State == 2)
+		{
+			v4 = data2->AnimationThing.LastIndex;
+			v8.motion = data2->AnimationThing.action->motion;
+		}
+		else
+		{
+			v8.motion = data2->AnimationThing.AnimData[v3].Animation->motion;
+		}
+		v5 = (double)(FrameCounterUnpaused & 0x7F);
+		if (v5 >= 64.0f)
+		{
+			v5 = 128.0f - v5;
+		}
+		//v5 = 0;
+		njPushMatrixEx();
+		njControl3D(NJD_CONTROL_3D_CONSTANT_MATERIAL | NJD_CONTROL_3D_ENABLE_ALPHA | NJD_CONTROL_3D_CONSTANT_ATTR | NJD_CONTROL_3D_USE_PUNCHTHROUGH);
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+		SetMaterialAndSpriteColor_Float(1.0f, 0, 0.06f + (64 - v5) / 880.0f, 1.0f);
+		sub_4083D0(&v8, data2->AnimationThing.Frame, 0);
+		njScale(0, 1.05, 1.05, 1.05);
+		SetMaterialAndSpriteColor_Float(1.0f, 0.0245f, (64 - v5) / 1050.0f, 1.0f);
+		sub_4083D0(&v8, data2->AnimationThing.Frame, 0);
+		njScale(0, 1.05, 1.05, 1.05);
+		SetMaterialAndSpriteColor_Float(1.0f, 0.024f, (64 - v5) / 2000.0f, 0.15f);
+		sub_4083D0(&v8, data2->AnimationThing.Frame, 0);
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		njPopMatrixEx();
+	}
 }
 
 extern "C"
@@ -356,6 +511,13 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteJump((void*)0x004A1630, Sonic_DisplayLightDashModel);
+		WriteData((float**)0x47404B, &heat_float1);
+		WriteData((float**)0x474057, &heat_float2);
+		WriteJump((void*)0x004C1330, Knuckles_MaximumHeat_Draw);
+		WriteJump((void*)0x004C1410, Knuckles_MaximumHeatSprite_Draw);
+		WriteCall((void*)0x004C1258, KnucklesPunch_RetrieveAlpha);
+		WriteCall((void*)0x004C1305, KnucklesPunch_Render);
 		WriteCall((void*)0x4A0F56, SonicDashTrailFix);
 		WriteData((char*)0x0040889C, 0x90, 10); //Queued model lighting/specular fix
 		//((NJS_MATERIAL*)0x008B1CE0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Ripple

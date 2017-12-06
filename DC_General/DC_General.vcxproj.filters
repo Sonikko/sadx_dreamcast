@@ -36,6 +36,9 @@
     <ClInclude Include="EmeraldGlow.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CharacterEffects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="stdafx.cpp">

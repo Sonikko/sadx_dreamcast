@@ -154,6 +154,7 @@
     <ClInclude Include="Animals.h" />
     <ClInclude Include="EmeraldGlow.h" />
     <ClInclude Include="Itembox.h" />
+    <ClInclude Include="CharacterEffects.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="TornadoCrash.h" />
