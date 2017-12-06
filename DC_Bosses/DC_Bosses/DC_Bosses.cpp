@@ -49,6 +49,7 @@ DataArray(DrawDistance, DrawDist_Chaos7, 0x01420E00, 3);
 DataArray(DrawDistance, DrawDist_EggHornet, 0x01556B1C, 3);
 DataArray(DrawDistance, DrawDist_E101R, 0x015225D8, 3);
 DataArray(DrawDistance, DrawDist_Zero, 0x016B4D98, 3);
+DataPointer(float, SomeDepthThing, 0x03ABD9C0);
 DataPointer(unsigned char, byte_3C5A7EF, 0x3C5A7EF);
 DataPointer(unsigned char, byte_3C5A7ED, 0x3C5A7ED);
 DataPointer(unsigned char, byte_03C6C944, 0x03C6C944);
@@ -519,11 +520,19 @@ void FixChaos0Car(NJS_ACTION *a1, float frame, float scale)
 	DisplayAnimationFrame(&a4, frame, 1, scale, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModel_Queue);
 }
 
+void FixChaos2Columns(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
+{
+	SomeDepthThing = 8000.0f;
+	ProcessModelNode_A_Wrapper(a1, a2, a3);
+	SomeDepthThing = 0;
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		WriteCall((void*)0x0054AC30, FixChaos2Columns);
 		WriteCall((void*)0x0054968E, FixChaos0Car);
 		//Fix Chaos0 police car
 		//Egg Carrier 2 crash in Perfect Chaos cutscene
@@ -612,7 +621,7 @@ extern "C"
 		WriteCall((void*)0x00562303, TornadoFunc); //Perfect Chaos tornado fade-in
 		*(NJS_OBJECT *)0x02DA8664 = object_029A8664; //E101R model in cutscenes
 		//Disable Chaos 2 columns
-		((NJS_OBJECT *)0x11863EC)->evalflags |= NJD_EVAL_HIDE;
+		/*((NJS_OBJECT *)0x11863EC)->evalflags |= NJD_EVAL_HIDE;
 		((NJS_OBJECT *)0x118C944)->evalflags |= NJD_EVAL_HIDE;
 		((NJS_OBJECT *)0x118C978)->evalflags |= NJD_EVAL_HIDE;
 		((NJS_OBJECT *)0x118C9AC)->evalflags |= NJD_EVAL_HIDE;
@@ -627,7 +636,7 @@ extern "C"
 		((NJS_OBJECT *)0x118CB80)->evalflags |= NJD_EVAL_HIDE;
 		((NJS_OBJECT *)0x118CBB4)->evalflags |= NJD_EVAL_HIDE;
 		((NJS_OBJECT *)0x118CBE8)->evalflags |= NJD_EVAL_HIDE;
-		((NJS_OBJECT *)0x118C910)->evalflags |= NJD_EVAL_HIDE;
+		((NJS_OBJECT *)0x118C910)->evalflags |= NJD_EVAL_HIDE;*/
 		((NJS_MATERIAL*)0x0117E8A0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Top light in Chaos 2
 		((NJS_MATERIAL*)0x011E2C00)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Lilypad in Chaos 4
 		((NJS_MATERIAL*)0x011E2C14)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Lilypad in Chaos 4
