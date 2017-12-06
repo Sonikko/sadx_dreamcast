@@ -488,15 +488,19 @@ void __cdecl Sonic_DisplayLightDashModel(EntityData1 *data1, CharObj2 **data2_pp
 		}
 		//v5 = 0;
 		njPushMatrixEx();
-		njControl3D(NJD_CONTROL_3D_CONSTANT_MATERIAL | NJD_CONTROL_3D_ENABLE_ALPHA | NJD_CONTROL_3D_CONSTANT_ATTR | NJD_CONTROL_3D_USE_PUNCHTHROUGH);
+		njControl3D(NJD_CONTROL_3D_CONSTANT_MATERIAL | NJD_CONTROL_3D_ENABLE_ALPHA | NJD_CONTROL_3D_CONSTANT_ATTR);
 		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
 		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+		//Main
+		njScale(0, 1.05f, 1.05f, 1.05f);
 		SetMaterialAndSpriteColor_Float(1.0f, 0, 0.06f + (64 - v5) / 880.0f, 1.0f);
 		sub_4083D0(&v8, data2->AnimationThing.Frame, 0);
-		njScale(0, 1.05, 1.05, 1.05);
+		//Outer 1
+		njScale(0, 1.05f, 1.05f, 1.05f);
 		SetMaterialAndSpriteColor_Float(1.0f, 0.0245f, (64 - v5) / 1050.0f, 1.0f);
 		sub_4083D0(&v8, data2->AnimationThing.Frame, 0);
-		njScale(0, 1.05, 1.05, 1.05);
+		//Outer 2
+		njScale(0, 1.05f, 1.05f, 1.05f);
 		SetMaterialAndSpriteColor_Float(1.0f, 0.024f, (64 - v5) / 2000.0f, 0.15f);
 		sub_4083D0(&v8, data2->AnimationThing.Frame, 0);
 		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
