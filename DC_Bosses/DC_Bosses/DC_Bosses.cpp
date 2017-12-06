@@ -510,11 +510,22 @@ const char* __cdecl SetPLM0X(int level, int act)
 	else { return nullptr; }
 }
 
+void FixChaos0Car(NJS_ACTION *a1, float frame, float scale)
+{
+	NJS_ACTION a4;
+	a4.motion = a1->motion;
+	a4.object = &object_000597B0_2;
+	DisplayAnimationFrame(a1, frame, 0, scale, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModelThing);
+	DisplayAnimationFrame(&a4, frame, 1, scale, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModel_Queue);
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		WriteCall((void*)0x0054968E, FixChaos0Car);
+		//Fix Chaos0 police car
 		//Egg Carrier 2 crash in Perfect Chaos cutscene
 		WriteData((float*)0x0065D8D1, 837.418f); //X1
 		WriteData((float*)0x0065D8CC, 412.38f); //Y1
