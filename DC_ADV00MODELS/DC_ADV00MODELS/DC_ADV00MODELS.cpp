@@ -31,6 +31,7 @@ DataArray(FogData, StationSquare4Fog, 0x02AA3DA0, 3);
 DataArray(FogData, StationSquare5Fog, 0x02AA3DD0, 3);
 DataArray(FogData, StationSquare6Fog, 0x02AA3E00, 3);
 DataArray(DrawDistance, StationSquare6DrawDist, 0x02AA3CF8, 3);
+FunctionPointer(void, sub_405470, (NJS_ACTION *a1, float a2, int a3), 0x405470);
 
 void __cdecl WaterTexture()
 {
@@ -237,10 +238,23 @@ NJS_MATERIAL* LevelSpecular[] = {
 	((NJS_MATERIAL*)0x02AFF2D0),
 };
 
+void FixPoliceCar(NJS_ACTION *a1, float a2, int a3)
+{
+	NJS_ACTION a4;
+	DisplayAnimationFrame(a1, a2, 0, a3, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModelThing);
+	if (a1->object->basicdxmodel->mats[6].attr_texId==16)
+	{
+	a4.motion = a1->motion;
+	a4.object = &object_0019F390_2;
+	DisplayAnimationFrame(&a4, a2, 1, a3, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModel_Queue);
+	}
+}
+
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteCall((void*)0x00632773, FixPoliceCar);
 		//Fix camera in Light Speed Shoes cutscene
 		WriteData((float*)0x00652F74, 800.0f); //X1
 		WriteData((float*)0x00652F79, -92.6f); //Y1
@@ -317,25 +331,25 @@ extern "C"
 		*(NJS_OBJECT*)0x2AB2CCC = object_001689C4; //Shop 2 door
 		((NJS_ACTION*)0x2AB2D9C)->object = &object_001689C4; //Shop 2 door
 		WriteData((void*)0x0063A6A4, 0x90, 5); // Pool chair
-		memcpy((void*)0x02DBD6D0, &object_00011208, sizeof(object_00011208)); // Event helicopter
-		memcpy((void*)0x02AD4EA4, &object_00186E88, sizeof(object_00186E88)); // Hidden door 1
-		memcpy((void*)0x02AD4CD4, &object_00186CC4, sizeof(object_00186CC4)); // Hidden door 2
-		memcpy((void*)0x02AEE7B0, &object_0019AF04, sizeof(object_0019AF04)); // Boat
-		memcpy((void*)0x02AAB0E4, &object_00164444, sizeof(object_00164444)); // Hotel door 1
-		memcpy((void*)0x02AAE0BC, &object_00164444, sizeof(object_00164444)); // Hotel door 2
-		memcpy((void*)0x02AC9EE4, &attach_0017DDC0, sizeof(attach_0017DDC0)); // Lamp pole
-		memcpy((void*)0x02AC9840, &attach_0017D7A8, sizeof(attach_0017D7A8)); // Lamp pole
-		memcpy((void*)0x02ABDF0C, &object_00172BD4, sizeof(object_00172BD4)); // Box in the sewers
-		memcpy((void*)0x02AE8674, &object_00195DC0, sizeof(object_00195DC0)); // SS train
-		memcpy((void*)0x02AF4FC0, &object_0019F390, sizeof(object_0019F390)); // SS Police
-		memcpy((void*)0x02AF1974, &object_0019CBD8, sizeof(object_0019CBD8)); // SS Red Car
-		memcpy((void*)0x02AF8400, &object_001A17C4, sizeof(object_001A17C4)); // SS Blue Car
-		memcpy((void*)0x02AFBA64, &object_001A4268, sizeof(object_001A4268)); // SS Taxi
-		memcpy((void*)0x02AD362C, &object_00185A20, sizeof(object_00185A20)); // SS Twinkle Park Ball
-		memcpy((void*)0x02AB6900, &object_0016C3FC, sizeof(object_0016C3FC)); // SS Twinkle Park Elevator
-		memcpy((void*)0x02AD14C8, &object_00183B8C, sizeof(object_00183B8C)); // Gamma's target (O M Saku)
-		memcpy((void*)0x02AC95BC, &attach_0017D540, sizeof(attach_0017D540)); // Fire Extinguisher
-		memcpy((void*)0x02AD484C, &object_0018684C, sizeof(object_0018684C)); // Ice Key 1
+		*(NJS_OBJECT*)0x02DBD6D0 = object_00011208; // Event helicopter
+		*(NJS_OBJECT*)0x02AD4EA4 = object_00186E88; // Hidden door 1
+		*(NJS_OBJECT*)0x02AD4CD4 = object_00186CC4; // Hidden door 2
+		*(NJS_OBJECT*)0x02AEE7B0 = object_0019AF04; // Boat
+		*(NJS_OBJECT*)0x02AAB0E4 = object_00164444; // Hotel door 1
+		*(NJS_OBJECT*)0x02AAE0BC = object_00164444; // Hotel door 2
+		*(NJS_MODEL_SADX*)0x02AC9EE4 = attach_0017DDC0; // Lamp pole
+		*(NJS_MODEL_SADX*)0x02AC9840 = attach_0017D7A8; // Lamp pole
+		*(NJS_OBJECT*)0x02ABDF0C = object_00172BD4; // Box in the sewers
+		*(NJS_OBJECT*)0x02AE8674 = object_00195DC0; // SS train
+		*(NJS_OBJECT*)0x02AF4FC0 = object_0019F390; // SS Police
+		*(NJS_OBJECT*)0x02AF1974 = object_0019CBD8; // SS Red Car
+		*(NJS_OBJECT*)0x02AF8400 = object_001A17C4; // SS Blue Car
+		*(NJS_OBJECT*)0x02AFBA64 = object_001A4268; // SS Taxi
+		*(NJS_OBJECT*)0x02AD362C = object_00185A20; // SS Twinkle Park Ball
+		*(NJS_OBJECT*)0x02AB6900 = object_0016C3FC; // SS Twinkle Park Elevator
+		*(NJS_OBJECT*)0x02AD14C8 = object_00183B8C; // Gamma's target (O M Saku)
+		*(NJS_MODEL_SADX*)0x02AC95BC = attach_0017D540; // Fire Extinguisher
+		*(NJS_OBJECT*)0x02AD484C = object_0018684C; // Ice Key 1
 		//Landtables
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 		NJS_TEXLIST **___ADV00_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV00_TEXLISTS");
