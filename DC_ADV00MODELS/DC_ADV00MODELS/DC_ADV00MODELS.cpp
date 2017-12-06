@@ -250,10 +250,18 @@ void FixPoliceCar(NJS_ACTION *a1, float a2, int a3)
 	}
 }
 
+void RenderPoliceCarBarricade(NJS_OBJECT *obj, float scale)
+{
+	ProcessModelNode_AB_Wrapper(obj, scale);
+	ProcessModelNode(&object_0019F390_2, (QueuedModelFlagsB)1,scale);
+}
+
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteCall((void*)0x00638B2E, RenderPoliceCarBarricade);
+		WriteCall((void*)0x00638B50, RenderPoliceCarBarricade);
 		WriteCall((void*)0x00632773, FixPoliceCar);
 		//Fix camera in Light Speed Shoes cutscene
 		WriteData((float*)0x00652F74, 800.0f); //X1
