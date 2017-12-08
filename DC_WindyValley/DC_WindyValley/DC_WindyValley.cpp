@@ -6,31 +6,34 @@
 #include "windy3.h"
 #include "Objects_Windy.h"
 
+DataArray(SkyboxScale, SkyboxScale_Windy1, 0x00AFE924, 3);
 DataArray(FogData, FogData_Windy1, 0x00AFEA20, 3);
 DataArray(FogData, FogData_Windy2, 0x00AFEA50, 3);
 DataArray(FogData, FogData_Windy3, 0x00AFEA80, 3);
 DataArray(DrawDistance, DrawDist_WindyValley1, 0x00AFE9D8, 3);
+DataPointer(NJS_OBJECT, stru_C05E10, 0xC05E10);
+DataPointer(NJS_OBJECT, stru_C06344, 0xC06344);
+DataPointer(NJS_OBJECT, stru_C06450, 0xC06450);
+DataPointer(NJS_OBJECT, stru_C0655C, 0xC0655C);
+DataPointer(NJS_OBJECT, stru_C06A94, 0xC06A94);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
+DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(NJS_BGRA, CurrentFogColor, 0x03ABDC68);
 DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
 FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *a1, int a2, float a3), 0x409E70);
-static int TornadoActive = 0;
-static int fadeout = 255;
-static int fadeout2 = 255;
+FunctionPointer(void, sub_408530, (NJS_OBJECT *o), 0x408530);
+
+static int TornadoMode = 0;
+static float SkyTrans = 1.0f;
+
+NJS_VECTOR TornadoSpawnPosition = { 3254, -421, -1665 };
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA48, &landtable_0000D7E0),
 	ptrdecl(0x97DA4C, &landtable_0000DB40),
 	ptrdecl(0x97DA50, &landtable_0000F274),
 };
-
-bool ForceObjectorLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
-{
-	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(0, false); else set_specular(1, false);
-	use_default_diffuse(true);
-	return true;
-}
 
 bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
@@ -110,10 +113,40 @@ NJS_MATERIAL* ObjectSpecularWhiteDiffuse[] = {
 	((NJS_MATERIAL*)0x00953AD0),
 };
 
+void RetrieveWindy1SkyTransparency(float a, float r, float g, float b)
+{
+	SkyTrans = a;
+}
+
+void RenderWindy1Sky()
+{
+	SetMaterialAndSpriteColor_Float(SkyTrans, 1.0f, 1.0f, 1.0f);
+	DrawQueueDepthBias = -30000.0f;
+	ProcessModelNode(&stru_C05E10, (QueuedModelFlagsB)0, 1.0f); //Main
+	DrawQueueDepthBias = -28000.0f;
+	ProcessModelNode(&stru_C06450, (QueuedModelFlagsB)0, 1.0f); //Bottom non-trans
+	SetMaterialAndSpriteColor_Float(SkyTrans* 0.6f, 1.0f, 1.0f, 1.0f);
+	DrawQueueDepthBias = -25000.0f;
+	ProcessModelNode(&stru_C0655C, (QueuedModelFlagsB)0, 1.0f); //Bottom trans
+	DrawQueueDepthBias = -20000.0f;
+	SetMaterialAndSpriteColor_Float(SkyTrans, 1.0f, 1.0f, 1.0f);
+	ProcessModelNode(&stru_C06344, (QueuedModelFlagsB)0, 1.0f); //Cloud 1
+	DrawQueueDepthBias = -18000.0f;
+	ProcessModelNode(&stru_C06A94, (QueuedModelFlagsB)0, 1.0f); //Cloud 2
+	DrawQueueDepthBias = 0;
+}
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	//Skybox stuff
+	WriteCall((void*)0x004DD794, RetrieveWindy1SkyTransparency);
+	WriteCall((void*)0x004DD7D1, RenderWindy1Sky);
+	WriteData((void*)0x004DD7DB, 0x90, 5);
+	WriteData((void*)0x004DD7E5, 0x90, 5);
+	WriteData((void*)0x004DD7EF, 0x90, 5);
+	WriteData((void*)0x004DD7F9, 0x90, 5);
+	//Material fixes
 	((NJS_MATERIAL*)0x00C1C468)->attr_texId &= ~NJD_FLAG_IGNORE_SPECULAR;
 	((NJS_MATERIAL*)0x00C1C47C)->attr_texId &= ~NJD_FLAG_IGNORE_SPECULAR;
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
@@ -123,12 +156,12 @@ extern "C" __declspec(dllexport) void cdecl Init()
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 		material_register(ObjectSpecularWhiteDiffuse, LengthOfArray(ObjectSpecularWhiteDiffuse), &ForceWhiteDiffuseObjectSpecular);
 	}
-	WriteData((void*)0x4DD120, 0xC3, sizeof(char));
+	WriteData((void*)0x4DD120, 0xC3, sizeof(char)); //Disable some fog thing
 	WriteCall((void*)0x004E1E35, sub_409E70); //Wind gate rendering function
 	WriteCall((void*)0x004E1E9A, sub_409E70); //Wind gate rendering function
 	WriteCall((void*)0x004E1F08, sub_409E70); //Wind gate rendering function
 	WriteCall((void*)0x004E1F77, sub_409E70); //Wind gate rendering function
-	*(NJS_OBJECT*)0x00C32DB8 = object_000D40D4; //grassy rock
+	*(NJS_OBJECT*)0x00C32DB8 = object_000D40D4; //Grassy rock
 	*(NJS_OBJECT*)0xC0B188 = object_000B6C3C; //Skybox bottom in Act 3
 	*(NJS_OBJECT*)0xC2B860 = object_0082B860; //broken fan piece
 	*(NJS_OBJECT*)0xC2C160 = object_0082C160; //broken fan piece 2
@@ -146,13 +179,17 @@ extern "C" __declspec(dllexport) void cdecl Init()
 	*(NJS_OBJECT*)0xC30C44 = object_00830C44; //Wind gate 2
 	*(NJS_OBJECT*)0xC305A4 = object_008305A4; //Wind gate 3
 	*(NJS_OBJECT*)0xC2FF04 = object_0082FF04; //Wind gate 4
-	((NJS_OBJECT*)0xC0655C)->evalflags |= NJD_EVAL_HIDE;
-	((NJS_OBJECT*)0xC06450)->evalflags |= NJD_EVAL_HIDE;
-	((NJS_OBJECT*)0xC05E10)->evalflags |= NJD_EVAL_HIDE;
-	((NJS_OBJECT*)0xC06344)->evalflags |= NJD_EVAL_HIDE;
-	((NJS_OBJECT*)0xC06A94)->evalflags |= NJD_EVAL_HIDE;
 	for (int i = 0; i < 3; i++)
 	{
+		SkyboxScale_Windy1->Far.x = 1.0f;
+		SkyboxScale_Windy1->Far.y = 1.0f;
+		SkyboxScale_Windy1->Far.z = 1.0f;
+		SkyboxScale_Windy1->Normal.x = 1.0f;
+		SkyboxScale_Windy1->Normal.y = 1.0f;
+		SkyboxScale_Windy1->Normal.z = 1.0f;
+		SkyboxScale_Windy1->Near.x = 1.0f;
+		SkyboxScale_Windy1->Near.y = 1.0f;
+		SkyboxScale_Windy1->Near.z = 1.0f;
 		DrawDist_WindyValley1[i].Maximum = -8000.0f;
 		FogData_Windy1[i].Distance = 12000.0f;
 		FogData_Windy1[i].Layer = 1000.0f;
@@ -172,86 +209,28 @@ extern "C" __declspec(dllexport) void cdecl Init()
 
 extern "C" __declspec(dllexport) void cdecl OnFrame()
 {
+	float TornadoDistance;
+	auto entity = CharObj1Ptrs[0];
 	if (CurrentLevel == 2 && CurrentAct == 0)
 	{
-		if (GameState == 3 || GameState == 4)
+		if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21 || CurrentCharacter == 6) TornadoMode = 0;
+		if (CurrentCharacter != 6 && entity != nullptr)
 		{
-			TornadoActive = 0;
-			fadeout = 255;
-			fadeout2 = 255;
-			matlist_00806484[0].diffuse.argb.a = 178;
-			matlist_00806484[0].diffuse.argb.r = 255;
-			matlist_00806484[0].diffuse.argb.g = 255;
-			matlist_00806484[0].diffuse.argb.b = 255;
-			matlist_00806590[0].diffuse.argb.r = 255;
-			matlist_00806590[0].diffuse.argb.g = 255;
-			matlist_00806590[0].diffuse.argb.b = 255;
-			matlist_00805E44[0].diffuse.argb.r = 255;
-			matlist_00805E44[0].diffuse.argb.g = 255;
-			matlist_00805E44[0].diffuse.argb.b = 255;
-			matlist_00806378[0].diffuse.argb.r = 255;
-			matlist_00806378[0].diffuse.argb.g = 255;
-			matlist_00806378[0].diffuse.argb.b = 255;
-			matlist_008055DC[0].diffuse.argb.r = 255;
-			matlist_008055DC[0].diffuse.argb.g = 255;
-			matlist_008055DC[0].diffuse.argb.b = 255;
-			matlist_008055DC[1].diffuse.argb.r = 255;
-			matlist_008055DC[1].diffuse.argb.g = 255;
-			matlist_008055DC[1].diffuse.argb.b = 255;
-			matlist_008055DC[2].diffuse.argb.r = 255;
-			matlist_008055DC[2].diffuse.argb.g = 255;
-			matlist_008055DC[2].diffuse.argb.b = 255;
-		}
-		if (Camera_Data1 != nullptr)
-		{
-			object_00805E10.pos[0] = Camera_Data1->Position.x;
-			object_00806450.pos[0] = Camera_Data1->Position.x;
-			object_00806344.pos[0] = Camera_Data1->Position.x;
-			object_00806A94.pos[0] = Camera_Data1->Position.x;
-			object_0080655C.pos[0] = Camera_Data1->Position.x;
-			object_00805E10.pos[1] = 0;
-			object_00806450.pos[1] = 0;
-			object_00806344.pos[1] = 0;
-			object_00806A94.pos[1] = 0;
-			object_0080655C.pos[1] = 0;
-			object_00805E10.pos[2] = Camera_Data1->Position.z;
-			object_00806450.pos[2] = Camera_Data1->Position.z;
-			object_00806344.pos[2] = Camera_Data1->Position.z;
-			object_00806A94.pos[2] = Camera_Data1->Position.z;
-			object_0080655C.pos[2] = Camera_Data1->Position.z;
-		}
-	}
-	auto entity = CharObj1Ptrs[0];
-	if (CurrentCharacter != 6 && CurrentLevel == 2 && CurrentAct == 0 && GameState != 16)
-	{
-		if (entity != nullptr && TornadoActive == 0)
-		{
-			if (entity->Position.z < -1250 || entity->Position.x > 2980)
+			TornadoDistance = squareroot((entity->Position.x - TornadoSpawnPosition.x) * (entity->Position.x - TornadoSpawnPosition.x) + (entity->Position.y - TornadoSpawnPosition.y)*(entity->Position.y - TornadoSpawnPosition.y) + (entity->Position.z - TornadoSpawnPosition.z)*(entity->Position.z - TornadoSpawnPosition.z));
+			if (TornadoMode != 4)
 			{
-				if (matlist_00806484[0].diffuse.argb.a > 1) matlist_00806484[0].diffuse.argb.a--;
-				matlist_00806484[0].diffuse.argb.r = fadeout;
-				matlist_00806484[0].diffuse.argb.g = fadeout;
-				matlist_00806484[0].diffuse.argb.b = fadeout;
-				matlist_00806590[0].diffuse.argb.r = fadeout2;
-				matlist_00806590[0].diffuse.argb.g = fadeout2;
-				matlist_00806590[0].diffuse.argb.b = fadeout2;
-				matlist_00805E44[0].diffuse.argb.r = fadeout2;
-				matlist_00805E44[0].diffuse.argb.g = fadeout2;
-				matlist_00805E44[0].diffuse.argb.b = fadeout2;
-				matlist_00806378[0].diffuse.argb.r = fadeout;
-				matlist_00806378[0].diffuse.argb.g = fadeout;
-				matlist_00806378[0].diffuse.argb.b = fadeout;
-				matlist_008055DC[0].diffuse.argb.r = fadeout;
-				matlist_008055DC[0].diffuse.argb.g = fadeout;
-				matlist_008055DC[0].diffuse.argb.b = fadeout;
-				matlist_008055DC[1].diffuse.argb.r = fadeout;
-				matlist_008055DC[1].diffuse.argb.g = fadeout;
-				matlist_008055DC[1].diffuse.argb.b = fadeout;
-				matlist_008055DC[2].diffuse.argb.r = fadeout;
-				matlist_008055DC[2].diffuse.argb.g = fadeout;
-				matlist_008055DC[2].diffuse.argb.b = fadeout;
-				if (fadeout2 > 80) fadeout2 = fadeout2 - 2;
-				if (fadeout > 53) fadeout = fadeout - 2;
+				if (TornadoDistance < 680) TornadoMode = 1;
+				if (TornadoDistance < 310) TornadoMode = 2;
+				if (TornadoDistance < 170) TornadoMode = 3;
+				if (TornadoDistance < 150) TornadoMode = 4;
+			}
+			if (TornadoMode == 0 || TornadoMode == 4)
+			{
+				if (CurrentFogDist < 2200) CurrentFogDist = CurrentFogDist + 32.0f;
+				if (CurrentFogLayer < 400) CurrentFogLayer = CurrentFogLayer + 16.0f;
+			}
+			if (TornadoMode == 1)
+			{
 				if (CurrentFogColor.r > 7)
 				{
 					CurrentFogColor.r = CurrentFogColor.r - 8;
@@ -267,25 +246,19 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 				if (CurrentFogDist > 5000) CurrentFogDist = CurrentFogDist - 128.0f;
 				if (CurrentFogLayer >= 100) CurrentFogLayer = CurrentFogLayer - 128.0f;
 			}
-		}
-		if (entity != nullptr && entity->Position.x > 3050 && entity->Position.z > -1520 && entity->Position.z < -1300 && entity->Position.y <= -480)
-		{
-			TornadoActive = 1;
-			if (CurrentFogDist > 450) CurrentFogDist = CurrentFogDist - 64.0f;
-			if (CurrentFogLayer >= 64) CurrentFogLayer = CurrentFogLayer - 64.0f;
-			if (CurrentFogColor.r > 1)
+			if (TornadoMode == 2)
 			{
-				CurrentFogColor.r--;
-				CurrentFogColor.g--;
-				CurrentFogColor.b--;
+				if (CurrentFogDist > 450) CurrentFogDist = CurrentFogDist - 64.0f;
+				if (CurrentFogLayer >= 64) CurrentFogLayer = CurrentFogLayer - 64.0f;
+				if (CurrentFogColor.r > 1)
+				{
+					CurrentFogColor.r--;
+					CurrentFogColor.g--;
+					CurrentFogColor.b--;
+				}
 			}
 		}
-		if (entity != nullptr && entity->Position.y > -350)
-		{
-			if (CurrentFogDist < 2200) CurrentFogDist = CurrentFogDist + 32.0f;
-			if (CurrentFogLayer < 400) CurrentFogLayer = CurrentFogLayer + 16.0f;
-		}
 	}
-
 };
+
 extern "C" __declspec(dllexport) const ModInfo SADXModInfo = { ModLoaderVer };
