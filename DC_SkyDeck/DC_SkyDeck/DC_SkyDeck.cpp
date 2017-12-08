@@ -13,20 +13,37 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DAD0, &landtable_00023EB4)
 };
 
+static int UVShift1 = 0;
+static int UVShift2 = 0;
+static int SkyboxAlpha = 255;
+
+DataArray(NJS_TEX, SkyDeck_SkyUVsA, 0x03C80478, 32);
+DataArray(NJS_TEX, SkyDeck_SkyUVsB, 0x03C804F8, 32);
+
+DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataPointer(float, SkyDeckAltitude, 0x03C80610); //0 to 700
 DataPointer(float, CurrentSkyBoxScaleX, 0x03ABDC94);
 DataPointer(float, CurrentSkyBoxScaleY, 0x03ABDC98);
 DataPointer(float, CurrentSkyBoxScaleZ, 0x03ABDC9C);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(NJS_VECTOR, SkyDeck_SkyPosition, 0x03C7F038);
 DataPointer(NJS_COLOR, CurrentFogColor, 0x03ABDC68);
+DataPointer(float, CurrentFogLayer, 0x03ABDC60);
+DataPointer(float, CurrentFogDistance, 0x03ABDC64);
+DataPointer(DrawDistance, SkyboxDrawDistance, 0x03ABDCA0);
+DataPointer(DrawDistance, LevelDrawDistance, 0x03ABDC70);
+DataPointer(Angle, SkyDeck_SkyRotationZ, 0x03C7F028);
+DataPointer(Angle, SkyDeck_SkyRotationX, 0x03C7F05C);
+DataPointer(int, dword_3C7F030, 0x3C7F030);
+DataPointer(float, flt_3C8046C, 0x3C8046C);
+DataPointer(int, MissedFrames, 0x03B1117C);
+DataPointer(NJS_OBJECT, stru_214E2A0, 0x214E2A0);
+DataPointer(NJS_OBJECT, stru_214C9E4, 0x214C9E4);
+DataPointer(NJS_OBJECT, stru_214E3AC, 0x214E3AC);
+DataPointer(NJS_OBJECT, stru_214BF20, 0x214BF20);
+DataPointer(NJS_TEXLIST, OBJ_SKYDECK_TEXLIST, 0x0214BE40);
+DataPointer(NJS_VECTOR, Skybox_Scale, 0x03ABDC94);
 FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
-
-bool ForceObjectorLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
-{
-	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(0, false); else set_specular(1, false);
-	use_default_diffuse(true);
-	return true;
-}
 
 bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
@@ -329,9 +346,42 @@ NJS_MATERIAL* ObjectSpecular[] = {
 	((NJS_MATERIAL*)0x021F4F1C),
 };
 
+void __cdecl SkyDeck_QueueDrawQ(NJS_OBJECT *obj, NJS_TEX *uv, int uv_count, float depth)
+{
+	NJS_OBJECT *v3; // ebx
+	NJS_MODEL_SADX *v4; // ebp
+	NJS_MESHSET_SADX *v5; // ebx
+	NJS_TEX *v6; // eax
 
-/* Just in case I ever decide to rewrite this thing
-void SkyDeckSky_original(ObjectMaster *_this)
+	v3 = (NJS_OBJECT *)late_alloca(0x34);
+	if (v3)
+	{
+		memcpy(v3, obj, sizeof(NJS_OBJECT));
+		v4 = (NJS_MODEL_SADX *)late_alloca(44);
+		if (v4)
+		{
+			memcpy(v4, obj->model, sizeof(NJS_MODEL_SADX));
+			v3->model = v4;
+			v5 = (NJS_MESHSET_SADX *)late_alloca(0x1C * v4->nbMeshset);
+			if (v5)
+			{
+				memcpy(v5, obj->basicdxmodel->meshsets, sizeof(NJS_MESHSET_SADX));
+				v4->meshsets = v5;
+				v6 = (NJS_TEX *)late_alloca(4 * uv_count);
+				if (v6)
+				{
+					memcpy(v6, uv, 4 * uv_count);
+					v5->vertuv = v6;
+					DrawQueueDepthBias = depth;
+					ProcessModelNode_A_WrapperB(obj, (QueuedModelFlagsB)0);
+					DrawQueueDepthBias = 0.0f;
+				}
+			}
+		}
+	}
+}
+
+void SkyDeckSky_new(ObjectMaster *_this)
 {
 	unsigned __int64 v1; // rax@6
 	NJS_OBJECT *v2; // esi@7
@@ -342,21 +392,6 @@ void SkyDeckSky_original(ObjectMaster *_this)
 	long double v7; // st7@19
 	NJS_OBJECT *v8; // eax@19
 	NJS_ARGB a1; // [sp+4h] [bp-10h]@13
-	DataPointer(DrawDistance, SkyboxDrawDistance, 0x03ABDCA0);
-	DataPointer(DrawDistance, LevelDrawDistance, 0x03ABDC70);
-	DataPointer(Angle, SkyDeck_SkyRotationZ, 0x03C7F028);
-	DataPointer(Angle, SkyDeck_SkyRotationX, 0x03C7F05C);
-	DataPointer(int, dword_3C7F030, 0x3C7F030);
-	DataPointer(float, flt_3C8046C, 0x3C8046C);
-	DataPointer(int, MissedFrames, 0x03B1117C);
-	DataPointer(NJS_OBJECT, stru_214E2A0, 0x214E2A0);
-	DataPointer(NJS_OBJECT, stru_214C9E4, 0x214C9E4);
-	DataPointer(NJS_OBJECT, stru_214E3AC, 0x214E3AC);
-	DataPointer(NJS_OBJECT, stru_214BF20, 0x214BF20);
-	DataArray(NJS_TEX, SkyDeck_SkyUVsA, 0x03C80478, 32);
-	DataArray(NJS_TEX, SkyDeck_SkyUVsB, 0x03C804F8, 32);
-	DataPointer(NJS_TEXLIST, OBJ_SKYDECK_TEXLIST, 0x0214BE40);
-	DataPointer(NJS_VECTOR, Skybox_Scale, 0x03ABDC94);
 	njControl3D_Backup();
 	njControl3D_Add(NJD_CONTROL_3D_OFFSET_MATERIAL);
 	DisableFog();
@@ -371,10 +406,10 @@ void SkyDeckSky_original(ObjectMaster *_this)
 	{
 		njRotateX(0, (unsigned __int16)SkyDeck_SkyRotationX);
 	}
-	njScale(0, 1.7, 1.0, 1.7);
+	njScale(0, 1.7f, 1.0f, 1.7f);
 	if (!dword_3C7F030)
 	{
-		v1 = (unsigned __int64)(flt_3C8046C * 180.0);
+		v1 = (unsigned __int64)(flt_3C8046C * 180.0f);
 		SetGlobalPoint2Col_Colors(
 			v1 | (((unsigned int)v1 | (((unsigned __int8)v1 | 0xFFFFFF00) << 8)) << 8),
 			v1 | (((unsigned int)v1 | (((unsigned __int8)v1 | 0xFFFFFF00) << 8)) << 8),
@@ -386,70 +421,74 @@ void SkyDeckSky_original(ObjectMaster *_this)
 			{
 				v2 = &stru_214C9E4;
 			}
+			v2->basicdxmodel->mats[0].diffuse.argb.a = 255 - flt_3C8046C * 255;
+			v2->basicdxmodel->mats[1].diffuse.argb.a = 255 - flt_3C8046C * 255;
+			v2->basicdxmodel->mats[2].diffuse.argb.a = 255 - flt_3C8046C * 255;
+			v2->basicdxmodel->mats[3].diffuse.argb.a = 255 - flt_3C8046C * 255;
 			njSetTexture(&OBJ_SKYDECK_TEXLIST);
 			njScaleEx(&Skybox_Scale);
 			sub_408530(v2);
-			njScale(0, 1.0, 1.0, 1.0);
-			v3 = 1.0 - fabs(Camera_Data1->Position.y - (SkyDeck_SkyPosition.y - 1350.0)) * 0.025;
-			if (v3 >= 0.050000001)
+			njScale(0, 1.0f, 1.0f, 1.0f);
+			v3 = 1.0f - fabs(Camera_Data1->Position.y - (SkyDeck_SkyPosition.y - 1350.0f)) * 0.025f;
+			if (v3 >= 0.05f)
 			{
-				if (v3 > 0.89999998)
+				if (v3 > 0.9f)
 				{
-					v3 = 0.89999998;
+					v3 = 0.9f;
 				}
 			}
 			else
 			{
-				v3 = 0.050000001;
+				v3 = 0.05f;
 			}
-			v4 = v3 * -1.0;
+			v4 = v3 * -1.0f;
 			a1.b = v4;
 			a1.g = v4;
 			a1.r = v4;
 			a1.a = v4;
 			SetMaterialAndSpriteColor(&a1);
-			v5 = &stru_214E3AC;
-			if (SkyDeck_SkyPosition.y - 1350.0 - 100.0 <= Camera_Data1->Position.y)
+			v5 = &object_01D4E3AC;
+			if (SkyDeck_SkyPosition.y - 1350.0f - 100.0f <= Camera_Data1->Position.y)
 			{
-				v5 = &stru_214BF20;
+				v5 = &object_01D4BF20;
 			}
-			SkyDeck_QueueDraw(v5, SkyDeck_SkyUVsB, 32);
-			v6 = 1.0 - fabs(Camera_Data1->Position.y - (SkyDeck_SkyPosition.y - 1350.0 - 100.0)) * 0.025;
-			if (v6 >= 0.0099999998)
+			SkyDeck_QueueDrawQ(v5, SkyDeck_SkyUVsB, 32, -12000.0f);
+			v6 = 1.0f - fabs(Camera_Data1->Position.y - (SkyDeck_SkyPosition.y - 1350.0f - 100.0f)) * 0.025f;
+			if (v6 >= 0.01f)
 			{
-				if (v6 > 0.89999998)
+				if (v6 > 0.9f)
 				{
-					v6 = 0.89999998;
+					v6 = 0.9f;
 				}
 			}
 			else
 			{
-				v6 = 0.0099999998;
+				v6 = 0.01f;
 			}
-			v7 = v6 * -1.0;
+			v7 = v6 * -1.0f;
 			a1.b = v7;
 			a1.g = v7;
 			a1.r = v7;
 			a1.a = v7;
 			SetMaterialAndSpriteColor(&a1);
-			njTranslate(0, 0.0, -100.0, 0.0);
-			v8 = &stru_214E3AC;
-			if (SkyDeck_SkyPosition.y - 1350.0 - 100.0 <= Camera_Data1->Position.y)
+			njTranslate(0, 0.0f, -100.0f, 0.0f);
+			v8 = &object_01D4E3AC_2;
+			if (SkyDeck_SkyPosition.y - 1350.0f - 100.0f <= Camera_Data1->Position.y)
 			{
-				v8 = &stru_214BF20;
+				v8 = &object_01D4BF20_2;
 			}
-			SkyDeck_QueueDraw(v8, SkyDeck_SkyUVsA, 32);
-			if (SkyDeck_SkyPosition.y - 1350.0 - 100.0 > Camera_Data1->Position.y)
+			SkyDeck_QueueDrawQ(v8, SkyDeck_SkyUVsA, 32, -16000.0f);
+			if (SkyDeck_SkyPosition.y - 1350.0f - 100.0f > Camera_Data1->Position.y)
 			{
-				a1.a = a1.a - 0.25;
+				a1.a = a1.a - 0.25f;
 				SetMaterialAndSpriteColor(&a1);
-				njTranslate(0, 0.0, -600.0, 0.0);
+				njTranslate(0, 0.0f, -600.0f, 0.0f);
 				njScaleEx(&Skybox_Scale);
 				VectorMaxAbs(&Skybox_Scale);
-				SkyDeck_QueueDraw(&stru_214E3AC, SkyDeck_SkyUVsA, 32);
-				njScale(0, 1.0, 1.0, 1.0);
-				njTranslate(0, 0.0, -100.0, 0.0);
-				SkyDeck_QueueDraw(&stru_214E3AC, SkyDeck_SkyUVsB, 32);
+				SkyDeck_QueueDrawQ(&object_01D4E3AC, SkyDeck_SkyUVsA, 32, -16000.0f);
+				njScale(0, 1.0f, 1.0f, 1.0f);
+				njTranslate(0, 0.0f, -100.0f, 0.0f);
+				SkyDeck_QueueDrawQ(&object_01D4E3AC_2, SkyDeck_SkyUVsB, 32, -12000.0f);
 			}
 			ClampGlobalColorThing_Thing();
 		}
@@ -459,15 +498,32 @@ void SkyDeckSky_original(ObjectMaster *_this)
 	njControl3D_Restore();
 	Direct3D_SetNearFarPlanes(LevelDrawDistance.Minimum, LevelDrawDistance.Maximum);
 }
-*/
+
+void RenderSmallCloud(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
+{
+	DrawQueueDepthBias = -6000.0f;
+	ProcessModelNode_A_Wrapper(a1, a2, a3);
+	DrawQueueDepthBias = 0.0f;
+}
+
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	//Skybox transparency
+	stru_214E2A0.basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ALPHA;
+	stru_214E2A0.basicdxmodel->mats[1].attrflags |= NJD_FLAG_USE_ALPHA;
+	stru_214E2A0.basicdxmodel->mats[2].attrflags |= NJD_FLAG_USE_ALPHA;
+	stru_214E2A0.basicdxmodel->mats[3].attrflags |= NJD_FLAG_USE_ALPHA;
+	stru_214C9E4.basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ALPHA;
+	stru_214C9E4.basicdxmodel->mats[1].attrflags |= NJD_FLAG_USE_ALPHA;
+	stru_214C9E4.basicdxmodel->mats[2].attrflags |= NJD_FLAG_USE_ALPHA;
+	stru_214C9E4.basicdxmodel->mats[3].attrflags |= NJD_FLAG_USE_ALPHA;
+	WriteCall((void*)0x005ED72F, RenderSmallCloud);
+	WriteJump((void*)0x005ED1E0, SkyDeckSky_new);
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
 		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
-		//material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 	}
 	//Some material fixes
 	((NJS_OBJECT*)0x95A334)->basicdxmodel->mats[4].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -591,48 +647,49 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 	}
 	if (CurrentLevel == 6 && GameState != 16)
 	{
-		if (SkyDeckAltitude >= 300.0f)
-		{
-			CurrentFogColor.argb.r = 80;
-			CurrentFogColor.argb.g = 80;
-			CurrentFogColor.argb.b = 112;
-			((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r = 0;
-			((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.g = 0;
-			((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.b = 0;
+			CurrentFogLayer = 4000.0f - flt_3C8046C * 2500;
+			CurrentFogDistance = 12000.0f - flt_3C8046C * 8000;
+			if (SkyDeckAltitude >= 300.0f)
+			{
+				if (flt_3C8046C <= 0)
+				{
+					if (CurrentFogColor.argb.r > 80) CurrentFogColor.argb.r = CurrentFogColor.argb.r - 4;
+					if (CurrentFogColor.argb.g > 80) CurrentFogColor.argb.g = CurrentFogColor.argb.r - 4;
+					if (CurrentFogColor.argb.b > 112) CurrentFogColor.argb.b = CurrentFogColor.argb.r - 4;
+				}
+				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r = 0;
+				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.g = 0;
+				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.b = 0;
+			}
+			else
+			{
+				if (flt_3C8046C <= 0)
+				{
+					if (CurrentFogColor.argb.r > 104) CurrentFogColor.argb.r = CurrentFogColor.argb.r - 4;
+					if (CurrentFogColor.argb.g > 104) CurrentFogColor.argb.g = CurrentFogColor.argb.g - 4;
+					if (CurrentFogColor.argb.b > 128) CurrentFogColor.argb.b = CurrentFogColor.argb.b - 4;
+				}
+				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r = 178;
+				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.g = 178;
+				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.b = 178;
+			}
+			if (flt_3C8046C > 0)
+			{
+				if (CurrentFogColor.argb.r < 251) CurrentFogColor.argb.r = CurrentFogColor.argb.r + 4;
+				if (CurrentFogColor.argb.g < 251) CurrentFogColor.argb.g = CurrentFogColor.argb.g + 4;
+				if (CurrentFogColor.argb.b < 251) CurrentFogColor.argb.b = CurrentFogColor.argb.b + 3;
+			}
 		}
-		if (SkyDeckAltitude < 300.0f)
-		{
-			CurrentFogColor.argb.r = 104;
-			CurrentFogColor.argb.g = 104;
-			CurrentFogColor.argb.b = 128;
-			((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r = 178;
-			((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.g = 178;
-			((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.b = 178;
-		}
+		UVShift1 = (UVShift1 - 4 * FramerateSetting) % 255;
+		UVShift2 = (UVShift2 - 2 * FramerateSetting) % 255;
 		for (int q = 0; q < LengthOfArray(uv_01D4BE68); q++)
 		{
-			uv_01D4BE68[q].u = uv_01D4BE68[q].u - 2;
-			uv_01D4E2F4[q].u = uv_01D4E2F4[q].u - 2;
-			uv_01D4E2F4_2[q].u = uv_01D4E2F4_2[q].u - 4;
-			uv_01D4E2F4_3[q].u = uv_01D4E2F4_3[q].u - 4;
+			uv_01D4BE68[q].u = uv_01D4BE68_0[q].u + UVShift2;
+			uv_01D4E2F4[q].u = uv_01D4E2F4_0[q].u + UVShift2;
+			uv_01D4E2F4_2[q].u = uv_01D4E2F4_0[q].u + UVShift1;
+			uv_01D4BE68_2[q].u = uv_01D4BE68_0[q].u + UVShift1;
+			uv_01D4E2F4_3[q].u = uv_01D4E2F4_0[q].u + UVShift1;
 		}
-		if (uv_01D4E2F4_2[0].u <= 0) uv_01D4E2F4_2[0].u = 2040;
-		if (uv_01D4E2F4_2[1].u <= 0) uv_01D4E2F4_2[1].u = 2040;
-		if (uv_01D4E2F4_2[2].u <= -2040) uv_01D4E2F4_2[2].u = 0;
-		if (uv_01D4E2F4_2[3].u <= -2040) uv_01D4E2F4_2[3].u = 0;
-		if (uv_01D4E2F4_3[0].u <= 0) uv_01D4E2F4_3[0].u = 2040;
-		if (uv_01D4E2F4_3[1].u <= 0) uv_01D4E2F4_3[1].u = 2040;
-		if (uv_01D4E2F4_3[2].u <= -2040) uv_01D4E2F4_3[2].u = 0;
-		if (uv_01D4E2F4_3[3].u <= -2040) uv_01D4E2F4_3[3].u = 0;
-		if (uv_01D4BE68[0].u <= 0) uv_01D4BE68[0].u = 2040;
-		if (uv_01D4BE68[1].u <= 0) uv_01D4BE68[1].u = 2040;
-		if (uv_01D4BE68[2].u <= -2040) uv_01D4BE68[2].u = 0;
-		if (uv_01D4BE68[3].u <= -2040) uv_01D4BE68[3].u = 0;
-		if (uv_01D4E2F4[0].u <= 0) uv_01D4E2F4[0].u = 2040;
-		if (uv_01D4E2F4[1].u <= 0) uv_01D4E2F4[1].u = 2040;
-		if (uv_01D4E2F4[2].u <= -2040) uv_01D4E2F4[2].u = 0;
-		if (uv_01D4E2F4[3].u <= -2040) uv_01D4E2F4[3].u = 0;
-	}
 }
 
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
