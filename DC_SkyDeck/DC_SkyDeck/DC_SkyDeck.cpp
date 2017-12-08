@@ -20,6 +20,7 @@ static int SkyboxAlpha = 255;
 DataArray(NJS_TEX, SkyDeck_SkyUVsA, 0x03C80478, 32);
 DataArray(NJS_TEX, SkyDeck_SkyUVsB, 0x03C804F8, 32);
 
+DataPointer(NJS_VECTOR, SkyBoxScale_SkyDeck3, 0x02039FE0);
 DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataPointer(float, SkyDeckAltitude, 0x03C80610); //0 to 700
 DataPointer(float, CurrentSkyBoxScaleX, 0x03ABDC94);
@@ -623,6 +624,15 @@ extern "C" __declspec(dllexport) void cdecl Init()
 		SkyDeck1DrawDist[i].Maximum = -20000.0f;
 		SkyDeck2DrawDist[i].Maximum = -20000.0f;
 		SkyDeck3DrawDist[i].Maximum = -16000.0f;
+		SkyDeck3SkyboxScale->Far.x = 1.0f;
+		SkyDeck3SkyboxScale->Far.y = 1.0f;
+		SkyDeck3SkyboxScale->Far.z = 1.0f;
+		SkyDeck3SkyboxScale->Normal.x = 1.0f;
+		SkyDeck3SkyboxScale->Normal.y = 1.0f;
+		SkyDeck3SkyboxScale->Normal.z = 1.0f;
+		SkyDeck3SkyboxScale->Near.x = 1.0f;
+		SkyDeck3SkyboxScale->Near.y = 1.0f;
+		SkyDeck3SkyboxScale->Near.z = 1.0f;
 	}
 }
 
@@ -632,21 +642,25 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 	{
 		{
 			if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
-		for (int i = 0; i < landtable_00021094.COLCount; i++)
-		{
-			if (landtable_00021094.Col[i].anonymous_6 & 4)
-				landtable_00021094.Col[i].Flags |= ColFlags_Solid;
+			for (int i = 0; i < landtable_00021094.COLCount; i++)
+				{
+					if (landtable_00021094.Col[i].anonymous_6 & 4)
+					landtable_00021094.Col[i].Flags |= ColFlags_Solid;
+				}
 		}
-		}
-	}
-	if (CurrentLevel == 6 && CurrentAct == 2)
-	{
-		CurrentSkyBoxScaleX = 1.0f;
-		CurrentSkyBoxScaleY = 1.0f;
-		CurrentSkyBoxScaleZ = 1.0f;
 	}
 	if (CurrentLevel == 6 && GameState != 16)
 	{
+			UVShift1 = (UVShift1 - 4 * FramerateSetting) % 255;
+			UVShift2 = (UVShift2 - 2 * FramerateSetting) % 255;
+			for (int q = 0; q < LengthOfArray(uv_01D4BE68); q++)
+			{
+				uv_01D4BE68[q].u = uv_01D4BE68_0[q].u + UVShift2;
+				uv_01D4E2F4[q].u = uv_01D4E2F4_0[q].u + UVShift2;
+				uv_01D4E2F4_2[q].u = uv_01D4E2F4_0[q].u + UVShift1;
+				uv_01D4BE68_2[q].u = uv_01D4BE68_0[q].u + UVShift1;
+				uv_01D4E2F4_3[q].u = uv_01D4E2F4_0[q].u + UVShift1;
+			}
 			CurrentFogLayer = 4000.0f - flt_3C8046C * 2500;
 			CurrentFogDistance = 12000.0f - flt_3C8046C * 8000;
 			if (SkyDeckAltitude >= 300.0f)
@@ -679,16 +693,6 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 				if (CurrentFogColor.argb.g < 251) CurrentFogColor.argb.g = CurrentFogColor.argb.g + 4;
 				if (CurrentFogColor.argb.b < 251) CurrentFogColor.argb.b = CurrentFogColor.argb.b + 3;
 			}
-		}
-		UVShift1 = (UVShift1 - 4 * FramerateSetting) % 255;
-		UVShift2 = (UVShift2 - 2 * FramerateSetting) % 255;
-		for (int q = 0; q < LengthOfArray(uv_01D4BE68); q++)
-		{
-			uv_01D4BE68[q].u = uv_01D4BE68_0[q].u + UVShift2;
-			uv_01D4E2F4[q].u = uv_01D4E2F4_0[q].u + UVShift2;
-			uv_01D4E2F4_2[q].u = uv_01D4E2F4_0[q].u + UVShift1;
-			uv_01D4BE68_2[q].u = uv_01D4BE68_0[q].u + UVShift1;
-			uv_01D4E2F4_3[q].u = uv_01D4E2F4_0[q].u + UVShift1;
 		}
 }
 
