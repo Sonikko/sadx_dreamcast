@@ -515,6 +515,13 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
+		//Gamma's chest patch lol
+		((NJS_MATERIAL*)((size_t)CHRMODELS + + 0x00200DE8))->attrflags &= ~NJD_FLAG_USE_ALPHA; //Unnecessary alpha in Gamma's model
+		WriteData((char*)(size_t)CHRMODELS + 0x001FDD31, 0xC0, 1);
+		WriteData((char*)(size_t)CHRMODELS + 0x001FDD69, 0xC0, 1);
+		WriteData((float*)0x0047FE0F, 0.85f);
+		//Character effects
 		WriteJump((void*)0x004A1630, Sonic_DisplayLightDashModel);
 		WriteData((float**)0x47404B, &heat_float1);
 		WriteData((float**)0x474057, &heat_float2);
