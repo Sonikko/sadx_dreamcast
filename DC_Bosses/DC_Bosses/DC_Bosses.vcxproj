@@ -122,6 +122,7 @@
     <ClInclude Include="EggHornet_Model.h" />
     <ClInclude Include="EggViper.h" />
     <ClInclude Include="EggWalker.h" />
+    <ClInclude Include="ERobo.h" />
     <ClInclude Include="LightingArrays.h" />
     <ClInclude Include="ninja.h" />
     <ClInclude Include="SADXModLoader.h" />

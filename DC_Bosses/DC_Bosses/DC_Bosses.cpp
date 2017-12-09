@@ -20,6 +20,7 @@
 #include "E101R.h"
 #include "E101Kai_Model.h"
 #include "LightingArrays.h"
+#include "ERobo.h"
 
 std::string plm0xbin;
 static float EggViper_blendfactor = 0.0f;
@@ -532,6 +533,23 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		//Robot chest stuff
+		*(NJS_OBJECT*)0x00991268 = object_00591268; //Zero main and cutscene model
+		WriteData((char*)0x004CFC05, 0x08, 1); //Zero constant material thing
+		WriteData((char*)0x004CFC99, 0x08, 1); //Zero constant material thing
+		WriteData((float*)0x00567D08, 0.85f); //E101 alpha (boss model)
+		WriteData((float*)0x006F4718, 0.85f); //E101 alpha (boss model)
+		((NJS_OBJECT*)0x014D943C)->basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_USE_ALPHA; //E101 unnecessary alpha (boss model)
+		((NJS_OBJECT*)0x0312F714)->basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_USE_ALPHA; //E101 unnecessary alpha (cutscene model)
+		((NJS_OBJECT*)0x030AB08C)->basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_USE_ALPHA; //E103 unnecessary alpha (cutscene model)
+		((NJS_OBJECT*)0x030A290C)->basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_USE_ALPHA; //E104 unnecessary alpha (cutscene model)
+		((NJS_OBJECT*)0x0309A21C)->basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_USE_ALPHA; //E105 unnecessary alpha (cutscene model)
+		WriteData((float*)0x004E7BFD, 0.85f); //E103 alpha (reused Gamma model)
+		WriteData((float*)0x004E7C40, 0.85f); //E103 alpha (reused Gamma model)
+		WriteData((float*)0x00605813, 0.85f); //E104 alpha (reused Gamma model)
+		WriteData((float*)0x006F3F94, 0.85f); //E103 alpha (cutscene model)
+		WriteData((float*)0x006F3D54, 0.85f); //E104 alpha (cutscene model)
+		WriteData((float*)0x006F3B24, 0.85f); //E105 alpha (cutscene model)
 		WriteCall((void*)0x0054AC30, FixChaos2Columns);
 		WriteCall((void*)0x0054968E, FixChaos0Car);
 		//Fix Chaos0 police car
