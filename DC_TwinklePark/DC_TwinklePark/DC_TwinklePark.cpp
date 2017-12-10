@@ -335,7 +335,7 @@ void __cdecl SkyBox_TwinklePark_LoadX(ObjectMaster *a1)
 void MirrorLoadHook_IncrementAct(int level, int act)
 {
 	InitLandTable(level, act);
-	if (act == 2) LoadMirrors();
+	if (level == 3 && act == 2) LoadMirrors();
 }
 extern "C"
 {
