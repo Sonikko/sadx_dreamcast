@@ -6,9 +6,17 @@
 #include "Twinkle2.h"
 #include "Twinkle3.h"
 #include "Buyon.h"
+
 HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
+
+DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 
+FunctionPointer(void, sub_61D4E0, (ObjectMaster *a1), 0x61D4E0);
+FunctionPointer(void, sub_61D1F0, (ObjectMaster *a1), 0x61D1F0);
+
+SETObjData setdata_tp = {};
 static int anim = 74;
 static int animlight = 95;
 static int animtimer = 0;
@@ -250,12 +258,94 @@ NJS_MATERIAL* LevelSpecular[] = {
 	//&matlist_034E23EC[0],
 };
 
+void Mirror_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	if (!DroppedFrames)
+	{
+		njSetTexture(&texlist_twinkle3);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		njScale(0, 1.0f, 1.0f, 1.0f);
+		njRotateXYZ(0, 0, 0, 0);
+		DrawQueueDepthBias = 6000.0f;
+		ProcessModelNode(&object_0009FFC8_2, (QueuedModelFlagsB)0, 1.0f); //far right
+		ProcessModelNode(&object_000A00CC_2, (QueuedModelFlagsB)0, 1.0f); //far left
+		ProcessModelNode(&object_000A0168_2, (QueuedModelFlagsB)0, 1.0f); //far right 2
+		ProcessModelNode(&object_000A0064_2, (QueuedModelFlagsB)0, 1.0f); //far left 2
+		DrawQueueDepthBias = 5000.0f;
+		ProcessModelNode(&object_0009FF94_2, (QueuedModelFlagsB)0, 1.0f); //mid right
+		ProcessModelNode(&object_000A0098_2, (QueuedModelFlagsB)0, 1.0f); //mid left 
+		ProcessModelNode(&object_000A0134_2, (QueuedModelFlagsB)0, 1.0f); //mid right 2
+		ProcessModelNode(&object_000A0030_2, (QueuedModelFlagsB)0, 1.0f); //mid left 2
+		DrawQueueDepthBias = 4000.0f;
+		ProcessModelNode(&object_000914F8_2, (QueuedModelFlagsB)0, 1.0f); //end right
+		ProcessModelNode(&object_00091A60_2, (QueuedModelFlagsB)0, 1.0f); //end left
+		ProcessModelNode(&object_000A0100_2, (QueuedModelFlagsB)0, 1.0f); //end right 2
+		ProcessModelNode(&object_0009FFFC_2, (QueuedModelFlagsB)0, 1.0f); //end left 2
+		DrawQueueDepthBias = 3000.0f;
+		ProcessModelNode(&object_00091ED8X, (QueuedModelFlagsB)0, 1.0f); //end 1
+		ProcessModelNode(&object_000925E8X, (QueuedModelFlagsB)0, 1.0f); //end 2
+		njPopMatrix(1u);
+		DrawQueueDepthBias = 0;
+	}
+}
+
+void Mirror_Main(ObjectMaster *a1)
+{
+	Mirror_Display(a1);
+}
+
+void Mirror_Load(ObjectMaster *a1)
+{
+	a1->MainSub = (void(__cdecl *)(ObjectMaster *))Mirror_Main;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))Mirror_Display;
+	a1->DeleteSub = DeleteObject_DynamicCOL;
+}
+
+void LoadMirrors()
+{
+	ObjectMaster *obj;
+	EntityData1 *ent;
+	ObjectFunc(OF0, Mirror_Load);
+	setdata_tp.Distance = 612800.0f;
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_tp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 0;
+		ent->Position.y = 0;
+		ent->Position.z = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+	}
+}
+
+void __cdecl SkyBox_TwinklePark_LoadX(ObjectMaster *a1)
+{
+	a1->MainSub = sub_61D4E0;
+	a1->DisplaySub = sub_61D1F0;
+	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))nullsub;
+	if (CurrentAct == 2) LoadMirrors();
+}
+
+void MirrorLoadHook_IncrementAct(int level, int act)
+{
+	InitLandTable(level, act);
+	if (act == 2) LoadMirrors();
+}
 extern "C"
 {
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		//Mirror stuff
+		WriteJump((void*)0x0061D570, SkyBox_TwinklePark_LoadX);
+		WriteCall((void*)0x004147AE, MirrorLoadHook_IncrementAct);
 		//Amy's barrel fix
 		HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 		if (CHRMODELS != nullptr)

@@ -1633,7 +1633,7 @@ NJS_MATERIAL matlist_00090FC4[] = {
 };
 
 NJS_MATERIAL matlist_00090FC4_2[] = {
-	{ { 0x32B2B2B2 },{ 0xFFFFFFFF }, 11, 29, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+	{ { 0x32B2B2B2 },{ 0xFFFFFFFF }, 11, 29, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
 Sint16 poly_00091000[] = {
@@ -9548,23 +9548,23 @@ COL collist_00019368[] = {
 	{ { 400, 122.5f, -550 }, 295.478f, 0, 0, &object_0009FFFC, 0, 0x80000001 },
 	{ { 400, 122.5f, -600 }, 295.478f, 0, 0, &object_000A0100, 0, 0x80000001 },
 	//Mirror glass 1
-	{ { 550, 157.5f, -224.5f }, 295.478f, 0, 0, &object_0009FFC8_2, 0, 0xA0040001 },//far right
-	{ { 550, 157.5f, -174.5f }, 295.478f, 0, 0, &object_0009FF94_2, 0, 0xA0040001 },//mid right
-	{ { 550, 157.5f, -124.5f }, 295.478f, 0, 0, &object_000914F8_2, 0, 0xA0000001 },//end right
-	{ { 550, 157.5f, 25.5f }, 295.478f, 0, 0, &object_000A00CC_2, 0, 0x80040001 },//far left
-	{ { 550, 157.5f, -24.5f }, 295.478f, 0, 0, &object_000A0098_2, 0, 0xA0040001 },//mid left
-	{ { 550, 157.5f, -74.5f }, 295.478f, 0, 0, &object_00091A60_2, 0, 0xA0000001 },//end left
+	{ { 550, 157.5f, -224.5f }, 295.478f, 0, 0, &object_0009FFC8_2, 0, 0x00000001 },//far right
+	{ { 550, 157.5f, -174.5f }, 295.478f, 0, 0, &object_0009FF94_2, 0, 0x00000001 },//mid right
+	{ { 550, 157.5f, -124.5f }, 295.478f, 0, 0, &object_000914F8_2, 0, 0x00000001 },//end right
+	{ { 550, 157.5f, 25.5f }, 295.478f, 0, 0, &object_000A00CC_2, 0, 0x00000001 },//far left
+	{ { 550, 157.5f, -24.5f }, 295.478f, 0, 0, &object_000A0098_2, 0, 0x00000001 },//mid left
+	{ { 550, 157.5f, -74.5f }, 295.478f, 0, 0, &object_00091A60_2, 0, 0x00000001 },//end left
 
 	//Mirror glass 2
 	
-	{ { 400, 122.5f, -700 }, 295.478f, 0, 0, &object_000A0168_2, 0, 0xA0040001 }, //far right
-	{ { 400, 122.5f, -650 }, 295.478f, 0, 0, &object_000A0134_2, 0, 0xA0040001 }, //mid right
-	{ { 400, 122.5f, -600 }, 295.478f, 0, 0, &object_000A0100_2, 0, 0xA0000001 }, //end right
-	{ { 400, 122.5f, -450 }, 295.478f, 0, 0, &object_000A0064_2, 0, 0xA0040001 }, //far left
-	{ { 400, 122.5f, -500 }, 295.478f, 0, 0, &object_000A0030_2, 0, 0xA0040001 }, //mid left
-	{ { 400, 122.5f, -550 }, 295.478f, 0, 0, &object_0009FFFC_2, 0, 0xA0000001 }, //end left
-	{ { -79.99992f, 142.5f, -255 }, 241.5186f, 0, 0, &object_00091ED8X, 0, 0x81000001 },//final mirror trans
-	{ { -80.00007f, 142.5f, 175 }, 274.8295f, 0, 0, &object_000925E8X, 0, 0x81000001 },//final mirror 2 trans
+	{ { 400, 122.5f, -700 }, 295.478f, 0, 0, &object_000A0168_2, 0, 0x00000001 }, //far right
+	{ { 400, 122.5f, -650 }, 295.478f, 0, 0, &object_000A0134_2, 0, 0x00000001 }, //mid right
+	{ { 400, 122.5f, -600 }, 295.478f, 0, 0, &object_000A0100_2, 0, 0x00000001 }, //end right
+	{ { 400, 122.5f, -450 }, 295.478f, 0, 0, &object_000A0064_2, 0, 0x00000001 }, //far left
+	{ { 400, 122.5f, -500 }, 295.478f, 0, 0, &object_000A0030_2, 0, 0x00000001 }, //mid left
+	{ { 400, 122.5f, -550 }, 295.478f, 0, 0, &object_0009FFFC_2, 0, 0x00000001 }, //end left
+	{ { -79.99992f, 142.5f, -255 }, 241.5186f, 0, 0, &object_00091ED8X, 0, 0x00000001 },//final mirror trans
+	{ { -80.00007f, 142.5f, 175 }, 274.8295f, 0, 0, &object_000925E8X, 0, 0x00000001 },//final mirror 2 trans
 	/*//FIXES
 	{ { 550, 160, -74.5f }, 295.1513f, 0, 0, &object_02320DA4, 0, 0x80000001 }, //Central 1
 	{ { 550, 160, -124.5f }, 295.1513f, 0, 0, &object_023207F4, 0, 0x80000001 }, //Central 2
