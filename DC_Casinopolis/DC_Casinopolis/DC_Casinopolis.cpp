@@ -41,6 +41,7 @@ FunctionPointer(void, sub_5D4230, (int a1, int a2, int a3, float a4), 0x5D4230);
 FunctionPointer(int, sub_5D4600, (int a1, int a2, float a3, int a4), 0x5D4600);
 FunctionPointer(int, sub_5D4300, (int result, float a2), 0x5D4300);
 FunctionPointer(void, sub_407870, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x407870);
+FunctionPointer(void, sub_405490, (NJS_ACTION *a1, float a2, int a3, int a4), 0x405490);
 FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 NJS_VECTOR Cowgirl1{ 457.6972f, 45.06788f, 390 };
 NJS_VECTOR Cowgirl2{ 340.3949, 51.20071, 480 };
@@ -57,6 +58,7 @@ DataArray(FogData, Casino1Fog, 0x01C46990, 3);
 DataArray(FogData, Casino2Fog, 0x01C469C0, 3);
 DataArray(DrawDistance, DrawDist_Casino2, 0x01C46948, 3);
 DataPointer(int, MissedFrames, 0x03B1117C);
+DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataPointer(NJS_MODEL_SADX, stru_1DF3160, 0x1DF3160);
 DataPointer(NJS_OBJECT, stru_1DF2EF8, 0x1DF2EF8);
 DataPointer(NJS_MODEL_SADX, stru_1DF2B60, 0x1DF2B60);
@@ -541,9 +543,9 @@ void __cdecl OLhtr_Display(ObjectMaster *a1)
 		if (LevelFrameCount % 3 != 0) stru_1E5E7BC.basicdxmodel->mats[2].diffuse.color = 0xFFFFFFFF;
 		if (LevelFrameCount % 3 == 0)
 		{
-		v5 = rand() % 60;
-		if (v5 > 50) stru_1E5E7BC.basicdxmodel->mats[2].diffuse.color = 0xFF4F4F4F;
-		if (v5 <= 50) stru_1E5E7BC.basicdxmodel->mats[2].diffuse.color = 0xFFFFFFFF;
+			v5 = rand() % 60;
+			if (v5 > 50) stru_1E5E7BC.basicdxmodel->mats[2].diffuse.color = 0xFF4F4F4F;
+			if (v5 <= 50) stru_1E5E7BC.basicdxmodel->mats[2].diffuse.color = 0xFFFFFFFF;
 		}
 		njPopMatrix(1u);
 		sub_5DD920((int)&off_1E75DE0, 2);
@@ -591,7 +593,6 @@ void __cdecl OLhtg_Display(ObjectMaster *a1)
 		sub_5DD920((int)&off_1E75DC8, 2);
 	}
 }
-
 
 bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
@@ -688,12 +689,52 @@ NJS_MATERIAL* LevelSpecular[] = {
 	((NJS_MATERIAL*)0x01DFDF78),
 };
 
+void OSlxDisplayNew(NJS_ACTION *a1, float a2, int a3, int a4)
+{
+	NJS_ACTION OSlX_MainAction;
+	OSlX_MainAction.motion = (NJS_MOTION*)0x1E42078;
+	OSlX_MainAction.object = &OSlX_MainObject;
+	//Render main animation
+	sub_405450(&OSlX_MainAction, a2, a4);
+	//Render light
+	DrawQueueDepthBias = 8000.0f;
+	sub_405490(a1, a2, a3, a4);
+	DrawQueueDepthBias = 0;
+}
+
+void RenderLightA(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
+{
+	DrawQueueDepthBias = 9000.0f;
+	ProcessModelNode(a1, (QueuedModelFlagsB)4, a3);
+	DrawQueueDepthBias = 0;
+}
+
 extern "C"
 {
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		//MizuA
+		((NJS_OBJECT*)0x01E47B1C)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		((NJS_OBJECT*)0x01E47B1C)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		((NJS_OBJECT*)0x01E47B1C)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
+		((NJS_OBJECT*)0x01E47B1C)->basicdxmodel->mats[1].diffuse.color = 0x7FB2B2B2;
+		//MizuB
+		((NJS_OBJECT*)0x01E47CA4)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+		((NJS_OBJECT*)0x01E47CA4)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2;
+		//Act 2 lights
+		WriteJump((void*)0x5C9980, OLhtg_Display);
+		WriteJump((void*)0x5C9BA0, OLhtr_Display);
+		//OLightA stuff
+		((NJS_OBJECT*)0x01E5E39C)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		WriteCall((void*)0x005DDBE4, RenderLightA); //OLightA
+		//OSlX lights
+		WriteCall((void*)0x005CE630, OSlxDisplayNew);
+		*(NJS_OBJECT*)0x01E40FB8 = OSlX_Green; //OSlG light
+		*(NJS_OBJECT*)0x01E40980 = OSlX_Blue; //OSlB light
+		*(NJS_OBJECT*)0x01E415F0 = OSlX_Red; //OSlR light
+		*(NJS_OBJECT*)0x01E41C28 = OSlX_Yellow; //OSlY light
 		WriteJump((void*)0x5D5E50, Loop_Display); //Add sound
 		//Fixed gears
 		WriteCall((void*)0x005D09C7, FixedGear1);
@@ -731,7 +772,7 @@ extern "C"
 			stru_1E763B8[0].v.z = stru_1E763B8[0].v.z - 14;
 			stru_1E763B8[1].v.z = stru_1E763B8[1].v.z - 14;
 			stru_1E763B8[2].v.z = stru_1E763B8[2].v.z - 14;
-			collist_00023DA0K[LengthOfArray(collist_00023DA0K) - 4].Flags = 0x00000000;
+			collist_00023DA0[LengthOfArray(collist_00023DA0) - 4].Flags = 0x00000000;
 			WriteJump((void*)0x5CAA90, Cowgirl_Display);
 		}
 		*(NJS_MODEL_SADX*)0x01DF7140 = attach_00177188; //Slot red
@@ -805,18 +846,10 @@ extern "C"
 			bumpertex2[uv_bump2].u = uv_01998418[uv_bump2].u;
 			bumpertex2[uv_bump2].v = uv_01998418[uv_bump2].v;
 		}
-		//((NJS_OBJECT*)0x01E5E4A8)->evalflags |= NJD_EVAL_HIDE; //O LIGHTB
-		//((NJS_OBJECT*)0x1E5E39C)->evalflags |= NJD_EVAL_HIDE; //O LIGHTA
-		memcpy((void*)0x1E5E39C, &object_01A5E39CK, sizeof(object_01A5E39CK)); //O LIGHTA model
-		WriteData((char*)0x005DDBE2, 0x08, 1); //O LIGHTA blending mode
 		//Lion top animation
 		lionmesh[0].vertuv = uv_019FEA58;
-		((NJS_OBJECT*)0x01E47B1C)->evalflags |= NJD_EVAL_HIDE; //Hide MizuA
-		((NJS_OBJECT*)0x01E47CA4)->evalflags |= NJD_EVAL_HIDE; //Hide MizuB
 		((NJS_OBJECT*)0x01E3FD04)->evalflags |= NJD_EVAL_HIDE; //Hide OKbS
 		((NJS_OBJECT*)0x01E3D734)->evalflags |= NJD_EVAL_HIDE; //Hide OKbC
-		WriteJump((void*)0x5C9980, OLhtg_Display);
-		WriteJump((void*)0x5C9BA0, OLhtr_Display);
 		ResizeTextureList((NJS_TEXLIST*)0x1D1B050, textures_casino1);
 		ResizeTextureList((NJS_TEXLIST*)0x1CBD1C4, textures_casino2);
 		ResizeTextureList((NJS_TEXLIST*)0x1C8AF04, textures_casino3);
@@ -930,20 +963,6 @@ extern "C"
 					CowgirlDelay = 0;
 			}
 		}
-		}
-		if (CurrentLevel == 9 && CurrentAct == 0 && CurrentPlayer != CurrentCharacter)
-		{
-			if (CurrentCharacter == 0)
-			{
-				landtable_00025EAC.Col = collist_00023DA0S;
-				landtable_00025EAC.COLCount = LengthOfArray(collist_00023DA0S);
-			}
-			if (CurrentCharacter == 3)
-			{
-			landtable_00025EAC.Col = collist_00023DA0K;
-			landtable_00025EAC.COLCount = LengthOfArray(collist_00023DA0K);
-			}
-			CurrentPlayer = CurrentCharacter;
 		}
 		if (CurrentLevel == 9 && GameState != 16)
 		{
