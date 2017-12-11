@@ -395,20 +395,15 @@ void __cdecl OKazfX(ObjectMaster *a1)
 
 void FixedGear1()
 {
-//	005D09C7
 	njAction(&off_1E06634, gearframe1);
 }
 
-void __cdecl sub_5D43F0(int a2)
+void __cdecl TutuA_Display(ObjectMaster *a2) //OTutuA
 {
 	EntityData1 *v1; // esi@1
 	unsigned __int16 v2; // ax@3
-	int GearRotationDirection;
-	Angle v3;
-	v1 = *(EntityData1 **)(a2 + 32);
-	if (v1->Scale.x == 0) GearRotationDirection = -1; else GearRotationDirection = 1;
-	if (GearRotationDirection == 1) v3 = RotationAngle1; else v3 = RotationAngle2;
-	v1->Rotation.y = ((unsigned __int16)(LOWORD(v1->Rotation.y) + ((unsigned short *)&v1->LoopData)[0]));
+	v1 = a2->Data1;
+	__int16 v3; // ax
 	if (!ClipObject((ObjectMaster *)a2, 62510.0) && !MissedFrames)
 	{
 		sub_5C09D0(12);
@@ -420,27 +415,22 @@ void __cdecl sub_5D43F0(int a2)
 			njRotateY(0, v2);
 		}
 		sub_407A00(&stru_1DF2570, 1.0f);
-		v1->Rotation.y = (v1->Rotation.y + 128) % 65535;
-		if (v1->Rotation.y != ((unsigned short *)&v1->LoopData)[0])
+		v3 = ((unsigned short *)&v1->LoopData)[0];
+		if (v1->Rotation.y != v3)
 		{
-			//njRotateY(0, (unsigned __int16)(LOWORD(v1->Rotation.y) - ((unsigned short *)&v1->LoopData)[0]));
-			njRotateY(0, v3);
+			njRotateY(0, (unsigned __int16)(v1->Rotation.y - v3));
 		}
 		ProcessModelNode_AB_Wrapper(&stru_1DF230C, 1.0f);
 		njPopMatrix(1u);
 	}
 }
 
-void __cdecl sub_5D44A0(int a2)
+void __cdecl TutuB_Display(ObjectMaster *a2) //TutuB
 {
 	EntityData1 *v1; // esi@1
 	unsigned __int16 v2; // ax@3
-	int GearRotationDirection;
-	Angle v3;
-	v1 = *(EntityData1 **)(a2 + 32);
-	if (v1->Scale.x == 0) GearRotationDirection = -1; else GearRotationDirection = 1;
-	if (GearRotationDirection == 1) v3 = RotationAngle1; else v3 = RotationAngle2;
-	v1->Rotation.y = ((unsigned __int16)(LOWORD(v1->Rotation.y) + ((unsigned short *)&v1->LoopData)[0]));
+	__int16 v3; // ax
+	v1 = a2->Data1;
 	if (!ClipObject((ObjectMaster *)a2, 62510.0) && !MissedFrames)
 	{
 		sub_5C09D0(12);
@@ -452,24 +442,22 @@ void __cdecl sub_5D44A0(int a2)
 			njRotateY(0, v2);
 		}
 		sub_407A00(&stru_1DF2B60, 1.0f);
-		v1->Rotation.y = (v1->Rotation.y - 128) % 65535;
-		njRotateY(0, v3);
+		v3 = ((unsigned short *)&v1->LoopData)[0];
+		if (v1->Rotation.y != v3)
+		{
+			njRotateY(0, (unsigned __int16)(v1->Rotation.y - v3));
+		}
 		ProcessModelNode_AB_Wrapper(&stru_1DF2908, 1.0f);
 		njPopMatrix(1u);
 	}
 }
 
-
-void __cdecl sub_5D4550(int a2)
+void __cdecl TutuC_Display(ObjectMaster *a2) //TutuC
 {
 	EntityData1 *v1; // esi@1
 	unsigned __int16 v2; // ax@3
-	int GearRotationDirection;
-	Angle v3;
-	v1 = *(EntityData1 **)(a2 + 32);
-	if (v1->Scale.x == 0) GearRotationDirection = -1; else GearRotationDirection = 1;
-	if (GearRotationDirection == 1) v3 = RotationAngle1; else v3 = RotationAngle2;
-	v1->Rotation.y = ((unsigned __int16)(LOWORD(v1->Rotation.y) + ((unsigned short *)&v1->LoopData)[0]));
+	__int16 v3; // ax
+	v1 = a2->Data1;;
 	if (!ClipObject((ObjectMaster *)a2, 62510.0) && !MissedFrames)
 	{
 		sub_5C09D0(12);
@@ -481,14 +469,17 @@ void __cdecl sub_5D4550(int a2)
 			njRotateY(0, v2);
 		}
 		sub_407A00(&stru_1DF3160, 1.0f);
-		v1->Rotation.y = (v1->Rotation.y + 128) % 65535;
-		njRotateY(0, v3);
+		v3 = ((unsigned short *)&v1->LoopData)[0];
+		if (v1->Rotation.y != v3)
+		{
+			njRotateY(0, (unsigned __int16)(v1->Rotation.y - v3));
+		}
 		ProcessModelNode_AB_Wrapper(&stru_1DF2EF8, 1.0f);
 		njPopMatrix(1u);
 	}
 }
 
-void __cdecl sub_5D3A90(int a2)
+void __cdecl FixedGear2(int a2)
 {
 	EntityData1 *v1; // esi@1
 	Angle v2; // eax@3
@@ -738,15 +729,16 @@ extern "C"
 		WriteJump((void*)0x5D5E50, Loop_Display); //Add sound
 		//Fixed gears
 		WriteCall((void*)0x005D09C7, FixedGear1);
-		WriteJump((void*)0x5D3A90, sub_5D3A90); //Gears main
+		WriteJump((void*)0x5D3A90, FixedGear2); //Gears main
 		WriteJump((void*)0x005D0C60, OKazeX);
 		WriteJump((void*)0x005D0C20, OKazcX);
 		WriteJump((void*)0x005D0C40, OKazdX);
 		WriteJump((void*)0x005D0C00, OKazbX);
 		WriteJump((void*)0x005D0C80, OKazfX);
-		WriteJump((void*)0x5D43F0, sub_5D43F0); //OTutuA display
-		WriteJump((void*)0x5D44A0, sub_5D44A0); //OTutuB display
-		WriteJump((void*)0x5D4550, sub_5D4550); //OTutuC display
+		WriteJump((void*)0x5D43F0, TutuA_Display); //OTutuA display
+		WriteJump((void*)0x5D44A0, TutuB_Display); //OTutuB display
+		WriteJump((void*)0x5D4550, TutuC_Display); //OTutuC display
+		WriteData((int*)0x1E77E58, 128); //Gear rotation speed
 		//Config stuff
 		//If there is no config.ini, make one
 		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
