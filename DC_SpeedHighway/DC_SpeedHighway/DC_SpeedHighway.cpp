@@ -15,6 +15,11 @@
 
 FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *a1, int a2, float a3), 0x409E70);
 FunctionPointer(long double, sub_49CC70, (float a1, float a2, float a3), 0x49CC70);
+FunctionPointer(void, sub_408530, (NJS_OBJECT *obj), 0x408530);
+
+static int RocketAlpha = 255;
+static int AntennaAlpha = 255;
+static int RocketAlphaDir = 4;
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA88, &landtable_0001853C),
@@ -116,15 +121,38 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 	((NJS_MATERIAL*)0x00971AF0),
 };
 
+void RocketSprite()
+{
+	if (RocketAlpha < 0) RocketAlpha = 0;
+	if (RocketAlpha > 255) RocketAlpha = 255;
+	SetMaterialAndSpriteColor_Float(RocketAlpha/255.0f, 1.0f, 1.0f, 1.0f);
+}
+
+void AntennaModel(NJS_OBJECT *obj)
+{
+	sub_408530(&object_022919C0);
+	ProcessModelNode(&object_022919C0_2, (QueuedModelFlagsB)0, 1.0f);
+}
+
+void AntennaSprite()
+{
+	if (AntennaAlpha < 0) AntennaAlpha = 0;
+	if (AntennaAlpha > 255) AntennaAlpha = 255;
+	SetMaterialAndSpriteColor_Float(AntennaAlpha / 255.0f, 1.0f, 1.0f, 1.0f);
+}
+
 extern "C"
 {
 	__declspec(dllexport) PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
-		//Enable antenna sprite
-		WriteData((float*)0x00615DD2, 182.0f);
-		WriteData((float*)0x00615D76, 1.0f);
+		//Fix rocket/antenna sprite
+		*(NJS_OBJECT*)0x026919C0 = object_022919C0; //Antenna model
+		WriteCall((void*)0x00615D60, AntennaModel);
+		WriteCall((void*)0x00615DB5, AntennaSprite);
+		WriteData((char*)0x00615DBB, 0x8, 1); //Antenna sprite blending SA_SRC
+		WriteCall((void*)0x00614122, RocketSprite);
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
@@ -270,5 +298,14 @@ extern "C"
 			SpeedHighway2Fog[i].Color = 0xFF300020;
 		}
 	}
-
+	__declspec(dllexport) void __cdecl OnFrame()
+	{
+		if (CurrentLevel == 4)
+		{
+			if (RocketAlphaDir == 4 && RocketAlpha >= 255) RocketAlphaDir = -4;
+			if (RocketAlphaDir == -4 && RocketAlpha <= 0) RocketAlphaDir = 4;
+			RocketAlpha = RocketAlpha + RocketAlphaDir;
+			AntennaAlpha = RocketAlpha;
+		}
+	}
 }
