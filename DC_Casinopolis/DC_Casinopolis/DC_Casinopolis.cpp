@@ -530,14 +530,9 @@ void __cdecl OLhtr_Display(ObjectMaster *a1)
 		{
 			njRotateY(0, (unsigned __int16)v4);
 		}
-		ProcessModelNode_A_Wrapper(&stru_1E5E7BC, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		if (LevelFrameCount % 3 != 0) stru_1E5E7BC.basicdxmodel->mats[2].diffuse.color = 0xFFFFFFFF;
-		if (LevelFrameCount % 3 == 0)
-		{
-			v5 = rand() % 60;
-			if (v5 > 50) stru_1E5E7BC.basicdxmodel->mats[2].diffuse.color = 0xFF4F4F4F;
-			if (v5 <= 50) stru_1E5E7BC.basicdxmodel->mats[2].diffuse.color = 0xFFFFFFFF;
-		}
+		ProcessModelNode_AB_Wrapper(&object_01A5E7BC, 1.0f);
+		if (v1->Action == 0) ProcessModelNode_A_Wrapper(&object_01A5E7BC_light, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		else ProcessModelNode_A_Wrapper(&object_01A5E7BC_dark, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 		njPopMatrix(1u);
 		sub_5DD920((int)&off_1E75DE0, 2);
 	}
@@ -572,14 +567,9 @@ void __cdecl OLhtg_Display(ObjectMaster *a1)
 		{
 			njRotateY(0, (unsigned __int16)v4);
 		}
-		ProcessModelNode_A_Wrapper(&stru_1E5EC4C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		if (LevelFrameCount % 3 != 0) stru_1E5EC4C.basicdxmodel->mats[4].diffuse.color = 0xFFFFFFFF;
-		if (LevelFrameCount % 3 == 0)
-		{
-			v5 = rand() % 60;
-			if (v5 > 50) stru_1E5EC4C.basicdxmodel->mats[4].diffuse.color = 0xFF4F4F4F;
-			if (v5 <= 50) stru_1E5EC4C.basicdxmodel->mats[4].diffuse.color = 0xFFFFFFFF;
-		}
+		ProcessModelNode_AB_Wrapper(&object_01A5EC4C_main, 1.0f);
+		if (v1->Action == 1) ProcessModelNode_A_Wrapper(&object_01A5EC4C_light, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		else ProcessModelNode_A_Wrapper(&object_01A5EC4C_dark, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 		njPopMatrix(1u);
 		sub_5DD920((int)&off_1E75DC8, 2);
 	}
