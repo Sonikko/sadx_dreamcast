@@ -135,10 +135,12 @@ void RenderWindy1Sky()
 	ProcessModelNode(&stru_C06A94, (QueuedModelFlagsB)0, 1.0f); //Cloud 2
 	DrawQueueDepthBias = 0;
 }
+
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 
 extern "C" __declspec(dllexport) void cdecl Init()
 {
+	WriteData((NJS_MODEL_SADX**)0x00C66F78, &attach_000C4CFC); //Fixed bridge rope
 	//Skybox stuff
 	WriteCall((void*)0x004DD794, RetrieveWindy1SkyTransparency);
 	WriteCall((void*)0x004DD7D1, RenderWindy1Sky);

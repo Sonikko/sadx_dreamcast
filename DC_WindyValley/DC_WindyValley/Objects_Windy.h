@@ -1,5 +1,58 @@
 #include <SADXModLoader.h>
 
+//Fixed rope model lol
+
+NJS_MATERIAL matlist_000C4BF0[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 1, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_000C4C04[] = {
+	4, 3, 5, 0, 2,
+	4, 4, 3, 1, 0,
+	4, 5, 4, 2, 1
+};
+
+NJS_TEX uv_000C4C24[] = {
+	{ 0, 255 },
+	{ 0 },
+	{ 1020, 255 },
+	{ 1020, 0 },
+	{ 0, 255 },
+	{ 0 },
+	{ 1020, 255 },
+	{ 1020, 0 },
+	{ 0, 255 },
+	{ 0 },
+	{ 1020, 255 },
+	{ 1020, 0 }
+};
+
+NJS_MESHSET_SADX meshlist_000C4C54[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 3, poly_000C4C04, NULL, NULL, NULL, uv_000C4C24, NULL }
+};
+
+NJS_VECTOR vertex_000C4C6C[] = {
+	{ -0.000263f, 1.014209f, -0.44399f },
+	{ 0.410936f, 1.014209f, 0.268228f },
+	{ -0.411462f, 1.014209f, 0.268228f },
+	{ -0.000263f, -0.000134f, -0.44399f },
+	{ 0.410936f, -0.000134f, 0.268228f },
+	{ -0.411462f, -0.000134f, 0.268228f }
+};
+
+NJS_VECTOR normal_000C4CB4[] = {
+	{ 0, 0, -1 },
+	{ 0.866025f, 0, 0.5f },
+	{ -0.866025f, 0, 0.5f },
+	{ 0, 0, -1 },
+	{ 0.866025f, 0, 0.5f },
+	{ -0.866025f, 0, 0.5f }
+};
+
+NJS_MODEL_SADX attach_000C4CFC = { vertex_000C4C6C, normal_000C4CB4, LengthOfArray<Sint32>(vertex_000C4C6C), meshlist_000C4C54, matlist_000C4BF0, LengthOfArray<Uint16>(meshlist_000C4C54), LengthOfArray<Uint16>(matlist_000C4BF0),{ -0.000263f, 0.507037f, -0.087881f }, 0.619706f, NULL };
+
+NJS_OBJECT object_000C4D24 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000C4CFC, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
 enum OBJ_WINDYTexName
 {
 	OBJ_WINDYTexName_am_win001_32b,
