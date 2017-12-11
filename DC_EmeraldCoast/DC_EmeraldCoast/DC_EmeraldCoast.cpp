@@ -36,6 +36,7 @@ static bool lilocean = false;
 static bool SADXStyleWater = false;
 static NJS_VECTOR oldpos{ 0,0,0 };
 DataArray(NJS_TEX, uv_00CBB000_data, 0x10BB000, LengthOfArray(uv_00CBB000));
+DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
 DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
@@ -79,7 +80,9 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 			uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
 			uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
 			uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
-			ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_3, 1.0f);
+			DrawQueueDepthBias = -19952.0f;
+			ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+			DrawQueueDepthBias = 0;
 			njPopMatrix(1u);
 		}
 	}
@@ -161,8 +164,10 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 				uv_00CC0530[1].u = uv_00CC0530_d[1].u + OceanUVShift1;
 				uv_00CC0530[2].u = uv_00CC0530_d[2].u + OceanUVShift1;
 				uv_00CC0530[3].u = uv_00CC0530_d[3].u + OceanUVShift1;
-				ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_3, 1.0f);
+				DrawQueueDepthBias = -19952.0f;
+				ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x10C05E8, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 				njPopMatrix(1u);
+				DrawQueueDepthBias = 0;
 			}
 		}
 		else
@@ -182,7 +187,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 				}
 				OceanDataA.Position.y = EC1OceanYShift;
 			}
-			AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
+			AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0f, (QueuedModelFlagsB)0);
 		}
 	}
 	else
@@ -218,8 +223,9 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			oldpos.z = v1->Position.z;
 			njPushMatrix(0);
 			njTranslate(0, v1->Position.x, EC1OceanYShift, v1->Position.z);
+			DrawQueueDepthBias = -19952.0f;
 			if (EC1OceanYShift > -1.5f) ProcessModelNode_D_Wrapper((NJS_OBJECT*)0x010C03FC, 1.0f);
-			else ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x010C03FC, QueuedModelFlagsB_3, 1.0f);
+			else ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x010C03FC, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 			njPopMatrix(1u);
 
 			njPushMatrix(0);
@@ -321,6 +327,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			njTranslate(0, v1->Position.x - 1000, EC1OceanYShift, v1->Position.z - 1000);
 			ProcessModelNode_A_Wrapper(&object_00CC03FC, QueuedModelFlagsB_3, 1.0f);
 			njPopMatrix(1u);
+			DrawQueueDepthBias = 0;
 		}
 	}
 }
