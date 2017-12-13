@@ -11,6 +11,7 @@ DataPointer(int, MissedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
+DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataArray(FogData, IceCap1Fog, 0x00C67EA0, 3);
 DataArray(FogData, IceCap2Fog, 0x00C67ED0, 3);
 DataArray(FogData, IceCap3Fog, 0x00C67F00, 3);
@@ -28,12 +29,29 @@ PointerInfo pointers[] = {
 	//ptrdecl(0x97DB14, &landtable_00019950)
 };
 
+void RenderSmallIcicles(NJS_OBJECT *a1, QueuedModelFlagsB blend_mode, float scale)
+{
+	DrawQueueDepthBias = 15000.0f;
+	ProcessModelNode(a1, QueuedModelFlagsB_SomeTextureThing, scale);
+	DrawQueueDepthBias = 0;
+}
+
+void RenderIcicleSpriteThing(NJS_OBJECT *a1, QueuedModelFlagsB blend_mode, float scale)
+{
+	DrawQueueDepthBias = -1000.0f;
+	ProcessModelNode(a1, blend_mode, scale);
+	DrawQueueDepthBias = 0;
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteCall((void*)0x004EFEF7, RenderIcicleSpriteThing);
+		WriteCall((void*)0x004EFE10, RenderSmallIcicles);
+		*(NJS_OBJECT*)0x00E6FECC = object_00A6FECC; // Giant icicle
 		//Snowboard fix
 		HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 		if (CHRMODELS != nullptr)
