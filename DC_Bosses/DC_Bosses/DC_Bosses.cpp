@@ -1066,14 +1066,18 @@ extern "C"
 					}
 					if (EggViper_blendfactor >= EggViper_blendfactor_max)
 					{
+						set_diffuse_blend(0, 3);
 						EggViper_blenddirection = -1;
-						if (EggViper_blendfactor_max < 0.4f)
+						if (EggViper_blendfactor_max < 1.0f)
 						{
-							EggViper_blendfactor_max = EggViper_blendfactor_max + 0.005f;
-							//	if (EggViper_blendfactor_min < 0.4f) EggViper_blendfactor_min = EggViper_blendfactor_min+0.01f;
+							EggViper_blendfactor_max = EggViper_blendfactor_max + 0.02f;
 						}
 					}
-					if (EggViper_blendfactor <= EggViper_blendfactor_min) EggViper_blenddirection = 1;
+					if (EggViper_blendfactor <= EggViper_blendfactor_min)
+					{
+						EggViper_blenddirection = 1;
+						set_diffuse_blend(0, 6);
+					}
 					if (GameState != 16)
 					{
 						if (EggViper_blenddirection == 1 && EggViper_blendfactor < EggViper_blendfactor_max) EggViper_blendfactor = EggViper_blendfactor + (EggViper_blendfactor_max / 2.0f)*FramerateSetting;
@@ -1086,7 +1090,7 @@ extern "C"
 				if (EggViper_EffectMode != 0)
 				{
 					set_shader_flags(ShaderFlags_Blend, true);
-					set_diffuse_blend(0, 5);
+					if (EggViper_EffectMode != 5) set_diffuse_blend(0, 5);
 					set_specular_blend(0, 0);
 					set_blend_factor(EggViper_blendfactor);
 				}
