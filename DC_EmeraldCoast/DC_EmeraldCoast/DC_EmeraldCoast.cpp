@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "EmeraldCoast1_PC.h"
@@ -88,7 +87,21 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 			DrawModelCallback_Queue((void(__cdecl *)(void *))EmeraldCoast_OceanDraw, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
 		}
 	}
-
+	if (CurrentLevel == 1 && CurrentAct == 1)
+	{
+		njSetTexture((NJS_TEXLIST*)&texlist_ecoast2);
+		njPushMatrix(0);
+		njTranslate(0, 0, 0, 0);
+		DrawQueueDepthBias = 1000.0f;
+		ProcessModelNode_A_Wrapper(&object_000DB618, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		ProcessModelNode_A_Wrapper(&object_000DB64C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		ProcessModelNode_A_Wrapper(&object_000DB680, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		ProcessModelNode_A_Wrapper(&object_000DB6B4, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		ProcessModelNode_A_Wrapper(&object_000DB6E8, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		ProcessModelNode_A_Wrapper(&object_000DB71C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		DrawQueueDepthBias = 0;
+		njPopMatrix(1u);
+	}
 }
 
 void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
