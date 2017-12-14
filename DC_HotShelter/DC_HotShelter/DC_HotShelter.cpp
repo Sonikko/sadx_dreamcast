@@ -7,14 +7,8 @@
 #include "HotShelter3.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(float, HotShelterWaterThing, 0x3C72E54);
 DataArray(NJS_TEX, uv_01410790, 0x01810790, 20); //water thing UVs 1
 DataArray(NJS_TEX, uv_014107E0, 0x018107E0, 56); //water thing UVs 2
-DataArray(FogData, FogData_HotShelter1, 0x017C3450, 3);
-DataArray(FogData, FogData_HotShelter2, 0x017C3480, 3);
-DataArray(FogData, FogData_HotShelter3, 0x017C34B0, 3);
-DataArray(DrawDistance, DrawDist_HotShelter1, 0x017C3408, 3);
-DataArray(DrawDistance, DrawDist_HotShelter2, 0x017C3420, 3);
 
 static float suimen_increment = 0.0f;
 static int suimen_direction = 1;

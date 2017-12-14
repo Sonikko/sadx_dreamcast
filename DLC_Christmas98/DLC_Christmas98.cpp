@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "DLC_Christmas98.h"
 
@@ -121,21 +120,21 @@ void DLCObject_Main(ObjectMaster *a1)
 						StopMusic();
 						sub_425800(MusicIDs_nights_a);
 						ChristmasMusic = 1;
-						WriteData((char*)0x0062EEF9, MusicIDs_nights_a, 1);
+						WriteData<1>((char*)0x0062EEF9, MusicIDs_nights_a);
 					}
 					if (v1->Index == 69 && ChristmasMusic != 2)
 					{
 						StopMusic();
 						sub_425800(MusicIDs_nights_k);
 						ChristmasMusic = 2;
-						WriteData((char*)0x0062EEF9, MusicIDs_nights_k, 1);
+						WriteData<1>((char*)0x0062EEF9, MusicIDs_nights_k);
 					}
 					if (v1->Index == 70 && ChristmasMusic != 3)
 					{
 						StopMusic();
 						sub_425800(MusicIDs_nights_s);
 						ChristmasMusic = 3;
-						WriteData((char*)0x0062EEF9, MusicIDs_nights_s, 1);
+						WriteData<1>((char*)0x0062EEF9, MusicIDs_nights_s);
 					}
 					if (v1->CharIndex == 0) sub_4B79C0((char *)(&Christmas98Message0), 240);
 					if (v1->CharIndex == 1) sub_4B79C0((char *)(&Christmas98Message1), 240);
@@ -393,7 +392,7 @@ extern "C"
 		{
 			ObjectsLoaded = false;
 			ChristmasMusic = 0;
-			WriteData((char*)0x0062EEF9, MusicIDs_StationSquare, 1);
+			WriteData<1>((char*)0x0062EEF9, MusicIDs_StationSquare);
 		}
 	}
 }

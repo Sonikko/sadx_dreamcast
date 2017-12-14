@@ -25,7 +25,6 @@ HMODULE ADV01MODELS = GetModuleHandle(L"ADV01MODELS");
 HMODULE ADV01CMODELS = GetModuleHandle(L"ADV01CMODELS");
 std::string plw1xbin;
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(__int16, EggCarrierSunk_CharacterFlag, 0x0090A41C);
 
 static int water1 = 98;
 static int water2 = 90;
@@ -303,14 +302,14 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		ResizeTextureList(&texlist_ec00, 125);
 		ResizeTextureList(&texlist_ec01, 117);
 		ResizeTextureList(&texlist_ec02, 93);
-		WriteData((char*)0x0051C4E8, 0x7B, 1); //act 1 water
-		WriteData((char*)0x0051C50B, 0x73, 1); //act 2 water
-		WriteData((char*)0x0051C529, 0x5B, 1); //act 3 water
+		WriteData<1>((char*)0x0051C4E8, 0x7B); //act 1 water
+		WriteData<1>((char*)0x0051C50B, 0x73); //act 2 water
+		WriteData<1>((char*)0x0051C529, 0x5B); //act 3 water
 		WriteData((float*)0x0051C5EC, 2.5f); //Z fighting fix
 	}
 	else
 	{
-		WriteData((void*)0x0051C440, 0xC3u, 1);
+		WriteData<1>((void*)0x0051C440, 0xC3u);
 		EggCarrierObjectTexlist_Sea[1].Name = "EC_SEA";
 		landtable_00162260.TexName = "ADV_EC00";
 		landtable_001631F0.TexName = "ADV_EC01";
@@ -318,7 +317,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	}
 	WriteJump((char *)GetProcAddress(ADV01MODELS, "SetClip_EC00"), SetClip_EC00);
 	WriteJump((char *)GetProcAddress(ADV01MODELS, "SetClip_EC01"), SetClip_EC01);
-	WriteData((void *)0x0051BB8C, 0x90, 5); //disable that stupid DisableFog thing
+	WriteData<5>((void *)0x0051BB8C, 0x90); //disable that stupid DisableFog thing
 	((NJS_OBJECT*)0x03104130)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
 	___ADV01_TEXLISTS[0] = &texlist_ec00;
 	___ADV01_TEXLISTS[1] = &texlist_ec01;
@@ -390,7 +389,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV01C_OBJECTS[23] = &object_000B8CD4; //Egglift
 	___ADV01C_ACTIONS[6]->object = &object_000BAF48; //Door
 	___ADV01C_MODELS[27]->mats[0].diffuse.color = 0xFFFFFFFF;
-	WriteData((void*)0x005244D6, 0x90, 5); //Disable light flickering
+	WriteData<5>((void*)0x005244D6, 0x90); //Disable light flickering
 	for (int i = 0; i < 3; i++)
 	{
 		SkyboxScale_EggCarrier4[i].x = 1.0f;
@@ -481,7 +480,7 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 				object_00007C50.pos[0] = Camera_Data1->Position.x;
 				object_00007C50.pos[2] = Camera_Data1->Position.z;
 			}
-			if (SADXStyleWater != 0) WriteData((char*)0x0051C4E0, water_sadx1, 1);
+			if (SADXStyleWater != 0) WriteData<1>((char*)0x0051C4E0, water_sadx1);
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 			{
 				water1++;
@@ -502,7 +501,7 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 				object_00007C50_1.pos[0] = Camera_Data1->Position.x;
 				object_00007C50_1.pos[2] = Camera_Data1->Position.z;
 			}
-			if (SADXStyleWater != 0) WriteData((char*)0x0051C503, water_sadx2, 1);
+			if (SADXStyleWater != 0) WriteData<1>((char*)0x0051C503, water_sadx2);
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 			{
 				water2++;
@@ -523,7 +522,7 @@ extern "C" __declspec(dllexport)  void __cdecl OnFrame()
 				object_00007C50_2.pos[0] = Camera_Data1->Position.x;
 				object_00007C50_2.pos[2] = Camera_Data1->Position.z;
 			}
-			if (SADXStyleWater != 0) WriteData((char*)0x0051C521, water_sadx3, 1);
+			if (SADXStyleWater != 0) WriteData<1>((char*)0x0051C521, water_sadx3);
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 			{
 				water3++;

@@ -7,11 +7,9 @@
 #include "IceCap4_PC.h"
 #include "IceCap4.h"
 
-DataPointer(int, MissedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
-DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataArray(FogData, IceCap1Fog, 0x00C67EA0, 3);
 DataArray(FogData, IceCap2Fog, 0x00C67ED0, 3);
 DataArray(FogData, IceCap3Fog, 0x00C67F00, 3);
@@ -113,7 +111,7 @@ extern "C"
 	};
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		auto entity = CharObj1Ptrs[0];
+		auto entity = EntityData1Ptrs[0];
 		if (CurrentLevel == 8 && CurrentAct == 2 && GameState != 16)
 		{
 			if (entity != nullptr)

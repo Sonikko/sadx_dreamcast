@@ -14,11 +14,8 @@ PointerInfo pointers[] = {
 };
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
-DataPointer(signed int, ClipLevel, 0x03ABDCF0);
-DataPointer(NJS_TEXLIST, OBJ_MOUNTAIN_TEXLIST, 0x024208A8);
 FunctionPointer(double, sub_789320, (float), 0x789320);
 FunctionPointer(void, sub_600BF0, (ObjectMaster *a1, NJS_OBJECT *a2), 0x600BF0);
 
@@ -129,7 +126,7 @@ extern "C"
 		*(NJS_MODEL_SADX*)0x24394CC = attach_001515D8; //Light thing propeller 1
 		*(NJS_MODEL_SADX*)0x24392C4 = attach_001513C8; //Light thing propeller 2
 		*(NJS_OBJECT*)0x2439964 = object_001511FC; //Standing light thing (object)
-		WriteData((void*)0x0060C981, 3, 1); //Light thing blending mode
+		WriteData<1>((void*)0x0060C981, 0x03); //Light thing blending mode
 		ResizeTextureList((NJS_TEXLIST*)0x230FDF4, textures_mountain1);
 		ResizeTextureList((NJS_TEXLIST*)0x229B8CC, textures_mountain2);
 		ResizeTextureList((NJS_TEXLIST*)0x224096C, textures_mountain3);

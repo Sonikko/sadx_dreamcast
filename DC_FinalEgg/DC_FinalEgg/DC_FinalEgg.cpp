@@ -12,7 +12,6 @@ NJS_TEXNAME textures_cylinder[259];
 NJS_TEXLIST texlist_cylinder = { arrayptrandlength(textures_cylinder) };
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(int, LastRenderFlags, 0x03D08498);
 DataPointer(float, SomeDepthThing, 0x03ABD9C0);
 DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
@@ -24,7 +23,6 @@ DataPointer(NJS_ACTION, off_1A1F944, 0x1A1F944);
 DataArray(FogData, FinalEgg1Fog, 0x019C8FF0, 3);
 DataArray(FogData, FinalEgg2Fog, 0x019C9020, 3);
 DataArray(FogData, FinalEgg3Fog, 0x019C9050, 3);
-DataArray(DrawDistance, DrawDist_FinalEgg2, 0x019C8FC0, 3);
 FunctionPointer(void, sub_4094D0, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x4094D0);
 FunctionPointer(void, sub_408530, (NJS_OBJECT*), 0x408530);
 FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
@@ -566,7 +564,7 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		auto entity = CharObj1Ptrs[0];
+		auto entity = EntityData1Ptrs[0];
 		if (CurrentLevel == 10 && GameState != 16)
 		{
 			if (CurrentAct == 0 && entity != nullptr)

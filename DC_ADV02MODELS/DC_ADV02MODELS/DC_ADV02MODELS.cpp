@@ -29,13 +29,11 @@ NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV02MODELS, "_
 NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(ADV02MODELS, "___ADV02_ACTIONS");
 DataPointer(float, dword_111DB90, 0x111DB90);
 DataPointer(float, SomeDepthThing, 0x03ABD9C0);
-DataPointer(DrawDistance, LevelDrawDistance, 0x03ABDC70);
 DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(void*, EV_MainThread_ptr, 0x3B2C578);
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
 DataArray(FogData, MR2FogDay, 0x01103478, 3);
 DataArray(FogData, MR3FogDay, 0x011034A8, 3);
@@ -50,6 +48,7 @@ DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
 DataArray(DrawDistance, MR4DrawDist, 0x01103430, 3);
 FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
 FunctionPointer(void, sub_409450, (NJS_MODEL_SADX *a1, char a2), 0x409450);
+FunctionPointer(void, DisplayAnimationFrame, (NJS_ACTION *action, float frameNumber, int a3, float scale, void(__cdecl *a5)(NJS_MODEL_SADX *, int, int)), 0x004053D0);
 static bool InsideTemple = 0;
 static int anim1 = 130;
 static int anim2 = 140;
@@ -414,7 +413,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_MODELS[15] = &attach_0007C3B8; //Master Emerald glow
 	//___ADV02_OBJECTS[67] = &object_001DCF78; //Palm trees near Tails' workshop
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
-	WriteData((void*)0x52F800, 0xC3u, 1); //Disable SADX jungle
+	WriteData<1>((void*)0x52F800, 0xC3u); //Disable SADX jungle
 	___ADV02MR02_OBJECTS[141] = &object_001615BC;
 	___ADV02MR02_OBJECTS[142] = &object_00161B8C;
 	___ADV02MR02_OBJECTS[143] = &object_00161FD8;
@@ -466,7 +465,7 @@ extern "C"  __declspec(dllexport) void __cdecl OnFrame()
 		matlist_00208504[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		matlist_00208504[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 	}
-	auto entity = CharObj1Ptrs[0];
+	auto entity = EntityData1Ptrs[0];
 	if (GameState != 16 && CurrentLevel == 33 && CurrentAct == 0)
 	{
 		if (GameMode == GameModes_Mission && CurrentCharacter == 5) collist_00015E60[LengthOfArray(collist_00015E60) - 1].Flags = 0x00000001; else collist_00015E60[LengthOfArray(collist_00015E60) - 1].Flags = 0x00000000;

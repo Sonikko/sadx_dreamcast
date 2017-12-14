@@ -7,16 +7,6 @@
 #include "EmeraldCoast3.h"
 #include "EC_Objects.h"
 
-struct OceanData
-{
-	NJS_VECTOR Position;
-	char Index;
-	char OtherIndex;
-	char SomeCount;
-	char SomeOtherCount;
-	NJS_VECTOR PositionOffset;
-};
-
 static int anim1 = 82;
 static int anim2 = 67;
 static int anim3 = 42;
@@ -36,9 +26,7 @@ static bool lilocean = false;
 static bool SADXStyleWater = false;
 static NJS_VECTOR oldpos{ 0,0,0 };
 DataArray(NJS_TEX, uv_00CBB000_data, 0x10BB000, LengthOfArray(uv_00CBB000));
-DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
 DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
 DataPointer(int, CurrentFogToggle, 0x03ABDC6C);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
@@ -97,7 +85,7 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 				OceanDataA.Position.z = -800.0f;
 				OceanDataA.Position.x = 4000.0f;
 			}
-			AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
+			DrawModelCallback_Queue((void(__cdecl *)(void *))EmeraldCoast_OceanDraw, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
 		}
 	}
 
@@ -107,7 +95,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 {
 	DataPointer(float, flt_7E00DC, 0x7E00DC);
 	DataPointer(float, flt_7DF1B0, 0x7DF1B0);
-	auto entity = CharObj1Ptrs[0];
+	auto entity = EntityData1Ptrs[0];
 	double v2;
 	int OceanUVShift1;
 	DataArray(NJS_TEX, uv_00CC0530, 0x10C0530, 4);
@@ -187,7 +175,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 				}
 				OceanDataA.Position.y = EC1OceanYShift;
 			}
-			AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0f, (QueuedModelFlagsB)0);
+			DrawModelCallback_Queue((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0f, (QueuedModelFlagsB)0);
 		}
 	}
 	else
@@ -461,9 +449,9 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 	}
-	WriteData((void*)0x004F8A9A, 0x90, 2); //Disable water animation in Act 1
-	WriteData((char*)0x004F7816, 0xFF, 2); //Disable water animation in Act 2
-	WriteData((char*)0x004F78E6, 0xFF, 2); //Disable water animation in Act 3
+	WriteData<2>((void*)0x004F8A9A, 0x90); //Disable water animation in Act 1
+	WriteData<2>((char*)0x004F7816, 0xFF); //Disable water animation in Act 2
+	WriteData<2>((char*)0x004F78E6, 0xFF); //Disable water animation in Act 3
 	((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.argb.a = 0x99; //Match dynamic ocean alpha with normal ocean
 	HMODULE SADXStyleWaterHandle = GetModuleHandle(L"SADXStyleWater");
 	if (SADXStyleWaterHandle != nullptr) SADXStyleWater = true; else SADXStyleWater = false;
@@ -524,11 +512,11 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 		object_00CC03FC.basicdxmodel->mats[0].attrflags &= ~NJD_DA_INV_SRC;
 		object_00CC03FC.basicdxmodel->mats[0].attrflags |= NJD_DA_ONE;
 		object_00CC03FC.basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
-		WriteData((void*)0x004F7749, 0x90, 5); //Kill second water in Act 2
-		WriteData((void*)0x004F77E9, 0x90, 5); //Kill second water in Act 3
+		WriteData<5>((void*)0x004F7749, 0x90); //Kill second water in Act 2
+		WriteData<5>((void*)0x004F77E9, 0x90); //Kill second water in Act 3
 		BeachTexlists[1].Name = "BEACH_SEAW";
-		WriteData((void*)0x004F783A, 0x0F, 1); //15 animation frames for water in Act 2
-		WriteData((void*)0x004F790A, 0x0F, 1); //15 animation frames for water in Act 3
+		WriteData<1>((void*)0x004F783A, 0x0F); //15 animation frames for water in Act 2
+		WriteData<1>((void*)0x004F790A, 0x0F); //15 animation frames for water in Act 3
 		WriteCall((void*)0x004F8B23, EC1WaterAnimation_SADX); //Sea animation in Acts 1/2
 	}
 	ResizeTextureList((NJS_TEXLIST*)0xF812AC, textures_ecoast1);
@@ -557,7 +545,7 @@ extern "C" __declspec(dllexport) void __cdecl Init()
 	WriteData((float**)0x004F798B, &float2);
 	WriteData((float**)0x004F7998, &float2);
 	//Kill SADX shit
-	if (SADXStyleWater == false) WriteData((void*)0x4F8A30, 0xC3u, sizeof(char));
+	if (SADXStyleWater == false) WriteData<1>((void*)0x4F8A30, 0xC3u);
 	//Write water rendering functions
 	WriteJump((void*)0x00501130, Obj_EC1Water_DisplayX); //Act 1
 	WriteJump((void*)0x004F76C0, Obj_EC23Water_DisplayX); //Act 2
@@ -749,11 +737,11 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 			CurrentFogToggle = 0;
 			if (SADXStyleWater == true)
 			{
-				WriteData((void*)0x004F777E, 0xE8, 1); //Restore the ocean
-				WriteData((void*)0x004F777F, 0xBD, 1); //Restore the ocean
-				WriteData((void*)0x004F7780, 0xD0, 1); //Restore the ocean
-				WriteData((void*)0x004F7781, 0xF0, 1); //Restore the ocean
-				WriteData((void*)0x004F7782, 0xFF, 1); //Restore the ocean
+				WriteData<1>((void*)0x004F777E, 0xE8); //Restore the ocean
+				WriteData<1>((void*)0x004F777F, 0xBD); //Restore the ocean
+				WriteData<1>((void*)0x004F7780, 0xD0); //Restore the ocean
+				WriteData<1>((void*)0x004F7781, 0xF0); //Restore the ocean
+				WriteData<1>((void*)0x004F7782, 0xFF); //Restore the ocean
 			}
 		}
 		if (Camera_Data1 != nullptr && Camera_Data1->Position.z > 2000)
@@ -761,7 +749,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 			inside_secret_area = 1;
 			CurrentFogToggle = 1;
 			if (CurrentFogLayer < -21) CurrentFogLayer = CurrentFogLayer + 20;
-			if (SADXStyleWater == true) WriteData((void*)0x004F777E, 0x90, 5); //Kill the ocean temporarily
+			if (SADXStyleWater == true) WriteData<5>((void*)0x004F777E, 0x90); //Kill the ocean temporarily
 		}
 		else
 		{
@@ -772,11 +760,11 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 				CurrentFogToggle = 0;
 				if (SADXStyleWater == true)
 				{
-					WriteData((void*)0x004F777E, 0xE8, 1); //Restore the ocean
-					WriteData((void*)0x004F777F, 0xBD, 1); //Restore the ocean
-					WriteData((void*)0x004F7780, 0xD0, 1); //Restore the ocean
-					WriteData((void*)0x004F7781, 0xF0, 1); //Restore the ocean
-					WriteData((void*)0x004F7782, 0xFF, 1); //Restore the ocean
+					WriteData<1>((void*)0x004F777E, 0xE8); //Restore the ocean
+					WriteData<1>((void*)0x004F777F, 0xBD); //Restore the ocean
+					WriteData<1>((void*)0x004F7780, 0xD0); //Restore the ocean
+					WriteData<1>((void*)0x004F7781, 0xF0); //Restore the ocean
+					WriteData<1>((void*)0x004F7782, 0xFF); //Restore the ocean
 				}
 			}
 		}

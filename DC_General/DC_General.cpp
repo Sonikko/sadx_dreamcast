@@ -29,16 +29,12 @@ DataPointer(NJS_MODEL_SADX, stru_8BBD84, 0x8BBD84);
 DataPointer(NJS_MODEL_SADX, stru_989384, 0x989384);
 DataPointer(D3DCOLORVALUE, stru_3D0B7C8, 0x3D0B7C8);
 DataPointer(NJS_OBJECT, stru_8B22F4, 0x8B22F4);
-DataPointer(int, MissedFrames, 0x03B1117C);
 DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
-DataPointer(NJS_TEXLIST, KNU_EFF_TEXLIST, 0x0091BD28);
-DataPointer(int, CurrentChaoStage, 0x0339F87C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
 FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
 
 
@@ -364,7 +360,7 @@ void SonicDashTrailFix(NJS_OBJECT *a1, QueuedModelFlagsB a2)
 	a1->basicdxmodel->mats->attr_texId = 0;
 }
 
-void __cdecl Knuckles_MaximumHeat_Draw(NJS_VECTOR *position, float alpha)
+void __cdecl Knuckles_MaximumHeat_DrawX(NJS_VECTOR *position, float alpha)
 {
 	float a; // ST00_4
 	float s; // ST10_4
@@ -395,7 +391,7 @@ void __cdecl Knuckles_MaximumHeat_Draw(NJS_VECTOR *position, float alpha)
 
 void __cdecl Knuckles_MaximumHeatSprite_Draw(ObjectMaster *sx)
 {
-	auto entity = CharObj1Ptrs[0];
+	auto entity = EntityData1Ptrs[0];
 	float *v1; // eax
 	EntityData1 *v2; // esi
 	float a; // ST00_4
@@ -413,7 +409,7 @@ void __cdecl Knuckles_MaximumHeatSprite_Draw(ObjectMaster *sx)
 			sxa = (v1[13] - v1[12]) * v1[3] + v1[12];
 			a = (v1[2] - v1[4]) * v1[3] + v1[4];
 			SetMaterialAndSpriteColor_Float(a, 1.0, 1.0, 1.0);
-			pos = v2->CollisionInfo->CollisionArray->v;
+			pos = v2->CollisionInfo->CollisionArray->origin;
 			pos.x = entity->Position.x;
 			pos.y = entity->Position.y+5.0f;
 			pos.z = entity->Position.z;
@@ -458,7 +454,7 @@ void KnucklesPunch_Render(NJS_OBJECT *a1, QueuedModelFlagsB a2)
 	ProcessModelNode_A_WrapperB(a1, a2);
 }
 
-void __cdecl Sonic_DisplayLightDashModel(EntityData1 *data1, CharObj2 **data2_pp, CharObj2 *data2)
+void __cdecl Sonic_DisplayLightDashModelX(EntityData1 *data1, CharObj2 **data2_pp, CharObj2 *data2)
 {
 	int v3; // eax
 	__int16 v4; // t1
@@ -518,19 +514,17 @@ extern "C"
 		HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 		//Gamma's chest patch lol
 		((NJS_MATERIAL*)((size_t)CHRMODELS + + 0x00200DE8))->attrflags &= ~NJD_FLAG_USE_ALPHA; //Unnecessary alpha in Gamma's model
-		WriteData((char*)(size_t)CHRMODELS + 0x001FDD31, 0xC0, 1);
-		WriteData((char*)(size_t)CHRMODELS + 0x001FDD69, 0xC0, 1);
 		WriteData((float*)0x0047FE0F, 0.85f);
 		//Character effects
-		WriteJump((void*)0x004A1630, Sonic_DisplayLightDashModel);
+		WriteJump((void*)0x004A1630, Sonic_DisplayLightDashModelX);
 		WriteData((float**)0x47404B, &heat_float1);
 		WriteData((float**)0x474057, &heat_float2);
-		WriteJump((void*)0x004C1330, Knuckles_MaximumHeat_Draw);
+		WriteJump((void*)0x004C1330, Knuckles_MaximumHeat_DrawX);
 		WriteJump((void*)0x004C1410, Knuckles_MaximumHeatSprite_Draw);
 		WriteCall((void*)0x004C1258, KnucklesPunch_RetrieveAlpha);
 		WriteCall((void*)0x004C1305, KnucklesPunch_Render);
 		WriteCall((void*)0x4A0F56, SonicDashTrailFix);
-		WriteData((char*)0x0040889C, 0x90, 10); //Queued model lighting/specular fix
+		WriteData<10>((char*)0x0040889C, 0x90u); //Queued model lighting/specular fix
 		//((NJS_MATERIAL*)0x008B1CE0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Ripple
 		//((NJS_MATERIAL*)0x008B1CE0)->diffuse.color = 0xFFFFFFFF;
 		//Environment maps
@@ -606,7 +600,7 @@ extern "C"
 		((NJS_OBJECT*)0x10D7774)->basicdxmodel->mats[0].attr_texId = 10; //Question mark from Character Select
 		//((NJS_OBJECT*)0x008BE194)->basicdxmodel->mats[0].diffuse.argb.a = 0xB2; //Balloon transparency
 		//((NJS_OBJECT*)0x008BE194)->basicdxmodel->mats[1].diffuse.argb.a = 0xB2; //Balloon transparency
-		WriteData((char*)0x004D7712, 2, 1); //Animal bubble blending mode
+		WriteData<1>((char*)0x004D7712, 0x02u); //Animal bubble blending mode
 		*(NJS_OBJECT*)0x02F67B78 = object_0021BD90; //Tornado 2 crashed
 		ResizeTextureList((NJS_TEXLIST*)0x0092ACE4, 5); //GOMA texlist
 		((NJS_OBJECT*)0x929E1C)->model = &attach_001568D8; //Goma left whisker
@@ -653,7 +647,7 @@ extern "C"
 			}
 			if (AlphaRejectionMode == 1 && (CurrentLevel == 25 || GameMode == GameModes_CharSel || GameMode == GameModes_Menu || CurrentChaoStage == 2))
 			{
-				WriteData((char*)0x007919CD, 16, 1);
+				WriteData<1>((char*)0x007919CD, 0x16u);
 				AlphaRejectionMode = 0;
 			}
 		}

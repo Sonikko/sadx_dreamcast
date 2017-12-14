@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 
 FunctionPointer(Sint32, sub_424FC0, (int a1, EntityData1 *a2, int a3, int a4, float x, float y, float z), 0x424FC0);
@@ -23,7 +22,7 @@ void __cdecl sub_4EC370(ObjectMaster *a1) //Ice Cap bomber
 		sub_4F5E50((int)&v1->Position);
 		RumbleA(0, 0);
 		*(short*)&v1->Object = 40;
-		InitCollision(a1, &stru_E94844, 1, 4u);
+		Collision_Init(a1, &stru_E94844, 1, 4u);
 		a1->MainSub = sub_4EC2E0;
 		a1->DisplaySub = 0;
 	}
@@ -95,11 +94,11 @@ extern "C"
 		WriteJump((void*)0x004EC370, sub_4EC370); //Ice Cap bomber 1
 		WriteCall((void*)0x004EC573, PlayBomb); //Ice Cap bomber 2
 		WriteCall((void*)0x005ECB4F, PlaySound2); //Go up! Full speed ahead!
-		WriteData((void*)0x0053881F, 0x90u, 2); // Enable ambient sound in MR Final Egg base
-		WriteData((char*)0x00571AAF, 0x08, 1); // Fix Egg Hornet sound loop
-		WriteData((char*)0x006AF86B, 0, 1); // I forgot to put in the landing gear!
-		WriteData((char*)0x006CE07B, 0, 1); // There's no landing gear in this mode!
-		WriteData((char*)0x006CA530, 0x34, 1); //Goin' down! Aaaah! Look out below!
+		WriteData<2>((void*)0x0053881F, 0x90u); // Enable ambient sound in MR Final Egg base
+		WriteData<1>((char*)0x00571AAF, 0x08); // Fix Egg Hornet sound loop
+		WriteData<1>((char*)0x006AF86B, 0i8); // I forgot to put in the landing gear!
+		WriteData<1>((char*)0x006CE07B, 0i8); // There's no landing gear in this mode!
+		WriteData<1>((char*)0x006CA530, 0x34); //Goin' down! Aaaah! Look out below!
 		WriteCall((void*)0x006E96B9, TailsWhatAmIGonnaDoWithYou);
 		*(SoundList*)0x90FDD0 = E101mkIISoundList;
 		*(SoundList*)0x90FFB8 = soundlist97;
@@ -107,7 +106,7 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		auto entity = CharObj1Ptrs[0];
+		auto entity = EntityData1Ptrs[0];
 		if (CurrentLevel != 8 || CurrentAct != 2 || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21) SnowSoundFixed = false;
 		if (entity != nullptr)
 		{

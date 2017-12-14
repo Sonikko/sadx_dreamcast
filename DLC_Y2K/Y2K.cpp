@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "Y2KRing.h"
 
@@ -167,7 +166,7 @@ void Y2KRing_Main(ObjectMaster *a1)
 				StopMusic();
 				sub_425800(MusicIDs_PalmtreePanic);
 				SonicCDMusic = true;
-				if (CurrentLevel == 26) WriteData((char*)0x0062EEF9, MusicIDs_PalmtreePanic, 1);
+				if (CurrentLevel == 26) WriteData<1>((char*)0x0062EEF9, MusicIDs_PalmtreePanic);
 			}
 			HintTimer = 120;
 		}
@@ -949,13 +948,13 @@ extern "C"
 			if (CurrentLevel != 26)
 			{
 				ObjectsLoaded = false;
-				WriteData((char*)0x0062EEF9, MusicIDs_s_square, 1);
+				WriteData<1>((char*)0x0062EEF9, MusicIDs_s_square);
 			}
 			if (GameState == 6 || GameState == 7 || GameState == 21)
 			{
 				SonicCDMusic = false;
 				ObjectsLoaded = false;
-				WriteData((char*)0x0062EEF9, MusicIDs_s_square, 1);
+				WriteData<1>((char*)0x0062EEF9, MusicIDs_s_square);
 			}
 			if (PreviousLevel != CurrentLevel)
 			{

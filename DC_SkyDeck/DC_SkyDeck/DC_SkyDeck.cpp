@@ -17,33 +17,19 @@ static int UVShift1 = 0;
 static int UVShift2 = 0;
 static int SkyboxAlpha = 255;
 
-DataArray(NJS_TEX, SkyDeck_SkyUVsA, 0x03C80478, 32);
-DataArray(NJS_TEX, SkyDeck_SkyUVsB, 0x03C804F8, 32);
-
-DataPointer(NJS_VECTOR, SkyBoxScale_SkyDeck3, 0x02039FE0);
-DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataPointer(float, SkyDeckAltitude, 0x03C80610); //0 to 700
 DataPointer(float, CurrentSkyBoxScaleX, 0x03ABDC94);
 DataPointer(float, CurrentSkyBoxScaleY, 0x03ABDC98);
 DataPointer(float, CurrentSkyBoxScaleZ, 0x03ABDC9C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(NJS_VECTOR, SkyDeck_SkyPosition, 0x03C7F038);
-DataPointer(NJS_COLOR, CurrentFogColor, 0x03ABDC68);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(float, CurrentFogDistance, 0x03ABDC64);
-DataPointer(DrawDistance, SkyboxDrawDistance, 0x03ABDCA0);
-DataPointer(DrawDistance, LevelDrawDistance, 0x03ABDC70);
-DataPointer(Angle, SkyDeck_SkyRotationZ, 0x03C7F028);
-DataPointer(Angle, SkyDeck_SkyRotationX, 0x03C7F05C);
 DataPointer(int, dword_3C7F030, 0x3C7F030);
 DataPointer(float, flt_3C8046C, 0x3C8046C);
-DataPointer(int, MissedFrames, 0x03B1117C);
 DataPointer(NJS_OBJECT, stru_214E2A0, 0x214E2A0);
 DataPointer(NJS_OBJECT, stru_214C9E4, 0x214C9E4);
 DataPointer(NJS_OBJECT, stru_214E3AC, 0x214E3AC);
 DataPointer(NJS_OBJECT, stru_214BF20, 0x214BF20);
-DataPointer(NJS_TEXLIST, OBJ_SKYDECK_TEXLIST, 0x0214BE40);
-DataPointer(NJS_VECTOR, Skybox_Scale, 0x03ABDC94);
 FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
 
 bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)

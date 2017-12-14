@@ -2,20 +2,6 @@
 #include <SADXModLoader.h>
 #include <IniFile.hpp>
 
-struct ChaoTreeSpawn
-{
-	NJS_VECTOR a;
-	NJS_VECTOR b;
-	NJS_VECTOR c;
-	NJS_VECTOR d;
-	NJS_VECTOR e;
-	NJS_VECTOR f;
-	NJS_VECTOR g;
-	NJS_VECTOR h;
-	NJS_VECTOR i;
-	NJS_VECTOR j;
-};
-
 static bool EnableSSGarden = true;
 static bool EnableMRGarden = true;
 static bool EnableECGarden = true;
@@ -77,22 +63,11 @@ FunctionPointer(ObjectMaster *, sub_72C2E0, (), 0x72C2E0);
 FunctionPointer(void, sub_7153F0, (), 0x7153F0);
 FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColFlags surfaceFlags), 0x49D6C0);
 
-DataArray(NJS_VECTOR, Chao_SSChaoSpawnPoints, 0x033A0AF8, 16);
-DataArray(NJS_VECTOR, Chao_ECChaoSpawnPoints, 0x033A0BB8, 16);
-DataArray(NJS_VECTOR, Chao_MRChaoSpawnPoints, 0x033A0C78, 16);
-DataArray(ChaoTreeSpawn, ChaoTreeSpawns, 0x033A0D78, 3);
-DataArray(NJS_TEXLIST, ChaoTexLists, 0x033A1038, 7);
-DataPointer(NJS_TEXLIST, AL_DX_ETC_TEXLIST, 0x033A1350);
-DataPointer(NJS_TEXLIST, AL_OBJECT_TEXLIST, 0x033A11F0);
-DataPointer(NJS_TEXLIST, AL_TOY_TEXLIST, 0x033A11F8);
-DataPointer(NJS_TEXLIST, AL_DX_OBJ_CMN_TEXLIST, 0x033A1200);
-DataPointer(int, CurrentChaoStage, 0x0339F87C);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(SecondaryEntrance, ECGardenStartPoint, 0x0339F8E8);
 DataPointer(SecondaryEntrance, MRGardenReturnPoint, 0x0339F928);
 DataPointer(SecondaryEntrance, SSGardenStartPoint, 0x0339F888);
-DataPointer(NJS_OBJECT, ChaoNormalFruit, 0x03606D00);
 DataPointer(int, dword_3CDC6B4, 0x3CDC6B4);
 DataPointer(NJS_OBJECT, stru_366C124, 0x366C124);
 DataPointer(CollisionData, stru_33D0B50, 0x33D0B50);
@@ -214,10 +189,10 @@ extern "C"
 //Garden transporters stuff
 		*(NJS_OBJECT*)0x036065B4 = object_00134808; //EC garden to EC transporter
 		*(NJS_OBJECT*)0x03604540 = object_00180454; //All other transporters
-		WriteData((char*)0x00729576, 0x90, 1); //Collision struct pointer
-		WriteData((char*)0x00729577, 0x8B, 1); //Collision struct pointer
-		WriteData((char*)0x00729578, 0x7F, 1); //Collision struct pointer
-		WriteData((char*)0x00729574, 0x04, 1); //Collision parameter for InitCollision
+		WriteData<1>((char*)0x00729576, 0x90); //Collision struct pointer
+		WriteData<1>((char*)0x00729577, 0x8B); //Collision struct pointer
+		WriteData<1>((char*)0x00729578, 0x7F); //Collision struct pointer
+		WriteData<1>((char*)0x00729574, 0x04); //Collision parameter for InitCollision
 		WriteCall((void*)0x005262DE, SetTransporterTexture);// Garden transporter texture/texlist
 		WriteJump((void*)0x729260, (void*)0x5262B0);// Garden transporter effects
 //Fruits
@@ -230,7 +205,7 @@ extern "C"
 		*(NJS_MODEL_SADX*)0x036076E4 = attach_0017B034; //Tree leaves 2
 //Misc
 		WriteJump((void*)0x0078AC80, sub_78AC80X); //Eggs
-		WriteData((char*)0x007151D3, 0x1A, 1); //The secret EC egg is a two-tone black egg
+		WriteData<1>((char*)0x007151D3, 0x1A); //The secret EC egg is a two-tone black egg
 		ResizeTextureList(&ChaoTexLists[0], 144); //AL_BODY
 		ResizeTextureList((NJS_TEXLIST*)0x033A1338, 31); //AL_DX_OBJ_CMN
 //Name Machine stuff
@@ -238,11 +213,11 @@ extern "C"
 		*(NJS_OBJECT*)0x33CB04C = object_001826E8; //Name machine button
 		WriteCall((void*)0x00729EEF, ChaoNameMachineCollision);
 		WriteCall((void*)0x00729DE9, NameMachineTexlist);
-		WriteData((void*)0x00729EBB, 0x90, 5);
-		WriteData((void*)0x00729E57, 0x90, 5);
+		WriteData<5>((void*)0x00729EBB, 0x90);
+		WriteData<5>((void*)0x00729E57, 0x90);
 		WriteJump((void*)0x00729F40, LoadChaoNameMachineX);
 		DataArray(CollisionData, stru_33D0B50, 0x033D0B50, 9);
-		stru_33D0B50[0].v.z = 5;
+		stru_33D0B50[0].origin.z = 5;
 		for (int i = 1; i < 9; i++)
 		{
 			stru_33D0B50[i].scale.x = 0;
@@ -261,9 +236,9 @@ extern "C"
 			ResizeTextureList((NJS_TEXLIST *)0x340E934, 49); //Race Entry texlist
 			WriteCall((void*)0x0072C618, ExitRaceEntry);
 			WriteCall((void*)0x0071D17A, LoadSADXEntry);
-			WriteData((void*)0x0071D158, 0x90, 5); //Don't move Sanic
-			WriteData((void*)0x0071CEE0, 0x90, 5); //Don't mess with entry button
-			WriteData((void*)0x0071CEC2, 0x90, 5); //Don't mess with entry button
+			WriteData<5>((void*)0x0071D158, 0x90); //Don't move Sanic
+			WriteData<5>((void*)0x0071CEE0, 0x90); //Don't mess with entry button
+			WriteData<5>((void*)0x0071CEC2, 0x90); //Don't mess with entry button
 		}
 //Chao Race stuff
 		WriteJump((void*)0x00719DB0, LoadChaoRaceX);
@@ -271,12 +246,12 @@ extern "C"
 //Station Square garden stuff
 		if (EnableSSGarden == true)
 		{
-			WriteData((void*)0x007195AE, 0x90, 5); //Don't load SADX button prompts in SS garden
-			WriteData((void*)0x0071957E, 0x90, 5); //Disable the Sonic Team homepage prompt
+			WriteData<5>((void*)0x007195AE, 0x90); //Don't load SADX button prompts in SS garden
+			WriteData<5>((void*)0x0071957E, 0x90); //Disable the Sonic Team homepage prompt
 			WriteJump((void*)0x4145D0, sub_4145D0); //Elevator function
 			WriteJump((void*)0x0072AB80, LoadChaoRaceDoorX);
 			WriteCall((void*)0x00638DD7, SetElevatorTexlist);
-			WriteData((void*)0x007195A3, 0x90, 5);
+			WriteData<5>((void*)0x007195A3, 0x90);
 			ResizeTextureList((NJS_TEXLIST*)0x03406088, 32); //GARDEN00SSOBJ
 			*(NJS_OBJECT*)0x0340C5A4 = object_00012A2C; //race door wall part
 			*(NJS_MOTION*)0x0340D978 = _12ADC; //race door animation
@@ -286,9 +261,9 @@ extern "C"
 			((NJS_OBJECT*)0x0340B1B4)->basicdxmodel->mats[0].attr_texId = 18; //race door right
 			((NJS_OBJECT*)0x0340B1B4)->basicdxmodel->mats[1].attr_texId = 18; //race door right
 			((NJS_OBJECT*)0x0340B1B4)->basicdxmodel->mats[2].attr_texId = 28; //race door right
-			WriteData((void*)0x00719265, 0x7D, 1); //Exit 1
-			WriteData((void*)0x00719264, 0xF2, 1); //Exit 2
-			WriteData((void*)0x00719263, 0xF0, 1); //Exit 2
+			WriteData<1>((void*)0x00719265, 0x7D); //Exit 1
+			WriteData<1>((void*)0x00719264, 0xF2); //Exit 2
+			WriteData<1>((void*)0x00719263, 0xF0); //Exit 2
 			WriteJump((void*)0x00719600, LoadSSGardenX);
 			Chao_SSChaoSpawnPoints[0] = { 190.375f, 2.875f, 58.4f };
 			Chao_SSChaoSpawnPoints[1] = { 116.25f, 4, 38 };
@@ -331,8 +306,8 @@ extern "C"
 			WriteData((float*)0x0072AE8E, 59.5f); //Black market door X
 			WriteData((float*)0x0072AE87, 145.0f); //Black market door Z
 			WriteData((float*)0x0072AFFA, 145.0f); //Black market door Z (collision)
-			WriteData((void*)0x007195D1, 0x90, 5); //Kill SADX water
-			WriteData((void*)0x0071946E, 0x90, 5); //Kill SADX fountain
+			WriteData<5>((void*)0x007195D1, 0x90); //Kill SADX water
+			WriteData<5>((void*)0x0071946E, 0x90); //Kill SADX fountain
 			WriteData((float*)0x0071949E, -1000.0f); //Kill hintbox
 			WriteData((float*)0x00719496, -1000.0f); //Kill hintbox
 		}
@@ -342,16 +317,16 @@ extern "C"
 			MRGardenReturnPoint.Position.x = 219;
 			MRGardenReturnPoint.Position.y = 15.45f;
 			MRGardenReturnPoint.Position.z = -48.5f;
-			WriteData((void*)0x00718E20, 0x90, 5); //Don't load SADX button prompts in MR garden
+			WriteData<5>((void*)0x00718E20, 0x90); //Don't load SADX button prompts in MR garden
 			WriteJump((void*)0x00718E90, LoadMRGardenX);
 			WriteJump((void*)0x0072A790, sub_72A790); //Mystic Ruins garden function 1
 			WriteJump((void*)0x0072A820, sub_72A820); //Mystic Ruins garden function 2
 			WriteJump((void*)0x0072A8B0, sub_72A8B0); //Mystic Ruins garden function 3
-			WriteData((void*)0x00718E43, 0x90, 5); //Kill SADX water
-			WriteData((void*)0x00728F1E, 0x90, 5); //Kill SADX water 2
-			WriteData((void*)0x00718E7F, 0xC6, 1); //Draw distance
-			WriteData((void*)0x00718E7E, 0x3B, 1); //Draw distance
-			WriteData((void*)0x00718E7D, 0x80, 1); //Draw distance
+			WriteData<5>((void*)0x00718E43, 0x90); //Kill SADX water
+			WriteData<5>((void*)0x00728F1E, 0x90); //Kill SADX water 2
+			WriteData<1>((void*)0x00718E7F, 0xC6); //Draw distance
+			WriteData<1>((void*)0x00718E7E, 0x3B); //Draw distance
+			WriteData<1>((void*)0x00718E7D, 0x80); //Draw distance
 			Chao_MRChaoSpawnPoints[0] = { 264, 15.4f, -65.375f };
 			Chao_MRChaoSpawnPoints[1] = { 138.125f, 3.4f, 26.75f };
 			Chao_MRChaoSpawnPoints[2] = { 235, 15.525f, -24 };
@@ -387,12 +362,12 @@ extern "C"
 //Egg Carrier garden stuff
 		if (EnableECGarden == true)
 		{
-			WriteData((void*)0x00719181, 0x90, 5); //Don't load SADX button prompts in EC garden
+			WriteData<5>((void*)0x00719181, 0x90); //Don't load SADX button prompts in EC garden
 			ECGardenStartPoint.Position.y = 71.0f;
 			WriteCall((void*)0x00729289, NameMachineTexlist);
 			WriteJump((void*)0x007191D0, LoadECGardenX);
 			WriteData((float*)0x007191BF, -12000.0f); //Draw distance
-			WriteData((void*)0x00718FE8, 0xC4, 1); //Disable Y check
+			WriteData<1>((void*)0x00718FE8, 0xC4); //Disable Y check
 			WriteData((float*)0x007190FE, 131.67f); //Name machine
 			WriteData((float*)0x00719106, 2.6f); //Name machine
 			WriteData((float*)0x0071910E, -204.28f); //Name machine
@@ -451,7 +426,7 @@ extern "C"
 //Station Square garden
 		if (CurrentChaoStage == 4 && GameState != 16 && EnableSSGarden == true)
 		{
-			auto entity = CharObj1Ptrs[0];
+			auto entity = EntityData1Ptrs[0];
 			if (entity != nullptr)
 			{
 				if (entity->Position.z > 150 && entity->Position.x > 30.0f)
@@ -554,7 +529,7 @@ extern "C"
 			if (FrameCounter % (10 / FramerateSetting) == 0) letterframe++;
 			if (letterframe > LengthOfArray(letteranims)) letterframe = 0;
 			//Exit
-			auto entity = CharObj1Ptrs[0];
+			auto entity = EntityData1Ptrs[0];
 			if (entity != nullptr)
 			{
 				if (entity->Position.x > 2110 && SkipSA1Entry == 0)

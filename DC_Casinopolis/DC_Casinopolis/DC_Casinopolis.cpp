@@ -57,8 +57,6 @@ DataArray(NJS_MESHSET_SADX, lionmesh, 0x1DFF0F8, 13);
 DataArray(FogData, Casino1Fog, 0x01C46990, 3);
 DataArray(FogData, Casino2Fog, 0x01C469C0, 3);
 DataArray(DrawDistance, DrawDist_Casino2, 0x01C46948, 3);
-DataPointer(int, MissedFrames, 0x03B1117C);
-DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataPointer(NJS_MODEL_SADX, stru_1DF3160, 0x1DF3160);
 DataPointer(NJS_OBJECT, stru_1DF2EF8, 0x1DF2EF8);
 DataPointer(NJS_MODEL_SADX, stru_1DF2B60, 0x1DF2B60);
@@ -166,7 +164,7 @@ void __cdecl Cowgirl_Display(ObjectMaster *a1)
 	v1 = a1->Data1;
 	if (!ClipObject(a1, 640010.0) && IsVisible(&v1->Position, 280.0))
 	{
-		auto entity = CharObj1Ptrs[0];
+		auto entity = EntityData1Ptrs[0];
 		njSetTexture((NJS_TEXLIST*)0x01DF0920); //OBJ_CASINO9
 		njPushMatrix(0);
 		njTranslate(0, 311.62f, 0, 338.93f);
@@ -297,7 +295,7 @@ void __cdecl OKazeX(ObjectMaster *a1)
 	{
 		if (!ObjectSelectedDebug(a1))
 		{
-			InitCollision(a1, &stru_1E77604, 1, 4u);
+			Collision_Init(a1, &stru_1E77604, 1, 4u);
 		}
 		a1->DisplaySub = sub_5D04C0;
 		a1->MainSub = sub_5D0560;
@@ -318,7 +316,7 @@ void __cdecl OKazcX(ObjectMaster *a1)
 	{
 		if (!ObjectSelectedDebug(a1))
 		{
-			InitCollision(a1, &stru_1E775A4, 1, 4u);
+			Collision_Init(a1, &stru_1E775A4, 1, 4u);
 		}
 		a1->DisplaySub = sub_5D04C0;
 		a1->MainSub = sub_5D0560;
@@ -339,7 +337,7 @@ void __cdecl OKazdX(ObjectMaster *a1)
 	{
 		if (!ObjectSelectedDebug(a1))
 		{
-			InitCollision(a1, &stru_1E775D4, 1, 4u);
+			Collision_Init(a1, &stru_1E775D4, 1, 4u);
 		}
 		a1->DisplaySub = sub_5D04C0;
 		a1->MainSub = sub_5D0560;
@@ -361,7 +359,7 @@ void __cdecl OKazbX(ObjectMaster *a1)
 	{
 		if (!ObjectSelectedDebug(a1))
 		{
-			InitCollision(a1, &stru_1E77574, 1, 4u);
+			Collision_Init(a1, &stru_1E77574, 1, 4u);
 		}
 		a1->DisplaySub = sub_5D04C0;
 		a1->MainSub = sub_5D0560_KazB;
@@ -382,7 +380,7 @@ void __cdecl OKazfX(ObjectMaster *a1)
 	{
 		if (!ObjectSelectedDebug(a1))
 		{
-			InitCollision(a1, &stru_1E77638, 1, 4u);
+			Collision_Init(a1, &stru_1E77638, 1, 4u);
 		}
 		a1->DisplaySub = sub_5D04C0;
 		a1->MainSub = sub_5D0560;
@@ -748,12 +746,12 @@ extern "C"
 			stru_1E763B8[0].scale.y = stru_1E763B8[0].scale.y * 4;
 			stru_1E763B8[1].scale.y = stru_1E763B8[1].scale.y * 4;
 			stru_1E763B8[2].scale.y = stru_1E763B8[2].scale.y * 4;
-			stru_1E763B8[0].v.y = stru_1E763B8[0].v.y + 20;
-			stru_1E763B8[1].v.y = stru_1E763B8[1].v.y + 20;
-			stru_1E763B8[2].v.y = stru_1E763B8[2].v.y + 20;
-			stru_1E763B8[0].v.z = stru_1E763B8[0].v.z - 14;
-			stru_1E763B8[1].v.z = stru_1E763B8[1].v.z - 14;
-			stru_1E763B8[2].v.z = stru_1E763B8[2].v.z - 14;
+			stru_1E763B8[0].origin.y = stru_1E763B8[0].origin.y + 20;
+			stru_1E763B8[1].origin.y = stru_1E763B8[1].origin.y + 20;
+			stru_1E763B8[2].origin.y = stru_1E763B8[2].origin.y + 20;
+			stru_1E763B8[0].origin.z = stru_1E763B8[0].origin.z - 14;
+			stru_1E763B8[1].origin.z = stru_1E763B8[1].origin.z - 14;
+			stru_1E763B8[2].origin.z = stru_1E763B8[2].origin.z - 14;
 			collist_00023DA0[LengthOfArray(collist_00023DA0) - 4].Flags = 0x00000000;
 			WriteJump((void*)0x5CAA90, Cowgirl_Display);
 		}
@@ -936,7 +934,7 @@ extern "C"
 		}
 		//Cowgirl action
 		if (CowgirlDelay < 100) CowgirlDelay++;
-		auto entity = CharObj1Ptrs[0];
+		auto entity = EntityData1Ptrs[0];
 		if (CowgirlDelay >= 100 && entity != nullptr && entity->Status & Status_Attack)
 		{
 			if (IsPlayerInsideSphere(&Cowgirl1, 180.0f) || IsPlayerInsideSphere(&Cowgirl2, 180.0f))
@@ -951,7 +949,7 @@ extern "C"
 			if (CurrentAct != 1) SoundPlayed = 0;
 			if (CurrentAct == 1)
 			{
-				auto entity = CharObj1Ptrs[0];
+				auto entity = EntityData1Ptrs[0];
 				if (SoundPlayed == 0 && entity != nullptr && entity->Position.y > -1698)
 				{
 					PlaySound(249, 0, 0, 0);

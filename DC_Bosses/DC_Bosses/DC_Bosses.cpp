@@ -74,6 +74,7 @@ DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(float, EggViperHitCount, 0x03C58158);
 FunctionPointer(void, sub_5632F0, (ObjectMaster *a1), 0x5632F0);
 FunctionPointer(void, sub_563370, (ObjectMaster *a1), 0x563370);
+FunctionPointer(void, DisplayAnimationFrame, (NJS_ACTION *action, float frameNumber, int a3, float scale, void(__cdecl *a5)(NJS_MODEL_SADX *, int, int)), 0x004053D0);
 
 static unsigned char EggHornetTrigger = 0;
 static float TornadoAlpha = 1.0f;
@@ -535,8 +536,8 @@ extern "C"
 	{
 		//Robot chest stuff
 		*(NJS_OBJECT*)0x00991268 = object_00591268; //Zero main and cutscene model
-		WriteData((char*)0x004CFC05, 0x08, 1); //Zero constant material thing
-		WriteData((char*)0x004CFC99, 0x08, 1); //Zero constant material thing
+		WriteData<1>((char*)0x004CFC05, 0x08); //Zero constant material thing
+		WriteData<1>((char*)0x004CFC99, 0x08); //Zero constant material thing
 		WriteData((float*)0x00567D08, 0.85f); //E101 alpha (boss model)
 		WriteData((float*)0x006F4718, 0.85f); //E101 alpha (boss model)
 		((NJS_OBJECT*)0x014D943C)->basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_USE_ALPHA; //E101 unnecessary alpha (boss model)
@@ -625,8 +626,8 @@ extern "C"
 			collist_0001E294[LengthOfArray(collist_0001E294) - 3].Flags = 0x00000000;
 			collist_0001E294[LengthOfArray(collist_0001E294) - 4].Flags = 0x00000000;
 			collist_0001E294[LengthOfArray(collist_0001E294) - 5].Flags = 0x80040400;
-			WriteData((void*)0x587E10, 0xC3u, 1); //E101R water
-			WriteData((void*)0x56CC30, 0xC3u, 1); //Zero water
+			WriteData<1>((void*)0x587E10, 0xC3u); //E101R water
+			WriteData<1>((void*)0x56CC30, 0xC3u); //Zero water
 		}
 		//Perfect Chaos damage functions
 		WriteJump((void*)0x5632F0, Chaos7Explosion_DisplayX);

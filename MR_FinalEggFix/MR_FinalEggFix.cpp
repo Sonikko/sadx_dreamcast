@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "OFinalEgg.h"
 
@@ -8,7 +7,6 @@ NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(ADV02MODELS, "___A
 
 FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
 FunctionPointer(void, sub_405470, (NJS_ACTION *a1, float frame, float scale), 0x405470);
-DataPointer(DrawDistance, LevelDrawDistance, 0x03ABDC70);
 DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
 
 void FixMRBase(ObjectMaster *a1)

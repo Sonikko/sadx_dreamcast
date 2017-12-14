@@ -151,7 +151,7 @@ extern "C"
 		*(NJS_OBJECT*)0x026919C0 = object_022919C0; //Antenna model
 		WriteCall((void*)0x00615D60, AntennaModel);
 		WriteCall((void*)0x00615DB5, AntennaSprite);
-		WriteData((char*)0x00615DBB, 0x8, 1); //Antenna sprite blending SA_SRC
+		WriteData<1>((char*)0x00615DBB, 0x8); //Antenna sprite blending SA_SRC
 		WriteCall((void*)0x00614122, RocketSprite);
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
@@ -218,10 +218,10 @@ extern "C"
 		((NJS_OBJECT*)0x02676A4C)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2; //material fix for container B
 		*(NJS_OBJECT*)0x026777D4 = object_00146254;//container B top broken 1
 		*(NJS_OBJECT*)0x02677288 = object_00145D34;//container B top broken 2
-		WriteData((void*)0x00619545, 1, 1); //blending mode for poster
-		WriteData((void*)0x0061A8EA, 0, 1); //blending mode for glass
-		WriteData((void*)0x0061A8EA, 0, 1); //blending mode for glass 2
-		WriteData((void*)0x0061A951, 0, 1); //blending mode for glass 3
+		WriteData<1>((void*)0x00619545, 1); //blending mode for poster
+		WriteData<1>((void*)0x0061A8EA, 0); //blending mode for glass
+		WriteData<1>((void*)0x0061A8EA, 0); //blending mode for glass 2
+		WriteData<1>((void*)0x0061A951, 0); //blending mode for glass 3
 		ResizeTextureList((NJS_TEXLIST*)0x2592E8C, textures_highway1);
 		ResizeTextureList((NJS_TEXLIST*)0x2581310, textures_highway2);
 		ResizeTextureList((NJS_TEXLIST*)0x24CAC94, textures_highway3);

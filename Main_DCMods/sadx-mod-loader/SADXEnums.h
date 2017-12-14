@@ -98,7 +98,7 @@ enum UpgradeBits
 	UpgradeBits_LightShoes,
 	UpgradeBits_AncientLight,
 	UpgradeBits_JetAnklet,
-	UpgradeBits_RhythymBadge,
+	UpgradeBits_RhythmBadge,
 	UpgradeBits_FightingGloves,
 	UpgradeBits_ShovelClaw,
 	UpgradeBits_LongHammer,
@@ -107,7 +107,7 @@ enum UpgradeBits
 	UpgradeBits_JetBooster,
 	UpgradeBits_PowerRod,
 	UpgradeBits_LifeRing,
-	UpgradeBits_SuperSonic
+	UpgradeBits_SuperSonic = 15
 };
 
 enum Upgrades
@@ -115,16 +115,23 @@ enum Upgrades
 	makemasks(Upgrade, CrystalRing),
 	makemasks(Upgrade, LightShoes),
 	makemasks(Upgrade, AncientLight),
+	Upgrades_SonicMask = Upgrades_CrystalRing | Upgrades_LightShoes | Upgrades_AncientLight,
 	makemasks(Upgrade, JetAnklet),
-	makemasks(Upgrade, RhythymBadge),
+	makemasks(Upgrade, RhythmBadge),
+	Upgrades_TailsMask = Upgrades_JetAnklet | Upgrades_RhythmBadge,
 	makemasks(Upgrade, FightingGloves),
 	makemasks(Upgrade, ShovelClaw),
+	Upgrades_KnucklesMask = Upgrades_FightingGloves | Upgrades_ShovelClaw,
 	makemasks(Upgrade, LongHammer),
 	makemasks(Upgrade, WarriorFeather),
+	Upgrades_AmyMask = Upgrades_LongHammer | Upgrades_WarriorFeather,
 	makemasks(Upgrade, LaserBlaster),
 	makemasks(Upgrade, JetBooster),
+	Upgrades_GammaMask = Upgrades_LaserBlaster | Upgrades_JetBooster,
 	makemasks(Upgrade, PowerRod),
 	makemasks(Upgrade, LifeRing),
+	Upgrades_BigMask = Upgrades_PowerRod | Upgrades_LifeRing,
+	Upgrades_UpgradesMask = Upgrades_SonicMask | Upgrades_TailsMask | Upgrades_KnucklesMask | Upgrades_AmyMask | Upgrades_GammaMask | Upgrades_BigMask,
 	makemasks(Upgrade, SuperSonic)
 };
 
@@ -1540,22 +1547,22 @@ enum Theme : Sint8
 
 enum QueuedModelType : __int8
 {
-	QueuedModelType_00         = 0x0,
-	QueuedModelType_BasicModel = 0x1,
-	QueuedModelType_Sprite2D   = 0x2,
-	QueuedModelType_Sprite3D   = 0x3,
-	QueuedModelType_04         = 0x4,
-	QueuedModelType_05         = 0x5,
-	QueuedModelType_06         = 0x6,
-	QueuedModelType_07         = 0x7,
-	QueuedModelType_08         = 0x8,
-	QueuedModelType_Rect       = 0x9,
-	QueuedModelType_10         = 0xA,
-	QueuedModelType_11         = 0xB,
-	QueuedModelType_Callback   = 0xC,
-	QueuedModelType_13         = 0xD,
-	QueuedModelType_14         = 0xE,
-	QueuedModelType_15         = 0xF,
+	QueuedModelType_00             = 0x0,
+	QueuedModelType_BasicModel     = 0x1,
+	QueuedModelType_Sprite2D       = 0x2,
+	QueuedModelType_Sprite3D       = 0x3,
+	QueuedModelType_Line3D         = 0x4,
+	QueuedModelType_3DLinesMaybe   = 0x5,
+	QueuedModelType_2DLinesMaybe   = 0x6,
+	QueuedModelType_3DTriFanThing  = 0x7,
+	QueuedModelType_ActionPtr      = 0x8,
+	QueuedModelType_Rect           = 0x9,
+	QueuedModelType_Object         = 0xA,
+	QueuedModelType_Action         = 0xB,
+	QueuedModelType_Callback       = 0xC,
+	QueuedModelType_TextureMemList = 0xD,
+	QueuedModelType_Line2D         = 0xE,
+	QueuedModelType_MotionThing    = 0xF,
 };
 
 enum QueuedModelFlags
@@ -1573,6 +1580,15 @@ enum QueuedModelFlagsB : __int8
 	QueuedModelFlagsB_SomeTextureThing = 0x4,
 	QueuedModelFlagsB_3                = 0x8,
 	QueuedModelFlagsB_AlwaysShow       = 0x10,
+};
+
+enum RenderFlags : int
+{
+	EnvironmentMap   = 0x1,
+	ConstantMaterial = 0x2,
+	OffsetMaterial   = 0x4,
+	RenderFlags_8    = 0x8,
+	RenderFlags_10   = 0x10,
 };
 
 #endif /* SADXMODLOADER_SADXENUMS_H */

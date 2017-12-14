@@ -10,7 +10,6 @@
 HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 
 DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 
 FunctionPointer(void, sub_61D4E0, (ObjectMaster *a1), 0x61D4E0);
@@ -393,7 +392,7 @@ extern "C"
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT *)0x027AC44C)->basicdxmodel->mats[8].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		WriteData((char*)0x0079DB92, 0x01, 1); //OPanel blending
+		WriteData<1>((char*)0x0079DB92, 0x01); //OPanel blending
 		*(NJS_OBJECT*)0x027AAFF4 = object_000AA710; // pirate ship
 		*(NJS_MODEL_SADX*)0x027AC420 = attach_000AB6B4;//pirate ship blinking supporter
 		*(NJS_MODEL_SADX*)0x027AB6B4 = attach_000AACA0;//pirate ship rotating thing right

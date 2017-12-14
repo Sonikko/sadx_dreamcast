@@ -1,20 +1,8 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "Objects.h"
 
-struct OceanData
-{
-	NJS_VECTOR Position;
-	char Index;
-	char OtherIndex;
-	char SomeCount;
-	char SomeOtherCount;
-	NJS_VECTOR PositionOffset;
-};
-
 FunctionPointer(void, DrawEmeraldCoastOcean, (OceanData *x), 0x004F8A30);
 FunctionPointer(double, sub_789320, (float a2), 0x789320);
-DataArray(COL, Col_ECoast1, 0x00E95938, 480);
 
 //Big ocean default UVs (Acts 2/3)
 NJS_TEX uv_00CC0530_d[] = {
@@ -32,17 +20,10 @@ static bool SkyboxHidden = false;
 static bool DynamicOceanModel = false; //Whether the dynamic ocean model is enabled
 static NJS_VECTOR oldpos{ 0,0,0 }; //Vector used to calculate position difference
 DataArray(NJS_TEX, uv_00CBB000_data, 0x10BB000, LengthOfArray(uv_00CBB000)); //Ocean model UVs
-DataArray(DrawDistance, DrawDist_EmeraldCoast1, 0x00E99D94, 3);
-DataArray(DrawDistance, DrawDist_EmeraldCoast2, 0x00E99DAC, 3);
-DataArray(DrawDistance, DrawDist_EmeraldCoast3, 0x00E99DC4, 3);
-DataArray(NJS_VECTOR, SkyboxScale_EmeraldCoast1, 0x00E99CE0, 3);
-DataArray(NJS_VECTOR, SkyboxScale_EmeraldCoast2, 0x00E99D04, 3);
-DataArray(NJS_VECTOR, SkyboxScale_EmeraldCoast3, 0x00E99D28, 3);
 DataArray(FogData, EmeraldCoast1Fog, 0x00E99DDC, 3);
 DataArray(FogData, EmeraldCoast2Fog, 0x00E99E0C, 3);
 DataArray(FogData, EmeraldCoast3Fog, 0x00E99E3C, 3);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
 DataPointer(float, EC1OceanYShift, 0x010C85A8);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, CurrentFogToggle, 0x03ABDC6C);
@@ -61,14 +42,14 @@ void __cdecl sub_4F76C0(ObjectMaster *a1) //Act 2
 	double v3; // st6@1
 	DisableFog();
 	njSetTexture((NJS_TEXLIST*)0x010C0508);
-	AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
+	DrawModelCallback_Queue((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
 	v1 = OceanDataB.Position.x - Camera_Data1->Position.x;
 	v2 = OceanDataB.Position.y - Camera_Data1->Position.y;
 	v3 = OceanDataB.Position.z - Camera_Data1->Position.z;
 	if (v3 * v3 + v2 * v2 + v1 * v1 < 9000000.0)
 	{
 		OceanDataB.Position.z = -2153.0f;
-		AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataB, -17952.0, (QueuedModelFlagsB)0);
+		DrawModelCallback_Queue((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataB, -17952.0, (QueuedModelFlagsB)0);
 	}
 }
 
@@ -83,7 +64,7 @@ void __cdecl sub_4F7760() //Act 3
 	{
 		OceanDataA.Position.z = -800.0f;
 		OceanDataA.Position.x = 4000.0f;
-		AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -37952.0, (QueuedModelFlagsB)0);
+		DrawModelCallback_Queue((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -37952.0, (QueuedModelFlagsB)0);
 	}
 	v0 = OceanDataB.Position.x - Camera_Data1->Position.x;
 	v1 = OceanDataB.Position.y - Camera_Data1->Position.y;
@@ -91,7 +72,7 @@ void __cdecl sub_4F7760() //Act 3
 	if (v2 * v2 + v1 * v1 + v0 * v0 < 9000000.0)
 	{
 		OceanDataB.Position.y = -109.0f;
-		AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataB, -37952.0, (QueuedModelFlagsB)0);
+		DrawModelCallback_Queue((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataB, -37952.0, (QueuedModelFlagsB)0);
 	}
 }
 
@@ -99,7 +80,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1) //Act 1
 {
 	DataPointer(float, flt_7E00DC, 0x7E00DC);
 	DataPointer(float, flt_7DF1B0, 0x7DF1B0);
-	auto entity = CharObj1Ptrs[0];
+	auto entity = EntityData1Ptrs[0];
 	double v2;
 	int OceanUVShift1;
 	DataArray(NJS_TEX, uv_00CC0530, 0x10C0530, 4);
@@ -155,7 +136,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1) //Act 1
 			}
 			OceanDataA.Position.y = EC1OceanYShift;
 		}
-		AllocateQueuedModelCallback((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
+		DrawModelCallback_Queue((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
 	}
 		else
 		{
@@ -330,9 +311,9 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1) //Act 1
 				EmeraldCoast3Fog[i].Distance = -3000.0f;
 				EmeraldCoast3Fog[i].Color = 0xFFFFFFFF;
 			}
-			WriteData((void*)0x004F8A9A, 0x90, 2); //Disable built-in water animation in Act 1
-			WriteData((char*)0x004F7816, 0xFF, 2); //Disable built-in water animation in Act 2
-			WriteData((char*)0x004F78E6, 0xFF, 2); //Disable built-in water animation in Act 3
+			WriteData<2>((void*)0x004F8A9A, 0x90); //Disable built-in water animation in Act 1
+			WriteData<2>((char*)0x004F7816, 0xFF); //Disable built-in water animation in Act 2
+			WriteData<2>((char*)0x004F78E6, 0xFF); //Disable built-in water animation in Act 3
 			WriteCall((void*)0x004F8B23, EC1WaterAnimation_SADX); //Sea animation in Acts 1/2
 			ResizeTextureList((NJS_TEXLIST*)0x010C0508, 32); //BEACH_SEA texlist
 			DataArray(PVMEntry, BeachTexlists, 0x0102F408, 32);
@@ -358,10 +339,10 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1) //Act 1
 			object_00CC03FC.basicdxmodel->mats[0].attrflags |= NJD_SA_SRC;
 			//object_00CC03FC.basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			object_00CC03FC.basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
-			WriteData((void*)0x004F76DE, 0x90, 5); //Kill SADX ocean water in Act 2
-			WriteData((void*)0x004F777E, 0x90, 5); //Kill SADX ocean water in Act 3
-			WriteData((void*)0x004F783A, 0x0F, 1); //15 animation frames for water in Act 2
-			WriteData((void*)0x004F790A, 0x0F, 1); //15 animation frames for water in Act 3
+			WriteData<5>((void*)0x004F76DE, 0x90); //Kill SADX ocean water in Act 2
+			WriteData<5>((void*)0x004F777E, 0x90); //Kill SADX ocean water in Act 3
+			WriteData<1>((void*)0x004F783A, 0x0F); //15 animation frames for water in Act 2
+			WriteData<1>((void*)0x004F790A, 0x0F); //15 animation frames for water in Act 3
 			//Write floats to fix buggy SADX water positioning code
 			//Act 2
 			WriteData((float**)0x004F7876, &float1);
@@ -427,18 +408,18 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1) //Act 1
 				{
 					inside_secret_area = false;
 					CurrentFogToggle = 0;
-					WriteData((void*)0x004F777E, 0xE8, 1); //Restore the ocean
-					WriteData((void*)0x004F777F, 0xBD, 1); //Restore the ocean
-					WriteData((void*)0x004F7780, 0xD0, 1); //Restore the ocean
-					WriteData((void*)0x004F7781, 0xF0, 1); //Restore the ocean
-					WriteData((void*)0x004F7782, 0xFF, 1); //Restore the ocean
+					WriteData<1>((void*)0x004F777E, 0xE8); //Restore the ocean
+					WriteData<1>((void*)0x004F777F, 0xBD); //Restore the ocean
+					WriteData<1>((void*)0x004F7780, 0xD0); //Restore the ocean
+					WriteData<1>((void*)0x004F7781, 0xF0); //Restore the ocean
+					WriteData<1>((void*)0x004F7782, 0xFF); //Restore the ocean
 				}
 				if (Camera_Data1 != nullptr && Camera_Data1->Position.z > 2000)
 				{
 					inside_secret_area = 1;
 					CurrentFogToggle = 1;
 					if (CurrentFogLayer < -21) CurrentFogLayer = CurrentFogLayer + 20;
-					WriteData((void*)0x004F777E, 0x90, 5); //Kill the ocean temporarily
+					WriteData<5>((void*)0x004F777E, 0x90); //Kill the ocean temporarily
 				}
 				else
 				{
@@ -447,11 +428,11 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1) //Act 1
 					{
 						inside_secret_area = 0;
 						CurrentFogToggle = 0;
-						WriteData((void*)0x004F777E, 0xE8, 1); //Restore the ocean
-						WriteData((void*)0x004F777F, 0xBD, 1); //Restore the ocean
-						WriteData((void*)0x004F7780, 0xD0, 1); //Restore the ocean
-						WriteData((void*)0x004F7781, 0xF0, 1); //Restore the ocean
-						WriteData((void*)0x004F7782, 0xFF, 1); //Restore the ocean
+						WriteData<1>((void*)0x004F777E, 0xE8); //Restore the ocean
+						WriteData<1>((void*)0x004F777F, 0xBD); //Restore the ocean
+						WriteData<1>((void*)0x004F7780, 0xD0); //Restore the ocean
+						WriteData<1>((void*)0x004F7781, 0xF0); //Restore the ocean
+						WriteData<1>((void*)0x004F7782, 0xFF); //Restore the ocean
 					}
 				}
 			}

@@ -103,10 +103,10 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	{
 		ResizeTextureList(&texlist_past01, 101);
 		ResizeTextureList(&texlist_past02, 103);
-		WriteData((char*)0x0054287B, 0x56, 1); // wave texture ID act 2
-		WriteData((char*)0x00542880, 0x63, 1); // water texture ID act 2
-		WriteData((char*)0x005428A0, 0x56, 1); // wave texture ID act 3
-		WriteData((char*)0x005428A5, 0x65, 1); // water texture ID act 3
+		WriteData<1>((char*)0x0054287B, 0x56); // wave texture ID act 2
+		WriteData<1>((char*)0x00542880, 0x63); // water texture ID act 2
+		WriteData<1>((char*)0x005428A0, 0x56); // wave texture ID act 3
+		WriteData<1>((char*)0x005428A5, 0x65); // water texture ID act 3
 		collist_0006735C[0].Flags = 0x00000020;
 		collist_000976C0[0].Flags = 0x00000020;
 		landtable_0000029C.TexName = "PAST01W";
@@ -114,7 +114,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	}
 	else
 	{
-		WriteData((void*)0x542850, 0xC3u, sizeof(char));
+		WriteData<1>((void*)0x542850, 0xC3u);
 		collist_0006735C[0].Flags = 0x80000020;
 		collist_000976C0[0].Flags = 0x80000020;
 		landtable_0000029C.TexName = "PAST01";
@@ -169,7 +169,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		matlist_00095CF8[0].attr_texId = animframe3;
 		matlist_000950C4[0].attr_texId = animframe3;
 		matlist_0009542C[0].attr_texId = animframe3;
-		WriteData((char*)0x0054287B, animframe_water, 1);
+		WriteData<1>((char*)0x0054287B, animframe_water);
 		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 		{
 			animframe2++;
@@ -182,7 +182,7 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		if (animframe1 > 84) animframe1 = 75;
 		if (animframe_water2 > 100) animframe_water2 = 86;
 		matlist_0009DEBC[0].attr_texId = animframe1;
-		WriteData((char*)0x005428A0, animframe_water2, 1);
+		WriteData<1>((char*)0x005428A0, animframe_water2);
 		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) animframe1++;
 		if (FramerateSetting < 2 && FrameCounter % 5 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) animframe_water2++;
 	}

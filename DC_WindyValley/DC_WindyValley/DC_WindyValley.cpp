@@ -10,17 +10,15 @@ DataArray(SkyboxScale, SkyboxScale_Windy1, 0x00AFE924, 3);
 DataArray(FogData, FogData_Windy1, 0x00AFEA20, 3);
 DataArray(FogData, FogData_Windy2, 0x00AFEA50, 3);
 DataArray(FogData, FogData_Windy3, 0x00AFEA80, 3);
-DataArray(DrawDistance, DrawDist_WindyValley1, 0x00AFE9D8, 3);
 DataPointer(NJS_OBJECT, stru_C05E10, 0xC05E10);
 DataPointer(NJS_OBJECT, stru_C06344, 0xC06344);
 DataPointer(NJS_OBJECT, stru_C06450, 0xC06450);
 DataPointer(NJS_OBJECT, stru_C0655C, 0xC0655C);
 DataPointer(NJS_OBJECT, stru_C06A94, 0xC06A94);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
-DataPointer(float, DrawQueueDepthBias, 0x03ABD9C0);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
-DataPointer(NJS_BGRA, CurrentFogColor, 0x03ABDC68);
 DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
+DataPointer(NJS_BGRA, CurrentFogColorX, 0x03ABDC68);
 FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *a1, int a2, float a3), 0x409E70);
 FunctionPointer(void, sub_408530, (NJS_OBJECT *o), 0x408530);
 
@@ -144,10 +142,10 @@ extern "C" __declspec(dllexport) void cdecl Init()
 	//Skybox stuff
 	WriteCall((void*)0x004DD794, RetrieveWindy1SkyTransparency);
 	WriteCall((void*)0x004DD7D1, RenderWindy1Sky);
-	WriteData((void*)0x004DD7DB, 0x90, 5);
-	WriteData((void*)0x004DD7E5, 0x90, 5);
-	WriteData((void*)0x004DD7EF, 0x90, 5);
-	WriteData((void*)0x004DD7F9, 0x90, 5);
+	WriteData<5>((void*)0x004DD7DB, 0x90);
+	WriteData<5>((void*)0x004DD7E5, 0x90);
+	WriteData<5>((void*)0x004DD7EF, 0x90);
+	WriteData<5>((void*)0x004DD7F9, 0x90);
 	//Material fixes
 	((NJS_MATERIAL*)0x00C1C468)->attr_texId &= ~NJD_FLAG_IGNORE_SPECULAR;
 	((NJS_MATERIAL*)0x00C1C47C)->attr_texId &= ~NJD_FLAG_IGNORE_SPECULAR;
@@ -158,7 +156,7 @@ extern "C" __declspec(dllexport) void cdecl Init()
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
 		material_register(ObjectSpecularWhiteDiffuse, LengthOfArray(ObjectSpecularWhiteDiffuse), &ForceWhiteDiffuseObjectSpecular);
 	}
-	WriteData((void*)0x4DD120, 0xC3, sizeof(char)); //Disable some fog thing
+	WriteData<1>((void*)0x4DD120, 0xC3); //Disable some fog thing
 	WriteCall((void*)0x004E1E35, sub_409E70); //Wind gate rendering function
 	WriteCall((void*)0x004E1E9A, sub_409E70); //Wind gate rendering function
 	WriteCall((void*)0x004E1F08, sub_409E70); //Wind gate rendering function
@@ -212,7 +210,7 @@ extern "C" __declspec(dllexport) void cdecl Init()
 extern "C" __declspec(dllexport) void cdecl OnFrame()
 {
 	float TornadoDistance;
-	auto entity = CharObj1Ptrs[0];
+	auto entity = EntityData1Ptrs[0];
 	if (CurrentLevel == 2 && CurrentAct == 0)
 	{
 		if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21 || CurrentCharacter == 6) TornadoMode = 0;
@@ -233,17 +231,17 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 			}
 			if (TornadoMode == 1)
 			{
-				if (CurrentFogColor.r > 7)
+				if (CurrentFogColorX.r > 7)
 				{
-					CurrentFogColor.r = CurrentFogColor.r - 8;
-					CurrentFogColor.g = CurrentFogColor.g - 8;
-					CurrentFogColor.b = CurrentFogColor.b - 8;
+					CurrentFogColorX.r = CurrentFogColorX.r - 8;
+					CurrentFogColorX.g = CurrentFogColorX.g - 8;
+					CurrentFogColorX.b = CurrentFogColorX.b - 8;
 				}
-				if (CurrentFogColor.r <= 7 && CurrentFogColor.r > 0)
+				if (CurrentFogColorX.r <= 7 && CurrentFogColorX.r > 0)
 				{
-					CurrentFogColor.r = 0;
-					CurrentFogColor.g = 0;
-					CurrentFogColor.b = 0;
+					CurrentFogColorX.r = 0;
+					CurrentFogColorX.g = 0;
+					CurrentFogColorX.b = 0;
 				}
 				if (CurrentFogDist > 5000) CurrentFogDist = CurrentFogDist - 128.0f;
 				if (CurrentFogLayer >= 100) CurrentFogLayer = CurrentFogLayer - 128.0f;
@@ -252,11 +250,11 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 			{
 				if (CurrentFogDist > 450) CurrentFogDist = CurrentFogDist - 64.0f;
 				if (CurrentFogLayer >= 64) CurrentFogLayer = CurrentFogLayer - 64.0f;
-				if (CurrentFogColor.r > 1)
+				if (CurrentFogColorX.r > 1)
 				{
-					CurrentFogColor.r--;
-					CurrentFogColor.g--;
-					CurrentFogColor.b--;
+					CurrentFogColorX.r--;
+					CurrentFogColorX.g--;
+					CurrentFogColorX.b--;
 				}
 			}
 		}

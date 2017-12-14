@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "SambaDLC.h"
 
@@ -67,7 +66,7 @@ void CallSambaCircuit()
 	int CircuitID = 0;
 	if (CurrentAct == 3)
 	{
-		if (CurrentCharacter == 0) WriteData((char*)0x004DAB4E, 87, 1); else WriteData((char*)0x004DAB4E, 25, 1);
+		if (CurrentCharacter == 0) WriteData<1>((char*)0x004DAB4E, 0x87); else WriteData<1>((char*)0x004DAB4E, 0x25);
 		if (CurrentCharacter == 0) CircuitID = 2;
 		if (CurrentCharacter == 2) CircuitID = 1;
 		if (CurrentCharacter == 3) CircuitID = 3;
@@ -113,7 +112,7 @@ void CallSambaCircuit()
 	}
 	else
 	{
-		WriteData((char*)0x004DAB4E, 25, 1);
+		WriteData<1>((char*)0x004DAB4E, 0x25);
 
 		SonicSSStartArray[11].Position.x = 757.7f;
 		SonicSSStartArray[11].Position.y = 50.0f;

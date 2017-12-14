@@ -23,7 +23,6 @@ static int anim_sadx2 = 132;
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, CutsceneID, 0x3B2C570);
-DataPointer(void*, EV_MainThread_ptr, 0x3B2C578);
 DataArray(FogData, StationSquare1Fog, 0x02AA3D10, 3);
 DataArray(FogData, StationSquare2Fog, 0x02AA3D40, 3);
 DataArray(FogData, StationSquare3Fog, 0x02AA3D70, 3);
@@ -32,6 +31,7 @@ DataArray(FogData, StationSquare5Fog, 0x02AA3DD0, 3);
 DataArray(FogData, StationSquare6Fog, 0x02AA3E00, 3);
 DataArray(DrawDistance, StationSquare6DrawDist, 0x02AA3CF8, 3);
 FunctionPointer(void, sub_405470, (NJS_ACTION *a1, float a2, int a3), 0x405470);
+FunctionPointer(void, DisplayAnimationFrame, (NJS_ACTION *action, float frameNumber, int a3, float scale, void(__cdecl *a5)(NJS_MODEL_SADX *, int, int)), 0x004053D0);
 
 void __cdecl WaterTexture()
 {
@@ -329,7 +329,7 @@ extern "C"
 			landtable_000DCEBC.TexName = "ADVSS03";
 			landtable_00135A90.TexName = "ADVSS04";
 		}
-		WriteData((void*)0x00630AE0, 0x90, 4); //Hotel door fix
+		WriteData<4>((void*)0x00630AE0, 0x90); //Hotel door fix
 		WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting
 		ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31); //SS_TRAIN
 		//Material stuff
@@ -338,7 +338,7 @@ extern "C"
 		//Objects
 		*(NJS_OBJECT*)0x2AB2CCC = object_001689C4; //Shop 2 door
 		((NJS_ACTION*)0x2AB2D9C)->object = &object_001689C4; //Shop 2 door
-		WriteData((void*)0x0063A6A4, 0x90, 5); // Pool chair
+		WriteData<5>((void*)0x0063A6A4, 0x90); // Pool chair
 		*(NJS_OBJECT*)0x02DBD6D0 = object_00011208; // Event helicopter
 		*(NJS_OBJECT*)0x02AD4EA4 = object_00186E88; // Hidden door 1
 		*(NJS_OBJECT*)0x02AD4CD4 = object_00186CC4; // Hidden door 2
@@ -402,8 +402,8 @@ extern "C"
 
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		auto CharObj1PtrsThing = CharObj1Ptrs[0];
-		if (CurrentLevel == 26 && GetTimeOfDay() == 0) WriteData((void*)0x0063A906, 0x01, 1); else WriteData((void*)0x0063A906, 0x05, 1);
+		auto CharObj1PtrsThing = EntityData1Ptrs[0];
+		if (CurrentLevel == 26 && GetTimeOfDay() == 0) WriteData<1>((void*)0x0063A906, 0x01); else WriteData<1>((void*)0x0063A906, 0x05);
 		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 		//Act 2 (Sewers)

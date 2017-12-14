@@ -12,7 +12,7 @@ void __cdecl ChaoNameMachineCollision(ObjectMaster *a1)
 	v5->scl[0] = 1.0f;
 	v5->scl[1] = 1.0f;
 	v5->scl[2] = 1.0f;
-	InitCollision(a1, &stru_33D0B50, 9, 4u);
+	Collision_Init(a1, &stru_33D0B50, 9, 4u);
 }
 
 //MR Garden DLL functions
@@ -280,15 +280,15 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	DataArray(int, dword_389D828, 0x389D828, 13);
 	if (a2 == SADXEggColour_Black_TwoTone || a2 == SADXEggColour_BlackShiny_TwoTone)
 	{
-		WriteData((char*)0x03601516, 0x8F, 1);
-		WriteData((char*)0x036009B6, 0x8F, 1);
-		WriteData((char*)0x03600F4E, 0x8F, 1);
+		WriteData<1>((char*)0x03601516, 0x8F);
+		WriteData<1>((char*)0x036009B6, 0x8F);
+		WriteData<1>((char*)0x03600F4E, 0x8F);
 	}
 	else
 	{
-		WriteData((char*)0x03601516, 0x3D, 1);
-		WriteData((char*)0x036009B6, 0x3D, 1);
-		WriteData((char*)0x03600F4E, 0x3D, 1);
+		WriteData<1>((char*)0x03601516, 0x3D);
+		WriteData<1>((char*)0x036009B6, 0x3D);
+		WriteData<1>((char*)0x03600F4E, 0x3D);
 	}
 	switch (a2)
 	{

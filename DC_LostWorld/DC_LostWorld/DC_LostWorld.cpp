@@ -56,7 +56,7 @@ extern "C"
 		((NJS_MATERIAL*)0x0201A13C)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //TurnCube
 		((NJS_MATERIAL*)0x0201A150)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //TurnCube
 		((NJS_MATERIAL*)0x0201A164)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //TurnCube
-		WriteData((void*)0x005E2090, 0xC3u, 1); //Kill water animation in Act 1
+		WriteData<1>((void*)0x005E2090, 0xC3u); //Kill water animation in Act 1
 		Hasira1Model.mats[0].diffuse.color = 0x99B2B2B2;
 		*(NJS_OBJECT*)0x20144CC = object_0013BB70; //Kusa02 type 1
 		*(NJS_OBJECT*)0x2015968 = object_0013CA2C; //Kusa02 type 2
@@ -102,8 +102,8 @@ extern "C"
 		((NJS_OBJECT*)0x279AC80)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x279B014)->basicdxmodel->mats[0].diffuse.color = 0x99B2B2B2; //Some other water
 		((NJS_OBJECT*)0x279B014)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-		WriteData((void*)0x814CB4, 0xc1c80000, 4); //LW2 fog stuff
-		WriteData((void*)0x005E315D, 0, 1); //Prevent the mirror room from disabling character lighting
+		WriteData((float*)0x814CB4, -25.0f); //LW2 fog stuff
+		WriteData<1>((char*)0x005E315D, 0i8); //Prevent the mirror room from disabling character lighting
 		ResizeTextureList((NJS_TEXLIST*)0x1F6F02C, textures_lw1);
 		ResizeTextureList((NJS_TEXLIST*)0x1E9B9AC, textures_lw2);
 		ResizeTextureList((NJS_TEXLIST*)0x1E79D80, textures_lw3);
@@ -140,7 +140,7 @@ extern "C"
 		}
 		if (CurrentLevel == 7 && CurrentAct == 1 && GameState != 16)
 		{
-			auto entity = CharObj1Ptrs[0];
+			auto entity = EntityData1Ptrs[0];
 			if (entity != nullptr && entity->Position.x < 7000 && entity->Position.x > 1800) CurrentDrawDist = -6000.0f; else CurrentDrawDist = -2700.0f;
 			if (animw2 > 94) animw2 = 81;
 			matlist_000E924C[0].attr_texId = animw2;

@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "Famitsu.h"
 #include <cstdio>
@@ -426,37 +425,37 @@ void Timer_Display(ObjectMaster *a1)
 	SetMaterialAndSpriteColor_Float(1.0f, 1.0f, 1.0f, 1.0f);
 	//Draw count
 	HedgehogCountTexanim.texid = CollectedAll;
-	njDrawSprite2D_3(&HedgehogCount, 0, 22046.498f, NJD_SPRITE_ALPHA);
+	njDrawSprite2D_ForcePriority(&HedgehogCount, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw slash
 	HedgehogCountSlashTexanim.texid = 73;
-	njDrawSprite2D_3(&HedgehogCountSlash, 0, 22046.498f, NJD_SPRITE_ALPHA);
+	njDrawSprite2D_ForcePriority(&HedgehogCountSlash, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw total
 	HedgehogCountTotalTexanim.texid = 5;
-	njDrawSprite2D_3(&HedgehogCountTotal, 0, 22046.498f, NJD_SPRITE_ALPHA);
+	njDrawSprite2D_ForcePriority(&HedgehogCountTotal, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw timer tenminutes
 	TimerTenMinutesTexanim.texid = (((ChallengeTimer / 3600) % 60) / 10) % 10;
-	njDrawSprite2D_3(&TimerTenMinutes, 0, 22046.498f, NJD_SPRITE_ALPHA);
+	njDrawSprite2D_ForcePriority(&TimerTenMinutes, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw timer minutes
 	TimerMinutesTexanim.texid = ((ChallengeTimer / 3600) % 60) % 10;
-	njDrawSprite2D_3(&TimerMinutes, 0, 22046.498f, NJD_SPRITE_ALPHA);
+	njDrawSprite2D_ForcePriority(&TimerMinutes, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw minute colon
 	TimerColon1Texanim.texid = 10;
-	njDrawSprite2D_3(&TimerColon1, 0, 22046.498f, NJD_SPRITE_ALPHA);
+	njDrawSprite2D_ForcePriority(&TimerColon1, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw timer tenseconds
 	TimerTenSecondsTexanim.texid = (((ChallengeTimer / 60) % 60) / 10) % 10;
-	njDrawSprite2D_3(&TimerTenSeconds, 0, 22046.498f, NJD_SPRITE_ALPHA);
+	njDrawSprite2D_ForcePriority(&TimerTenSeconds, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw timer seconds
 	TimerSecondsTexanim.texid = ((ChallengeTimer / 60) % 60) % 10;
-	njDrawSprite2D_3(&TimerSeconds, 0, 22046.498f, NJD_SPRITE_ALPHA);
+	njDrawSprite2D_ForcePriority(&TimerSeconds, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw minute colon
 	TimerColon2Texanim.texid = 10;
-	njDrawSprite2D_3(&TimerColon2, 0, 22046.498f, NJD_SPRITE_ALPHA);
+	njDrawSprite2D_ForcePriority(&TimerColon2, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw timer militenseconds
 	TimerMTenSecondsTexanim.texid = (((ChallengeTimer * 5 / 3) % 1000) / 10) % 10;
-	njDrawSprite2D_3(&TimerMTenSeconds, 0, 22046.498f, NJD_SPRITE_ALPHA);
+	njDrawSprite2D_ForcePriority(&TimerMTenSeconds, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	//Draw timer miliseconds
 	TimerMSecondsTexanim.texid = ((ChallengeTimer * 5 / 3) % 1000) % 10;
-	njDrawSprite2D_3(&TimerMSeconds, 0, 22046.498f, NJD_SPRITE_ALPHA);
+	njDrawSprite2D_ForcePriority(&TimerMSeconds, 0, 22046.498f, NJD_SPRITE_ALPHA);
 	ClampGlobalColorThing_Thing();
 }
 

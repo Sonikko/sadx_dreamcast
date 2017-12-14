@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "DLC_Christmas99.h"
 
@@ -104,7 +103,7 @@ void DLCObject_Main(ObjectMaster *a1)
 						StopMusic();
 						sub_425800(MusicIDs_nights_a);
 						ChristmasMusic = 1;
-						WriteData((char*)0x0062EEF9, MusicIDs_nights_a, 1);
+						WriteData<1>((char*)0x0062EEF9, MusicIDs_nights_a);
 					}
 					if (v1->Index == 70)
 					{
@@ -113,14 +112,14 @@ void DLCObject_Main(ObjectMaster *a1)
 							StopMusic();
 							sub_425800(MusicIDs_nights_s);
 							ChristmasMusic = 2;
-							WriteData((char*)0x0062EEF9, MusicIDs_nights_s, 1);
+							WriteData<1>((char*)0x0062EEF9, MusicIDs_nights_s);
 						}
 						if (GetTimeOfDay() == 0 && ChristmasMusic != 1)
 						{
 							StopMusic();
 							sub_425800(MusicIDs_nights_a);
 							ChristmasMusic = 1;
-							WriteData((char*)0x0062EEF9, MusicIDs_nights_a, 1);
+							WriteData<1>((char*)0x0062EEF9, MusicIDs_nights_a);
 						}
 					}
 					if (v1->CharIndex == 0) sub_4B79C0((char *)(&Christmas99Message0), 180);
@@ -296,7 +295,7 @@ extern "C"
 		{
 			ObjectsLoaded = false;
 			ChristmasMusic = 0;
-			WriteData((char*)0x0062EEF9, MusicIDs_StationSquare, 1);
+			WriteData<1>((char*)0x0062EEF9, MusicIDs_StationSquare);
 		}
 	}
 }

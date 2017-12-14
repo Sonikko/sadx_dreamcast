@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "Balloon.h"
 #include <IniFile.hpp>
@@ -148,7 +147,7 @@ void Balloons_Display(ObjectMaster *a1)
 		v3 = v1->Rotation.y;
 		v4 = v1->Rotation.z;
 		njRotateXYZ(0, v2, v3, v4);
-		ProcessModelNode_C(&object_0000180C, 4, v1->Scale.x);
+		ProcessModelNode_C(&object_0000180C, (QueuedModelFlagsB)4, v1->Scale.x);
 		//ProcessModelNode_AB_Wrapper(&object_0000180C, v1->Scale.x);
 		njPopMatrix(1u);
 	}

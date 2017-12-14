@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "SADXModLoader.h"
 static int PreviousLevel = -1;
 static int NewDayTime = 0;
