@@ -1,5 +1,5 @@
-#include "stdafx.h"
 #include "stdlib.h"
+#include <math.h> 
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "Animals.h"
@@ -8,6 +8,8 @@
 #include "TornadoCrash.h"
 #include "EggmobileNPC.h"
 #include "CharacterEffects.h"
+#include "Ripple.h"
+#include <IniFile.hpp>
 
 HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 HMODULE ADV01MODELS = GetModuleHandle(L"ADV01MODELS");
@@ -37,11 +39,11 @@ DataPointer(float, EnvMap4, 0x038A5E04);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
 
-
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
 static int EmeraldGlowAlpha = 255;
 static bool EmeraldGlowDirection = false;
+static bool EnableDCRipple = true;
 static float heat_float1 = 1.0f; //1
 static float heat_float2 = 0.2f; //0.5
 static float alphathing = 1.0f;
@@ -293,37 +295,6 @@ bool ForceWhiteDiffuseSecondCharSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-void __cdecl FixedBubbleRipple(ObjectMaster *a1)
-{
-	NJS_VECTOR *v1; // esi@1
-	double v2; // st7@2
-	v1 = (NJS_VECTOR *)a1->UnknownB_ptr;
-	if (!MissedFrames)
-	{
-		SetTextureToCommon();
-		njPushMatrix(0);
-		njTranslateV(0, v1);
-		BackupConstantAttr();
-		AddConstantAttr(0, NJD_FLAG_USE_ALPHA);
-		v2 = v1[1].z;
-		stru_3D0B7C8.g = v1[1].z;
-		stru_3D0B7C8.b = v2;
-		stru_3D0B7C8.a = v2;
-		//SetMaterialAndSpriteColor((NJS_ARGB *)&stru_3D0B7C8);
-		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
-		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
-		njScale(0, v1[2].z, 1.0f, v1[2].z);
-		SomeDepthThing = -17952;
-		ProcessModelNode_A_WrapperB(&stru_8B22F4, (QueuedModelFlagsB)0);
-		SomeDepthThing = 0;
-		ClampGlobalColorThing_Thing();
-		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
-		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
-		RestoreConstantAttr();
-		njPopMatrix(1u);
-	}
-}
-
 static PointerInfo jumps[] = {
 	// ItemBox
 	{ ItemBox_Display_Destroyed,	ItemBox_Display_Destroyed_Rotate },
@@ -505,16 +476,143 @@ void __cdecl Sonic_DisplayLightDashModelX(EntityData1 *data1, CharObj2 **data2_p
 	}
 }
 
+void FixWaterSplash(EntityData1 *a1)
+{
+	ParticleDepthOverride = 2000.0f;
+	SpawnSplashParticles(a1);
+	ParticleDepthOverride = 0;
+}
+
+FunctionPointer(EntityData1*, sub_4B9430, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4B9430);
+
+void __cdecl SpawnRipplesX(unsigned __int8 a1, NJS_VECTOR *a2)
+{
+	int v2; // eax
+	CharObj2 *v3; // esi
+	double v4; // st7
+	_BOOL1 v5; // c0
+	_BOOL1 v6; // c3
+	double v7; // st7
+	long double v8; // st7
+	float a3; // ST08_4
+	NJS_VECTOR a2a; // [esp+Ch] [ebp-Ch]
+
+	v2 = a1;
+	v3 = CharObj2Ptrs[v2];
+	if (EntityData1Ptrs[v2]->Position.y + v3->PhysicsData.CollisionSize >= a2->y)
+	{
+		if (njScalor(&v3->Speed) != 0.0f)
+		{
+			v7 = (double)rand() * 0.000030517578f;
+			v5 = v7 < 0.85f;
+			v6 = v7 == 0.85f;
+		}
+		if (!(v5 | v6))
+		{
+			v8 = v3->Speed.y;
+			a2a.y = 0.0;
+			a2a.z = 1.5;
+			a2a.x = fabs(v8) * 0.005f + 0.03f;
+			a3 = v3->PhysicsData.RippleSize * 0.1f;
+			sub_4B9430(a2, &a2a, a3);
+		}
+	}
+}
+
+void __cdecl FixedRipple_Normal(ObjectMaster *a2)
+{
+	EntityData1 *v1; // esi
+	float g; // [esp+10h] [ebp-4h]
+	v1 = a2->Data1;
+	if (!MissedFrames)
+	{
+		SetTextureToCommon();
+		njPushMatrix(0);
+		njControl3D_Backup();
+		njControl3D_Add(NJD_CONTROL_3D_CONSTANT_ATTR);
+		njTranslateV(0, &v1->Position);
+		BackupConstantAttr();
+		AddConstantAttr(0, NJD_FLAG_USE_ALPHA);
+		njScale(0, v1->Scale.x, 1.0f, v1->Scale.x);
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+		g = *(float *)&v1->CharIndex;
+		SetMaterialAndSpriteColor_Float(1.0f, g + 0.1f, g + 0.1f, g + 0.1f);
+		DrawQueueDepthBias = 2000.0f;
+		ProcessModelNode(&stru_8B22F4, (QueuedModelFlagsB)0, v1->Scale.x);
+		DrawQueueDepthBias = 0.0;
+		ClampGlobalColorThing_Thing();
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		RestoreConstantAttr();
+		njControl3D_Restore();
+		njPopMatrix(1u);
+	}
+}
+
+void __cdecl FixedRipple_Bubble(ObjectMaster *a2)
+{
+	NJS_VECTOR *v1; // esi
+	double v2; // st7
+	NJS_ARGB colorthing;
+	v1 = (NJS_VECTOR *)a2->UnknownB_ptr;
+	if (!MissedFrames)
+	{
+		SetTextureToCommon();
+		njPushMatrix(0);
+		njTranslateV(0, v1);
+		njScale(0, v1[2].z, 1.0f, v1[2].z);
+		njControl3D_Backup();
+		njControl3D_Add(NJD_CONTROL_3D_CONSTANT_ATTR);
+		BackupConstantAttr();
+		AddConstantAttr(0, NJD_FLAG_USE_ALPHA);
+		v2 = v1[1].z;
+		colorthing.r = v1[1].z;
+		colorthing.g = v2;
+		colorthing.b = v2;
+		SetMaterialAndSpriteColor(&colorthing);
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+		DrawQueueDepthBias = 2000.0f;
+		ProcessModelNode(&stru_8B22F4, (QueuedModelFlagsB)0, v1[2].z);
+		DrawQueueDepthBias = 0.0;
+		ClampGlobalColorThing_Thing();
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		RestoreConstantAttr();
+		njPopMatrix(1u);
+		njControl3D_Restore();
+	}
+}
+
 extern "C"
 {
 	__declspec(dllexport) PointerList Jumps[] = { { arrayptrandlength(jumps) } };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
-	__declspec(dllexport) void __cdecl Init()
+	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
-		HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
+		//Config stuff
+		//If there is no config.ini, make one
+		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
+		//Config stuff
+		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+		EnableDCRipple = config->getBool("", "EnableDreamcastRipple", true);
+		delete config;
+		ResizeTextureList(&OBJ_REGULAR_TEXLIST, 100); //Added DC ripple texture
+		//Ripples
+		if (EnableDCRipple == true)
+		{
+			*(NJS_OBJECT*)0x8B22F4 = object_00193A44;
+			WriteJump((void*)0x4B9290, FixedRipple_Normal);
+			WriteJump((void*)0x7A81A0, FixedRipple_Bubble);
+			WriteJump((void*)0x004407C0, SpawnRipplesX);
+		}
+		//Water splash particle
+		WriteCall((void*)0x0049F1C0, FixWaterSplash);
 		//Gamma's chest patch lol
+		HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 		((NJS_MATERIAL*)((size_t)CHRMODELS + + 0x00200DE8))->attrflags &= ~NJD_FLAG_USE_ALPHA; //Unnecessary alpha in Gamma's model
-		WriteData((float*)0x0047FE0F, 0.85f);
+		WriteData((float*)0x0047FE0F, 0.85f); //Gamma's chest transparency
 		//Character effects
 		WriteJump((void*)0x004A1630, Sonic_DisplayLightDashModelX);
 		WriteData((float**)0x47404B, &heat_float1);
@@ -525,8 +623,6 @@ extern "C"
 		WriteCall((void*)0x004C1305, KnucklesPunch_Render);
 		WriteCall((void*)0x4A0F56, SonicDashTrailFix);
 		WriteData<10>((char*)0x0040889C, 0x90u); //Queued model lighting/specular fix
-		//((NJS_MATERIAL*)0x008B1CE0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Ripple
-		//((NJS_MATERIAL*)0x008B1CE0)->diffuse.color = 0xFFFFFFFF;
 		//Environment maps
 		EnvMap1 = 0.5f;
 		EnvMap2 = 0.5f;
@@ -535,8 +631,6 @@ extern "C"
 		//Common switch function
 		WriteJump((void*)0x004CB590, Switch_DisplayX);
 		//Various bugfixes
-		//Ripple fix
-		WriteJump((void*)0x7A81A0, FixedBubbleRipple);
 		//Zero holding Amy lighting fix
 		((NJS_OBJECT *)0x31A4DFC)->basicdxmodel->mats[11].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; 
 		((NJS_OBJECT *)0x31A4DFC)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
