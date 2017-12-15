@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "math.h"
 #include <SADXModLoader.h>
 #include "button.h"
@@ -48,7 +47,6 @@ DataArray(DrawDistance, MR3DrawDist, 0x01103418, 3);
 DataArray(DrawDistance, MR4DrawDist, 0x01103430, 3);
 FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
 FunctionPointer(void, sub_409450, (NJS_MODEL_SADX *a1, char a2), 0x409450);
-FunctionPointer(void, DisplayAnimationFrame, (NJS_ACTION *action, float frameNumber, int a3, float scale, void(__cdecl *a5)(NJS_MODEL_SADX *, int, int)), 0x004053D0);
 static bool InsideTemple = 0;
 static int anim1 = 130;
 static int anim2 = 140;
@@ -244,7 +242,7 @@ void FixMRBase(ObjectMaster *a1)
 	EntityData1 *v2; // esi
 
 	v2 = a1->Data1;
-	Direct3D_SetNearFarPlanes(-1.0, -100000.0);
+	Direct3D_SetNearFarPlanes(-1.0f, -100000.0f);
 	DisableFog();
 	njSetTexture(___ADV02_TEXLISTS[1]);
 	njPushMatrix(0);
@@ -259,7 +257,7 @@ void FixMRBase(ObjectMaster *a1)
 	//Render the animation without the lights
 	sub_405450(*___ADV02_ACTIONS, v2->Scale.x, 1.0f);
 	//Render the lights
-	DisplayAnimationFrame(&MRBase_LightsOnly, v2->Scale.x, 4, 1.0f, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModel_Queue);
+	DisplayAnimationFrame(&MRBase_LightsOnly, v2->Scale.x, (QueuedModelFlagsB)4, 1.0f, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModel_Queue);
 	//Render the EfHikari thing
 	ProcessModelNode(&object2_002062F3, QueuedModelFlagsB_3, 1.0f);
 	njPopMatrix(1u);
@@ -303,7 +301,6 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
 		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
 	}
-
 	*(NJS_OBJECT*)0x1108A18 = object_00226468; //TANKEN
 	*(NJS_OBJECT*)0x110CF34 = object2_00229334; //TANKEN 2
 	*(NJS_OBJECT*)0x11112CC = object_0022DDA4; //TANKEN 3
@@ -350,7 +347,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		MR3FogNight[i].Layer = -5000;
 		MR1DrawDist[i].Maximum = -10000.0f;
 		MR2DrawDist[i].Maximum = -10000.0f;
-		MR3DrawDist[i].Maximum = -12000.0f;
+		MR3DrawDist[i].Maximum = -32000.0f;
 		MR4DrawDist[i].Maximum = -4000.0f;
 	}
 	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
@@ -388,8 +385,8 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_OBJECTS[26] = &object_001B9D9C; //Ice Cap door 2
 	___ADV02_OBJECTS[86] = &object_001BF00C; //Ice Cap lock
 	___ADV02_OBJECTS[88] = &object_001BBA04; //Ice Stone
-	___ADV02_OBJECTS[64] = &object_001E87F0;
-	___ADV02_OBJECTS[68] = &object_002145D4;
+	___ADV02_OBJECTS[64] = &object_001E87F0; //Angel Island rock
+	___ADV02_OBJECTS[68] = &object_002145D4; //That thing that pushes the Chao Egg out
 	___ADV02_OBJECTS[100] = &object_001F41C0; //Grass
 	___ADV02_OBJECTS[20] = &object_001B5F40; //Torokko 
 	___ADV02_OBJECTS[61] = &object_001B1A98; //OIslandDoor
@@ -411,7 +408,6 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_OBJECTS[70]->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
 	___ADV02_OBJECTS[69]->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
 	___ADV02_MODELS[15] = &attach_0007C3B8; //Master Emerald glow
-	//___ADV02_OBJECTS[67] = &object_001DCF78; //Palm trees near Tails' workshop
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	WriteData<1>((void*)0x52F800, 0xC3u); //Disable SADX jungle
 	___ADV02MR02_OBJECTS[141] = &object_001615BC;
@@ -435,8 +431,8 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 	___ADV02_ACTIONS[30]->object = &object_0020DC78; //OFinalWay
 	___ADV02_ACTIONS[11]->object = &object_001B5F40; //Torokko
 	___ADV02_ACTIONS[29]->object = &object_001BBA04; //Ice Stone
-	___ADV02_ACTIONS[32]->object = &object_001F41C0;
-	___ADV02_ACTIONS[10]->object = &object_00201C18;
+	___ADV02_ACTIONS[32]->object = &object_001F41C0; //Rustling grass
+	___ADV02_ACTIONS[10]->object = &object_00201C18; //Train
 	___ADV02_ACTIONS[21]->object = &object_001DDBFC; //Plane platform
 	___ADV02_ACTIONS[9]->object = &object_001B2D5C; //Final Egg base door
 	___ADV02_ACTIONS[17]->object = &object_001CCFBC; //OHiddenGate
