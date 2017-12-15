@@ -396,6 +396,7 @@ void __cdecl Knuckles_MaximumHeatSprite_Draw(ObjectMaster *sx)
 			njRotateZ(0, Camera_Data1->Rotation.z);
 			njRotateY(0, Camera_Data1->Rotation.y);
 			njScale(0, scl1, scl1, scl1);
+			DrawQueueDepthBias = 5000.0f;
 			njDrawSprite3D(&Heat1Sprite, 0, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR);
 			njPopMatrix(1u);
 			//Sprite 2
@@ -411,6 +412,7 @@ void __cdecl Knuckles_MaximumHeatSprite_Draw(ObjectMaster *sx)
 			ClampGlobalColorThing_Thing();
 			njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
 			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+			DrawQueueDepthBias = 0;
 		}
 	}
 }
@@ -462,18 +464,22 @@ void __cdecl Sonic_DisplayLightDashModelX(EntityData1 *data1, CharObj2 **data2_p
 		//Main
 		njScale(0, 1.05f, 1.05f, 1.05f);
 		SetMaterialAndSpriteColor_Float(1.0f, 0, 0.06f + (64 - v5) / 880.0f, 1.0f);
+		DrawQueueDepthBias = 8000.0f;
 		sub_4083D0(&v8, data2->AnimationThing.Frame, 0);
 		//Outer 1
 		njScale(0, 1.05f, 1.05f, 1.05f);
 		SetMaterialAndSpriteColor_Float(1.0f, 0.0245f, (64 - v5) / 1050.0f, 1.0f);
+		DrawQueueDepthBias = 9000.0f;
 		sub_4083D0(&v8, data2->AnimationThing.Frame, 0);
 		//Outer 2
 		njScale(0, 1.05f, 1.05f, 1.05f);
 		SetMaterialAndSpriteColor_Float(1.0f, 0.024f, (64 - v5) / 2000.0f, 0.15f);
+		DrawQueueDepthBias = 10000.0f;
 		sub_4083D0(&v8, data2->AnimationThing.Frame, 0);
 		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
 		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 		njPopMatrixEx();
+		DrawQueueDepthBias = 0;
 	}
 }
 
