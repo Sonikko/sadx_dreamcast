@@ -81,7 +81,9 @@ void DLCObject_Display(ObjectMaster *a1)
 		njScale(0, v1->Scale.x, v1->Scale.y, v1->Scale.z);
 		ProcessModelNode_AB_Wrapper(&object_00001990_1, 1.0f);
 		ProcessModelNode_AB_Wrapper(&object_00001990_2, 1.0f);
+		DrawQueueDepthBias = 8000.0f;
 		ProcessModelNode_A_Wrapper(&object_00001990_3, (QueuedModelFlagsB)0, 1.0f);
+		DrawQueueDepthBias = 0;
 		njPopMatrix(1u);
 	}
 }
