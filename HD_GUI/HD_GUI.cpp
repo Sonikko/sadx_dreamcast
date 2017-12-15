@@ -7,6 +7,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
+		ResizeTextureList(&OBJ_REGULAR_TEXLIST, 100); //Added DC ripple texture
 		HMODULE DC_Branding = GetModuleHandle(L"DC_Branding");
 		HMODULE DC_SubGames = GetModuleHandle(L"DC_SubGames");
 		if (DC_Branding == 0) WriteData<1>((char*)0x007DDB2C, 0x44); //Load CON_REGULAR_D with DX texture
