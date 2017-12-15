@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "SADXModLoader.h"
 #include <lanternapi.h>
 #include "FinalEgg1.h"
@@ -17,8 +16,6 @@ DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
-DataPointer(float, CurrentFogDist, 0x03ABDC64);
-DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(NJS_ACTION, off_1A1F944, 0x1A1F944);
 DataArray(FogData, FinalEgg1Fog, 0x019C8FF0, 3);
 DataArray(FogData, FinalEgg2Fog, 0x019C9020, 3);
@@ -27,8 +24,10 @@ FunctionPointer(void, sub_4094D0, (NJS_MODEL_SADX *model, char blend, float radi
 FunctionPointer(void, sub_408530, (NJS_OBJECT*), 0x408530);
 FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
+FunctionPointer(void, sub_5ADCF0, (), 0x5ADCF0);
 
 static int cylinderframe = 0;
+SETObjData setdata_fe = {};
 
 PVMEntry FinalEggObjectTextures[] = {
 	{ "OBJ_FINALEGG", (TexList *)0x19CC1C0 },
@@ -47,26 +46,10 @@ PVMEntry FinalEggObjectTextures[] = {
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DB48, &landtable_0001D108), //Act 1
+	ptrdecl(0x97DB4C, &landtable_00083CCC), //Act 2
 	ptrdecl(0x97DB50, &landtable_000E67D0), //Act 3
 	ptrdecl(0x90EB90, &FinalEggObjectTextures)
 };
-
-//Final Egg 2 clip function
-void __cdecl SetClip_FEgg2_r(signed int a1)
-{
-	if (a1 >= 2)
-	{
-		for (int i = 0; i < object_00087F80_2.basicdxmodel->nbMat; i++)
-			object_00087F80_2.basicdxmodel->mats[i].attrflags &= 0xFFEFFFFF;
-		for (int i = 0; i < object_00089114_2.basicdxmodel->nbMat; i++)
-			object_00089114_2.basicdxmodel->mats[i].attrflags &= 0xFFEFFFFF;
-		for (int i = 0; i < object_00085D08_2.basicdxmodel->nbMat; i++)
-			object_00085D08_2.basicdxmodel->mats[i].attrflags &= 0xFFEFFFFF;
-	}
-	else
-	((LandTable *)0x19C8ED0)->Col = &collist_00081980[3];
-	((LandTable *)0x19C8ED0)->COLCount -= 3;
-}
 
 //O Tatekan
 void __cdecl sub_5B4690(ObjectMaster *a1)
@@ -127,6 +110,67 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 	}
 }
 
+/*Fuck this
+void __cdecl sub_5B4690_new(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi@1
+	int v2; // eax@2
+	int v3; // eax@4
+	float YDist; // ST04_4@6
+	int v5; // eax@6
+	float scale; // [sp+10h] [bp+4h]@9
+	v1 = a1->Data1;
+	if (!DroppedFrames)
+	{
+		SetTextureToLevelObj();
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		v2 = v1->Rotation.y;
+		if (v2)
+		{
+			njRotateY(0, (unsigned __int16)v2);
+		}
+		njPushMatrix(0);
+		v3 = v1->Rotation.x;
+		if (v3)
+		{
+			njRotateY(0, (unsigned __int16)v3);
+		}
+		DrawQueueDepthBias = 2000.0f;
+		ProcessModelNode((NJS_OBJECT*)0x1A45500, QueuedModelFlagsB_EnableZWrite, 1.0f);
+		njPopMatrix(1u);
+		njPushMatrix(0);
+		YDist = v1->Scale.y * 22.0;
+		njTranslate(0, 0.0, YDist, 0.0);
+		v5 = v1->Rotation.z;
+		if (v5)
+		{
+			njRotateY(0, (unsigned __int16)v5);
+		}
+		ProcessModelNode((NJS_OBJECT*)0x1A44A40, QueuedModelFlagsB_EnableZWrite, 1.0f);
+		njPopMatrix(1u);
+		njSetTexture(&texlist_cylinder);
+		njPushMatrix(0);
+		njTranslate(0, 0.0, 4.0, 0.0);
+		njScale(0, 1.0, v1->Scale.y, 1.0);
+		((NJS_OBJECT*)0x01A4425C)->basicdxmodel->mats->attr_texId = 258;
+		ProcessModelNode((NJS_OBJECT*)0x01A4425C, QueuedModelFlagsB_EnableZWrite, 1.0f);
+		if (v1->Scale.y >= 1.0)
+		{
+			scale = v1->Scale.y;
+		}
+		else
+		{
+			scale = 1.0;
+		}
+		//if (CurrentCharacter == 5) ProcessModelNode_AB_Wrapper((NJS_OBJECT*)0x01A4583C, scale);
+		//else ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x01A4583C, QueuedModelFlagsB_3, scale);
+		ProcessModelNode((NJS_OBJECT*)0x01A4583C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		njPopMatrix(1u);
+		njPopMatrix(1u);
+	}
+}
+*/
 void __cdecl OStandLight_DisplayFixed(ObjectMaster *a1)
 {
 	EntityData1 *v1; // esi@1
@@ -224,7 +268,6 @@ void __cdecl sub_5AE330(ObjectMaster *a1)
 		RestoreConstantAttr();
 	}
 }
-
 
 NJS_MATERIAL* LevelSpecular[] = {
 	((NJS_MATERIAL*)0x01A3AD08), //Glass tube elevator
@@ -420,7 +463,6 @@ NJS_MATERIAL* WhiteDiffuse[] = {
 	&matlist_0002CF50[5],
 };
 
-
 bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_specular(1, false);
@@ -443,7 +485,6 @@ bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 	use_default_diffuse(true);
 	return true;
 }
-
 
 void SetGachaponEnvMaps1()
 {
@@ -486,12 +527,75 @@ static void __declspec(naked) sub_5B36E0X()
 	}
 }
 
+void Glass_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	if (!DroppedFrames)
+	{
+		njSetTexture(&texlist_finalegg2);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		njScale(0, 1.0f, 1.0f, 1.0f);
+		njRotateXYZ(0, 0, 0, 0);
+		DrawQueueDepthBias = 6000.0f;
+		ProcessModelNode(&object_000C1350, (QueuedModelFlagsB)0, 1.0f); //tube 1
+		ProcessModelNode(&object_000C0E68, (QueuedModelFlagsB)0, 1.0f); //tube 2
+		ProcessModelNode(&object_000C1A48, (QueuedModelFlagsB)0, 1.0f); //tube 3
+		ProcessModelNode(&object_000B9E54_2, (QueuedModelFlagsB)0, 1.0f); //elevator glass
+		ProcessModelNode(&object_00089114_2, (QueuedModelFlagsB)0, 1.0f); //big glass inner layer
+		njPopMatrix(1u);
+		DrawQueueDepthBias = 0;
+	}
+}
+
+void Glass_Main(ObjectMaster *a1)
+{
+	Glass_Display(a1);
+}
+
+void Glass_Load(ObjectMaster *a1)
+{
+	a1->MainSub = (void(__cdecl *)(ObjectMaster *))Glass_Main;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))Glass_Display;
+	a1->DeleteSub = DeleteObject_DynamicCOL;
+}
+
+void LoadGlass()
+{
+	ObjectMaster *obj;
+	EntityData1 *ent;
+	ObjectFunc(OF0, Glass_Load);
+	setdata_fe.Distance = 612800.0f;
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_fe;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 0;
+		ent->Position.y = 0;
+		ent->Position.z = 0;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+	}
+}
+
+void FinalEggHook()
+{
+	sub_5ADCF0();
+	if (CurrentLevel == 10 && CurrentAct == 1) LoadGlass();
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		WriteCall((void*)0x005AE0A5, FinalEggHook);
+		WriteCall((void*)0x005AE060, FinalEggHook);
+		WriteData<1>((void*)0x005ADC40, 0xC3u); //Kill the SetClip function
 		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
@@ -544,9 +648,6 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x1B98518, textures_finalegg1);
 		ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);
 		ResizeTextureList((NJS_TEXLIST*)0x1AC5780, textures_finalegg3);
-		((LandTable *)0x19C8ED0)->COLCount = LengthOfArray(collist_00081980); //Final Egg 2 COL list
-		((LandTable *)0x19C8ED0)->Col = collist_00081980; //Final Egg 2 COL list
-		WriteJump((void*)0x5ADC40, SetClip_FEgg2_r); //Final Egg 2 clip function
 		for (int i = 0; i < 3; i++)
 		{
 			FinalEgg1Fog[i].Color = 0xFF000000;
@@ -571,35 +672,34 @@ extern "C"
 			{
 				if (entity->Position.z >= 0)
 				{
-					if (CurrentFogLayer < 1400) CurrentFogLayer = CurrentFogLayer + 8; else CurrentFogLayer = 1400;
-					if (CurrentFogDist < 3400) CurrentFogDist = CurrentFogDist + 16; else CurrentFogDist = 3400;
+					if (LevelFogData.Layer < 1400) LevelFogData.Layer = LevelFogData.Layer + 8; else LevelFogData.Layer = 1400;
+					if (LevelFogData.Distance < 3400) LevelFogData.Distance = LevelFogData.Distance + 16; else LevelFogData.Distance = 3400;
 				}
 				else
 				{
-					if (CurrentFogLayer > FinalEgg1Fog[0].Layer) CurrentFogLayer = CurrentFogLayer - 16; else CurrentFogLayer = FinalEgg1Fog[0].Layer;
-					if (CurrentFogDist > FinalEgg1Fog[0].Distance) CurrentFogDist = CurrentFogDist - 8; else CurrentFogDist = FinalEgg1Fog[0].Distance;
+					if (LevelFogData.Layer > FinalEgg1Fog[0].Layer) LevelFogData.Layer = LevelFogData.Layer - 16; else LevelFogData.Layer = FinalEgg1Fog[0].Layer;
+					if (LevelFogData.Distance > FinalEgg1Fog[0].Distance) LevelFogData.Distance = LevelFogData.Distance - 8; else LevelFogData.Distance = FinalEgg1Fog[0].Distance;
 				}
 			}
 			if (CurrentAct == 1 && entity != nullptr)
 			{
-				if (Camera_Data1 != nullptr && Camera_Data1->Position.y <= -200) collist_00081980[132].Flags = 0xC0000001; else collist_00081980[132].Flags = 0x00000001;
 				if (entity->Position.x >= 900 && entity->Position.x <=1250 && entity->Position.z >= -1050 && entity->Position.z <= -605 && entity->Position.y > -700)
 				{
-					if (CurrentFogLayer > 500) CurrentFogLayer = CurrentFogLayer - 8; else CurrentFogLayer = 500;
-					if (CurrentFogDist > 1500) CurrentFogDist = CurrentFogDist - 16; else CurrentFogDist = 1500;
+					if (LevelFogData.Layer > 500) LevelFogData.Layer = LevelFogData.Layer - 8; else LevelFogData.Layer = 500;
+					if (LevelFogData.Distance > 1500) LevelFogData.Distance = LevelFogData.Distance - 16; else LevelFogData.Distance = 1500;
 				}
 				else
 				{
 					if (entity->Status & Status_Ground )
 					{
-						if (CurrentFogLayer < FinalEgg2Fog[0].Layer) CurrentFogLayer = CurrentFogLayer + 8; else CurrentFogLayer = FinalEgg2Fog[0].Layer;
-						if (CurrentFogDist < FinalEgg2Fog[0].Distance) CurrentFogDist = CurrentFogDist + 16; else CurrentFogDist = FinalEgg2Fog[0].Distance;
+						if (LevelFogData.Layer < FinalEgg2Fog[0].Layer) LevelFogData.Layer = LevelFogData.Layer + 8; else LevelFogData.Layer = FinalEgg2Fog[0].Layer;
+						if (LevelFogData.Distance < FinalEgg2Fog[0].Distance) LevelFogData.Distance = LevelFogData.Distance + 16; else LevelFogData.Distance = FinalEgg2Fog[0].Distance;
 					}
 				}
 			}
 			if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) cylinderframe++;
 			if (cylinderframe >= 257) cylinderframe = 0;
-			((NJS_OBJECT*)0x01A4583C)->basicdxmodel->mats[0].attr_texId = cylinderframe;
+			((NJS_OBJECT*)0x1A4583C)->basicdxmodel->mats[0].attr_texId = cylinderframe;
 			((NJS_OBJECT*)0x1A45620)->basicdxmodel->mats->attr_texId = cylinderframe;
 		}
 	}
