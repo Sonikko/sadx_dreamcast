@@ -260,13 +260,13 @@ void RenderPoliceCarBarricade(NJS_OBJECT *obj, float scale)
 void RenderOfficeDoor(NJS_MODEL_SADX *a1, float scale)
 {
 	DrawQueueDepthBias = -2000.0f;
-	DrawModel_Queue(a1, (QueuedModelFlagsB)0);
+	DrawModel_Queue(a1, QueuedModelFlagsB_EnableZWrite);
 }
 
 void RenderOfficeDoor_Child(NJS_MODEL_SADX *a1, float scale)
 {
 	DrawQueueDepthBias = -3000.0f;
-	DrawModel_Queue(a1, (QueuedModelFlagsB)0);
+	DrawModel_Queue(a1, QueuedModelFlagsB_EnableZWrite);
 }
 
 extern "C"
