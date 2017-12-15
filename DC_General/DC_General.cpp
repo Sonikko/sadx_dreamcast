@@ -501,13 +501,19 @@ void __cdecl SpawnRipplesX(unsigned __int8 a1, NJS_VECTOR *a2)
 	v3 = CharObj2Ptrs[v2];
 	if (EntityData1Ptrs[v2]->Position.y + v3->PhysicsData.CollisionSize >= a2->y)
 	{
-		if (njScalor(&v3->Speed) != 0.0f)
+		if (njScalor(&v3->Speed) == 0.0f)
+		{
+			v4 = (double)rand() * 0.000030517578;
+			v5 = v4 < 0.9f;
+			v6 = v4 == 0.9f;
+		}
+		else
 		{
 			v7 = (double)rand() * 0.000030517578f;
 			v5 = v7 < 0.85f;
 			v6 = v7 == 0.85f;
 		}
-		if (!(v5 | v6))
+		if (!(v5 | v6) && njScalor(&v3->Speed) != 0.0f)
 		{
 			v8 = v3->Speed.y;
 			a2a.y = 0.0;
