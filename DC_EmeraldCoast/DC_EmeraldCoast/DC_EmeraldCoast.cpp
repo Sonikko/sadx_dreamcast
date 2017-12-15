@@ -125,8 +125,8 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	DisableFog();
 	if (*(signed int*)&v1->CharIndex)
 	{
-		//v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
-		EC1OceanYShift = -1.5f;
+		v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
+		EC1OceanYShift = v2;
 	}
 	else
 	{
@@ -225,7 +225,8 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			njPushMatrix(0);
 			njTranslate(0, v1->Position.x, EC1OceanYShift, v1->Position.z);
 			DrawQueueDepthBias = -19952.0f;
-			if (EC1OceanYShift > -1.5f) ProcessModelNode_D_Wrapper((NJS_OBJECT*)0x010C03FC, 1.0f);
+			EC1OceanYShift = -1.5f;
+			if (entity->Position.x>4850.0f) ProcessModelNode_D_Wrapper((NJS_OBJECT*)0x010C03FC, 1.0f);
 			else ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x010C03FC, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 			njPopMatrix(1u);
 
