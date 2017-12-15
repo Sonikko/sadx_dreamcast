@@ -1,6 +1,3 @@
-#include "stdafx.h"
-#include "SADXModLoader.h"
-
 NJS_TEXNAME textures3[56];
 NJS_TEXLIST texlist3 = { arrayptrandlength(textures3) };
 

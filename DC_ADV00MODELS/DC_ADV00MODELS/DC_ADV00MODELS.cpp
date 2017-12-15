@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "SS_Objects.h"
@@ -238,15 +237,17 @@ NJS_MATERIAL* LevelSpecular[] = {
 	((NJS_MATERIAL*)0x02AFF2D0),
 };
 
+FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
+
 void FixPoliceCar(NJS_ACTION *a1, float a2, int a3)
-{
+{	
 	NJS_ACTION a4;
-	DisplayAnimationFrame(a1, a2, 0, a3, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModelThing);
+	sub_405450(a1, a2, a3);
 	if (a1->object->basicdxmodel->mats[6].attr_texId==16)
 	{
 	a4.motion = a1->motion;
 	a4.object = &object_0019F390_2;
-	DisplayAnimationFrame(&a4, a2, 1, a3, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModel_Queue);
+	sub_405450(&a4, a2, a3);
 	}
 }
 
@@ -256,10 +257,29 @@ void RenderPoliceCarBarricade(NJS_OBJECT *obj, float scale)
 	ProcessModelNode(&object_0019F390_2, (QueuedModelFlagsB)1,scale);
 }
 
+void RenderOfficeDoor(NJS_MODEL_SADX *a1, float scale)
+{
+	DrawQueueDepthBias = -2000.0f;
+	DrawModel_Queue(a1, (QueuedModelFlagsB)0);
+}
+
+void RenderOfficeDoor_Child(NJS_MODEL_SADX *a1, float scale)
+{
+	DrawQueueDepthBias = -3000.0f;
+	DrawModel_Queue(a1, (QueuedModelFlagsB)0);
+}
+
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init()
 	{
+		WriteCall((void*)0x00636DE9, RenderOfficeDoor);
+		WriteCall((void*)0x00636E99, RenderOfficeDoor);
+		WriteCall((void*)0x00636F0B, RenderOfficeDoor);
+		WriteCall((void*)0x00636E1A, RenderOfficeDoor_Child);
+		WriteCall((void*)0x00636E52, RenderOfficeDoor_Child);
+		WriteCall((void*)0x00636EC0, RenderOfficeDoor_Child);
+		WriteCall((void*)0x00636F32, RenderOfficeDoor_Child);
 		WriteCall((void*)0x00638B2E, RenderPoliceCarBarricade);
 		WriteCall((void*)0x00638B50, RenderPoliceCarBarricade);
 		WriteCall((void*)0x00632773, FixPoliceCar);

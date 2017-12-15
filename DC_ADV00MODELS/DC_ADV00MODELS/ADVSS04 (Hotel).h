@@ -1,6 +1,4 @@
-#include "stdafx.h"
 #include "ADVSS04 Collision.h"
-#include "SADXModLoader.h"
 
 //sea vcolor
 
