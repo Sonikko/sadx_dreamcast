@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "TwinklePark_objects.h"
@@ -328,14 +327,15 @@ void __cdecl SkyBox_TwinklePark_LoadX(ObjectMaster *a1)
 	a1->MainSub = sub_61D4E0;
 	a1->DisplaySub = sub_61D1F0;
 	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))nullsub;
-	if (CurrentAct == 2) LoadMirrors();
+	if (CurrentLevel == 3 && CurrentAct == 2) LoadMirrors();
 }
 
-void MirrorLoadHook_IncrementAct(int level, int act)
+void __cdecl TwinkleParkHook(ObjectMaster *a1)
 {
-	InitLandTable(level, act);
-	if (level == 3 && act == 2) LoadMirrors();
+	ToggleStageFog();
+	if (CurrentLevel == 3 && CurrentAct == 2) LoadMirrors();
 }
+
 extern "C"
 {
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
@@ -343,8 +343,8 @@ extern "C"
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		//Mirror stuff
+		WriteJump((void*)0x0061CAFE, TwinkleParkHook);
 		WriteJump((void*)0x0061D570, SkyBox_TwinklePark_LoadX);
-		WriteCall((void*)0x004147AE, MirrorLoadHook_IncrementAct);
 		//Amy's barrel fix
 		HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 		if (CHRMODELS != nullptr)
@@ -404,8 +404,8 @@ extern "C"
 		*(NJS_OBJECT*)0x027BCD7C = object_000B812C; // lilypad
 		*(NJS_OBJECT *)0x027C05FC = object_000BA81C; //Monitor in Act 1
 		*(NJS_OBJECT *)0x027A62E4 = object_000A89E4; //Flag with lamp
-		*(NJS_OBJECT *)0x027A5024 = object_000A7A7C; //Flag 1
-		*(NJS_OBJECT *)0x027A4AD0 = object_000A7640; //Flag 2
+		((NJS_ACTION*)0x027C295C)->object = &object_000A7A7C; //Flag 1
+		((NJS_ACTION*)0x027C26B4)->object = &object_000A7640; //Flag 2
 		((NJS_OBJECT *)0x027B0708)->evalflags |= NJD_EVAL_HIDE; //Merry-go-round floor
 		*(NJS_OBJECT *)0x027AE4F4 = object_000AD08C; //Merry-go-round
 		*(NJS_OBJECT *)0x027BEA34 = object_000B95A0; //Horsies

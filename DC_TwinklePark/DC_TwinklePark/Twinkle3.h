@@ -1,6 +1,4 @@
-#include "stdafx.h"
-#include "SADXModLoader.h"
-#include "Twinkle3_Fixes.h"
+
 NJS_MATERIAL matlist_0008DAE0[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 5, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 6, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -2960,7 +2958,7 @@ NJS_VECTOR normal_00093378[] = {
 	{ 0, -1, 0 }
 };
 
-NJS_MODEL_SADX attach_00093A38 = { vertex_00092CB8, normal_00093378, LengthOfArray(vertex_00092CB8), meshlist_00092C40, matlist_0009261C, LengthOfArray(meshlist_00092C40), LengthOfArray(matlist_0009261C),{ 0 }, 305.1638f, NULL };
+NJS_MODEL_SADX attach_00093A38 = { vertex_00092CB8, normal_00093378, LengthOfArray<Sint32>(vertex_00092CB8), meshlist_00092C40, matlist_0009261C, LengthOfArray<Uint16>(meshlist_00092C40), LengthOfArray<Uint16>(matlist_0009261C),{ 0 }, 305.1638f, NULL };
 
 NJS_OBJECT object_00093A60 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00093A38, 550, 157.5f, -99.5f, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
@@ -9554,9 +9552,7 @@ COL collist_00019368[] = {
 	{ { 550, 157.5f, 25.5f }, 295.478f, 0, 0, &object_000A00CC_2, 0, 0x00000001 },//far left
 	{ { 550, 157.5f, -24.5f }, 295.478f, 0, 0, &object_000A0098_2, 0, 0x00000001 },//mid left
 	{ { 550, 157.5f, -74.5f }, 295.478f, 0, 0, &object_00091A60_2, 0, 0x00000001 },//end left
-
 	//Mirror glass 2
-	
 	{ { 400, 122.5f, -700 }, 295.478f, 0, 0, &object_000A0168_2, 0, 0x00000001 }, //far right
 	{ { 400, 122.5f, -650 }, 295.478f, 0, 0, &object_000A0134_2, 0, 0x00000001 }, //mid right
 	{ { 400, 122.5f, -600 }, 295.478f, 0, 0, &object_000A0100_2, 0, 0x00000001 }, //end right
@@ -9565,18 +9561,6 @@ COL collist_00019368[] = {
 	{ { 400, 122.5f, -550 }, 295.478f, 0, 0, &object_0009FFFC_2, 0, 0x00000001 }, //end left
 	{ { -79.99992f, 142.5f, -255 }, 241.5186f, 0, 0, &object_00091ED8X, 0, 0x00000001 },//final mirror trans
 	{ { -80.00007f, 142.5f, 175 }, 274.8295f, 0, 0, &object_000925E8X, 0, 0x00000001 },//final mirror 2 trans
-	/*//FIXES
-	{ { 550, 160, -74.5f }, 295.1513f, 0, 0, &object_02320DA4, 0, 0x80000001 }, //Central 1
-	{ { 550, 160, -124.5f }, 295.1513f, 0, 0, &object_023207F4, 0, 0x80000001 }, //Central 2
-	{ { 550, 160, -26.49163f }, 295.1513f, 0, 0, &object_02320ACC, 0, 0x80000001 },
-	{ { 550, 160, -174.5012f }, 295.1513f, 0, 0, &object_0232051C, 0, 0x80000001 },
-	{ { 400, 125, -550 }, 294.1513f, 0, 0, &object_0232155C, 0, 0x80000001 }, //Central 3
-	{ { 400, 125, -600 }, 294.1513f, 0, 0, &object_023215C4, 0, 0x80000001 }, //Central 4
-	//{ { 559.3859f, 57.82105f, 297.3894f }, 592.4707f, 0, 0, &object_02308140, 0, 0x80000001 },
-	{ { 400, 125, -499.9998f }, 294.1513f, 0, 0, &object_02321528, 0, 0x80000001 },
-	{ { 400.0001f, 125, -650 }, 294.1513f, 0, 0, &object_02321590, 0, 0x80000001 },
-	{ { 549.9999f, 70.71428f, 75.83928f }, 349.5362f, 0, 0, &object_000A00CCZ, 0, 0xA0000001 }*/
-	
 };
 
 NJS_TEXNAME textures_twinkle3[30];
