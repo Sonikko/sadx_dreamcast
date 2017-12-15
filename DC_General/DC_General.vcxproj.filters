@@ -39,6 +39,9 @@
     <ClInclude Include="Ripple.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="CommonObjects.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DC_General.cpp">

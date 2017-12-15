@@ -149,6 +149,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClInclude Include="Animals.h" />
+    <ClInclude Include="CommonObjects.h" />
     <ClInclude Include="EmeraldGlow.h" />
     <ClInclude Include="Itembox.h" />
     <ClInclude Include="CharacterEffects.h" />

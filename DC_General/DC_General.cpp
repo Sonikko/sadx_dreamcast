@@ -9,6 +9,7 @@
 #include "EggmobileNPC.h"
 #include "CharacterEffects.h"
 #include "Ripple.h"
+#include "CommonObjects.h"
 #include <IniFile.hpp>
 
 HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
@@ -597,6 +598,13 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		*(NJS_MODEL_SADX*)0x008C5D5C = attach_001A6F74; //Star panel
+		*(NJS_MODEL_SADX*)0x008C9060 = attach_001AA1B8; //Checkpoint
+		*(NJS_MODEL_SADX*)0x008B6010 = attach_00197698; //Normal spring
+		*(NJS_MODEL_SADX*)0x008B5498 = attach_00196B5C; //Spring B
+		*(NJS_MODEL_SADX*)0x008C6624 = attach_001A7820; //Spring H
+		*(NJS_MODEL_SADX*)0x008BFEC8 = attach_001A127C; //Rocket platform
+		*(NJS_MODEL_SADX*)0x008BE168 = attach_0019F5CC; //Balloon
 		//Config stuff
 		//If there is no config.ini, make one
 		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
