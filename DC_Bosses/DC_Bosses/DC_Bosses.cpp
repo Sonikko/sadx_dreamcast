@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include <string>
@@ -74,7 +73,6 @@ DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(float, EggViperHitCount, 0x03C58158);
 FunctionPointer(void, sub_5632F0, (ObjectMaster *a1), 0x5632F0);
 FunctionPointer(void, sub_563370, (ObjectMaster *a1), 0x563370);
-FunctionPointer(void, DisplayAnimationFrame, (NJS_ACTION *action, float frameNumber, int a3, float scale, void(__cdecl *a5)(NJS_MODEL_SADX *, int, int)), 0x004053D0);
 
 static unsigned char EggHornetTrigger = 0;
 static float TornadoAlpha = 1.0f;
@@ -518,8 +516,8 @@ void FixChaos0Car(NJS_ACTION *a1, float frame, float scale)
 	NJS_ACTION a4;
 	a4.motion = a1->motion;
 	a4.object = &object_000597B0_2;
-	DisplayAnimationFrame(a1, frame, 0, scale, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModelThing);
-	DisplayAnimationFrame(&a4, frame, 1, scale, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModel_Queue);
+	DisplayAnimationFrame(a1, frame, (QueuedModelFlagsB)0, scale, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModelThing);
+	DisplayAnimationFrame(&a4, frame, (QueuedModelFlagsB)1, scale, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModel_Queue);
 }
 
 void FixChaos2Columns(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
