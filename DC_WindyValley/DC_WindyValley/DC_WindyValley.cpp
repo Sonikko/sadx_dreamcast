@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "windy1.h"
@@ -138,7 +137,7 @@ extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlengt
 
 extern "C" __declspec(dllexport) void cdecl Init()
 {
-	WriteData((NJS_MODEL_SADX**)0x00C66F78, &attach_000C4CFC); //Fixed bridge rope
+	*(NJS_MODEL_SADX*)0xC1E168 = attach_000C4CFC; //Fixed bridge rope
 	//Skybox stuff
 	WriteCall((void*)0x004DD794, RetrieveWindy1SkyTransparency);
 	WriteCall((void*)0x004DD7D1, RenderWindy1Sky);
