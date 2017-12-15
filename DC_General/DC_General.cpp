@@ -598,6 +598,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		*(NJS_MODEL_SADX*)0x008BBD84 = attach_0019D298; //Switch
 		*(NJS_MODEL_SADX*)0x008B8438 = attach_00199A4C; //Dash panel
 		*(NJS_MODEL_SADX*)0x008C5D5C = attach_001A6F74; //Star panel
 		*(NJS_MODEL_SADX*)0x008C9060 = attach_001AA1B8; //Checkpoint

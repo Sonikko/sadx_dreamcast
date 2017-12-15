@@ -11,6 +11,7 @@ extern "C"
 		HMODULE DC_Branding = GetModuleHandle(L"DC_Branding");
 		HMODULE DC_SubGames = GetModuleHandle(L"DC_SubGames");
 		if (DC_Branding == 0) WriteData<1>((char*)0x007DDB2C, 0x44); //Load CON_REGULAR_D with DX texture
+		*(NJS_MODEL_SADX*)0x008BBD84 = attach_0019D298; //Switch
 		*(NJS_MODEL_SADX*)0x008B8438 = attach_00199A4C; //Dash panel
 		*(NJS_MODEL_SADX*)0x008C5D5C = attach_001A6F74; //Star panel
 		*(NJS_MODEL_SADX*)0x008C9060 = attach_001AA1B8; //Checkpoint
