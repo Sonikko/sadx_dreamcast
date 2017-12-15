@@ -125,8 +125,8 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	DisableFog();
 	if (*(signed int*)&v1->CharIndex)
 	{
-		v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
-		EC1OceanYShift = v2;
+		//v2 = njSin(FrameCounterUnpaused << 11) * 1.5f + 0.2f;
+		EC1OceanYShift = -1.5f;
 	}
 	else
 	{
@@ -452,10 +452,17 @@ NJS_MATERIAL* LevelSpecular[] = {
 	((NJS_MATERIAL*)0x0108B6E0),
 };
 
+void WhaleSplash(NJS_OBJECT *a1)
+{
+	DrawQueueDepthBias = 8000.0f;
+	ProcessModelNode(a1, (QueuedModelFlagsB)0 , 1.0f);
+}
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 
 extern "C" __declspec(dllexport) void __cdecl Init()
 {
+	WriteCall((void*)0x00502F8F, WhaleSplash);
+	WriteCall((void*)0x00502F9A, WhaleSplash);
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
