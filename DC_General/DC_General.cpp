@@ -546,11 +546,11 @@ void __cdecl FixedRipple_Normal(ObjectMaster *a2)
 		njTranslateV(0, &v1->Position);
 		BackupConstantAttr();
 		AddConstantAttr(0, NJD_FLAG_USE_ALPHA);
-		njScale(0, v1->Scale.x, 1.0f, v1->Scale.x);
+		njScale(0, v1->Scale.x*0.74f, 1.0f, v1->Scale.x*0.74f);
 		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
 		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
 		g = *(float *)&v1->CharIndex;
-		SetMaterialAndSpriteColor_Float(1.0f, g + 0.1f, g + 0.1f, g + 0.1f);
+		SetMaterialAndSpriteColor_Float(g, g, g, g);
 		DrawQueueDepthBias = 2000.0f;
 		ProcessModelNode(&stru_8B22F4, (QueuedModelFlagsB)0, v1->Scale.x);
 		DrawQueueDepthBias = 0.0;
