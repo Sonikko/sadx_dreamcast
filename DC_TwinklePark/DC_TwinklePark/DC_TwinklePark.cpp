@@ -292,7 +292,8 @@ void Mirror_Display(ObjectMaster *a1)
 
 void Mirror_Main(ObjectMaster *a1)
 {
-	Mirror_Display(a1);
+	if (CurrentLevel == 3 && CurrentAct == 2) Mirror_Display(a1);
+	else CheckThingButThenDeleteObject(a1);
 }
 
 void Mirror_Load(ObjectMaster *a1)
