@@ -6,6 +6,12 @@
 #include "Twinkle3.h"
 #include "Buyon.h"
 
+struct __declspec(align(2)) ObjectThingC
+{
+	NJS_OBJECT *object;
+	void(__cdecl *function)(NJS_OBJECT *);
+};
+
 HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 
 DataPointer(int, DroppedFrames, 0x03B1117C);
@@ -14,12 +20,6 @@ DataPointer(int, FramerateSetting, 0x0389D7DC);
 FunctionPointer(void, sub_61D4E0, (ObjectMaster *a1), 0x61D4E0);
 FunctionPointer(void, sub_61D1F0, (ObjectMaster *a1), 0x61D1F0);
 FunctionPointer(void, sub_4BA5D0, (NJS_OBJECT *a1, ObjectThingC *a2), 0x4BA5D0);
-
-struct __declspec(align(2)) ObjectThingC
-{
-	NJS_OBJECT *object;
-	void(__cdecl *function)(NJS_OBJECT *);
-};
 
 SETObjData setdata_tp = {};
 static int anim = 74;
@@ -102,43 +102,43 @@ NJS_MATERIAL* ObjectSpecular[] = {
 	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x000164C0)),
 	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x000164D4)),
 	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x000164E8)),
-//Last mirror 
-&matlist_00091C40X[0],
-&matlist_00091F0CX[0],
-//O Arch 2
-((NJS_MATERIAL*)0x038BEF00),
-((NJS_MATERIAL*)0x038BEF14),
-((NJS_MATERIAL*)0x038BEF28),
-((NJS_MATERIAL*)0x038BEF3C),
-((NJS_MATERIAL*)0x038BEF50),
-((NJS_MATERIAL*)0x038BEF64),
-((NJS_MATERIAL*)0x038BEF78),
-((NJS_MATERIAL*)0x038BEF8C),
-((NJS_MATERIAL*)0x038BEFA0),
-((NJS_MATERIAL*)0x038BEFB4),
-((NJS_MATERIAL*)0x038BEFC8),
-((NJS_MATERIAL*)0x038BEFDC),
+	//Last mirror 
+	&matlist_00091C40X[0],
+	&matlist_00091F0CX[0],
+	//O Arch 2
+	((NJS_MATERIAL*)0x038BEF00),
+	((NJS_MATERIAL*)0x038BEF14),
+	((NJS_MATERIAL*)0x038BEF28),
+	((NJS_MATERIAL*)0x038BEF3C),
+	((NJS_MATERIAL*)0x038BEF50),
+	((NJS_MATERIAL*)0x038BEF64),
+	((NJS_MATERIAL*)0x038BEF78),
+	((NJS_MATERIAL*)0x038BEF8C),
+	((NJS_MATERIAL*)0x038BEFA0),
+	((NJS_MATERIAL*)0x038BEFB4),
+	((NJS_MATERIAL*)0x038BEFC8),
+	((NJS_MATERIAL*)0x038BEFDC),
 };
 
 NJS_MATERIAL* ObjectSpecularWhiteDiffuse[] = {
-((NJS_MATERIAL*)0x038C2D3C), //OLight
-((NJS_MATERIAL*)0x038C2D50), //OLight
+	((NJS_MATERIAL*)0x038C2D3C), //OLight
+	((NJS_MATERIAL*)0x038C2D50), //OLight
 };
 
 NJS_MATERIAL* WhiteDiffuse[] = {
-//Fence2
+	//Fence2
 	((NJS_MATERIAL*)0x027A24D8),
-//Barrel
-&matlist_000A075C[0],
-&matlist_000A075C[1],
-&matlist_000A075C[2],
-&matlist_000A075C[3],
-((NJS_MATERIAL*)0x038C23BC), //Pole
-((NJS_MATERIAL*)0x038C1700), //Panel
-((NJS_MATERIAL*)0x038C1714), //Panel
-//Satellite
-((NJS_MATERIAL*)0x038AE590),
-((NJS_MATERIAL*)0x038AE5A4),
+	//Barrel
+	&matlist_000A075C[0],
+	&matlist_000A075C[1],
+	&matlist_000A075C[2],
+	&matlist_000A075C[3],
+	((NJS_MATERIAL*)0x038C23BC), //Pole
+	((NJS_MATERIAL*)0x038C1700), //Panel
+	((NJS_MATERIAL*)0x038C1714), //Panel
+	//Satellite
+	((NJS_MATERIAL*)0x038AE590),
+	((NJS_MATERIAL*)0x038AE5A4),
 	/*((NJS_MATERIAL*)0x038ADB18),
 	((NJS_MATERIAL*)0x038ADB2C),
 	((NJS_MATERIAL*)0x038ADB40),
