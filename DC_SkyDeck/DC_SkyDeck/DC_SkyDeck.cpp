@@ -15,6 +15,7 @@ PointerInfo pointers[] = {
 static int UVShift1 = 0;
 static int UVShift2 = 0;
 static int SkyboxAlpha = 255;
+static bool SkyDeckTransitionEnable = false;
 
 DataPointer(float, SkyDeckAltitude, 0x03C80610); //0 to 700
 DataPointer(float, CurrentSkyBoxScaleX, 0x03ABDC94);
@@ -370,6 +371,7 @@ void __cdecl SkyDeck_QueueDrawQ(NJS_OBJECT *obj, NJS_TEX *uv, int uv_count, floa
 
 void SkyDeckSky_new(ObjectMaster *_this)
 {
+	float depthsucks;
 	unsigned __int64 v1; // rax@6
 	NJS_OBJECT *v2; // esi@7
 	long double v3; // st7@9
@@ -396,7 +398,7 @@ void SkyDeckSky_new(ObjectMaster *_this)
 	njScale(0, 1.7f, 1.0f, 1.7f);
 	if (!dword_3C7F030)
 	{
-		v1 = (unsigned __int64)(flt_3C8046C * 180.0f);
+		v1 = (unsigned __int64)(flt_3C8046C * 255.0f);
 		SetGlobalPoint2Col_Colors(
 			v1 | (((unsigned int)v1 | (((unsigned __int8)v1 | 0xFFFFFF00) << 8)) << 8),
 			v1 | (((unsigned int)v1 | (((unsigned __int8)v1 | 0xFFFFFF00) << 8)) << 8),
@@ -408,16 +410,10 @@ void SkyDeckSky_new(ObjectMaster *_this)
 			{
 				v2 = &stru_214C9E4;
 			}
-			stru_214E2A0.basicdxmodel->mats[0].diffuse.argb.a = 255 - flt_3C8046C * 255;
-			stru_214E2A0.basicdxmodel->mats[1].diffuse.argb.a = 255 - flt_3C8046C * 255;
-			stru_214E2A0.basicdxmodel->mats[2].diffuse.argb.a = 255 - flt_3C8046C * 255;
-			stru_214C9E4.basicdxmodel->mats[0].diffuse.argb.a = 255 - flt_3C8046C * 255;
-			stru_214C9E4.basicdxmodel->mats[1].diffuse.argb.a = 255 - flt_3C8046C * 255;
-			stru_214C9E4.basicdxmodel->mats[2].diffuse.argb.a = 255 - flt_3C8046C * 255;
-			stru_214C9E4.basicdxmodel->mats[3].diffuse.argb.a = 255 - flt_3C8046C * 255;
 			njSetTexture(&OBJ_SKYDECK_TEXLIST);
 			njScaleEx(&Skybox_Scale);
 			sub_408530(v2);
+			if (v2 = &stru_214E2A0) sub_408530(&object_01D4E2A0);
 			njScale(0, 1.0f, 1.0f, 1.0f);
 			v3 = 1.0f - fabs(Camera_Data1->Position.y - (SkyDeck_SkyPosition.y - 1350.0f)) * 0.025f;
 			if (v3 >= 0.05f)
@@ -438,11 +434,13 @@ void SkyDeckSky_new(ObjectMaster *_this)
 			a1.a = v4;
 			SetMaterialAndSpriteColor(&a1);
 			v5 = &object_01D4E3AC;
+			depthsucks = -20000.0f;
 			if (SkyDeck_SkyPosition.y - 1350.0f - 100.0f <= Camera_Data1->Position.y)
 			{
+				depthsucks = -12000.0f;
 				v5 = &object_01D4BF20;
 			}
-			SkyDeck_QueueDrawQ(v5, SkyDeck_SkyUVsB, 32, -12000.0f);
+			SkyDeck_QueueDrawQ(v5, SkyDeck_SkyUVsB, 32, depthsucks);
 			v6 = 1.0f - fabs(Camera_Data1->Position.y - (SkyDeck_SkyPosition.y - 1350.0f - 100.0f)) * 0.025f;
 			if (v6 >= 0.01f)
 			{
@@ -499,15 +497,40 @@ void RenderSmallCloud(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 extern "C" __declspec(dllexport) void cdecl Init()
 {
 	//Skybox transparency
-	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ALPHA;
-	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_USE_ALPHA;
-	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_USE_ALPHA;
-	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ALPHA;
-	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_USE_ALPHA;
-	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_USE_ALPHA;
-	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_USE_ALPHA;
+	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->nbMeshset = 2; //Disable the annoying sky mesh
+	stru_214E2A0.basicdxmodel->mats[0].diffuse.color = 0x11FFFFFF;
+	stru_214E2A0.basicdxmodel->mats[1].diffuse.color = 0x11FFFFFF;
+	stru_214E2A0.basicdxmodel->mats[2].diffuse.color = 0x11FFFFFF;
+	stru_214C9E4.basicdxmodel->mats[0].diffuse.color = 0x11FFFFFF;
+	stru_214C9E4.basicdxmodel->mats[1].diffuse.color = 0x11FFFFFF;
+	stru_214C9E4.basicdxmodel->mats[2].diffuse.color = 0x11FFFFFF;
+	stru_214C9E4.basicdxmodel->mats[3].diffuse.color = 0x11FFFFFF;
+	matlist_01D4D334[0].diffuse.color = 0x11FFFFFF;
+	matlist_01D4D334[1].diffuse.color = 0x11FFFFFF;
+	matlist_01D4D334[2].diffuse.color = 0x11FFFFFF;
+	matlist_01D4D334[0].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
+	matlist_01D4D334[1].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
+	matlist_01D4D334[2].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
+	matlist_01D4D334[0].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
+	matlist_01D4D334[1].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
+	matlist_01D4D334[2].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
+	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[0].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
+	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[1].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
+	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[2].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
+	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[0].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
+	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[1].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
+	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[2].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
+	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[0].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
+	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[1].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
+	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[2].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
+	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[3].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
+	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[0].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
+	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[1].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
+	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[2].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
+	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[3].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
 	WriteCall((void*)0x005ED72F, RenderSmallCloud);
 	WriteJump((void*)0x005ED1E0, SkyDeckSky_new);
+	//Lantern stuff
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
@@ -639,49 +662,99 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 	}
 	if (CurrentLevel == 6 && GameState != 16)
 	{
-			UVShift1 = (UVShift1 - 4 * FramerateSetting) % 255;
-			UVShift2 = (UVShift2 - 2 * FramerateSetting) % 255;
-			for (int q = 0; q < LengthOfArray(uv_01D4BE68); q++)
+		UVShift1 = (UVShift1 - 4 * FramerateSetting) % 255;
+		UVShift2 = (UVShift2 - 2 * FramerateSetting) % 255;
+		for (int q = 0; q < LengthOfArray(uv_01D4BE68); q++)
+		{
+			uv_01D4BE68[q].u = uv_01D4BE68_0[q].u + UVShift2;
+			uv_01D4E2F4[q].u = uv_01D4E2F4_0[q].u + UVShift2;
+			uv_01D4E2F4_2[q].u = uv_01D4E2F4_0[q].u + UVShift1;
+			uv_01D4BE68_2[q].u = uv_01D4BE68_0[q].u + UVShift1;
+			uv_01D4E2F4_3[q].u = uv_01D4E2F4_0[q].u + UVShift1;
+		}
+		CurrentFogLayer = 4000.0f - flt_3C8046C * 3000;
+		CurrentFogDistance = 12000.0f - flt_3C8046C * 9000;
+		if (flt_3C8046C <= 0)
+		{
+			if (CurrentFogColorX.r > 80) CurrentFogColorX.r = CurrentFogColorX.r - 4;
+			if (CurrentFogColorX.g > 80) CurrentFogColorX.g = CurrentFogColorX.r - 4;
+			if (CurrentFogColorX.b > 112) CurrentFogColorX.b = CurrentFogColorX.r - 4;
+		}
+		if (flt_3C8046C <= 0)
+		{
+			if (CurrentFogColorX.r > 104) CurrentFogColorX.r = CurrentFogColorX.r - 4;
+			if (CurrentFogColorX.g > 104) CurrentFogColorX.g = CurrentFogColorX.g - 4;
+			if (CurrentFogColorX.b > 128) CurrentFogColorX.b = CurrentFogColorX.b - 4;
+		}
+		if (SkyDeckAltitude >= 300.0f)
+		{
+			if (((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r > 8)
 			{
-				uv_01D4BE68[q].u = uv_01D4BE68_0[q].u + UVShift2;
-				uv_01D4E2F4[q].u = uv_01D4E2F4_0[q].u + UVShift2;
-				uv_01D4E2F4_2[q].u = uv_01D4E2F4_0[q].u + UVShift1;
-				uv_01D4BE68_2[q].u = uv_01D4BE68_0[q].u + UVShift1;
-				uv_01D4E2F4_3[q].u = uv_01D4E2F4_0[q].u + UVShift1;
+				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r -= 8;
+				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.g -= 8;
+				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.b -= 8;
 			}
-			CurrentFogLayer = 4000.0f - flt_3C8046C * 2500;
-			CurrentFogDistance = 12000.0f - flt_3C8046C * 8000;
-			if (SkyDeckAltitude >= 300.0f)
+			else
 			{
-				if (flt_3C8046C <= 0)
-				{
-					if (CurrentFogColorX.r > 80) CurrentFogColorX.r = CurrentFogColorX.r - 4;
-					if (CurrentFogColorX.g > 80) CurrentFogColorX.g = CurrentFogColorX.r - 4;
-					if (CurrentFogColorX.b > 112) CurrentFogColorX.b = CurrentFogColorX.r - 4;
-				}
 				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r = 0;
 				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.g = 0;
 				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.b = 0;
 			}
+		}
+		else
+		{
+			if (((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r < 170)
+			{
+				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r += 8;
+				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.g += 8;
+				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.b += 8;
+			}
 			else
 			{
-				if (flt_3C8046C <= 0)
-				{
-					if (CurrentFogColorX.r > 104) CurrentFogColorX.r = CurrentFogColorX.r - 4;
-					if (CurrentFogColorX.g > 104) CurrentFogColorX.g = CurrentFogColorX.g - 4;
-					if (CurrentFogColorX.b > 128) CurrentFogColorX.b = CurrentFogColorX.b - 4;
-				}
 				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r = 178;
 				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.g = 178;
 				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.b = 178;
 			}
-			if (flt_3C8046C > 0)
+		}
+		if (flt_3C8046C > 0)
+		{
+			if (CurrentFogColorX.r < 251) CurrentFogColorX.r = CurrentFogColorX.r + 4;
+			if (CurrentFogColorX.g < 251) CurrentFogColorX.g = CurrentFogColorX.g + 4;
+			if (CurrentFogColorX.b < 251) CurrentFogColorX.b = CurrentFogColorX.b + 3;
+		}
+		if (CurrentAct == 0 || CurrentAct == 1)
+		{
+			if (flt_3C8046C > 0 && SkyDeckTransitionEnable == false)
 			{
-				if (CurrentFogColorX.r < 251) CurrentFogColorX.r = CurrentFogColorX.r + 4;
-				if (CurrentFogColorX.g < 251) CurrentFogColorX.g = CurrentFogColorX.g + 4;
-				if (CurrentFogColorX.b < 251) CurrentFogColorX.b = CurrentFogColorX.b + 3;
+				SkyDeckTransitionEnable = true;
+				((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ALPHA;
+				((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_USE_ALPHA;
+				((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_USE_ALPHA;
+				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ALPHA;
+				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_USE_ALPHA;
+				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_USE_ALPHA;
+				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_USE_ALPHA;
+				matlist_01D4D334[0].attrflags |= NJD_FLAG_USE_ALPHA;
+				matlist_01D4D334[1].attrflags |= NJD_FLAG_USE_ALPHA;
+				matlist_01D4D334[2].attrflags |= NJD_FLAG_USE_ALPHA;
+			}
+			if (flt_3C8046C <= 0 && SkyDeckTransitionEnable == true)
+			{
+				SkyDeckTransitionEnable = false;
+				((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				matlist_01D4D334[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				matlist_01D4D334[1].attrflags &= ~NJD_FLAG_USE_ALPHA;
+				matlist_01D4D334[2].attrflags &= ~NJD_FLAG_USE_ALPHA;
 			}
 		}
+	}
+
 }
 
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
