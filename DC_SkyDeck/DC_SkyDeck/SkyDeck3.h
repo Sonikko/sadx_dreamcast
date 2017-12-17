@@ -1,5 +1,3 @@
-#include "stdafx.h"
-#include "SADXModLoader.h"
 #include "SkyDeck3_Fixes.h"
 
 NJS_TEXNAME textures_skydeck3[65];

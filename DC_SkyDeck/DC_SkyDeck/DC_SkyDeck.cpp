@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "SkyDeck1.h"
@@ -26,6 +25,7 @@ DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(float, CurrentFogDistance, 0x03ABDC64);
 DataPointer(int, dword_3C7F030, 0x3C7F030);
 DataPointer(float, flt_3C8046C, 0x3C8046C);
+DataPointer(NJS_BGRA, CurrentFogColorX, 0x03ABDC68);
 DataPointer(NJS_OBJECT, stru_214E2A0, 0x214E2A0);
 DataPointer(NJS_OBJECT, stru_214C9E4, 0x214C9E4);
 DataPointer(NJS_OBJECT, stru_214E3AC, 0x214E3AC);
@@ -408,10 +408,13 @@ void SkyDeckSky_new(ObjectMaster *_this)
 			{
 				v2 = &stru_214C9E4;
 			}
-			v2->basicdxmodel->mats[0].diffuse.argb.a = 255 - flt_3C8046C * 255;
-			v2->basicdxmodel->mats[1].diffuse.argb.a = 255 - flt_3C8046C * 255;
-			v2->basicdxmodel->mats[2].diffuse.argb.a = 255 - flt_3C8046C * 255;
-			v2->basicdxmodel->mats[3].diffuse.argb.a = 255 - flt_3C8046C * 255;
+			stru_214E2A0.basicdxmodel->mats[0].diffuse.argb.a = 255 - flt_3C8046C * 255;
+			stru_214E2A0.basicdxmodel->mats[1].diffuse.argb.a = 255 - flt_3C8046C * 255;
+			stru_214E2A0.basicdxmodel->mats[2].diffuse.argb.a = 255 - flt_3C8046C * 255;
+			stru_214C9E4.basicdxmodel->mats[0].diffuse.argb.a = 255 - flt_3C8046C * 255;
+			stru_214C9E4.basicdxmodel->mats[1].diffuse.argb.a = 255 - flt_3C8046C * 255;
+			stru_214C9E4.basicdxmodel->mats[2].diffuse.argb.a = 255 - flt_3C8046C * 255;
+			stru_214C9E4.basicdxmodel->mats[3].diffuse.argb.a = 255 - flt_3C8046C * 255;
 			njSetTexture(&OBJ_SKYDECK_TEXLIST);
 			njScaleEx(&Skybox_Scale);
 			sub_408530(v2);
@@ -496,14 +499,13 @@ void RenderSmallCloud(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 extern "C" __declspec(dllexport) void cdecl Init()
 {
 	//Skybox transparency
-	stru_214E2A0.basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ALPHA;
-	stru_214E2A0.basicdxmodel->mats[1].attrflags |= NJD_FLAG_USE_ALPHA;
-	stru_214E2A0.basicdxmodel->mats[2].attrflags |= NJD_FLAG_USE_ALPHA;
-	stru_214E2A0.basicdxmodel->mats[3].attrflags |= NJD_FLAG_USE_ALPHA;
-	stru_214C9E4.basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ALPHA;
-	stru_214C9E4.basicdxmodel->mats[1].attrflags |= NJD_FLAG_USE_ALPHA;
-	stru_214C9E4.basicdxmodel->mats[2].attrflags |= NJD_FLAG_USE_ALPHA;
-	stru_214C9E4.basicdxmodel->mats[3].attrflags |= NJD_FLAG_USE_ALPHA;
+	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ALPHA;
+	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_USE_ALPHA;
+	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_USE_ALPHA;
+	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_USE_ALPHA;
+	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_USE_ALPHA;
+	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_USE_ALPHA;
+	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_USE_ALPHA;
 	WriteCall((void*)0x005ED72F, RenderSmallCloud);
 	WriteJump((void*)0x005ED1E0, SkyDeckSky_new);
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
@@ -653,9 +655,9 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 			{
 				if (flt_3C8046C <= 0)
 				{
-					if (CurrentFogColor.argb.r > 80) CurrentFogColor.argb.r = CurrentFogColor.argb.r - 4;
-					if (CurrentFogColor.argb.g > 80) CurrentFogColor.argb.g = CurrentFogColor.argb.r - 4;
-					if (CurrentFogColor.argb.b > 112) CurrentFogColor.argb.b = CurrentFogColor.argb.r - 4;
+					if (CurrentFogColorX.r > 80) CurrentFogColorX.r = CurrentFogColorX.r - 4;
+					if (CurrentFogColorX.g > 80) CurrentFogColorX.g = CurrentFogColorX.r - 4;
+					if (CurrentFogColorX.b > 112) CurrentFogColorX.b = CurrentFogColorX.r - 4;
 				}
 				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r = 0;
 				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.g = 0;
@@ -665,9 +667,9 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 			{
 				if (flt_3C8046C <= 0)
 				{
-					if (CurrentFogColor.argb.r > 104) CurrentFogColor.argb.r = CurrentFogColor.argb.r - 4;
-					if (CurrentFogColor.argb.g > 104) CurrentFogColor.argb.g = CurrentFogColor.argb.g - 4;
-					if (CurrentFogColor.argb.b > 128) CurrentFogColor.argb.b = CurrentFogColor.argb.b - 4;
+					if (CurrentFogColorX.r > 104) CurrentFogColorX.r = CurrentFogColorX.r - 4;
+					if (CurrentFogColorX.g > 104) CurrentFogColorX.g = CurrentFogColorX.g - 4;
+					if (CurrentFogColorX.b > 128) CurrentFogColorX.b = CurrentFogColorX.b - 4;
 				}
 				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.r = 178;
 				((NJS_OBJECT *)0x0214D300)->basicdxmodel->mats[0].diffuse.argb.g = 178;
@@ -675,9 +677,9 @@ extern "C" __declspec(dllexport) void cdecl OnFrame()
 			}
 			if (flt_3C8046C > 0)
 			{
-				if (CurrentFogColor.argb.r < 251) CurrentFogColor.argb.r = CurrentFogColor.argb.r + 4;
-				if (CurrentFogColor.argb.g < 251) CurrentFogColor.argb.g = CurrentFogColor.argb.g + 4;
-				if (CurrentFogColor.argb.b < 251) CurrentFogColor.argb.b = CurrentFogColor.argb.b + 3;
+				if (CurrentFogColorX.r < 251) CurrentFogColorX.r = CurrentFogColorX.r + 4;
+				if (CurrentFogColorX.g < 251) CurrentFogColorX.g = CurrentFogColorX.g + 4;
+				if (CurrentFogColorX.b < 251) CurrentFogColorX.b = CurrentFogColorX.b + 3;
 			}
 		}
 }

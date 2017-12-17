@@ -1,6 +1,3 @@
-#include "SADXModLoader.h"
-#include "stdafx.h"
-
 NJS_MATERIAL matlist_0007B1CC[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 7, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_U | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
