@@ -462,7 +462,6 @@ void __cdecl Sonic_DisplayLightDashModelX(EntityData1 *data1, CharObj2 **data2_p
 		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
 		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
 		//Main
-		njScale(0, 1.05f, 1.05f, 1.05f);
 		SetMaterialAndSpriteColor_Float(1.0f, 0, 0.06f + (64 - v5) / 880.0f, 1.0f);
 		DrawQueueDepthBias = 8000.0f;
 		sub_4083D0(&v8, data2->AnimationThing.Frame, 0);
