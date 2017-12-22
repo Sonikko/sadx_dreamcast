@@ -30,8 +30,7 @@ DataArray(FogData, StationSquare5Fog, 0x02AA3DD0, 3);
 DataArray(FogData, StationSquare6Fog, 0x02AA3E00, 3);
 DataArray(DrawDistance, StationSquare6DrawDist, 0x02AA3CF8, 3);
 FunctionPointer(void, sub_405470, (NJS_ACTION *a1, float a2, int a3), 0x405470);
-FunctionPointer(void, DisplayAnimationFrame, (NJS_ACTION *action, float frameNumber, int a3, float scale, void(__cdecl *a5)(NJS_MODEL_SADX *, int, int)), 0x004053D0);
-
+FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
 void __cdecl WaterTexture()
 {
 	if (CurrentAct == 4 && GetTimeOfDay() != 1) njSetTextureNum(128);
@@ -236,8 +235,6 @@ NJS_MATERIAL* LevelSpecular[] = {
 	((NJS_MATERIAL*)0x02AFF2BC),
 	((NJS_MATERIAL*)0x02AFF2D0),
 };
-
-FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
 
 void FixPoliceCar(NJS_ACTION *a1, float a2, int a3)
 {	
