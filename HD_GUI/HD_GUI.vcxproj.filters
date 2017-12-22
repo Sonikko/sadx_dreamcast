@@ -21,10 +21,10 @@
     <ClInclude Include="targetver.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Objects.h">
+    <ClInclude Include="Objects_Shooting.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Objects_Shooting.h">
+    <ClInclude Include="CommonObjects.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

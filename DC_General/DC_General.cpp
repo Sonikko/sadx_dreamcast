@@ -49,62 +49,6 @@ static float heat_float1 = 1.0f; //1
 static float heat_float2 = 0.2f; //0.5
 static float alphathing = 1.0f;
 
-void __cdecl Switch_DisplayX(ObjectMaster *a1)
-{
-	EntityData1 *v1; // esi@1
-	Angle v2; // eax@4
-	Angle v3; // eax@6
-	Angle v4; // eax@8
-
-	v1 = a1->Data1;
-	if (IsPlayerInsideSphere(&v1->Position, 410.0))
-	{
-		if (!MissedFrames && IsVisible(&v1->Position, 12.0))
-		{
-			SetTextureToCommon();
-			//Direct3D_PerformLighting(2);
-			njPushMatrix(0);
-			njTranslateV(0, &v1->Position);
-			v2 = v1->Rotation.x;
-			if (v2)
-			{
-				njRotateX(0, (unsigned __int16)v2);
-			}
-			v3 = v1->Rotation.y;
-			if (v3)
-			{
-				njRotateY(0, (unsigned __int16)v3);
-			}
-			v4 = v1->Rotation.z;
-			if (v4)
-			{
-				njRotateZ(0, (unsigned __int16)v4);
-			}
-			DrawModel_ResetRenderFlags(&stru_8BC0F4);
-			//Direct3D_PerformLighting(0);
-			njControl3D_Backup();
-			njControl3D(NJD_CONTROL_3D_MODEL_CLIP | NJD_CONTROL_3D_OFFSET_MATERIAL | NJD_CONTROL_3D_ENABLE_ALPHA | NJD_CONTROL_3D_CONSTANT_ATTR);
-			ClampGlobalColorThing_Thing();
-			if (byte_3C5B37C[((short*)&a1->Data1->Object)[1]] & 1)
-			{
-				stru_8BBD84.mats[3].diffuse.color = 0xFFFFFFFF;
-				stru_8BBD84.mats[4].diffuse.color = 0xFFFFFFFF;
-				njTranslate(0, 0.0, -1.2, 0.0);
-				DrawModel_ResetRenderFlags(&stru_8BBD84);
-			}
-			else
-			{
-				stru_989384.mats[3].diffuse.color = 0xFF101010;
-				stru_989384.mats[4].diffuse.color = 0xFF101010;
-				njTranslate(0, 0.0, -0.30000001, 0.0);
-				DrawModel_ResetRenderFlags(&stru_989384);
-			}
-			njControl3D_Restore();
-			njPopMatrix(1u);
-		}
-	}
-}
-
 NJS_MATERIAL* FirstCharacterSpecular[] = {
 	//Hedgehog Hammer targets (possibly SL objects?)
 	(NJS_MATERIAL*)((size_t)ADV01CMODELS + 0x0011C478),
@@ -603,7 +547,8 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
-		*(NJS_MODEL_SADX*)0x008BBD84 = attach_0019D298; //Switch
+		*(NJS_MODEL_SADX*)0x00989384 = attach_0019D298_2; //Switch
+		*(NJS_MODEL_SADX*)0x008BBD84 = attach_0019D298; //Switch (pressed)
 		*(NJS_MODEL_SADX*)0x008B8438 = attach_00199A4C; //Dash panel
 		*(NJS_MODEL_SADX*)0x008C5D5C = attach_001A6F74; //Star panel
 		*(NJS_MODEL_SADX*)0x008C9060 = attach_001AA1B8; //Checkpoint
@@ -649,8 +594,6 @@ extern "C"
 		EnvMap2 = 0.5f;
 		EnvMap3 = 0.5f;
 		EnvMap4 = 0.5f;
-		//Common switch function
-		WriteJump((void*)0x004CB590, Switch_DisplayX);
 		//Various bugfixes
 		//Zero holding Amy lighting fix
 		((NJS_OBJECT *)0x31A4DFC)->basicdxmodel->mats[11].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; 
