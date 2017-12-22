@@ -8,6 +8,7 @@ FunctionPointer(void, sub_52F240, (), 0x52F240);
 FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79C0);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataArray(ControllerData*, ControllerPointersShit, 0x03B0E77C, 8);
 
 static bool ModFailsafe = false;
 static int PreviousLevel = 0;
@@ -531,7 +532,7 @@ void LoadEverythingInStationSquareOrMysticRuinsActually(ObjectMaster *a1)
 	ObjectFunc(OF1, Poster_Load);
 	ObjectFunc(OF2, Timer_Load);
 	setdata_dlc.Distance = 612800.0f;
-	if (GameMode == GameModes_Adventure_Field)
+	if (GameMode == GameModes_Adventure_Field || GameMode == GameModes_Mission)
 	{
 		if (TimerLoaded == false)
 		{
@@ -790,7 +791,7 @@ extern "C"
 	{
 		if (ModFailsafe == false && GameState != 16)
 		{
-			if (GameMode != GameModes_Adventure_Field)
+			if (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission)
 			{
 				CollectedAll = 0;
 				CollectedSS1 = false;
@@ -825,7 +826,7 @@ extern "C"
 	{
 		if (GameState == 16)
 		{
-			if (ChallengeAction == true && (ControllerPointers[0]->PressedButtons & Buttons_Y) == Buttons_Y)
+			if (ChallengeAction == true && (ControllerPointersShit[0]->PressedButtons & Buttons_Y) == Buttons_Y)
 			{
 				CollectedAll = 0;
 				CollectedSS1 = false;

@@ -163,7 +163,7 @@ void LoadStuffInStationSquare(ObjectMaster *a1)
 	EntityData1 *ent;
 	ObjectFunc(OF0, DLCObject_Load);
 	setdata_dlc.Distance = 612800.0f;
-	if (GameMode == GameModes_Adventure_Field && ObjectsLoaded == false)
+	if ((GameMode == GameModes_Adventure_Field || GameMode == GameModes_Mission) && ObjectsLoaded == false)
 	{
 		obj = LoadObject((LoadObj)2, 3, OF0);
 		obj->SETData.SETData = &setdata_dlc;
@@ -293,7 +293,7 @@ extern "C"
 		{
 			if (HintTimer > 0) HintTimer--;
 		}
-		if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || GameMode != GameModes_Adventure_Field)
+		if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
 		{
 			ObjectsLoaded = false;
 			ChristmasMusic = 0;

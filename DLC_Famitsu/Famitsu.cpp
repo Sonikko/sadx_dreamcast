@@ -9,6 +9,7 @@ FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79C0);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(COL, COL_whatever, ((size_t)ADV00MODELS + 0x001D8144));
+DataArray(ControllerData*, ControllerPointersShit, 0x03B0E77C, 8);
 static bool ModFailsafe = false;
 static int HintTimer = 0;
 static int CollectedAll = 0;
@@ -501,7 +502,7 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 	ObjectFunc(OF1, Poster_Load);
 	ObjectFunc(OF2, Timer_Load);
 	setdata_dlc.Distance = 612800.0f;
-	if (GameMode == GameModes_Adventure_Field)
+	if (GameMode == GameModes_Adventure_Field || GameMode == GameModes_Mission)
 	{
 		if (ObjectsLoaded == false)
 		{
@@ -729,7 +730,7 @@ extern "C"
 				COL_whatever.Flags = 0x80040000;
 				___ADV00SS01_OBJECTS[28]->pos[1] = 20;
 			}
-			if (CurrentLevel != 26 || GameMode != GameModes_Adventure_Field)
+			if (CurrentLevel != 26 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
 			{
 				ObjectsLoaded = false;
 				Collected1 = false;
@@ -747,7 +748,7 @@ extern "C"
 	{
 		if (GameState == 16)
 		{
-			if (ChallengeAction == true && (ControllerPointers[0]->PressedButtons & Buttons_Y) == Buttons_Y)
+			if (ChallengeAction == true && (ControllerPointersShit[0]->PressedButtons & Buttons_Y) == Buttons_Y)
 			{
 				CollectedAll = 0;
 				Collected1 = false;

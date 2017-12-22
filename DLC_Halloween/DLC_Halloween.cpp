@@ -31,6 +31,8 @@ DataArray(FieldStartPosition, KnucklesSSStartArray, 0x0090BD00, 7);
 DataArray(FieldStartPosition, AmySSStartArray, 0x0090BD90, 5);
 DataArray(FieldStartPosition, BigSSStartArray, 0x0090BDF8, 6);
 DataArray(FieldStartPosition, E102SSStartArray, 0x0090BE70, 7);
+
+
 DataPointer(int, DroppedFrames, 0x03B1117C);
 
 static bool ObjectsLoaded = false;

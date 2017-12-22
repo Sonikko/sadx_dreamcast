@@ -14,6 +14,7 @@ FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColF
 FunctionPointer(void, sub_425800, (int a1), 0x425800);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataArray(ControllerData*, ControllerPointersShit, 0x03B0E77C, 8);
 static int PreviousLevel = 0;
 static int PreviousAct = 0;
 static int HintTimer = 0;
@@ -1630,7 +1631,7 @@ void LoadATT1Stuff_SS()
 	ObjectFunc(OF1, DLCObject_Load);
 	ObjectFunc(OF2, Timer_Load);
 	setdata_dlc.Distance = 612800.0f;
-	if (GameMode == GameModes_Adventure_Field && CurrentCharacter == 0)
+	if ((GameMode == GameModes_Adventure_Field || GameMode == GameModes_Mission) && CurrentCharacter == 0)
 	{
 		if (ObjectsLoaded == false)
 		{
@@ -1731,7 +1732,7 @@ void LoadATT2Stuff_SSorMR()
 	ObjectFunc(OF1, DLCObject_Load);
 	ObjectFunc(OF2, Timer_Load);
 	setdata_dlc.Distance = 612800.0f;
-	if (GameMode == GameModes_Adventure_Field && CurrentCharacter == 3)
+	if ((GameMode == GameModes_Adventure_Field || GameMode == GameModes_Mission) && CurrentCharacter == 3)
 	{
 		if (CurrentLevel == 26)
 		{
@@ -2497,7 +2498,7 @@ void LoadATT3Stuff_SS()
 	ObjectFunc(OF1, DLCObject_Load);
 	ObjectFunc(OF2, Timer_Load);
 	setdata_dlc.Distance = 612800.0f;
-	if (GameMode == GameModes_Adventure_Field && CurrentCharacter == 2)
+	if ((GameMode == GameModes_Adventure_Field || GameMode == GameModes_Mission) && CurrentCharacter == 2)
 	{
 		if (CurrentLevel == 26)
 		{
@@ -3264,11 +3265,11 @@ extern "C"
 			if (ModFailsafe == false && GameState != 16)
 			{
 				if (HintTimer > 0) HintTimer--;
-				if (GameState == 6 || CurrentLevel != 26 || GameMode != GameModes_Adventure_Field)
+				if (GameState == 6 || CurrentLevel != 26 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
 				{
 					ObjectsLoaded = false;
 				}
-				if (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Adventure_ActionStg)
+				if (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Adventure_ActionStg && GameMode != GameModes_Mission)
 				{
 					HighwayGoal = false;
 					ChallengeAction = false;
@@ -3290,7 +3291,7 @@ extern "C"
 			if (ModFailsafe == false && GameState != 16)
 			{
 				if (HintTimer > 0) HintTimer--;
-				if (GameMode != GameModes_Adventure_Field)
+				if (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission)
 				{
 					ChallengeAction = false;
 					ChallengeOver = false;
@@ -3364,7 +3365,7 @@ extern "C"
 	{
 		if (CurrentCharacter == 3 && GameState == 16)
 		{
-			if (ChallengeAction == true && (ControllerPointers[0]->PressedButtons & Buttons_Y) == Buttons_Y)
+			if (ChallengeAction == true && (ControllerPointersShit[0]->PressedButtons & Buttons_Y) == Buttons_Y)
 			{
 				CollectedAll = 0;
 				Treasure1 = false;
@@ -3378,7 +3379,7 @@ extern "C"
 		}
 		if (CurrentCharacter == 2 && GameState == 16)
 		{
-			if (ChallengeAction == true && (ControllerPointers[0]->PressedButtons & Buttons_Y) == Buttons_Y)
+			if (ChallengeAction == true && (ControllerPointersShit[0]->PressedButtons & Buttons_Y) == Buttons_Y)
 			{
 				ChallengeAction = false;
 				ChallengeOver = false;

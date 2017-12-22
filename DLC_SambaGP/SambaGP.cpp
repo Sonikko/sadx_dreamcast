@@ -66,7 +66,7 @@ void CallSambaCircuit()
 	int CircuitID = 0;
 	if (CurrentAct == 3)
 	{
-		if (CurrentCharacter == 0) WriteData<1>((char*)0x004DAB4E, 0x87); else WriteData<1>((char*)0x004DAB4E, 0x25);
+		if (CurrentCharacter == 0) WriteData<1>((char*)0x004DAB4E, 0x57); else WriteData<1>((char*)0x004DAB4E, 0x19);
 		if (CurrentCharacter == 0) CircuitID = 2;
 		if (CurrentCharacter == 2) CircuitID = 1;
 		if (CurrentCharacter == 3) CircuitID = 3;
@@ -112,7 +112,7 @@ void CallSambaCircuit()
 	}
 	else
 	{
-		WriteData<1>((char*)0x004DAB4E, 0x25);
+		WriteData<1>((char*)0x004DAB4E, 0x19);
 
 		SonicSSStartArray[11].Position.x = 757.7f;
 		SonicSSStartArray[11].Position.y = 50.0f;
@@ -268,7 +268,7 @@ void LoadSambaGateEntry(ObjectMaster *a1)
 	ObjectFunc(OF1, LoadSambaGate); // Samba Gate
 	ObjectFunc(OF2, LoadPoster); // Samba Poster
 	setdata_dlc.Distance = 612800.0f;
-	if (GameMode == GameModes_Adventure_Field && ObjectsLoaded == false)
+	if ((GameMode == GameModes_Adventure_Field || GameMode == GameModes_Mission) && ObjectsLoaded == false)
 	{
 		//Act 1
 		obj = LoadObject((LoadObj)2, 3, OF2);
@@ -530,7 +530,7 @@ extern "C"
 		{
 			if (HintTimer > 0) HintTimer--;
 		}
-		if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || GameMode != GameModes_Adventure_Field)
+		if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
 		{
 			ObjectsLoaded = false;
 		}

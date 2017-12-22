@@ -1538,7 +1538,7 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 	ObjectFunc(OF1, Poster_Load);
 	ObjectFunc(OF2, Timer_Load);
 	setdata_dlc.Distance = 612800.0f;
-	if (GameMode == GameModes_Adventure_Field && CurrentCharacter == 0)
+	if ((GameMode == GameModes_Adventure_Field || GameMode == GameModes_Mission) && CurrentCharacter == 0)
 	{
 		if (ObjectsLoaded == false)
 		{
@@ -1682,7 +1682,7 @@ extern "C"
 				ObjectsLoaded = false;
 			}
 			if (HintTimer > 0) HintTimer--;
-			if (CurrentLevel != 26 || GameMode != GameModes_Adventure_Field)
+			if (CurrentLevel != 26 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
 			{
 				ObjectsLoaded = false;
 			}
