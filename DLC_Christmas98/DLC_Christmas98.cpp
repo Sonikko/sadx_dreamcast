@@ -41,7 +41,7 @@ static int HintTimer = 0;
 SETObjData setdata_dlc = {};
 
 char *Christmas98Message0[] = {
-	"	Here's to a romantic moment!\n	-Hotel manager-",
+	"	Here's wishing you a romantic X'mas!\n	-Hotel manager-",
 	NULL,
 };
 
@@ -51,17 +51,17 @@ char *Christmas98Message1[] = {
 };
 
 char *Christmas98Message2[] = {
-	"	Santa will visit your home\n	if you've been a good kid!",
+	"	Santa will bring gifts to\n	all the good boys and girls!",
 	NULL,
 };
 
 char *Christmas98Message3[] = {
-	"	Let's spend this Christmas\n	going out together with our Chao.",
+	"	Let's spend this X'mas\n	going out together with our Chao.",
 	NULL,
 };
 
 char *Christmas98Message4[] = {
-	"	A pair of lovers is playing\n	Sonic Adventure on a holy night.",
+	"	Two lovers are playing\n	Sonic Adventure on a holy night.",
 	NULL,
 };
 char *Christmas98Message5[] = {
@@ -69,11 +69,11 @@ char *Christmas98Message5[] = {
 	NULL,
 };
 char *Christmas98Message6[] = {
-	"	Merry X'mas to all of our fellow citizens!\n	-Station Square Mayor-",
+	"	Merry X'mas to all our fellow citizens!\n	-Station Square Mayor-",
 	NULL,
 };
 char *Christmas98Message7[] = {
-	"	We wish this Christmas becomes\n	your year's most special day.",
+	"	May this Christmas become\n	your greatest day!",
 	NULL,
 };
 
@@ -179,7 +179,7 @@ void LoadStuffInStationSquare(ObjectMaster *a1)
 	EntityData1 *ent;
 	ObjectFunc(OF0, DLCObject_Load);
 	setdata_dlc.Distance = 612800.0f;
-	if (GameMode == GameModes_Adventure_Field && ObjectsLoaded == false)
+	if (ObjectsLoaded == false)
 	{
 		obj = LoadObject((LoadObj)2, 3, OF0);
 		obj->SETData.SETData = &setdata_dlc;
@@ -388,7 +388,7 @@ extern "C"
 		{
 			if (HintTimer > 0) HintTimer--;
 		}
-		if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || GameMode != GameModes_Adventure_Field)
+		if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
 		{
 			ObjectsLoaded = false;
 			ChristmasMusic = 0;
