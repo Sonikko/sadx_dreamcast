@@ -88,8 +88,8 @@ Sint32 __cdecl DrawAVA_TITLE_BACK_E_DC(float a1)
 	float v15; // ST08_4@1
 	float v16; // ST04_4@1
 	NJS_TEXLIST *texturelist; // [sp+1Ch] [bp+4h]@1
-	njTextureShadingMode(1);
 	njSetTexture(&ava_title_e_TEXLIST);
+	njTextureShadingMode(1);
 	SetVtxColorB(0xFFFFFFFF);
 	njSetTexture(&ava_title_back_e_TEXLIST);
 	*(float *)&texturelist = a1 - 4.0f;
@@ -134,6 +134,7 @@ Sint32 __cdecl DrawAVA_TITLE_BACK_E_DC(float a1)
 	DrawBG(8, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, *(float *)&texturelist, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
 	//Draw logo overlay
 	if (DrawOverlay == true) DrawBG(9, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, *(float *)&texturelist, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
+	njTextureShadingMode(2);
 	return njSetTexture(&ava_title_e_TEXLIST);
 }
 
@@ -257,10 +258,10 @@ void DrawLogo()
 	if (float(HorizontalResolution) / float(VerticalResolution) > 2.2f)  surfacesucks = -96.0f;
 	if (logodrawn != logoframe)
 	{
-		njTextureShadingMode(1);
 		njSetTexture((NJS_TEXLIST*)0x010D7C48); //AVA_GTITLE0_E
 		if (logoframe > 128) logoframe = 0;
 		//Draw logo
+		njTextureShadingMode(1);
 		SetVtxColorB(0xFFFFFFFF);
 		DrawBG(0, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
 		//Draw logo overlay
@@ -298,6 +299,7 @@ void DrawLogo()
 			SetVtxColorB(0x7FFFFFFF);
 			if (LogoScaleXT <= 2.0f*LogoScaleX) DrawBG(0, xpos,ypos, 1.2f, HorizontalStretch * 0.5f*LogoScaleXT, VerticalStretch * rewritestretch*LogoScaleYT);
 		}
+		njTextureShadingMode(2);
 	}
 }
 
@@ -307,10 +309,10 @@ void DrawLogo_640()
 	float ypos;
 	if (RipplesOn == true && logodrawn != logoframe)
 	{
-		njTextureShadingMode(1);
 		njSetTexture((NJS_TEXLIST*)0x010D7C48); //AVA_GTITLE0_E
 		if (logoframe > 128) logoframe = 0;
 		//Draw logo
+		njTextureShadingMode(1);
 		SetVtxColorB(0xFFFFFFFF);
 		DrawBG(4, 64, 81, 1.2f, 1.0f, 1.0f);
 		//Draw logo overlay
@@ -336,12 +338,13 @@ void DrawLogo_640()
 			SetVtxColorB(0x7FFFFFFF);
 			if (LogoScaleXT <= 2.0f) DrawBG(4, xpos, ypos, 1.2f, LogoScaleXT, LogoScaleYT);
 		}
+		njTextureShadingMode(2);
 	}
 }
 
-
 void DrawPressStart()
 {
+	njTextureShadingMode(1);
 	float yoff = 112.0f;
 	if (float(HorizontalResolution) / float(VerticalResolution) < 1.5f) yoff = 112.0f; //4:3
 	if (float(HorizontalResolution) / float(VerticalResolution) > 1.6f) yoff = 82.0f; //16:9
@@ -360,6 +363,21 @@ void DrawPressStart()
 		DrawBG(8, (320.0f - 128.0f), (480 - 114), 1.1f, 0.5f, 0.5f);
 	}
 	startdrawn = startframe;
+	njTextureShadingMode(2);
+}
+
+void DrawShadow_Hook(int texnum, float x, float y, float z, float scaleX, float scaleY)
+{
+	njTextureShadingMode(1);
+	DrawBG(texnum, x, y, z, scaleX, scaleY);
+	njTextureShadingMode(2);
+}
+
+void DrawTexture_Hook(int that_cant_be_right, float x, float y, float z)
+{
+	njTextureShadingMode(1);
+	DisplayScreenTexture(that_cant_be_right, x, y, z);
+	njTextureShadingMode(2);
 }
 
 extern "C"
@@ -367,6 +385,20 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		//Shadow blending fixes
+		WriteCall((void*)0x0050B584, DrawShadow_Hook);
+		WriteCall((void*)0x00431D37, DrawShadow_Hook);
+		WriteCall((void*)0x00506EFF, DrawShadow_Hook);
+		WriteCall((void*)0x0050D8B3, DrawShadow_Hook);
+		WriteCall((void*)0x0050B61A, DrawShadow_Hook); //Main menu (trial) shadow
+		WriteCall((void*)0x00508FFD, DrawTexture_Hook); //Sound test icon
+		WriteCall((void*)0x00509130, DrawTexture_Hook); //Sonic icon background
+		WriteCall((void*)0x00509191, DrawTexture_Hook); //Sonic icon
+		WriteCall((void*)0x005092A1, DrawTexture_Hook); //File icon
+		WriteCall((void*)0x00509439, DrawTexture_Hook); //Languages icon
+		WriteCall((void*)0x0050952F, DrawTexture_Hook); //Rumble icon
+		WriteCall((void*)0x0050782A, DrawTexture_Hook); //AVA_SAN triangle shadow
+		WriteCall((void*)0x00511AD0, DrawTexture_Hook); //Player select text in character select screen
 		//Set up normal/widescreen setting
 		std::string SectionName;
 		if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) SectionName = "Widescreen"; else SectionName = "Normal";
