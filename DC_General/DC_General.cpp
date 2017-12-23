@@ -541,6 +541,12 @@ void __cdecl FixedRipple_Bubble(ObjectMaster *a2)
 	}
 }
 
+void GammaHook()
+{
+	if (GameMode == 12) SetMaterialAndSpriteColor_Float(1.0f, 1.0f, 1.0f, 1.0f);
+	else SetMaterialAndSpriteColor_Float(0.85f, 1.0f, 1.0f, 1.0f);
+}
+
 extern "C"
 {
 	__declspec(dllexport) PointerList Jumps[] = { { arrayptrandlength(jumps) } };
@@ -578,7 +584,7 @@ extern "C"
 		//Gamma's chest patch lol
 		HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 		((NJS_MATERIAL*)((size_t)CHRMODELS + + 0x00200DE8))->attrflags &= ~NJD_FLAG_USE_ALPHA; //Unnecessary alpha in Gamma's model
-		WriteData((float*)0x0047FE0F, 0.85f); //Gamma's chest transparency
+		WriteCall((void*)0x0047FE13, GammaHook); //Gamma's chest transparency
 		//Character effects
 		WriteJump((void*)0x004A1630, Sonic_DisplayLightDashModelX);
 		WriteData((float**)0x47404B, &heat_float1);
