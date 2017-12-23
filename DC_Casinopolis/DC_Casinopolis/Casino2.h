@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "SADXModLoader.h"
 
 Sint16 poly_0006C3AC[] = {

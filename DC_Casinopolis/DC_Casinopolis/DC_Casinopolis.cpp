@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "Casino_objects.h"
@@ -17,6 +16,7 @@ static int anim2 = 7;
 static int anim1_actual = 0;
 static int monitorimage = 0;
 static float gearframe1 = 0;
+static float SonicWhiteness = 0.0f;
 static int anim2_actual = 0;
 static int LoopDelay = 0;
 static int CowgirlDelay = 0;
@@ -30,6 +30,7 @@ static float cowgirlframe = 0;
 static int cowgirl_shift1 = 65;
 static int cowgirl_shift2 = 0;
 static bool CowgirlOn = true;
+static bool WhiteSonic = false;
 FunctionPointer(void, sub_5DD900, (int a1, int a2), 0x5DD900);
 FunctionPointer(void, sub_5DD920, (int a1, int a2), 0x5DD920);
 FunctionPointer(void, sub_5D04C0, (ObjectMaster *a1), 0x5D04C0);
@@ -80,6 +81,7 @@ DataPointer(NJS_OBJECT*, unk_1E04CDC, 0x1E04CDC);
 DataPointer(CollisionData, stru_1E775A4, 0x1E775A4);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, dword_1E77568, 0x1E77568);
+DataPointer(int, InsideMachine, 0x3C7507C);
 DataPointer(NJS_OBJECT*, unk_1E05954, 0x1E05954);
 DataPointer(CollisionData, stru_1E77604, 0x1E77604);
 DataPointer(NJS_OBJECT, stru_1DF198C, 0x1DF198C);
@@ -173,7 +175,6 @@ void __cdecl Cowgirl_Display(ObjectMaster *a1)
 		njPopMatrix(1u);
 	}
 }
-
 
 void __cdecl sub_5D0560(ObjectMaster *obj)
 {
@@ -851,6 +852,33 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		//Failsafe stuff for palette blending
+		if (WhiteSonic == true && (InsideMachine == 0 || CurrentLevel != 9 || CurrentAct != 0 || GameMode == GameModes_Menu || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21))
+		{
+			WhiteSonic = false;
+			set_blend_factor(0.0f);
+			set_specular_blend(2, -1);
+			set_specular_blend(3, -1);
+			set_shader_flags(ShaderFlags_Blend, false);
+			SonicWhiteness = 0;
+		}
+		if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
+		{
+			//Make Sonic white
+			if (WhiteSonic == false && InsideMachine != 0)
+			{
+				WhiteSonic = true;
+				set_shader_flags(ShaderFlags_Blend, true);
+				set_specular_blend(2, 4);
+				set_specular_blend(3, 4);
+			}
+			//Make Sonic normal
+			if (WhiteSonic == true && SonicWhiteness <= 0.75f)
+			{
+				set_blend_factor(SonicWhiteness);
+				SonicWhiteness += (0.01f * FramerateSetting);
+			}
+		}
 		//Loop sound
 		if (CurrentLevel == 9 && CurrentAct == 3 && GameState != 16)
 		{
