@@ -1141,7 +1141,7 @@ extern "C"
 					if (EggViperByteThing == 0)
 					{
 						EggViper_blendfactor_max = 0.005f;
-						EggViper_blendfactor_min = 0.005f;
+						EggViper_blendfactor_min = 0.001f;
 						EggViper_blendfactor = 0.0f;
 						EggViper_blenddirection = 1;
 						EggViper_EffectMode = 0;
@@ -1153,7 +1153,7 @@ extern "C"
 						EggViper_blenddirection = -1;
 						if (EggViper_blendfactor_max < 1.0f)
 						{
-							EggViper_blendfactor_max = EggViper_blendfactor_max + 0.02f;
+							EggViper_blendfactor_max = EggViper_blendfactor_max + 0.015f;
 						}
 					}
 					if (EggViper_blendfactor <= EggViper_blendfactor_min)
