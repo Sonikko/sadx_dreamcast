@@ -706,6 +706,9 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
 		{
 			anim1++;
+		}
+		if (FramerateSetting < 2 && animframe % 2 == 0 || FramerateSetting >= 2)
+		{
 			anim2++;
 		}
 	}
@@ -745,8 +748,11 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		matlist_000D7D64[0].attr_texId = anim4;
 		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
 		{
-			anim3++;
 			anim4++;
+		}
+		if (FramerateSetting < 2 && animframe % 2 == 0 || FramerateSetting >= 2)
+		{
+			anim3++;
 			anim7++;
 		}
 	}
@@ -839,6 +845,9 @@ extern "C" __declspec(dllexport) void __cdecl OnFrame()
 		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
 		{
 			anim5++;
+		}
+		if (FramerateSetting < 2 && animframe % 2 == 0 || FramerateSetting >= 2)
+		{
 			anim6++;
 			anim8++;
 		}
