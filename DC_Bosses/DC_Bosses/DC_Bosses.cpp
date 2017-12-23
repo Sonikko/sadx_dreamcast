@@ -73,6 +73,8 @@ DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(float, EggViperHitCount, 0x03C58158);
 FunctionPointer(void, sub_5632F0, (ObjectMaster *a1), 0x5632F0);
 FunctionPointer(void, sub_563370, (ObjectMaster *a1), 0x563370);
+FunctionPointer(void, sub_4B9540, (NJS_VECTOR *position, NJS_VECTOR *scale_v, float scale), 0x4B9540);
+FunctionPointer(void, sub_408530, (NJS_OBJECT *o), 0x408530);
 
 static unsigned char EggHornetTrigger = 0;
 static float TornadoAlpha = 1.0f;
@@ -527,11 +529,93 @@ void FixChaos2Columns(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 	SomeDepthThing = 0;
 }
 
+void Chaos4Skybox(ObjectMaster *o1)
+{
+	float xshift = -145.92953f;
+	float zshift = -27.3004f;
+	NJS_VECTOR a1;
+	NJS_VECTOR a2;
+	if (!MissedFrames)
+	{
+		njSetTexture(&CHAOS4_OBJECT_TEXLIST);
+		j_ClampGlobalColorThing_Thing();
+		njPushMatrix(0);
+		sub_408530((NJS_OBJECT*)0x11C2C20);
+		njPopMatrix(1u);
+	}
+	if (GameState == 15)
+	{
+		int v40;
+		a2 = { 0, 0, 0 };
+		a1.y = 20.0f;
+		SetParticleDepthOverride(100.0f);
+		v40 = FrameCounter2;
+		if (!(FrameCounter2 & 3))
+		{
+			a1.x = 9.3f;
+			a1.z = -280.0f;
+			a1.x += xshift;
+			a1.z += zshift;
+			sub_4B9540(&a1, (NJS_VECTOR *)&a2, 1.5);
+			a1.x = 12.3f;
+			a1.z = -275.0f;
+			a1.x += xshift;
+			a1.z += zshift;
+			sub_4B9540(&a1, (NJS_VECTOR *)&a2, 1.5);
+			a1.x = 15.3f;
+			a1.z = -270.0f;
+			a1.x += xshift;
+			a1.z += zshift;
+			sub_4B9540(&a1, (NJS_VECTOR *)&a2, 1.5);
+			v40 = FrameCounter2;
+		}
+		if ((v40 & 3) == 1)
+		{
+			a1.x = 23.3f;
+			a1.z = -267.0f;
+			a1.x += xshift;
+			a1.z += zshift;
+			sub_4B9540(&a1, (NJS_VECTOR *)&a2, 1.5);
+			a1.x = 31.3f;
+			a1.z = -268.5f;
+			a1.x += xshift;
+			a1.z += zshift;
+			sub_4B9540(&a1, (NJS_VECTOR *)&a2, 1.5);
+			a1.x = 37.3f;
+			a1.z = -269.5f;
+			a1.x += xshift;
+			a1.z += zshift;
+			sub_4B9540(&a1, (NJS_VECTOR *)&a2, 1.5);
+			v40 = FrameCounter2;
+		}
+		if ((v40 & 3) == 2)
+		{
+			a1.x = 43.3f;
+			a1.z = -270.0f;
+			a1.x += xshift;
+			a1.z += zshift;
+			sub_4B9540(&a1, (NJS_VECTOR *)&a2, 1.5);
+			a1.x = 42.5f;
+			a1.z = -275.0f;
+			a1.x += xshift;
+			a1.z += zshift;
+			sub_4B9540(&a1, (NJS_VECTOR *)&a2, 1.5);
+			a1.x = 48.3f;
+			a1.z = -280.0f;
+			a1.x += xshift;
+			a1.z += zshift;
+			sub_4B9540(&a1, (NJS_VECTOR *)&a2, 1.5);
+		}
+		SetParticleDepthOverride(0.0f);
+	}
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		WriteJump((void*)0x550D10, Chaos4Skybox);
 		//Robot chest stuff
 		*(NJS_OBJECT*)0x00991268 = object_00591268; //Zero main and cutscene model
 		WriteData<1>((char*)0x004CFC05, 0x08); //Zero constant material thing
