@@ -8,6 +8,7 @@
 #include "stdlib.h"
 #include "Cowgirl.h"
 #include <IniFile.hpp>
+std::string pl90xbin;
 
 static short CurrentPlayer = -1;
 static float distance_float;
@@ -689,12 +690,34 @@ void RenderLightA(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 	DrawQueueDepthBias = 0;
 }
 
+
+const char* __cdecl SetPL90X(int level, int act)
+{
+	if (level == 9 && act == 0)
+	{
+		return pl90xbin.c_str();
+	}
+	else { return nullptr; }
+}
+
 extern "C"
 {
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		//Lantern stuff
+		pl90xbin = path;
+		pl90xbin.append("\\system\\PL_90X.BIN");
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+		{
+			typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
+			pl_load_register(SetPL90X);
+			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
+			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
+		}
 		//MizuA
 		((NJS_OBJECT*)0x01E47B1C)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 		((NJS_OBJECT*)0x01E47B1C)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -735,13 +758,6 @@ extern "C"
 		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 		CowgirlOn = config->getBool("", "Cowgirl", true);
 		delete config;
-		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
-		{
-			material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
-			material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
-			material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse);
-		}
 		if (CowgirlOn == true)
 		{
 			stru_1E763B8[0].scale.y = stru_1E763B8[0].scale.y * 4;
@@ -852,31 +868,35 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		//Failsafe stuff for palette blending
-		if (WhiteSonic == true && (InsideMachine == 0 || CurrentLevel != 9 || CurrentAct != 0 || GameMode == GameModes_Menu || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21))
+		HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 		{
-			WhiteSonic = false;
-			set_blend_factor(0.0f);
-			set_specular_blend(2, -1);
-			set_specular_blend(3, -1);
-			set_shader_flags(ShaderFlags_Blend, false);
-			SonicWhiteness = 0;
-		}
-		if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
-		{
-			//Make Sonic white
-			if (WhiteSonic == false && InsideMachine != 0)
+			//Failsafe stuff for palette blending
+			if (WhiteSonic == true && (InsideMachine == 0 || CurrentLevel != 9 || CurrentAct != 0 || GameMode == GameModes_Menu || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21))
 			{
-				WhiteSonic = true;
-				set_shader_flags(ShaderFlags_Blend, true);
-				set_specular_blend(2, 4);
-				set_specular_blend(3, 4);
+				WhiteSonic = false;
+				set_blend_factor(0.0f);
+				set_specular_blend(2, -1);
+				set_specular_blend(3, -1);
+				set_shader_flags(ShaderFlags_Blend, false);
+				SonicWhiteness = 0;
 			}
-			//Make Sonic normal
-			if (WhiteSonic == true && SonicWhiteness <= 0.75f)
+			if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
 			{
-				set_blend_factor(SonicWhiteness);
-				SonicWhiteness += (0.01f * FramerateSetting);
+				//Make Sonic white
+				if (WhiteSonic == false && InsideMachine != 0)
+				{
+					WhiteSonic = true;
+					set_shader_flags(ShaderFlags_Blend, true);
+					set_specular_blend(2, 4);
+					set_specular_blend(3, 4);
+				}
+				//Make Sonic normal
+				if (WhiteSonic == true && SonicWhiteness <= 0.75f)
+				{
+					set_blend_factor(SonicWhiteness);
+					SonicWhiteness += (0.01f * FramerateSetting);
+				}
 			}
 		}
 		//Loop sound
