@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 
 //Chao Name Machine load function

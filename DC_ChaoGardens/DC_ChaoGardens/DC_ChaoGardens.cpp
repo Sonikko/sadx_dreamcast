@@ -1,5 +1,4 @@
-﻿#include "stdafx.h"
-#include <SADXModLoader.h>
+﻿#include <SADXModLoader.h>
 #include <IniFile.hpp>
 
 static bool EnableSSGarden = true;
