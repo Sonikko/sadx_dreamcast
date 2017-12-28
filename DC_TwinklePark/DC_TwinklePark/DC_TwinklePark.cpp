@@ -20,6 +20,7 @@ DataPointer(int, FramerateSetting, 0x0389D7DC);
 FunctionPointer(void, sub_61D4E0, (ObjectMaster *a1), 0x61D4E0);
 FunctionPointer(void, sub_61D1F0, (ObjectMaster *a1), 0x61D1F0);
 FunctionPointer(void, sub_4BA5D0, (NJS_OBJECT *a1, ObjectThingC *a2), 0x4BA5D0);
+FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
 
 SETObjData setdata_tp = {};
 static int anim = 74;
@@ -419,12 +420,38 @@ void CartFunction(NJS_OBJECT *a1, ObjectThingC *a2)
 	if (a1 == (NJS_OBJECT*)0x038BAAA4) sub_4BA5D0(&object_034BAAA4, a2);
 }
 
+void FixArchLight(NJS_MODEL_SADX *model)
+{
+	DrawModel(model);
+	if (model == &attach_034C0298) ProcessModelNode(&object_034C02C4_2, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+}
+
+void FixArchLight_Pause(NJS_OBJECT *object)
+{
+	sub_408530(object);
+	if (object == &object_034C02C4)
+	{
+		ProcessModelNode(&object_034C02C4_2, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		ProcessModelNode(&object_034BFC74_2, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+	}
+}
+
 extern "C"
 {
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		//Arch light fixes
+		WriteCall((void*)0x0079C5FD, FixArchLight);
+		WriteCall((void*)0x0079C36A, FixArchLight_Pause);
+		WriteData((NJS_OBJECT**)0x0079C72E, &object_034C02C4);
+		WriteData((NJS_OBJECT**)0x038C5BF8, &object_034C02C4);
+		WriteData((NJS_OBJECT**)0x038C5C40, &object_034C02C4);
+		WriteData((NJS_OBJECT**)0x038C5C64, &object_034C02C4);
+		WriteData((NJS_MODEL_SADX**)0x79C848, &attach_034C0298);
+		WriteData((NJS_MODEL_SADX**)0x79C8C5, &attach_034C0298);
+		WriteData((NJS_MODEL_SADX**)0x79C9A0, &attach_034C0298);
 		//Cart fixes
 		WriteCall((void*)0x00796F0C, CartFunction);
 		*(NJS_MODEL_SADX*)0x038B907C = attach_034B907C_2; //Cart (Sonic)
