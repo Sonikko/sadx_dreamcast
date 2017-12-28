@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "math.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
@@ -79,20 +78,25 @@ bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
 
 void RenderRMSky1(ObjectMaster *a1, NJS_OBJECT *a2)
 {
-	DrawQueueDepthBias = 8000.0f;
+	if (EV_MainThread_ptr != nullptr) DrawQueueDepthBias = 400;
+	else DrawQueueDepthBias = 8000.0f;
 	sub_600BF0(a1, &object_0206CAA8);
+	DrawQueueDepthBias = 0.0f;
 }
 
 void RenderRMSky2(ObjectMaster *a1, NJS_OBJECT *a2)
 {
-	DrawQueueDepthBias = 6000.0f;
+	if (EV_MainThread_ptr != nullptr) DrawQueueDepthBias = 200;
+	else DrawQueueDepthBias = 6000.0f;
 	sub_600BF0(a1, &object_0206CAA8_2);
+	DrawQueueDepthBias = 0.0f;
 }
 
 void SetCloudColor(NJS_ARGB *a)
 {
 	SetMaterialAndSpriteColor_Float(0.2f+a->a, 0.2f + a->r, 0.2f + a->g, 0.2f + a->b);
 }
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
