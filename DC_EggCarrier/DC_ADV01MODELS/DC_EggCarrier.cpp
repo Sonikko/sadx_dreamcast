@@ -18,6 +18,7 @@
 #include "EC_Tornado.h"
 #include "EC_Transform.h"
 
+FunctionPointer(void, sub_409FB0, (NJS_ACTION *a1, float frameNumber), 0x409FB0);
 FunctionPointer(void, sub_6F4570, (ObjectMaster *a1), 0x6F4570);
 DataPointer(ObjectMaster*, dword_3C85138, 0x3C85138);
 HMODULE ADV01MODELS = GetModuleHandle(L"ADV01MODELS");
@@ -318,7 +319,7 @@ void __cdecl EggCarrierSkyBottom(EntityData1 *a1, float a2)
 
 void RenderEggCarrier0NPC(NJS_ACTION *action, Float frame)
 {
-	if (action == (NJS_ACTION*)0x011A86D4) DisplayAnimationFrame(action, frame, (QueuedModelFlagsB)0, 0.0f, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModel_Queue);
+	if (action == (NJS_ACTION*)0x011A86D4) sub_409FB0(action, frame);
 	else njAction(action, frame);
 }
 
