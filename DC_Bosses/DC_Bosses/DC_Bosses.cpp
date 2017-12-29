@@ -45,7 +45,11 @@ DataArray(FogData, EggWalkerFog, 0x015E87F4, 3);
 DataArray(FogData, EggViperFog, 0x0165D334, 3);
 DataArray(FogData, Fog_E101R, 0x015225F0, 3);
 DataArray(FogData, Fog_Zero, 0x016B4DB0, 3);
+DataArray(NJS_VECTOR, SkyBoxScale_Chaos6S, 0x011EF040, 3);
+DataArray(NJS_VECTOR, SkyBoxScale_Chaos6K, 0x011EF064, 3);
 DataArray(DrawDistance, DrawDist_Chaos7, 0x01420E00, 3);
+DataArray(DrawDistance, DrawDist_Chaso6S, 0x011EF0B8, 3);
+DataArray(DrawDistance, DrawDist_Chaso6K, 0x011EF0D0, 3);
 DataArray(DrawDistance, DrawDist_EggHornet, 0x01556B1C, 3);
 DataArray(DrawDistance, DrawDist_E101R, 0x015225D8, 3);
 DataArray(DrawDistance, DrawDist_Zero, 0x016B4D98, 3);
@@ -62,6 +66,8 @@ DataPointer(float, Chaos4Hitpoints, 0x03C58158);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, EVEffect, 0x3C6E1EC);
 DataPointer(int, CutsceneID, 0x3B2C570);
+DataPointer(NJS_OBJECT, stru_11EDF38, 0x11EDF38);
+DataPointer(NJS_OBJECT, stru_11EEED8, 0x11EEED8);
 DataPointer(NJS_TEXANIM, stru_149401C, 0x149401C);
 DataPointer(NJS_TEXANIM, stru_1494050, 0x1494050);
 DataPointer(NJS_SPRITE, stru_1494030, 0x1494030);
@@ -610,11 +616,62 @@ void Chaos4Skybox(ObjectMaster *o1)
 	}
 }
 
+void __cdecl Chaos6SkyboxBottom(EntityData1 *a1)
+{
+	Sint16 v1; // cx
+	NJS_TEX *v2; // eax
+
+	if (!MissedFrames)
+	{
+		v1 = *(Sint16*)&a1->LoopData;
+		v2 = stru_11EDF38.basicdxmodel->meshsets->vertuv;
+		v2->v = v1 + 2040;
+		v2[2].v = v1 + 2040;
+		v2[1].v = v1;
+		v2[3].v = v1;
+		DisableFog();
+		njSetTexture(&CHAOS6_BG_TEXLIST);
+		njPushMatrix(0);
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+		SetMaterialAndSpriteColor_Float(0.5, 0.0, 0.0, 0.0);
+		njTranslate(0, Camera_Data1->Position.x, 0, Camera_Data1->Position.z);
+		njScale(0, 3.0, 1.0, 3.0);
+		DrawQueueDepthBias = -32000.0f;
+		ProcessModelNode(&stru_11EDF38, QueuedModelFlagsB_SomeTextureThing, 3.0f);
+		DrawQueueDepthBias = 0;
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		njPopMatrix(1u);
+		ToggleStageFog();
+	}
+}
+
+void __cdecl Chaos6SkyboxMain()
+{
+	if (!MissedFrames)
+	{
+		DisableFog();
+		njSetTexture(&CHAOS6_BG_TEXLIST);
+		njPushMatrix(0);
+		njTranslate(0, Camera_Data1->Position.x, 0.0, Camera_Data1->Position.z);
+		njRotateY(0, 57344);
+		njScaleV(0, &Skybox_Scale);
+		DrawQueueDepthBias = -30000.0f;
+		ProcessModelNode(&stru_11EEED8, QueuedModelFlagsB_SomeTextureThing, 3.0f);
+		DrawQueueDepthBias = 0;
+		//sub_408530(&stru_11EEED8);
+		njPopMatrix(1u);
+		ToggleStageFog();
+	}
+}
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		WriteJump((void*)0x556FD0, Chaos6SkyboxBottom);
+		WriteJump((void*)0x556F20, Chaos6SkyboxMain);
 		WriteJump((void*)0x550D10, Chaos4Skybox);
 		//Robot chest stuff
 		*(NJS_OBJECT*)0x00991268 = object_00591268; //Zero main and cutscene model
@@ -874,7 +931,6 @@ extern "C"
 		ResizeTextureList((NJS_TEXLIST*)0x167E5CC, textures_eggviper);
 		ResizeTextureList((NJS_TEXLIST*)0x14FBFB4, textures_e101);
 		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 swamp water
-		WriteData((float*)0x00557064, 0.0f); //Move Chaos 6 skybox animation to the bottom
 		//*(NJS_OBJECT*)0x1561A70 = object_000104E8; //Egg Hornet model
 		//Chaos 6 emeralds
 		((NJS_MATERIAL*)0x01264A58)->diffuse.color = 0xFFB2B2B2;
@@ -954,7 +1010,14 @@ extern "C"
 			Chaos4Fog[i].Toggle = 0;
 			Chaos6SFog[i].Distance = 12000.0f;	
 			Chaos6KFog[i].Distance = 12000.0f;
-			//Chaos7Fog[i].Color = 0xFF000000;
+			SkyBoxScale_Chaos6S[i].x = 1.0f;
+			SkyBoxScale_Chaos6S[i].y = 1.0f;
+			SkyBoxScale_Chaos6S[i].z = 1.0f;
+			SkyBoxScale_Chaos6K[i].x = 1.0f;
+			SkyBoxScale_Chaos6K[i].y = 1.0f;
+			SkyBoxScale_Chaos6K[i].z = 1.0f;
+			DrawDist_Chaso6S[i].Maximum = -18000.0f;
+			DrawDist_Chaso6K[i].Maximum = -18000.0f;
 			Chaos7Fog[i].Layer = -4000.0f;
 			Chaos7Fog[i].Distance = 11000.0f;
 			Chaos7Fog[i].Toggle = 1;
