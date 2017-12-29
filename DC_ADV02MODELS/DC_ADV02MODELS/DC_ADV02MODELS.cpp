@@ -267,6 +267,8 @@ void FixMRBase(ObjectMaster *a1)
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	WriteData<1>((char*)0x006F4DA0, 0x04); //Emerald shard (cutscene) glow blending mode
+	WriteData<1>((char*)0x006F4BF1, 0x04); //Emerald shard (cutscene) glow blending mode	
 	//MR Base stuff
 	object_0020454C.evalflags |= NJD_EVAL_HIDE;
 	object_002046C8.evalflags |= NJD_EVAL_HIDE;
