@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "Palm.h"
 #include "ADV03_00_PC.h"
@@ -90,6 +89,19 @@ bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	//Tikal cutscene water ripple thing
+	WriteData((float*)0x0068BA27, -40.7f); //Ripple 1 X
+	WriteData((float*)0x0068BA22, 86.0f); //Ripple 1 Y
+	WriteData((float*)0x0068BA1D, 59.43f); //Ripple 1 Z
+
+	WriteData((float*)0x0068BA62, -40.7f); //Ripple 2 X
+	WriteData((float*)0x0068BA5D, 86.0f); //Ripple 2 Y
+	WriteData((float*)0x0068BA58, 59.43f); //Ripple 2 Z
+
+	WriteData((float*)0x0068BA94, -52.01f); //Ripple 3 X
+	WriteData((float*)0x0068BA8F, 86.0f); //Ripple 3 Y
+	WriteData((float*)0x0068BA8A, 52.42f); //Ripple 3 Z
+
 	HMODULE handle = GetModuleHandle(L"ADV03MODELS");
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
