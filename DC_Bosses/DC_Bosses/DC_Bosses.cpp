@@ -665,11 +665,19 @@ void __cdecl Chaos6SkyboxMain()
 		ToggleStageFog();
 	}
 }
+
+void PerfectChaosWaterfallHook(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
+{
+	if (EV_MainThread_ptr != nullptr && CutsceneID == 254) ProcessModelNode(a1, QueuedModelFlagsB_EnableZWrite, a3);
+	else ProcessModelNode_A_Wrapper(a1, a2, a3);
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		WriteCall((void*)0x56463B, PerfectChaosWaterfallHook);
 		WriteJump((void*)0x556FD0, Chaos6SkyboxBottom);
 		WriteJump((void*)0x556F20, Chaos6SkyboxMain);
 		WriteJump((void*)0x550D10, Chaos4Skybox);
