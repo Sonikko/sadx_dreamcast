@@ -57,7 +57,7 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 	double z3; // st6@1
 	if (SADXStyleWater == false)
 	{
-		if (!DroppedFrames && inside_secret_area == 0)
+		if (!DroppedFrames && (inside_secret_area == 0 || EV_MainThread_ptr != nullptr))
 		{
 			njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
 			njPushMatrix(0);
