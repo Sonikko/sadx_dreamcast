@@ -316,8 +316,15 @@ void __cdecl EggCarrierSkyBottom(EntityData1 *a1, float a2)
 	ToggleStageFog();
 }
 
+void RenderEggCarrier0NPC(NJS_ACTION *action, Float frame)
+{
+	if (action == (NJS_ACTION*)0x011A86D4) DisplayAnimationFrame(action, frame, (QueuedModelFlagsB)0, 0.0f, (void(__cdecl *)(NJS_MODEL_SADX *, int, int))DrawModel_Queue);
+	else njAction(action, frame);
+}
+
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	WriteCall((void*)0x0051AB88, RenderEggCarrier0NPC); //Chaos 4 glitch fix
 	WriteJump((void*)0x51B210, EggCarrierSkyBox);
 	WriteJump((void*)0x51B3B0, EggCarrierSkyBottom);
 	//Fix camera in Amy-Gamma prison cutscene
