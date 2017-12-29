@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "SADXModLoader.h"
 
 NJS_MATERIAL matlist_0006A4A8[] = {

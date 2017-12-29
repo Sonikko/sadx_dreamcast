@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include <string>
@@ -36,6 +35,7 @@ static char water_sadx3 = 76;
 DataArray(DrawDistance, EggCarrierOutsideDrawDist1, 0x010F2264, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist2, 0x010F227C, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist3, 0x010F2294, 3);
+DataArray(DrawDistance, EggCarrierOutsideDrawDist7, 0x010F22F4, 3);
 DataArray(DrawDistance, EggCarrierOutsideSkyDrawDist3, 0x010F2204, 3);
 DataArray(FogData, EggCarrierOutside2Fog, 0x010F233C, 3);
 DataArray(FogData, EggCarrierOutside3Fog, 0x010F236C, 3);
@@ -263,8 +263,63 @@ void TurnLightsOn()
 	set_shader_flags(ShaderFlags_Blend, false);
 }
 
+void __cdecl EggCarrierSkyBox(EntityData1 *a1, float a2)
+{
+	float v2; // ST0C_4
+
+	if (!MissedFrames)
+	{
+		DisableFog();
+		njSetTexture(&EC_SKY_TEXLIST);
+		njPushMatrix(0);
+		njTranslate(0, Camera_Data1->Position.x, a2, Camera_Data1->Position.z);
+		njScaleV(0, &Skybox_Scale);
+		v2 = VectorMaxAbs(&Skybox_Scale);
+		DrawQueueDepthBias = -30000.0f;
+		ProcessModelNode(ADV01_OBJECTS[65], QueuedModelFlagsB_SomeTextureThing, v2);
+		njScale(0, 1.0, 1.0, 1.0);
+		njPopMatrix(1u);
+		ToggleStageFog();
+		DrawQueueDepthBias = 0.0f;
+	}
+}
+
+void __cdecl EggCarrierSkyBottom(EntityData1 *a1, float a2)
+{
+	NJS_OBJECT *v2; // esi
+	NJS_TEX *v3; // eax
+	Sint16 v4; // cx
+	float v5; // ST0C_4
+	v2 = ADV01_OBJECTS[66];
+	v3 = v2->basicdxmodel->meshsets->vertuv;
+	v4 = *(Sint16*)&a1->LoopData;
+	v3[1].v = v4;
+	v3[3].v = v4;
+	v3->v = v4 + 2040;
+	v3[2].v = v4 + 2040;
+	DisableFog();
+	njSetTexture(&EC_SKY_TEXLIST);
+	njPushMatrix(0);
+	njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+	njTranslate(0, Camera_Data1->Position.x, a2, Camera_Data1->Position.z);
+	njScale(0, 3.0, 1.0, 3.0);
+	njScaleV(0, &Skybox_Scale);
+	v5 = VectorMaxAbs(&Skybox_Scale);
+	DrawQueueDepthBias = -32000.0f;
+	ProcessModelNode(v2, QueuedModelFlagsB_SomeTextureThing, v5);
+	DrawQueueDepthBias = 0;
+	njScale(0, 1.0, 1.0, 1.0);
+	njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+	njPopMatrix(1u);
+	ToggleStageFog();
+}
+
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	WriteJump((void*)0x51B210, EggCarrierSkyBox);
+	WriteJump((void*)0x51B3B0, EggCarrierSkyBottom);
 	//Fix camera in Amy-Gamma prison cutscene
 	WriteData((float*)0x006A4EBE, -134.0f); //X1
 	WriteData((float*)0x006A4EB9, 15.0f); //Y1
@@ -399,6 +454,7 @@ extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const Helpe
 		EggCarrierOutsideDrawDist1[i].Maximum = -11000;
 		EggCarrierOutsideDrawDist2[i].Maximum = -11000;
 		EggCarrierOutsideDrawDist3[i].Maximum = -11000;
+		EggCarrierOutsideDrawDist7[i].Maximum = -28000;
 		EggCarrierOutside2Fog[i].Distance = -12000;
 		EggCarrierOutside2Fog[i].Layer = -12000;
 		EggCarrierOutside3Fog[i].Distance = -12000;
