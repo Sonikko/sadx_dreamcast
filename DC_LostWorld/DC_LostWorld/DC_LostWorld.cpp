@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "LostWorld1.h"
