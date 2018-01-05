@@ -22,12 +22,6 @@
 #include "ERobo.h"
 
 std::string plm0xbin;
-static float EggViper_blendfactor = 0.0f;
-static int EggViper_blenddirection = 1;
-static int EggViper_EffectMode = 0;
-static int EggViper_Timer = 0;
-static float EggViper_blendfactor_max = 0.005f;
-static float EggViper_blendfactor_min = 0.005f;
 
 //Chaos 6 material arrays
 DataArray(NJS_MATERIAL, matlist_00F975B0, 0x013975B0, 3);
@@ -81,10 +75,23 @@ FunctionPointer(void, sub_5632F0, (ObjectMaster *a1), 0x5632F0);
 FunctionPointer(void, sub_563370, (ObjectMaster *a1), 0x563370);
 FunctionPointer(void, sub_4B9540, (NJS_VECTOR *position, NJS_VECTOR *scale_v, float scale), 0x4B9540);
 FunctionPointer(void, sub_408530, (NJS_OBJECT *o), 0x408530);
+FunctionPointer(void, sub_570900, (int a1, int a2), 0x570900);
+FunctionPointer(void, sub_407BB0, (NJS_MODEL_SADX *a1, QueuedModelFlagsB queueFlags), 0x407BB0);
+FunctionPointer(void, sub_56FC30, (int a1, int a2, float a3), 0x56FC30);
+FunctionPointer(void, sub_568EC0, (EntityData1 *a1), 0x568EC0);
+FunctionPointer(void, sub_4CACF0, (NJS_VECTOR *a1, float a2), 0x4CACF0);
+FunctionPointer(void, sub_4CC540, (NJS_VECTOR *a1, int a2, int a3, int a4), 0x4CC540);
+FunctionPointer(void, sub_77E940, (FVFStruct_H_B *a1, signed int count, int a3), 0x77E940);
 
+static float EggViper_blendfactor = 0.0f;
+static int EggViper_blenddirection = 1;
+static int EggViper_EffectMode = 0;
+static int EggViper_Timer = 0;
+static float EggViper_blendfactor_max = 0.005f;
+static float EggViper_blendfactor_min = 0.005f;
 static unsigned char EggHornetTrigger = 0;
 static float TornadoAlpha = 1.0f;
-int TornadoTrigger = 0;
+static int TornadoTrigger = 0;
 static bool Chaos4Defeated = 0;
 static int Chaos4Water = 27;
 static float EggViperHitCount_Old = 0.0f;
@@ -95,6 +102,12 @@ static int EggHornet_Rotation = 0;
 static int EggHornet_RotationDirection = 1;
 static int egghornetwater = 143;
 static int e101rwater = 87;
+static int E101REffectMode = 1;
+static float e101rframe = 0;
+static NJS_VECTOR E101R_ParticleVector = { 0,0,0 };
+static int E101R_ParticleA = 0;
+static int E101R_ParticleB = 0;
+static int E101R_ParticleC = 0;
 
 void __cdecl EggHornetWaterFunc()
 {
@@ -672,11 +685,137 @@ void PerfectChaosWaterfallHook(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 	else ProcessModelNode_A_Wrapper(a1, a2, a3);
 }
 
+void E101RRenderAfterEffect(float a, float r, float g, float b)
+{
+	if (E101REffectMode == 0) SetMaterialAndSpriteColor_Float(min(1.0f, a + 0.2f), min(1.0f, a + 0.2f), a, a);
+	else SetMaterialAndSpriteColor_Float(min(1.0f, a + 0.2f), a, a, min(1.0f, a + 0.2f));
+}
+
+void E101REffect_Orange(int a1, int a2)
+{
+	E101REffectMode = 0;
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+	sub_570900(a1, a2);
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+}
+
+void E101REffect_Blue(int a1, int a2)
+{
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+	sub_570900(a1, a2);
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+	E101REffectMode = 1;
+}
+
+void E101RShieldBlend(float a, float r, float g, float b)
+{
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+	SetMaterialAndSpriteColor_Float(a, 1.0f, 1.0f, 1.0f);
+}
+
+void E101R_AfterImageConstantAttr(Uint32 and_attr, Uint32 or_attr)
+{
+	//njSetConstantAttr(0x9999999u, 0x24100000u);
+	AddConstantAttr(0, NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ALPHA);
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+}
+
+void E101R_AfterImageMaterial(float a, float r, float g, float b)
+{
+	SetMaterialAndSpriteColor_Float(a, 1.0f, 1.0f, 1.0f);
+}
+
+void RenderE101RStuff()
+{
+	DisableFog();
+	njSetTexture((NJS_TEXLIST *)0x16B460C);
+	njPushMatrix(0);
+	njTranslate(0, 0, 0, 0);
+	ProcessModelNode_AB_Wrapper(&object_00007C50, 1.0f);
+	ProcessModelNode_AB_Wrapper(&objectR_0001AD68, 1.0f);
+	ProcessModelNode_AB_Wrapper(&objectR_0001C3BC, 1.0f);
+	ProcessModelNode_AB_Wrapper(&objectR_0001BDF4, 1.0f);
+	ProcessModelNode_AB_Wrapper(&objectR_0001A814, 1.0f);
+	njAction(&action_animationR_00023C20, e101rframe);
+	ProcessModelNode_AB_Wrapper(&objectR_0001CC84, 1.0f);
+	ProcessModelNode_AB_Wrapper(&objectR_0001C958, 1.0f);
+	ProcessModelNode_AB_Wrapper(&objectR_0001D5E0, 1.0f);
+	ProcessModelNode_AB_Wrapper(&objectR_0001D2B4, 1.0f);
+	njPopMatrix(1u);
+	if (GameState !=16) e101rframe += 0.09999999f;
+	if (e101rframe >= 59) e101rframe = 0;
+}
+
+void E101R_SkyboxHook(EntityData1 *a1)
+{
+	sub_568EC0(a1);
+	RenderE101RStuff();
+}
+
+void E101R_DrawExplosion(NJS_OBJECT *a1, QueuedModelFlagsB a2)
+{
+	DrawQueueDepthBias = 20000.0f;
+	ProcessModelNode_A_WrapperB(a1, QueuedModelFlagsB_SomeTextureThing);
+	DrawQueueDepthBias = 0.0f;
+}
+
+void E101R_DrawSkybox(NJS_OBJECT *a1)
+{
+	ProcessModelNode_AB_Wrapper(a1, 1.0f);
+}
+
+void E101R_RenderParticle(FVFStruct_H_B *a1, signed int count, int a3)//(NJS_VECTOR *a1, int a2, int a3, int a4)
+{
+	Direct3D_EnableZWrite(0);
+	sub_77E940(a1, count, a3);
+	Direct3D_EnableZWrite(1);
+}
+
+void E101R_SwapParticleOrder(int a1, int a2, float a3)
+{
+	sub_56FC30(a1, a2, a3);
+	sub_4CC540(&E101R_ParticleVector, E101R_ParticleA, E101R_ParticleB, E101R_ParticleC);
+}
+
+void E101R_RetrieveParticleStuff(NJS_VECTOR *a1, int a2, int a3, int a4)
+{
+	E101R_ParticleVector.x = a1->x;
+	E101R_ParticleVector.y = a1->y;
+	E101R_ParticleVector.z = a1->z;
+	E101R_ParticleA = a2;
+	E101R_ParticleB = a3;
+	E101R_ParticleC = a4;
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		//E-101R fixes
+		ShadowBlob_Model.basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		WriteCall((void*)0x0056FF4A, E101R_RetrieveParticleStuff);
+		WriteCall((void*)0x0056FF61, E101R_SwapParticleOrder);
+		WriteCall((void*)0x004CC82E, E101R_RenderParticle);
+		WriteCall((void*)0x0056FD59, E101R_RenderParticle);
+		WriteCall((void*)0x00568F59, E101R_DrawSkybox);
+		WriteCall((void*)0x00571581, E101R_DrawExplosion);
+		WriteCall((void*)0x005715AE, E101R_DrawExplosion);
+		WriteCall((void*)0x0056909F, E101R_SkyboxHook);
+		WriteCall((void*)0x00569008, E101R_SkyboxHook);
+		WriteData<1>((char*)0x00568D20, 0xC3u); //E101R clip function
+		WriteCall((void*)0x0057069D, E101R_AfterImageMaterial); //E10R afterimage
+		WriteCall((void*)0x00570784, E101R_AfterImageConstantAttr); //E10R afterimage
+		WriteCall((void*)0x0057040D, E101RShieldBlend); //Shield blending mode
+		WriteCall((void*)0x0056B07D, E101REffect_Orange); //Set arm effect to orange and render
+		WriteCall((void*)0x0056B096, E101REffect_Blue); //Set arm effect to blue and render
+		WriteCall((void*)0x0057098A, E101RRenderAfterEffect); //After effect on E101R's arms
 		WriteCall((void*)0x56463B, PerfectChaosWaterfallHook);
 		WriteJump((void*)0x556FD0, Chaos6SkyboxBottom);
 		WriteJump((void*)0x556F20, Chaos6SkyboxMain);
@@ -740,7 +879,7 @@ extern "C"
 		{
 			ResizeTextureList((NJS_TEXLIST*)0x1557064, 160); //Egg Hornet level texlist
 			ResizeTextureList((NJS_TEXLIST*)0x16B460C, 104); //Zero/E101R texlist
-			collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x00000000;
+			//FUCK collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x00000000;
 			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x00000000;
 			landtable_00000128.TexName = "EGM1LANDW";
 			landtable_00000110.TexName = "E101R_TIKEIW";
@@ -762,7 +901,7 @@ extern "C"
 		{
 			ResizeTextureList((NJS_TEXLIST*)0x1557064, 143);  //Egg Hornet level texlist
 			ResizeTextureList((NJS_TEXLIST*)0x16B460C, 87); //Zero/E101R texlist
-			collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x80000000;
+			//FUCK collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x80000000;
 			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x80000000;
 			landtable_00000128.TexName = "EGM1LAND";
 			landtable_00000110.TexName = "E101R_TIKEI";
