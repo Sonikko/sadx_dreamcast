@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "Highway1.h"
@@ -13,6 +12,8 @@
 #include "SH_glass.h"
 #include "Highway_objects.h"
 
+DataPointer(int, FramerateSetting, 0x0389D7DC);
+
 FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *a1, int a2, float a3), 0x409E70);
 FunctionPointer(long double, sub_49CC70, (float a1, float a2, float a3), 0x49CC70);
 FunctionPointer(void, sub_408530, (NJS_OBJECT *obj), 0x408530);
@@ -20,6 +21,7 @@ FunctionPointer(void, sub_408530, (NJS_OBJECT *obj), 0x408530);
 static int RocketAlpha = 255;
 static int AntennaAlpha = 255;
 static int RocketAlphaDir = 4;
+static int shwwater = 106;
 
 PointerInfo pointers[] = {
 	ptrdecl(0x97DA88, &landtable_0001853C),
@@ -27,60 +29,22 @@ PointerInfo pointers[] = {
 	ptrdecl(0x97DA90, &landtable_0001B08C)
 };
 
-void __cdecl sub_61BA10(int a1)
+void FountainPart1(NJS_MODEL_SADX *a1, int a2, float a3)
 {
-	DataPointer(int, MissedFrames, 0x03B1117C);
-	DataPointer(int, FrameCounterUnpaused, 0x03ABDF5C);
-	DataArray(NJS_MATERIAL, stru_25802C0, 0x025802C0, 2);
-	int v1; // esi@1
-	int v2; // ebx@1
-	NJS_TEXLIST *v3; // ST1C_4@2
-	int v4; // eax@2
-	float a3; // ST14_4@4
-	int v6; // esi@4
-	float v7; // edi@4
-	int v8; // esi@4
-	float sy; // [sp+14h] [bp-4h]@2
-	float XScale; // [sp+1Ch] [bp+4h]@2
-	float XScalea; // [sp+1Ch] [bp+4h]@4
+	DrawQueueDepthBias = 2000.0f;
+	sub_409E70(&attach_00135B64, 4, a3);
+}
 
-	v1 = *(_DWORD *)(a1 + 32);
-	v2 = *(_DWORD *)(v1 + 8);
-	if (!MissedFrames)
-	{
-		njSetTexture((NJS_TEXLIST*)0x026706AC);
-		njPushMatrix(0);
-		sy = 1.0f / *(float *)(v1 + 48);
-		XScale = *(float *)(v1 + 48) * 0.6f + 0.4f;
-		njTranslateV(0, (NJS_VECTOR *)(v1 + 32));
-		v4 = *(_DWORD *)(v1 + 24);
-		if (v4)
-		{
-			njRotateY(0, (unsigned __int16)v4);
-		}
-		njScaleV(0, (NJS_VECTOR *)(v1 + 44));
-		a3 = VectorMaxAbs((NJS_VECTOR *)(v1 + 44));
-		sub_409E70(&attach_00135B64, 0, a3);
-		njPushMatrix(0);
-		v6 = *(_DWORD *)(*(_DWORD *)(v1 + 8) + 44);
-		njTranslate(0, *(Float *)(v6 + 8), *(Float *)(v6 + 12), *(Float *)(v6 + 16));
-		v7 = XScale;
-		njScale(0, XScale, sy, XScale);
-		XScalea = sub_49CC70(v7, sy, v7);
-		sub_409E70(&attach_00135920, 0, XScalea);
-		njPopMatrix(1u);
-		njPushMatrix(0);
-		v8 = *(_DWORD *)(v6 + 48);
-		njTranslate(0, *(Float *)(v8 + 8), *(Float *)(v8 + 12), *(Float *)(v8 + 16));
-		njScale(0, v7, sy, v7);
-		sub_409E70(&attach_00135454, 0, XScalea);
-		njPopMatrix(1u);
-		njPopMatrix(1u);
-		if (GameState != 16 && !(FrameCounterUnpaused & 3) && ++stru_25802C0[0].attr_texId > 0x68)
-		{
-			stru_25802C0[0].attr_texId = 89;
-		}
-	}
+void FountainPart2(NJS_MODEL_SADX *a1, int a2, float a3)
+{
+	DrawQueueDepthBias = 4000.0f;
+	sub_409E70(&attach_00135920, 4, a3);
+}
+
+void FountainPart3(NJS_MODEL_SADX *a1, int a2, float a3)
+{
+	DrawQueueDepthBias = 6000.0f;
+	sub_409E70(&attach_00135454, 4, a3);
 }
 
 bool ForceWhiteDiffuse(NJS_MATERIAL* material, Uint32 flags)
@@ -147,6 +111,12 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		//Fountain fixes
+		WriteCall((void*)0x0061BAA0, FountainPart1);
+		WriteCall((void*)0x0061BAF1, FountainPart2);
+		WriteCall((void*)0x0061BB31, FountainPart3);
+		WriteData((NJS_OBJECT**)0x0061BC4C, &object_00134B34); //Fountain bottom
+		WriteData((NJS_OBJECT**)0x026B3150, &object_001350C8); //Fountain side
 		//Fix rocket/antenna sprite
 		*(NJS_OBJECT*)0x026919C0 = object_022919C0; //Antenna model
 		WriteCall((void*)0x00615D60, AntennaModel);
@@ -200,7 +170,6 @@ extern "C"
 		((NJS_MATERIAL*)0x02681308)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		((NJS_MATERIAL*)0x0268131C)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		((NJS_MATERIAL*)0x02681330)->attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-		//WriteJump((void*)0x61BA10, sub_61BA10); //Fountain function
 		*(NJS_OBJECT*)0x0268843C = object_001554A8; //Cone
 		WriteData((char*)0x006165DF, 0x00, 1); //Cone blending mode
 		*(NJS_OBJECT*)0x0267497C = object_001434F4; //Platform
@@ -306,6 +275,12 @@ extern "C"
 			if (RocketAlphaDir == -4 && RocketAlpha <= 0) RocketAlphaDir = 4;
 			RocketAlpha = RocketAlpha + RocketAlphaDir;
 			AntennaAlpha = RocketAlpha;
+			if (CurrentAct == 2)
+			{
+				if ((FramerateSetting < 2 && FrameCounterUnpaused % 4 == 0) || (FramerateSetting >= 2 && FrameCounterUnpaused % 2 == 0)) shwwater++;
+				if (shwwater > 119) shwwater = 106;
+				matlist_001338A0[0].attr_texId = shwwater;
+			}
 		}
 	}
 }

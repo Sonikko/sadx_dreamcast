@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "SADXModLoader.h"
 //#include "OLmpa.h"
 
@@ -74624,7 +74623,7 @@ COL collist_0001919C[] = {
 	{ { -75, 82.5f, -805 }, 113.3854f, 0, 0, &object_000E4BE4Z, 0, 0xC0040000 },
 };
 
-NJS_TEXNAME textures_highway3[107];
+NJS_TEXNAME textures_highway3[120];
 NJS_TEXLIST texlist_hw3 = { arrayptrandlength(textures_highway3) };
 
 LandTable landtable_0001B08C = { LengthOfArray(collist_0001919C), 0, 0xC, 1400, collist_0001919C, NULL, "HIGHWAY03", (NJS_TEXLIST *)&texlist_hw3, 0, 0 };
