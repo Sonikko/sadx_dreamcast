@@ -587,12 +587,19 @@ void FinalEggHook()
 	if (CurrentLevel == 10 && CurrentAct == 1) LoadGlass();
 }
 
-extern "C"
+void GachaponExplosionFix(NJS_MODEL_SADX *a1)
+{
+	DrawQueueDepthBias = 10000.0f;
+	DrawModel_Queue(a1, QueuedModelFlagsB_SomeTextureThing);
+	DrawQueueDepthBias = 0;
+}
+extern "C"	
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 	__declspec(dllexport) void __cdecl Init(const char *path)
 	{
+		WriteCall((void*)0x005AEF29, GachaponExplosionFix);
 		WriteCall((void*)0x005AE0A5, FinalEggHook);
 		WriteCall((void*)0x005AE060, FinalEggHook);
 		WriteData<1>((void*)0x005ADC40, 0xC3u); //Kill the SetClip function
