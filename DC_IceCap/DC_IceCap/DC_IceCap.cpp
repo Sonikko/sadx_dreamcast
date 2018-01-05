@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "Icicle.h"
 #include "IceCap1.h"

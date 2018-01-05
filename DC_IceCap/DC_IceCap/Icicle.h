@@ -1,4 +1,3 @@
-#include "stdafx.h"
 #include "SADXModLoader.h"
 
 enum OBJ_ICECAPTexName
