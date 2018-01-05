@@ -83,6 +83,7 @@ FunctionPointer(void, sub_4CACF0, (NJS_VECTOR *a1, float a2), 0x4CACF0);
 FunctionPointer(void, sub_4CC540, (NJS_VECTOR *a1, int a2, int a3, int a4), 0x4CC540);
 FunctionPointer(void, sub_77E940, (FVFStruct_H_B *a1, signed int count, int a3), 0x77E940);
 
+static bool SADXStyleWater = false;
 static float EggViper_blendfactor = 0.0f;
 static int EggViper_blenddirection = 1;
 static int EggViper_EffectMode = 0;
@@ -737,7 +738,7 @@ void RenderE101RStuff()
 	njSetTexture((NJS_TEXLIST *)0x16B460C);
 	njPushMatrix(0);
 	njTranslate(0, 0, 0, 0);
-	ProcessModelNode_AB_Wrapper(&object_00007C50, 1.0f);
+	if (SADXStyleWater == false) ProcessModelNode_AB_Wrapper(&object_00007C50, 1.0f);
 	ProcessModelNode_AB_Wrapper(&objectR_0001AD68, 1.0f);
 	ProcessModelNode_AB_Wrapper(&objectR_0001C3BC, 1.0f);
 	ProcessModelNode_AB_Wrapper(&objectR_0001BDF4, 1.0f);
@@ -872,14 +873,13 @@ extern "C"
 		}
 		WriteJump((void*)0x00556D60, SetClip_Chaos6KX);
 		WriteJump((void*)0x00556E40, SetClip_Chaos6SX);
-		//WriteJump((void*)0x563620, sub_563620); //Mist
-		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
+		HMODULE SADXStyleWater_handle = GetModuleHandle(L"SADXStyleWater");
+		if (SADXStyleWater_handle != nullptr) SADXStyleWater = true; else SADXStyleWater = false;
 		//SADX style water
-		if (SADXStyleWater != 0)
+		if (SADXStyleWater == true)
 		{
 			ResizeTextureList((NJS_TEXLIST*)0x1557064, 160); //Egg Hornet level texlist
 			ResizeTextureList((NJS_TEXLIST*)0x16B460C, 104); //Zero/E101R texlist
-			//FUCK collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x00000000;
 			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x00000000;
 			landtable_00000128.TexName = "EGM1LANDW";
 			landtable_00000110.TexName = "E101R_TIKEIW";
@@ -901,7 +901,6 @@ extern "C"
 		{
 			ResizeTextureList((NJS_TEXLIST*)0x1557064, 143);  //Egg Hornet level texlist
 			ResizeTextureList((NJS_TEXLIST*)0x16B460C, 87); //Zero/E101R texlist
-			//FUCK collist_00009FA4[LengthOfArray(collist_00009FA4) - 1].Flags = 0x80000000;
 			collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x80000000;
 			landtable_00000128.TexName = "EGM1LAND";
 			landtable_00000110.TexName = "E101R_TIKEI";
@@ -1394,7 +1393,6 @@ extern "C"
 
 			}
 		}
-		HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 		//Super stupid hax to make Perfect Chaos' tornadoes fade in
 		if (byte_3C5A7ED != 11)
 		{
