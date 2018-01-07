@@ -712,17 +712,11 @@ void E101REffect_Blue(int a1, int a2)
 	E101REffectMode = 1;
 }
 
-void E101RShieldBlend(float a, float r, float g, float b)
-{
-	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
-	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
-	SetMaterialAndSpriteColor_Float(a, 1.0f, 1.0f, 1.0f);
-}
 
 void E101R_AfterImageConstantAttr(Uint32 and_attr, Uint32 or_attr)
 {
 	//njSetConstantAttr(0x9999999u, 0x24100000u);
-	AddConstantAttr(0, NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ALPHA);
+	AddConstantAttr(0, NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ALPHA | NJD_FLAG_IGNORE_LIGHT);
 	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
 	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 }
@@ -794,6 +788,12 @@ void E101R_RetrieveParticleStuff(NJS_VECTOR *a1, int a2, int a3, int a4)
 	E101R_ParticleC = a4;
 }
 
+void E101R_AfterImageArmConstantAttr(Uint32 and_attr, Uint32 or_attr)
+{
+	njSetConstantAttr(0x9999999u, 0x24100000u);
+	AddConstantAttr(0, NJD_FLAG_IGNORE_LIGHT);
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
@@ -813,10 +813,10 @@ extern "C"
 		WriteData<1>((char*)0x00568D20, 0xC3u); //E101R clip function
 		WriteCall((void*)0x0057069D, E101R_AfterImageMaterial); //E10R afterimage
 		WriteCall((void*)0x00570784, E101R_AfterImageConstantAttr); //E10R afterimage
-		WriteCall((void*)0x0057040D, E101RShieldBlend); //Shield blending mode
 		WriteCall((void*)0x0056B07D, E101REffect_Orange); //Set arm effect to orange and render
 		WriteCall((void*)0x0056B096, E101REffect_Blue); //Set arm effect to blue and render
 		WriteCall((void*)0x0057098A, E101RRenderAfterEffect); //After effect on E101R's arms
+		WriteCall((void*)0x00570952, E101R_AfterImageArmConstantAttr);
 		WriteCall((void*)0x56463B, PerfectChaosWaterfallHook);
 		WriteJump((void*)0x556FD0, Chaos6SkyboxBottom);
 		WriteJump((void*)0x556F20, Chaos6SkyboxMain);
