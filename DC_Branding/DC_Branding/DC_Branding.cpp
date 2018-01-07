@@ -380,11 +380,26 @@ void DrawTexture_Hook(int that_cant_be_right, float x, float y, float z)
 	njTextureShadingMode(2);
 }
 
+void DisplayScreenTexture_AlwaysTop(int that_cant_be_right, float x, float y, float z)
+{
+	Direct3D_SetZFunc(7u);
+	Direct3D_EnableZWrite(0);
+	DisplayScreenTexture(that_cant_be_right, x, y, z);
+	Direct3D_EnableZWrite(1);
+	Direct3D_SetZFunc(3u);
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		//Character select screen fixes
+		WriteData<5>((void*)0x0040BE0D, 0x90); //Disable "Now loading..."
+		WriteData<5>((void*)0x00503438, 0x90); //Disable "Now loading..."
+		WriteData<5>((void*)0x0050346D, 0x90); //Disable "Now loading..."
+		WriteCall((void*)0x00511A8B, DisplayScreenTexture_AlwaysTop); //Fix layering of the "Select your character" text
+		WriteData<5>((void*)0x00511C18, 0x90); //Disable ZFunc stuff to prevent character model layering issues
 		//Shadow blending fixes
 		WriteCall((void*)0x0050B584, DrawShadow_Hook);
 		WriteCall((void*)0x00431D37, DrawShadow_Hook);
