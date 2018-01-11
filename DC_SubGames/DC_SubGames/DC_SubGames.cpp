@@ -737,8 +737,7 @@ void __cdecl TornadoTargetSprite_TargetLock_DisplayX(ObjectMaster *a1)
 	EntityData1 *v1; // esi
 	NJS_POINT2 position; // [esp+4h] [ebp-8h]
 
-	v1 = a1->Data1;	if (GameState != 16)
-	{
+	v1 = a1->Data1;	
 		if (!MissedFrames && !CheckSkyChaseActionThing())
 		{
 			njPushMatrix(0);
@@ -750,13 +749,13 @@ void __cdecl TornadoTargetSprite_TargetLock_DisplayX(ObjectMaster *a1)
 			*(NJS_POINT2 *)&TornadoTarget_SPRITE.p.x = position;
 			TornadoTarget_SPRITE.sy = v1->Scale.y * (VerticalResolution / 480.0f);
 			njTextureShadingMode(1);
-			njDrawSprite2D_ForcePriority(&TornadoTarget_SPRITE, 2, 1000.0f, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR);
+			if (GameState != 16) njDrawSprite2D_ForcePriority(&TornadoTarget_SPRITE, 2, 1000.0f, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR);
+			else njDrawSprite2D_Queue(&TornadoTarget_SPRITE, 2, 20048.0f, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR, QueuedModelFlagsB_SomeTextureThing);
 			njPopMatrix(1u);
 			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
 			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 			ClampGlobalColorThing_Thing();
 			njTextureShadingMode(2);
-		}
 	}
 }
 
