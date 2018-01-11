@@ -15,10 +15,10 @@ DataPointer(float, SomeDepthThing, 0x03ABD9C0);
 static float float_one = 1.0f;
 static float float_tornadospeed = 1.0f;
 static float float_targetsize = 1;
-static float float_reticlespeedmultiplier1 = 2.0f;
-static float float_reticlespeedmultiplier2 = 2.0f;
-static float HorizontalResolution_Float = 640.0f;
-static float VerticalResolution_Float = 480.0f;
+static float float_reticlespeedmultiplier = 2.0f;
+static float HorizontalResolution_float = 640.0f;
+static float VerticalResolution_float = 480.0f;
+static float VerticalResolutionHalf_float = 240.0f;
 static double SkyChaseSkyRotationMultiplier = -0.5f;
 static float SkyChaseLimit_Right = 560.0f;
 static float SkyChaseLimit_Left = 80.0f;
@@ -776,63 +776,70 @@ void SetSkyChaseRocketColor(float a, float r, float g, float b)
 	SetMaterialAndSpriteColor_Float(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
-static double SomeBullshitFloat = -0.1591549762031479f;
-static double SomeBullshitFloat2 = 0.1591549762031479f;
-static double f65535_1 = 65535.0f;
-static double f65535_2 = 65535.0f;
-static float VerticalResolutionHalf_float = 240.0f;
+void __cdecl TornadoCalculateCenterPoint(ObjectMaster *a1)
+{
+	EntityData1 *data1; // eax
+	EntityData1 *parent_data1; // ecx
+	NJS_VECTOR *position; // esi
+	double y; // st7
+
+	data1 = a1->Data1;
+	parent_data1 = a1->Parent->Data1;
+	position = &data1->Position;
+	data1->Position.x = parent_data1->Position.x - (HorizontalResolution_float * 0.5f);
+	y = parent_data1->Position.y - (VerticalResolution_float * 0.5f);
+	data1->Position.z = 1000.0f * (VerticalResolution_float/480.0f);
+	data1->Position.y = y;
+	njPushMatrix(0);
+	njInvertMatrix(0);
+	njCalcPoint(0, position, position);
+	njPopMatrix(1u);
+}
 
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 {
-	//This is bullshit!
-	WriteData((double**)0x0062C585, &f65535_1);
-	WriteData((double**)0x0062C5B7, &f65535_2);
-	WriteData((double**)0x0062C58B, &SomeBullshitFloat);
-	WriteData((double**)0x0062C5BD, &SomeBullshitFloat2);
-	WriteData((int*)0x0062C598, 5461); //BAMS limit 1
-	WriteData((int*)0x0062C5B1, 5461); //BAMS limit 2
-	//End of bullshit
+	HorizontalResolution_float = HorizontalResolution;
+	VerticalResolution_float = VerticalResolution;
+	VerticalResolutionHalf_float = VerticalResolution_float / 2.0f;
 	//Resolution related fixes
-	HorizontalResolution_Float = HorizontalResolution;
-	VerticalResolution_Float = VerticalResolution;
-	VerticalResolutionHalf_float = VerticalResolution_Float / 2.0f;
-	if (HorizontalResolution_Float / VerticalResolution_Float > 1.4f)
+	WriteJump((void*)0x628D50, TornadoCalculateCenterPoint); //Calculate center for bullets
+	if (HorizontalResolution_float / VerticalResolution_float > 1.4f)
 	{
-		if (HorizontalResolution_Float / VerticalResolution_Float > 2.2f) widescreenthing = 240.0f;
+		if (HorizontalResolution_float / VerticalResolution_float > 2.2f) widescreenthing = 240.0f;
 		SkyChaseLimit_Left = 80.0f + widescreenthing;
 		SkyChaseLimit_Right = 560.0f + widescreenthing;
 	}
+	WriteData((float**)0x00627F4D, &float_tornadospeed); //Tornado Speed (always 1)
+	WriteData((float**)0x00627F60, &float_one); //Horizontal limit
+	WriteData((float**)0x00627F72, &float_one); //Vertical limit
 	//Hodai fixes
-	WriteData((float**)0x0043854D, &HorizontalResolution_Float);
+	WriteData((float**)0x0043854D, &HorizontalResolution_float);
 	WriteData((float**)0x00438571, &VerticalResolutionHalf_float);
 	WriteData((float**)0x0043857F, &VerticalResolutionHalf_float);
 	WriteCall((void*)0x0062C764, SetSkyChaseRocketColor);
 	WriteCall((void*)0x0062C704, RenderSkyChaseRocket);
 	//Sky Chase reticle and multiplier fixes
-	float_reticlespeedmultiplier1 = HorizontalResolution / 640.0f;
-	float_reticlespeedmultiplier2 = VerticalResolution / 480.0f;
+	float_reticlespeedmultiplier = VerticalResolution / 480.0f;
 	float_targetsize = pow(VerticalResolution/15.0f, 2);
 	WriteData((float**)0x628AF7, &float_targetsize); //Target size
-	WriteData((float**)0x00629472, &float_reticlespeedmultiplier2); //Target speed
+	WriteData((float**)0x00629472, &float_reticlespeedmultiplier); //Target speed
 	//Limits for reticle
-	WriteData((float**)0x00628994, &float_reticlespeedmultiplier2); //right
-	WriteData((float**)0x006289B6, &float_reticlespeedmultiplier2); //left
-	WriteData((float**)0x006289F1, &float_reticlespeedmultiplier2); //top
-	WriteData((float**)0x00628A13, &float_reticlespeedmultiplier2); //bottom
+	WriteData((float**)0x00628994, &float_reticlespeedmultiplier); //right
+	WriteData((float**)0x006289B6, &float_reticlespeedmultiplier); //left
+	WriteData((float**)0x006289F1, &float_reticlespeedmultiplier); //top
+	WriteData((float**)0x00628A13, &float_reticlespeedmultiplier); //bottom
 	WriteData((float**)0x0062899A, &SkyChaseLimit_Right);
 	WriteData((float**)0x006289BC, &SkyChaseLimit_Left);
 	WriteData((float**)0x006289F7, &SkyChaseLimit_Top);
 	WriteData((float**)0x00628A19, &SkyChaseLimit_Bottom);
+	//Visual stuff
 	WriteCall((void*)0x00629004, TornadoTarget_Render);
 	WriteCall((void*)0x00628FE5, TornadoTarget_Render);
 	WriteJump((void*)0x00628DB0, TornadoTargetSprite_TargetLock_DisplayX);
 	WriteData((double**)0x00627D14, &SkyChaseSkyRotationMultiplier); //Rotate the sky in the opposite direction
 	WriteData((float*)0x00628951, VerticalResolution / 480.0f); //Reticle scale X
 	WriteData((float*)0x0062895B, VerticalResolution / 480.0f); //Reticle scale Y
-	WriteData((float**)0x00627F4D, &float_tornadospeed); //Tornado Speed
-	WriteData((float**)0x00627F60, &float_one); //Horizontal limit
-	WriteData((float**)0x00627F72, &float_one); //Vertical limit
 	//Sky Chase fixes
 	((NJS_OBJECT*)0x028DFD34)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Sky materials in Act 1
 	((NJS_OBJECT*)0x028175F4)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Sky materials in Act 1
@@ -860,7 +867,6 @@ extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 	((NJS_OBJECT*)0x02916ADC)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 	((NJS_OBJECT*)0x02918404)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 	((NJS_OBJECT*)0x02917F34)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-
 	WriteData((char*)0x0062751B, 0x00, 1); //Force Tornado light type
 	WriteData((char*)0x0062AC1F, 0x00, 1); //Force Tornado light type (transformation cutscene)
 	*(NJS_OBJECT *)0x02982F44 = object_0003FA40; //Egg Carrier model
