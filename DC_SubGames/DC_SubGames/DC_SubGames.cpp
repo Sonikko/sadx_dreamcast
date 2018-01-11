@@ -1,6 +1,7 @@
 #include <SADXModLoader.h>
 #include "SandHill.h"
 #include <lanternapi.h>
+#include <math.h>
 #include "TwinkleCircuit.h"
 #include "SkyChaseModels.h"
 
@@ -12,7 +13,8 @@ DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
 DataPointer(float, SomeDepthThing, 0x03ABD9C0);
 
 static float float_one = 1.0f;
-static float float_tornadospeed = 0.5f;
+static float float_tornadospeed = 1.0f;
+static float float_targetsize = 1;
 static float float_reticlespeedmultiplier1 = 2.0f;
 static float float_reticlespeedmultiplier2 = 2.0f;
 static float HorizontalResolution_Float = 640.0f;
@@ -730,12 +732,28 @@ void FixSkybox(NJS_OBJECT *a1, float scale)
 	}
 }
 
-void TornadoTarget_ScaleXandRender(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr)
+void __cdecl TornadoTargetSprite_TargetLock_DisplayX(ObjectMaster *a1)
 {
-	njTextureShadingMode(1);
-	sp->sy = sp->sx;
-	njDrawSprite2D_ForcePriority(sp, n, pri, attr);
-	njTextureShadingMode(2);
+	EntityData1 *v1; // esi
+	NJS_POINT2 position; // [esp+4h] [ebp-8h]
+
+	v1 = a1->Data1;
+	if (!MissedFrames && !CheckSkyChaseActionThing())
+	{
+		njPushMatrix(0);
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_ONE);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+		SetMaterialAndSpriteColor_Float(1.0f, 1.0f, 1.0f, 1.0f);
+		njSetTexture(&TARGET_TEXLIST);
+		njProjectScreen(0, &v1->Position, &position);
+		*(NJS_POINT2 *)&TornadoTarget_SPRITE.p.x = position;
+		TornadoTarget_SPRITE.sy = v1->Scale.y * (VerticalResolution / 480.0f);
+		njDrawSprite2D_ForcePriority(&TornadoTarget_SPRITE, 2, 1000.0f, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR);
+		njPopMatrix(1u);
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		ClampGlobalColorThing_Thing();
+	}
 }
 
 void TornadoTarget_Render(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr, QueuedModelFlagsB queue_flags)
@@ -758,9 +776,23 @@ void SetSkyChaseRocketColor(float a, float r, float g, float b)
 	SetMaterialAndSpriteColor_Float(1.0f, 1.0f, 1.0f, 1.0f);
 }
 
+static double SomeBullshitFloat = -0.1591549762031479f;
+static double SomeBullshitFloat2 = 0.1591549762031479f;
+static double f65535_1 = 65535.0f;
+static double f65535_2 = 65535.0f;
+
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 {
+	//This is bullshit!
+	WriteData((double**)0x0062C585, &f65535_1);
+	WriteData((double**)0x0062C5B7, &f65535_2);
+	WriteData((double**)0x0062C58B, &SomeBullshitFloat);
+	WriteData((double**)0x0062C5BD, &SomeBullshitFloat2);
+	WriteData((int*)0x0062C598, 5461); //BAMS limit 1
+	WriteData((int*)0x0062C5B1, 5461); //BAMS limit 2
+	//End of bullshit
+	//Resolution related fixes
 	HorizontalResolution_Float = HorizontalResolution;
 	VerticalResolution_Float = VerticalResolution;
 	if (HorizontalResolution_Float / VerticalResolution_Float > 1.4f)
@@ -778,7 +810,10 @@ extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 	//Sky Chase reticle and multiplier fixes
 	float_reticlespeedmultiplier1 = HorizontalResolution / 640.0f;
 	float_reticlespeedmultiplier2 = VerticalResolution / 480.0f;
+	float_targetsize = pow(VerticalResolution/15.0f, 2);
+	WriteData((float**)0x628AF7, &float_targetsize); //Target size
 	WriteData((float**)0x00629472, &float_reticlespeedmultiplier2); //Target speed
+	//Limits for reticle
 	WriteData((float**)0x00628994, &float_reticlespeedmultiplier2); //right
 	WriteData((float**)0x006289B6, &float_reticlespeedmultiplier2); //left
 	WriteData((float**)0x006289F1, &float_reticlespeedmultiplier2); //top
@@ -789,11 +824,10 @@ extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 	WriteData((float**)0x00628A19, &SkyChaseLimit_Bottom);
 	WriteCall((void*)0x00629004, TornadoTarget_Render);
 	WriteCall((void*)0x00628FE5, TornadoTarget_Render);
-	WriteCall((void*)0x00628E4D, TornadoTarget_ScaleXandRender);
-	WriteData((double**)0x00627D14, &SkyChaseSkyRotationMultiplier);
+	WriteJump((void*)0x00628DB0, TornadoTargetSprite_TargetLock_DisplayX);
+	WriteData((double**)0x00627D14, &SkyChaseSkyRotationMultiplier); //Rotate the sky in the opposite direction
 	WriteData((float*)0x00628951, VerticalResolution / 480.0f); //Reticle scale X
 	WriteData((float*)0x0062895B, VerticalResolution / 480.0f); //Reticle scale Y
-	float_tornadospeed = max(1.0f, 0.25f*VerticalResolution / 480.0f);
 	WriteData((float**)0x00627F4D, &float_tornadospeed); //Tornado Speed
 	WriteData((float**)0x00627F60, &float_one); //Horizontal limit
 	WriteData((float**)0x00627F72, &float_one); //Vertical limit
