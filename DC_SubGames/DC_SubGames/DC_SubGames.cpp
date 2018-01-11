@@ -780,6 +780,7 @@ static double SomeBullshitFloat = -0.1591549762031479f;
 static double SomeBullshitFloat2 = 0.1591549762031479f;
 static double f65535_1 = 65535.0f;
 static double f65535_2 = 65535.0f;
+static float VerticalResolutionHalf_float = 240.0f;
 
 extern "C" __declspec(dllexport) const PointerList Pointers = { arrayptrandlength(pointers) };
 extern "C" __declspec(dllexport) void cdecl Init(const char *path)
@@ -795,6 +796,7 @@ extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 	//Resolution related fixes
 	HorizontalResolution_Float = HorizontalResolution;
 	VerticalResolution_Float = VerticalResolution;
+	VerticalResolutionHalf_float = VerticalResolution_Float / 2.0f;
 	if (HorizontalResolution_Float / VerticalResolution_Float > 1.4f)
 	{
 		if (HorizontalResolution_Float / VerticalResolution_Float > 2.2f) widescreenthing = 240.0f;
@@ -803,8 +805,8 @@ extern "C" __declspec(dllexport) void cdecl Init(const char *path)
 	}
 	//Hodai fixes
 	WriteData((float**)0x0043854D, &HorizontalResolution_Float);
-	WriteData((float**)0x00438571, &VerticalResolution_Float);
-	WriteData((float**)0x0043857F, &VerticalResolution_Float);
+	WriteData((float**)0x00438571, &VerticalResolutionHalf_float);
+	WriteData((float**)0x0043857F, &VerticalResolutionHalf_float);
 	WriteCall((void*)0x0062C764, SetSkyChaseRocketColor);
 	WriteCall((void*)0x0062C704, RenderSkyChaseRocket);
 	//Sky Chase reticle and multiplier fixes
