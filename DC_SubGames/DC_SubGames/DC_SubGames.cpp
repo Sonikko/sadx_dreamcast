@@ -750,7 +750,6 @@ void __cdecl TornadoTargetSprite_TargetLock_DisplayX(ObjectMaster *a1)
 			TornadoTarget_SPRITE.sy = v1->Scale.y * (VerticalResolution / 480.0f);
 			njTextureShadingMode(1);
 			if (GameState != 16) njDrawSprite2D_ForcePriority(&TornadoTarget_SPRITE, 2, 1000.0f, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR);
-			else njDrawSprite2D_Queue(&TornadoTarget_SPRITE, 2, 20048.0f, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR, QueuedModelFlagsB_SomeTextureThing);
 			njPopMatrix(1u);
 			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
 			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
