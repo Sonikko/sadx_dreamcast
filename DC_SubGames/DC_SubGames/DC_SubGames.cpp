@@ -699,6 +699,7 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 void FixSky1(NJS_OBJECT *a1, float scale)
 {
+	if (CurrentLevel == 36 && SkyChaseActionThing == 5) njTranslate(0, 0, 2000.0f, 0);
 	SomeDepthThing = -12000;
 	ProcessModelNode(a1, QueuedModelFlagsB_3, scale);
 	SomeDepthThing = 0;
