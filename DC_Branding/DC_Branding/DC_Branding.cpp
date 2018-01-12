@@ -8,6 +8,17 @@ DataArray(PVMEntry, GUITexturePVMs3, 0x007EEED0, 30);
 DataArray(PVMEntry, GUITexturePVMs4, 0x007EEFC0, 30);
 DataArray(PVMEntry, GUITexturePVMs5, 0x007EF0B0, 30);
 
+static float HalfResHZ = 320.0f;
+static float HalfResVT = 240.0f;
+static float floatone = 1.0f;
+static int PSInt = 0;
+static float PSsX = 0;
+static float PSsY = 0;
+static float PSsZ = 0;
+static int BSInt = 0;
+static float BSsX = 0;
+static float BSsY = 0;
+static float BSsZ = 0;
 static int titleframe = 0;
 static int titledrawn = -1;
 static int logoframe = 0;
@@ -39,6 +50,8 @@ static int BackgroundOffsetX = 0;
 static int BackgroundOffsetY = 0;
 static float BackgroundScaleX = 1.0f;
 static float BackgroundScaleY = 1.0f;
+static float f480_Fixed = 0;
+static float f640_Fixed = 0;
 
 Uint8 options;
 
@@ -389,17 +402,59 @@ void DisplayScreenTexture_AlwaysTop(int that_cant_be_right, float x, float y, fl
 	Direct3D_SetZFunc(3u);
 }
 
+void ScreenFadeFix(float left, float top, float right, float bottom, float depth, int color, QueuedModelFlagsB queueflags)
+{
+	DrawRect_Queue(-50.0f, -50.0f, HorizontalResolution+50.0f, VerticalResolution+50.0f, 32048.0f, color, QueuedModelFlagsB_EnableZWrite);
+}
+
+void RenderShittyTextures(int texnum, float x, float y, float z, float scaleX, float scaleY)
+{
+	DrawBG(texnum, x, y, z, scaleX, scaleY);
+	DoColorGradientThingMaybe(0xFF0016FF, 0xFF002EFF, 0xFF0016FF, 0xFF002EFF);
+	DisplayScreenTexture(BSInt, BSsX, BSsY, BSsZ);
+	DoColorGradientThingMaybe(0xFFFFFFFFu, 0xFFFFFFFFu, 0xFFFFFFFFu, 0xFFFFFFFFu);
+	DisplayScreenTexture(PSInt, PSsX, PSsY, PSsZ);
+}
+
+void RetrieveBottomThingStuff(int texnum, float x, float y, float z)
+{
+	BSInt = texnum;
+	BSsX = x;
+	BSsY = y;
+	BSsZ = z;
+}
+
+void RetrievePlayerSelectStuff(int that_cant_be_right, float x, float y, float z)
+{
+	PSInt = that_cant_be_right;
+	PSsX = x;
+	PSsY = y;
+	PSsZ = z;
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		//Screen fade fixes
+		f480_Fixed = 1.0f + VerticalResolution;
+		f640_Fixed = 1.0f + HorizontalResolution;
+		WriteData((float**)0x00433385, &f480_Fixed); //Screen fade resolution
+		WriteData((float**)0x004333A6, &f640_Fixed); //Screen fade resolution
+		WriteData((float*)0x004333A0, -1.0f); //Screen fade for tutorials
+		WriteData((float*)0x004333AE, -1.0f); //Screen fade for tutorials
+		WriteCall((void*)0x0042BF52, ScreenFadeFix);
 		//Character select screen fixes
+		WriteCall((void*)0x00511AD0, RetrievePlayerSelectStuff); //Player select text in character select screen
+		WriteCall((void*)0x00511C76, RetrieveBottomThingStuff); //Bottom thing in character select screen
+		WriteCall((void*)0x00511B3B, RenderShittyTextures); //Render stuff that refuses to render properly otherwise
+		WriteData<5>((char*)0x0040BF27, 0x90); //Disable "Now saving..."
 		WriteData<5>((void*)0x0040BE0D, 0x90); //Disable "Now loading..."
 		WriteData<5>((void*)0x00503438, 0x90); //Disable "Now loading..."
 		WriteData<5>((void*)0x0050346D, 0x90); //Disable "Now loading..."
-		WriteCall((void*)0x00511A8B, DisplayScreenTexture_AlwaysTop); //Fix layering of the "Select your character" text
-		WriteData<5>((void*)0x00511C18, 0x90); //Disable ZFunc stuff to prevent character model layering issues
+		WriteCall((void*)0x00511A8B, DisplayScreenTexture_AlwaysTop); //Move the "Select your character" text to top
+		WriteData<5>((void*)0x00511C18, 0x90); //Disable ZFunc stuff to prevent character model overlap issues
 		//Shadow blending fixes
 		WriteCall((void*)0x0050B584, DrawShadow_Hook);
 		WriteCall((void*)0x00431D37, DrawShadow_Hook);
@@ -413,7 +468,6 @@ extern "C"
 		WriteCall((void*)0x00509439, DrawTexture_Hook); //Languages icon
 		WriteCall((void*)0x0050952F, DrawTexture_Hook); //Rumble icon
 		WriteCall((void*)0x0050782A, DrawTexture_Hook); //AVA_SAN triangle shadow
-		WriteCall((void*)0x00511AD0, DrawTexture_Hook); //Player select text in character select screen
 		//Set up normal/widescreen setting
 		std::string SectionName;
 		if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) SectionName = "Widescreen"; else SectionName = "Normal";
