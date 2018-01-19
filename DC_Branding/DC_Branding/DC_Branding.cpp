@@ -8,6 +8,8 @@ DataArray(PVMEntry, GUITexturePVMs3, 0x007EEED0, 30);
 DataArray(PVMEntry, GUITexturePVMs4, 0x007EEFC0, 30);
 DataArray(PVMEntry, GUITexturePVMs5, 0x007EF0B0, 30);
 
+static float Options_ArrowScale = 0.0f;
+static float Options_ArrowScaleAmount = 0.1f;
 static float HalfResHZ = 320.0f;
 static float HalfResVT = 240.0f;
 static float floatone = 1.0f;
@@ -432,11 +434,35 @@ void RetrievePlayerSelectStuff(int that_cant_be_right, float x, float y, float z
 	PSsZ = z;
 }
 
+void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, float Texture_Z)
+{
+	float Arrow1_X;
+	float Arrow1_Y;
+	float Arrow2_X;
+	float Arrow2_Y;
+	float Arrow1Center_X = 251.0f;
+	float Arrow1Center_Y = 268.0f;
+	float Arrow2Center_X = 218.0f;
+	float Arrow2Center_Y = 322.0f;
+	float Arrow1Scale = 0.0f + Options_ArrowScale;
+	float Arrow2Scale = 0.5f - Options_ArrowScale;
+	Arrow1_X = (Arrow1Center_X - 64 * Arrow1Scale) - 320.0f + HorizontalStretch * 320.0f;
+	Arrow1_Y = (Arrow1Center_Y - 64 * Arrow1Scale) - 240.0f + VerticalStretch * 240.0f;
+	Arrow2_X = (Arrow2Center_X - 64 * Arrow2Scale) - 320.0f + HorizontalStretch * 320.0f;
+	Arrow2_Y = (Arrow2Center_Y - 64 * Arrow2Scale) - 240.0f + VerticalStretch * 240.0f;
+	njTextureShadingMode(1);
+	DisplayScreenTexture(44, Texture_X, Texture_Y, Texture_Z);
+	DrawBG(45, Arrow1_X, Arrow1_Y, Texture_Z, Arrow1Scale, Arrow1Scale);
+	DrawBG(46, Arrow2_X, Arrow2_Y, Texture_Z, Arrow2Scale, Arrow2Scale);
+	njTextureShadingMode(2);
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
 		//Screen fade fixes
 		f480_Fixed = 1.0f + VerticalResolution;
 		f640_Fixed = 1.0f + HorizontalResolution;
@@ -464,7 +490,8 @@ extern "C"
 		WriteCall((void*)0x00508FFD, DrawTexture_Hook); //Sound test icon
 		WriteCall((void*)0x00509130, DrawTexture_Hook); //Sonic icon background
 		WriteCall((void*)0x00509191, DrawTexture_Hook); //Sonic icon
-		WriteCall((void*)0x005092A1, DrawTexture_Hook); //File icon
+		if (HD_GUI == nullptr) WriteCall((void*)0x005092A1, DrawTexture_Hook); //File icon
+		else WriteCall((void*)0x005092A1, FileIcon_Hook); //File icon
 		WriteCall((void*)0x00509439, DrawTexture_Hook); //Languages icon
 		WriteCall((void*)0x0050952F, DrawTexture_Hook); //Rumble icon
 		WriteCall((void*)0x0050782A, DrawTexture_Hook); //AVA_SAN triangle shadow
@@ -689,6 +716,13 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
+		if (GameMode == GameModes_Menu && HD_GUI != nullptr)
+		{
+			if (Options_ArrowScale > 0.5f) Options_ArrowScaleAmount = -0.02f;
+			if (Options_ArrowScale < 0.0f) Options_ArrowScaleAmount = 0.02f;
+			Options_ArrowScale = Options_ArrowScale + Options_ArrowScaleAmount;
+		}
 		if (transitionmode != 0 && transitionframe >= 15)
 		{
 			transitionmode = 0;
