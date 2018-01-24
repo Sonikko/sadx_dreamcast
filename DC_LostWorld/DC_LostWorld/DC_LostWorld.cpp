@@ -60,18 +60,21 @@ extern "C"
 		*(NJS_OBJECT*)0x20144CC = object_0013BB70; //Kusa02 type 1
 		*(NJS_OBJECT*)0x2015968 = object_0013CA2C; //Kusa02 type 2
 		*(NJS_MODEL_SADX*)0x0202FF74 = attach_00151E30; //Aokiswitch
-		*(NJS_OBJECT*)0x201AF8C = object_00140C64; //Box part 1
-		*(NJS_OBJECT*)0x201B1C4 = object_00140E84; //Box part 2
-		*(NJS_OBJECT*)0x201B40C = object_001410B4; //Box part 3
-		*(NJS_OBJECT*)0x201B6F4 = object_00141374; //Box part 4
-		*(NJS_OBJECT*)0x201B93C = object_001415A4; //Box part 5
-		*(NJS_OBJECT*)0x201BBBC = object_0014180C; //Box part 6
-
+		*(NJS_OBJECT*)0x201AF8C = object_00140C64; //Box part 1 object
+		*(NJS_OBJECT*)0x201B1C4 = object_00140E84; //Box part 2 object
+		*(NJS_OBJECT*)0x201B40C = object_001410B4; //Box part 3 object
+		*(NJS_OBJECT*)0x201B6F4 = object_00141374; //Box part 4 object
+		*(NJS_OBJECT*)0x201B93C = object_001415A4; //Box part 5 object
+		*(NJS_OBJECT*)0x201BBBC = object_0014180C; //Box part 6 object
+		*(NJS_MODEL_SADX*)0x201AF60 = attach_00140C3C; //Box part 1 model
+		*(NJS_MODEL_SADX*)0x201B198 = attach_00140E5C; //Box part 2 model
+		*(NJS_MODEL_SADX*)0x201B3E0 = attach_0014108C; //Box part 3 model
+		*(NJS_MODEL_SADX*)0x201B6C8 = attach_0014134C; //Box part 4 model
+		*(NJS_MODEL_SADX*)0x201B910 = attach_0014157C; //Box part 5 model
+		*(NJS_MODEL_SADX*)0x201BB90 = attach_001417E4; //Box part 6 model
 		*(NJS_MODEL_SADX*)0x20062E0 = attach_001313BC; //Hasira02
 		*(NJS_MODEL_SADX*)0x201CE60 = attach_001426E8; //TPanel
-
 		*(NJS_OBJECT*)0x201F82C = object_00144FD4; //Door front
-
 		((NJS_OBJECT*)0x201C690)->child->model = &attach_00141B5C; //Water switch
 		*(NJS_OBJECT*)0x200D9D4 = object_00135F50; //Snake gate
 		*(NJS_OBJECT*)0x1FFE9A4 = object_0012BB88; //Ashiba01
