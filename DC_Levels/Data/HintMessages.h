@@ -513,6 +513,7 @@ HintText_Entry ChaoGardenMessages_German[] = {
 	{ NULL, ChaoGardenMessages_German_6_Text },
 	{ NULL, ChaoGardenMessages_English_7_Text }
 };
+
 HintText_Entry ChaoGardenMessages_English[] = {
 	{ ChaoGardenMessages_English_0_Control, ChaoGardenMessages_English_0_Text },
 	{ ChaoGardenMessages_English_1_Control, ChaoGardenMessages_English_1_Text },

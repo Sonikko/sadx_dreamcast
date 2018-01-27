@@ -3899,12 +3899,13 @@ void __cdecl BowChaoThing(NJS_ACTION *action, float frame)
 	if (bowchaoanim == 1) njAction(action, bowchaoframe); else njAction(action, frame);
 }
 
-void __cdecl sub_72C2E0X()
+int __cdecl sub_72C2E0X()
 {
 	ObjectMaster *v0; // eax@1
 	ObjectMaster *v1; // esi@1
 	LoadPVM("OBJ_AL_RACE", (NJS_TEXLIST*)0x033A6404);
 	LoadObjects_RaceEntry();
+	return 0;
 }
 
 void __cdecl ChaoStgEntrance_MainX(ObjectMaster *a1)
@@ -3983,7 +3984,7 @@ void __cdecl LoadChaoRaceX()
 {
 	SkipSA1Entry = 0;
 	PrintDebug("ChaoStgRace _prolog begin.\n");
-	LoadObject(LoadObj_Data1, 2, ChaoStgRace_Main);
+	LoadObject(LoadObj_Data1, 2, ChaoStgRace_Init);
 	LoadObjects_Race();
 	SetChaoLandTableX(&landtable_00000E64);
 	PrintDebug("ChaoStgRace _prolog end.\n");
@@ -4062,16 +4063,13 @@ bool letteranims[][8] = {
 	{ false, false, false, false, false, false, false, false },
 };
 
-PointerInfo pointers[] = {
-	ptrdecl(0x9BF06C, &ChaoGardenMessages_Japanese),
-	ptrdecl(0x9BF070, &ChaoGardenMessages_English),
-	ptrdecl(0x9BF074, &ChaoGardenMessages_French),
-	ptrdecl(0x9BF078, &ChaoGardenMessages_Spanish),
-	ptrdecl(0x9BF07C, &ChaoGardenMessages_German)
-};
-
 void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	WriteData((HintText_Entry**)0x9BF06C, &ChaoGardenMessages_Japanese[0]);
+	WriteData((HintText_Entry**)0x9BF070, &ChaoGardenMessages_English[0]);
+	WriteData((HintText_Entry**)0x9BF074, &ChaoGardenMessages_French[0]);
+	WriteData((HintText_Entry**)0x9BF078, &ChaoGardenMessages_Spanish[0]);
+	WriteData((HintText_Entry**)0x9BF07C, &ChaoGardenMessages_German[0]);
 	//Config stuff
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	EnableSSGarden = config->getBool("Chao Gardens", "EnableStationSquareGarden", true);
