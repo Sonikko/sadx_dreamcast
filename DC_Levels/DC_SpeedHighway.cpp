@@ -94,6 +94,17 @@ void AntennaSprite()
 
 void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	WriteData((char**)0x006109CD, (char*)"HIGHWAY_CAR_DC");
+	WriteData((char**)0x006105C2, (char*)"BG_HIGHWAY_DC");
+	WriteData((char**)0x006105D1, (char*)"BG_HIGHWAY01_DC");
+	WriteData((char**)0x006106E2, (char*)"BG_HIGHWAY_DC");
+	WriteData((char**)0x006106F1, (char*)"BG_HIGHWAY02_DC");
+	WriteData((char**)0x00610852, (char*)"BG_HIGHWAY03_DC");
+	HIGHWAY01_TEXLISTS[0].Name = "HIGHWAY01_DC";
+	HIGHWAY02_TEXLISTS[0].Name = "HIGHWAY02_DC";
+	HIGHWAY03_TEXLISTS[0].Name = "HIGHWAY03_DC";
+	OBJ_HIGHWAY_TEXLISTS[0].Name = "OBJ_HIGHWAY_DC";
+	OBJ_HIGHWAY_TEXLISTS[1].Name = "OBJ_HIGHWAY2_DC";
 	WriteData((LandTable**)0x97DA88, &landtable_0001853C);
 	WriteData((LandTable**)0x97DA8C, &landtable_00019178);
 	WriteData((LandTable**)0x97DA90, &landtable_0001B08C);

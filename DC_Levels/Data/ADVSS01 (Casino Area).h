@@ -39125,4 +39125,4 @@ COL collist_0006FE50[] = {
 
 };
 
-LandTable landtable_000738F4 = { LengthOfArray(collist_0006FE50), 0, 0xC, 1500, collist_0006FE50, NULL, "ADVSS01DC", (NJS_TEXLIST *)&texlist2 , 0, 0 };
+LandTable landtable_000738F4 = { LengthOfArray(collist_0006FE50), 0, 0xC, 1500, collist_0006FE50, NULL, "ADVSS01_DC", (NJS_TEXLIST *)&texlist2 , 0, 0 };

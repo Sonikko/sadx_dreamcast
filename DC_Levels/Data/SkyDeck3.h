@@ -40887,4 +40887,4 @@ COL collist_000210B8[] = {
 	{ { 681, -60, -208.94f }, 104.5227f, 0, 0, &objectSTG06_000F0CCC_2, 0, 0xC0000001 }, //glass thing in hangar 3
 };
 
-LandTable landtable_00023EB4 = { LengthOfArray(collist_000210B8), 0, 0xC, 2000, collist_000210B8, NULL, "SKYDECK03", (NJS_TEXLIST *)&texlist_skydeck3, 0, 0 };
+LandTable landtable_00023EB4 = { LengthOfArray(collist_000210B8), 0, 0xC, 2000, collist_000210B8, NULL, "SKYDECK03_DC", (NJS_TEXLIST *)&texlist_skydeck3, 0, 0 };

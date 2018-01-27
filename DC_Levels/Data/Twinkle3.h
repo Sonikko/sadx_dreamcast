@@ -9566,4 +9566,4 @@ COL collist_00019368[] = {
 NJS_TEXNAME textures_twinkle3[30];
 NJS_TEXLIST texlist_twinkle3 = { arrayptrandlength(textures_twinkle3) };
 
-LandTable landtable_00019F5C = { LengthOfArray(collist_00019368), 0, 0xC, 600, collist_00019368, NULL, "TWINKLE03", (NJS_TEXLIST *)&texlist_twinkle3, 0, 0 };
+LandTable landtable_00019F5C = { LengthOfArray(collist_00019368), 0, 0xC, 600, collist_00019368, NULL, "TWINKLE03_DC", (NJS_TEXLIST *)&texlist_twinkle3, 0, 0 };

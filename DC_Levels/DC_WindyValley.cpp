@@ -108,6 +108,9 @@ void RenderWindy1Sky()
 
 void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	WINDY01_TEXLISTS[0].Name = "WINDY01_DC";
+	WINDY02_TEXLISTS[0].Name = "WINDY02_DC";
+	WINDY03_TEXLISTS[0].Name = "WINDY03_DC";
 	WriteData((char**)0x004DD6ED, (char*)"WINDY_BACK_DC");
 	WriteData((char**)0x004DD870, (char*)"WINDY_BACK2_DC");
 	WriteData((char**)0x004DD9AC, (char*)"WINDY_BACK3_DC");
