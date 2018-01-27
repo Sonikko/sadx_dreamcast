@@ -3,10 +3,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.16
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_Branding", "..\DC_Branding\DC_Branding\DC_Branding.vcxproj", "{056BBA58-3834-489B-A106-572236CB561B}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SADXStyleWater", "..\SADXStyleWater\SADXStyleWater\SADXStyleWater.vcxproj", "{3206A000-F01D-4097-80B1-7ACE2667F7D3}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoundOverhaul", "..\SoundOverhaul\SoundOverhaul\SoundOverhaul.vcxproj", "{EB53BD35-68E0-4141-BA15-C3C58226B46E}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TrainDaytime", "..\TrainDaytime\TrainDaytime\TrainDaytime.vcxproj", "{392AE35A-F746-421C-9566-E3ABBA9EECA0}"
@@ -51,28 +47,6 @@ Global
 		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{056BBA58-3834-489B-A106-572236CB561B}.Debug|Win32.ActiveCfg = Debug|Win32
-		{056BBA58-3834-489B-A106-572236CB561B}.Debug|Win32.Build.0 = Debug|Win32
-		{056BBA58-3834-489B-A106-572236CB561B}.Debug|x64.ActiveCfg = Debug|Win32
-		{056BBA58-3834-489B-A106-572236CB561B}.Debug|x86.ActiveCfg = Debug|Win32
-		{056BBA58-3834-489B-A106-572236CB561B}.Debug|x86.Build.0 = Debug|Win32
-		{056BBA58-3834-489B-A106-572236CB561B}.Release|Win32.ActiveCfg = Release|Win32
-		{056BBA58-3834-489B-A106-572236CB561B}.Release|Win32.Build.0 = Release|Win32
-		{056BBA58-3834-489B-A106-572236CB561B}.Release|x64.ActiveCfg = Release|Win32
-		{056BBA58-3834-489B-A106-572236CB561B}.Release|x86.ActiveCfg = Release|Win32
-		{056BBA58-3834-489B-A106-572236CB561B}.Release|x86.Build.0 = Release|Win32
-		{3206A000-F01D-4097-80B1-7ACE2667F7D3}.Debug|Win32.ActiveCfg = Debug|Win32
-		{3206A000-F01D-4097-80B1-7ACE2667F7D3}.Debug|Win32.Build.0 = Debug|Win32
-		{3206A000-F01D-4097-80B1-7ACE2667F7D3}.Debug|Win32.Deploy.0 = Debug|Win32
-		{3206A000-F01D-4097-80B1-7ACE2667F7D3}.Debug|x64.ActiveCfg = Debug|Win32
-		{3206A000-F01D-4097-80B1-7ACE2667F7D3}.Debug|x86.ActiveCfg = Debug|Win32
-		{3206A000-F01D-4097-80B1-7ACE2667F7D3}.Debug|x86.Build.0 = Debug|Win32
-		{3206A000-F01D-4097-80B1-7ACE2667F7D3}.Release|Win32.ActiveCfg = Release|Win32
-		{3206A000-F01D-4097-80B1-7ACE2667F7D3}.Release|Win32.Build.0 = Release|Win32
-		{3206A000-F01D-4097-80B1-7ACE2667F7D3}.Release|Win32.Deploy.0 = Release|Win32
-		{3206A000-F01D-4097-80B1-7ACE2667F7D3}.Release|x64.ActiveCfg = Release|Win32
-		{3206A000-F01D-4097-80B1-7ACE2667F7D3}.Release|x86.ActiveCfg = Release|Win32
-		{3206A000-F01D-4097-80B1-7ACE2667F7D3}.Release|x86.Build.0 = Release|Win32
 		{EB53BD35-68E0-4141-BA15-C3C58226B46E}.Debug|Win32.ActiveCfg = Debug|Win32
 		{EB53BD35-68E0-4141-BA15-C3C58226B46E}.Debug|Win32.Build.0 = Debug|Win32
 		{EB53BD35-68E0-4141-BA15-C3C58226B46E}.Debug|Win32.Deploy.0 = Debug|Win32

@@ -1,6 +1,8 @@
 #pragma once
 
 void DisableSADXWaterFog();
+void Branding_Init(const char *path, const HelperFunctions &helperFunctions);
+void Branding_OnFrame();
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions);
 void ADV00_OnFrame();
 void ADV01_Init(const char *path, const HelperFunctions &helperFunctions);

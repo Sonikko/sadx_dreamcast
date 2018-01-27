@@ -295,6 +295,7 @@
     <ClCompile Include="DC_ADV01MODELS.cpp" />
     <ClCompile Include="DC_ADV02MODELS.cpp" />
     <ClCompile Include="DC_ADV03MODELS.cpp" />
+    <ClCompile Include="DC_Branding.cpp" />
     <ClCompile Include="DC_Casinopolis.cpp" />
     <ClCompile Include="DC_ChaoGardens.cpp" />
     <ClCompile Include="DC_EmeraldCoast.cpp" />

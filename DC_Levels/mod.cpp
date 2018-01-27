@@ -10,6 +10,8 @@ extern "C"
 		//Config stuff
 		//If there is no config.ini, make one
 		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
+		//Init functions
+		Branding_Init(path, helperFunctions);
 		ADV00_Init(path, helperFunctions);
 		ADV01_Init(path, helperFunctions);
 		ADV02_Init(path, helperFunctions);
@@ -32,6 +34,7 @@ extern "C"
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
+		Branding_OnFrame();
 		ADV00_OnFrame();
 		ADV01_OnFrame();
 		ADV02_OnFrame();

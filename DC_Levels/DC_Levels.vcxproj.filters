@@ -656,5 +656,8 @@
     <ClCompile Include="DC_General.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DC_Branding.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
