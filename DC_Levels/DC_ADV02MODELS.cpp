@@ -18,6 +18,7 @@
 #include "MR_Palms.h"
 #include <lanternapi.h>
 #include <string>
+#include <IniFile.hpp>
 #include "DC_Levels.h"
 
 std::string slx0xbin;
@@ -54,7 +55,7 @@ static int anim2 = 140;
 static int anim3 = 76;
 static int anim_sadx = 156;
 static int uvADV02_anim = 1;
-
+static int SADXStyleWater = false;
 NJS_TEXNAME textures_mrtrain[31];
 NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
 
@@ -233,6 +234,9 @@ void FixMRBase(ObjectMaster *a1)
 
 void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
+	delete config;
 	WriteData<1>((char*)0x006F4DA0, 0x04); //Emerald shard (cutscene) glow blending mode
 	WriteData<1>((char*)0x006F4BF1, 0x04); //Emerald shard (cutscene) glow blending mode	
 	//MR Base stuff
@@ -253,7 +257,6 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((int*)0x006D1D18, 0); //
 	WriteData((int*)0x006D1D1D, 0); //
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	slx0xbin = path;
 	slx0xbin.append("\\system\\SL_X0X.BIN");
@@ -273,7 +276,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0x110CF34 = object2_00229334; //TANKEN 2
 	*(NJS_OBJECT*)0x11112CC = object_0022DDA4; //TANKEN 3
 	WriteCall((void*)0x0053CD37, SetColor); //Master Emerald glow
-	if (SADXStyleWater != 0)
+	if (SADXStyleWater == true)
 	{
 		WriteCall((void*)0x00532551, DisableSADXWaterFog);
 		landtable_00017960.TexName = "ADV_MR00W";
@@ -411,7 +414,6 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 void ADV02_OnFrame()
 {
 	uvADV02_anim = (uvADV02_anim + 1) % 255;
-	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	//Evening and night materials Act 3
 	if (CurrentLevel == 33 && CurrentAct == 2)
 	{
@@ -438,7 +440,7 @@ void ADV02_OnFrame()
 		if (anim1 > 139) anim1 = 130;
 		if (anim2 > 154) anim2 = 140;
 		if (anim_sadx > 170) anim_sadx = 156;
-		if (SADXStyleWater != 0) WriteData((int*)0x00532611, anim_sadx);
+		if (SADXStyleWater == true) WriteData((int*)0x00532611, anim_sadx);
 		matlistADV02_0007523C[0].attr_texId = anim1;
 		matlistADV02_00057F04[0].attr_texId = anim1;
 		matlistADV02_00053510[0].attr_texId = anim2;

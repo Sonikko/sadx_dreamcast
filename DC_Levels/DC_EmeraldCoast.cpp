@@ -5,6 +5,7 @@
 #include "EmeraldCoast2.h"
 #include "EmeraldCoast3.h"
 #include "EmeraldCoast_Objects.h"
+#include <IniFile.hpp>
 #include "DC_Levels.h"
 
 static int anim1 = 82;
@@ -37,7 +38,7 @@ DataPointer(OceanData, OceanDataB, 0x03D0B90C);
 FunctionPointer(void, DrawEmeraldCoastOcean, (OceanData *x), 0x004F8A30);
 FunctionPointer(double, sub_789320, (float a2), 0x789320);
 
-int round(float r) {
+int roundfloat(float r) {
 	return (r > 0.0) ? (r + 0.5) : (r - 0.5);
 }
 
@@ -194,7 +195,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			if (oldpos.x != v1->Position.x)
 			{
 				u2_add = int(255 * (v1->Position.x - oldpos.x) / unitsize_u_small) % 255;
-				if (SADXStyleWater == true) u2_add = round(1.5f * u2_add);
+				if (SADXStyleWater == true) u2_add = roundfloat(1.5f * u2_add);
 				for (int u_step = 0; u_step < LengthOfArray(uvSTG01_00CBB000_d); u_step++)
 				{
 					uvSTG01_00CBB000_data[u_step].u = uvSTG01_00CBB000_data[u_step].u - u2_add;
@@ -206,7 +207,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			if (oldpos.z != v1->Position.z)
 			{
 				v2_add = int(255 * (v1->Position.z - oldpos.z) / unitsize_v_small) % 255;
-				if (SADXStyleWater == true) v2_add = round(0.5f * v2_add);
+				if (SADXStyleWater == true) v2_add = roundfloat(0.5f * v2_add);
 				for (int v_step = 0; v_step < LengthOfArray(uvSTG01_00CBB000_d); v_step++)
 				{
 					uvSTG01_00CBB000_data[v_step].v = uvSTG01_00CBB000_data[v_step].v - v2_add;
@@ -440,6 +441,9 @@ void WhaleSplash(NJS_OBJECT *a1)
 
 void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+	SADXStyleWater = config->getBool("SADX Style Water", "EmeraldCoast", false);
+	delete config;
 	//Landtables
 	WriteData((LandTable**)0x97DA28, &landtable_00081554); //Act 1
 	WriteData((LandTable**)0x97DA2C, &landtable_000DEB60); //Act 2
@@ -456,8 +460,6 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData<2>((char*)0x004F7816, 0xFF); //Disable water animation in Act 2
 	WriteData<2>((char*)0x004F78E6, 0xFF); //Disable water animation in Act 3
 	((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.argb.a = 0x99; //Match dynamic ocean alpha with normal ocean
-	HMODULE SADXStyleWaterHandle = GetModuleHandle(L"SADXStyleWater");
-	if (SADXStyleWaterHandle != nullptr) SADXStyleWater = true; else SADXStyleWater = false;
 	DataArray(PVMEntry, BeachTexlists, 0x0102F408, 25);
 	if (SADXStyleWater == true)
 	{

@@ -20,6 +20,7 @@
 #include "E101Kai_Model.h"
 #include "LightingArrays.h"
 #include "ERobo.h"
+#include <IniFile.hpp>
 #include "DC_Levels.h"
 
 std::string plm0xbin;
@@ -84,7 +85,8 @@ FunctionPointer(void, sub_4CACF0, (NJS_VECTOR *a1, float a2), 0x4CACF0);
 FunctionPointer(void, sub_4CC540, (NJS_VECTOR *a1, int a2, int a3, int a4), 0x4CC540);
 FunctionPointer(void, sub_77E940, (FVFStruct_H_B *a1, signed int count, int a3), 0x77E940);
 
-static bool SADXStyleWater = false;
+static bool SADXStyleWater_EggHornet = false;
+static bool SADXStyleWater_ZeroE101R = false;
 static float EggViper_blendfactor = 0.0f;
 static int EggViper_blenddirection = 1;
 static int EggViper_EffectMode = 0;
@@ -610,7 +612,7 @@ void RenderE101RStuff()
 	njSetTexture((NJS_TEXLIST *)0x16B460C);
 	njPushMatrix(0);
 	njTranslate(0, 0, 0, 0);
-	if (SADXStyleWater == false) ProcessModelNode_AB_Wrapper(&object_00007C50, 1.0f);
+	if (SADXStyleWater_ZeroE101R == false) ProcessModelNode_AB_Wrapper(&object_00007C50, 1.0f);
 	ProcessModelNode_AB_Wrapper(&objectR_0001AD68, 1.0f);
 	ProcessModelNode_AB_Wrapper(&objectR_0001C3BC, 1.0f);
 	ProcessModelNode_AB_Wrapper(&objectR_0001BDF4, 1.0f);
@@ -674,6 +676,10 @@ void E101R_AfterImageArmConstantAttr(Uint32 and_attr, Uint32 or_attr)
 
 void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+	SADXStyleWater_EggHornet = config->getBool("SADX Style Water", "EggHornet", false);
+	SADXStyleWater_ZeroE101R = config->getBool("SADX Style Water", "ZeroE101R", false);
+	delete config;
 	//Landtables
 	WriteData((LandTable**)0x7D1CC0, &landtable_00D2136C); //Chaos 2 PC
 	WriteData((LandTable**)0x7D1CD6, &landtable_00000238); //Chaos 4
@@ -752,17 +758,11 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	WriteJump((void*)0x00556D60, SetClip_Chaos6KX);
 	WriteJump((void*)0x00556E40, SetClip_Chaos6SX);
-	HMODULE SADXStyleWater_handle = GetModuleHandle(L"SADXStyleWater");
-	if (SADXStyleWater_handle != nullptr) SADXStyleWater = true; else SADXStyleWater = false;
 	//SADX style water
-	if (SADXStyleWater == true)
+	if (SADXStyleWater_EggHornet == true)
 	{
 		ResizeTextureList((NJS_TEXLIST*)0x1557064, 160); //Egg Hornet level texlist
-		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 104); //Zero/E101R texlist
-		collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x00000000;
 		landtable_00000128.TexName = "EGM1LANDW";
-		landtable_00000110.TexName = "E101R_TIKEIW";
-		landtable_00000180.TexName = "E101R_TIKEIW";
 		WriteCall((void*)0x00572310, WaterTexture_BossWaves); //Egg Hornet ocean
 		WriteCall((void*)0x0057236D, WaterTexture_BossOcean); //Egg Hornet ocean
 		WriteCall((void*)0x005722A3, DisableSADXWaterFog); //Egg Hornet ocean
@@ -771,6 +771,24 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		collist_0001E294[LengthOfArray(collist_0001E294) - 3].Flags = 0x81000000;
 		collist_0001E294[LengthOfArray(collist_0001E294) - 4].Flags = 0x81000000;
 		collist_0001E294[LengthOfArray(collist_0001E294) - 5].Flags = 0x00000000;
+	}
+	else
+	{
+		ResizeTextureList((NJS_TEXLIST*)0x1557064, 143);  //Egg Hornet level texlist
+		landtable_00000128.TexName = "EGM1LAND";
+		WriteCall((void*)0x0057192A, EggHornetWaterFunc); //Egg Hornet water
+		collist_0001E294[LengthOfArray(collist_0001E294) - 1].Flags = 0x00000000;
+		collist_0001E294[LengthOfArray(collist_0001E294) - 2].Flags = 0x00000000;
+		collist_0001E294[LengthOfArray(collist_0001E294) - 3].Flags = 0x00000000;
+		collist_0001E294[LengthOfArray(collist_0001E294) - 4].Flags = 0x00000000;
+		collist_0001E294[LengthOfArray(collist_0001E294) - 5].Flags = 0x80040400;
+	}
+	if (SADXStyleWater_ZeroE101R == true)
+	{
+		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 104); //Zero/E101R texlist
+		collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x00000000;
+		landtable_00000110.TexName = "E101R_TIKEIW";
+		landtable_00000180.TexName = "E101R_TIKEIW";
 		WriteCall((void*)0x0056CD15, WaterTexture_BossWaves); //E101R ocean
 		WriteCall((void*)0x0056CD7B, WaterTexture_BossOcean); //E101R ocean
 		WriteCall((void*)0x00587EF5, WaterTexture_BossWaves); //Zero ocean
@@ -778,18 +796,10 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	else
 	{
-		ResizeTextureList((NJS_TEXLIST*)0x1557064, 143);  //Egg Hornet level texlist
 		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 87); //Zero/E101R texlist
 		collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x80000000;
-		landtable_00000128.TexName = "EGM1LAND";
 		landtable_00000110.TexName = "E101R_TIKEI";
 		landtable_00000180.TexName = "E101R_TIKEI";
-		WriteCall((void*)0x0057192A, EggHornetWaterFunc); //Egg Hornet water
-		collist_0001E294[LengthOfArray(collist_0001E294) - 1].Flags = 0x00000000;
-		collist_0001E294[LengthOfArray(collist_0001E294) - 2].Flags = 0x00000000;
-		collist_0001E294[LengthOfArray(collist_0001E294) - 3].Flags = 0x00000000;
-		collist_0001E294[LengthOfArray(collist_0001E294) - 4].Flags = 0x00000000;
-		collist_0001E294[LengthOfArray(collist_0001E294) - 5].Flags = 0x80040400;
 		WriteData<1>((void*)0x587E10, 0xC3u); //E101R water
 		WriteData<1>((void*)0x56CC30, 0xC3u); //Zero water
 	}
@@ -803,28 +813,11 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((int*)0x01426CAC, -2538);
 	WriteCall((void*)0x00562303, TornadoFunc); //Perfect Chaos tornado fade-in
 	*(NJS_OBJECT *)0x02DA8664 = object_029A8664; //E101R model in cutscenes
-												 //Disable Chaos 2 columns
-												 /*((NJS_OBJECT *)0x11863EC)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118C944)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118C978)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118C9AC)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118C9E0)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118CA14)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118CA48)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118CA7C)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118CAB0)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118CAE4)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118CB18)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118CB4C)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118CB80)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118CBB4)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118CBE8)->evalflags |= NJD_EVAL_HIDE;
-												 ((NJS_OBJECT *)0x118C910)->evalflags |= NJD_EVAL_HIDE;*/
 	((NJS_MATERIAL*)0x0117E8A0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Top light in Chaos 2
 	((NJS_MATERIAL*)0x011E2C00)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Lilypad in Chaos 4
 	((NJS_MATERIAL*)0x011E2C14)->attrflags |= NJD_FLAG_IGNORE_SPECULAR; //Lilypad in Chaos 4
 	*(NJS_OBJECT*)0x01669DA8 = object_000434A0; //part of Egg Viper model
-												//Chaos 0
+	//Chaos 0
 	((NJS_OBJECT*)0x02C65CF8)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 	((NJS_OBJECT*)0x02C5DD18)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 	((NJS_OBJECT*)0x02C5E100)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
@@ -910,7 +903,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	((NJS_OBJECT*)0x01126200)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos2
 	((NJS_OBJECT*)0x01125C60)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos2
 	((NJS_OBJECT*)0x01121EE4)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos2
-																				 //Chaos 4
+	//Chaos 4
 	((NJS_OBJECT*)0x011A652C)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4 something?
 	((NJS_OBJECT*)0x011C1C24)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2; //Chaos4 ball
 	((NJS_OBJECT*)0x011EC85C)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2; //Chaos4 ball
@@ -929,14 +922,14 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	((NJS_OBJECT*)0x01191764)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
 	((NJS_OBJECT*)0x011913AC)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
 	((NJS_OBJECT*)0x01191018)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
-																				 //Chaos 6 transformed emeralds lighting (well this still doesn't work)
-																				 /*((NJS_MATERIAL*)0x0128C194)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-																				 ((NJS_MATERIAL*)0x0128BCB4)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-																				 ((NJS_MATERIAL*)0x0128B7F4)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-																				 ((NJS_MATERIAL*)0x0128B314)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-																				 ((NJS_MATERIAL*)0x0128AE34)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-																				 ((NJS_MATERIAL*)0x0128A954)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;*/
-																				 //Perfect Chaos misc
+	//Chaos 6 transformed emeralds lighting (well this still doesn't work)
+	/*((NJS_MATERIAL*)0x0128C194)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	((NJS_MATERIAL*)0x0128BCB4)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	((NJS_MATERIAL*)0x0128B7F4)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	((NJS_MATERIAL*)0x0128B314)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	((NJS_MATERIAL*)0x0128AE34)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	((NJS_MATERIAL*)0x0128A954)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;*/
+	//Perfect Chaos misc
 	((NJS_OBJECT*)0x0248B1B4)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR; //Egg Carrier 2
 	matlist_00F975B0[0].diffuse.color = 0xFFB2B2B2;
 	matlist_00F975B0[1].diffuse.color = 0xFFB2B2B2;
@@ -956,8 +949,8 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	ResizeTextureList((NJS_TEXLIST*)0x167E5CC, textures_eggviper);
 	ResizeTextureList((NJS_TEXLIST*)0x14FBFB4, textures_e101);
 	memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 swamp water
-																		  //*(NJS_OBJECT*)0x1561A70 = object_000104E8; //Egg Hornet model
-																		  //Chaos 6 emeralds
+	//*(NJS_OBJECT*)0x1561A70 = object_000104E8; //Egg Hornet model
+	//Chaos 6 emeralds
 	((NJS_MATERIAL*)0x01264A58)->diffuse.color = 0xFFB2B2B2;
 	((NJS_MATERIAL*)0x01266968)->diffuse.color = 0xFFB2B2B2;
 	((NJS_MATERIAL*)0x0126F6F4)->diffuse.color = 0xFFB2B2B2;

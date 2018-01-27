@@ -17,6 +17,7 @@
 #include "ADV01C_05.h"
 #include "EC_Tornado.h"
 #include "EC_Transform.h"
+#include <IniFile.hpp>
 #include "DC_Levels.h"
 
 FunctionPointer(void, sub_409FB0, (NJS_ACTION *a1, float frameNumber), 0x409FB0);
@@ -33,6 +34,7 @@ static int water3 = 66;
 static char water_sadx1 = 108;
 static char water_sadx2 = 100;
 static char water_sadx3 = 76;
+static int SADXStyleWater = false;
 
 DataArray(DrawDistance, EggCarrierOutsideDrawDist1, 0x010F2264, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist2, 0x010F227C, 3);
@@ -304,6 +306,9 @@ void RenderEggCarrier0NPC(NJS_ACTION *action, Float frame)
 
 void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+	SADXStyleWater = config->getBool("SADX Style Water", "EggCarrier", false);
+	delete config;
 	WriteCall((void*)0x0051AB88, RenderEggCarrier0NPC); //Chaos 4 glitch fix
 	WriteJump((void*)0x51B210, EggCarrierSkyBox);
 	WriteJump((void*)0x51B3B0, EggCarrierSkyBottom);
@@ -334,8 +339,7 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteCall((void*)0x006F4577, TurnLightsOff); //Turn the lights off
 		WriteCall((void*)0x006F4620, TurnLightsOn); //Turn the lights on
 	}
-	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
-	if (SADXStyleWater != 0)
+	if (SADXStyleWater == true)
 	{
 		EggCarrierObjectTexlist_Sea[1].Name = "EC_SEAW";
 		landtable_00162260.TexName = "ADV_EC00W";
@@ -510,7 +514,6 @@ void ADV01_OnFrame()
 		if (CurrentCharacter == 6 && GetEventFlag(EventFlags_Gamma_JetBooster))	collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x80040000; //Lock E101 Beta room for Gamma
 		if (CurrentCharacter == 6 && !GetEventFlag(EventFlags_Gamma_JetBooster)) collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x00000000; //Unlock E101 Beta room for Gamma
 	}
-	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	if (CurrentLevel == 29 && CurrentAct == 0)
 	{
 		if (GameState != 16)
@@ -523,14 +526,14 @@ void ADV01_OnFrame()
 				objectADV01_00007C50.pos[0] = Camera_Data1->Position.x;
 				objectADV01_00007C50.pos[2] = Camera_Data1->Position.z;
 			}
-			if (SADXStyleWater != 0) WriteData<1>((char*)0x0051C4E0, water_sadx1);
+			if (SADXStyleWater == true) WriteData<1>((char*)0x0051C4E0, water_sadx1);
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 			{
 				water1++;
 				water_sadx1++;
 			}
 		}
-		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_0015F764[LengthOfArray(collist_0015F764) - 1].Flags = 0x80000000; else collist_0015F764[LengthOfArray(collist_0015F764) - 1].Flags = 0x00000000;
+		if (IsEggCarrierSunk() && SADXStyleWater == false) collist_0015F764[LengthOfArray(collist_0015F764) - 1].Flags = 0x80000000; else collist_0015F764[LengthOfArray(collist_0015F764) - 1].Flags = 0x00000000;
 	}
 	if (CurrentLevel == 29 && CurrentAct == 1)
 	{
@@ -544,14 +547,14 @@ void ADV01_OnFrame()
 				objectADV01_00007C50_1.pos[0] = Camera_Data1->Position.x;
 				objectADV01_00007C50_1.pos[2] = Camera_Data1->Position.z;
 			}
-			if (SADXStyleWater != 0) WriteData<1>((char*)0x0051C503, water_sadx2);
+			if (SADXStyleWater == true) WriteData<1>((char*)0x0051C503, water_sadx2);
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 			{
 				water2++;
 				water_sadx2++;
 			}
 		}
-		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x80000000; else collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x00000000;
+		if (IsEggCarrierSunk() && SADXStyleWater == false) collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x80000000; else collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x00000000;
 	}
 	if (CurrentLevel == 29 && CurrentAct == 2)
 	{
@@ -565,13 +568,13 @@ void ADV01_OnFrame()
 				objectADV01_00007C50_2.pos[0] = Camera_Data1->Position.x;
 				objectADV01_00007C50_2.pos[2] = Camera_Data1->Position.z;
 			}
-			if (SADXStyleWater != 0) WriteData<1>((char*)0x0051C521, water_sadx3);
+			if (SADXStyleWater == true) WriteData<1>((char*)0x0051C521, water_sadx3);
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 			{
 				water3++;
 				water_sadx3++;
 			}
 		}
-		if (IsEggCarrierSunk() && SADXStyleWater == 0) collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x80000000; else collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x00000000;
+		if (IsEggCarrierSunk() && SADXStyleWater == false) collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x80000000; else collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x00000000;
 	}
 }

@@ -725,7 +725,7 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((int*)0x1E77E58, 128); //Gear rotation speed
 	//Config stuff
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
-	CowgirlOn = config->getBool("Casinopolis", "EnableCowgirl", true);
+	CowgirlOn = config->getBool("Miscellaneous", "EnableCasinopolisCowgirl", true);
 	delete config;
 	if (CowgirlOn == true)
 	{

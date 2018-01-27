@@ -6,6 +6,7 @@
 #include "ADV03_02.h"
 #include "Past_objects.h"
 #include <lanternapi.h>
+#include <IniFile.hpp>
 #include "DC_Levels.h"
 
 HMODULE Past = GetModuleHandle(L"ADV03MODELS");
@@ -22,6 +23,7 @@ static int animframe2 = 72;
 static int animframe3 = 59;
 static char animframe_water = 84;
 static char animframe_water2 = 86;
+static bool SADXStyleWater = false;
 
 NJS_MATERIAL* SecondCharacterSpecular[] = {
 	//Chao
@@ -74,6 +76,9 @@ bool ForceFirstCharacterSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+	SADXStyleWater = config->getBool("SADX Style Water", "Past", false);
+	delete config;
 	//Tikal cutscene water ripple thing
 	WriteData((float*)0x0068BA27, -40.7f); //Ripple 1 X
 	WriteData((float*)0x0068BA22, 86.0f); //Ripple 1 Y
@@ -85,7 +90,6 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x0068BA8F, 86.0f); //Ripple 3 Y
 	WriteData((float*)0x0068BA8A, 52.42f); //Ripple 3 Z
 	HMODULE handle = GetModuleHandle(L"ADV03MODELS");
-	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (handle != nullptr && Lantern != nullptr && GetProcAddress(Lantern, "materialADV03_register") != nullptr)
 	{
@@ -93,7 +97,7 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 		material_register(FirstCharacterSpecular, LengthOfArray(FirstCharacterSpecular), &ForceDiffuse2Specular2);
 		material_register(Past_ObjectSpecular, LengthOfArray(Past_ObjectSpecular), &ForceDiffuse0Specular1);
 	}
-	if (SADXStyleWater != 0)
+	if (SADXStyleWater == true)
 	{
 		ResizeTextureList(&texlist_past01, 101);
 		ResizeTextureList(&texlist_past02, 103);

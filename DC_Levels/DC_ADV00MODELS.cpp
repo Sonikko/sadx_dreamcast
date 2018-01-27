@@ -8,6 +8,7 @@
 #include "ADVSS04 (Hotel).h"
 #include "ADVSS05 (Twinkle Park Entrance).h"
 #include "NPCMaterials.h"
+#include <IniFile.hpp>
 #include "DC_Levels.h"
 
 static int anim1 = 46;
@@ -19,6 +20,7 @@ static int anim6 = 219;
 static int anim7 = 120;
 static int anim_sadx = 268;
 static int anim_sadx2 = 132;
+static bool SADXStyleWater = false;
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
@@ -224,6 +226,9 @@ void RenderOfficeDoor_Child(NJS_MODEL_SADX *a1, float scale)
 
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+	SADXStyleWater = config->getBool("SADX Style Water", "StationSquare", false);
+	delete config;
 	WriteCall((void*)0x00636DE9, RenderOfficeDoor);
 	WriteCall((void*)0x00636E99, RenderOfficeDoor);
 	WriteCall((void*)0x00636F0B, RenderOfficeDoor);
@@ -250,8 +255,7 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		material_register(WhiteDiffuseADV00_Night, LengthOfArray(WhiteDiffuseADV00_Night), &ForceWhiteDiffuse3_Night);
 		material_register(NPCMaterials, LengthOfArray(NPCMaterials), &NPCModelsFunction);
 	}
-	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
-	if (SADXStyleWater != 0)
+	if (SADXStyleWater == true)
 	{
 		WriteCall((void*)0x006312BB, WaterTexture);
 		matlistADV00_00123C24[0].attrflags |= NJD_FLAG_USE_ALPHA;
@@ -374,7 +378,6 @@ void ADV00_OnFrame()
 {
 	auto CharObj1PtrsThing = EntityData1Ptrs[0];
 	if (CurrentLevel == 26 && GetTimeOfDay() == 0) WriteData<1>((void*)0x0063A906, 0x01); else WriteData<1>((void*)0x0063A906, 0x05);
-	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");
 	HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 	//Act 2 (Sewers)
 	if (CurrentLevel == 26 && CurrentAct == 2)
@@ -802,7 +805,7 @@ void ADV00_OnFrame()
 	if (CurrentLevel == 26 && CurrentAct == 3 && GameState != 16)
 	{
 		if (anim_sadx > 282) anim_sadx = 268;
-		if (SADXStyleWater != 0) WriteData((int*)0x006311BB, anim_sadx);
+		if (SADXStyleWater == true) WriteData((int*)0x006311BB, anim_sadx);
 		if (anim6 > 227) anim6 = 219;
 		if (anim2 > 255) anim2 = 183;
 		if (anim2 > 183 && anim2 < 242) anim2 = 242;
@@ -812,11 +815,11 @@ void ADV00_OnFrame()
 		matlistADV00_00123620[0].attr_texId = anim2;
 		matlistADV00_000E7180[1].attr_texId = anim3;
 		matlistADV00_00122894[2].attr_texId = anim3;
-		if (SADXStyleWater != 0) matlistADV00_00114D80[0].attr_texId = anim3;
-		if (SADXStyleWater != 0) matlistADV00_00114D80[0].diffuse.argb.a = 0xB2;
-		if (SADXStyleWater != 0)matlistADV00_00114D80[0].attrflags |= NJD_FLAG_USE_ALPHA;
-		if (SADXStyleWater == 0) matlistADV00_00133D3C[0].attr_texId = anim6;
-		if (SADXStyleWater == 0) matlistADV00_00114D80Z[0].attr_texId = anim6;
+		if (SADXStyleWater == true) matlistADV00_00114D80[0].attr_texId = anim3;
+		if (SADXStyleWater == true) matlistADV00_00114D80[0].diffuse.argb.a = 0xB2;
+		if (SADXStyleWater == true)matlistADV00_00114D80[0].attrflags |= NJD_FLAG_USE_ALPHA;
+		if (SADXStyleWater == false) matlistADV00_00133D3C[0].attr_texId = anim6;
+		if (SADXStyleWater == false) matlistADV00_00114D80Z[0].attr_texId = anim6;
 		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 		{
 			anim2++;
@@ -839,13 +842,13 @@ void ADV00_OnFrame()
 		matlistADV00_00147958[2].attr_texId = anim4;
 		matlistADV00_00150A50[1].attr_texId = anim4;
 		matlistADV00_00150A50[3].attr_texId = anim5;
-		if (SADXStyleWater != 0) matlistADV00_00151E54[0].attr_texId = anim4;
-		if (SADXStyleWater != 0) WriteData((int*)0x006311E0, anim_sadx2);
+		if (SADXStyleWater == true) matlistADV00_00151E54[0].attr_texId = anim4;
+		if (SADXStyleWater == true) WriteData((int*)0x006311E0, anim_sadx2);
 		matlistADV00_00148688[0].attr_texId = anim5;
-		if (SADXStyleWater == 0) matlistADV00_00151E54[0].attr_texId = anim7;
-		if (SADXStyleWater == 0) matlistADV00_001566E4[0].attr_texId = anim7;
-		if (SADXStyleWater == 0) matlistADV00_0014B314[0].attr_texId = anim7;
-		if (SADXStyleWater == 0) matlistADV00_0014BED8[0].attr_texId = anim7;
+		if (SADXStyleWater == false) matlistADV00_00151E54[0].attr_texId = anim7;
+		if (SADXStyleWater == false) matlistADV00_001566E4[0].attr_texId = anim7;
+		if (SADXStyleWater == false) matlistADV00_0014B314[0].attr_texId = anim7;
+		if (SADXStyleWater == false) matlistADV00_0014BED8[0].attr_texId = anim7;
 		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 		{
 			anim4++;

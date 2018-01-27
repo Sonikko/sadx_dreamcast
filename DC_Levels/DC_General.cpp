@@ -517,7 +517,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_MODEL_SADX*)0x008BE168 = attach_0019F5CC; //Balloon
 	//Config stuff
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
-	EnableDCRipple = config->getBool("General", "EnableDreamcastRipple", true);
+	EnableDCRipple = config->getBool("General", "EnableDreamcastWaterRipple", true);
 	delete config;
 	ResizeTextureList(&OBJ_REGULAR_TEXLIST, 100); //Added DC ripple texture
 	//Ripples
