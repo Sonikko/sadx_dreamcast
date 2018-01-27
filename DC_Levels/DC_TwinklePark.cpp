@@ -395,6 +395,7 @@ void FixArchLight_Pause(NJS_OBJECT *object)
 
 void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	OBJ_TWINKLE_TEXLISTS[0].Name = "OBJ_TWINKLE_DC";
 	WriteData((LandTable**)0x97DA68, &landtable_0001788C);
 	WriteData((LandTable**)0x97DA6C, &landtable_00019344);
 	WriteData((LandTable**)0x97DA70, &landtable_00019F5C);

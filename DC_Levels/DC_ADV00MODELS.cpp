@@ -226,6 +226,9 @@ void RenderOfficeDoor_Child(NJS_MODEL_SADX *a1, float scale)
 
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	WriteData((char**)0x007C4EC4, (char*)"SSCAR_DC");
+	WriteData((char**)0x007C4FA8, (char*)"SS_TRAIN_DC");
+	OBJ_SS_TEXLISTS[0].Name = "OBJ_SS_DC";
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "StationSquare", false);
 	delete config;
@@ -300,17 +303,17 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		matlistADV00_00151E54[0].attrflags |= NJD_FLAG_USE_ALPHA;
 		matlistADV00_001566E4[0].diffuse.argb.a = 0xB2;
 		objectADV00_00151F24.pos[1] = -13;
-		landtable_000C21F0.TexName = "ADVSS02";
-		landtable_000DCEBC.TexName = "ADVSS03";
-		landtable_00135A90.TexName = "ADVSS04";
+		landtable_000C21F0.TexName = "ADVSS02DC";
+		landtable_000DCEBC.TexName = "ADVSS03DC";
+		landtable_00135A90.TexName = "ADVSS04DC";
 	}
 	WriteData<4>((void*)0x00630AE0, 0x90); //Hotel door fix
 	WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting
 	ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31); //SS_TRAIN
-													//Material stuff
+	//Material stuff
 	((NJS_OBJECT*)0x02AB757C)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_USE_ALPHA; //Speed Highway elevator door
 	((NJS_OBJECT*)0x02AB6E4C)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_USE_ALPHA; //Speed Highway elevator door
-																					   //Objects
+	//Objects
 	*(NJS_OBJECT*)0x2AB2CCC = objectADV00_001689C4; //Shop 2 door
 	((NJS_ACTION*)0x2AB2D9C)->object = &objectADV00_001689C4; //Shop 2 door
 	WriteData<5>((void*)0x0063A6A4, 0x90); // Pool chair
@@ -333,7 +336,7 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0x02AD14C8 = objectADV00_00183B8C; // Gamma's target (O M Saku)
 	*(NJS_MODEL_SADX*)0x02AC95BC = attachADV00_0017D540; // Fire Extinguisher
 	*(NJS_OBJECT*)0x02AD484C = objectADV00_0018684C; // Ice Key 1
-												//Landtables
+	//Landtables
 	HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 	NJS_TEXLIST **___ADV00_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV00_TEXLISTS");
 	LandTable **___LANDTABLESS = (LandTable **)GetProcAddress(handle, "___LANDTABLESS");

@@ -291,7 +291,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	else
 	{
 		WriteJump((void*)0x532500, MRWater);
-		landtable_00017960.TexName = "ADV_MR00";
+		landtable_00017960.TexName = "ADV_MR00DC";
 	}
 	for (int i = 0; i < 3; i++)
 	{

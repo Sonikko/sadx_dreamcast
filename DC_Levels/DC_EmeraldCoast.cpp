@@ -441,6 +441,12 @@ void WhaleSplash(NJS_OBJECT *a1)
 
 void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	OBJ_BEACH_TEXLISTS[0].Name = "OBJ_BEACH_DC";
+	OBJ_BEACH_TEXLISTS[1].Name = "BEACH_SEA_DC";
+	OBJ_BEACH_TEXLISTS[3].Name = "BG_BEACH_DC";
+	BEACH01_TEXLISTS[0].Name = "BEACH01DC";
+	BEACH02_TEXLISTS[0].Name = "BEACH02DC";
+	BEACH03_TEXLISTS[0].Name = "BEACH03DC";
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "EmeraldCoast", false);
 	delete config;
@@ -460,7 +466,6 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData<2>((char*)0x004F7816, 0xFF); //Disable water animation in Act 2
 	WriteData<2>((char*)0x004F78E6, 0xFF); //Disable water animation in Act 3
 	((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.argb.a = 0x99; //Match dynamic ocean alpha with normal ocean
-	DataArray(PVMEntry, BeachTexlists, 0x0102F408, 25);
 	if (SADXStyleWater == true)
 	{
 		//Act 1
@@ -519,7 +524,7 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 		objectSTG01_00CC03FC.basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
 		WriteData<5>((void*)0x004F7749, 0x90); //Kill second water in Act 2
 		WriteData<5>((void*)0x004F77E9, 0x90); //Kill second water in Act 3
-		BeachTexlists[1].Name = "BEACH_SEAW";
+		OBJ_BEACH_TEXLISTS[1].Name = "BEACH_SEAW";
 		WriteData<1>((void*)0x004F783A, 0x0F); //15 animation frames for water in Act 2
 		WriteData<1>((void*)0x004F790A, 0x0F); //15 animation frames for water in Act 3
 		WriteCall((void*)0x004F8B23, EC1WaterAnimation_SADX); //Sea animation in Acts 1/2

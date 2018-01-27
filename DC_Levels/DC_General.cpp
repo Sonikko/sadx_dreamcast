@@ -502,6 +502,8 @@ void GammaHook()
 
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
+	if (HD_GUI == nullptr) OBJ_REGULAR_TEXLISTS[0].Name = "OBJ_REGULAR_DC";
 	WriteJump(ItemBox_Display_Destroyed, ItemBox_Display_Destroyed_Rotate);
 	WriteJump(ItemBox_Display_Unknown, ItemBox_Display_Unknown_Rotate);
 	WriteJump(ItemBox_Display, ItemBox_Display_Rotate);

@@ -12097,4 +12097,4 @@ COL collist_000C10C8[] = {
 	{ { 504.75f, -93.09996f, 775.0014f }, 112.8622f, 0, 0, &objectADV00_000D7AEC, 0, 0xC0000001 },
 };
 
-LandTable landtable_000C21F0 = { LengthOfArray(collist_000C10C8), 0, 0xC, 1700, collist_000C10C8, NULL, "ADVSS02", (NJS_TEXLIST *)&texlist3 , 0, 0 };
+LandTable landtable_000C21F0 = { LengthOfArray(collist_000C10C8), 0, 0xC, 1700, collist_000C10C8, NULL, "ADVSS02DC", (NJS_TEXLIST *)&texlist3 , 0, 0 };

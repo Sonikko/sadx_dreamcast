@@ -30049,5 +30049,4 @@ COL collist_0011C2A0[] = {
 NJS_TEXNAME textures_ecoast3[94];
 NJS_TEXLIST texlist_ecoast3 = { arrayptrandlength(textures_ecoast3) };
 
-LandTable landtable_0011DD58 = { LengthOfArray(collist_0011C2A0), 0, 0xC, 600, collist_0011C2A0, NULL, "BEACH03", (NJS_TEXLIST *)&texlist_ecoast3, 0, 0 };
-
+LandTable landtable_0011DD58 = { LengthOfArray(collist_0011C2A0), 0, 0xC, 600, collist_0011C2A0, NULL, "BEACH03DC", (NJS_TEXLIST *)&texlist_ecoast3, 0, 0 };

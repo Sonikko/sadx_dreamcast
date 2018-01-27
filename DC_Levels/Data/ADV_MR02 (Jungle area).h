@@ -65763,7 +65763,7 @@ GeoAnimData animlist_000EA420[] = {
 NJS_TEXNAME textures_mr02[126];
 NJS_TEXLIST texlist_mr02 = { arrayptrandlength(textures_mr02) };
 
-LandTable landtable_00000178 = { LengthOfArray(collist_000E8F98), LengthOfArray(animlist_000EA420), 0xD, 900, collist_000E8F98, animlist_000EA420, "ADV_MR02", (NJS_TEXLIST *)&texlist_mr02, 0, 0 };
+LandTable landtable_00000178 = { LengthOfArray(collist_000E8F98), LengthOfArray(animlist_000EA420), 0xD, 900, collist_000E8F98, animlist_000EA420, "ADV_MR02DC", (NJS_TEXLIST *)&texlist_mr02, 0, 0 };
 
 NJS_MATERIAL matlistADV02_0019EBEC[] = {
 	{ { 0x00FFFFFF },{ 0x00FFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }

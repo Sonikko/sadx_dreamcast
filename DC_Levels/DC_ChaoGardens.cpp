@@ -4063,6 +4063,11 @@ bool letteranims[][8] = {
 	{ false, false, false, false, false, false, false, false },
 };
 
+void LoadSSGardenObjectPVM(const char *filename, NJS_TEXLIST *texlist)
+{
+	LoadPVM("GARDEN00SSOBJ_DC", &Garden00SSObj_TEXLIST);
+}
+
 void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	WriteData((HintText_Entry**)0x9BF06C, &ChaoGardenMessages_Japanese[0]);
@@ -4137,6 +4142,7 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Station Square garden stuff
 	if (EnableSSGarden == true)
 	{
+		WriteCall((void*)0x00719597, LoadSSGardenObjectPVM);
 		WriteData<5>((void*)0x007195AE, 0x90); //Don't load SADX button prompts in SS garden
 		WriteData<5>((void*)0x0071957E, 0x90); //Disable the Sonic Team homepage prompt
 		WriteJump((void*)0x4145D0, sub_4145D0); //Elevator function
