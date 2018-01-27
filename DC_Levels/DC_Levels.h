@@ -1,5 +1,6 @@
 #pragma once
 
+void DisableSADXWaterFog();
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions);
 void ADV00_OnFrame();
 void ADV01_Init(const char *path, const HelperFunctions &helperFunctions);
@@ -12,12 +13,43 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions);
 void Bosses_OnFrame();
 void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions);
 void EmeraldCoast_OnFrame();
-void DisableSADXWaterFog();
+void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions);
+void WindyValley_OnFrame();
+void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions);
+void TwinklePark_OnFrame();
+void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions);
+void SpeedHighway_OnFrame();
+void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions);
+void RedMountain_OnFrame();
+void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions);
+void SkyDeck_OnFrame();
+void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions);
+void LostWorld_OnFrame();
+void IceCap_Init(const char *path, const HelperFunctions &helperFunctions);
+void IceCap_OnFrame();
+void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions);
+void Casinopolis_OnFrame();
+void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions);
+void FinalEgg_OnFrame();
+void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions);
+void HotShelter_OnFrame();
+void Subgames_Init(const char *path, const HelperFunctions &helperFunctions);
+//void Subgames_OnFrame();
+void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions);
+void ChaoGardens_OnFrame();
+void General_Init(const char *path, const HelperFunctions &helperFunctions);
+void General_OnFrame();
 
 bool ForceWhiteDiffuse1(NJS_MATERIAL* material, Uint32 flags);
-bool ForceWhiteDiffuse_Night(NJS_MATERIAL* material, Uint32 flags);
+bool ForceWhiteDiffuse3_Night(NJS_MATERIAL* material, Uint32 flags);
+bool ForceWhiteDiffuse3Specular1(NJS_MATERIAL* material, Uint32 flags);
 bool NPCModelsFunction(NJS_MATERIAL* material, Uint32 flags);
-bool ForceCharacterDiffuseAndSpecular(NJS_MATERIAL* material, Uint32 flags);
-bool ForceSecondCharacterSpecular(NJS_MATERIAL* material, Uint32 flags);
-bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags);
-bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags);
+bool ChaosPuddleFunc(NJS_MATERIAL* material, Uint32 flags);
+bool Chaos2Function(NJS_MATERIAL* material, Uint32 flags);
+
+bool ForceDiffuse0Specular0(NJS_MATERIAL* material, Uint32 flags);
+bool ForceDiffuse0Specular1(NJS_MATERIAL* material, Uint32 flags);
+bool ForceDiffuse0Specular0or1(NJS_MATERIAL* material, Uint32 flags);
+bool ForceDiffuse2Specular2(NJS_MATERIAL* material, Uint32 flags);
+bool ForceDiffuse2Specular3(NJS_MATERIAL* material, Uint32 flags);
+bool ForceDiffuse4Specular5(NJS_MATERIAL* material, Uint32 flags);

@@ -492,9 +492,6 @@
     <ClInclude Include="Data\Twinkle3_Trans.h">
       <Filter>Header Files\TwinklePark</Filter>
     </ClInclude>
-    <ClInclude Include="Data\TwinkleCircuit.h">
-      <Filter>Header Files\TwinklePark</Filter>
-    </ClInclude>
     <ClInclude Include="Data\TwinklePark_objects.h">
       <Filter>Header Files\TwinklePark</Filter>
     </ClInclude>
@@ -591,6 +588,9 @@
     <ClInclude Include="Data\MRGarden_Night.h">
       <Filter>Header Files\ChaoGardens</Filter>
     </ClInclude>
+    <ClInclude Include="Data\TwinkleCircuit.h">
+      <Filter>Header Files\Subgames</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="mod.cpp">
@@ -615,6 +615,45 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="DC_EmeraldCoast.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_WindyValley.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_TwinklePark.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_SpeedHighway.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_RedMountain.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_SkyDeck.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_LostWorld.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_IceCap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_Casinopolis.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_FinalEgg.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_HotShelter.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_Subgames.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_ChaoGardens.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DC_General.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

@@ -1,16 +1,16 @@
 
-NJS_MATERIAL matlist_00014484[] = {
+NJS_MATERIAL matlistCHAO_00014484[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 33, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_ONE | NJD_SA_SRC }
 };
 
-Sint16 poly_00014498[] = {
+Sint16 polyCHAO_00014498[] = {
 	0x8000u | 10, 9, 4, 8, 3, 7, 2, 6, 1, 5, 0,
 	0x8000u | 10, 19, 14, 18, 13, 17, 12, 16, 11, 15, 10,
 	0x8000u | 10, 29, 24, 28, 23, 27, 22, 26, 21, 25, 20,
 	0x8000u | 10, 39, 34, 38, 33, 37, 32, 36, 31, 35, 30
 };
 
-NJS_TEX uv_000144F0[] = {
+NJS_TEX uvCHAO_000144F0[] = {
 	{ 0, 255 },
 	{ 255, 255 },
 	{ 0, 145 },
@@ -54,7 +54,7 @@ NJS_TEX uv_000144F0[] = {
 };
 
 
-NJS_TEX uv_000144F0R[] = {
+NJS_TEX uvCHAO_000144F0R[] = {
 	{ 0, 255 },
 	{ 255, 255 },
 	{ 0, 145 },
@@ -96,11 +96,11 @@ NJS_TEX uv_000144F0R[] = {
 	{ 0 },
 	{ 255, 0 }
 };
-NJS_MESHSET_SADX meshlist_00014590[] = {
-	{ NJD_MESHSET_TRIMESH | 0, 4, poly_00014498, NULL, NULL, NULL, uv_000144F0, NULL }
+NJS_MESHSET_SADX meshlistCHAO_00014590[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 4, polyCHAO_00014498, NULL, NULL, NULL, uvCHAO_000144F0, NULL }
 };
 
-NJS_VECTOR vertex_000145A8[] = {
+NJS_VECTOR vertexCHAO_000145A8[] = {
 	{ 1, 0, -1 },
 	{ 2, 2.5f, -3 },
 	{ 3, 3, -6 },
@@ -143,7 +143,7 @@ NJS_VECTOR vertex_000145A8[] = {
 	{ 5, -7.5f, 13 }
 };
 
-NJS_VECTOR normal_00014788[] = {
+NJS_VECTOR normalCHAO_00014788[] = {
 	{ 0, 0.6246949f, 0.7808689f },
 	{ 0, 0.898026f, 0.439943f },
 	{ 0, 0.965782f, -0.259355f },
@@ -186,6 +186,6 @@ NJS_VECTOR normal_00014788[] = {
 	{ 0, 0.351123f, 0.9363289f }
 };
 
-NJS_MODEL_SADX attach_00014968 = { vertex_000145A8, normal_00014788, LengthOfArray(vertex_000145A8), meshlist_00014590, matlist_00014484, LengthOfArray(meshlist_00014590), LengthOfArray(matlist_00014484),{ 0, -2.25f, 0 }, 18.38478f, NULL };
+NJS_MODEL_SADX attachCHAO_00014968 = { vertexCHAO_000145A8, normalCHAO_00014788, LengthOfArray(vertexCHAO_000145A8), meshlistCHAO_00014590, matlistCHAO_00014484, LengthOfArray(meshlistCHAO_00014590), LengthOfArray(matlistCHAO_00014484),{ 0, -2.25f, 0 }, 18.38478f, NULL };
 
-NJS_OBJECT object_00014990 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00014968, -150.0f, 7.5f, -104.0f, 0, 0x4B06, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT objectCHAO_00014990 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachCHAO_00014968, -150.0f, 7.5f, -104.0f, 0, 0x4B06, 0, 1, 1, 1, NULL, NULL };

@@ -54,7 +54,7 @@ DataArray(FogData, EggCarrierInside6Fog, 0x01100D08, 3);
 DataArray(NJS_VECTOR, SkyboxScale_EggCarrier4, 0x010F212C, 3);
 DataArray(PVMEntry, EggCarrierObjectTexlist_Sea, 0x010F34A8, 6);
 DataPointer(int, DroppedFrames, 0x03B1117C);
-HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS");
+HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 NJS_OBJECT **___MILES_OBJECTS = (NJS_OBJECT **)GetProcAddress(CHRMODELS, "___MILES_OBJECTS");
 NJS_TEXLIST **___ADV01_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV01MODELS, "___ADV01_TEXLISTS");
 NJS_MODEL_SADX **___ADV01_MODELS = (NJS_MODEL_SADX **)GetProcAddress(ADV01MODELS, "___ADV01_MODELS");
@@ -328,8 +328,8 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
 		pl_load_register(SetPLW1X);
-		material_register(ObjectSpecularADV01, LengthOfArray(ObjectSpecularADV01), &ForceObjectSpecular);
-		//material_register(LevelSpecularADV01, LengthOfArray(LevelSpecularADV01), &ForceLevelSpecular);
+		material_register(ObjectSpecularADV01, LengthOfArray(ObjectSpecularADV01), &ForceDiffuse0Specular1);
+		//material_register(LevelSpecularADV01, LengthOfArray(LevelSpecularADV01), &ForceDiffuse0Specular0);
 		material_register(WhiteDiffuseADV01, LengthOfArray(WhiteDiffuseADV01), &ForceWhiteDiffuse1);
 		WriteCall((void*)0x006F4577, TurnLightsOff); //Turn the lights off
 		WriteCall((void*)0x006F4620, TurnLightsOn); //Turn the lights on

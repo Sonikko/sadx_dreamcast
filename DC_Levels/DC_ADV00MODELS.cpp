@@ -243,11 +243,11 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
-		material_register(CharacterStuff, LengthOfArray(CharacterStuff), &ForceCharacterDiffuseAndSpecular);
-		material_register(LevelSpecularADV00, LengthOfArray(LevelSpecularADV00), &ForceLevelSpecular);
-		material_register(ObjectSpecularADV00, LengthOfArray(ObjectSpecularADV00), &ForceObjectSpecular);
+		material_register(CharacterStuff, LengthOfArray(CharacterStuff), &ForceDiffuse2Specular2);
+		material_register(LevelSpecularADV00, LengthOfArray(LevelSpecularADV00), &ForceDiffuse0Specular0);
+		material_register(ObjectSpecularADV00, LengthOfArray(ObjectSpecularADV00), &ForceDiffuse0Specular1);
 		material_register(WhiteDiffuseADV00, LengthOfArray(WhiteDiffuseADV00), &ForceWhiteDiffuse1);
-		material_register(WhiteDiffuseADV00_Night, LengthOfArray(WhiteDiffuseADV00_Night), &ForceWhiteDiffuse_Night);
+		material_register(WhiteDiffuseADV00_Night, LengthOfArray(WhiteDiffuseADV00_Night), &ForceWhiteDiffuse3_Night);
 		material_register(NPCMaterials, LengthOfArray(NPCMaterials), &NPCModelsFunction);
 	}
 	HMODULE SADXStyleWater = GetModuleHandle(L"SADXStyleWater");

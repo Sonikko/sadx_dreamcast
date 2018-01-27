@@ -8,9 +8,17 @@ bool ForceWhiteDiffuse1(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-bool ForceWhiteDiffuse_Night(NJS_MATERIAL* material, Uint32 flags)
+bool ForceWhiteDiffuse3_Night(NJS_MATERIAL* material, Uint32 flags)
 {
 	if (GetTimeOfDay() == 2) set_diffuse(3, false); else set_diffuse(0, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceWhiteDiffuse3Specular1(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(3, false);
+	set_specular(1, false);
 	use_default_diffuse(true);
 	return true;
 }
@@ -24,7 +32,7 @@ bool NPCModelsFunction(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-bool ForceCharacterDiffuseAndSpecular(NJS_MATERIAL* material, Uint32 flags)
+bool ForceDiffuse2Specular2(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_diffuse(2, false);
 	set_specular(2, false);
@@ -32,7 +40,7 @@ bool ForceCharacterDiffuseAndSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-bool ForceSecondCharacterSpecular(NJS_MATERIAL* material, Uint32 flags)
+bool ForceDiffuse2Specular3(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_diffuse(2, false);
 	set_specular(3, false);
@@ -40,7 +48,7 @@ bool ForceSecondCharacterSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
+bool ForceDiffuse0Specular1(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_diffuse(0, false);
 	set_specular(1, false);
@@ -48,7 +56,7 @@ bool ForceObjectSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
+bool ForceDiffuse0Specular0(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_diffuse(0, false);
 	set_specular(0, false);
@@ -56,8 +64,56 @@ bool ForceLevelSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-bool ForceBlackSpecular(NJS_MATERIAL* material, Uint32 flags)
+bool ForceSpecular3(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_specular(3, false);
+	return true;
+}
+
+bool ForceDiffuse0Specular0or1(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(0, false);
+	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(0, false); else set_specular(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceDiffuse4Specular5(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(4, false);
+	set_specular(5, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ChaosPuddleFunc(NJS_MATERIAL* material, Uint32 flags)
+{
+	if (CurrentLevel == 18 || CurrentLevel == 16 || CurrentLevel == 19)
+	{
+		set_diffuse(4, false);
+		set_specular(5, false);
+	}
+	else
+	{
+		set_diffuse(0, false);
+		set_specular(1, false);
+	}
+	use_default_diffuse(true);
+	return true;
+}
+
+bool Chaos2Function(NJS_MATERIAL* material, Uint32 flags)
+{
+	if (CurrentLevel == 16)
+	{
+		set_diffuse(4, false);
+		set_specular(5, false);
+	}
+	else
+	{
+		set_diffuse(2, false);
+		set_specular(3, false);
+	}
+	use_default_diffuse(true);
 	return true;
 }

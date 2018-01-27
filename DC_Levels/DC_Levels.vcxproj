@@ -84,7 +84,7 @@
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <AdditionalDependencies>$(SolutionDir)..\sadx-dc-lighting.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>$(SolutionDir)..\sadx-dc-lighting.lib;$(SolutionDir)..\ModLoaderCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <DelayLoadDLLs>sadx-dc-lighting.dll</DelayLoadDLLs>
       <MinimumRequiredVersion />
     </Link>
@@ -295,7 +295,20 @@
     <ClCompile Include="DC_ADV01MODELS.cpp" />
     <ClCompile Include="DC_ADV02MODELS.cpp" />
     <ClCompile Include="DC_ADV03MODELS.cpp" />
+    <ClCompile Include="DC_Casinopolis.cpp" />
+    <ClCompile Include="DC_ChaoGardens.cpp" />
     <ClCompile Include="DC_EmeraldCoast.cpp" />
+    <ClCompile Include="DC_FinalEgg.cpp" />
+    <ClCompile Include="DC_General.cpp" />
+    <ClCompile Include="DC_HotShelter.cpp" />
+    <ClCompile Include="DC_IceCap.cpp" />
+    <ClCompile Include="DC_LostWorld.cpp" />
+    <ClCompile Include="DC_RedMountain.cpp" />
+    <ClCompile Include="DC_SkyDeck.cpp" />
+    <ClCompile Include="DC_SpeedHighway.cpp" />
+    <ClCompile Include="DC_Subgames.cpp" />
+    <ClCompile Include="DC_TwinklePark.cpp" />
+    <ClCompile Include="DC_WindyValley.cpp" />
     <ClCompile Include="Lighting.cpp" />
     <ClCompile Include="mod.cpp" />
     <ClCompile Include="DC_Bosses.cpp" />

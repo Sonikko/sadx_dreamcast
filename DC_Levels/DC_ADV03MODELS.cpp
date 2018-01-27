@@ -89,9 +89,9 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (handle != nullptr && Lantern != nullptr && GetProcAddress(Lantern, "materialADV03_register") != nullptr)
 	{
-		material_register(SecondCharacterSpecular, LengthOfArray(SecondCharacterSpecular), &ForceSecondCharacterSpecular);
-		material_register(FirstCharacterSpecular, LengthOfArray(FirstCharacterSpecular), &ForceCharacterDiffuseAndSpecular);
-		material_register(Past_ObjectSpecular, LengthOfArray(Past_ObjectSpecular), &ForceObjectSpecular);
+		material_register(SecondCharacterSpecular, LengthOfArray(SecondCharacterSpecular), &ForceDiffuse2Specular3);
+		material_register(FirstCharacterSpecular, LengthOfArray(FirstCharacterSpecular), &ForceDiffuse2Specular2);
+		material_register(Past_ObjectSpecular, LengthOfArray(Past_ObjectSpecular), &ForceDiffuse0Specular1);
 	}
 	if (SADXStyleWater != 0)
 	{

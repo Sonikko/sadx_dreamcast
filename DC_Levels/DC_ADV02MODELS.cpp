@@ -265,8 +265,8 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
 		sl_load_register(SetSLX0X);
-		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
-		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceDiffuse0Specular1);
+		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceDiffuse0Specular0);
 		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse1);
 	}
 	*(NJS_OBJECT*)0x1108A18 = object_00226468; //TANKEN

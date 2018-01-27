@@ -402,86 +402,6 @@ void WaterTexture_BossWaves()
 	}
 }
 
-bool ChaosPuddleFunc(NJS_MATERIAL* material, Uint32 flags)
-{
-	if (CurrentLevel == 18 || CurrentLevel == 16 || CurrentLevel == 19)
-	{
-		set_diffuse(4, false);
-		set_specular(5, false);
-	}
-	else
-	{
-		set_diffuse(0, false);
-		set_specular(1, false);
-	}
-	use_default_diffuse(true);
-	return true;
-}
-
-bool Chaos2Function(NJS_MATERIAL* material, Uint32 flags)
-{
-	if (CurrentLevel == 16)
-	{
-		set_diffuse(4, false);
-		set_specular(5, false);
-	}
-	else
-	{
-		set_diffuse(2, false);
-		set_specular(3, false);
-	}
-	use_default_diffuse(true);
-	return true;
-}
-
-bool SpecialBossFunction(NJS_MATERIAL* material, Uint32 flags)
-{
-	set_diffuse(4, false);
-	set_specular(5, false);
-	use_default_diffuse(true);
-	return true;
-}
-
-bool Chaos0Function(NJS_MATERIAL* material, Uint32 flags)
-{
-	set_diffuse(0, false);
-	set_specular(1, false);
-	use_default_diffuse(true);
-	return true;
-}
-
-bool CharacterFunction(NJS_MATERIAL* material, Uint32 flags)
-{
-	set_diffuse(2, false);
-	set_specular(3, false);
-	use_default_diffuse(true);
-	return true;
-}
-
-bool CharacterFunction_Specular(NJS_MATERIAL* material, Uint32 flags)
-{
-	set_diffuse(2, false);
-	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(2, false); else set_specular(3, false);
-	use_default_diffuse(true);
-	return true;
-}
-
-bool CharacterFunction_nospec(NJS_MATERIAL* material, Uint32 flags)
-{
-	set_diffuse(2, false);
-	set_specular(2, false);
-	use_default_diffuse(true);
-	return true;
-}
-
-bool ForceObjectOrLevelSpecularFunction(NJS_MATERIAL* material, Uint32 flags)
-{
-	set_diffuse(0, false);
-	if (material->attrflags & NJD_FLAG_IGNORE_SPECULAR) set_specular(0, false); else set_specular(1, false);
-	use_default_diffuse(true);
-	return true;
-}
-
 const char* __cdecl SetPLM0X(int level, int act)
 {
 	if (level == 22)
@@ -766,7 +686,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((LandTable**)0x7D1D06, &landtable_00001214); //Perfect Chaos DC
 	WriteData((LandTable**)0x7D1D64, &landtable_00000110); //Zero
 	WriteData((LandTable**)0x7D1DD1, &landtable_00000180); //E101R
-														   //E-101R fixes
+	//E-101R fixes
 	ShadowBlob_Model.basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 	WriteCall((void*)0x0056FF4A, E101R_RetrieveParticleStuff);
 	WriteCall((void*)0x0056FF61, E101R_SwapParticleOrder);
@@ -827,15 +747,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
 		pl_load_register(SetPLM0X);
-		//material_register(CharacterMaterials_Specular, LengthOfArray(CharacterMaterials_Specular), &CharacterFunction_Specular);
-		//material_register(SpecialBossMaterials, LengthOfArray(SpecialBossMaterials), &SpecialBossFunction);
-		//material_register(ChaosPuddle, LengthOfArray(ChaosPuddle), &ChaosPuddleFunc);
-		//material_register(CharacterMaterials, LengthOfArray(CharacterMaterials), &CharacterFunction_nospec);
-		//material_register(Chaos0Materials, LengthOfArray(Chaos0Materials), &Chaos0Function);
-		//material_register(Chaos2Materials, LengthOfArray(Chaos2Materials), &Chaos2Function);
-		material_register(Chaos6ObjectMaterials, LengthOfArray(Chaos6ObjectMaterials), &ForceObjectOrLevelSpecularFunction);
-		//material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceObjectSpecular);
-		//material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceLevelSpecular);
+		material_register(Chaos6ObjectMaterials, LengthOfArray(Chaos6ObjectMaterials), &ForceDiffuse0Specular0or1);
 		material_register(WhiteDiffuse_Boss, LengthOfArray(WhiteDiffuse_Boss), &ForceWhiteDiffuse1);
 	}
 	WriteJump((void*)0x00556D60, SetClip_Chaos6KX);

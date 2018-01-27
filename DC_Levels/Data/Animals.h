@@ -78,13 +78,13 @@ NJS_VECTOR vertex_00156710[] = {
 	{ 0.879163f, -0.332311f, -0.032109f }
 };
 
-NJS_VECTOR normal_00156734[] = {
+NJS_VECTOR normal_00156734P[] = {
 	{ 0.008157f, -0.137345f, 0.99049f },
 	{ 0.008157f, -0.137345f, 0.99049f },
 	{ 0.008157f, -0.137345f, 0.99049f }
 };
 
-NJS_MODEL_SADX attach_00156758 = { vertex_00156710, normal_00156734, LengthOfArray(vertex_00156710), meshlist_001566F8, matlist_001566D0, LengthOfArray(meshlist_001566F8), LengthOfArray(matlist_001566D0),{ 0.455716f, 0.074012f, 0.024264f }, 0.587055f, NULL };
+NJS_MODEL_SADX attach_00156758 = { vertex_00156710, normal_00156734P, LengthOfArray(vertex_00156710), meshlist_001566F8, matlist_001566D0, LengthOfArray(meshlist_001566F8), LengthOfArray(matlist_001566D0),{ 0.455716f, 0.074012f, 0.024264f }, 0.587055f, NULL };
 
 NJS_OBJECT object_00156780 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00156758, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
