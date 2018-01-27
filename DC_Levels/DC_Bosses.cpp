@@ -330,21 +330,6 @@ void __cdecl TornadoFunc()
 	ProcessModelNode_D_WrapperB(&stru_13A6E8C, 0, 1.0);
 }
 
-PointerInfo pointers[] = {
-	//ptrdecl(0x7D1CC0, &landtable_0000028C), //Chaos 2 DC
-	ptrdecl(0x7D1CC0, &landtable_00D2136C), //Chaos 2 PC
-	ptrdecl(0x7D1CD6, &landtable_00000238), //Chaos 4
-	ptrdecl(0x7D1CEC, &landtable_00000318), // Chaos 6 Act 1
-	ptrdecl(0x7D1CF6, &landtable_0000033C), //Chaos 6 Act 2
-	ptrdecl(0x7D1D1C, &landtable_00000128), //Egg Hornet
-	ptrdecl(0x7D1D32, &landtable_0000022C), //Egg Walker
-	ptrdecl(0x7D1D48, &landtable_000580F4), //Egg Viper
-	ptrdecl(0x7D1D7F, &landtable_00000068), //E-101
-	ptrdecl(0x7D1D06, &landtable_00001214), //Perfect Chaos DC
-	ptrdecl(0x7D1D64, &landtable_00000110), //Zero
-	ptrdecl(0x7D1DD1, &landtable_00000180) //E101R
-};
-
 //Perfect Chaos damage functions
 
 //Main explosion sprite

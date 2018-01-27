@@ -10,9 +10,8 @@ extern "C"
 		ADV02_Init(path, helperFunctions);
 		ADV03_Init(path, helperFunctions);
 		Bosses_Init(path, helperFunctions);
+		EmeraldCoast_Init(path, helperFunctions);
 	}
-	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
-
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
 		ADV00_OnFrame();
@@ -20,5 +19,7 @@ extern "C"
 		ADV02_OnFrame();
 		ADV03_OnFrame();
 		Bosses_OnFrame();
+		EmeraldCoast_OnFrame();
 	}
+	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 }

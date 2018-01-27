@@ -10,6 +10,8 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions);
 void ADV03_OnFrame();
 void Bosses_Init(const char *path, const HelperFunctions &helperFunctions);
 void Bosses_OnFrame();
+void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions);
+void EmeraldCoast_OnFrame();
 void DisableSADXWaterFog();
 
 bool ForceWhiteDiffuse1(NJS_MATERIAL* material, Uint32 flags);

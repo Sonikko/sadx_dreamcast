@@ -614,5 +614,8 @@
     <ClCompile Include="DC_Bosses.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="DC_EmeraldCoast.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
