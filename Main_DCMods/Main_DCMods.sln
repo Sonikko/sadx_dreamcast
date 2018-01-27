@@ -77,6 +77,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLC_Christmas98", "..\DLC_C
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "MR_FinalEggFix", "..\MR_FinalEggFix\MR_FinalEggFix.vcxproj", "{DE5ABF59-8328-46C2-B943-E59DA49BA153}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DC_Levels", "..\DC_Levels\DC_Levels.vcxproj", "{9E9A9A3D-990C-4430-B2B8-A2328296A708}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -531,6 +533,18 @@ Global
 		{DE5ABF59-8328-46C2-B943-E59DA49BA153}.Release|x64.Build.0 = Release|x64
 		{DE5ABF59-8328-46C2-B943-E59DA49BA153}.Release|x86.ActiveCfg = Release|Win32
 		{DE5ABF59-8328-46C2-B943-E59DA49BA153}.Release|x86.Build.0 = Release|Win32
+		{9E9A9A3D-990C-4430-B2B8-A2328296A708}.Debug|Win32.ActiveCfg = Debug|Win32
+		{9E9A9A3D-990C-4430-B2B8-A2328296A708}.Debug|Win32.Build.0 = Debug|Win32
+		{9E9A9A3D-990C-4430-B2B8-A2328296A708}.Debug|x64.ActiveCfg = Debug|x64
+		{9E9A9A3D-990C-4430-B2B8-A2328296A708}.Debug|x64.Build.0 = Debug|x64
+		{9E9A9A3D-990C-4430-B2B8-A2328296A708}.Debug|x86.ActiveCfg = Debug|Win32
+		{9E9A9A3D-990C-4430-B2B8-A2328296A708}.Debug|x86.Build.0 = Debug|Win32
+		{9E9A9A3D-990C-4430-B2B8-A2328296A708}.Release|Win32.ActiveCfg = Release|Win32
+		{9E9A9A3D-990C-4430-B2B8-A2328296A708}.Release|Win32.Build.0 = Release|Win32
+		{9E9A9A3D-990C-4430-B2B8-A2328296A708}.Release|x64.ActiveCfg = Release|x64
+		{9E9A9A3D-990C-4430-B2B8-A2328296A708}.Release|x64.Build.0 = Release|x64
+		{9E9A9A3D-990C-4430-B2B8-A2328296A708}.Release|x86.ActiveCfg = Release|Win32
+		{9E9A9A3D-990C-4430-B2B8-A2328296A708}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
