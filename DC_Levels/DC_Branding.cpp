@@ -2,11 +2,11 @@
 #include <IniFile.hpp>
 
 DataPointer(int, DroppedFrames, 0x03B1117C);
-DataArray(PVMEntry, GUITexturePVMs, 0x007EECF0, 30);
-DataArray(PVMEntry, GUITexturePVMs2, 0x007EEDE0, 30);
-DataArray(PVMEntry, GUITexturePVMs3, 0x007EEED0, 30);
-DataArray(PVMEntry, GUITexturePVMs4, 0x007EEFC0, 30);
-DataArray(PVMEntry, GUITexturePVMs5, 0x007EF0B0, 30);
+DataArray(PVMEntry, GUITextures_Japanese, 0x007EECF0, 30);
+DataArray(PVMEntry, GUITextures_English, 0x007EEDE0, 30);
+DataArray(PVMEntry, GUITextures_French, 0x007EEED0, 30);
+DataArray(PVMEntry, GUITextures_Spanish, 0x007EEFC0, 30);
+DataArray(PVMEntry, GUITextures_German, 0x007EF0B0, 30);
 
 static float Options_ArrowScale = 0.0f;
 static float Options_ArrowScaleAmount = 0.1f;
@@ -459,39 +459,206 @@ void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, flo
 
 void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
-	//Screen fade fixes
 	f480_Fixed = 1.0f + VerticalResolution;
 	f640_Fixed = 1.0f + HorizontalResolution;
-	WriteData((float**)0x00433385, &f480_Fixed); //Screen fade resolution
-	WriteData((float**)0x004333A6, &f640_Fixed); //Screen fade resolution
-	WriteData((float*)0x004333A0, -1.0f); //Screen fade for tutorials
-	WriteData((float*)0x004333AE, -1.0f); //Screen fade for tutorials
-	WriteCall((void*)0x0042BF52, ScreenFadeFix);
-	//Character select screen fixes
-	WriteCall((void*)0x00511AD0, RetrievePlayerSelectStuff); //Player select text in character select screen
-	WriteCall((void*)0x00511C76, RetrieveBottomThingStuff); //Bottom thing in character select screen
-	WriteCall((void*)0x00511B3B, RenderShittyTextures); //Render stuff that refuses to render properly otherwise
-	WriteData<5>((char*)0x0040BF27, 0x90); //Disable "Now saving..."
-	WriteData<5>((void*)0x0040BE0D, 0x90); //Disable "Now loading..."
-	WriteData<5>((void*)0x00503438, 0x90); //Disable "Now loading..."
-	WriteData<5>((void*)0x0050346D, 0x90); //Disable "Now loading..."
-	WriteCall((void*)0x00511A8B, DisplayScreenTexture_AlwaysTop); //Move the "Select your character" text to top
-	WriteData<5>((void*)0x00511C18, 0x90); //Disable ZFunc stuff to prevent character model overlap issues
-	//Shadow blending fixes
-	WriteCall((void*)0x0050B584, DrawShadow_Hook);
-	WriteCall((void*)0x00431D37, DrawShadow_Hook);
-	WriteCall((void*)0x00506EFF, DrawShadow_Hook);
-	WriteCall((void*)0x0050D8B3, DrawShadow_Hook);
-	WriteCall((void*)0x0050B61A, DrawShadow_Hook); //Main menu (trial) shadow
-	WriteCall((void*)0x00508FFD, DrawTexture_Hook); //Sound test icon
-	WriteCall((void*)0x00509130, DrawTexture_Hook); //Sonic icon background
-	WriteCall((void*)0x00509191, DrawTexture_Hook); //Sonic icon
-	if (HD_GUI == nullptr) WriteCall((void*)0x005092A1, DrawTexture_Hook); //File icon
-	else WriteCall((void*)0x005092A1, FileIcon_Hook); //File icon
-	WriteCall((void*)0x00509439, DrawTexture_Hook); //Languages icon
-	WriteCall((void*)0x0050952F, DrawTexture_Hook); //Rumble icon
-	WriteCall((void*)0x0050782A, DrawTexture_Hook); //AVA_SAN triangle shadow
+	HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
+	//Set PVM names
+	if (HD_GUI == nullptr)
+	{
+		//Code stuff
+		WriteData((char**)0x0339C8A4, "GG_TEXLIST_US_DC.PVM");
+		WriteData((char**)0x0064221D, (char*)"ADV_WINDOW_DC");
+		WriteData((char**)0x0064222E, (char*)"AVA_CSR_DC");
+		WriteData((char**)0x00642249, (char*)"AVA_DLG_E_DC");
+		WriteData((char**)0x00642258, (char*)"TUTO_CMN_E_DC");
+		WriteData((char**)0x0064225F, (char*)"AVA_DLG_DC");
+		WriteData((char**)0x0064226E, (char*)"TUTO_CMN_DC");
+		WriteData((char**)0x00415A8C, (char*)"PRESSSTART_DC");
+		//Tutorials
+		WriteData((char**)0x02BC544C, (char*)"TUTOMSG_SONIC_E_DC");
+		WriteData((char**)0x02BC5460, (char*)"TUTOMSG_SONIC_E_DC");
+		WriteData((char**)0x02BC5478, (char*)"TUTOMSG_SONIC_E_DC");
+		WriteData((char**)0x02BC5490, (char*)"TUTOMSG_SONIC_E_DC");
+		WriteData((char**)0x02BC54A8, (char*)"TUTOMSG_SONIC_E_DC");
+		WriteData((char**)0x02BC54C0, (char*)"TUTOMSG_SONIC_E_DC");
+		WriteData((char**)0x02BC5464, (char*)"TUTOMSG_TAILS_E_DC");
+		WriteData((char**)0x02BC547C, (char*)"TUTOMSG_KNUCKLES_E_DC");
+		WriteData((char**)0x02BC5494, (char*)"TUTOMSG_AMY_E_DC");
+		WriteData((char**)0x02BC54AC, (char*)"TUTOMSG_BIG_E_DC");
+		WriteData((char**)0x02BC54C4, (char*)"TUTOMSG_E102_E_DC");
+		//Japanese
+		GUITextures_Japanese[0].Name = "AVA_BACK_DC";
+		GUITextures_Japanese[1].Name = "ADV_WINDOW_DC";
+		GUITextures_Japanese[2].Name = "AVA_CHSEL_DC";
+		GUITextures_Japanese[3].Name = "AVA_SUUJI_DC";
+		GUITextures_Japanese[4].Name = "AVA_CSR_DC";
+		GUITextures_Japanese[5].Name = "AVA_DLG_DC";
+		GUITextures_Japanese[6].Name = "AVA_FSDLG_DC";
+		GUITextures_Japanese[7].Name = "AVA_FILESEL_DC";
+		GUITextures_Japanese[8].Name = "AVA_FSCMN_DC";
+		GUITextures_Japanese[9].Name = "AVA_SNDTEST_DC";
+		GUITextures_Japanese[10].Name = "AVA_SQUARE_DC";
+		GUITextures_Japanese[11].Name = "AVA_STNAM_DC";
+		GUITextures_Japanese[12].Name = "AVA_TRIALACTSEL_DC";
+		GUITextures_Japanese[13].Name = "AVA_VMSSEL";
+		GUITextures_Japanese[14].Name = "B_CHNAM_DC";
+		GUITextures_Japanese[15].Name = "M_CHNAM_DC";
+		GUITextures_Japanese[16].Name = "TX_CHNAM_DC";
+		GUITextures_Japanese[19].Name = "AVA_TITLE_DC";
+		GUITextures_Japanese[21].Name = "AVA_OPTION_DC";
+		GUITextures_Japanese[22].Name = "AVA_EMBLEM_DC";
+		GUITextures_Japanese[23].Name = "AVA_NEW16NO_DC";
+		GUITextures_Japanese[24].Name = "AVA_SAN_DC";
+		GUITextures_Japanese[25].Name = "AVA_EMBLEMVIEW_DC";
+		GUITextures_Japanese[26].Name = "AVA_INETDEMO";
+		GUITextures_Japanese[27].Name = "TVSETTING";
+		GUITextures_Japanese[28].Name = "AVA_METAL_SONIC";
+		GUITextures_Japanese[29].Name = "AVA_TITLE_CMN_SMALLS";
+		//English
+		GUITextures_English[0].Name = "AVA_BACK_DC";
+		GUITextures_English[1].Name = "ADV_WINDOW_DC";
+		GUITextures_English[2].Name = "AVA_CHSEL_E_DC";
+		GUITextures_English[3].Name = "AVA_SUUJI_DC";
+		GUITextures_English[4].Name = "AVA_CSR_DC";
+		GUITextures_English[5].Name = "AVA_DLG_E_DC";
+		GUITextures_English[6].Name = "AVA_FSDLG_E_DC";
+		GUITextures_English[7].Name = "AVA_FILESEL_E_DC";
+		GUITextures_English[8].Name = "AVA_FSCMN_E_DC";
+		GUITextures_English[9].Name = "AVA_SNDTEST_E_DC";
+		GUITextures_English[10].Name = "AVA_SQUARE_DC";
+		GUITextures_English[11].Name = "AVA_STNAM_E_DC";
+		GUITextures_English[12].Name = "AVA_TRIALACTSEL_E_DC";
+		GUITextures_English[13].Name = "AVA_VMSSEL_E";
+		GUITextures_English[14].Name = "B_CHNAM_E_DC";
+		GUITextures_English[15].Name = "M_CHNAM_DC";
+		GUITextures_English[16].Name = "TX_CHNAM_E_DC";
+		GUITextures_English[19].Name = "AVA_TITLE_E_DC";
+		GUITextures_English[21].Name = "AVA_OPTION_E_DC";
+		GUITextures_English[22].Name = "AVA_EMBLEM_DC";
+		GUITextures_English[23].Name = "AVA_NEW16NO_DC";
+		GUITextures_English[24].Name = "AVA_SAN_DC";
+		GUITextures_English[25].Name = "AVA_EMBLEMVIEW_E_DC";
+		GUITextures_English[26].Name = "AVA_INETDEMO";
+		GUITextures_English[27].Name = "TVSETTING";
+		GUITextures_English[28].Name = "AVA_METAL_SONIC";
+		//French
+		GUITextures_French[0].Name = "AVA_BACK_DC";
+		GUITextures_French[1].Name = "ADV_WINDOW_DC";
+		GUITextures_French[2].Name = "AVA_CHSEL_E_DC";
+		GUITextures_French[3].Name = "AVA_SUUJI_DC";
+		GUITextures_French[4].Name = "AVA_CSR_DC";
+		GUITextures_French[5].Name = "AVA_DLG_E_DC";
+		GUITextures_French[6].Name = "AVA_FSDLG_E_DC";
+		GUITextures_French[7].Name = "AVA_FILESEL_E_DC";
+		GUITextures_French[8].Name = "AVA_FSCMN_E_DC";
+		GUITextures_French[9].Name = "AVA_SNDTEST_E_DC";
+		GUITextures_French[10].Name = "AVA_SQUARE_DC";
+		GUITextures_French[11].Name = "AVA_STNAM_E_DC";
+		GUITextures_French[12].Name = "AVA_TRIALACTSEL_E_DC";
+		GUITextures_French[13].Name = "AVA_VMSSEL_E";
+		GUITextures_French[14].Name = "B_CHNAM_E_DC";
+		GUITextures_French[15].Name = "M_CHNAM_DC";
+		GUITextures_French[16].Name = "TX_CHNAM_E_DC";
+		GUITextures_French[19].Name = "AVA_TITLE_E_DC";
+		GUITextures_French[21].Name = "AVA_OPTION_E_DC";
+		GUITextures_French[22].Name = "AVA_EMBLEM_DC";
+		GUITextures_French[23].Name = "AVA_NEW16NO_DC";
+		GUITextures_French[24].Name = "AVA_SAN_DC";
+		GUITextures_French[25].Name = "AVA_EMBLEMVIEW_E_DC";
+		GUITextures_French[26].Name = "AVA_INETDEMO";
+		GUITextures_French[27].Name = "TVSETTING";
+		GUITextures_French[28].Name = "AVA_METAL_SONIC";
+		//Spanish
+		GUITextures_Spanish[0].Name = "AVA_BACK_DC";
+		GUITextures_Spanish[1].Name = "ADV_WINDOW_DC";
+		GUITextures_Spanish[2].Name = "AVA_CHSEL_E_DC";
+		GUITextures_Spanish[3].Name = "AVA_SUUJI_DC";
+		GUITextures_Spanish[4].Name = "AVA_CSR_DC";
+		GUITextures_Spanish[5].Name = "AVA_DLG_E_DC";
+		GUITextures_Spanish[6].Name = "AVA_FSDLG_E_DC";
+		GUITextures_Spanish[7].Name = "AVA_FILESEL_E_DC";
+		GUITextures_Spanish[8].Name = "AVA_FSCMN_E_DC";
+		GUITextures_Spanish[9].Name = "AVA_SNDTEST_E_DC";
+		GUITextures_Spanish[10].Name = "AVA_SQUARE_DC";
+		GUITextures_Spanish[11].Name = "AVA_STNAM_E_DC";
+		GUITextures_Spanish[12].Name = "AVA_TRIALACTSEL_E_DC";
+		GUITextures_Spanish[13].Name = "AVA_VMSSEL_E";
+		GUITextures_Spanish[14].Name = "B_CHNAM_E_DC";
+		GUITextures_Spanish[15].Name = "M_CHNAM_DC";
+		GUITextures_Spanish[16].Name = "TX_CHNAM_E_DC";
+		GUITextures_Spanish[19].Name = "AVA_TITLE_E_DC";
+		GUITextures_Spanish[21].Name = "AVA_OPTION_E_DC";
+		GUITextures_Spanish[22].Name = "AVA_EMBLEM_DC";
+		GUITextures_Spanish[23].Name = "AVA_NEW16NO_DC";
+		GUITextures_Spanish[24].Name = "AVA_SAN_DC";
+		GUITextures_Spanish[25].Name = "AVA_EMBLEMVIEW_E_DC";
+		GUITextures_Spanish[26].Name = "AVA_INETDEMO";
+		GUITextures_Spanish[27].Name = "TVSETTING";
+		GUITextures_Spanish[28].Name = "AVA_METAL_SONIC";
+		GUITextures_Spanish[29].Name = "AVA_TITLE_CMN_SMALLS";
+		//German
+		GUITextures_German[0].Name = "AVA_BACK_DC";
+		GUITextures_German[1].Name = "ADV_WINDOW_DC";
+		GUITextures_German[2].Name = "AVA_CHSEL_E_DC";
+		GUITextures_German[3].Name = "AVA_SUUJI_DC";
+		GUITextures_German[4].Name = "AVA_CSR_DC";
+		GUITextures_German[5].Name = "AVA_DLG_E_DC";
+		GUITextures_German[6].Name = "AVA_FSDLG_E_DC";
+		GUITextures_German[7].Name = "AVA_FILESEL_E_DC";
+		GUITextures_German[8].Name = "AVA_FSCMN_E_DC";
+		GUITextures_German[9].Name = "AVA_SNDTEST_E_DC";
+		GUITextures_German[10].Name = "AVA_SQUARE_DC";
+		GUITextures_German[11].Name = "AVA_STNAM_E_DC";
+		GUITextures_German[12].Name = "AVA_TRIALACTSEL_E_DC";
+		GUITextures_German[13].Name = "AVA_VMSSEL_E";
+		GUITextures_German[14].Name = "B_CHNAM_E_DC";
+		GUITextures_German[15].Name = "M_CHNAM_DC";
+		GUITextures_German[16].Name = "TX_CHNAM_E_DC";
+		GUITextures_German[19].Name = "AVA_TITLE_E_DC";
+		GUITextures_German[21].Name = "AVA_OPTION_E_DC";
+		GUITextures_German[22].Name = "AVA_EMBLEM_DC";
+		GUITextures_German[23].Name = "AVA_NEW16NO_DC";
+		GUITextures_German[24].Name = "AVA_SAN_DC";
+		GUITextures_German[25].Name = "AVA_EMBLEMVIEW_E_DC";
+		GUITextures_German[26].Name = "AVA_INETDEMO";
+		GUITextures_German[27].Name = "TVSETTING";
+		GUITextures_German[28].Name = "AVA_METAL_SONIC";
+	}
+	//File icon
+	if (HD_GUI == nullptr) WriteCall((void*)0x005092A1, DrawTexture_Hook); 
+	else WriteCall((void*)0x005092A1, FileIcon_Hook);
+	//Various fixes already included in HD GUI
+	if (HD_GUI == nullptr)
+	{
+		//Screen fade fixes
+		WriteData((float**)0x00433385, &f480_Fixed); //Screen fade resolution
+		WriteData((float**)0x004333A6, &f640_Fixed); //Screen fade resolution
+		WriteData((float*)0x004333A0, -1.0f); //Screen fade for tutorials
+		WriteData((float*)0x004333AE, -1.0f); //Screen fade for tutorials
+		WriteCall((void*)0x0042BF52, ScreenFadeFix);
+		WriteData<5>((char*)0x0040BF27, 0x90); //Disable "Now saving..."
+		WriteData<5>((void*)0x0040BE0D, 0x90); //Disable "Now loading..."
+		WriteData<5>((void*)0x00503438, 0x90); //Disable "Now loading..."
+		WriteData<5>((void*)0x0050346D, 0x90); //Disable "Now loading..."
+		//Character select screen fixes
+		WriteCall((void*)0x00511AD0, RetrievePlayerSelectStuff); //Player select text in character select screen
+		WriteCall((void*)0x00511C76, RetrieveBottomThingStuff); //Bottom thing in character select screen
+		WriteCall((void*)0x00511B3B, RenderShittyTextures); //Render stuff that refuses to render properly otherwise
+		WriteCall((void*)0x00511A8B, DisplayScreenTexture_AlwaysTop); //Move the "Select your character" text to top
+		WriteData<5>((void*)0x00511C18, 0x90); //Disable ZFunc stuff to prevent character model overlap issues
+		//Shadow blending fixes
+		WriteCall((void*)0x0050B584, DrawShadow_Hook);
+		WriteCall((void*)0x00431D37, DrawShadow_Hook);
+		WriteCall((void*)0x00506EFF, DrawShadow_Hook);
+		WriteCall((void*)0x0050D8B3, DrawShadow_Hook);
+		WriteCall((void*)0x0050B61A, DrawShadow_Hook); //Main menu (trial) shadow
+		WriteCall((void*)0x00508FFD, DrawTexture_Hook); //Sound test icon
+		WriteCall((void*)0x00509130, DrawTexture_Hook); //Sonic icon background
+		WriteCall((void*)0x00509191, DrawTexture_Hook); //Sonic icon
+		WriteCall((void*)0x00509439, DrawTexture_Hook); //Languages icon
+		WriteCall((void*)0x0050952F, DrawTexture_Hook); //Rumble icon
+		WriteCall((void*)0x0050782A, DrawTexture_Hook); //AVA_SAN triangle shadow
+	}
 	//Set up normal/widescreen setting
 	std::string SectionName;
 	if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) SectionName = "Widescreen"; else SectionName = "Normal";
@@ -519,17 +686,8 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	LogoScaleX = defaults->getFloat(SectionName, "LogoScaleX", 1.0f);
 	LogoScaleY = defaults->getFloat(SectionName, "LogoScaleY", 1.0f);
 	delete defaults;
-	//If there is no config.ini, make one
+	//If there is no DCBranding.ini, make one
 	CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\DCBranding.ini").c_str(), true);
-	//Check if config.ini is from an old version; if so, delete config.ini
-	const IniFile *checkthing = new IniFile(std::string(path) + "\\DCBranding.ini");
-	if (!checkthing->hasKey("Branding", "DrawOverlay"))
-	{
-		delete checkthing;
-		DeleteFileA((std::string(path) + "\\DCBranding.ini").c_str());
-	}
-	//If there is no config.ini, make one
-	CopyFileA((std::string(path) + "\\DCBrandingdefault.ini").c_str(), (std::string(path) + "\\DCBranding.ini").c_str(), true);
 	//Set up settings
 	const IniFile *settings = new IniFile(std::string(path) + "\\DCBranding.ini");
 	RipplesOn = settings->getBool("Branding", "RippleEffect", true);
@@ -558,6 +716,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Main code
 	//Kill Cream
 	if (RemoveCream == true) WriteData<1>((void*)0x6353A0, 0xC3u);
+	//Title screen stuff
 	if (DisableSA1Titlescreen == false)
 	{
 		//640x480 stuff
@@ -582,36 +741,41 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteJump((void*)0x505810, sub_505810);
 		WriteJump((void*)0x50BA90, DrawAVA_TITLE_BACK_E_DC);
 		//PVMs
-		GUITexturePVMs[17].Name = "AVA_GTITLE0_ES";
-		GUITexturePVMs2[17].Name = "AVA_GTITLE0_ES";
-		GUITexturePVMs3[17].Name = "AVA_GTITLE0_ES";
-		GUITexturePVMs4[17].Name = "AVA_GTITLE0_ES";
-		GUITexturePVMs5[17].Name = "AVA_GTITLE0_ES";
-		GUITexturePVMs[29].Name = "AVA_TITLE_CMN_SMALLS";
-		GUITexturePVMs2[29].Name = "AVA_TITLE_CMN_SMALLS";
-		GUITexturePVMs3[29].Name = "AVA_TITLE_CMN_SMALLS";
-		GUITexturePVMs4[29].Name = "AVA_TITLE_CMN_SMALLS";
-		GUITexturePVMs5[29].Name = "AVA_TITLE_CMN_SMALLS";
-		GUITexturePVMs[20].Name = "AVA_TITLE_BACK_ES";
-		GUITexturePVMs2[20].Name = "AVA_TITLE_BACK_ES";
-		GUITexturePVMs3[20].Name = "AVA_TITLE_BACK_ES";
-		GUITexturePVMs4[20].Name = "AVA_TITLE_BACK_ES";
-		GUITexturePVMs5[20].Name = "AVA_TITLE_BACK_ES";
+		//Japanese
+		GUITextures_Japanese[17].Name = "AVA_GTITLE0_ES";
+		GUITextures_Japanese[20].Name = "AVA_TITLE_BACK_ES";
+		GUITextures_Japanese[29].Name = "AVA_TITLE_CMN_SMALLS";
+		//English
+		GUITextures_English[17].Name = "AVA_GTITLE0_ES";
+		GUITextures_English[20].Name = "AVA_TITLE_BACK_ES";
+		GUITextures_English[29].Name = "AVA_TITLE_CMN_SMALLS";
+		//French
+		GUITextures_French[17].Name = "AVA_GTITLE0_ES";
+		GUITextures_French[20].Name = "AVA_TITLE_BACK_ES";
+		GUITextures_French[29].Name = "AVA_TITLE_CMN_SMALLS";
+		//Spanish
+		GUITextures_Spanish[17].Name = "AVA_GTITLE0_ES";
+		GUITextures_Spanish[20].Name = "AVA_TITLE_BACK_ES";
+		GUITextures_Spanish[29].Name = "AVA_TITLE_CMN_SMALLS";
+		//German
+		GUITextures_German[17].Name = "AVA_GTITLE0_ES";
+		GUITextures_German[20].Name = "AVA_TITLE_BACK_ES";
+		GUITextures_German[29].Name = "AVA_TITLE_CMN_SMALLS";
 		if (RipplesOn == true)
 		{
-			GUITexturePVMs[18].Name = "AVA_TITLE_CMNX";
-			GUITexturePVMs2[18].Name = "AVA_TITLE_CMNX";
-			GUITexturePVMs3[18].Name = "AVA_TITLE_CMNX";
-			GUITexturePVMs4[18].Name = "AVA_TITLE_CMNX";
-			GUITexturePVMs5[18].Name = "AVA_TITLE_CMNX";
+			GUITextures_Japanese[18].Name = "AVA_TITLE_CMNX";
+			GUITextures_English[18].Name = "AVA_TITLE_CMNX";
+			GUITextures_French[18].Name = "AVA_TITLE_CMNX";
+			GUITextures_Spanish[18].Name = "AVA_TITLE_CMNX";
+			GUITextures_German[18].Name = "AVA_TITLE_CMNX";
 		}
 		else
 		{
-			GUITexturePVMs[18].Name = "AVA_TITLE_CMNS";
-			GUITexturePVMs2[18].Name = "AVA_TITLE_CMNS";
-			GUITexturePVMs3[18].Name = "AVA_TITLE_CMNS";
-			GUITexturePVMs4[18].Name = "AVA_TITLE_CMNS";
-			GUITexturePVMs5[18].Name = "AVA_TITLE_CMNS";
+			GUITextures_Japanese[18].Name = "AVA_TITLE_CMNS";
+			GUITextures_English[18].Name = "AVA_TITLE_CMNS";
+			GUITextures_French[18].Name = "AVA_TITLE_CMNS";
+			GUITextures_Spanish[18].Name = "AVA_TITLE_CMNS";
+			GUITextures_German[18].Name = "AVA_TITLE_CMNS";
 		}
 		//Logo
 		if (float(HorizontalResolution) / float(VerticalResolution) <= 1.3f) rewritestretch = 0.48f; //5:4
