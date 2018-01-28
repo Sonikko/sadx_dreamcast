@@ -4,12 +4,16 @@
 #include <math.h>
 #include "TwinkleCircuit.h"
 #include "SkyChaseModels.h"
+#include <IniFile.hpp>
 #include "DC_Levels.h"
+
+std::string plz0xbin;
 
 DataArray(FogData, FogData_SandHill, 0x0173BB74, 3);
 DataArray(FogData, FogData_HedgehogHammer, 0x027C69C4, 3);
 DataArray(SkyboxScale, SkyboxScale_SkyChase1, 0x027D6CE0, 3);
 DataArray(DrawDistance, DrawDist_SkyChase1, 0x027D6D58, 3);
+DataArray(PVMEntry, SKYCHASE_OBJECT_TEXLISTS, 0x90E5E8, 11);
 DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
 DataPointer(float, SomeDepthThing, 0x03ABD9C0);
 
@@ -26,6 +30,10 @@ static float SkyChaseLimit_Left = 80.0f;
 static float SkyChaseLimit_Top = 400.0f;
 static float SkyChaseLimit_Bottom = 80.0f;
 static float widescreenthing = 103.0f;
+static int EnableTwinkleCircuit = true;
+static int EnableSandHill = true;
+static int EnableSkyChaseFixes = true;
+static int EnableSkyChaseEnemyModels = true;
 
 NJS_MATERIAL* LevelSpecular_Subgames[] = {
 	//Tornado 2 transformation cutscene
@@ -772,92 +780,137 @@ void __cdecl TornadoCalculateCenterPoint(ObjectMaster *a1)
 	njPopMatrix(1u);
 }
 
+const char* __cdecl SetPLZ0X(int level, int act)
+{
+	if (level == 35)
+	{
+		return plz0xbin.c_str();
+	}
+	else { return nullptr; }
+}
+
 void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	WriteData((LandTable**)0x7D2051, &landtable_00002DEC); //Sand Hill
-	WriteData((LandTable**)0x7D205B, &landtable_00001A3C); //Twinkle Circuit
+	HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
+	HMODULE SA1_Chars = GetModuleHandle(L"SA1_Chars");
+	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+	EnableTwinkleCircuit = config->getBool("Miscellaneous", "EnableTwinkleCircuit", true);
+	EnableSandHill = config->getBool("Miscellaneous", "EnableSandHil", true);
+	EnableSkyChaseFixes = config->getBool("Miscellaneous", "EnableSkyChaseFixes", true);
+	delete config;
 	HorizontalResolution_float = HorizontalResolution;
 	VerticalResolution_float = VerticalResolution;
 	VerticalResolutionHalf_float = VerticalResolution_float / 2.0f;
-	//Resolution related fixes
-	WriteJump((void*)0x628D50, TornadoCalculateCenterPoint); //Calculate center for bullets
-	if (HorizontalResolution_float / VerticalResolution_float > 1.4f)
-	{
-		if (HorizontalResolution_float / VerticalResolution_float > 2.2f) widescreenthing = 240.0f;
-		SkyChaseLimit_Left = 80.0f + widescreenthing;
-		SkyChaseLimit_Right = 560.0f + widescreenthing;
+	if (EnableSandHill == true)
+	{ 
+		OBJ_SANDBOARD_TEXLISTS[0].Name = "OBJ_SANDBOARD_DC";
+		WriteData((char**)0x00597A1A, (char*)"BG_SANDBOARD_DC");
+		WriteData((LandTable**)0x7D2051, &landtable_00002DEC); //Sand Hill
+		*(NJS_OBJECT *)0x017424DC = objectSBOARD_0006EA40; //Sand Hill ramp
 	}
-	WriteData((float**)0x00627F4D, &float_tornadospeed); //Tornado Speed (always 1)
-	WriteData((float**)0x00627F60, &float_one); //Horizontal limit
-	WriteData((float**)0x00627F72, &float_one); //Vertical limit
-	//Hodai fixes
-	WriteData((float**)0x0043854D, &HorizontalResolution_float);
-	WriteData((float**)0x00438571, &VerticalResolutionHalf_float);
-	WriteData((float**)0x0043857F, &VerticalResolutionHalf_float);
-	WriteCall((void*)0x0062C764, SetSkyChaseRocketColor);
-	WriteCall((void*)0x0062C704, RenderSkyChaseRocket);
-	//Sky Chase reticle and multiplier fixes
-	float_reticlespeedmultiplier = VerticalResolution / 480.0f;
-	float_targetsize = pow(VerticalResolution / 15.0f, 2);
-	WriteData((float**)0x628AF7, &float_targetsize); //Target size
-	WriteData((float**)0x00629472, &float_reticlespeedmultiplier); //Target speed
-	//Limits for reticle
-	WriteData((float**)0x00628994, &float_reticlespeedmultiplier); //right
-	WriteData((float**)0x006289B6, &float_reticlespeedmultiplier); //left
-	WriteData((float**)0x006289F1, &float_reticlespeedmultiplier); //top
-	WriteData((float**)0x00628A13, &float_reticlespeedmultiplier); //bottom
-	WriteData((float**)0x0062899A, &SkyChaseLimit_Right);
-	WriteData((float**)0x006289BC, &SkyChaseLimit_Left);
-	WriteData((float**)0x006289F7, &SkyChaseLimit_Top);
-	WriteData((float**)0x00628A19, &SkyChaseLimit_Bottom);
-	//Visual stuff
-	WriteCall((void*)0x00629004, TornadoTarget_Render);
-	WriteCall((void*)0x00628FE5, TornadoTarget_Render);
-	WriteJump((void*)0x00628DB0, TornadoTargetSprite_TargetLock_DisplayX);
-	WriteData((double**)0x00627D14, &SkyChaseSkyRotationMultiplier); //Rotate the sky in the opposite direction
-	WriteData((float*)0x00628951, VerticalResolution / 480.0f); //Reticle scale X
-	WriteData((float*)0x0062895B, VerticalResolution / 480.0f); //Reticle scale Y
-	//Sky Chase fixes
-	((NJS_OBJECT*)0x028DFD34)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Sky materials in Act 1
-	((NJS_OBJECT*)0x028175F4)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Sky materials in Act 1
-	SkyboxScale_SkyChase1->Far.x = 4.0f;
-	SkyboxScale_SkyChase1->Far.y = 4.0f;
-	SkyboxScale_SkyChase1->Far.z = 4.0f;
-	SkyboxScale_SkyChase1->Near.x = 4.0f;
-	SkyboxScale_SkyChase1->Near.y = 4.0f;
-	SkyboxScale_SkyChase1->Near.z = 4.0f;
-	SkyboxScale_SkyChase1->Normal.x = 4.0f;
-	SkyboxScale_SkyChase1->Normal.y = 4.0f;
-	SkyboxScale_SkyChase1->Normal.z = 4.0f;
-	WriteCall((void*)0x0062BF35, FixSky1); //Sky piece 1
-	WriteCall((void*)0x0062C01D, FixSky2);  //Sky piece 2
-	WriteCall((void*)0x0062C161, FixSkybox); //Skybox rendering function for both acts
+	if (EnableTwinkleCircuit == true)
+	{
+		OBJ_MINI_CART_TEXLISTS[0].Name = "OBJ_MINI_CART_DC";
+		OBJ_MINI_CART_TEXLISTS[1].Name = "OBJ_SHAREOBJ_DC";
+		WriteData((LandTable**)0x7D205B, &landtable_00001A3C); //Twinkle Circuit
+	}
+	if (EnableSkyChaseFixes == true)
+	{
+		//Resolution related fixes
+		WriteJump((void*)0x628D50, TornadoCalculateCenterPoint); //Calculate center for bullets
+		if (HorizontalResolution_float / VerticalResolution_float > 1.4f)
+		{
+			if (HorizontalResolution_float / VerticalResolution_float > 2.2f) widescreenthing = 240.0f;
+			SkyChaseLimit_Left = 80.0f + widescreenthing;
+			SkyChaseLimit_Right = 560.0f + widescreenthing;
+		}
+		WriteData((float**)0x00627F4D, &float_tornadospeed); //Tornado Speed (always 1)
+		WriteData((float**)0x00627F60, &float_one); //Horizontal limit
+		WriteData((float**)0x00627F72, &float_one); //Vertical limit
+		//Hodai fixes
+		WriteData((float**)0x0043854D, &HorizontalResolution_float);
+		WriteData((float**)0x00438571, &VerticalResolutionHalf_float);
+		WriteData((float**)0x0043857F, &VerticalResolutionHalf_float);
+		WriteCall((void*)0x0062C764, SetSkyChaseRocketColor);
+		WriteCall((void*)0x0062C704, RenderSkyChaseRocket);
+		//Sky Chase reticle and multiplier fixes
+		float_reticlespeedmultiplier = VerticalResolution / 480.0f;
+		float_targetsize = pow(VerticalResolution / 15.0f, 2);
+		WriteData((float**)0x628AF7, &float_targetsize); //Target size
+		WriteData((float**)0x00629472, &float_reticlespeedmultiplier); //Target speed
+		//Limits for reticle
+		WriteData((float**)0x00628994, &float_reticlespeedmultiplier); //right
+		WriteData((float**)0x006289B6, &float_reticlespeedmultiplier); //left
+		WriteData((float**)0x006289F1, &float_reticlespeedmultiplier); //top
+		WriteData((float**)0x00628A13, &float_reticlespeedmultiplier); //bottom
+		WriteData((float**)0x0062899A, &SkyChaseLimit_Right);
+		WriteData((float**)0x006289BC, &SkyChaseLimit_Left);
+		WriteData((float**)0x006289F7, &SkyChaseLimit_Top);
+		WriteData((float**)0x00628A19, &SkyChaseLimit_Bottom);
+		//Visual stuff
+		WriteCall((void*)0x00629004, TornadoTarget_Render);
+		WriteCall((void*)0x00628FE5, TornadoTarget_Render);
+		WriteJump((void*)0x00628DB0, TornadoTargetSprite_TargetLock_DisplayX);
+		WriteData((double**)0x00627D14, &SkyChaseSkyRotationMultiplier); //Rotate the sky in the opposite direction
+		WriteData((float*)0x00628951, VerticalResolution / 480.0f); //Reticle scale X
+		WriteData((float*)0x0062895B, VerticalResolution / 480.0f); //Reticle scale Y
+		//Sky Chase fixes
+		((NJS_OBJECT*)0x028DFD34)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Sky materials in Act 1
+		((NJS_OBJECT*)0x028175F4)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Sky materials in Act 1
+		SkyboxScale_SkyChase1->Far.x = 4.0f;
+		SkyboxScale_SkyChase1->Far.y = 4.0f;
+		SkyboxScale_SkyChase1->Far.z = 4.0f;
+		SkyboxScale_SkyChase1->Near.x = 4.0f;
+		SkyboxScale_SkyChase1->Near.y = 4.0f;
+		SkyboxScale_SkyChase1->Near.z = 4.0f;
+		SkyboxScale_SkyChase1->Normal.x = 4.0f;
+		SkyboxScale_SkyChase1->Normal.y = 4.0f;
+		SkyboxScale_SkyChase1->Normal.z = 4.0f;
+		WriteCall((void*)0x0062BF35, FixSky1); //Sky piece 1
+		WriteCall((void*)0x0062C01D, FixSky2);  //Sky piece 2
+		WriteCall((void*)0x0062C161, FixSkybox); //Skybox rendering function for both acts
+		//Tornado hit specular
+		((NJS_OBJECT*)0x02916F9C)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_OBJECT*)0x02916ADC)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_OBJECT*)0x02918404)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		((NJS_OBJECT*)0x02917F34)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
+		WriteData((char*)0x0062751B, 0x00, 1); //Force Tornado light type
+		WriteData((char*)0x0062AC1F, 0x00, 1); //Force Tornado light type (transformation cutscene)
+	}
+	if (EnableSkyChaseEnemyModels == true)
+	{
+		if (HD_GUI == nullptr && SA1_Chars == nullptr)
+		{
+			SHOOTING0_TEXLISTS[0].Name = "SHOOTING0_DC";
+			SHOOTING1_TEXLISTS[0].Name = "SHOOTING1_DC";
+			SKYCHASE_OBJECT_TEXLISTS[0].Name = "SHOOTING0_DC";
+			SKYCHASE_OBJECT_TEXLISTS[7].Name = "SHOOTING2_DC";
+		}
+		*(NJS_OBJECT *)0x02982F44 = objectSHOOTING_0003FA40; //Egg Carrier model
+		*(NJS_OBJECT *)0x298A894 = objectSHOOTING_00047110; //Hodai
+		*(NJS_OBJECT *)0x2941B2C = objectSHOOTING_0001342C; //Kirai
+		((NJS_ACTION*)0x28E596C)->object = &objectSHOOTING_0009153C; //Beam in Act 1
+		((NJS_ACTION*)0x2996C74)->object = &objectSHOOTING_0004AEE0; //Beam in Act 2
+		*(NJS_OBJECT *)0x028E2C88 = objectSHOOTING_0009153C; //Beam in Act 1
+		*(NJS_OBJECT *)0x0298E7D0 = objectSHOOTING_0004AEE0; //Beam in Act 2
+	}
+	//Lighting stuff
+	plz0xbin = path;
+	plz0xbin.append("\\system\\PL_Z0X.BIN");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
+		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
+		pl_load_register(SetPLZ0X);
 		material_register(ObjectBaseAndSpecular_Subgames, LengthOfArray(ObjectBaseAndSpecular_Subgames), &ForceDiffuse0Specular1);
 		material_register(LevelSpecular_Subgames, LengthOfArray(LevelSpecular_Subgames), &ForceDiffuse0Specular0);
 		material_register(WhiteDiffuse_Subgames, LengthOfArray(WhiteDiffuse_Subgames), &ForceWhiteDiffuse1);
 	}
-	//Tornado hit specular
-	((NJS_OBJECT*)0x02916F9C)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-	((NJS_OBJECT*)0x02916ADC)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-	((NJS_OBJECT*)0x02918404)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-	((NJS_OBJECT*)0x02917F34)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
-	WriteData((char*)0x0062751B, 0x00, 1); //Force Tornado light type
-	WriteData((char*)0x0062AC1F, 0x00, 1); //Force Tornado light type (transformation cutscene)
-	*(NJS_OBJECT *)0x02982F44 = objectSHOOTING_0003FA40; //Egg Carrier model
-	*(NJS_OBJECT *)0x298A894 = objectSHOOTING_00047110; //Hodai
-	*(NJS_OBJECT *)0x2941B2C = objectSHOOTING_0001342C; //Kirai
-	*(NJS_OBJECT *)0x017424DC = objectSBOARD_0006EA40; //Sand Hill ramp
-	((NJS_ACTION*)0x28E596C)->object = &objectSHOOTING_0009153C; //Beam in Act 1
-	((NJS_ACTION*)0x2996C74)->object = &objectSHOOTING_0004AEE0; //Beam in Act 2
-	*(NJS_OBJECT *)0x028E2C88 = objectSHOOTING_0009153C; //Beam in Act 1
-	*(NJS_OBJECT *)0x0298E7D0 = objectSHOOTING_0004AEE0; //Beam in Act 2
+	//Fog and draw distance tweaks
 	for (int i = 0; i < 3; i++)
 	{
-		DrawDist_SkyChase1[i].Maximum = -60000.0f;
-		FogData_SandHill[i].Color = 0xFFAAAA8C;
+		if (EnableSkyChaseFixes == true) DrawDist_SkyChase1[i].Maximum = -60000.0f;
+		if (EnableSandHill==true) FogData_SandHill[i].Color = 0xFFAAAA8C;
 		FogData_HedgehogHammer[i].Distance = 16000.0f;
 		FogData_HedgehogHammer[i].Layer = 5000.0f;
 	}

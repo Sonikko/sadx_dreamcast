@@ -6001,4 +6001,4 @@ COL collist_00D20C40[] = {
 NJS_TEXNAME textures_chaos2[15];
 NJS_TEXLIST texlist_chaos2 = { arrayptrandlength(textures_chaos2) };
 
-LandTable landtable_00D2136C = { LengthOfArray(collist_00D20C40), 0, 8, 0, collist_00D20C40, NULL, "LM_CHAOS2", (NJS_TEXLIST *)&texlist_chaos2, 0, 0 };
+LandTable landtable_00D2136C = { LengthOfArray(collist_00D20C40), 0, 8, 0, collist_00D20C40, NULL, "LM_CHAOS2_DC", (NJS_TEXLIST *)&texlist_chaos2, 0, 0 };

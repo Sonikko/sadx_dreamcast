@@ -303,9 +303,9 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		matlistADV00_00151E54[0].attrflags |= NJD_FLAG_USE_ALPHA;
 		matlistADV00_001566E4[0].diffuse.argb.a = 0xB2;
 		objectADV00_00151F24.pos[1] = -13;
-		landtable_000C21F0.TexName = "ADVSS02DC";
-		landtable_000DCEBC.TexName = "ADVSS03DC";
-		landtable_00135A90.TexName = "ADVSS04DC";
+		landtable_000C21F0.TexName = "ADVSS02_DC";
+		landtable_000DCEBC.TexName = "ADVSS03_DC";
+		landtable_00135A90.TexName = "ADVSS04_DC";
 	}
 	WriteData<4>((void*)0x00630AE0, 0x90); //Hotel door fix
 	WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting

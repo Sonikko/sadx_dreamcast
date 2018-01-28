@@ -17277,4 +17277,4 @@ GeoAnimData animlistR_0000A5F8[] = {
 	{ 0, 0.09999999f, 60, &objectR_000209FC, &action_animationR_00023C20, (NJS_TEXLIST *)0 }
 };
 
-LandTable landtable_00000180 = { LengthOfArray(collist_00009FA4), 0, 9, 0, collist_00009FA4, animlistR_0000A5F8, "E101R_TIKEI", (NJS_TEXLIST *)0x16B460C, 0, 0 };
+LandTable landtable_00000180 = { LengthOfArray(collist_00009FA4), 0, 9, 0, collist_00009FA4, animlistR_0000A5F8, "E101R_TIKEI_DC", (NJS_TEXLIST *)0x16B460C, 0, 0 };

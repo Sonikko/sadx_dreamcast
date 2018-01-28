@@ -31161,4 +31161,4 @@ COL collist_00DED718[] = {
 	{ { -134.1181f, 681.5402f, -386.0016f }, 128.321f, 0, 0, &object_012E3CCC, 0, 0xA0040001 }
 };
 
-LandTable landtable_00DEDE38 = { LengthOfArray(collist_00DED718), LengthOfArray(animlist_00DEDE20), 0xD, 1700, collist_00DED718, animlist_00DEDE20, "LM_CHAOS6", (NJS_TEXLIST *)0x121FF28, 0, 0 };
+LandTable landtable_00DEDE38 = { LengthOfArray(collist_00DED718), LengthOfArray(animlist_00DEDE20), 0xD, 1700, collist_00DED718, animlist_00DEDE20, "LM_CHAOS6_DC", (NJS_TEXLIST *)0x121FF28, 0, 0 };

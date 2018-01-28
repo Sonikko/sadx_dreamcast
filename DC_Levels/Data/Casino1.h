@@ -33358,4 +33358,4 @@ COL collist_00023DA0[] = {
 NJS_TEXNAME textures_casino1[136];
 NJS_TEXLIST texlist_casino1 = { arrayptrandlength(textures_casino1) };
 
-LandTable landtable_00025EAC = { LengthOfArray(collist_00023DA0), 0, 0xC, 800, collist_00023DA0, NULL, "CASINO01", (NJS_TEXLIST *)&texlist_casino1, 0, 0 };
+LandTable landtable_00025EAC = { LengthOfArray(collist_00023DA0), 0, 0xC, 800, collist_00023DA0, NULL, "CASINO01_DC", (NJS_TEXLIST *)&texlist_casino1, 0, 0 };

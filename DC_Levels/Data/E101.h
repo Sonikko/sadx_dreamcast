@@ -11157,4 +11157,4 @@ GeoAnimData animlist_000048F0[] = {
 NJS_TEXNAME textures_e101[77];
 NJS_TEXLIST texlist_e101 = { arrayptrandlength(textures_e101) };
 
-LandTable landtable_00000068 = { LengthOfArray(collist_00003294), LengthOfArray(animlist_000048F0), 9, 0, collist_00003294, animlist_000048F0, "E101_TIKEI", (NJS_TEXLIST *)&texlist_e101, 0, 0 };
+LandTable landtable_00000068 = { LengthOfArray(collist_00003294), LengthOfArray(animlist_000048F0), 9, 0, collist_00003294, animlist_000048F0, "E101_TIKEI_DC", (NJS_TEXLIST *)&texlist_e101, 0, 0 };

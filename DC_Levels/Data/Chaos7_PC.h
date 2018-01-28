@@ -39814,4 +39814,4 @@ COL collist_01022A28[] = {
 	{ { 424.672f, 181.605f, -497.1567f }, 462.9023f, 0, 0, &object_010D515C, 0, 0x80000000 }
 };
 
-LandTable landtable_0102478C = { LengthOfArray(collist_01022A28), 0, 0xC, 3000, collist_01022A28, NULL, "LM_CHAOS7_0", (NJS_TEXLIST *)0x1494FBC, 0, 0 };
+LandTable landtable_0102478C = { LengthOfArray(collist_01022A28), 0, 0xC, 3000, collist_01022A28, NULL, "LM_CHAOS7_0_DC", (NJS_TEXLIST *)0x1494FBC, 0, 0 };

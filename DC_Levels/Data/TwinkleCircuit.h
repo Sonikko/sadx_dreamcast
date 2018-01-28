@@ -7842,4 +7842,4 @@ COL collist_00000230[] = {
 	{ { 4026, 564.9998f, 74.00003f }, 172.7716f, 0, 0, &objectCIRCUIT_00029388, 0, 0xA0000001 }
 };
 
-LandTable landtable_00001A3C = { LengthOfArray(collist_00000230), 0, 0xC, 3000, collist_00000230, NULL, "MINI_CART01", (NJS_TEXLIST *)&texlist_twinklecircuit, 0, 0 };
+LandTable landtable_00001A3C = { LengthOfArray(collist_00000230), 0, 0xC, 3000, collist_00000230, NULL, "MINI_CART01_DC", (NJS_TEXLIST *)&texlist_twinklecircuit, 0, 0 };

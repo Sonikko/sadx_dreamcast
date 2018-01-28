@@ -55678,4 +55678,4 @@ COL collist_000180D8[] = {
 
 };
 
-LandTable landtable_00019950 = { LengthOfArray(collist_000180D8), 0, 8, 0, collist_000180D8, NULL, "ICECAP02", (NJS_TEXLIST *)&texlist_icecap2, 0, 0 };
+LandTable landtable_00019950 = { LengthOfArray(collist_000180D8), 0, 8, 0, collist_000180D8, NULL, "ICECAP02_DC", (NJS_TEXLIST *)&texlist_icecap2, 0, 0 };

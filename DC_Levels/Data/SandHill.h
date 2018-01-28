@@ -62324,7 +62324,7 @@ COL collist_000001A0[] = {
 	{ { 1750, -5944.24f, -12252.5f }, 107.9418f, 0, 0, &objectSBOARD_0006BE00, 0, 0xA0000011 }
 };
 
-LandTable landtable_00002DEC = { LengthOfArray(collist_000001A0), 0, 0xC, 3000, collist_000001A0, NULL, "SANDBOARD", (NJS_TEXLIST *)&texlist_sandhill, 0, 0 };
+LandTable landtable_00002DEC = { LengthOfArray(collist_000001A0), 0, 0xC, 3000, collist_000001A0, NULL, "SANDBOARD_DC", (NJS_TEXLIST *)&texlist_sandhill, 0, 0 };
 
 //Ramp
 

@@ -234,6 +234,13 @@ void FixMRBase(ObjectMaster *a1)
 
 void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	MROBJ_TEXLISTS[0].Name = "MROBJ_DC";
+	WriteData((char**)0x007C5057, (char*)"MR_SKY00_DC");
+	WriteData((char**)0x007C5097, (char*)"MR_SKY01_DC");
+	WriteData((char**)0x007C50C7, (char*)"MR_SKY02_DC");
+	WriteData((char**)0x007C506B, (char*)"MR_TRAIN_DC");
+	WriteData((char**)0x007C50DB, (char*)"MR_PYRAMID_DC");
+	WriteData((char**)0x007C50EE, (char*)"MR_FINALEGG_DC");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
 	delete config;
