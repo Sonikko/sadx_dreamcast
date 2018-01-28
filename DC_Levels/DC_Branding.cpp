@@ -513,7 +513,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		GUITextures_Japanese[26].Name = "AVA_INETDEMO";
 		GUITextures_Japanese[27].Name = "TVSETTING";
 		GUITextures_Japanese[28].Name = "AVA_METAL_SONIC";
-		GUITextures_Japanese[29].Name = "AVA_TITLE_CMN_SMALLS";
 		//English
 		GUITextures_English[0].Name = "AVA_BACK_DC";
 		GUITextures_English[1].Name = "ADV_WINDOW_DC";
@@ -595,7 +594,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		GUITextures_Spanish[26].Name = "AVA_INETDEMO";
 		GUITextures_Spanish[27].Name = "TVSETTING";
 		GUITextures_Spanish[28].Name = "AVA_METAL_SONIC";
-		GUITextures_Spanish[29].Name = "AVA_TITLE_CMN_SMALLS";
 		//German
 		GUITextures_German[0].Name = "AVA_BACK_DC";
 		GUITextures_German[1].Name = "ADV_WINDOW_DC";

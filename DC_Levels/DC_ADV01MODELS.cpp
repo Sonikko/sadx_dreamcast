@@ -27,7 +27,8 @@ HMODULE ADV01MODELS = GetModuleHandle(L"ADV01MODELS");
 HMODULE ADV01CMODELS = GetModuleHandle(L"ADV01CMODELS");
 std::string plw1xbin;
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-
+DataArray(PVMEntry, stru_10F34A8, 0x10F34A8, 6);
+DataArray(PVMEntry, stru_1101360, 0x1101360, 2);
 static int water1 = 98;
 static int water2 = 90;
 static int water3 = 66;
@@ -306,6 +307,32 @@ void RenderEggCarrier0NPC(NJS_ACTION *action, Float frame)
 
 void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	//PVMs
+	WriteData((char**)0x007D2CB4, (char*)"EC_WATER_DC");
+	WriteData((char**)0x007D2E24, (char*)"EC_WATER_DC");
+	OBJ_EC30_TEXLISTS[0].Name = "OBJ_EC30_DC";
+	OBJ_EC30_TEXLISTS[1].Name = "EC_TARAI_DC";
+	OBJ_EC30_TEXLISTS[2].Name = "EC_ALIFE_DC";
+	stru_10F34A8[0].Name = "OBJ_EC00_DC";
+	stru_10F34A8[1].Name = "EC_SEA_DC";	
+	stru_10F34A8[2].Name = "EC_BOAT_DC";
+	stru_10F34A8[3].Name = "EC_IKADA_DC";
+	OBJ_EC00_TEXLISTS[0].Name = "OBJ_EC00_DC";
+	OBJ_EC00_TEXLISTS[1].Name = "EC_TORNADO_DC";
+	OBJ_EC00_TEXLISTS[2].Name = "EC_SKY_DC";
+	ADV_EC00_TEXLISTS[0].Name = "ADV_EC00_DC";
+	ADV_EC01_TEXLISTS[1].Name = "ADV_EC01_DC";
+	ADV_EC02_TEXLISTS[2].Name = "ADV_EC02_DC";
+	ADV_EC03_TEXLISTS[3].Name = "ADV_EC03_DC";
+	ADV_EC04_TEXLISTS[4].Name = "ADV_EC04_DC";
+	ADV_EC05_TEXLISTS[5].Name = "ADV_EC05_DC";
+	ADV_EC30_TEXLISTS[0].Name = "ADV_EC30_DC";
+	ADV_EC31_TEXLISTS[0].Name = "ADV_EC31_DC";
+	ADV_EC32_TEXLISTS[0].Name = "ADV_EC32_DC";
+	ADV_EC33_TEXLISTS[0].Name = "ADV_EC33_DC";
+	ADV_EC34_TEXLISTS[0].Name = "ADV_EC34_DC";
+	ADV_EC35_TEXLISTS[0].Name = "ADV_EC35_DC";
+	EC_TRANSFORM_TEXLISTS[0].Name = "EC_TRANSFORM_DC";
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "EggCarrier", false);
 	delete config;
@@ -319,7 +346,7 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x006A4F41, -143.85f); //X2
 	WriteData((float*)0x006A4F3C, 15.93f); //Y2
 	WriteData((float*)0x006A4F37, 80.25f); //Z2
-										   //Fix camera in Gamma-Amy prison cutscene
+	//Fix camera in Gamma-Amy prison cutscene
 	WriteData((float*)0x00678C48, -134.0f); //X1
 	WriteData((float*)0x00678C43, 15.0f); //Y1
 	WriteData((float*)0x00678C3E, 54.0f); //Z1
@@ -345,6 +372,9 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 		landtable_00162260.TexName = "ADV_EC00W";
 		landtable_001631F0.TexName = "ADV_EC01W";
 		landtable_00163CE8.TexName = "ADV_EC02W";
+		ADV_EC00_TEXLISTS[0].Name = "ADV_EC00W";
+		ADV_EC01_TEXLISTS[1].Name = "ADV_EC01W";
+		ADV_EC02_TEXLISTS[2].Name = "ADV_EC02W";
 		ResizeTextureList(&texlist_ec00, 125);
 		ResizeTextureList(&texlist_ec01, 117);
 		ResizeTextureList(&texlist_ec02, 93);
@@ -360,6 +390,9 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 		landtable_00162260.TexName = "ADV_EC00";
 		landtable_001631F0.TexName = "ADV_EC01";
 		landtable_00163CE8.TexName = "ADV_EC02";
+		ADV_EC00_TEXLISTS[0].Name = "ADV_EC00_DC";
+		ADV_EC01_TEXLISTS[1].Name = "ADV_EC01_DC";
+		ADV_EC02_TEXLISTS[2].Name = "ADV_EC02_DC";
 	}
 	WriteJump((char *)GetProcAddress(ADV01MODELS, "SetClip_EC00"), SetClip_EC00);
 	WriteJump((char *)GetProcAddress(ADV01MODELS, "SetClip_EC01"), SetClip_EC01);

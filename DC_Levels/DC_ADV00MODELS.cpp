@@ -226,6 +226,12 @@ void RenderOfficeDoor_Child(NJS_MODEL_SADX *a1, float scale)
 
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	ADVSS00_TEXLISTS[0].Name = "ADVSS00_DC";
+	ADVSS01_TEXLISTS[0].Name = "ADVSS01_DC";
+	ADVSS02_TEXLISTS[0].Name = "ADVSS02_DC";
+	ADVSS03_TEXLISTS[0].Name = "ADVSS03_DC";
+	ADVSS04_TEXLISTS[0].Name = "ADVSS04_DC";
+	ADVSS05_TEXLISTS[0].Name = "ADVSS05_DC";
 	WriteData((char**)0x007C4EC4, (char*)"SSCAR_DC");
 	WriteData((char**)0x007C4FA8, (char*)"SS_TRAIN_DC");
 	OBJ_SS_TEXLISTS[0].Name = "OBJ_SS_DC";
@@ -279,6 +285,9 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		landtable_000C21F0.TexName = "ADVSS02W";
 		landtable_000DCEBC.TexName = "ADVSS03W";
 		landtable_00135A90.TexName = "ADVSS04W";
+		ADVSS02_TEXLISTS[0].Name = "ADVSS02W";
+		ADVSS03_TEXLISTS[0].Name = "ADVSS03W";
+		ADVSS04_TEXLISTS[0].Name = "ADVSS04W";
 		ResizeTextureList(&texlist4, 283);
 		ResizeTextureList(&texlist5, 147);
 		WriteData((int*)0x006311BB, 268);
@@ -306,6 +315,9 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		landtable_000C21F0.TexName = "ADVSS02_DC";
 		landtable_000DCEBC.TexName = "ADVSS03_DC";
 		landtable_00135A90.TexName = "ADVSS04_DC";
+		ADVSS02_TEXLISTS[0].Name = "ADVSS02_DC";
+		ADVSS03_TEXLISTS[0].Name = "ADVSS03_DC";
+		ADVSS04_TEXLISTS[0].Name = "ADVSS04_DC";
 	}
 	WriteData<4>((void*)0x00630AE0, 0x90); //Hotel door fix
 	WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting

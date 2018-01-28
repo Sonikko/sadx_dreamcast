@@ -165,37 +165,37 @@ NJS_MATERIAL* ObjectSpecular[] = {
 NJS_MATERIAL* WhiteDiffuse[] = {
 	(NJS_MATERIAL*)((size_t)ADV02MODELS + 0x0003CD50), //Button on HiddenGate
 	&matlistADV02_001FCA84[8], //MR train
-						  //Palm trees
-						  &matlistADV02_001D76E0[1],
-						  &matlistADV02_001D85A8[1],
-						  &matlistADV02_001D9470[1],
-						  &matlistADV02_001DA32C[1],
-						  &matlistADV02_001DB210[1],
-						  &matlistADV02_001DC0BC[1],
-						  &matlistADV02_00148D38_3[0], //Jungle stuff
-						  &matlistADV02_00146334_3[0],
-						  //Final Egg stuff
-						  &matlistADV02_002069C8[5],
-						  &matlistADV02_002069C8[6],
-						  &matlistADV02_002069C8[7],
-						  &matlistADV02_00208504Z[13],
-						  &matlistADV02_00208504[13],
-						  //Jungle stuff
-						  &matlistADV02_0007ABA8[0],
-						  &matlistADV02_0007ABA8[1],
-						  &matlistADV02_0007ABA8[2],
-						  &matlistADV02_0007ABA8[3],
-						  &matlistADV02_0007ABA8[4],
-						  &matlistADV02_0007ABA8[5],
-						  &matlistADV02_0007ABA8[6],
-						  //Final Egg Base stuff
-						  &matlistADV02_00025A74[0],
-						  &matlistADV02_00025A74[1],
-						  &matlistADV02_00025A74[2],
-						  &matlistADV02_00025A74[3],
-						  &matlistADV02_00025A74[4],
-						  //OHiddenGate buttons
-						  &matlistADV02_0003CD28[2],
+	//Palm trees
+	&matlistADV02_001D76E0[1],
+	&matlistADV02_001D85A8[1],
+	&matlistADV02_001D9470[1],
+	&matlistADV02_001DA32C[1],
+	&matlistADV02_001DB210[1],
+	&matlistADV02_001DC0BC[1],
+	&matlistADV02_00148D38_3[0], //Jungle stuff
+	&matlistADV02_00146334_3[0],
+	//Final Egg stuff
+	&matlistADV02_002069C8[5],
+	&matlistADV02_002069C8[6],
+	&matlistADV02_002069C8[7],
+	&matlistADV02_00208504Z[13],
+	&matlistADV02_00208504[13],
+	//Jungle stuff
+	&matlistADV02_0007ABA8[0],
+	&matlistADV02_0007ABA8[1],
+	&matlistADV02_0007ABA8[2],
+	&matlistADV02_0007ABA8[3],
+	&matlistADV02_0007ABA8[4],
+	&matlistADV02_0007ABA8[5],
+	&matlistADV02_0007ABA8[6],
+	//Final Egg Base stuff
+	&matlistADV02_00025A74[0],
+	&matlistADV02_00025A74[1],
+	&matlistADV02_00025A74[2],
+	&matlistADV02_00025A74[3],
+	&matlistADV02_00025A74[4],
+	//OHiddenGate buttons
+	&matlistADV02_0003CD28[2],
 };
 
 void SetColor(float a, float r, float g, float b)
@@ -234,6 +234,10 @@ void FixMRBase(ObjectMaster *a1)
 
 void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	ADV_MR00_TEXLISTS[0].Name = "ADV_MR00_DC";
+	ADV_MR01_TEXLISTS[1].Name = "ADV_MR01_DC";
+	ADV_MR02_TEXLISTS[2].Name = "ADV_MR02_DC";
+	ADV_MR03_TEXLISTS[3].Name = "ADV_MR03_DC";
 	MROBJ_TEXLISTS[0].Name = "MROBJ_DC";
 	WriteData((char**)0x007C5057, (char*)"MR_SKY00_DC");
 	WriteData((char**)0x007C5097, (char*)"MR_SKY01_DC");
@@ -287,6 +291,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		WriteCall((void*)0x00532551, DisableSADXWaterFog);
 		landtable_00017960.TexName = "ADV_MR00W";
+		ADV_MR00_TEXLISTS[0].Name = "ADV_MR00W";
 		WriteCall((void*)0x005325C9, SetWaterTexture);
 		WriteData((int*)0x00532611, 156);
 		ResizeTextureList(&texlist_mr00, 171);
@@ -299,6 +304,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		WriteJump((void*)0x532500, MRWater);
 		landtable_00017960.TexName = "ADV_MR00_DC";
+		ADV_MR00_TEXLISTS[0].Name = "ADV_MR00_DC";
 	}
 	for (int i = 0; i < 3; i++)
 	{
@@ -355,7 +361,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	___ADV02_OBJECTS[67]->child->sibling->sibling->sibling->sibling->sibling->model = &attachADV02_001D854C;
 	___ADV02_OBJECTS[67]->child->sibling->sibling->sibling->sibling->sibling->child->model = &attachADV02_001D82AC;
 	___ADV02_OBJECTS[84] = &objectADV02_000690B8; //Light above the door of Tails' house
-											 //Material fixes
+	//Material fixes
 	___ADV02_OBJECTS[90]->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 	___ADV02_OBJECTS[91]->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 	//Other objects
