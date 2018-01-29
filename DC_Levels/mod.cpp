@@ -5,7 +5,6 @@
 #include "DC_Levels.h"
 
 static bool EnableDCBranding = true;
-
 static bool EnableEmeraldCoast = true;
 static bool EnableWindyValley = true;
 static bool EnableTwinklePark = true;
@@ -34,6 +33,12 @@ extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		if (helperFunctions.Version < 6)
+		{
+			MessageBoxA(WindowHandle, "Mod Loader out of date. Dreamcast Conversion requires API version 6 or newer.",
+				"DC Conversion error: Mod loader out of date", MB_OK | MB_ICONERROR);
+			return;
+		}
 		//Config stuff
 		//If there is no config.ini, make one
 		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);

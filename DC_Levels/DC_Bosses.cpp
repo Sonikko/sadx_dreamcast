@@ -691,6 +691,24 @@ void E101R_AfterImageArmConstantAttr(Uint32 and_attr, Uint32 or_attr)
 
 void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	char pathbuf[MAX_PATH];
+	ReplacePVM("CHAOS1");
+	ReplacePVM("CHAOS_BRAINFRAME");
+	ReplacePVM("CHAOS_EFFECT");
+	ReplacePVM("CHAOS_SURFACE");
+	ReplacePVM("EV_CHAOS0_MANJU");
+	ReplacePVM("EV_CHAOS1");
+	ReplacePVM("EV_E101KAI");
+	ReplacePVM("EV_E101_BODY");
+	ReplacePVM("EV_E101_FUN");
+	ReplacePVM("EV_E103_BODY");
+	ReplacePVM("EV_E103_FUN");
+	ReplacePVM("EV_E104_BODY");
+	ReplacePVM("EV_E104_FUN");
+	ReplacePVM("EV_E105_BODY");
+	ReplacePVM("EV_E105_FUN");
+	ReplacePVM("ICM0001_3");
+	ReplacePVM("ICM0001_5");
 	HMODULE handle = GetModuleHandle(L"BOSSCHAOS0MODELS");
 	LandTable **___LANDTABLEBOSSCHAOS0 = (LandTable **)GetProcAddress(handle, "___LANDTABLEBOSSCHAOS0");
 	NJS_ACTION **___BOSSCHAOS0_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___BOSSCHAOS0_ACTIONS");
@@ -714,6 +732,10 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	delete config;
 	if (EnableChaos0 == true)
 	{
+		ReplacePVM("LM_CHAOS0");
+		ReplacePVM("CHAOS0");
+		ReplacePVM("CHAOS0_EFFECT");
+		ReplacePVM("CHAOS0_OBJECT");
 		___LANDTABLEBOSSCHAOS0[0] = &landtable_000001D8;
 		___BOSSCHAOS0_TEXLISTS[2] = &texlist_chaos0;
 		___BOSSCHAOS0_TEXLISTS[3] = &chaos0_object;
@@ -749,7 +771,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		___BOSSCHAOS0_ACTIONS[17]->object = &object_0005825C;
 		___BOSSCHAOS0_ACTIONS[18]->object = &object_0005D234;
 		___BOSSCHAOS0_ACTIONS[18]->motion = &animation_0004CEA0;
-		//WriteData((char**)0x007D53D1, (char*)"LM_CHAOS0_DC");
+		WriteData((char**)0x007D53D1, (char*)"LM_CHAOS0");
 		WriteCall((void*)0x0054968E, FixChaos0Car);
 		//Chaos 0
 		((NJS_OBJECT*)0x02C65CF8)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
@@ -778,8 +800,12 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableChaos2 == true)
 	{
+		ReplacePVM("CHAOS2");
+		ReplacePVM("LM_CHAOS2");
+		ReplacePVM("CHAOS2_BARRIER");
+		ReplacePVM("CHAOS2_EFFECT");
+		ReplacePVM("CHAOS2_OBJECT");
 		((NJS_MATERIAL*)0x0117E8A0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Top light in Chaos 2
-		//CHAOS2_OBJECT_TEXLISTS[10].Name = "LM_CHAOS2_DC";
 		WriteCall((void*)0x0054AC30, FixChaos2Columns);
 		WriteData((LandTable**)0x7D1CC0, &landtable_00D2136C); //Chaos 2 PC
 		ResizeTextureList((NJS_TEXLIST*)0x117C76C, textures_chaos2);
@@ -822,7 +848,14 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableChaos4 == true)
 	{
-		//CHAOS4_OBJECT_TEXLISTS[12].Name = "CHAOS4_OBJECT_DC";
+		ReplacePVM("CHAOS4_COMMON");
+		ReplacePVM("CHAOS4_HASHIRA");
+		ReplacePVM("CHAOS4_KAMA");
+		ReplacePVM("CHAOS4_NUMA");
+		ReplacePVM("CHAOS4_OBJECT");
+		ReplacePVM("CHAOS4_SHIBUKI");
+		ReplacePVM("CHAOS4_TIKEI");
+		ReplacePVM("CHAOS4_WAVE");
 		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 swamp water
 		ResizeTextureList((NJS_TEXLIST*)0x118FF08, textures_chaos4dc);
 		WriteJump((void*)0x550D10, Chaos4Skybox);
@@ -852,6 +885,14 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableChaos6 == true)
 	{
+		ReplacePVM("LM_CHAOS6");
+		ReplacePVM("LM_CHAOS6_2");
+		ReplacePVM("CHAOS6");
+		ReplacePVM("CHAOS6_BG");
+		ReplacePVM("CHAOS6_EFFECT");
+		ReplacePVM("CHAOS6_EGGMAN");
+		ReplacePVM("CHAOS6_EISEI");
+		ReplacePVM("CHAOS6_OBJECT");
 		ResizeTextureList((NJS_TEXLIST*)0x121FF28, textures_chaos6);
 		ResizeTextureList((NJS_TEXLIST*)0x11F04A0, textures_chaos6_2);
 		WriteJump((void*)0x00556D60, SetClip_Chaos6KX);
@@ -876,6 +917,15 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableEggHornet == true)
 	{
+		ReplacePVM("EGM1");
+		ReplacePVM("EGM1BARRIER");
+		ReplacePVM("EGM1EGGMAN");
+		ReplacePVM("EGM1JET");
+		ReplacePVM("EGM1JETB");
+		ReplacePVM("EGM1LAND");
+		ReplacePVM("EGM1MIS");
+		ReplacePVM("EGM1SORA");
+		ReplacePVM("EGM1TSUCHI");
 		WriteData((LandTable**)0x7D1D1C, &landtable_00000128);
 		//Egg Hornet model stuff
 		((NJS_OBJECT*)0x0155AA54)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_SPECULAR;
@@ -914,13 +964,26 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableEggViper == true)
 	{
+		ReplacePVM("EGM3CHIKEI");
+		ReplacePVM("EGM3MDL");
+		ReplacePVM("EGM3SPR");
 		ResizeTextureList((NJS_TEXLIST*)0x167E5CC, textures_eggviper);
 		WriteData((LandTable**)0x7D1D48, &landtable_000580F4); //Egg Viper
-		//EGGVIPER_TEXLISTS[6].Name = "EGM3MDL_DC";
 		*(NJS_OBJECT*)0x01669DA8 = object_000434A0; //part of Egg Viper model
 	}
 	if (EnableEggWalker == true)
 	{
+		ReplacePVM("EGM2");
+		ReplacePVM("EGM2_BAKU");
+		ReplacePVM("EGM2_CAR");
+		ReplacePVM("EGM2_COMMON");
+		ReplacePVM("EGM2_EFFECT");
+		ReplacePVM("EGM2_FIRE");
+		ReplacePVM("EGM2_HAMON");
+		ReplacePVM("EGM2_MINE");
+		ReplacePVM("EGM2_MISSILE");
+		ReplacePVM("EGM2_SKY");
+		ReplacePVM("EGM2_TIKEI");
 		ResizeTextureList((NJS_TEXLIST*)0x15E99F8, textures_eggwalker);
 		WriteData((LandTable**)0x7D1D32, &landtable_0000022C); //Egg Walker
 		//Egg Walker
@@ -929,6 +992,8 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableE101 == true)
 	{
+		ReplacePVM("E101");
+		ReplacePVM("E101_TIKEI");
 		ResizeTextureList((NJS_TEXLIST*)0x14FBFB4, textures_e101);
 		WriteData((LandTable**)0x7D1D7F, &landtable_00000068); //E-101
 		//E101 rocket
@@ -939,6 +1004,9 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableZeroE101R == true)
 	{
+		ReplacePVM("E101R");
+		ReplacePVM("E101R_BG");
+		ReplacePVM("E101R_TIKEI");
 		*(NJS_OBJECT*)0x00991268 = object_00591268; //Zero main and cutscene model
 		*(NJS_OBJECT *)0x02DA8664 = object_029A8664; //E101R model in cutscenes
 		WriteData((LandTable**)0x7D1D64, &landtable_00000110); //Zero
@@ -964,6 +1032,16 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnablePerfectChaos == true)
 	{
+		ReplacePVM("CHAOS7_0");
+		ReplacePVM("CHAOS7_0BREATH");
+		ReplacePVM("CHAOS7_0BREATH2ND");
+		ReplacePVM("CHAOS7_0DAMAGE");
+		ReplacePVM("CHAOS7_0DEAD_PTCHG");
+		ReplacePVM("CHAOS7_0SURFACE");
+		ReplacePVM("CHAOS7_0WATEREXP");
+		ReplacePVM("CHAOS7_0WEXP_PTCHG");
+		ReplacePVM("LM_CHAOS7_0");
+		ReplacePVM("OBJ_CHAOS7");
 		ResizeTextureList((NJS_TEXLIST*)0x1494FBC, textures_chaos7);
 		WriteData((LandTable**)0x7D1D06, &landtable_00001214); //Perfect Chaos DC
 		WriteCall((void*)0x56463B, PerfectChaosWaterfallHook);

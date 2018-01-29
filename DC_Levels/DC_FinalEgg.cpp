@@ -566,6 +566,13 @@ void GachaponExplosionFix(NJS_MODEL_SADX *a1)
 
 void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	char pathbuf[MAX_PATH];
+	ReplacePVM("EFF_FINALEGG_POM");
+	ReplacePVM("FINALEGG1");
+	ReplacePVM("FINALEGG2");
+	ReplacePVM("FINALEGG3");
+	ReplacePVM("FINALEGG4");
+	ReplacePVM("OBJ_FINALEGG");
 	TexLists_Obj[10] = FinalEggObjectTextures;
 	WriteData((LandTable**)0x97DB48, &landtable_0001D108); //Act 1
 	WriteData((LandTable**)0x97DB4C, &landtable_00083CCC); //Act 2

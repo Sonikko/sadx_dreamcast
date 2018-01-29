@@ -791,6 +791,7 @@ const char* __cdecl SetPLZ0X(int level, int act)
 
 void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	char pathbuf[MAX_PATH];
 	HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
 	HMODULE SA1_Chars = GetModuleHandle(L"SA1_Chars");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
@@ -803,15 +804,22 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	VerticalResolutionHalf_float = VerticalResolution_float / 2.0f;
 	if (EnableSandHill == true)
 	{ 
-		//OBJ_SANDBOARD_TEXLISTS[0].Name = "OBJ_SANDBOARD_DC";
-		//WriteData((char**)0x00597A1A, (char*)"BG_SANDBOARD_DC");
+		ReplacePVM("BG_SANDBOARD");
+		ReplacePVM("EFF_SANDBOARD");
+		ReplacePVM("OBJ_SANDBOARD");
+		ReplacePVM("SANDBOARD");
 		WriteData((LandTable**)0x7D2051, &landtable_00002DEC); //Sand Hill
 		*(NJS_OBJECT *)0x017424DC = objectSBOARD_0006EA40; //Sand Hill ramp
 	}
 	if (EnableTwinkleCircuit == true)
 	{
-		//OBJ_MINI_CART_TEXLISTS[0].Name = "OBJ_MINI_CART_DC";
-		//OBJ_MINI_CART_TEXLISTS[1].Name = "OBJ_SHAREOBJ_DC";
+		ReplacePVM("MINI_CART01");
+		ReplacePVM("MINI_CART02");
+		ReplacePVM("MINI_CART03");
+		ReplacePVM("MINI_CART04");
+		ReplacePVM("MINI_CART05");
+		ReplacePVM("MINI_CART06");
+		ReplacePVM("OBJ_MINI_CART");
 		WriteData((LandTable**)0x7D205B, &landtable_00001A3C); //Twinkle Circuit
 	}
 	if (EnableSkyChaseFixes == true)
@@ -879,13 +887,12 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableSkyChaseEnemyModels == true)
 	{
-		/*if (HD_GUI == nullptr && SA1_Chars == nullptr)
+		if (HD_GUI == nullptr && SA1_Chars == nullptr)
 		{
-			SHOOTING0_TEXLISTS[0].Name = "SHOOTING0_DC";
-			SHOOTING1_TEXLISTS[0].Name = "SHOOTING1_DC";
-			SKYCHASE_OBJECT_TEXLISTS[0].Name = "SHOOTING0_DC";
-			SKYCHASE_OBJECT_TEXLISTS[7].Name = "SHOOTING2_DC";
-		}*/
+			ReplacePVM("SHOOTING0");
+			ReplacePVM("SHOOTING1");
+			ReplacePVM("SHOOTING2");
+		}
 		*(NJS_OBJECT *)0x02982F44 = objectSHOOTING_0003FA40; //Egg Carrier model
 		*(NJS_OBJECT *)0x298A894 = objectSHOOTING_00047110; //Hodai
 		*(NJS_OBJECT *)0x2941B2C = objectSHOOTING_0001342C; //Kirai

@@ -194,12 +194,14 @@ NJS_MATERIAL* WhiteDiffuse_HotShelter[] = {
 
 void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	/*HotShelter0_TEXLISTS[0].Name = "HOTSHELTER0_DC";
-	HOTSHELTER1_TEXLISTS[0].Name = "HOTSHELTER1_DC";
-	HOTSHELTER2_TEXLISTS[0].Name = "HOTSHELTER2_DC";
-	HOTSHELTER3_TEXLISTS[0].Name = "HOTSHELTER3_DC";
-	HOTSHELTER3_TEXLISTS[1].Name = "HOTSHELTER4_DC";
-	HOTSHELTER4_TEXLISTS[0].Name = "HOTSHELTER4_DC";*/
+	char pathbuf[MAX_PATH];
+	ReplacePVM("HOTSHELTER0");
+	ReplacePVM("HOTSHELTER1");
+	ReplacePVM("HOTSHELTER2");
+	ReplacePVM("HOTSHELTER3");
+	ReplacePVM("HOTSHELTER4");
+	ReplacePVM("SHELTER_COLUMN");
+	ReplacePVM("SHELTER_SUIMEN");
 	WriteData((LandTable**)0x97DB88, &landtable_0001970C);
 	WriteData((LandTable**)0x97DB8C, &landtable_0005277C);
 	WriteData((LandTable**)0x97DB90, &landtable_000B0DA4);

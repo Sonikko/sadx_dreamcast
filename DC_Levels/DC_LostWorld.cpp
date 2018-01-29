@@ -25,12 +25,13 @@ NJS_MATERIAL* ObjectSpecular_LostWorld[] = {
 
 void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	/*WriteData((char**)0x005E19AA, (char*)"BG_RUIN_DC");
-	RUIN01_TEXLISTS[0].Name = "RUIN01_DC";
-	RUIN02_TEXLISTS[0].Name = "RUIN02_DC";
-	RUIN03_TEXLISTS[0].Name = "RUIN03_DC";
-	OBJ_RUIN_TEXLISTS[0].Name = "OBJ_RUIN_DC";
-	OBJ_RUIN_TEXLISTS[1].Name = "OBJ_RUIN2_DC";*/
+	char pathbuf[MAX_PATH];
+	ReplacePVM("BG_RUIN");
+	ReplacePVM("RUIN01");
+	ReplacePVM("RUIN02");
+	ReplacePVM("RUIN03");
+	ReplacePVM("OBJ_RUIN");
+	ReplacePVM("OBJ_RUIN2");
 	WriteData((LandTable**)0x97DAE8, &landtable_0000D560);
 	WriteData((LandTable**)0x97DAEC, &landtable_00063A6C);
 	WriteData((LandTable**)0x97DAF0, &landtable_000F928C);

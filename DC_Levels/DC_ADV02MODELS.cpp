@@ -235,18 +235,18 @@ void FixMRBase(ObjectMaster *a1)
 
 void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	/*
-	ADV_MR00_TEXLISTS[0].Name = "ADV_MR00_DC";
-	ADV_MR01_TEXLISTS[1].Name = "ADV_MR01_DC";
-	ADV_MR02_TEXLISTS[2].Name = "ADV_MR02_DC";
-	ADV_MR03_TEXLISTS[3].Name = "ADV_MR03_DC";
-	MROBJ_TEXLISTS[0].Name = "MROBJ_DC";
-	WriteData((char**)0x007C5057, (char*)"MR_SKY00_DC");
-	WriteData((char**)0x007C5097, (char*)"MR_SKY01_DC");
-	WriteData((char**)0x007C50C7, (char*)"MR_SKY02_DC");
-	WriteData((char**)0x007C506B, (char*)"MR_TRAIN_DC");
-	WriteData((char**)0x007C50DB, (char*)"MR_PYRAMID_DC");
-	WriteData((char**)0x007C50EE, (char*)"MR_FINALEGG_DC");*/
+	char pathbuf[MAX_PATH];
+	ReplacePVM("ADV_MR00");
+	ReplacePVM("ADV_MR01");
+	ReplacePVM("ADV_MR02");
+	ReplacePVM("ADV_MR03");
+	ReplacePVM("MROBJ");
+	ReplacePVM("MR_FINALEGG");
+	ReplacePVM("MR_SKY00");
+	ReplacePVM("MR_SKY01");
+	ReplacePVM("MR_SKY02");
+	ReplacePVM("MR_TRAIN");
+	ReplacePVM("TANKEN");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
 	delete config;

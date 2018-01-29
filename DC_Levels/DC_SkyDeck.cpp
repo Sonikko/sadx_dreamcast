@@ -471,10 +471,12 @@ void RenderSmallCloud(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 
 void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	/*SKYDECK01_TEXLISTS[0].Name = "SKYDECK01_DC";
-	SKYDECK02_TEXLISTS[0].Name = "SKYDECK02_DC";
-	SKYDECK03_TEXLISTS[0].Name = "SKYDECK03_DC";
-	OBJ_SKYDECK_TEXLISTS[0].Name = "OBJ_SKYDECK_DC";*/
+	char pathbuf[MAX_PATH];
+	ReplacePVM("E_AIRCRAFT");
+	ReplacePVM("OBJ_SKYDECK");
+	ReplacePVM("SKYDECK01");
+	ReplacePVM("SKYDECK02");
+	ReplacePVM("SKYDECK03");
 	WriteData((LandTable**)0x97DAC8, &landtable_0001F018);
 	WriteData((LandTable**)0x97DACC, &landtable_00021094);
 	WriteData((LandTable**)0x97DAD0, &landtable_00023EB4);

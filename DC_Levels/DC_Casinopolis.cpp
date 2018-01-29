@@ -675,14 +675,15 @@ const char* __cdecl SetPL90X(int level, int act)
 
 void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	/*WriteData((char**)0x005C0522, (char*)"OBJ_CASINO_E_DC");
-	WriteData((char**)0x005C0557, (char*)"OBJ_CASINO2_DC");
-	WriteData((char**)0x005C04CB, (char*)"OBJ_CASINO9_DC");
-	WriteData((char**)0x005C04F8, (char*)"OBJ_CASINO8_DC");
-	CASINO01_TEXLISTS[0].Name = "CASINO01_DC";
-	CASINO02_TEXLISTS[0].Name = "CASINO02_DC";
-	CASINO03_TEXLISTS[0].Name = "CASINO03_DC";
-	CASINO04_TEXLISTS[0].Name = "CASINO04_DC";*/
+	char pathbuf[MAX_PATH];
+	ReplacePVM("CASINO01");
+	ReplacePVM("CASINO02");
+	ReplacePVM("CASINO03");
+	ReplacePVM("CASINO04");
+	ReplacePVM("OBJ_CASINO2");
+	ReplacePVM("OBJ_CASINO8");
+	ReplacePVM("OBJ_CASINO9");
+	ReplacePVM("OBJ_CASINO_E");
 	WriteData((LandTable**)0x97DB28, &landtable_00025EAC);
 	WriteData((LandTable**)0x97DB2C, &landtable_0006C0B4);
 	WriteData((LandTable**)0x97DB30, &landtable_000AF120);

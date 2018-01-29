@@ -1,6 +1,11 @@
 #include <SADXModLoader.h>
 #include "CommonObjects.h"
 #include "Objects_Shooting.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+#define ReplacePVMX(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "_HD.PVMX", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);
+#define ReplacePNG(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "_HD.PNG", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
 
 static float Options_ArrowScale = 0.0f;
 static float Options_ArrowScaleAmount = 0.1f;
@@ -99,176 +104,191 @@ void RetrievePlayerSelectStuff(int that_cant_be_right, float x, float y, float z
 	PSsZ = z;
 }
 
-void GGTEXLIST_Hook(const char *filename, NJS_TEXLIST *texlist)
-{
-	LoadPVM("GG_TEXLIST_US_HD", texlist);
-}
-
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
-	__declspec(dllexport) void __cdecl Init()
+	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
-		//Set PVM names
-		WriteCall((void*)0x006FF84D, GGTEXLIST_Hook);
-		SHOOTING0_TEXLISTS[0].Name = "SHOOTING0_HD";
-		SKYCHASE_OBJECT_TEXLISTS[0].Name = "SHOOTING0_HD";
-		//Code stuff
-		WriteData((char**)0x0042C752, (char*)"SEGALOGO_E_HD");
-		WriteData((char**)0x0064221D, (char*)"ADV_WINDOW_HD");
-		WriteData((char**)0x0064222E, (char*)"AVA_CSR_HD");
-		WriteData((char**)0x00642249, (char*)"AVA_DLG_E_HD");
-		WriteData((char**)0x00642258, (char*)"TUTO_CMN_E_HD");
-		WriteData((char**)0x0064225F, (char*)"AVA_DLG_E_HD");
-		WriteData((char**)0x0064226E, (char*)"TUTO_CMN_E_HD");
-		WriteData((char**)0x00415A8C, (char*)"PRESSSTART_HD");
-		//Tutorials
-		WriteData((char**)0x02BC544C, (char*)"TUTOMSG_SONIC_E_HD");
-		WriteData((char**)0x02BC5460, (char*)"TUTOMSG_SONIC_E_HD");
-		WriteData((char**)0x02BC5478, (char*)"TUTOMSG_SONIC_E_HD");
-		WriteData((char**)0x02BC5490, (char*)"TUTOMSG_SONIC_E_HD");
-		WriteData((char**)0x02BC54A8, (char*)"TUTOMSG_SONIC_E_HD");
-		WriteData((char**)0x02BC54C0, (char*)"TUTOMSG_SONIC_E_HD");
-		WriteData((char**)0x02BC5464, (char*)"TUTOMSG_TAILS_E_HD");
-		WriteData((char**)0x02BC547C, (char*)"TUTOMSG_KNUCKLES_E_HD");
-		WriteData((char**)0x02BC5494, (char*)"TUTOMSG_AMY_E_HD");
-		WriteData((char**)0x02BC54AC, (char*)"TUTOMSG_BIG_E_HD");
-		WriteData((char**)0x02BC54C4, (char*)"TUTOMSG_E102_E_HD");
-		//Japanese
-		GUITextures_Japanese[0].Name = "AVA_BACK_HD";
-		GUITextures_Japanese[1].Name = "ADV_WINDOW_HD";
-		GUITextures_Japanese[2].Name = "AVA_CHSEL_E_HD";
-		GUITextures_Japanese[3].Name = "AVA_SUUJI_HD";
-		GUITextures_Japanese[4].Name = "AVA_CSR_HD";
-		GUITextures_Japanese[5].Name = "AVA_DLG_E_HD";
-		GUITextures_Japanese[6].Name = "AVA_FSDLG_E_HD";
-		GUITextures_Japanese[7].Name = "AVA_FILESEL_E_HD";
-		GUITextures_Japanese[8].Name = "AVA_FSCMN_E";
-		GUITextures_Japanese[9].Name = "AVA_SNDTEST_E_HD";
-		GUITextures_Japanese[10].Name = "AVA_SQUARE_HD";
-		GUITextures_Japanese[11].Name = "AVA_STNAM_E_HD";
-		GUITextures_Japanese[12].Name = "AVA_TRIALACTSEL_E_HD";
-		GUITextures_Japanese[13].Name = "AVA_VMSSEL_E_HD";
-		GUITextures_Japanese[14].Name = "B_CHNAM_E_HD";
-		GUITextures_Japanese[15].Name = "M_CHNAM_HD";
-		GUITextures_Japanese[16].Name = "TX_CHNAM_E_HD";
-		GUITextures_Japanese[19].Name = "AVA_TITLE_E_HD";
-		GUITextures_Japanese[21].Name = "AVA_OPTION_HD";
-		GUITextures_Japanese[22].Name = "AVA_EMBLEM_HD";
-		GUITextures_Japanese[23].Name = "AVA_NEW16NO_HD";
-		GUITextures_Japanese[24].Name = "AVA_SAN_HD";
-		GUITextures_Japanese[25].Name = "AVA_EMBLEMVIEW_E_HD";
-		GUITextures_Japanese[26].Name = "AVA_INETDEMO";
-		GUITextures_Japanese[27].Name = "TVSETTING";
-		GUITextures_Japanese[28].Name = "AVA_METAL_SONIC_HD";
-		//English
-		GUITextures_English[0].Name = "AVA_BACK_HD";
-		GUITextures_English[1].Name = "ADV_WINDOW_HD";
-		GUITextures_English[2].Name = "AVA_CHSEL_E_HD";
-		GUITextures_English[3].Name = "AVA_SUUJI_HD";
-		GUITextures_English[4].Name = "AVA_CSR_HD";
-		GUITextures_English[5].Name = "AVA_DLG_E_HD";
-		GUITextures_English[6].Name = "AVA_FSDLG_E_HD";
-		GUITextures_English[7].Name = "AVA_FILESEL_E_HD";
-		GUITextures_English[8].Name = "AVA_FSCMN_E";
-		GUITextures_English[9].Name = "AVA_SNDTEST_E_HD";
-		GUITextures_English[10].Name = "AVA_SQUARE_HD";
-		GUITextures_English[11].Name = "AVA_STNAM_E_HD";
-		GUITextures_English[12].Name = "AVA_TRIALACTSEL_E_HD";
-		GUITextures_English[13].Name = "AVA_VMSSEL_E_HD";
-		GUITextures_English[14].Name = "B_CHNAM_E_HD";
-		GUITextures_English[15].Name = "M_CHNAM_HD";
-		GUITextures_English[16].Name = "TX_CHNAM_E_HD";
-		GUITextures_English[19].Name = "AVA_TITLE_E_HD";
-		GUITextures_English[21].Name = "AVA_OPTION_E_HD";
-		GUITextures_English[22].Name = "AVA_EMBLEM_HD";
-		GUITextures_English[23].Name = "AVA_NEW16NO_HD";
-		GUITextures_English[24].Name = "AVA_SAN_HD";
-		GUITextures_English[25].Name = "AVA_EMBLEMVIEW_E_HD";
-		GUITextures_English[26].Name = "AVA_INETDEMO";
-		GUITextures_English[27].Name = "TVSETTING";
-		GUITextures_English[28].Name = "AVA_METAL_SONIC_HD";
-		//French
-		GUITextures_French[0].Name = "AVA_BACK_HD";
-		GUITextures_French[1].Name = "ADV_WINDOW_HD";
-		GUITextures_French[2].Name = "AVA_CHSEL_E_HD";
-		GUITextures_French[3].Name = "AVA_SUUJI_HD";
-		GUITextures_French[4].Name = "AVA_CSR_HD";
-		GUITextures_French[5].Name = "AVA_DLG_E_HD";
-		GUITextures_French[6].Name = "AVA_FSDLG_E_HD";
-		GUITextures_French[7].Name = "AVA_FILESEL_E_HD";
-		GUITextures_French[8].Name = "AVA_FSCMN_E";
-		GUITextures_French[9].Name = "AVA_SNDTEST_E_HD";
-		GUITextures_French[10].Name = "AVA_SQUARE_HD";
-		GUITextures_French[11].Name = "AVA_STNAM_E_HD";
-		GUITextures_French[12].Name = "AVA_TRIALACTSEL_E_HD";
-		GUITextures_French[13].Name = "AVA_VMSSEL_E_HD";
-		GUITextures_French[14].Name = "B_CHNAM_E_HD";
-		GUITextures_French[15].Name = "M_CHNAM_HD";
-		GUITextures_French[16].Name = "TX_CHNAM_E_HD";
-		GUITextures_French[19].Name = "AVA_TITLE_E_HD";
-		GUITextures_French[21].Name = "AVA_OPTION_E_HD";
-		GUITextures_French[22].Name = "AVA_EMBLEM_HD";
-		GUITextures_French[23].Name = "AVA_NEW16NO_HD";
-		GUITextures_French[24].Name = "AVA_SAN_HD";
-		GUITextures_French[25].Name = "AVA_EMBLEMVIEW_E_HD";
-		GUITextures_French[26].Name = "AVA_INETDEMO";
-		GUITextures_French[27].Name = "TVSETTING";
-		GUITextures_French[28].Name = "AVA_METAL_SONIC_HD";
-		//Spanish
-		GUITextures_Spanish[0].Name = "AVA_BACK_HD";
-		GUITextures_Spanish[1].Name = "ADV_WINDOW_HD";
-		GUITextures_Spanish[2].Name = "AVA_CHSEL_E_HD";
-		GUITextures_Spanish[3].Name = "AVA_SUUJI_HD";
-		GUITextures_Spanish[4].Name = "AVA_CSR_HD";
-		GUITextures_Spanish[5].Name = "AVA_DLG_E_HD";
-		GUITextures_Spanish[6].Name = "AVA_FSDLG_E_HD";
-		GUITextures_Spanish[7].Name = "AVA_FILESEL_E_HD";
-		GUITextures_Spanish[8].Name = "AVA_FSCMN_E";
-		GUITextures_Spanish[9].Name = "AVA_SNDTEST_E_HD";
-		GUITextures_Spanish[10].Name = "AVA_SQUARE_HD";
-		GUITextures_Spanish[11].Name = "AVA_STNAM_E_HD";
-		GUITextures_Spanish[12].Name = "AVA_TRIALACTSEL_E_HD";
-		GUITextures_Spanish[13].Name = "AVA_VMSSEL_E_HD";
-		GUITextures_Spanish[14].Name = "B_CHNAM_E_HD";
-		GUITextures_Spanish[15].Name = "M_CHNAM_HD";
-		GUITextures_Spanish[16].Name = "TX_CHNAM_E_HD";
-		GUITextures_Spanish[19].Name = "AVA_TITLE_E_HD";
-		GUITextures_Spanish[21].Name = "AVA_OPTION_E_HD";
-		GUITextures_Spanish[22].Name = "AVA_EMBLEM_HD";
-		GUITextures_Spanish[23].Name = "AVA_NEW16NO_HD";
-		GUITextures_Spanish[24].Name = "AVA_SAN_HD";
-		GUITextures_Spanish[25].Name = "AVA_EMBLEMVIEW_E_HD";
-		GUITextures_Spanish[26].Name = "AVA_INETDEMO";
-		GUITextures_Spanish[27].Name = "TVSETTING";
-		GUITextures_Spanish[28].Name = "AVA_METAL_SONIC_HD";
-		//German
-		GUITextures_German[0].Name = "AVA_BACK_HD";
-		GUITextures_German[1].Name = "ADV_WINDOW_HD";
-		GUITextures_German[2].Name = "AVA_CHSEL_E_HD";
-		GUITextures_German[3].Name = "AVA_SUUJI_HD";
-		GUITextures_German[4].Name = "AVA_CSR_HD";
-		GUITextures_German[5].Name = "AVA_DLG_E_HD";
-		GUITextures_German[6].Name = "AVA_FSDLG_E_HD";
-		GUITextures_German[7].Name = "AVA_FILESEL_E_HD";
-		GUITextures_German[8].Name = "AVA_FSCMN_E";
-		GUITextures_German[9].Name = "AVA_SNDTEST_E_HD";
-		GUITextures_German[10].Name = "AVA_SQUARE_HD";
-		GUITextures_German[11].Name = "AVA_STNAM_E_HD";
-		GUITextures_German[12].Name = "AVA_TRIALACTSEL_E_HD";
-		GUITextures_German[13].Name = "AVA_VMSSEL_E_HD";
-		GUITextures_German[14].Name = "B_CHNAM_E_HD";
-		GUITextures_German[15].Name = "M_CHNAM_HD";
-		GUITextures_German[16].Name = "TX_CHNAM_E_HD";
-		GUITextures_German[19].Name = "AVA_TITLE_E_HD";
-		GUITextures_German[21].Name = "AVA_OPTION_E_HD";
-		GUITextures_German[22].Name = "AVA_EMBLEM_HD";
-		GUITextures_German[23].Name = "AVA_NEW16NO_HD";
-		GUITextures_German[24].Name = "AVA_SAN_HD";
-		GUITextures_German[25].Name = "AVA_EMBLEMVIEW_E_HD";
-		GUITextures_German[26].Name = "AVA_INETDEMO";
-		GUITextures_German[27].Name = "TVSETTING";
-		GUITextures_German[28].Name = "AVA_METAL_SONIC_HD";
+		char pathbuf[MAX_PATH];
+		ReplacePVMX("ADV_WINDOW");
+		ReplacePVMX("AVA_BACK");
+		ReplacePVMX("AVA_CHSEL_E");
+		ReplacePVMX("AVA_CSR");
+		ReplacePVMX("AVA_DLG_E");
+		ReplacePVMX("AVA_EMBLEMVIEW_E");
+		ReplacePVMX("AVA_EMBLEM");
+		ReplacePVMX("AVA_FILESEL_E");
+		ReplacePVMX("AVA_FSDLG_E");
+		ReplacePVMX("AVA_METAL_SONIC");
+		ReplacePVMX("AVA_NEW16NO");
+		ReplacePVMX("AVA_OPTION_E");
+		ReplacePVMX("AVA_OPTION");
+		ReplacePVMX("AVA_SAN");
+		ReplacePVMX("AVA_SNDTEST_E");
+		ReplacePVMX("AVA_SQUARE");
+		ReplacePVMX("AVA_STNAM_E");
+		ReplacePVMX("AVA_SUUJI");
+		ReplacePVMX("AVA_TITLE_BACK_E");
+		ReplacePVMX("AVA_TITLE_E");
+		ReplacePVMX("AVA_TRIALACTSEL_E");
+		ReplacePVMX("AVA_VMSSEL_E");
+		ReplacePVMX("BOARD_SCORE");
+		ReplacePVMX("B_CHNAM_E");
+		ReplacePVMX("CHAOS_LIFEGAUGE");
+		ReplacePVMX("CON_REGULAR_E");
+		ReplacePVMX("E102TIME");
+		ReplacePVMX("EMBLEM");
+		ReplacePVMX("EXTRA");
+		ReplacePVMX("FISHING");
+		ReplacePVMX("GAMEOVER_E");
+		ReplacePVMX("GG_TEXLIST_US");
+		ReplacePVMX("KNU_EFF");
+		ReplacePVMX("MAP_EC_A");
+		ReplacePVMX("MAP_EC_B");
+		ReplacePVMX("MAP_EC_H");
+		ReplacePVMX("MAP_ICON");
+		ReplacePVMX("MAP_MR_A");
+		ReplacePVMX("MAP_MR_J");
+		ReplacePVMX("MAP_MR_S");
+		ReplacePVMX("MAP_PAST_E");
+		ReplacePVMX("MAP_PAST_S");
+		ReplacePVMX("MAP_SS");
+		ReplacePVMX("MILESRACE");
+		ReplacePVMX("MISSION_TUTO");
+		ReplacePVMX("MIS_C_EN");
+		ReplacePVMX("MIS_P");
+		ReplacePVMX("M_CHNAM");
+		ReplacePVMX("OBJ_MINI_CART");
+		ReplacePVMX("OBJ_REGULAR");
+		ReplacePVMX("PRESSSTART");
+		ReplacePVMX("SCORE_ACT_E");
+		ReplacePVMX("SCORE_BACK");
+		ReplacePVMX("SCORE_BOARD_E");
+		ReplacePVMX("SCORE_BOSS_E");
+		ReplacePVMX("SCORE_CART_E");
+		ReplacePVMX("SCORE_MOLE_E");
+		ReplacePVMX("SCORE_RESULT_E");
+		ReplacePVMX("SCORE_SHOOT_E");
+		ReplacePVMX("SEGALOGO_E");
+		ReplacePVMX("SHOOTING0");
+		ReplacePVMX("SMRYBG_AMY");
+		ReplacePVMX("SMRYBG_BIG");
+		ReplacePVMX("SMRYBG_E102");
+		ReplacePVMX("SMRYBG_KNUCKLES");
+		ReplacePVMX("SMRYBG_SONIC");
+		ReplacePVMX("SMRYBG_SUPERSONIC");
+		ReplacePVMX("SMRYBG_TAILS");
+		ReplacePVMX("TUTOMSG_AMY_E");
+		ReplacePVMX("TUTOMSG_BIG_E");
+		ReplacePVMX("TUTOMSG_E102_E");
+		ReplacePVMX("TUTOMSG_KNUCKLES_E");
+		ReplacePVMX("TUTOMSG_SONIC_E");
+		ReplacePVMX("TUTOMSG_TAILS_E");
+		ReplacePVMX("TUTO_CMN_E");
+		ReplacePVMX("TX_CHNAM_E");
+		/*ReplacePNG("ABC_TXT");
+		ReplacePNG("A_STAGE01_E");
+		ReplacePNG("A_STAGE02_E");
+		ReplacePNG("A_STAGE03_E");
+		ReplacePNG("B32ASCII");
+		ReplacePNG("B_STAGE01_E");
+		ReplacePNG("B_STAGE02_E");
+		ReplacePNG("B_STAGE03_E");
+		ReplacePNG("B_STAGE04_E");
+		ReplacePNG("E_STAGE01_E");
+		ReplacePNG("E_STAGE02_E");
+		ReplacePNG("E_STAGE03_E");
+		ReplacePNG("E_STAGE04_E");
+		ReplacePNG("E_STAGE05_E");
+		ReplacePNG("HYOJI_BALLS_E");
+		ReplacePNG("HYOJI_EMBLEM0");
+		ReplacePNG("HYOJI_EMBLEM1");
+		ReplacePNG("K_STAGE01_E");
+		ReplacePNG("K_STAGE02_E");
+		ReplacePNG("K_STAGE03_E");
+		ReplacePNG("K_STAGE04_E");
+		ReplacePNG("K_STAGE05_E");
+		ReplacePNG("MISSION_A_BALRING_E");
+		ReplacePNG("MISSION_A_BALZERO_E");
+		ReplacePNG("MISSION_A_FIN_E");
+		ReplacePNG("MISSION_A_HOT_E");
+		ReplacePNG("MISSION_A_TWIN_E");
+		ReplacePNG("MISSION_BIG_1K_E");
+		ReplacePNG("MISSION_BIG_2K_E");
+		ReplacePNG("MISSION_BIG_FROG_E");
+		ReplacePNG("MISSION_G_103RING_E");
+		ReplacePNG("MISSION_G_103_E");
+		ReplacePNG("MISSION_G_104RING_E");
+		ReplacePNG("MISSION_G_104_E");
+		ReplacePNG("MISSION_G_105RING_E");
+		ReplacePNG("MISSION_G_105_E");
+		ReplacePNG("MISSION_G_EME_E");
+		ReplacePNG("MISSION_G_FIN_E");
+		ReplacePNG("MISSION_G_FROGRING_E");
+		ReplacePNG("MISSION_G_FROG_E");
+		ReplacePNG("MISSION_G_HOT_E");
+		ReplacePNG("MISSION_G_RED_E");
+		ReplacePNG("MISSION_G_SONICDRING_E");
+		ReplacePNG("MISSION_G_SONICD_E");
+		ReplacePNG("MISSION_G_WIN_E");
+		ReplacePNG("MISSION_K_1MIN_E");
+		ReplacePNG("MISSION_K_2MIN_E");
+		ReplacePNG("MISSION_K_3EME_E");
+		ReplacePNG("MISSION_K_NOHINT_E");
+		ReplacePNG("MISSION_S_BOX25MIN_E");
+		ReplacePNG("MISSION_S_BOX2MIN_E");
+		ReplacePNG("MISSION_S_BOX3MIN_E");
+		ReplacePNG("MISSION_S_BOX45MIN_E");
+		ReplacePNG("MISSION_S_BOX4MIN_E");
+		ReplacePNG("MISSION_S_BOX5MIN_E");
+		ReplacePNG("MISSION_S_BOX_E");
+		ReplacePNG("MISSION_S_EGGC_E");
+		ReplacePNG("MISSION_S_EMECASINO_E");
+		ReplacePNG("MISSION_S_EMESNOW_E");
+		ReplacePNG("MISSION_S_EMEWIND_E");
+		ReplacePNG("MISSION_S_FEGG_E");
+		ReplacePNG("MISSION_S_ISEKI_E");
+		ReplacePNG("MISSION_S_RINGBOX_E");
+		ReplacePNG("MISSION_S_TAILS_E");
+		ReplacePNG("MISSION_T_BOX_E");
+		ReplacePNG("MISSION_T_EMECASINO_E");
+		ReplacePNG("MISSION_T_EMESNOW_E");
+		ReplacePNG("MISSION_T_EMEWIND_E");
+		ReplacePNG("MISSION_T_FASTEGG_E");
+		ReplacePNG("MISSION_T_FASTSONIC_E");
+		ReplacePNG("MISSION_T_MISS_E");
+		ReplacePNG("MISSION_T_RINGEGG_E");
+		ReplacePNG("MISSION_T_RINGSONIC_E");
+		ReplacePNG("M_STAGE01_E");
+		ReplacePNG("M_STAGE02_E");
+		ReplacePNG("M_STAGE03_E");
+		ReplacePNG("M_STAGE04_E");
+		ReplacePNG("M_STAGE05_E");
+		ReplacePNG("STAFFROLL_TXT");
+		ReplacePNG("ST_064S_LOCKA");
+		ReplacePNG("ST_064S_LOCKB");
+		ReplacePNG("ST_064S_LOCKC");
+		ReplacePNG("ST_064S_SCORE");
+		ReplacePNG("ST_STAGE01_E");
+		ReplacePNG("ST_STAGE02_E");
+		ReplacePNG("ST_STAGE03_E");
+		ReplacePNG("ST_STAGE04_E");
+		ReplacePNG("ST_STAGE05_E");
+		*/
+		//ReplacePNG("S_STAGE01_E");
+		/*
+		ReplacePNG("S_STAGE02_E");
+		ReplacePNG("S_STAGE03_E");
+		ReplacePNG("S_STAGE04_E");
+		ReplacePNG("S_STAGE05_E");
+		ReplacePNG("S_STAGE06_E");
+		ReplacePNG("S_STAGE07_E");
+		ReplacePNG("S_STAGE08_E");
+		ReplacePNG("S_STAGE09_E");
+		ReplacePNG("S_STAGE10_E");
+		ReplacePNG("T_EGGCARRIER_E");
+		ReplacePNG("T_MISTICRUIN_E");
+		ReplacePNG("T_STATIONSQUARE_E");*/
 		//Screen fade fixes
 		WriteData((float**)0x00433385, &f480_Fixed); //Screen fade resolution
 		WriteData((float**)0x004333A6, &f640_Fixed); //Screen fade resolution
@@ -297,11 +317,6 @@ extern "C"
 		WriteCall((void*)0x00509439, DrawTexture_Hook); //Languages icon
 		WriteCall((void*)0x0050952F, DrawTexture_Hook); //Rumble icon
 		WriteCall((void*)0x0050782A, DrawTexture_Hook); //AVA_SAN triangle shadow
-		OBJ_REGULAR_TEXLISTS[0].Name = "OBJ_REGULAR_HD";
-		GUITextures_English[21].Name = "AVA_OPTION_E_HD";
-		GUITextures_Spanish[21].Name = "AVA_OPTION_E_HD";
-		GUITextures_French[21].Name = "AVA_OPTION_E_HD";
-		GUITextures_German[21].Name = "AVA_OPTION_E_HD";
 		((NJS_OBJECT*)0x10D7774)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2; //Question mark from Character Select
 		((NJS_OBJECT*)0x10D7774)->basicdxmodel->mats[0].attr_texId = 10; //Question mark from Character Select
 		ResizeTextureList(&OBJ_REGULAR_TEXLIST, 100); //Added DC ripple texture

@@ -308,32 +308,42 @@ void RenderEggCarrier0NPC(NJS_ACTION *action, Float frame)
 
 void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	//PVMs
-	/*WriteData((char**)0x007D2CB4, (char*)"EC_WATER_DC");
-	WriteData((char**)0x007D2E24, (char*)"EC_WATER_DC");
-	OBJ_EC30_TEXLISTS[0].Name = "OBJ_EC30_DC";
-	OBJ_EC30_TEXLISTS[1].Name = "EC_TARAI_DC";
-	OBJ_EC30_TEXLISTS[2].Name = "EC_ALIFE_DC";
-	stru_10F34A8[0].Name = "OBJ_EC00_DC";
-	stru_10F34A8[1].Name = "EC_SEA_DC";	
-	stru_10F34A8[2].Name = "EC_BOAT_DC";
-	stru_10F34A8[3].Name = "EC_IKADA_DC";
-	OBJ_EC00_TEXLISTS[0].Name = "OBJ_EC00_DC";
-	OBJ_EC00_TEXLISTS[1].Name = "EC_TORNADO_DC";
-	OBJ_EC00_TEXLISTS[2].Name = "EC_SKY_DC";
-	ADV_EC00_TEXLISTS[0].Name = "ADV_EC00_DC";
-	ADV_EC01_TEXLISTS[1].Name = "ADV_EC01_DC";
-	ADV_EC02_TEXLISTS[2].Name = "ADV_EC02_DC";
-	ADV_EC03_TEXLISTS[3].Name = "ADV_EC03_DC";
-	ADV_EC04_TEXLISTS[4].Name = "ADV_EC04_DC";
-	ADV_EC05_TEXLISTS[5].Name = "ADV_EC05_DC";
-	ADV_EC30_TEXLISTS[0].Name = "ADV_EC30_DC";
-	ADV_EC31_TEXLISTS[0].Name = "ADV_EC31_DC";
-	ADV_EC32_TEXLISTS[0].Name = "ADV_EC32_DC";
-	ADV_EC33_TEXLISTS[0].Name = "ADV_EC33_DC";
-	ADV_EC34_TEXLISTS[0].Name = "ADV_EC34_DC";
-	ADV_EC35_TEXLISTS[0].Name = "ADV_EC35_DC";
-	EC_TRANSFORM_TEXLISTS[0].Name = "EC_TRANSFORM_DC";*/
+	char pathbuf[MAX_PATH];
+	ReplacePVM("ADV_EC00");
+	ReplacePVM("ADV_EC01");
+	ReplacePVM("ADV_EC02");
+	ReplacePVM("ADV_EC03");
+	ReplacePVM("ADV_EC04");
+	ReplacePVM("ADV_EC05");
+	ReplacePVM("ADV_EC30");
+	ReplacePVM("ADV_EC31");
+	ReplacePVM("ADV_EC32");
+	ReplacePVM("ADV_EC33");
+	ReplacePVM("ADV_EC34");
+	ReplacePVM("ADV_EC35");
+	ReplacePVM("ADV_EC36");
+	ReplacePVM("BG_EC00");
+	ReplacePVM("EC_ACTDOOR");
+	ReplacePVM("EC_ALIFE");
+	ReplacePVM("EC_BG");
+	ReplacePVM("EC_BOAT");
+	ReplacePVM("EC_CLOUDS");
+	ReplacePVM("EC_EGGLIFT");
+	ReplacePVM("EC_IKADA");
+	ReplacePVM("EC_LIGHT");
+	ReplacePVM("EC_SEA");
+	ReplacePVM("EC_SKY");
+	ReplacePVM("EC_STATION");
+	ReplacePVM("EC_TARAI");
+	ReplacePVM("EC_TORNADO");
+	ReplacePVM("EC_TRANSFORM");
+	ReplacePVM("EC_WATER");
+	ReplacePVM("EV_ECCLOUD");
+	ReplacePVM("MONORAIL");
+	ReplacePVM("MONOSTATION");
+	ReplacePVM("OBJ_EC00");
+	ReplacePVM("OBJ_EC30");
+	ReplacePVM("PVME101FACTORY");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "EggCarrier", false);
 	delete config;

@@ -77,14 +77,15 @@ bool ForceFirstCharacterSpecular(NJS_MATERIAL* material, Uint32 flags)
 
 void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	/*
-	PAST00_TEXLISTS[0].Name = "PAST00_DC";
-	PAST01_TEXLISTS[0].Name = "PAST01_DC";
-	PAST02_TEXLISTS[0].Name = "PAST02_DC";
-	OBJ_PAST_TEXLISTS[0].Name = "OBJ_PAST_DC";
-	WriteData((char**)0x007C5164, (char*)"MR_SKY00_DC");
-	WriteData((char**)0x007C5194, (char*)"MR_SKY00_DC");
-	WriteData((char**)0x007C5134, (char*)"MR_SKY02_DC");*/
+	char pathbuf[MAX_PATH];
+	ReplacePVM("EFF_PAST");
+	ReplacePVM("EV_ALIFE");
+	ReplacePVM("K_PATYA");
+	ReplacePVM("OBJ_PAST");
+	ReplacePVM("PAST00");
+	ReplacePVM("PAST01");
+	ReplacePVM("PAST02");
+	ReplacePVM("PAST_KN_FAM");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "Past", false);
 	delete config;

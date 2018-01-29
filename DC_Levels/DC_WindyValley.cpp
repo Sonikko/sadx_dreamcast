@@ -1,5 +1,7 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <stdlib.h>
+#include <stdio.h> 
 #include <lanternapi.h>
 #include "windy1.h"
 #include "windy2.h"
@@ -109,13 +111,14 @@ void RenderWindy1Sky()
 
 void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	/*WINDY01_TEXLISTS[0].Name = "WINDY01_DC";
-	WINDY02_TEXLISTS[0].Name = "WINDY02_DC";
-	WINDY03_TEXLISTS[0].Name = "WINDY03_DC";
-	WriteData((char**)0x004DD6ED, (char*)"WINDY_BACK_DC");
-	WriteData((char**)0x004DD870, (char*)"WINDY_BACK2_DC");
-	WriteData((char**)0x004DD9AC, (char*)"WINDY_BACK3_DC");
-	OBJ_WINDY_TEXLISTS[0].Name = "OBJ_WINDY_DC";*/
+	char pathbuf[MAX_PATH];
+	ReplacePVM("OBJ_WINDY");
+	ReplacePVM("WINDY01");
+	ReplacePVM("WINDY02");
+	ReplacePVM("WINDY03");
+	ReplacePVM("WINDY_BACK");
+	ReplacePVM("WINDY_BACK2");
+	ReplacePVM("WINDY_BACK3");
 	WriteData((LandTable**)0x97DA48, &landtable_0000D7E0); //Act 1
 	WriteData((LandTable**)0x97DA4C, &landtable_0000DB40); //Act 2
 	WriteData((LandTable**)0x97DA50, &landtable_0000F274); //Act 3

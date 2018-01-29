@@ -1,5 +1,9 @@
 #pragma once
 
+#include <stdlib.h>
+#include <stdio.h>
+DataPointer(HWND, WindowHandle, 0x03D0FD30);
+
 void DisableSADXWaterFog();
 void Branding_Init(const char *path, const HelperFunctions &helperFunctions);
 void Branding_OnFrame();
@@ -55,3 +59,7 @@ bool ForceDiffuse0Specular0or1(NJS_MATERIAL* material, Uint32 flags);
 bool ForceDiffuse2Specular2(NJS_MATERIAL* material, Uint32 flags);
 bool ForceDiffuse2Specular3(NJS_MATERIAL* material, Uint32 flags);
 bool ForceDiffuse4Specular5(NJS_MATERIAL* material, Uint32 flags);
+
+#define ReplacePVM(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" a "_DC.PVM", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);
+#define ReplacePVR(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" a "_DC.PVR", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
+#define ReplacePVMX(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "_DC.PVMX", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);

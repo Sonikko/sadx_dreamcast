@@ -230,16 +230,29 @@ void RenderOfficeDoor_Child(NJS_MODEL_SADX *a1, float scale)
 
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	//Hardcoded PVMs in case I want to go back to them
-	/*ADVSS00_TEXLISTS[0].Name = "ADVSS00_DC";
-	ADVSS01_TEXLISTS[0].Name = "ADVSS01_DC";
-	ADVSS02_TEXLISTS[0].Name = "ADVSS02_DC";
-	ADVSS03_TEXLISTS[0].Name = "ADVSS03_DC";
-	ADVSS04_TEXLISTS[0].Name = "ADVSS04_DC";
-	ADVSS05_TEXLISTS[0].Name = "ADVSS05_DC";
-	WriteData((char**)0x007C4EC4, (char*)"SSCAR_DC");
-	WriteData((char**)0x007C4FA8, (char*)"SS_TRAIN_DC");
-	OBJ_SS_TEXLISTS[0].Name = "OBJ_SS_DC";*/
+	char pathbuf[MAX_PATH];
+	ReplacePVM("ADVSS00");
+	ReplacePVM("ADVSS01");
+	ReplacePVM("ADVSS02");
+	ReplacePVM("ADVSS03");
+	ReplacePVM("ADVSS04");
+	ReplacePVM("ADVSS05");
+	ReplacePVM("OBJ_SS");
+	ReplacePVM("SS_BOAT");
+	ReplacePVM("SS_BURGER");
+	ReplacePVM("SS_CASINO");
+	ReplacePVM("SS_EKIIN");
+	ReplacePVM("SS_KANBAN");
+	ReplacePVM("SS_MIZUGI");
+	ReplacePVM("SS_PEOPLE");
+	ReplacePVM("SS_TRAIN");
+	ReplacePVM("SS_TWINS");
+	ReplacePVM("SSCAR");
+	ReplacePVM("SSPATCAR_BODY");
+	ReplacePVR("SS_FINESKY");
+	ReplacePVR("SS_NIGHTSKY");
+	ReplacePVR("SS_NIGHTSKYB");
+	ReplacePVR("SS_YUSKAY_MINI");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "StationSquare", false);
 	delete config;

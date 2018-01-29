@@ -73,11 +73,16 @@ void SetCloudColor(NJS_ARGB *a)
 
 void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	/*MOUNTAIN01_TEXLISTS[0].Name = "MOUNTAIN01_DC";
-	MOUNTAIN02_TEXLISTS[0].Name = "MOUNTAIN02_DC";
-	MOUNTAIN03_TEXLISTS[0].Name = "MOUNTAIN03_DC";
-	OBJ_MOUNTAIN_TEXLISTS[0].Name = "OBJ_MOUNTAIN_DC";
-	OBJ_MOUNTAIN_TEXLISTS[3].Name = "YOUGAN_ANIM_DC";*/
+	char pathbuf[MAX_PATH];
+	ReplacePVM("MOUNTAIN01");
+	ReplacePVM("MOUNTAIN02");
+	ReplacePVM("MOUNTAIN03");
+	ReplacePVM("MOUNTAIN_CARRIER");
+	ReplacePVM("MOUNTAIN_E104");
+	ReplacePVM("MOUNTAIN_MEXPLOSION");
+	ReplacePVM("MOUNTAIN_STEAM");
+	ReplacePVM("OBJ_MOUNTAIN");
+	ReplacePVM("YOUGAN_ANIM");
 	WriteData((LandTable**)0x97DAA8, &landtable_00018CB8);
 	WriteData((LandTable**)0x97DAAC, &landtable_0001A8FC);
 	WriteData((LandTable**)0x97DAB0, &landtable_0001E358);

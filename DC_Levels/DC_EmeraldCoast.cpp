@@ -442,12 +442,13 @@ void WhaleSplash(NJS_OBJECT *a1)
 
 void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	/*OBJ_BEACH_TEXLISTS[0].Name = "OBJ_BEACH_DC";
-	OBJ_BEACH_TEXLISTS[1].Name = "BEACH_SEA_DC";
-	OBJ_BEACH_TEXLISTS[3].Name = "BG_BEACH_DC";
-	BEACH01_TEXLISTS[0].Name = "BEACH01_DC";
-	BEACH02_TEXLISTS[0].Name = "BEACH02_DC";
-	BEACH03_TEXLISTS[0].Name = "BEACH03_DC";*/
+	char pathbuf[MAX_PATH];
+	ReplacePVM("BEACH01");
+	ReplacePVM("BEACH02");
+	ReplacePVM("BEACH03");
+	ReplacePVM("BEACH_SEA");
+	ReplacePVM("BG_BEACH");
+	ReplacePVM("OBJ_BEACH");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "EmeraldCoast", false);
 	delete config;

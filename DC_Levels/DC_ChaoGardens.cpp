@@ -11,6 +11,7 @@
 #include "ECGarden_DC.h"
 #include "HintMessages.h"
 #include <stdlib.h>  
+#include "DC_Levels.h"
 
 static bool EnableSSGarden = true;
 static bool EnableMRGarden = true;
@@ -4071,6 +4072,21 @@ void LoadSSGardenObjectPVM(const char *filename, NJS_TEXLIST *texlist)
 
 void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	char pathbuf[MAX_PATH];
+	ReplacePVM("AL_BODY");
+	ReplacePVM("AL_DX_OBJ_CMN");
+	ReplacePVM("AL_RACE01");
+	ReplacePVM("AL_RACE02");
+	ReplacePVM("CHAO");
+	ReplacePVM("CHAO_OBJECT");
+	ReplacePVM("EC_ALIFE");
+	ReplacePVM("GARDEN00");
+	ReplacePVM("GARDEN00SSOBJ");
+	ReplacePVM("GARDEN00_OBJECT");
+	ReplacePVM("GARDEN01");
+	ReplacePVM("GARDEN02");
+	ReplacePVM("OBJ_AL_RACE");
+	ReplacePVM("OBJ_AL_RACE_E");
 	WriteData((HintText_Entry**)0x9BF06C, &ChaoGardenMessages_Japanese[0]);
 	WriteData((HintText_Entry**)0x9BF070, &ChaoGardenMessages_English[0]);
 	WriteData((HintText_Entry**)0x9BF074, &ChaoGardenMessages_French[0]);
