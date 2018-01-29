@@ -388,7 +388,6 @@ void SkyDeckSky_new(ObjectMaster *_this)
 			njSetTexture(&OBJ_SKYDECK_TEXLIST);
 			njScaleEx(&Skybox_Scale);
 			sub_408530(v2);
-			if (v2 = &stru_214E2A0) sub_408530(&objectSTG06_01D4E2A0);
 			njScale(0, 1.0f, 1.0f, 1.0f);
 			v3 = 1.0f - fabs(Camera_Data1->Position.y - (SkyDeck_SkyPosition.y - 1350.0f)) * 0.025f;
 			if (v3 >= 0.05f)
@@ -489,15 +488,6 @@ void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 	stru_214C9E4.basicdxmodel->mats[1].diffuse.color = 0x11FFFFFF;
 	stru_214C9E4.basicdxmodel->mats[2].diffuse.color = 0x11FFFFFF;
 	stru_214C9E4.basicdxmodel->mats[3].diffuse.color = 0x11FFFFFF;
-	matlistSTG06_01D4D334[0].diffuse.color = 0x11FFFFFF;
-	matlistSTG06_01D4D334[1].diffuse.color = 0x11FFFFFF;
-	matlistSTG06_01D4D334[2].diffuse.color = 0x11FFFFFF;
-	matlistSTG06_01D4D334[0].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
-	matlistSTG06_01D4D334[1].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
-	matlistSTG06_01D4D334[2].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
-	matlistSTG06_01D4D334[0].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
-	matlistSTG06_01D4D334[1].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
-	matlistSTG06_01D4D334[2].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
 	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[0].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
 	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[1].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
 	((NJS_OBJECT*)0x214E2A0)->basicdxmodel->mats[2].attrflags &= ~(NJD_SA_MASK | NJD_DA_MASK);
@@ -718,9 +708,6 @@ void SkyDeck_OnFrame()
 				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[1].attrflags |= NJD_FLAG_USE_ALPHA;
 				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_USE_ALPHA;
 				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[3].attrflags |= NJD_FLAG_USE_ALPHA;
-				matlistSTG06_01D4D334[0].attrflags |= NJD_FLAG_USE_ALPHA;
-				matlistSTG06_01D4D334[1].attrflags |= NJD_FLAG_USE_ALPHA;
-				matlistSTG06_01D4D334[2].attrflags |= NJD_FLAG_USE_ALPHA;
 			}
 			if (flt_3C8046C <= 0 && SkyDeckTransitionEnable == true)
 			{
@@ -732,9 +719,6 @@ void SkyDeck_OnFrame()
 				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_USE_ALPHA;
 				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_USE_ALPHA;
 				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_USE_ALPHA;
-				matlistSTG06_01D4D334[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
-				matlistSTG06_01D4D334[1].attrflags &= ~NJD_FLAG_USE_ALPHA;
-				matlistSTG06_01D4D334[2].attrflags &= ~NJD_FLAG_USE_ALPHA;
 			}
 		}
 	}

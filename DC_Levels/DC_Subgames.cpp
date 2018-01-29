@@ -887,11 +887,14 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableSkyChaseEnemyModels == true)
 	{
-		if (HD_GUI == nullptr && SA1_Chars == nullptr)
+		if (SA1_Chars == nullptr)
 		{
-			ReplacePVM("SHOOTING0");
 			ReplacePVM("SHOOTING1");
 			ReplacePVM("SHOOTING2");
+		}
+		if (HD_GUI == nullptr)
+		{
+			ReplacePVM("SHOOTING0");
 		}
 		*(NJS_OBJECT *)0x02982F44 = objectSHOOTING_0003FA40; //Egg Carrier model
 		*(NJS_OBJECT *)0x298A894 = objectSHOOTING_00047110; //Hodai
