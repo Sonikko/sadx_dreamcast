@@ -4,6 +4,7 @@
 #include <stdio.h>
 DataPointer(HWND, WindowHandle, 0x03D0FD30);
 
+void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions);
 void DisableSADXWaterFog();
 void Branding_Init(const char *path, const HelperFunctions &helperFunctions);
 void Branding_OnFrame();
