@@ -1,4 +1,4 @@
-
+#pragma once
 enum OBJ_PASTTexName
 {
 	OBJ_PASTTexName_m128_sea001,

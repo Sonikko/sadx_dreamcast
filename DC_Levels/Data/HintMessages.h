@@ -1,4 +1,5 @@
-﻿#include <SADXModLoader.h>
+﻿#pragma once
+#include <SADXModLoader.h>
 
 //Original messages
 

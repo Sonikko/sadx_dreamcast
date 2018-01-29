@@ -1,3 +1,4 @@
+#pragma once
 #include <SADXModLoader.h>
 
 HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");

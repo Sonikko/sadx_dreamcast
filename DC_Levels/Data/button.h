@@ -1,3 +1,5 @@
+#pragma once
+
 enum MROBJTexName
 {
 	MROBJTexName_mr_032n_hac,

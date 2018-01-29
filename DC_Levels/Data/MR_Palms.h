@@ -1,3 +1,4 @@
+#pragma once
 //Palm trees
 
 NJS_MATERIAL matlistADV02_001D76E0[] = {

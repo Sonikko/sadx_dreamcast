@@ -1,3 +1,4 @@
+#pragma once
 #include "SADXModLoader.h"
 #include "Highway2 Fixes.h"
 

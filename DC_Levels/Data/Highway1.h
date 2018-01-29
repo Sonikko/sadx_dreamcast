@@ -1,3 +1,4 @@
+#pragma once
 #include "SADXModLoader.h"
 
 NJS_MATERIAL matlistSTG04_0001B4E4[] = {

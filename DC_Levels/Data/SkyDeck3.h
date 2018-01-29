@@ -1,3 +1,4 @@
+#pragma once
 #include "SkyDeck3_Fixes.h"
 
 NJS_TEXNAME textures_skydeck3[65];

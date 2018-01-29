@@ -1,3 +1,5 @@
+#pragma once
+
 //OWell
 
 NJS_MATERIAL matlistADV03_00015070[] = {

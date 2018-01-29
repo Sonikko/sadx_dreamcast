@@ -1,3 +1,4 @@
+#pragma once
 # include <SADXModLoader.h>
 
 enum GARDEN00SSOBJTexName

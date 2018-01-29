@@ -1,5 +1,5 @@
+#pragma once
 #include <SADXModLoader.h>
-
 
 NJS_OBJECT object_0299FE38 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, -0.059142f, -9.919639f, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 

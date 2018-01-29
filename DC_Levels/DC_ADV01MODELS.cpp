@@ -387,9 +387,9 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		WriteData<1>((void*)0x0051C440, 0xC3u);
 		EggCarrierObjectTexlist_Sea[1].Name = "EC_SEA";
-		landtable_00162260.TexName = "ADV_EC00";
-		landtable_001631F0.TexName = "ADV_EC01";
-		landtable_00163CE8.TexName = "ADV_EC02";
+		landtable_00162260.TexName = "ADV_EC00_DC";
+		landtable_001631F0.TexName = "ADV_EC01_DC";
+		landtable_00163CE8.TexName = "ADV_EC02_DC";
 		ADV_EC00_TEXLISTS[0].Name = "ADV_EC00_DC";
 		ADV_EC01_TEXLISTS[1].Name = "ADV_EC01_DC";
 		ADV_EC02_TEXLISTS[2].Name = "ADV_EC02_DC";

@@ -1,3 +1,4 @@
+#pragma once
 #include "SADXModLoader.h"
 
 Sint16 polySTG01_0008199C[] = {

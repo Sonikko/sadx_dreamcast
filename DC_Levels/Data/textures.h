@@ -1,3 +1,5 @@
+#pragma once
+
 enum HIGHWAY_CARTexName
 {
 	HIGHWAY_CARTexName_cone05,

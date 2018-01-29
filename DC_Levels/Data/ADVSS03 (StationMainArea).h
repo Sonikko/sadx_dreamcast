@@ -1,3 +1,4 @@
+#pragma once
 #include "ADVSS03 Fixes.h"
 
 NJS_TEXNAME textures4[264];

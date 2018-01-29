@@ -1,3 +1,4 @@
+#pragma once
 #include "SADXModLoader.h"
 
 enum CHAOS4_OBJECTTexName

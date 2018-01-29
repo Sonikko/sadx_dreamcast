@@ -1,3 +1,4 @@
+#pragma once
 enum OBJ_RUINTexName
 {
 	OBJ_RUINTexName_ama_lw076,

@@ -1,3 +1,4 @@
+#pragma once
 enum OBJ_SHAREOBJTexName
 {
 	OBJ_SHAREOBJTexName_eisei01,

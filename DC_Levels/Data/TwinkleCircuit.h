@@ -1,3 +1,4 @@
+#pragma once
 #include "SADXModLoader.h"
 
 NJS_TEXNAME textures_twinklecircuit[12];

@@ -1,3 +1,4 @@
+#pragma once
 #include "SADXModLoader.h"
 #include "LostWorld3_PC.h"
 

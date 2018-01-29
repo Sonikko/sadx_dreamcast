@@ -1,3 +1,4 @@
+#pragma once
 #include "SADXModLoader.h"
 
 NJS_MATERIAL matlistADV01_0006A4A8[] = {

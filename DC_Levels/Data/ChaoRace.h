@@ -1,3 +1,4 @@
+#pragma once
 #include "SADXModLoader.h"
 
 NJS_MATERIAL matlistCHAO_0001BFDC[] = {

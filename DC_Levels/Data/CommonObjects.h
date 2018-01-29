@@ -1,3 +1,5 @@
+#pragma once
+
 //Switch
 
 NJS_MATERIAL matlist_0019CC0C[] = {

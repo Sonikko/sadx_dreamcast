@@ -1,3 +1,5 @@
+#pragma once
+
 enum SSCARTexName
 {
 	SSCARTexName_tirepattern_ss,

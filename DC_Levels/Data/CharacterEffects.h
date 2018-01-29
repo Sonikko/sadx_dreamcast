@@ -1,3 +1,5 @@
+#pragma once
+
 //Maximum Heat aura
 
 NJS_MATERIAL matlist_003288AC[] = {

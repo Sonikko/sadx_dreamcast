@@ -1,3 +1,4 @@
+#pragma once
 #include <SADXModLoader.h>
 
 enum TR2CRASHTexName

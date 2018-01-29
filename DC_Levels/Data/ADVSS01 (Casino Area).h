@@ -1,3 +1,4 @@
+#pragma once
 NJS_TEXNAME textures2[266];
 NJS_TEXLIST texlist2 = { arrayptrandlength(textures2) };
 

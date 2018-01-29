@@ -1,5 +1,4 @@
 #pragma once
-
 enum OBJ_MOUNTAINTexName
 {
 	OBJ_MOUNTAINTexName_q64wall,

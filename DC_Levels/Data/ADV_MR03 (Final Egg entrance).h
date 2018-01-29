@@ -1,3 +1,4 @@
+#pragma once
 #include <SADXModLoader.h>
 
 Sint16 polyADV02_0016D724[] = {

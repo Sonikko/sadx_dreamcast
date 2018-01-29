@@ -1,3 +1,4 @@
+#pragma once
 #include "SADXModLoader.h"
 #include "Chaos7_fixes.h"
 

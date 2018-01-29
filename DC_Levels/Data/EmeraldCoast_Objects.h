@@ -1,3 +1,5 @@
+#pragma once
+
 #include <SADXModLoader.h>
 //Lil Ocean
 

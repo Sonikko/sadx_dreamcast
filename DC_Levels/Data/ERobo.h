@@ -1,3 +1,5 @@
+#pragma once
+
 enum EGGROBTexName
 {
 	EGGROBTexName_ertx_black0,
