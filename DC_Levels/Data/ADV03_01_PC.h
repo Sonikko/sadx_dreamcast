@@ -1,6 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-
 NJS_MATERIAL matlistADV03_00076954[] = {
 	{ { 0xFFFFFFFF },{ 0x00000000 }, 0, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
 };

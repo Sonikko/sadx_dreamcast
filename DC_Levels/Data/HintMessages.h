@@ -1,6 +1,4 @@
 ﻿#pragma once
-#include <SADXModLoader.h>
-
 //Original messages
 
 __int16 ChaoGardenMessages_Japanese_0_Control[] = {

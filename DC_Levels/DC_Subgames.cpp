@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "SandHill.h"
 #include <lanternapi.h>
@@ -15,7 +16,6 @@ DataArray(SkyboxScale, SkyboxScale_SkyChase1, 0x027D6CE0, 3);
 DataArray(DrawDistance, DrawDist_SkyChase1, 0x027D6D58, 3);
 DataArray(PVMEntry, SKYCHASE_OBJECT_TEXLISTS, 0x90E5E8, 11);
 DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
-DataPointer(float, SomeDepthThing, 0x03ABD9C0);
 
 static float float_one = 1.0f;
 static float float_tornadospeed = 1.0f;
@@ -681,36 +681,36 @@ NJS_MATERIAL* ObjectBaseAndSpecular_Subgames[] = {
 void FixSky1(NJS_OBJECT *a1, float scale)
 {
 	if (CurrentLevel == 36 && SkyChaseActionThing == 5) njTranslate(0, 0, 2000.0f, 0);
-	SomeDepthThing = -12000;
+	DrawQueueDepthBias = -12000;
 	ProcessModelNode(a1, QueuedModelFlagsB_3, scale);
-	SomeDepthThing = 0;
+	DrawQueueDepthBias = 0;
 }
 
 void FixSky2(NJS_OBJECT *a1, float scale)
 {
-	SomeDepthThing = -13000;
+	DrawQueueDepthBias = -13000;
 	if (CurrentLevel == 36) ProcessModelNode(a1, QueuedModelFlagsB_3, scale);
 	else ProcessModelNode(a1, (QueuedModelFlagsB)0, scale);
-	SomeDepthThing = 0;
+	DrawQueueDepthBias = 0;
 }
 
 void FixSkybox(NJS_OBJECT *a1, float scale)
 {
 	if (CurrentLevel == 36)
 	{
-		SomeDepthThing = -10000;
+		DrawQueueDepthBias = -10000;
 		ProcessModelNode(&objectSHOOTING_024E0CD8_2, (QueuedModelFlagsB)0, scale); //Skybox top and middle
-		SomeDepthThing = -15000;
+		DrawQueueDepthBias = -15000;
 		ProcessModelNode(&objectSHOOTING_024E0CD8, (QueuedModelFlagsB)0, scale); //Skybox bottom
-		SomeDepthThing = 0;
+		DrawQueueDepthBias = 0;
 	}
 	else
 	{
-		SomeDepthThing = -30000;
+		DrawQueueDepthBias = -30000;
 		ProcessModelNode(&objectSHOOTING_02418598_2, (QueuedModelFlagsB)0, scale); //Skybox top and middle
-		SomeDepthThing = -15000;
+		DrawQueueDepthBias = -15000;
 		ProcessModelNode(&objectSHOOTING_02418598, (QueuedModelFlagsB)0, scale); //Skybox bottom
-		SomeDepthThing = 0;
+		DrawQueueDepthBias = 0;
 	}
 }
 

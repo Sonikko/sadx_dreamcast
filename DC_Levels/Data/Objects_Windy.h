@@ -1,6 +1,4 @@
 #pragma once
-#include <SADXModLoader.h>
-
 //Fixed rope model lol
 
 NJS_MATERIAL matlistSTG02_000C4BF0[] = {

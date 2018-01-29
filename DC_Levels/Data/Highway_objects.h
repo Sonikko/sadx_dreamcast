@@ -1,6 +1,4 @@
 #pragma once
-#include <SADXModLoader.h>
-
 //OAntena
 
 NJS_MATERIAL matlistSTG04_02291138[] = {

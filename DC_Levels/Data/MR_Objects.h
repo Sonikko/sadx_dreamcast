@@ -1,6 +1,4 @@
 #pragma once
-#include <SADXModLoader.h>
-
 //Platform for plane
 
 NJS_MATERIAL matlistADV02_001DCFAC[] = {

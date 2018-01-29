@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include <string>
@@ -22,6 +23,7 @@
 #include "ERobo.h"
 #include <IniFile.hpp>
 #include "DC_Levels.h"
+#include <IniFile.hpp>
 
 std::string plm0xbin;
 
@@ -52,7 +54,6 @@ DataArray(DrawDistance, DrawDist_E101R, 0x015225D8, 3);
 DataArray(DrawDistance, DrawDist_Zero, 0x016B4D98, 3);
 DataArray(PVMEntry, EGGVIPER_TEXLISTS, 0x165D498, 11);
 DataArray(PVMEntry, CHAOS4_OBJECT_TEXLISTS, 0x118FDB0, 18);
-DataPointer(float, SomeDepthThing, 0x03ABD9C0);
 DataPointer(unsigned char, byte_3C5A7EF, 0x3C5A7EF);
 DataPointer(unsigned char, byte_3C5A7ED, 0x3C5A7ED);
 DataPointer(unsigned char, byte_03C6C944, 0x03C6C944);
@@ -438,9 +439,9 @@ void FixChaos0Car(NJS_ACTION *a1, float frame, float scale)
 
 void FixChaos2Columns(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 {
-	SomeDepthThing = 8000.0f;
+	DrawQueueDepthBias = 8000.0f;
 	ProcessModelNode_A_Wrapper(a1, a2, a3);
-	SomeDepthThing = 0;
+	DrawQueueDepthBias = 0;
 }
 
 void Chaos4Skybox(ObjectMaster *o1)

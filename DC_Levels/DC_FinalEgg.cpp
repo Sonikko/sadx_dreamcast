@@ -1,4 +1,5 @@
-#include "SADXModLoader.h"
+#include "stdafx.h"
+#include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "FinalEgg1.h"
 #include "FinalEgg2.h"
@@ -12,7 +13,6 @@ NJS_TEXNAME textures_cylinder[259];
 NJS_TEXLIST texlist_cylinder = { arrayptrandlength(textures_cylinder) };
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(float, SomeDepthThing, 0x03ABD9C0);
 DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
@@ -251,10 +251,10 @@ void __cdecl sub_5AE330(ObjectMaster *a1)
 		njRotateXYZ(0, v1->Rotation.x, v1->Rotation.y, v1->Rotation.z);
 		v2 = &v1->Scale;
 		njScaleV(0, v2);
-		SomeDepthThing = 38952;
+		DrawQueueDepthBias = 38952;
 		a3 = VectorMaxAbs(v2);
 		ProcessModelNode_A_Wrapper((NJS_OBJECT*)0x1A45620, QueuedModelFlagsB_SomeTextureThing, a3);
-		SomeDepthThing = 0;
+		DrawQueueDepthBias = 0;
 		njPopMatrix(1u);
 		ClampGlobalColorThing_Thing();
 		njColorBlendingMode(0, 8);

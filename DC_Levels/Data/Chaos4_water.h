@@ -1,6 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-
 enum CHAOS4_OBJECTTexName
 {
 	CHAOS4_OBJECTTexName_c4_128s_kankyo,

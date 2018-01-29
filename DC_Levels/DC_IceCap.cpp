@@ -1,4 +1,6 @@
+#include "stdafx.h"
 #include <SADXModLoader.h>
+#include "textures.h"
 #include "Icicle.h"
 #include "IceCap1.h"
 #include "IceCap2.h"

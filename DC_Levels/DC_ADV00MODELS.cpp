@@ -1,12 +1,16 @@
+#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
+#include "textures.h"
 #include "SS_Objects.h"
-#include "ADVSS00 (City Hall).h"
-#include "ADVSS01 (Casino Area).h"
-#include "ADVSS02 (Sewers).h"
-#include "ADVSS03 (StationMainArea).h"
-#include "ADVSS04 (Hotel).h"
-#include "ADVSS05 (Twinkle Park Entrance).h"
+#include "ADVSS00(CityHall).h"
+#include "ADVSS01(CasinoArea).h"
+#include "ADVSS02(Sewers).h"
+#include "ADVSS03Fixes.h"
+#include "ADVSS03(StationMainArea).h"
+#include "ADVSS04Collision.h"
+#include "ADVSS04(Hotel).h"
+#include "ADVSS05(TwinkleParkEntrance).h"
 #include "NPCMaterials.h"
 #include <IniFile.hpp>
 #include "DC_Levels.h"

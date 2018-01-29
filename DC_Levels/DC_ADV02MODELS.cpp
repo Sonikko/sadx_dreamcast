@@ -1,11 +1,12 @@
-#include "math.h"
+#include "stdafx.h"
 #include <SADXModLoader.h>
+#include "math.h"
 #include "button.h"
 #include "MasterEmerald.h"
-#include "ADV_MR00 (Station area).h"
-#include "ADV_MR01 (Angel Island).h"
-#include "ADV_MR02 (Jungle area).h"
-#include "ADV_MR03 (Final Egg entrance).h"
+#include "ADV_MR00(StationArea).h"
+#include "ADV_MR01(AngelIsland).h"
+#include "ADV_MR02(JungleArea).h"
+#include "ADV_MR03(FinalEggEntrance).h"
 #include "OFinalEgg.h"
 #include "MR_train.h"
 #include "MR_Rock.h"
@@ -21,6 +22,7 @@
 #include <IniFile.hpp>
 #include "DC_Levels.h"
 
+
 std::string slx0xbin;
 std::string slx1xbin;
 std::string slx2xbin;
@@ -29,7 +31,6 @@ HMODULE ADV02MODELS = GetModuleHandle(L"ADV02MODELS");
 NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV02MODELS, "___ADV02_TEXLISTS");
 NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(ADV02MODELS, "___ADV02_ACTIONS");
 DataPointer(float, dword_111DB90, 0x111DB90);
-DataPointer(float, SomeDepthThing, 0x03ABD9C0);
 DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);

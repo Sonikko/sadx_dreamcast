@@ -1,6 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-
 Sint16 polySTG08_000C58F4[] = {
 	4, 3, 40, 2, 41,
 	4, 2, 41, 1, 42,

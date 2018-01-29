@@ -1,6 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-
 Sint16 polySTG01_0008199C[] = {
 	0x8000u | 18, 9, 0, 10, 1, 11, 2, 12, 3, 13, 4, 14, 5, 15, 6, 16, 7, 17, 8
 };

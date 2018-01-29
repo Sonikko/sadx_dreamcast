@@ -1,6 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-
 Sint16 polyADV03_0002AE14[] = {
 	4, 15, 19, 14, 18,
 	7, 9, 15, 8, 14, 7, 13, 12,

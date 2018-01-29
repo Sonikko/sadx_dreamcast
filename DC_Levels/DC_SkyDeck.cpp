@@ -1,5 +1,7 @@
+#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
+#include "SkyDeck3_Fixes.h"
 #include "SkyDeck1.h"
 #include "SkyDeck2.h"
 #include "SkyDeck3.h"

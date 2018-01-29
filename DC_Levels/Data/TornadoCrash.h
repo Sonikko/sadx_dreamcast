@@ -1,6 +1,4 @@
 #pragma once
-#include <SADXModLoader.h>
-
 enum TR2CRASHTexName
 {
 	TR2CRASHTexName_s_t2_bodyd_tit,

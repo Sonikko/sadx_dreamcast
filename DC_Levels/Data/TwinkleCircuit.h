@@ -1,6 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-
 NJS_TEXNAME textures_twinklecircuit[12];
 
 NJS_TEXLIST texlist_twinklecircuit = { arrayptrandlength(textures_twinklecircuit) };

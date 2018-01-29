@@ -1,6 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-
 //Water thing 2
 
 NJS_MATERIAL matlistSTG01_001A1360[] = {

@@ -1,5 +1,4 @@
 #pragma once
-#include <SADXModLoader.h>
 HMODULE Chaos0 = GetModuleHandle(L"BOSSCHAOS0MODELS");
 
 NJS_MATERIAL* PerfectChaosCars[] = {

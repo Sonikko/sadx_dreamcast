@@ -1,4 +1,3 @@
-#include "SADXModLoader.h"
 #pragma once
 
 enum EC_TARAITexName

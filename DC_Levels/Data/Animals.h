@@ -1,6 +1,4 @@
 #pragma once
-#include <SADXModLoader.h>
-
 //GOMA
 
 NJS_MATERIAL matlist_001564E8[] = {

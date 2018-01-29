@@ -1,6 +1,7 @@
+#include "stdafx.h"
+#include <SADXModLoader.h>
 #include "stdlib.h"
 #include <math.h> 
-#include <SADXModLoader.h>
 #include <lanternapi.h>
 #include "Animals.h"
 #include "Itembox.h"

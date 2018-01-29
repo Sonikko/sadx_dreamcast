@@ -1,7 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-#include "LostWorld3_PC.h"
-
 Sint16 polySTG07_000F9434[] = {
 	8, 4, 5, 0, 1, 3, 2, 12, 13,
 	8, 9, 16, 15, 14, 17, 22, 20, 23,

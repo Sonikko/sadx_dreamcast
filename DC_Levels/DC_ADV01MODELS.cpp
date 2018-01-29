@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 #include <string>

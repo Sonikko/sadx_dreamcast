@@ -1,5 +1,6 @@
-#include "math.h"
+#include "stdafx.h"
 #include <SADXModLoader.h>
+#include "math.h"
 #include <lanternapi.h>
 #include "Mountain1.h"
 #include "Mountain2.h"

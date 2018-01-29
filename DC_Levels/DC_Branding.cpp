@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <IniFile.hpp>
 
@@ -457,6 +458,11 @@ void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, flo
 	njTextureShadingMode(2);
 }
 
+void GGTEXLIST_Hook(const char *filename, NJS_TEXLIST *texlist)
+{
+	LoadPVM("GG_TEXLIST_US_DC", texlist);
+}
+
 void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	f480_Fixed = 1.0f + VerticalResolution;
@@ -466,7 +472,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	if (HD_GUI == nullptr)
 	{
 		//Code stuff
-		WriteData((char**)0x0339C8A4, "GG_TEXLIST_US_DC.PVM");
+		WriteCall((void*)0x006FF84D, GGTEXLIST_Hook);
 		WriteData((char**)0x0064221D, (char*)"ADV_WINDOW_DC");
 		WriteData((char**)0x0064222E, (char*)"AVA_CSR_DC");
 		WriteData((char**)0x00642249, (char*)"AVA_DLG_E_DC");

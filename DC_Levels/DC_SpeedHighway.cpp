@@ -1,6 +1,9 @@
+#include "stdafx.h"
 #include <SADXModLoader.h>
 #include <lanternapi.h>
+#include "textures.h"
 #include "Highway1.h"
+#include "Highway2 Fixes.h"
 #include "Highway2.h"
 #include "Highway3.h"
 #include "SH_bus.h"

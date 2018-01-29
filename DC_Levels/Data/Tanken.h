@@ -1,6 +1,4 @@
 #pragma once
-#include <SADXModLoader.h>
-
 enum TANKENTexName
 {
 	TANKENTexName_tanken07,

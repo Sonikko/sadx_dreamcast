@@ -1,6 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-
 //Fixes for act 2
 
 NJS_MATERIAL matlistADV03_000B8618[] = {

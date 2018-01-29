@@ -1,6 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-
 enum MR_FINALEGGTexName
 {
 	MR_FINALEGGTexName_eca_s_mado,

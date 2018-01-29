@@ -1,6 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-
 Sint16 polySTG07_022B3B2C[] = {
 	0, 1, 3, 2
 };

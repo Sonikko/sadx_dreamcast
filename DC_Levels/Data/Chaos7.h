@@ -1,7 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-#include "Chaos7_fixes.h"
-
 NJS_MATERIAL matlist_0X[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 0, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_DA_INV_SRC | NJD_SA_SRC }
 };

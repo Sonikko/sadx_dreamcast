@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "Palm.h"
 #include "ADV03_00_PC.h"

@@ -1,6 +1,4 @@
 #pragma once
-#include "SkyDeck3_Fixes.h"
-
 NJS_TEXNAME textures_skydeck3[65];
 NJS_TEXLIST texlist_skydeck3 = { arrayptrandlength(textures_skydeck3) };
 

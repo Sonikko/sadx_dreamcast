@@ -1,3 +1,4 @@
+#include "stdafx.h"
 #include <SADXModLoader.h>
 #include "stdlib.h"
 #include <IniFile.hpp>

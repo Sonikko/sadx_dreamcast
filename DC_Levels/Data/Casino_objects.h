@@ -1,6 +1,4 @@
 #pragma once
-#include "SADXModLoader.h"
-
 //Billboard DC UVs
 
 NJS_TEX uvSTG09_001E9ABC[] = {
