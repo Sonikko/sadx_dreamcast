@@ -8,12 +8,14 @@ FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColF
 
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(HWND, WindowHandle, 0x03D0FD30);
 
 static bool ModFailsafe = false;
 
-static int DLCMode = 0;
+std::string DLCMode = "US";
 static int HintTimer = 0;
 static bool ObjectsLoaded = false;
+static bool ForceSADXMode = false;
 
 SETObjData setdata_dlc = {};
 
@@ -91,9 +93,9 @@ void Poster_Main(ObjectMaster *a1)
 				if (v1->CharIndex == 0) sub_4B79C0((char *)(&LaunchPartyMessage1), 180);
 				if (v1->CharIndex == 1) sub_4B79C0((char *)(&LaunchPartyMessage2), 180);
 				if (v1->CharIndex == 2) sub_4B79C0((char *)(&LaunchPartyMessage3), 180);
-				if (v1->CharIndex == 3 && DLCMode == 0) sub_4B79C0((char *)(&LaunchPartyMessage4_US), 180);
-				if (v1->CharIndex == 3 && DLCMode == 1) sub_4B79C0((char *)(&LaunchPartyMessage4_EU), 180);
-				if (v1->CharIndex == 3 && DLCMode == 2) sub_4B79C0((char *)(&LaunchPartyMessage4_US), 180);
+				if (v1->CharIndex == 3 && DLCMode == "US") sub_4B79C0((char *)(&LaunchPartyMessage4_US), 180);
+				if (v1->CharIndex == 3 && DLCMode == "Europe") sub_4B79C0((char *)(&LaunchPartyMessage4_EU), 180);
+				if (v1->CharIndex == 3 && DLCMode == "Japan") sub_4B79C0((char *)(&LaunchPartyMessage4_US), 180);
 				if (v1->CharIndex == 4) sub_4B79C0((char *)(&LaunchPartyMessage5), 180);
 				if (v1->CharIndex == 5) sub_4B79C0((char *)(&LaunchPartyMessage6), 180);
 				HintTimer = 120;
@@ -200,7 +202,6 @@ void Balloons_Load(ObjectMaster *a1)
 
 void LoadEverythingInStationSquare(ObjectMaster *a1)
 {
-	HMODULE DC_ADV00MODELS = GetModuleHandle(L"DC_ADV00MODELS");
 	sub_62E980();
 	ObjectMaster *obj;
 	EntityData1 *ent;
@@ -565,7 +566,7 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 		if (obj)
 		{
 			ent = obj->Data1;
-			if (DC_ADV00MODELS != nullptr)
+			if (ForceSADXMode == false)
 			{
 				ent->Position.x = 205;
 				ent->Position.y = 72;
@@ -652,7 +653,7 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 			ent = obj->Data1;
 			ent->Position.x = 77;
 			ent->Position.y = 308;
-			if (DC_ADV00MODELS != nullptr) ent->Position.z = 270; else ent->Position.z = 340;
+			if (ForceSADXMode == false) ent->Position.z = 270; else ent->Position.z = 340;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -671,7 +672,7 @@ void LoadEverythingInStationSquare(ObjectMaster *a1)
 			ent = obj->Data1;
 			ent->Position.x = 458;
 			ent->Position.y = 308;
-			if (DC_ADV00MODELS != nullptr) ent->Position.z = 263; else ent->Position.z = 333;
+			if (ForceSADXMode == false) ent->Position.z = 263; else ent->Position.z = 333;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
 			ent->Rotation.z = 0;
@@ -961,13 +962,20 @@ extern "C"
 		{
 			//Config stuff
 			const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
-			DLCMode = config->getInt("", "Region", 0);
+			DLCMode = config->getString("", "Region", "US");
+			ForceSADXMode = config->getBool("", "ForceSADXMode", false);
 			delete config;
-			if (DLCMode == 0) helperFunctions.RegisterCommonObjectPVM(LaunchPartyUSTextures);
-			if (DLCMode == 1) helperFunctions.RegisterCommonObjectPVM(LaunchPartyEUTextures);
-			if (DLCMode == 2) helperFunctions.RegisterCommonObjectPVM(LaunchPartyJPTextures);
+			if (DLCMode == "US") helperFunctions.RegisterCommonObjectPVM(LaunchPartyUSTextures);
+			if (DLCMode == "Europe") helperFunctions.RegisterCommonObjectPVM(LaunchPartyEUTextures);
+			if (DLCMode == "Japan") helperFunctions.RegisterCommonObjectPVM(LaunchPartyJPTextures);
 			WriteCall((void*)0x0062F098, LoadEverythingInStationSquare);
 			WriteCall((void*)0x0062F102, LoadEverythingInStationSquare);
+		}
+		else
+		{
+			MessageBoxA(WindowHandle, "Please enable only one DLC mod at a time. The DLC mod will not function.",
+				"DLC mods error: more than one mod enabled", MB_OK | MB_ICONERROR);
+			return;
 		}
 	}
 	__declspec(dllexport) void __cdecl OnFrame()

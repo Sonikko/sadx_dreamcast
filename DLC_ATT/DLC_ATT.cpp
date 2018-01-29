@@ -1,8 +1,8 @@
 #include <SADXModLoader.h>
 #include "DLC_ATT.h"
 #include <cstdio>
+#include <IniFile.hpp>
 
-HMODULE DC_ADV00MODELS = GetModuleHandle(L"DC_ADV00MODELS");
 FunctionPointer(void, sub_412D80, (int a1, int a2), 0x412D80);
 FunctionPointer(void, sub_62E980, (), 0x62E980);
 FunctionPointer(void, sub_52F240, (), 0x52F240);
@@ -14,6 +14,7 @@ FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColF
 FunctionPointer(void, sub_425800, (int a1), 0x425800);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(HWND, WindowHandle, 0x03D0FD30);
 DataArray(ControllerData*, ControllerPointersShit, 0x03B0E77C, 8);
 static int PreviousLevel = 0;
 static int PreviousAct = 0;
@@ -39,6 +40,7 @@ static bool Gate7 = false;
 static bool Gate8 = false;
 static bool Gate9 = false;
 static bool Gate10 = false;
+static bool ForceSADXMode = false;
 char ResultText[100];
 SETObjData setdata_dlc = {};
 
@@ -2528,7 +2530,7 @@ void LoadATT3Stuff_SS()
 				if (obj)
 				{
 					ent = obj->Data1;
-					if (DC_ADV00MODELS != nullptr)
+					if (ForceSADXMode == false)
 					{
 						ent->Position.x = -5;
 						ent->Position.y = 41;
@@ -2555,7 +2557,7 @@ void LoadATT3Stuff_SS()
 				if (obj)
 				{
 					ent = obj->Data1;
-					if (DC_ADV00MODELS != nullptr)
+					if (ForceSADXMode == false)
 					{
 						ent->Position.x = 57;
 						ent->Position.y = 41;
@@ -3215,6 +3217,10 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char* path, const HelperFunctions& helperFunctions)
 	{
+		//Config stuff
+		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+		ForceSADXMode = config->getBool("", "ForceSADXMode", false);
+		delete config;
 		HMODULE SONICADV_000 = GetModuleHandle(L"SONICADV_000");
 		HMODULE SONICADV_001 = GetModuleHandle(L"SONICADV_001");
 		HMODULE SONICADV_002 = GetModuleHandle(L"SONICADV_002");
@@ -3255,6 +3261,12 @@ extern "C"
 			WriteCall((void*)0x0062F098, LoadEverythingInStationSquareOrMysticRuinsActually);
 			WriteCall((void*)0x0062F102, LoadEverythingInStationSquareOrMysticRuinsActually);
 			WriteCall((void*)0x0052FB82, LoadEverythingInStationSquareOrMysticRuinsActually);
+		}
+		else
+		{
+			MessageBoxA(WindowHandle, "Please enable only one DLC mod at a time. The DLC mod will not function.",
+				"DLC mods error: more than one mod enabled", MB_OK | MB_ICONERROR);
+			return;
 		}
 	}
 

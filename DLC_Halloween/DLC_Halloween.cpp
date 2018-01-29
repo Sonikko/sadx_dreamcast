@@ -34,6 +34,7 @@ DataArray(FieldStartPosition, E102SSStartArray, 0x0090BE70, 7);
 
 
 DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(HWND, WindowHandle, 0x03D0FD30);
 
 static bool ObjectsLoaded = false;
 static bool ModFailsafe = false;
@@ -2244,6 +2245,12 @@ extern "C"
 			WriteCall((void*)0x004147B6, LoadStuffInTwinklePark);
 			WriteCall((void*)0x0062F098, LoadStuffInStationSquare);
 			WriteCall((void*)0x0062F102, LoadStuffInStationSquare);
+		}
+		else
+		{
+			MessageBoxA(WindowHandle, "Please enable only one DLC mod at a time. The DLC mod will not function.",
+				"DLC mods error: more than one mod enabled", MB_OK | MB_ICONERROR);
+			return;
 		}
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
