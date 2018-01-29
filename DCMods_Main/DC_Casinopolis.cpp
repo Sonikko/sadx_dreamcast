@@ -676,6 +676,24 @@ const char* __cdecl SetPL90X(int level, int act)
 void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SET0900K");
+		AddSETFix("SET0900S");
+		AddSETFix("SET0901M");
+		AddSETFix("SET0901S");
+		AddSETFix("SET0902S");
+		AddSETFix("SET0903S");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SET0900K");
+		AddSETFix_Extra("SET0900S");
+		AddSETFix_Extra("SET0901M");
+		AddSETFix_Extra("SET0901S");
+		AddSETFix_Extra("SET0902S");
+		AddSETFix_Extra("SET0903S");
+	}
 	ReplacePVM("CASINO01");
 	ReplacePVM("CASINO02");
 	ReplacePVM("CASINO03");

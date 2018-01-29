@@ -471,6 +471,22 @@ void RenderSmallCloud(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SET0600M");
+		AddSETFix("SET0600S");
+		AddSETFix("SET0601S");
+		AddSETFix("SET0602K");
+		AddSETFix("SET0602S");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SET0600M");
+		AddSETFix_Extra("SET0600S");
+		AddSETFix_Extra("SET0601S");
+		AddSETFix_Extra("SET0602K");
+		AddSETFix_Extra("SET0602S");
+	}
 	ReplacePVM("E_AIRCRAFT");
 	ReplacePVM("OBJ_SKYDECK");
 	ReplacePVM("SKYDECK01");

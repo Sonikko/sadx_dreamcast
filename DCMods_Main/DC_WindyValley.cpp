@@ -112,6 +112,22 @@ void RenderWindy1Sky()
 void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SET0200E");
+		AddSETFix("SET0200S");
+		AddSETFix("SET0201S");
+		AddSETFix("SET0202M");
+		AddSETFix("SET0202S");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SET0200E");
+		AddSETFix_Extra("SET0200S");
+		AddSETFix_Extra("SET0201S");
+		AddSETFix_Extra("SET0202M");
+		AddSETFix_Extra("SET0202S");
+	}
 	ReplacePVM("OBJ_WINDY");
 	ReplacePVM("WINDY01");
 	ReplacePVM("WINDY02");

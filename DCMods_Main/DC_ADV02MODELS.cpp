@@ -267,6 +267,44 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
 	LandTable **___LANDTABLEMR = (LandTable **)GetProcAddress(handle, "___LANDTABLEMR");
 	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SETMR00A");
+		AddSETFix("SETMR00B");
+		AddSETFix("SETMR00E");
+		AddSETFix("SETMR00K");
+		AddSETFix("SETMR00L");
+		AddSETFix("SETMR00M");
+		AddSETFix("SETMR00S");
+		AddSETFix("SETMR01A");
+		AddSETFix("SETMR01B");
+		AddSETFix("SETMR01E");
+		AddSETFix("SETMR01K");
+		AddSETFix("SETMR01L");
+		AddSETFix("SETMR01M");
+		AddSETFix("SETMR01S");
+		AddSETFix("SETMR02S");
+		AddSETFix("SETMR03S");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SETMR00A");
+		AddSETFix_Extra("SETMR00B");
+		AddSETFix_Extra("SETMR00E");
+		AddSETFix_Extra("SETMR00K");
+		AddSETFix_Extra("SETMR00L");
+		AddSETFix_Extra("SETMR00M");
+		AddSETFix_Extra("SETMR00S");
+		AddSETFix_Extra("SETMR01A");
+		AddSETFix_Extra("SETMR01B");
+		AddSETFix_Extra("SETMR01E");
+		AddSETFix_Extra("SETMR01K");
+		AddSETFix_Extra("SETMR01L");
+		AddSETFix_Extra("SETMR01M");
+		AddSETFix_Extra("SETMR01S");
+		AddSETFix_Extra("SETMR02S");
+		AddSETFix_Extra("SETMR03S");
+	}
 	ReplacePVM("ADV_MR01");
 	ReplacePVM("ADV_MR02");
 	ReplacePVM("ADV_MR03");

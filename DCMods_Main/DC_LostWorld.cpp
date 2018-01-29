@@ -26,6 +26,20 @@ NJS_MATERIAL* ObjectSpecular_LostWorld[] = {
 void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SET0700S");
+		AddSETFix("SET0701K");
+		AddSETFix("SET0701S");
+		AddSETFix("SET0702S");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SET0700S");
+		AddSETFix_Extra("SET0701K");
+		AddSETFix_Extra("SET0701S");
+		AddSETFix_Extra("SET0702S");
+	}
 	ReplacePVM("BG_RUIN");
 	ReplacePVM("RUIN01");
 	ReplacePVM("RUIN02");

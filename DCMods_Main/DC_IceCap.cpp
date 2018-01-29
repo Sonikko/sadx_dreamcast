@@ -113,6 +113,22 @@ void CrystalParticle(NJS_VECTOR *a1, NJS_VECTOR *a2, int a3, signed int a4)
 void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SET0800S");
+		AddSETFix("SET0801S");
+		AddSETFix("SET0802M");
+		AddSETFix("SET0802S");
+		AddSETFix("SET0803B");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SET0800S");
+		AddSETFix_Extra("SET0801S");
+		AddSETFix_Extra("SET0802M");
+		AddSETFix_Extra("SET0802S");
+		AddSETFix_Extra("SET0803B");
+	}
 	ReplacePVM("BG_ICECAP");
 	ReplacePVM("ICECAP01");
 	ReplacePVM("ICECAP02");

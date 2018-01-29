@@ -29,6 +29,8 @@ static bool SADXWater_Past = false;
 static bool SADXWater_EggHornet = false;
 static bool SADXWater_ZeroE101R = false;
 
+std::string EnableSETFixes;
+
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
@@ -67,6 +69,7 @@ extern "C"
 		EnableMysticRuins = config->getBool("Levels", "EnableMysticRuins", true);
 		EnableEggCarrier = config->getBool("Levels", "EnableEggCarrier", true);
 		EnablePast = config->getBool("Levels", "EnablePast", true);
+		EnableSETFixes = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
 		delete config;
 		if (EnableEmeraldCoast == true && WaterEffect != nullptr)
 		{

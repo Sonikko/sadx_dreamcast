@@ -813,6 +813,16 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableTwinkleCircuit == true)
 	{
+		if (EnableSETFixes == "Normal")
+		{
+			AddSETFix("SETMCART00S");
+			AddSETFix("SETMCART01S");
+		}
+		if (EnableSETFixes == "Extra")
+		{
+			AddSETFix_Extra("SETMCART00S");
+			AddSETFix_Extra("SETMCART01S");
+		}
 		ReplacePVM("MINI_CART01");
 		ReplacePVM("MINI_CART02");
 		ReplacePVM("MINI_CART03");

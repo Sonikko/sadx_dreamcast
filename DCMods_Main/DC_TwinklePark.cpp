@@ -95,15 +95,15 @@ NJS_MATERIAL* WhiteDiffuse_Twinkle[] = {
 	((NJS_MATERIAL*)0x038C23BC), //Pole
 	((NJS_MATERIAL*)0x038C1700), //Panel
 	((NJS_MATERIAL*)0x038C1714), //Panel
-								 //Satellite
-								 ((NJS_MATERIAL*)0x038AE590),
-								 ((NJS_MATERIAL*)0x038AE5A4),
-								 /*((NJS_MATERIAL*)0x038ADB18),
-								 ((NJS_MATERIAL*)0x038ADB2C),
-								 ((NJS_MATERIAL*)0x038ADB40),
-								 ((NJS_MATERIAL*)0x038ADB54),
-								 ((NJS_MATERIAL*)0x038ADED4),
-								 ((NJS_MATERIAL*)0x038AE254),*/
+	//Satellite
+	((NJS_MATERIAL*)0x038AE590),
+	((NJS_MATERIAL*)0x038AE5A4),
+	/*((NJS_MATERIAL*)0x038ADB18),
+	((NJS_MATERIAL*)0x038ADB2C),
+	((NJS_MATERIAL*)0x038ADB40),
+	((NJS_MATERIAL*)0x038ADB54),
+	(((NJS_MATERIAL*)0x038ADED4),
+	((NJS_MATERIAL*)0x038AE254),*/
 	&matlistSTG03_000F28A0[1],// O CartStopper
 	&matlistSTG03_000F28A0[8],// O CartStopper
 };
@@ -397,6 +397,20 @@ void FixArchLight_Pause(NJS_OBJECT *object)
 void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SET0301A");
+		AddSETFix("SET0301B");
+		AddSETFix("SET0301S");
+		AddSETFix("SET0302A");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SET0301A");
+		AddSETFix_Extra("SET0301B");
+		AddSETFix_Extra("SET0301S");
+		AddSETFix_Extra("SET0302A");
+	}
 	ReplacePVM("BG_SHAREOBJ");
 	ReplacePVM("OBJ_SHAREOBJ");
 	ReplacePVM("OBJ_TWINKLE");

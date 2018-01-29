@@ -535,7 +535,6 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVR("WINDY2_NBG2");
 	ReplacePVR("WINDY2_NBG5");
 	ReplacePVR("WINDY3_NBG2");
-	ReplacePVM("ADV_WINDOW");
 	ReplacePVM("AIR_SIGNAL");
 	ReplacePVM("ANCIENT_LIGHT");
 	ReplacePVM("ANKO");

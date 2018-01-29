@@ -523,6 +523,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("AVA_FSDLG_E");
 		ReplacePVM("AVA_OPTION_E");
 		ReplacePVM("AVA_SAN");
+		ReplacePVM("ADV_WINDOW");
 		ReplacePVM("AVA_SNDTEST_E");
 		ReplacePVM("AVA_SQUARE");
 		ReplacePVM("AVA_STNAM_E");
