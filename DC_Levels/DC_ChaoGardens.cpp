@@ -4066,7 +4066,7 @@ bool letteranims[][8] = {
 
 void LoadSSGardenObjectPVM(const char *filename, NJS_TEXLIST *texlist)
 {
-	LoadPVM("GARDEN00SSOBJ_DC", &Garden00SSObj_TEXLIST);
+	LoadPVM("GARDEN00SSOBJ", &Garden00SSObj_TEXLIST);
 }
 
 void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)

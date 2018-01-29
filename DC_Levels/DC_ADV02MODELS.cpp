@@ -235,6 +235,7 @@ void FixMRBase(ObjectMaster *a1)
 
 void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	/*
 	ADV_MR00_TEXLISTS[0].Name = "ADV_MR00_DC";
 	ADV_MR01_TEXLISTS[1].Name = "ADV_MR01_DC";
 	ADV_MR02_TEXLISTS[2].Name = "ADV_MR02_DC";
@@ -245,7 +246,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((char**)0x007C50C7, (char*)"MR_SKY02_DC");
 	WriteData((char**)0x007C506B, (char*)"MR_TRAIN_DC");
 	WriteData((char**)0x007C50DB, (char*)"MR_PYRAMID_DC");
-	WriteData((char**)0x007C50EE, (char*)"MR_FINALEGG_DC");
+	WriteData((char**)0x007C50EE, (char*)"MR_FINALEGG_DC");*/
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
 	delete config;
@@ -304,8 +305,8 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	else
 	{
 		WriteJump((void*)0x532500, MRWater);
-		landtable_00017960.TexName = "ADV_MR00_DC";
-		ADV_MR00_TEXLISTS[0].Name = "ADV_MR00_DC";
+		landtable_00017960.TexName = "ADV_MR00";
+		ADV_MR00_TEXLISTS[0].Name = "ADV_MR00";
 	}
 	for (int i = 0; i < 3; i++)
 	{

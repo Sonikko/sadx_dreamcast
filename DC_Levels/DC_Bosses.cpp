@@ -749,7 +749,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		___BOSSCHAOS0_ACTIONS[17]->object = &object_0005825C;
 		___BOSSCHAOS0_ACTIONS[18]->object = &object_0005D234;
 		___BOSSCHAOS0_ACTIONS[18]->motion = &animation_0004CEA0;
-		WriteData((char**)0x007D53D1, (char*)"LM_CHAOS0_DC");
+		//WriteData((char**)0x007D53D1, (char*)"LM_CHAOS0_DC");
 		WriteCall((void*)0x0054968E, FixChaos0Car);
 		//Chaos 0
 		((NJS_OBJECT*)0x02C65CF8)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
@@ -779,7 +779,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	if (EnableChaos2 == true)
 	{
 		((NJS_MATERIAL*)0x0117E8A0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Top light in Chaos 2
-		CHAOS2_OBJECT_TEXLISTS[10].Name = "LM_CHAOS2_DC";
+		//CHAOS2_OBJECT_TEXLISTS[10].Name = "LM_CHAOS2_DC";
 		WriteCall((void*)0x0054AC30, FixChaos2Columns);
 		WriteData((LandTable**)0x7D1CC0, &landtable_00D2136C); //Chaos 2 PC
 		ResizeTextureList((NJS_TEXLIST*)0x117C76C, textures_chaos2);
@@ -822,7 +822,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableChaos4 == true)
 	{
-		CHAOS4_OBJECT_TEXLISTS[12].Name = "CHAOS4_OBJECT_DC";
+		//CHAOS4_OBJECT_TEXLISTS[12].Name = "CHAOS4_OBJECT_DC";
 		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 swamp water
 		ResizeTextureList((NJS_TEXLIST*)0x118FF08, textures_chaos4dc);
 		WriteJump((void*)0x550D10, Chaos4Skybox);
@@ -916,7 +916,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		ResizeTextureList((NJS_TEXLIST*)0x167E5CC, textures_eggviper);
 		WriteData((LandTable**)0x7D1D48, &landtable_000580F4); //Egg Viper
-		EGGVIPER_TEXLISTS[6].Name = "EGM3MDL_DC";
+		//EGGVIPER_TEXLISTS[6].Name = "EGM3MDL_DC";
 		*(NJS_OBJECT*)0x01669DA8 = object_000434A0; //part of Egg Viper model
 	}
 	if (EnableEggWalker == true)
@@ -1034,7 +1034,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	if (EnableEggHornet == true && SADXStyleWater_EggHornet == false)
 	{
 		ResizeTextureList((NJS_TEXLIST*)0x1557064, 143);  //Egg Hornet level texlist
-		landtable_00000128.TexName = "EGM1LAND_DC";
+		landtable_00000128.TexName = "EGM1LAND";
 		WriteCall((void*)0x0057192A, EggHornetWaterFunc); //Egg Hornet water
 		collist_0001E294[LengthOfArray(collist_0001E294) - 1].Flags = 0x00000000;
 		collist_0001E294[LengthOfArray(collist_0001E294) - 2].Flags = 0x00000000;
@@ -1057,8 +1057,8 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 87); //Zero/E101R texlist
 		collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x80000000;
-		landtable_00000110.TexName = "E101R_TIKEI_DC";
-		landtable_00000180.TexName = "E101R_TIKEI_DC";
+		landtable_00000110.TexName = "E101R_TIKEI";
+		landtable_00000180.TexName = "E101R_TIKEI";
 		WriteData<1>((void*)0x587E10, 0xC3u); //E101R water
 		WriteData<1>((void*)0x56CC30, 0xC3u); //Zero water
 	}

@@ -66775,4 +66775,4 @@ COL collist_00013780[] = {
 NJS_TEXNAME textures_mountain1[45];
 NJS_TEXLIST texlist_mountain1 = { arrayptrandlength(textures_mountain1) };
 
-LandTable landtable_00018CB8 = { LengthOfArray(collist_00013780), 0, 0xC, 900, collist_00013780, NULL, "MOUNTAIN01_DC", (NJS_TEXLIST *)&texlist_mountain1, 0, 0 };
+LandTable landtable_00018CB8 = { LengthOfArray(collist_00013780), 0, 0xC, 900, collist_00013780, NULL, "MOUNTAIN01", (NJS_TEXLIST *)&texlist_mountain1, 0, 0 };

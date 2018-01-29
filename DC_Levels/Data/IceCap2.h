@@ -27621,4 +27621,4 @@ COL collist_00014B68[] = {
 NJS_TEXNAME textures_icecap2[56];
 NJS_TEXLIST texlist_icecap2 = { arrayptrandlength(textures_icecap2) };
 
-LandTable landtable_00015714 = { LengthOfArray(collist_00014B68), 0, 8, 0, collist_00014B68, NULL, "ICECAP02_DC", (NJS_TEXLIST *)&texlist_icecap2, 0, 0 };
+LandTable landtable_00015714 = { LengthOfArray(collist_00014B68), 0, 8, 0, collist_00014B68, NULL, "ICECAP02", (NJS_TEXLIST *)&texlist_icecap2, 0, 0 };

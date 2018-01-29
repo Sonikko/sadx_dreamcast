@@ -28341,4 +28341,4 @@ GeoAnimData animlist_000D83C8[] = {
 NJS_TEXNAME textures_casino4[71];
 NJS_TEXLIST texlist_casino4 = { arrayptrandlength(textures_casino4) };
 
-LandTable landtable_000D8440 = { LengthOfArray(collist_000D727C), LengthOfArray(animlist_000D83C8), 9, 1800, collist_000D727C, animlist_000D83C8, "CASINO04_DC", (NJS_TEXLIST *)&texlist_casino4, 0, 0 };
+LandTable landtable_000D8440 = { LengthOfArray(collist_000D727C), LengthOfArray(animlist_000D83C8), 9, 1800, collist_000D727C, animlist_000D83C8, "CASINO04", (NJS_TEXLIST *)&texlist_casino4, 0, 0 };

@@ -31,7 +31,7 @@ static int cylinderframe = 0;
 SETObjData setdata_fe = {};
 
 PVMEntry FinalEggObjectTextures[] = {
-	{ "OBJ_FINALEGG_DC", (TexList *)0x19CC1C0 },
+	{ "OBJ_FINALEGG", (TexList *)0x19CC1C0 },
 	{ "E_ROBO", (TexList *)0x94A318 },
 	{ "GACHAPON", (TexList *)0x19C929C },
 	{ "SUPI_SUPI", (TexList *)0x96F518 },

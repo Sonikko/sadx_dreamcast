@@ -309,7 +309,7 @@ void RenderEggCarrier0NPC(NJS_ACTION *action, Float frame)
 void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	//PVMs
-	WriteData((char**)0x007D2CB4, (char*)"EC_WATER_DC");
+	/*WriteData((char**)0x007D2CB4, (char*)"EC_WATER_DC");
 	WriteData((char**)0x007D2E24, (char*)"EC_WATER_DC");
 	OBJ_EC30_TEXLISTS[0].Name = "OBJ_EC30_DC";
 	OBJ_EC30_TEXLISTS[1].Name = "EC_TARAI_DC";
@@ -333,7 +333,7 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	ADV_EC33_TEXLISTS[0].Name = "ADV_EC33_DC";
 	ADV_EC34_TEXLISTS[0].Name = "ADV_EC34_DC";
 	ADV_EC35_TEXLISTS[0].Name = "ADV_EC35_DC";
-	EC_TRANSFORM_TEXLISTS[0].Name = "EC_TRANSFORM_DC";
+	EC_TRANSFORM_TEXLISTS[0].Name = "EC_TRANSFORM_DC";*/
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "EggCarrier", false);
 	delete config;
@@ -388,12 +388,12 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		WriteData<1>((void*)0x0051C440, 0xC3u);
 		EggCarrierObjectTexlist_Sea[1].Name = "EC_SEA";
-		landtable_00162260.TexName = "ADV_EC00_DC";
-		landtable_001631F0.TexName = "ADV_EC01_DC";
-		landtable_00163CE8.TexName = "ADV_EC02_DC";
-		ADV_EC00_TEXLISTS[0].Name = "ADV_EC00_DC";
-		ADV_EC01_TEXLISTS[1].Name = "ADV_EC01_DC";
-		ADV_EC02_TEXLISTS[2].Name = "ADV_EC02_DC";
+		landtable_00162260.TexName = "ADV_EC00";
+		landtable_001631F0.TexName = "ADV_EC01";
+		landtable_00163CE8.TexName = "ADV_EC02";
+		ADV_EC00_TEXLISTS[0].Name = "ADV_EC00";
+		ADV_EC01_TEXLISTS[1].Name = "ADV_EC01";
+		ADV_EC02_TEXLISTS[2].Name = "ADV_EC02";
 	}
 	WriteJump((char *)GetProcAddress(ADV01MODELS, "SetClip_EC00"), SetClip_EC00);
 	WriteJump((char *)GetProcAddress(ADV01MODELS, "SetClip_EC01"), SetClip_EC01);

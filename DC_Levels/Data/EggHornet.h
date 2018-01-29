@@ -36752,4 +36752,4 @@ NJS_TEXLIST texlist_hornet = { arrayptrandlength(textures_hornet) };
 NJS_TEXNAME textures_egm1land[143];
 NJS_TEXLIST texlist_egm1land = { arrayptrandlength(textures_egm1land) };
 
-LandTable landtable_00000128 = { LengthOfArray(collist_0001E294), LengthOfArray(animlist_0001F524), 0xD, 10000, collist_0001E294, animlist_0001F524, "EGM1LAND_DC", (NJS_TEXLIST *)0x1557064, 0, 0 };
+LandTable landtable_00000128 = { LengthOfArray(collist_0001E294), LengthOfArray(animlist_0001F524), 0xD, 10000, collist_0001E294, animlist_0001F524, "EGM1LAND", (NJS_TEXLIST *)0x1557064, 0, 0 };

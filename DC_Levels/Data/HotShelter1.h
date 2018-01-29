@@ -25900,4 +25900,4 @@ GeoAnimData animlist_000196C4[] = {
 NJS_TEXNAME textures_shelter1[92];
 NJS_TEXLIST texlist_hotshelter1 = { arrayptrandlength(textures_shelter1) };
 
-LandTable landtable_0001970C = { LengthOfArray(collist_00018020), LengthOfArray(animlist_000196C4), 0xD, 450, collist_00018020, animlist_000196C4, "HOTSHELTER1_DC", (NJS_TEXLIST *)&texlist_hotshelter1, 0, 0 };
+LandTable landtable_0001970C = { LengthOfArray(collist_00018020), LengthOfArray(animlist_000196C4), 0xD, 450, collist_00018020, animlist_000196C4, "HOTSHELTER1", (NJS_TEXLIST *)&texlist_hotshelter1, 0, 0 };

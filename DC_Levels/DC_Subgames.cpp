@@ -803,15 +803,15 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	VerticalResolutionHalf_float = VerticalResolution_float / 2.0f;
 	if (EnableSandHill == true)
 	{ 
-		OBJ_SANDBOARD_TEXLISTS[0].Name = "OBJ_SANDBOARD_DC";
-		WriteData((char**)0x00597A1A, (char*)"BG_SANDBOARD_DC");
+		//OBJ_SANDBOARD_TEXLISTS[0].Name = "OBJ_SANDBOARD_DC";
+		//WriteData((char**)0x00597A1A, (char*)"BG_SANDBOARD_DC");
 		WriteData((LandTable**)0x7D2051, &landtable_00002DEC); //Sand Hill
 		*(NJS_OBJECT *)0x017424DC = objectSBOARD_0006EA40; //Sand Hill ramp
 	}
 	if (EnableTwinkleCircuit == true)
 	{
-		OBJ_MINI_CART_TEXLISTS[0].Name = "OBJ_MINI_CART_DC";
-		OBJ_MINI_CART_TEXLISTS[1].Name = "OBJ_SHAREOBJ_DC";
+		//OBJ_MINI_CART_TEXLISTS[0].Name = "OBJ_MINI_CART_DC";
+		//OBJ_MINI_CART_TEXLISTS[1].Name = "OBJ_SHAREOBJ_DC";
 		WriteData((LandTable**)0x7D205B, &landtable_00001A3C); //Twinkle Circuit
 	}
 	if (EnableSkyChaseFixes == true)
@@ -879,13 +879,13 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableSkyChaseEnemyModels == true)
 	{
-		if (HD_GUI == nullptr && SA1_Chars == nullptr)
+		/*if (HD_GUI == nullptr && SA1_Chars == nullptr)
 		{
 			SHOOTING0_TEXLISTS[0].Name = "SHOOTING0_DC";
 			SHOOTING1_TEXLISTS[0].Name = "SHOOTING1_DC";
 			SKYCHASE_OBJECT_TEXLISTS[0].Name = "SHOOTING0_DC";
 			SKYCHASE_OBJECT_TEXLISTS[7].Name = "SHOOTING2_DC";
-		}
+		}*/
 		*(NJS_OBJECT *)0x02982F44 = objectSHOOTING_0003FA40; //Egg Carrier model
 		*(NJS_OBJECT *)0x298A894 = objectSHOOTING_00047110; //Hodai
 		*(NJS_OBJECT *)0x2941B2C = objectSHOOTING_0001342C; //Kirai

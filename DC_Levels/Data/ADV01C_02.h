@@ -7434,4 +7434,4 @@ COL collist_0000D7D4[] = {
 NJS_TEXNAME textures_ec32[21];
 NJS_TEXLIST texlist_ec32 = { arrayptrandlength(textures_ec32) };
 
-LandTable landtable_0000E1D0 = { LengthOfArray(collist_0000D7D4), 0, 8, 0, collist_0000D7D4, NULL, "ADV_EC32_DC", (NJS_TEXLIST *)&texlist_ec32, 0, 0 };
+LandTable landtable_0000E1D0 = { LengthOfArray(collist_0000D7D4), 0, 8, 0, collist_0000D7D4, NULL, "ADV_EC32", (NJS_TEXLIST *)&texlist_ec32, 0, 0 };

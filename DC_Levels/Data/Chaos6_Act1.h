@@ -17307,7 +17307,7 @@ GeoAnimData animlist_0014B62C[] = {
 NJS_TEXNAME textures_chaos6[77];
 NJS_TEXLIST texlist_chaos6 = { arrayptrandlength(textures_chaos6) };
 
-LandTable landtable_00000318 = { LengthOfArray(collist_0014AFB4), LengthOfArray(animlist_0014B62C), 9, 1700, collist_0014AFB4, animlist_0014B62C, "LM_CHAOS6_DC", (NJS_TEXLIST *)&texlist_chaos6, 0, 0 };
+LandTable landtable_00000318 = { LengthOfArray(collist_0014AFB4), LengthOfArray(animlist_0014B62C), 9, 1700, collist_0014AFB4, animlist_0014B62C, "LM_CHAOS6", (NJS_TEXLIST *)&texlist_chaos6, 0, 0 };
 
 //Skybox
 

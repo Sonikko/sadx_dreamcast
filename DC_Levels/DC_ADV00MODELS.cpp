@@ -230,7 +230,8 @@ void RenderOfficeDoor_Child(NJS_MODEL_SADX *a1, float scale)
 
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	ADVSS00_TEXLISTS[0].Name = "ADVSS00_DC";
+	//Hardcoded PVMs in case I want to go back to them
+	/*ADVSS00_TEXLISTS[0].Name = "ADVSS00_DC";
 	ADVSS01_TEXLISTS[0].Name = "ADVSS01_DC";
 	ADVSS02_TEXLISTS[0].Name = "ADVSS02_DC";
 	ADVSS03_TEXLISTS[0].Name = "ADVSS03_DC";
@@ -238,7 +239,7 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	ADVSS05_TEXLISTS[0].Name = "ADVSS05_DC";
 	WriteData((char**)0x007C4EC4, (char*)"SSCAR_DC");
 	WriteData((char**)0x007C4FA8, (char*)"SS_TRAIN_DC");
-	OBJ_SS_TEXLISTS[0].Name = "OBJ_SS_DC";
+	OBJ_SS_TEXLISTS[0].Name = "OBJ_SS_DC";*/
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "StationSquare", false);
 	delete config;
@@ -316,12 +317,12 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		matlistADV00_00151E54[0].attrflags |= NJD_FLAG_USE_ALPHA;
 		matlistADV00_001566E4[0].diffuse.argb.a = 0xB2;
 		objectADV00_00151F24.pos[1] = -13;
-		landtable_000C21F0.TexName = "ADVSS02_DC";
-		landtable_000DCEBC.TexName = "ADVSS03_DC";
-		landtable_00135A90.TexName = "ADVSS04_DC";
-		ADVSS02_TEXLISTS[0].Name = "ADVSS02_DC";
-		ADVSS03_TEXLISTS[0].Name = "ADVSS03_DC";
-		ADVSS04_TEXLISTS[0].Name = "ADVSS04_DC";
+		landtable_000C21F0.TexName = "ADVSS02";
+		landtable_000DCEBC.TexName = "ADVSS03";
+		landtable_00135A90.TexName = "ADVSS04";
+		ADVSS02_TEXLISTS[0].Name = "ADVSS02";
+		ADVSS03_TEXLISTS[0].Name = "ADVSS03";
+		ADVSS04_TEXLISTS[0].Name = "ADVSS04";
 	}
 	WriteData<4>((void*)0x00630AE0, 0x90); //Hotel door fix
 	WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting

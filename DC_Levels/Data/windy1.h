@@ -27804,5 +27804,5 @@ COL collist_0000CDC0[] = {
 NJS_TEXNAME textures_windy1[20];
 NJS_TEXLIST texlist_windy1 = { arrayptrandlength(textures_windy1) };
 
-LandTable landtable_0000D7E0 = { LengthOfArray(collist_0000CDC0), 0, 0xC, 1700, collist_0000CDC0, NULL, "WINDY01_DC", (NJS_TEXLIST *)&texlist_windy1, 0, 0 };
+LandTable landtable_0000D7E0 = { LengthOfArray(collist_0000CDC0), 0, 0xC, 1700, collist_0000CDC0, NULL, "WINDY01", (NJS_TEXLIST *)&texlist_windy1, 0, 0 };
 

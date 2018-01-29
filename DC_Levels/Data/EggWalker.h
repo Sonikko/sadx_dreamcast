@@ -37009,4 +37009,4 @@ COL collist_00043230[] = {
 NJS_TEXNAME textures_eggwalker[232];
 NJS_TEXLIST texlist_eggwalker = { arrayptrandlength(textures_eggwalker) };
 
-LandTable landtable_0000022C = { LengthOfArray(collist_00043230), 0, 0xC, 10000, collist_00043230, NULL, "EGM2_TIKEI_DC", (NJS_TEXLIST *)&texlist_eggwalker, 0, 0 };
+LandTable landtable_0000022C = { LengthOfArray(collist_00043230), 0, 0xC, 10000, collist_00043230, NULL, "EGM2_TIKEI", (NJS_TEXLIST *)&texlist_eggwalker, 0, 0 };

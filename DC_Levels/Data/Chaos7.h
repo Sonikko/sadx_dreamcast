@@ -32134,4 +32134,4 @@ COL collist_000200BC[] = {
 NJS_TEXNAME textures_chaos7[168];
 NJS_TEXLIST texlist_chaos7 = { arrayptrandlength(textures_chaos7) };
 
-LandTable landtable_00001214 = { LengthOfArray(collist_000200BC), 0, 0xC, 3000, collist_000200BC, NULL, "LM_CHAOS7_0_DC", (NJS_TEXLIST *)&texlist_chaos7, 0, 0 };
+LandTable landtable_00001214 = { LengthOfArray(collist_000200BC), 0, 0xC, 3000, collist_000200BC, NULL, "LM_CHAOS7_0", (NJS_TEXLIST *)&texlist_chaos7, 0, 0 };

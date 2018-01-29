@@ -83923,4 +83923,4 @@ GeoAnimData animlist_000E62C0[] = {
 NJS_TEXNAME textures_finalegg3[90];
 NJS_TEXLIST texlist_finalegg3 = { arrayptrandlength(textures_finalegg3) };
 
-LandTable landtable_000E67D0 = { LengthOfArray(collist_000E1298), LengthOfArray(animlist_000E62C0), 0xD, 600, collist_000E1298, animlist_000E62C0, "FINALEGG3_DC", (NJS_TEXLIST *)&texlist_finalegg3, 0, 0 };
+LandTable landtable_000E67D0 = { LengthOfArray(collist_000E1298), LengthOfArray(animlist_000E62C0), 0xD, 600, collist_000E1298, animlist_000E62C0, "FINALEGG3", (NJS_TEXLIST *)&texlist_finalegg3, 0, 0 };

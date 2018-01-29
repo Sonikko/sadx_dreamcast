@@ -17859,4 +17859,4 @@ COL collist_00163214[] = {
 NJS_TEXNAME textures_ec02[76];
 NJS_TEXLIST texlist_ec02 = { arrayptrandlength(textures_ec02) };
 
-LandTable landtable_00163CE8 = { LengthOfArray(collist_00163214), 0, 8, 0, collist_00163214, NULL, "ADV_EC02_DC", (NJS_TEXLIST *)&texlist_ec02, 0, 0 };
+LandTable landtable_00163CE8 = { LengthOfArray(collist_00163214), 0, 8, 0, collist_00163214, NULL, "ADV_EC02", (NJS_TEXLIST *)&texlist_ec02, 0, 0 };

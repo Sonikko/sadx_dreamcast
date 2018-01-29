@@ -18143,4 +18143,4 @@ COL collist_00134D10[] = {
 	{ { -340, -2, 1920 }, 125.2996f, 0, 0, &objectADV00_001567F0, 0, 0x80000002 },//pool water
 };
 
-LandTable landtable_00135A90 = { LengthOfArray(collist_00134D10), 0, 0xC, 1500, collist_00134D10, NULL, "ADVSS04_DC", (NJS_TEXLIST *)&texlist5 , 0, 0 };
+LandTable landtable_00135A90 = { LengthOfArray(collist_00134D10), 0, 0xC, 1500, collist_00134D10, NULL, "ADVSS04", (NJS_TEXLIST *)&texlist5 , 0, 0 };

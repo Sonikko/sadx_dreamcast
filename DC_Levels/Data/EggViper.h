@@ -21240,7 +21240,7 @@ GeoAnimData animlist_0000C300[] = {
 NJS_TEXNAME textures_eggviper[45];
 NJS_TEXLIST texlist_eggviper = { arrayptrandlength(textures_eggviper) };
 
-LandTable landtable_000580F4 = { LengthOfArray(collist_0000ADA0), LengthOfArray(animlist_0000C300), 0xD, 2000, collist_0000ADA0, animlist_0000C300, "EGM3CHIKEI_DC", (NJS_TEXLIST *)&texlist_eggviper, 0, 0 };
+LandTable landtable_000580F4 = { LengthOfArray(collist_0000ADA0), LengthOfArray(animlist_0000C300), 0xD, 2000, collist_0000ADA0, animlist_0000C300, "EGM3CHIKEI", (NJS_TEXLIST *)&texlist_eggviper, 0, 0 };
 
 //Egg Viper head
 

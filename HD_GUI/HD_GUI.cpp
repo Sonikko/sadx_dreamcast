@@ -99,16 +99,22 @@ void RetrievePlayerSelectStuff(int that_cant_be_right, float x, float y, float z
 	PSsZ = z;
 }
 
+void GGTEXLIST_Hook(const char *filename, NJS_TEXLIST *texlist)
+{
+	LoadPVM("GG_TEXLIST_US_HD", texlist);
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init()
 	{
 		//Set PVM names
+		WriteCall((void*)0x006FF84D, GGTEXLIST_Hook);
 		SHOOTING0_TEXLISTS[0].Name = "SHOOTING0_HD";
 		SKYCHASE_OBJECT_TEXLISTS[0].Name = "SHOOTING0_HD";
 		//Code stuff
-		WriteData((char**)0x0339C8A4, "GG_TEXLIST_US_HD.PVM");
+		WriteData((char**)0x0042C752, (char*)"SEGALOGO_E_HD");
 		WriteData((char**)0x0064221D, (char*)"ADV_WINDOW_HD");
 		WriteData((char**)0x0064222E, (char*)"AVA_CSR_HD");
 		WriteData((char**)0x00642249, (char*)"AVA_DLG_E_HD");

@@ -42187,4 +42187,4 @@ COL collist_0001BF04[] = {
 NJS_TEXNAME textures_skydeck1[76];
 NJS_TEXLIST texlist_skydeck1 = { arrayptrandlength(textures_skydeck1) };
 
-LandTable landtable_0001F018 = { LengthOfArray(collist_0001BF04), 0, 0xC, 1400, collist_0001BF04, NULL, "SKYDECK01_DC", (NJS_TEXLIST *)&texlist_skydeck1, 0, 0 };
+LandTable landtable_0001F018 = { LengthOfArray(collist_0001BF04), 0, 0xC, 1400, collist_0001BF04, NULL, "SKYDECK01", (NJS_TEXLIST *)&texlist_skydeck1, 0, 0 };

@@ -47398,5 +47398,5 @@ COL collist_00013220[] = {
 	{ { 106, 34.5f, 769.975f }, 145.0603f, 0, 0, &objectADV00_0001B188_2, 0, 0x80001001 }, //roof1 dc
 };
 
-LandTable landtable_000157F4 = { LengthOfArray(collist_00013220), 0, 0xC, 1500, collist_00013220, NULL, "ADVSS00_DC", (NJS_TEXLIST *)&texlist1 , 0, 0 };
+LandTable landtable_000157F4 = { LengthOfArray(collist_00013220), 0, 0xC, 1500, collist_00013220, NULL, "ADVSS00", (NJS_TEXLIST *)&texlist1 , 0, 0 };
 #pragma once

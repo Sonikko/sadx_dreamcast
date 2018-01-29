@@ -71005,4 +71005,4 @@ GeoAnimData animlist_001ECECC[] = {
 //NJS_TEXNAME textures_ec00[99];
 //NJS_TEXLIST texlist_ec00 = { arrayptrandlength(textures_ec00) };
 
-LandTable landtable_001ECEE4 = { LengthOfArray(collist_0015F764), LengthOfArray(animlist_001ECECC), 0xD, 3000, collist_0015F764, animlist_001ECECC, "ADV_EC00_DC", (NJS_TEXLIST *)&texlist_ec00, 0, 0 };
+LandTable landtable_001ECEE4 = { LengthOfArray(collist_0015F764), LengthOfArray(animlist_001ECECC), 0xD, 3000, collist_0015F764, animlist_001ECECC, "ADV_EC00", (NJS_TEXLIST *)&texlist_ec00, 0, 0 };

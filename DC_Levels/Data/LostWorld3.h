@@ -22866,4 +22866,4 @@ COL collist_000F8F08[] = {
 NJS_TEXNAME textures_lw3[30];
 NJS_TEXLIST texlist_lw3 = { arrayptrandlength(textures_lw3) };
 
-LandTable landtable_000F928C = { LengthOfArray(collist_000F8F08), 0, 8, 0, collist_000F8F08, NULL, "RUIN03_DC", (NJS_TEXLIST *)&texlist_lw3, 0, 0 };
+LandTable landtable_000F928C = { LengthOfArray(collist_000F8F08), 0, 8, 0, collist_000F8F08, NULL, "RUIN03", (NJS_TEXLIST *)&texlist_lw3, 0, 0 };

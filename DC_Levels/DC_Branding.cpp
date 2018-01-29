@@ -469,7 +469,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	f640_Fixed = 1.0f + HorizontalResolution;
 	HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
 	//Set PVM names
-	if (HD_GUI == nullptr)
+	/*if (HD_GUI == nullptr)
 	{
 		//Code stuff
 		WriteCall((void*)0x006FF84D, GGTEXLIST_Hook);
@@ -627,7 +627,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		GUITextures_German[26].Name = "AVA_INETDEMO";
 		GUITextures_German[27].Name = "TVSETTING";
 		GUITextures_German[28].Name = "AVA_METAL_SONIC";
-	}
+	}*/
 	//File icon
 	if (HD_GUI == nullptr) WriteCall((void*)0x005092A1, DrawTexture_Hook); 
 	else WriteCall((void*)0x005092A1, FileIcon_Hook);
@@ -665,35 +665,10 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	//Set up normal/widescreen setting
 	std::string SectionName;
-	if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) SectionName = "Widescreen"; else SectionName = "Normal";
-	if (float(HorizontalResolution) / float(VerticalResolution) >= 2.2f) SectionName = "Ultrawide";
-	//Load defaults first
-	const IniFile *defaults = new IniFile(std::string(path) + "\\DCBranding_default.ini");
-	RipplesOn = defaults->getBool("Branding", "RippleEffect", true);
-	EnableTransition = defaults->getBool("Branding", "EnableTransition", false);
-	DisableFade = defaults->getBool("Branding", "DisableFade", true);
-	DisableSA1Titlescreen = defaults->getBool("Branding", "DisableSA1TitleScreen", false);
-	DrawOverlay = defaults->getBool("Branding", "DrawOverlay", true);
-	RemoveCream = defaults->getBool("Branding", "RemoveCream", false);
-	TextOffsetX = defaults->getInt(SectionName, "CopyrightOffsetX", 0);
-	TextOffsetY = defaults->getInt(SectionName, "CopyrightOffsetY", 0);
-	PressStartOffsetX = defaults->getInt(SectionName, "PressStartOffsetX", 0);
-	PressStartOffsetY = defaults->getInt(SectionName, "PressStartOffsetY", 0);
-	SonicTeamOffsetX = defaults->getInt(SectionName, "SonicTeamOffsetX", 0);
-	SonicTeamOffsetY = defaults->getInt(SectionName, "SonicTeamOffsetY", 0);
-	BackgroundOffsetX = defaults->getInt(SectionName, "BackgroundOffsetX", -16);
-	BackgroundOffsetY = defaults->getInt(SectionName, "BackgroundOffsetY", 0);
-	BackgroundScaleX = defaults->getFloat(SectionName, "BackgroundScaleX", 1.0f);
-	BackgroundScaleY = defaults->getFloat(SectionName, "BackgroundScaleY", 1.0f);
-	LogoOffsetX = defaults->getInt(SectionName, "LogoOffsetX", 64);
-	LogoOffsetY = defaults->getInt(SectionName, "LogoOffsetY", 220);
-	LogoScaleX = defaults->getFloat(SectionName, "LogoScaleX", 1.0f);
-	LogoScaleY = defaults->getFloat(SectionName, "LogoScaleY", 1.0f);
-	delete defaults;
-	//If there is no DCBranding.ini, make one
-	CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\DCBranding.ini").c_str(), true);
+	if (float(HorizontalResolution) / float(VerticalResolution) > 1.5f) SectionName = "SA1 Logo Widescreen"; else SectionName = "SA1 Logo Normal";
+	if (float(HorizontalResolution) / float(VerticalResolution) >= 2.2f) SectionName = "SA1 Logo Ultrawide";
 	//Set up settings
-	const IniFile *settings = new IniFile(std::string(path) + "\\DCBranding.ini");
+	const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
 	RipplesOn = settings->getBool("Branding", "RippleEffect", true);
 	EnableTransition = settings->getBool("Branding", "EnableTransition", true);
 	DisableSA1Titlescreen = settings->getBool("Branding", "DisableSA1TitleScreen", false);

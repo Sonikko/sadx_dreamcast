@@ -111,13 +111,13 @@ void CrystalParticle(NJS_VECTOR *a1, NJS_VECTOR *a2, int a3, signed int a4)
 
 void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	WriteData((char**)0x004E999C, (char*)"BG_ICECAP_DC");
+	/*WriteData((char**)0x004E999C, (char*)"BG_ICECAP_DC");
 	ICECAP01_TEXLISTS[0].Name = "ICECAP01_DC";
 	ICECAP02_TEXLISTS[0].Name = "ICECAP02_DC";
 	ICECAP03_TEXLISTS[0].Name = "ICECAP03_DC";
 	ICECAP04_TEXLISTS[0].Name = "ICECAP02_DC";
 	OBJ_ICECAP_TEXLISTS[0].Name = "OBJ_ICECAP_DC";
-	OBJ_ICECAP_TEXLISTS[1].Name = "OBJ_ICECAP2_DC";
+	OBJ_ICECAP_TEXLISTS[1].Name = "OBJ_ICECAP2_DC";*/
 	WriteData((LandTable**)0x97DB08, &landtable_00014B44);
 	WriteData((LandTable**)0x97DB0C, &landtable_00015714);
 	WriteData((LandTable**)0x97DB10, &landtable_000180B4);

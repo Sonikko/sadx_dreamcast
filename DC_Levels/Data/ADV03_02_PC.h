@@ -39816,4 +39816,4 @@ COL collist_00101B80[] = {
 NJS_TEXNAME textures_past2pc[88];
 NJS_TEXLIST texlist_past02pc = { arrayptrandlength(textures_past2pc) };
 
-LandTable landtable_00103974 = { LengthOfArray(collist_00101B80), 0, 0xC, 3000, collist_00101B80, NULL, "PAST02_DC", (NJS_TEXLIST *)&texlist_past02pc, 0, 0 };
+LandTable landtable_00103974 = { LengthOfArray(collist_00101B80), 0, 0xC, 3000, collist_00101B80, NULL, "PAST02", (NJS_TEXLIST *)&texlist_past02pc, 0, 0 };

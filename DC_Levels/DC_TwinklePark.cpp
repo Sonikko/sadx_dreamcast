@@ -396,13 +396,13 @@ void FixArchLight_Pause(NJS_OBJECT *object)
 
 void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	TWINKLE01_TEXLISTS[0].Name = "TWINKLE01_DC";
+	/*TWINKLE01_TEXLISTS[0].Name = "TWINKLE01_DC";
 	TWINKLE01_TEXLISTS[1].Name = "OBJ_SHAREOBJ_DC";
 	TWINKLE02_TEXLISTS[0].Name = "TWINKLE02_DC";
 	TWINKLE03_TEXLISTS[0].Name = "TWINKLE03_DC";
 	OBJ_TWINKLE_TEXLISTS[0].Name = "OBJ_TWINKLE_DC";
 	OBJ_TWINKLE_TEXLISTS[3].Name = "BG_SHAREOBJ_DC";
-	WriteData((char**)0x004DA9BF, (char*)"BG_SHAREOBJ_DC");
+	WriteData((char**)0x004DA9BF, (char*)"BG_SHAREOBJ_DC");*/
 	WriteData((LandTable**)0x97DA68, &landtable_0001788C);
 	WriteData((LandTable**)0x97DA6C, &landtable_00019344);
 	WriteData((LandTable**)0x97DA70, &landtable_00019F5C);

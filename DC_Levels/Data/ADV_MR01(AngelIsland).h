@@ -35671,4 +35671,4 @@ COL collist_0009C92C[] = {
 NJS_TEXNAME textures_mr01[90];
 NJS_TEXLIST texlist_mr01 = { arrayptrandlength(textures_mr01) };
 
-LandTable landtable_0009E7B0 = { LengthOfArray(collist_0009C92C), 0, 8, 0, collist_0009C92C, NULL, "ADV_MR01_DC", (NJS_TEXLIST *)&texlist_mr01, 0, 0 };
+LandTable landtable_0009E7B0 = { LengthOfArray(collist_0009C92C), 0, 8, 0, collist_0009C92C, NULL, "ADV_MR01", (NJS_TEXLIST *)&texlist_mr01, 0, 0 };
