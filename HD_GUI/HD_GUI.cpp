@@ -5,7 +5,7 @@
 #include <stdio.h>
 
 #define ReplacePVMX(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "_HD.PVMX", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);
-#define ReplacePNG(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "_HD.PNG", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
+#define ReplacePNG(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\pvr\\index.txt", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
 
 static float Options_ArrowScale = 0.0f;
 static float Options_ArrowScaleAmount = 0.1f;
@@ -21,12 +21,7 @@ static float BSsZ = 0;
 static float f480_Fixed = 0;
 static float f640_Fixed = 0;
 
-DataArray(PVMEntry, GUITextures_Japanese, 0x007EECF0, 30);
-DataArray(PVMEntry, GUITextures_English, 0x007EEDE0, 30);
-DataArray(PVMEntry, GUITextures_French, 0x007EEED0, 30);
-DataArray(PVMEntry, GUITextures_Spanish, 0x007EEFC0, 30);
-DataArray(PVMEntry, GUITextures_German, 0x007EF0B0, 30);
-DataArray(PVMEntry, SKYCHASE_OBJECT_TEXLISTS, 0x90E5E8, 11);
+DataPointer(HWND, WindowHandle, 0x03D0FD30);
 
 void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, float Texture_Z)
 {
@@ -109,37 +104,57 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		if (helperFunctions.Version < 6)
+		{
+			MessageBoxA(WindowHandle, "Mod Loader out of date. HD GUI requires API version 6 or newer.",
+				"HD GUI error: Mod loader out of date", MB_OK | MB_ICONERROR);
+			return;
+		}
 		char pathbuf[MAX_PATH];
 		ReplacePVMX("ADV_WINDOW");
 		ReplacePVMX("AVA_BACK");
+		ReplacePVMX("AVA_CHSEL");
 		ReplacePVMX("AVA_CHSEL_E");
 		ReplacePVMX("AVA_CSR");
+		ReplacePVMX("AVA_DLG");
 		ReplacePVMX("AVA_DLG_E");
+		ReplacePVMX("AVA_EMBLEMVIEW");
 		ReplacePVMX("AVA_EMBLEMVIEW_E");
 		ReplacePVMX("AVA_EMBLEM");
+		ReplacePVMX("AVA_FILESEL");
 		ReplacePVMX("AVA_FILESEL_E");
+		ReplacePVMX("AVA_FSDLG");
 		ReplacePVMX("AVA_FSDLG_E");
 		ReplacePVMX("AVA_METAL_SONIC");
 		ReplacePVMX("AVA_NEW16NO");
+		ReplacePVMX("AVA_OPTION")
 		ReplacePVMX("AVA_OPTION_E");
-		ReplacePVMX("AVA_OPTION");
 		ReplacePVMX("AVA_SAN");
+		ReplacePVMX("AVA_SNDTEST");
 		ReplacePVMX("AVA_SNDTEST_E");
 		ReplacePVMX("AVA_SQUARE");
+		ReplacePVMX("AVA_STNAM");
 		ReplacePVMX("AVA_STNAM_E");
 		ReplacePVMX("AVA_SUUJI");
+		ReplacePVMX("AVA_TITLE_BACK");
 		ReplacePVMX("AVA_TITLE_BACK_E");
+		ReplacePVMX("AVA_TITLE");
 		ReplacePVMX("AVA_TITLE_E");
+		ReplacePVMX("AVA_TRIALACTSEL");
 		ReplacePVMX("AVA_TRIALACTSEL_E");
+		ReplacePVMX("AVA_VMSSEL");
 		ReplacePVMX("AVA_VMSSEL_E");
 		ReplacePVMX("BOARD_SCORE");
+		ReplacePVMX("B_CHNAM");
 		ReplacePVMX("B_CHNAM_E");
 		ReplacePVMX("CHAOS_LIFEGAUGE");
+		ReplacePVMX("CON_REGULAR");
 		ReplacePVMX("CON_REGULAR_E");
 		ReplacePVMX("E102TIME");
 		ReplacePVMX("EMBLEM");
 		ReplacePVMX("EXTRA");
 		ReplacePVMX("FISHING");
+		ReplacePVMX("GAMEOVER");
 		ReplacePVMX("GAMEOVER_E");
 		ReplacePVMX("GG_TEXLIST_US");
 		ReplacePVMX("KNU_EFF");
@@ -161,6 +176,7 @@ extern "C"
 		ReplacePVMX("OBJ_MINI_CART");
 		ReplacePVMX("OBJ_REGULAR");
 		ReplacePVMX("PRESSSTART");
+		ReplacePVMX("SCORE_ACT");
 		ReplacePVMX("SCORE_ACT_E");
 		ReplacePVMX("SCORE_BACK");
 		ReplacePVMX("SCORE_BOARD_E");
@@ -170,6 +186,13 @@ extern "C"
 		ReplacePVMX("SCORE_RESULT_E");
 		ReplacePVMX("SCORE_SHOOT_E");
 		ReplacePVMX("SEGALOGO_E");
+		ReplacePVMX("SCORE_BOARD");
+		ReplacePVMX("SCORE_BOSS");
+		ReplacePVMX("SCORE_CART");
+		ReplacePVMX("SCORE_MOLE");
+		ReplacePVMX("SCORE_RESULT");
+		ReplacePVMX("SCORE_SHOOT");
+		ReplacePVMX("SEGALOGO");
 		ReplacePVMX("SHOOTING0");
 		ReplacePVMX("SMRYBG_AMY");
 		ReplacePVMX("SMRYBG_BIG");
@@ -186,11 +209,19 @@ extern "C"
 		ReplacePVMX("TUTOMSG_TAILS_E");
 		ReplacePVMX("TUTO_CMN_E");
 		ReplacePVMX("TX_CHNAM_E");
-		/*ReplacePNG("ABC_TXT");
+		ReplacePVMX("TUTOMSG_AMY");
+		ReplacePVMX("TUTOMSG_BIG");
+		ReplacePVMX("TUTOMSG_E102");
+		ReplacePVMX("TUTOMSG_KNUCKLES");
+		ReplacePVMX("TUTOMSG_SONIC");
+		ReplacePVMX("TUTOMSG_TAILS");
+		ReplacePVMX("TUTO_CMN");
+		ReplacePVMX("TX_CHNAM");
+		ReplacePNG("ABC_TXT");
+		ReplacePNG("B32ASCII");
 		ReplacePNG("A_STAGE01_E");
 		ReplacePNG("A_STAGE02_E");
 		ReplacePNG("A_STAGE03_E");
-		ReplacePNG("B32ASCII");
 		ReplacePNG("B_STAGE01_E");
 		ReplacePNG("B_STAGE02_E");
 		ReplacePNG("B_STAGE03_E");
@@ -274,9 +305,7 @@ extern "C"
 		ReplacePNG("ST_STAGE03_E");
 		ReplacePNG("ST_STAGE04_E");
 		ReplacePNG("ST_STAGE05_E");
-		*/
-		//ReplacePNG("S_STAGE01_E");
-		/*
+		ReplacePNG("S_STAGE01_E");
 		ReplacePNG("S_STAGE02_E");
 		ReplacePNG("S_STAGE03_E");
 		ReplacePNG("S_STAGE04_E");
@@ -288,7 +317,7 @@ extern "C"
 		ReplacePNG("S_STAGE10_E");
 		ReplacePNG("T_EGGCARRIER_E");
 		ReplacePNG("T_MISTICRUIN_E");
-		ReplacePNG("T_STATIONSQUARE_E");*/
+		ReplacePNG("T_STATIONSQUARE_E");
 		//Screen fade fixes
 		WriteData((float**)0x00433385, &f480_Fixed); //Screen fade resolution
 		WriteData((float**)0x004333A6, &f640_Fixed); //Screen fade resolution
