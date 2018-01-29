@@ -1,14 +1,32 @@
 #include <SADXModLoader.h>
 #include "CommonObjects.h"
 #include "Objects_Shooting.h"
+#include <stdlib.h>
+#include <stdio.h>
+
+#define ReplacePVMX(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "_HD.PVMX", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);
+#define ReplacePNG(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "_HD.PNG", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
 
 static float Options_ArrowScale = 0.0f;
 static float Options_ArrowScaleAmount = 0.1f;
 
-DataArray(PVMEntry, GUITexturePVMs2, 0x007EEDE0, 30);
-DataArray(PVMEntry, GUITexturePVMs3, 0x007EEED0, 30);
-DataArray(PVMEntry, GUITexturePVMs4, 0x007EEFC0, 30);
-DataArray(PVMEntry, GUITexturePVMs5, 0x007EF0B0, 30);
+static int PSInt = 0;
+static float PSsX = 0;
+static float PSsY = 0;
+static float PSsZ = 0;
+static int BSInt = 0;
+static float BSsX = 0;
+static float BSsY = 0;
+static float BSsZ = 0;
+static float f480_Fixed = 0;
+static float f640_Fixed = 0;
+
+DataArray(PVMEntry, GUITextures_Japanese, 0x007EECF0, 30);
+DataArray(PVMEntry, GUITextures_English, 0x007EEDE0, 30);
+DataArray(PVMEntry, GUITextures_French, 0x007EEED0, 30);
+DataArray(PVMEntry, GUITextures_Spanish, 0x007EEFC0, 30);
+DataArray(PVMEntry, GUITextures_German, 0x007EF0B0, 30);
+DataArray(PVMEntry, SKYCHASE_OBJECT_TEXLISTS, 0x90E5E8, 11);
 
 void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, float Texture_Z)
 {
@@ -33,25 +51,276 @@ void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, flo
 	njTextureShadingMode(2);
 }
 
+void DrawShadow_Hook(int texnum, float x, float y, float z, float scaleX, float scaleY)
+{
+	njTextureShadingMode(1);
+	DrawBG(texnum, x, y, z, scaleX, scaleY);
+	njTextureShadingMode(2);
+}
+
+void DrawTexture_Hook(int that_cant_be_right, float x, float y, float z)
+{
+	njTextureShadingMode(1);
+	DisplayScreenTexture(that_cant_be_right, x, y, z);
+	njTextureShadingMode(2);
+}
+
+void DisplayScreenTexture_AlwaysTop(int that_cant_be_right, float x, float y, float z)
+{
+	Direct3D_SetZFunc(7u);
+	Direct3D_EnableZWrite(0);
+	DisplayScreenTexture(that_cant_be_right, x, y, z);
+	Direct3D_EnableZWrite(1);
+	Direct3D_SetZFunc(3u);
+}
+
+void ScreenFadeFix(float left, float top, float right, float bottom, float depth, int color, QueuedModelFlagsB queueflags)
+{
+	DrawRect_Queue(-50.0f, -50.0f, HorizontalResolution + 50.0f, VerticalResolution + 50.0f, 32048.0f, color, QueuedModelFlagsB_EnableZWrite);
+}
+
+void RenderShittyTextures(int texnum, float x, float y, float z, float scaleX, float scaleY)
+{
+	DrawBG(texnum, x, y, z, scaleX, scaleY);
+	DoColorGradientThingMaybe(0xFF0016FF, 0xFF002EFF, 0xFF0016FF, 0xFF002EFF);
+	DisplayScreenTexture(BSInt, BSsX, BSsY, BSsZ);
+	DoColorGradientThingMaybe(0xFFFFFFFFu, 0xFFFFFFFFu, 0xFFFFFFFFu, 0xFFFFFFFFu);
+	DisplayScreenTexture(PSInt, PSsX, PSsY, PSsZ);
+}
+
+void RetrieveBottomThingStuff(int texnum, float x, float y, float z)
+{
+	BSInt = texnum;
+	BSsX = x;
+	BSsY = y;
+	BSsZ = z;
+}
+
+void RetrievePlayerSelectStuff(int that_cant_be_right, float x, float y, float z)
+{
+	PSInt = that_cant_be_right;
+	PSsX = x;
+	PSsY = y;
+	PSsZ = z;
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
-	__declspec(dllexport) void __cdecl Init()
+	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
-		GUITexturePVMs2[21].Name = "AVA_OPTION_H";
-		GUITexturePVMs3[21].Name = "AVA_OPTION_H";
-		GUITexturePVMs4[21].Name = "AVA_OPTION_H";
-		GUITexturePVMs5[21].Name = "AVA_OPTION_H";
+		char pathbuf[MAX_PATH];
+		ReplacePVMX("ADV_WINDOW");
+		ReplacePVMX("AVA_BACK");
+		ReplacePVMX("AVA_CHSEL_E");
+		ReplacePVMX("AVA_CSR");
+		ReplacePVMX("AVA_DLG_E");
+		ReplacePVMX("AVA_EMBLEMVIEW_E");
+		ReplacePVMX("AVA_EMBLEM");
+		ReplacePVMX("AVA_FILESEL_E");
+		ReplacePVMX("AVA_FSDLG_E");
+		ReplacePVMX("AVA_METAL_SONIC");
+		ReplacePVMX("AVA_NEW16NO");
+		ReplacePVMX("AVA_OPTION_E");
+		ReplacePVMX("AVA_OPTION");
+		ReplacePVMX("AVA_SAN");
+		ReplacePVMX("AVA_SNDTEST_E");
+		ReplacePVMX("AVA_SQUARE");
+		ReplacePVMX("AVA_STNAM_E");
+		ReplacePVMX("AVA_SUUJI");
+		ReplacePVMX("AVA_TITLE_BACK_E");
+		ReplacePVMX("AVA_TITLE_E");
+		ReplacePVMX("AVA_TRIALACTSEL_E");
+		ReplacePVMX("AVA_VMSSEL_E");
+		ReplacePVMX("BOARD_SCORE");
+		ReplacePVMX("B_CHNAM_E");
+		ReplacePVMX("CHAOS_LIFEGAUGE");
+		ReplacePVMX("CON_REGULAR_E");
+		ReplacePVMX("E102TIME");
+		ReplacePVMX("EMBLEM");
+		ReplacePVMX("EXTRA");
+		ReplacePVMX("FISHING");
+		ReplacePVMX("GAMEOVER_E");
+		ReplacePVMX("GG_TEXLIST_US");
+		ReplacePVMX("KNU_EFF");
+		ReplacePVMX("MAP_EC_A");
+		ReplacePVMX("MAP_EC_B");
+		ReplacePVMX("MAP_EC_H");
+		ReplacePVMX("MAP_ICON");
+		ReplacePVMX("MAP_MR_A");
+		ReplacePVMX("MAP_MR_J");
+		ReplacePVMX("MAP_MR_S");
+		ReplacePVMX("MAP_PAST_E");
+		ReplacePVMX("MAP_PAST_S");
+		ReplacePVMX("MAP_SS");
+		ReplacePVMX("MILESRACE");
+		ReplacePVMX("MISSION_TUTO");
+		ReplacePVMX("MIS_C_EN");
+		ReplacePVMX("MIS_P");
+		ReplacePVMX("M_CHNAM");
+		ReplacePVMX("OBJ_MINI_CART");
+		ReplacePVMX("OBJ_REGULAR");
+		ReplacePVMX("PRESSSTART");
+		ReplacePVMX("SCORE_ACT_E");
+		ReplacePVMX("SCORE_BACK");
+		ReplacePVMX("SCORE_BOARD_E");
+		ReplacePVMX("SCORE_BOSS_E");
+		ReplacePVMX("SCORE_CART_E");
+		ReplacePVMX("SCORE_MOLE_E");
+		ReplacePVMX("SCORE_RESULT_E");
+		ReplacePVMX("SCORE_SHOOT_E");
+		ReplacePVMX("SEGALOGO_E");
+		ReplacePVMX("SHOOTING0");
+		ReplacePVMX("SMRYBG_AMY");
+		ReplacePVMX("SMRYBG_BIG");
+		ReplacePVMX("SMRYBG_E102");
+		ReplacePVMX("SMRYBG_KNUCKLES");
+		ReplacePVMX("SMRYBG_SONIC");
+		ReplacePVMX("SMRYBG_SUPERSONIC");
+		ReplacePVMX("SMRYBG_TAILS");
+		ReplacePVMX("TUTOMSG_AMY_E");
+		ReplacePVMX("TUTOMSG_BIG_E");
+		ReplacePVMX("TUTOMSG_E102_E");
+		ReplacePVMX("TUTOMSG_KNUCKLES_E");
+		ReplacePVMX("TUTOMSG_SONIC_E");
+		ReplacePVMX("TUTOMSG_TAILS_E");
+		ReplacePVMX("TUTO_CMN_E");
+		ReplacePVMX("TX_CHNAM_E");
+		/*ReplacePNG("ABC_TXT");
+		ReplacePNG("A_STAGE01_E");
+		ReplacePNG("A_STAGE02_E");
+		ReplacePNG("A_STAGE03_E");
+		ReplacePNG("B32ASCII");
+		ReplacePNG("B_STAGE01_E");
+		ReplacePNG("B_STAGE02_E");
+		ReplacePNG("B_STAGE03_E");
+		ReplacePNG("B_STAGE04_E");
+		ReplacePNG("E_STAGE01_E");
+		ReplacePNG("E_STAGE02_E");
+		ReplacePNG("E_STAGE03_E");
+		ReplacePNG("E_STAGE04_E");
+		ReplacePNG("E_STAGE05_E");
+		ReplacePNG("HYOJI_BALLS_E");
+		ReplacePNG("HYOJI_EMBLEM0");
+		ReplacePNG("HYOJI_EMBLEM1");
+		ReplacePNG("K_STAGE01_E");
+		ReplacePNG("K_STAGE02_E");
+		ReplacePNG("K_STAGE03_E");
+		ReplacePNG("K_STAGE04_E");
+		ReplacePNG("K_STAGE05_E");
+		ReplacePNG("MISSION_A_BALRING_E");
+		ReplacePNG("MISSION_A_BALZERO_E");
+		ReplacePNG("MISSION_A_FIN_E");
+		ReplacePNG("MISSION_A_HOT_E");
+		ReplacePNG("MISSION_A_TWIN_E");
+		ReplacePNG("MISSION_BIG_1K_E");
+		ReplacePNG("MISSION_BIG_2K_E");
+		ReplacePNG("MISSION_BIG_FROG_E");
+		ReplacePNG("MISSION_G_103RING_E");
+		ReplacePNG("MISSION_G_103_E");
+		ReplacePNG("MISSION_G_104RING_E");
+		ReplacePNG("MISSION_G_104_E");
+		ReplacePNG("MISSION_G_105RING_E");
+		ReplacePNG("MISSION_G_105_E");
+		ReplacePNG("MISSION_G_EME_E");
+		ReplacePNG("MISSION_G_FIN_E");
+		ReplacePNG("MISSION_G_FROGRING_E");
+		ReplacePNG("MISSION_G_FROG_E");
+		ReplacePNG("MISSION_G_HOT_E");
+		ReplacePNG("MISSION_G_RED_E");
+		ReplacePNG("MISSION_G_SONICDRING_E");
+		ReplacePNG("MISSION_G_SONICD_E");
+		ReplacePNG("MISSION_G_WIN_E");
+		ReplacePNG("MISSION_K_1MIN_E");
+		ReplacePNG("MISSION_K_2MIN_E");
+		ReplacePNG("MISSION_K_3EME_E");
+		ReplacePNG("MISSION_K_NOHINT_E");
+		ReplacePNG("MISSION_S_BOX25MIN_E");
+		ReplacePNG("MISSION_S_BOX2MIN_E");
+		ReplacePNG("MISSION_S_BOX3MIN_E");
+		ReplacePNG("MISSION_S_BOX45MIN_E");
+		ReplacePNG("MISSION_S_BOX4MIN_E");
+		ReplacePNG("MISSION_S_BOX5MIN_E");
+		ReplacePNG("MISSION_S_BOX_E");
+		ReplacePNG("MISSION_S_EGGC_E");
+		ReplacePNG("MISSION_S_EMECASINO_E");
+		ReplacePNG("MISSION_S_EMESNOW_E");
+		ReplacePNG("MISSION_S_EMEWIND_E");
+		ReplacePNG("MISSION_S_FEGG_E");
+		ReplacePNG("MISSION_S_ISEKI_E");
+		ReplacePNG("MISSION_S_RINGBOX_E");
+		ReplacePNG("MISSION_S_TAILS_E");
+		ReplacePNG("MISSION_T_BOX_E");
+		ReplacePNG("MISSION_T_EMECASINO_E");
+		ReplacePNG("MISSION_T_EMESNOW_E");
+		ReplacePNG("MISSION_T_EMEWIND_E");
+		ReplacePNG("MISSION_T_FASTEGG_E");
+		ReplacePNG("MISSION_T_FASTSONIC_E");
+		ReplacePNG("MISSION_T_MISS_E");
+		ReplacePNG("MISSION_T_RINGEGG_E");
+		ReplacePNG("MISSION_T_RINGSONIC_E");
+		ReplacePNG("M_STAGE01_E");
+		ReplacePNG("M_STAGE02_E");
+		ReplacePNG("M_STAGE03_E");
+		ReplacePNG("M_STAGE04_E");
+		ReplacePNG("M_STAGE05_E");
+		ReplacePNG("STAFFROLL_TXT");
+		ReplacePNG("ST_064S_LOCKA");
+		ReplacePNG("ST_064S_LOCKB");
+		ReplacePNG("ST_064S_LOCKC");
+		ReplacePNG("ST_064S_SCORE");
+		ReplacePNG("ST_STAGE01_E");
+		ReplacePNG("ST_STAGE02_E");
+		ReplacePNG("ST_STAGE03_E");
+		ReplacePNG("ST_STAGE04_E");
+		ReplacePNG("ST_STAGE05_E");
+		*/
+		//ReplacePNG("S_STAGE01_E");
+		/*
+		ReplacePNG("S_STAGE02_E");
+		ReplacePNG("S_STAGE03_E");
+		ReplacePNG("S_STAGE04_E");
+		ReplacePNG("S_STAGE05_E");
+		ReplacePNG("S_STAGE06_E");
+		ReplacePNG("S_STAGE07_E");
+		ReplacePNG("S_STAGE08_E");
+		ReplacePNG("S_STAGE09_E");
+		ReplacePNG("S_STAGE10_E");
+		ReplacePNG("T_EGGCARRIER_E");
+		ReplacePNG("T_MISTICRUIN_E");
+		ReplacePNG("T_STATIONSQUARE_E");*/
+		//Screen fade fixes
+		WriteData((float**)0x00433385, &f480_Fixed); //Screen fade resolution
+		WriteData((float**)0x004333A6, &f640_Fixed); //Screen fade resolution
+		WriteData((float*)0x004333A0, -1.0f); //Screen fade for tutorials
+		WriteData((float*)0x004333AE, -1.0f); //Screen fade for tutorials
+		WriteCall((void*)0x0042BF52, ScreenFadeFix);
+		WriteData<5>((char*)0x0040BF27, 0x90); //Disable "Now saving..."
+		WriteData<5>((void*)0x0040BE0D, 0x90); //Disable "Now loading..."
+		WriteData<5>((void*)0x00503438, 0x90); //Disable "Now loading..."
+		WriteData<5>((void*)0x0050346D, 0x90); //Disable "Now loading..."
+		//Character select screen fixes
+		WriteCall((void*)0x00511AD0, RetrievePlayerSelectStuff); //Player select text in character select screen
+		WriteCall((void*)0x00511C76, RetrieveBottomThingStuff); //Bottom thing in character select screen
+		WriteCall((void*)0x00511B3B, RenderShittyTextures); //Render stuff that refuses to render properly otherwise
+		WriteCall((void*)0x00511A8B, DisplayScreenTexture_AlwaysTop); //Move the "Select your character" text to top
+		WriteData<5>((void*)0x00511C18, 0x90); //Disable ZFunc stuff to prevent character model overlap issues
+		//Shadow blending fixes
+		WriteCall((void*)0x0050B584, DrawShadow_Hook);
+		WriteCall((void*)0x00431D37, DrawShadow_Hook);
+		WriteCall((void*)0x00506EFF, DrawShadow_Hook);
+		WriteCall((void*)0x0050D8B3, DrawShadow_Hook);
+		WriteCall((void*)0x0050B61A, DrawShadow_Hook); //Main menu (trial) shadow
+		WriteCall((void*)0x00508FFD, DrawTexture_Hook); //Sound test icon
+		WriteCall((void*)0x00509130, DrawTexture_Hook); //Sonic icon background
+		WriteCall((void*)0x00509191, DrawTexture_Hook); //Sonic icon
+		WriteCall((void*)0x00509439, DrawTexture_Hook); //Languages icon
+		WriteCall((void*)0x0050952F, DrawTexture_Hook); //Rumble icon
+		WriteCall((void*)0x0050782A, DrawTexture_Hook); //AVA_SAN triangle shadow
 		((NJS_OBJECT*)0x10D7774)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2; //Question mark from Character Select
 		((NJS_OBJECT*)0x10D7774)->basicdxmodel->mats[0].attr_texId = 10; //Question mark from Character Select
 		ResizeTextureList(&OBJ_REGULAR_TEXLIST, 100); //Added DC ripple texture
-		HMODULE DC_Branding = GetModuleHandle(L"DC_Branding");
-		HMODULE DC_SubGames = GetModuleHandle(L"DC_SubGames");
-		if (DC_Branding == nullptr)
-		{
-			WriteData<1>((char*)0x007DDB2C, 0x44); //Load CON_REGULAR_D with DX texture
-			WriteCall((void*)0x005092A1, FileIcon_Hook); //File icon
-		}
+		WriteCall((void*)0x005092A1, FileIcon_Hook); //File icon
 		*(NJS_MODEL_SADX*)0x00989384 = attach_0019D298_2; //Switch
 		*(NJS_MODEL_SADX*)0x008BBD84 = attach_0019D298; //Switch (pressed)
 		*(NJS_MODEL_SADX*)0x008B8438 = attach_00199A4C; //Dash panel
@@ -63,14 +332,11 @@ extern "C"
 		*(NJS_MODEL_SADX*)0x008BFEC8 = attach_001A127C; //Rocket platform
 		*(NJS_MODEL_SADX*)0x008BE168 = attach_0019F5CC; //Balloon
 		*(NJS_MODEL_SADX*)0x008BFEC8 = attach_001A127C; //Rocket platform
-		if (DC_SubGames == 0)
-		{
 		*(NJS_OBJECT *)0x02982F44 = object_0003FA40; //Egg Carrier model
 		*(NJS_OBJECT *)0x298A894 = object_00047110; //Hodai
 		*(NJS_OBJECT *)0x2941B2C = object_0001342C; //Kirai
 		((NJS_ACTION*)0x2996C74)->object = &object_0004AEE0; //Beam in Act 2
 		*(NJS_OBJECT *)0x0298E7D0 = object_0004AEE0; //Beam in Act 2
-		}
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
