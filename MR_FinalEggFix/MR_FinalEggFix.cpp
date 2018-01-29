@@ -40,10 +40,10 @@ void FixMRBase(ObjectMaster *a1)
 extern "C" __declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	HMODULE ADV02MODELS = GetModuleHandle(L"ADV02MODELS");
-	HMODULE DC_Conversion = GetModuleHandle(L"DC_Conversion");
+	HMODULE DCMods_Main = GetModuleHandle(L"DCMods_Main");
 	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(ADV02MODELS, "___ADV02_ACTIONS");
 	HMODULE DC_ADV02MODELS = GetModuleHandle(L"DC_ADV02MODELS");
-	if (DC_ADV02MODELS == 0)
+	if (DC_ADV02MODELS == nullptr && DCMods_Main == nullptr)
 	{
 		for (int i = 0; i < 3; i++)
 		{
