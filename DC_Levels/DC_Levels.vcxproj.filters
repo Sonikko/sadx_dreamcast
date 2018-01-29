@@ -78,21 +78,6 @@
     <ClInclude Include="DC_Levels.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Data\ADV_MR00 (Station area).h">
-      <Filter>Header Files\ADV02MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ADV_MR01 (Angel Island).h">
-      <Filter>Header Files\ADV02MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ADV_MR01_Fixes.h">
-      <Filter>Header Files\ADV02MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ADV_MR02 (Jungle area).h">
-      <Filter>Header Files\ADV02MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ADV_MR03 (Final Egg entrance).h">
-      <Filter>Header Files\ADV02MODELS</Filter>
-    </ClInclude>
     <ClInclude Include="Data\ADV01_0.h">
       <Filter>Header Files\ADV01MODELS</Filter>
     </ClInclude>
@@ -157,27 +142,6 @@
       <Filter>Header Files\ADV03MODELS</Filter>
     </ClInclude>
     <ClInclude Include="Data\ADVSS00 (City Hall).h">
-      <Filter>Header Files\ADV00MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ADVSS01 (Casino Area).h">
-      <Filter>Header Files\ADV00MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ADVSS02 (Sewers).h">
-      <Filter>Header Files\ADV00MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ADVSS03 (StationMainArea).h">
-      <Filter>Header Files\ADV00MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ADVSS03 Fixes.h">
-      <Filter>Header Files\ADV00MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ADVSS04 (Hotel).h">
-      <Filter>Header Files\ADV00MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ADVSS04 Collision.h">
-      <Filter>Header Files\ADV00MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ADVSS05 (Twinkle Park Entrance).h">
       <Filter>Header Files\ADV00MODELS</Filter>
     </ClInclude>
     <ClInclude Include="Data\Animals.h">
@@ -593,6 +557,45 @@
     </ClInclude>
     <ClInclude Include="stdafx.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADVSS00(CityHall).h">
+      <Filter>Header Files\ADV00MODELS</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADVSS01(CasinoArea).h">
+      <Filter>Header Files\ADV00MODELS</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADVSS02(Sewers).h">
+      <Filter>Header Files\ADV00MODELS</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADVSS03(StationMainArea).h">
+      <Filter>Header Files\ADV00MODELS</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADVSS03Fixes.h">
+      <Filter>Header Files\ADV00MODELS</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADVSS04(Hotel).h">
+      <Filter>Header Files\ADV00MODELS</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADVSS04Collision.h">
+      <Filter>Header Files\ADV00MODELS</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADVSS05(TwinkleParkEntrance).h">
+      <Filter>Header Files\ADV00MODELS</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADV_MR00(StationArea).h">
+      <Filter>Header Files\ADV02MODELS</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADV_MR01(AngelIsland).h">
+      <Filter>Header Files\ADV02MODELS</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADV_MR01_Fixes.h">
+      <Filter>Header Files\ADV02MODELS</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADV_MR02(JungleArea).h">
+      <Filter>Header Files\ADV02MODELS</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ADV_MR03(FinalEggEntrance).h">
+      <Filter>Header Files\ADV02MODELS</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

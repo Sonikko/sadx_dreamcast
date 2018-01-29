@@ -21,8 +21,9 @@
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{9E9A9A3D-990C-4430-B2B8-A2328296A708}</ProjectGuid>
-    <RootNamespace>DC_Levels</RootNamespace>
+    <RootNamespace>DCMods_Main</RootNamespace>
     <WindowsTargetPlatformVersion>8.1</WindowsTargetPlatformVersion>
+    <ProjectName>DCMods_Main</ProjectName>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
@@ -142,18 +143,19 @@
     <ClInclude Include="Data\ADV03_02.h" />
     <ClInclude Include="Data\ADV03_02_PC.h" />
     <ClInclude Include="Data\ADVSS00 (City Hall).h" />
-    <ClInclude Include="Data\ADVSS01 (Casino Area).h" />
-    <ClInclude Include="Data\ADVSS02 (Sewers).h" />
-    <ClInclude Include="Data\ADVSS03 (StationMainArea).h" />
-    <ClInclude Include="Data\ADVSS03 Fixes.h" />
-    <ClInclude Include="Data\ADVSS04 (Hotel).h" />
-    <ClInclude Include="Data\ADVSS04 Collision.h" />
-    <ClInclude Include="Data\ADVSS05 (Twinkle Park Entrance).h" />
-    <ClInclude Include="Data\ADV_MR00 (Station area).h" />
-    <ClInclude Include="Data\ADV_MR01 (Angel Island).h" />
+    <ClInclude Include="Data\ADVSS00(CityHall).h" />
+    <ClInclude Include="Data\ADVSS01(CasinoArea).h" />
+    <ClInclude Include="Data\ADVSS02(Sewers).h" />
+    <ClInclude Include="Data\ADVSS03(StationMainArea).h" />
+    <ClInclude Include="Data\ADVSS03Fixes.h" />
+    <ClInclude Include="Data\ADVSS04(Hotel).h" />
+    <ClInclude Include="Data\ADVSS04Collision.h" />
+    <ClInclude Include="Data\ADVSS05(TwinkleParkEntrance).h" />
+    <ClInclude Include="Data\ADV_MR00(StationArea).h" />
+    <ClInclude Include="Data\ADV_MR01(AngelIsland).h" />
     <ClInclude Include="Data\ADV_MR01_Fixes.h" />
-    <ClInclude Include="Data\ADV_MR02 (Jungle area).h" />
-    <ClInclude Include="Data\ADV_MR03 (Final Egg entrance).h" />
+    <ClInclude Include="Data\ADV_MR02(JungleArea).h" />
+    <ClInclude Include="Data\ADV_MR03(FinalEggEntrance).h" />
     <ClInclude Include="Data\Animals.h" />
     <ClInclude Include="Data\button.h" />
     <ClInclude Include="Data\Buyon.h" />
@@ -291,7 +293,7 @@
     <ClInclude Include="Data\windy2.h" />
     <ClInclude Include="Data\windy3.h" />
     <ClInclude Include="Data\Zero.h" />
-    <ClInclude Include="DC_Levels.h" />
+    <ClInclude Include="DCMods_Main.h" />
     <ClInclude Include="stdafx.h" />
   </ItemGroup>
   <ItemGroup>
