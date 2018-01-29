@@ -233,9 +233,6 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	char pathbuf[MAX_PATH];
 	ReplacePVM("ADVSS00");
 	ReplacePVM("ADVSS01");
-	ReplacePVM("ADVSS02");
-	ReplacePVM("ADVSS03");
-	ReplacePVM("ADVSS04");
 	ReplacePVM("ADVSS05");
 	ReplacePVM("OBJ_SS");
 	ReplacePVM("SS_BOAT");
@@ -256,6 +253,18 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "StationSquare", false);
 	delete config;
+	if (SADXStyleWater == true)
+	{
+		ReplacePVMX_SADXStyleWater("ADVSS02");
+		ReplacePVMX_SADXStyleWater("ADVSS03");
+		ReplacePVMX_SADXStyleWater("ADVSS04");
+	}
+	else
+	{
+		ReplacePVM("ADVSS02");
+		ReplacePVM("ADVSS03");
+		ReplacePVM("ADVSS04");
+	}
 	WriteCall((void*)0x00636DE9, RenderOfficeDoor);
 	WriteCall((void*)0x00636E99, RenderOfficeDoor);
 	WriteCall((void*)0x00636F0B, RenderOfficeDoor);
@@ -300,12 +309,6 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		matlistADV00_00151E54[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 		matlistADV00_001566E4[0].diffuse.argb.a = 0;
 		objectADV00_00151F24.pos[1] = -29.5f;
-		landtable_000C21F0.TexName = "ADVSS02W";
-		landtable_000DCEBC.TexName = "ADVSS03W";
-		landtable_00135A90.TexName = "ADVSS04W";
-		ADVSS02_TEXLISTS[0].Name = "ADVSS02W";
-		ADVSS03_TEXLISTS[0].Name = "ADVSS03W";
-		ADVSS04_TEXLISTS[0].Name = "ADVSS04W";
 		ResizeTextureList(&texlist4, 283);
 		ResizeTextureList(&texlist5, 147);
 		WriteData((int*)0x006311BB, 268);
@@ -330,12 +333,6 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		matlistADV00_00151E54[0].attrflags |= NJD_FLAG_USE_ALPHA;
 		matlistADV00_001566E4[0].diffuse.argb.a = 0xB2;
 		objectADV00_00151F24.pos[1] = -13;
-		landtable_000C21F0.TexName = "ADVSS02";
-		landtable_000DCEBC.TexName = "ADVSS03";
-		landtable_00135A90.TexName = "ADVSS04";
-		ADVSS02_TEXLISTS[0].Name = "ADVSS02";
-		ADVSS03_TEXLISTS[0].Name = "ADVSS03";
-		ADVSS04_TEXLISTS[0].Name = "ADVSS04";
 	}
 	WriteData<4>((void*)0x00630AE0, 0x90); //Hotel door fix
 	WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting

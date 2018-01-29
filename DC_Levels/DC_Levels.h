@@ -63,3 +63,4 @@ bool ForceDiffuse4Specular5(NJS_MATERIAL* material, Uint32 flags);
 #define ReplacePVM(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" a "_DC.PVM", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);
 #define ReplacePVR(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" a "_DC.PVR", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
 #define ReplacePVMX(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "_DC.PVMX", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);
+#define ReplacePVMX_SADXStyleWater(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "W.PVMX", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);

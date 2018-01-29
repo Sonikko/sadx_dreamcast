@@ -922,7 +922,6 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("EGM1EGGMAN");
 		ReplacePVM("EGM1JET");
 		ReplacePVM("EGM1JETB");
-		ReplacePVM("EGM1LAND");
 		ReplacePVM("EGM1MIS");
 		ReplacePVM("EGM1SORA");
 		ReplacePVM("EGM1TSUCHI");
@@ -1006,7 +1005,6 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		ReplacePVM("E101R");
 		ReplacePVM("E101R_BG");
-		ReplacePVM("E101R_TIKEI");
 		*(NJS_OBJECT*)0x00991268 = object_00591268; //Zero main and cutscene model
 		*(NJS_OBJECT *)0x02DA8664 = object_029A8664; //E101R model in cutscenes
 		WriteData((LandTable**)0x7D1D64, &landtable_00000110); //Zero
@@ -1098,8 +1096,8 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	//SADX style water
 	if (EnableEggHornet == true && SADXStyleWater_EggHornet == true)
 	{
+		ReplacePVMX_SADXStyleWater("EGM1LAND");
 		ResizeTextureList((NJS_TEXLIST*)0x1557064, 160); //Egg Hornet level texlist
-		landtable_00000128.TexName = "EGM1LANDW";
 		WriteCall((void*)0x00572310, WaterTexture_BossWaves); //Egg Hornet ocean
 		WriteCall((void*)0x0057236D, WaterTexture_BossOcean); //Egg Hornet ocean
 		WriteCall((void*)0x005722A3, DisableSADXWaterFog); //Egg Hornet ocean
@@ -1111,8 +1109,8 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableEggHornet == true && SADXStyleWater_EggHornet == false)
 	{
+		ReplacePVM("EGM1LAND");
 		ResizeTextureList((NJS_TEXLIST*)0x1557064, 143);  //Egg Hornet level texlist
-		landtable_00000128.TexName = "EGM1LAND";
 		WriteCall((void*)0x0057192A, EggHornetWaterFunc); //Egg Hornet water
 		collist_0001E294[LengthOfArray(collist_0001E294) - 1].Flags = 0x00000000;
 		collist_0001E294[LengthOfArray(collist_0001E294) - 2].Flags = 0x00000000;
@@ -1122,10 +1120,9 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableZeroE101R == true && SADXStyleWater_ZeroE101R == true)
 	{
+		ReplacePVMX_SADXStyleWater("E101R_TIKEI");
 		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 104); //Zero/E101R texlist
 		collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x00000000;
-		landtable_00000110.TexName = "E101R_TIKEIW";
-		landtable_00000180.TexName = "E101R_TIKEIW";
 		WriteCall((void*)0x0056CD15, WaterTexture_BossWaves); //E101R ocean
 		WriteCall((void*)0x0056CD7B, WaterTexture_BossOcean); //E101R ocean
 		WriteCall((void*)0x00587EF5, WaterTexture_BossWaves); //Zero ocean
@@ -1133,10 +1130,9 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableZeroE101R == true && SADXStyleWater_ZeroE101R == false)
 	{
+		ReplacePVM("E101R_TIKEI");
 		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 87); //Zero/E101R texlist
 		collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x80000000;
-		landtable_00000110.TexName = "E101R_TIKEI";
-		landtable_00000180.TexName = "E101R_TIKEI";
 		WriteData<1>((void*)0x587E10, 0xC3u); //E101R water
 		WriteData<1>((void*)0x56CC30, 0xC3u); //Zero water
 	}

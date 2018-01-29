@@ -37,7 +37,6 @@ static char water_sadx1 = 108;
 static char water_sadx2 = 100;
 static char water_sadx3 = 76;
 static int SADXStyleWater = false;
-
 DataArray(DrawDistance, EggCarrierOutsideDrawDist1, 0x010F2264, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist2, 0x010F227C, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist3, 0x010F2294, 3);
@@ -309,9 +308,6 @@ void RenderEggCarrier0NPC(NJS_ACTION *action, Float frame)
 void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
-	ReplacePVM("ADV_EC00");
-	ReplacePVM("ADV_EC01");
-	ReplacePVM("ADV_EC02");
 	ReplacePVM("ADV_EC03");
 	ReplacePVM("ADV_EC04");
 	ReplacePVM("ADV_EC05");
@@ -331,7 +327,6 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("EC_EGGLIFT");
 	ReplacePVM("EC_IKADA");
 	ReplacePVM("EC_LIGHT");
-	ReplacePVM("EC_SEA");
 	ReplacePVM("EC_SKY");
 	ReplacePVM("EC_STATION");
 	ReplacePVM("EC_TARAI");
@@ -347,6 +342,20 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "EggCarrier", false);
 	delete config;
+	if (SADXStyleWater == true)
+	{
+		ReplacePVMX_SADXStyleWater("ADV_EC00");
+		ReplacePVMX_SADXStyleWater("ADV_EC01");
+		ReplacePVMX_SADXStyleWater("ADV_EC02");
+		ReplacePVMX_SADXStyleWater("EC_SEA");
+	}
+	else
+	{
+		ReplacePVM("ADV_EC00");
+		ReplacePVM("ADV_EC01");
+		ReplacePVM("ADV_EC02");
+		ReplacePVM("EC_SEA");
+	}
 	WriteCall((void*)0x0051AB88, RenderEggCarrier0NPC); //Chaos 4 glitch fix
 	WriteJump((void*)0x51B210, EggCarrierSkyBox);
 	WriteJump((void*)0x51B3B0, EggCarrierSkyBottom);
@@ -379,13 +388,6 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (SADXStyleWater == true)
 	{
-		EggCarrierObjectTexlist_Sea[1].Name = "EC_SEAW";
-		landtable_00162260.TexName = "ADV_EC00W";
-		landtable_001631F0.TexName = "ADV_EC01W";
-		landtable_00163CE8.TexName = "ADV_EC02W";
-		ADV_EC00_TEXLISTS[0].Name = "ADV_EC00W";
-		ADV_EC01_TEXLISTS[1].Name = "ADV_EC01W";
-		ADV_EC02_TEXLISTS[2].Name = "ADV_EC02W";
 		ResizeTextureList(&texlist_ec00, 125);
 		ResizeTextureList(&texlist_ec01, 117);
 		ResizeTextureList(&texlist_ec02, 93);
@@ -397,13 +399,6 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	else
 	{
 		WriteData<1>((void*)0x0051C440, 0xC3u);
-		EggCarrierObjectTexlist_Sea[1].Name = "EC_SEA";
-		landtable_00162260.TexName = "ADV_EC00";
-		landtable_001631F0.TexName = "ADV_EC01";
-		landtable_00163CE8.TexName = "ADV_EC02";
-		ADV_EC00_TEXLISTS[0].Name = "ADV_EC00";
-		ADV_EC01_TEXLISTS[1].Name = "ADV_EC01";
-		ADV_EC02_TEXLISTS[2].Name = "ADV_EC02";
 	}
 	WriteJump((char *)GetProcAddress(ADV01MODELS, "SetClip_EC00"), SetClip_EC00);
 	WriteJump((char *)GetProcAddress(ADV01MODELS, "SetClip_EC01"), SetClip_EC01);

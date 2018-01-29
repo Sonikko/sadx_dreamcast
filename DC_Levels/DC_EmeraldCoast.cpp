@@ -446,7 +446,6 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("BEACH01");
 	ReplacePVM("BEACH02");
 	ReplacePVM("BEACH03");
-	ReplacePVM("BEACH_SEA");
 	ReplacePVM("BG_BEACH");
 	ReplacePVM("OBJ_BEACH");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
@@ -470,6 +469,8 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.argb.a = 0x99; //Match dynamic ocean alpha with normal ocean
 	if (SADXStyleWater == true)
 	{
+		ReplacePVMX_SADXStyleWater("BEACH_SEA");
+		ResizeTextureList((NJS_TEXLIST*)0x010C0508, 32); //BEACH_SEA
 		//Act 1
 		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 1].Flags = 0x80000402;
 		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 2].Flags = 0x80000402;
@@ -526,11 +527,11 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 		objectSTG01_00CC03FC.basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
 		WriteData<5>((void*)0x004F7749, 0x90); //Kill second water in Act 2
 		WriteData<5>((void*)0x004F77E9, 0x90); //Kill second water in Act 3
-		OBJ_BEACH_TEXLISTS[1].Name = "BEACH_SEAW";
 		WriteData<1>((void*)0x004F783A, 0x0F); //15 animation frames for water in Act 2
 		WriteData<1>((void*)0x004F790A, 0x0F); //15 animation frames for water in Act 3
 		WriteCall((void*)0x004F8B23, EC1WaterAnimation_SADX); //Sea animation in Acts 1/2
 	}
+	else ReplacePVM("BEACH_SEA");
 	ResizeTextureList((NJS_TEXLIST*)0xF812AC, textures_ecoast1);
 	ResizeTextureList((NJS_TEXLIST*)0xEF553C, textures_ecoast2);
 	ResizeTextureList((NJS_TEXLIST*)0xE9A4CC, textures_ecoast3);
@@ -544,7 +545,6 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0x106BB4C = objectSTG01_0014DF28; //Whale
 	*(NJS_MODEL_SADX*)0x010C06C8 = attachSTG01_001A1690; //Spike gate shadow
 	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
-	if (SADXStyleWater == true) ResizeTextureList((NJS_TEXLIST*)0x010C0508, 32); //BEACH_SEA
 	//Write floats to fix buggy SADX water positioning code
 	//Act 2
 	WriteData((float**)0x004F7876, &float1);

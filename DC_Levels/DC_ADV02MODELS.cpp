@@ -236,7 +236,6 @@ void FixMRBase(ObjectMaster *a1)
 void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
-	ReplacePVM("ADV_MR00");
 	ReplacePVM("ADV_MR01");
 	ReplacePVM("ADV_MR02");
 	ReplacePVM("ADV_MR03");
@@ -250,6 +249,14 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
 	delete config;
+	if (SADXStyleWater == true)
+	{
+		ReplacePVMX_SADXStyleWater("ADV_MR00");
+	}
+	else
+	{
+		ReplacePVM("ADV_MR00");
+	}
 	WriteData<1>((char*)0x006F4DA0, 0x04); //Emerald shard (cutscene) glow blending mode
 	WriteData<1>((char*)0x006F4BF1, 0x04); //Emerald shard (cutscene) glow blending mode	
 	//MR Base stuff
@@ -292,8 +299,6 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	if (SADXStyleWater == true)
 	{
 		WriteCall((void*)0x00532551, DisableSADXWaterFog);
-		landtable_00017960.TexName = "ADV_MR00W";
-		ADV_MR00_TEXLISTS[0].Name = "ADV_MR00W";
 		WriteCall((void*)0x005325C9, SetWaterTexture);
 		WriteData((int*)0x00532611, 156);
 		ResizeTextureList(&texlist_mr00, 171);
@@ -305,8 +310,6 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	else
 	{
 		WriteJump((void*)0x532500, MRWater);
-		landtable_00017960.TexName = "ADV_MR00";
-		ADV_MR00_TEXLISTS[0].Name = "ADV_MR00";
 	}
 	for (int i = 0; i < 3; i++)
 	{

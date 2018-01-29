@@ -83,12 +83,20 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("K_PATYA");
 	ReplacePVM("OBJ_PAST");
 	ReplacePVM("PAST00");
-	ReplacePVM("PAST01");
-	ReplacePVM("PAST02");
 	ReplacePVM("PAST_KN_FAM");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "Past", false);
 	delete config;
+	if (SADXStyleWater == true)
+	{
+		ReplacePVMX_SADXStyleWater("PAST01");
+		ReplacePVMX_SADXStyleWater("PAST02");
+	}
+	else
+	{
+		ReplacePVM("PAST01");
+		ReplacePVM("PAST02");
+	}
 	//Tikal cutscene water ripple thing
 	WriteData((float*)0x0068BA27, -40.7f); //Ripple 1 X
 	WriteData((float*)0x0068BA22, 86.0f); //Ripple 1 Y
@@ -117,16 +125,12 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteData<1>((char*)0x005428A5, 0x65); // water texture ID act 3
 		collist_0006735C[0].Flags = 0x00000020;
 		collist_000976C0[0].Flags = 0x00000020;
-		landtable_0000029C.TexName = "PAST01W";
-		landtable_000002C0.TexName = "PAST02W";
 	}
 	else
 	{
 		WriteData<1>((void*)0x542850, 0xC3u);
 		collist_0006735C[0].Flags = 0x80000020;
 		collist_000976C0[0].Flags = 0x80000020;
-		landtable_0000029C.TexName = "PAST01";
-		landtable_000002C0.TexName = "PAST02";
 	}
 	for (int i = 0; i < 3; i++)
 	{
