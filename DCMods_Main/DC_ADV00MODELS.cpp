@@ -301,9 +301,11 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("ADVSS01");
 	ReplacePVM("ADVSS05");
 	ReplacePVM("OBJ_SS");
+	ReplacePVM("SS_BG");
 	ReplacePVM("SS_BOAT");
 	ReplacePVM("SS_BURGER");
 	ReplacePVM("SS_CASINO");
+	ReplacePVM("SS_DENTOU");
 	ReplacePVM("SS_EKIIN");
 	ReplacePVM("SS_KANBAN");
 	ReplacePVM("SS_MIZUGI");
