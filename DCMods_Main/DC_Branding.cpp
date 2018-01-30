@@ -743,11 +743,26 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteJump((void*)0x505810, sub_505810);
 		WriteJump((void*)0x50BA90, DrawAVA_TITLE_BACK_E_DC);
 		//PVMs
-		ReplacePVMX("AVA_GTITLE0");
-		ReplacePVMX("AVA_GTITLE0_E");
-		ReplacePVMX("AVA_TITLE_BACK");
-		ReplacePVMX("AVA_TITLE_BACK_E");
-		ReplacePVMX("AVA_TITLE_CMN_SMALL");
+		//Japanese
+		GUITextures_Japanese[17].Name = "AVA_GTITLE0_S";
+		GUITextures_Japanese[20].Name = "AVA_TITLE_BACK_ES";
+		GUITextures_Japanese[29].Name = "AVA_TITLE_CMN_SMALLS";
+		//English
+		GUITextures_English[17].Name = "AVA_GTITLE0_ES";
+		GUITextures_English[20].Name = "AVA_TITLE_BACK_ES";
+		GUITextures_English[29].Name = "AVA_TITLE_CMN_SMALLS";
+		//French
+		GUITextures_French[17].Name = "AVA_GTITLE0_ES";
+		GUITextures_French[20].Name = "AVA_TITLE_BACK_ES";
+		GUITextures_French[29].Name = "AVA_TITLE_CMN_SMALLS";
+		//Spanish
+		GUITextures_Spanish[17].Name = "AVA_GTITLE0_ES";
+		GUITextures_Spanish[20].Name = "AVA_TITLE_BACK_ES";
+		GUITextures_Spanish[29].Name = "AVA_TITLE_CMN_SMALLS";
+		//German
+		GUITextures_German[17].Name = "AVA_GTITLE0_ES";
+		GUITextures_German[20].Name = "AVA_TITLE_BACK_ES";
+		GUITextures_German[29].Name = "AVA_TITLE_CMN_SMALLS";
 		if (RipplesOn == true)
 		{
 			GUITextures_Japanese[18].Name = "AVA_TITLE_CMNX";
