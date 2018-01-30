@@ -2,8 +2,11 @@
 
 #include <stdlib.h>
 #include <stdio.h>
+#include <string>
 DataPointer(HWND, WindowHandle, 0x03D0FD30);
 
+extern std::string EnableSETFixes;
+void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions);
 void DisableSADXWaterFog();
 void Branding_Init(const char *path, const HelperFunctions &helperFunctions);
 void Branding_OnFrame();
@@ -62,5 +65,8 @@ bool ForceDiffuse4Specular5(NJS_MATERIAL* material, Uint32 flags);
 
 #define ReplacePVM(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" a "_DC.PVM", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);
 #define ReplacePVR(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" a "_DC.PVR", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
+#define ReplaceBIN(a,b) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" b ".BIN", path); helperFunctions.ReplaceFile("system\\" a ".BIN", pathbuf);
+#define AddSETFix(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" a "_S.BIN", path); helperFunctions.ReplaceFile("system\\" a ".BIN", pathbuf);
+#define AddSETFix_Extra(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" a "_E.BIN", path); helperFunctions.ReplaceFile("system\\" a ".BIN", pathbuf);
 #define ReplacePVMX(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "_DC.PVMX", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);
 #define ReplacePVMX_SADXStyleWater(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "W.PVMX", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);

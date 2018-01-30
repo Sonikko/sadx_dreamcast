@@ -1,5 +1,6 @@
 #include <SADXModLoader.h>
 #include "DLC_Christmas99.h"
+#include <IniFile.hpp>
 
 FunctionPointer(void, sub_412D80, (int a1, int a2), 0x412D80);
 FunctionPointer(void, sub_62E980, (), 0x62E980);
@@ -7,8 +8,8 @@ FunctionPointer(signed int, sub_4570B0, (), 0x4570B0);
 FunctionPointer(void, sub_425800, (int a1), 0x425800);
 FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79C0);
 FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColFlags surfaceFlags), 0x49D6C0);
+DataPointer(HWND, WindowHandle, 0x03D0FD30);
 
-HMODULE DC_ADV00MODELS = GetModuleHandle(L"DC_ADV00MODELS");
 HMODULE SONICADV_000 = GetModuleHandle(L"SONICADV_000");
 HMODULE SONICADV_001 = GetModuleHandle(L"SONICADV_001");
 HMODULE SONICADV_002 = GetModuleHandle(L"SONICADV_002");
@@ -33,6 +34,7 @@ DataArray(FieldStartPosition, BigSSStartArray, 0x0090BDF8, 6);
 DataArray(FieldStartPosition, E102SSStartArray, 0x0090BE70, 7);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 
+static bool ForceSADXMode = false;
 static bool ObjectsLoaded = false;
 static bool ModFailsafe = false;
 static int ChristmasMusic = 0;
@@ -171,7 +173,7 @@ void LoadStuffInStationSquare(ObjectMaster *a1)
 		{
 			ent = obj->Data1;
 			ent->Position.x = -23;
-			if (DC_ADV00MODELS != nullptr) ent->Position.y = 2; else ent->Position.y = -1;
+			if (ForceSADXMode == false) ent->Position.y = 2; else ent->Position.y = -1;
 			ent->Position.z = 1673;
 			ent->Index = 68;
 			ent->Rotation.x = 0;
@@ -228,8 +230,8 @@ void LoadStuffInStationSquare(ObjectMaster *a1)
 		{
 			ent = obj->Data1;
 			ent->Position.x = 265;
-			if (DC_ADV00MODELS != nullptr) ent->Position.y = 1; else ent->Position.y = -1;
-			if (DC_ADV00MODELS != nullptr) ent->Position.z = 668; else ent->Position.z = 712;
+			if (ForceSADXMode == false) ent->Position.y = 1; else ent->Position.y = -1;
+			if (ForceSADXMode == false) ent->Position.z = 668; else ent->Position.z = 712;
 			ent->Index = 70;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
@@ -250,6 +252,10 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char* path, const HelperFunctions& helperFunctions)
 	{
+		//Config stuff
+		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+		ForceSADXMode = config->getBool("", "ForceSADXMode", false);
+		delete config;
 		HMODULE SONICADV_000 = GetModuleHandle(L"SONICADV_000");
 		HMODULE SONICADV_001 = GetModuleHandle(L"SONICADV_001");
 		HMODULE SONICADV_002 = GetModuleHandle(L"SONICADV_002");
@@ -285,6 +291,12 @@ extern "C"
 			WriteCall((void*)0x0062F098, LoadStuffInStationSquare);
 			WriteCall((void*)0x0062F102, LoadStuffInStationSquare);
 			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot);
+		}
+		else
+		{
+			MessageBoxA(WindowHandle, "Please enable only one DLC mod at a time. The DLC mod will not function.",
+				"DLC mods error: more than one mod enabled", MB_OK | MB_ICONERROR);
+			return;
 		}
 	}
 	__declspec(dllexport) void __cdecl OnFrame()

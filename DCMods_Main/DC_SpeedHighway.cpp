@@ -98,6 +98,22 @@ void AntennaSprite()
 void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SET0400M");
+		AddSETFix("SET0400S");
+		AddSETFix("SET0401S");
+		AddSETFix("SET0402K");
+		AddSETFix("SET0402S");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SET0400M");
+		AddSETFix_Extra("SET0400S");
+		AddSETFix_Extra("SET0401S");
+		AddSETFix_Extra("SET0402K");
+		AddSETFix_Extra("SET0402S");
+	}
 	ReplacePVM("BG_HIGHWAY");
 	ReplacePVM("BG_HIGHWAY01");
 	ReplacePVM("BG_HIGHWAY02");

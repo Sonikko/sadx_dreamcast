@@ -7,8 +7,8 @@ FunctionPointer(signed int, sub_4570B0, (), 0x4570B0);
 FunctionPointer(void, sub_425800, (int a1), 0x425800);
 FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79C0);
 FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColFlags surfaceFlags), 0x49D6C0);
+DataPointer(HWND, WindowHandle, 0x03D0FD30);
 
-HMODULE DC_ADV00MODELS = GetModuleHandle(L"DC_ADV00MODELS");
 HMODULE SONICADV_000 = GetModuleHandle(L"SONICADV_000");
 HMODULE SONICADV_001 = GetModuleHandle(L"SONICADV_001");
 HMODULE SONICADV_002 = GetModuleHandle(L"SONICADV_002");
@@ -380,6 +380,12 @@ extern "C"
 			WriteCall((void*)0x0062F098, LoadStuffInStationSquare);
 			WriteCall((void*)0x0062F102, LoadStuffInStationSquare);
 			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot);
+		}
+		else
+		{
+			MessageBoxA(WindowHandle, "Please enable only one DLC mod at a time. The DLC mod will not function.",
+				"DLC mods error: more than one mod enabled", MB_OK | MB_ICONERROR);
+			return;
 		}
 	}
 	__declspec(dllexport) void __cdecl OnFrame()

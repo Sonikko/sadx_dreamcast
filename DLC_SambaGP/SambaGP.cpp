@@ -31,6 +31,7 @@ DataArray(FieldStartPosition, AmySSStartArray, 0x0090BD90, 5);
 DataArray(FieldStartPosition, BigSSStartArray, 0x0090BDF8, 6);
 DataArray(FieldStartPosition, E102SSStartArray, 0x0090BE70, 7);
 DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(HWND, WindowHandle, 0x03D0FD30);
 
 static bool MessageOn = false;
 static bool ObjectsLoaded = false;
@@ -522,6 +523,12 @@ extern "C"
 			WriteCall((void*)0x0062F098, LoadSambaGateEntry);
 			WriteCall((void*)0x0062F102, LoadSambaGateEntry);
 			WriteCall((void*)0x00640684, CallSambaCircuit);
+		}
+		else
+		{
+			MessageBoxA(WindowHandle, "Please enable only one DLC mod at a time. The DLC mod will not function.",
+				"DLC mods error: more than one mod enabled", MB_OK | MB_ICONERROR);
+			return;
 		}
 	}
 	__declspec(dllexport) void __cdecl OnFrame()

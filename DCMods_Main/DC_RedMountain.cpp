@@ -74,6 +74,20 @@ void SetCloudColor(NJS_ARGB *a)
 void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SET0500S");
+		AddSETFix("SET0501E");
+		AddSETFix("SET0501S");
+		AddSETFix("SET0502K");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SET0500S");
+		AddSETFix_Extra("SET0501E");
+		AddSETFix_Extra("SET0501S");
+		AddSETFix_Extra("SET0502K");
+	}
 	ReplacePVM("MOUNTAIN01");
 	ReplacePVM("MOUNTAIN02");
 	ReplacePVM("MOUNTAIN03");

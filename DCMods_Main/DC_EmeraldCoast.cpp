@@ -26,6 +26,7 @@ static int inside_secret_area = 0;
 static int water_anim = 17;
 static bool lilocean = false;
 static bool SADXStyleWater = false;
+static bool IamStupidAndIWantFuckedUpOcean = false;
 static NJS_VECTOR oldpos{ 0,0,0 };
 DataArray(NJS_TEX, uvSTG01_00CBB000_data, 0x10BB000, LengthOfArray(uvSTG01_00CBB000));
 DataPointer(int, FramerateSetting, 0x0389D7DC);
@@ -443,6 +444,18 @@ void WhaleSplash(NJS_OBJECT *a1)
 void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SET0100S");
+		AddSETFix("SET0100E");
+		AddSETFix("SET0101S");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SET0100S");
+		AddSETFix_Extra("SET0100E");
+		AddSETFix_Extra("SET0101S");
+	}
 	ReplacePVM("BEACH01");
 	ReplacePVM("BEACH02");
 	ReplacePVM("BEACH03");
@@ -450,6 +463,7 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("OBJ_BEACH");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "EmeraldCoast", false);
+	IamStupidAndIWantFuckedUpOcean = config->getBool("Miscellaneous", "RevertEmeraldCoastDrawDistance", false);
 	delete config;
 	//Landtables
 	WriteData((LandTable**)0x97DA28, &landtable_00081554); //Act 1
@@ -544,7 +558,6 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0x104C00C = objectSTG01_0012E428; //Dolphin
 	*(NJS_OBJECT*)0x106BB4C = objectSTG01_0014DF28; //Whale
 	*(NJS_MODEL_SADX*)0x010C06C8 = attachSTG01_001A1690; //Spike gate shadow
-	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
 	//Write floats to fix buggy SADX water positioning code
 	//Act 2
 	WriteData((float**)0x004F7876, &float1);
@@ -579,7 +592,7 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 		EmeraldCoast3Fog[i].Distance = -3000.0f;
 		EmeraldCoast3Fog[i].Color = 0xFFFFFFFF;
 	}
-	if (IamStupidAndIWantFuckedUpOcean == 0)
+	if (IamStupidAndIWantFuckedUpOcean == false)
 	{
 		for (int i = 0; i < 3; i++)
 		{
@@ -600,14 +613,21 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 			EmeraldCoast2Fog[i].Layer = -12000.0f;
 		}
 	}
+	else
+	{
+		ReplaceBIN("CAM0100E", "CAM0100E_R");
+		ReplaceBIN("CAM0100S", "CAM0100S_R");
+		ReplaceBIN("CAM0101S", "CAM0101S_R");
+		ReplaceBIN("CAM0102S", "CAM0102S_R");
+		ReplaceBIN("CAM0102B", "CAM0102B_R");
+	}
 }
 
 void EmeraldCoast_OnFrame()
 {
 	DataArray(NJS_TEX, uvSTG01_00CC0530, 0x10C0530, 4);
 	//Hide skybox bottom in Act 3
-	HMODULE IamStupidAndIWantFuckedUpOcean = GetModuleHandle(L"RevertECDrawDistance");
-	if (IamStupidAndIWantFuckedUpOcean == 0)
+	if (IamStupidAndIWantFuckedUpOcean == false)
 	{
 		if (CurrentLevel == 1 && CurrentAct == 2 && Camera_Data1 != nullptr)
 		{

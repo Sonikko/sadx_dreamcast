@@ -1,6 +1,7 @@
 #include <SADXModLoader.h>
 #include "Famitsu.h"
 #include <cstdio>
+#include <IniFile.hpp>
 
 HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
 FunctionPointer(void, sub_412D80, (int a1, int a2), 0x412D80);
@@ -9,6 +10,7 @@ FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79C0);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(COL, COL_whatever, ((size_t)ADV00MODELS + 0x001D8144));
+DataPointer(HWND, WindowHandle, 0x03D0FD30);
 DataArray(ControllerData*, ControllerPointersShit, 0x03B0E77C, 8);
 static bool ModFailsafe = false;
 static int HintTimer = 0;
@@ -21,6 +23,7 @@ static bool Collected5 = false;
 static bool ObjectsLoaded = false;
 static int ChallengeTimer = 0;
 static int ChallengeAction = false;
+static bool ForceSADXMode = false;
 char ResultText[100];
 SETObjData setdata_dlc = {};
 PVMEntry FamitsuTextures = { "SONICADV_003", (TexList *)&texlist_famitsu };
@@ -668,6 +671,10 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char* path, const HelperFunctions& helperFunctions)
 	{
+		//Config stuff
+		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+		ForceSADXMode = config->getBool("", "ForceSADXMode", false);
+		delete config;
 		HMODULE SONICADV_000 = GetModuleHandle(L"SONICADV_000");
 		HMODULE SONICADV_001 = GetModuleHandle(L"SONICADV_001");
 		HMODULE SONICADV_002 = GetModuleHandle(L"SONICADV_002");
@@ -705,10 +712,16 @@ extern "C"
 			WriteCall((void*)0x0062F098, LoadEverythingInStationSquare);
 			WriteCall((void*)0x0062F102, LoadEverythingInStationSquare);
 		}
+		else
+		{
+			MessageBoxA(WindowHandle, "Please enable only one DLC mod at a time. The DLC mod will not function.",
+				"DLC mods error: more than one mod enabled", MB_OK | MB_ICONERROR);
+			return;
+		}
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		HMODULE DC_ADV00MODELS = GetModuleHandle(L"DC_ADV00MODELS");
+		HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
 		NJS_OBJECT **___ADV00SS01_OBJECTS = (NJS_OBJECT **)GetProcAddress(ADV00MODELS, "___ADV00SS01_OBJECTS");
 		if (ModFailsafe == false && GameState != 16)
 		{
@@ -725,7 +738,7 @@ extern "C"
 				ChallengeTimer = 0;
 			}
 			if (HintTimer > 0) HintTimer--;
-			if (DC_ADV00MODELS == nullptr && ChallengeAction == true && ADV00MODELS!=nullptr)
+			if (ForceSADXMode == true && ChallengeAction == true && ADV00MODELS!=nullptr)
 			{
 				COL_whatever.Flags = 0x80040000;
 				___ADV00SS01_OBJECTS[28]->pos[1] = 20;

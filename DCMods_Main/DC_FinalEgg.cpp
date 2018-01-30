@@ -567,6 +567,24 @@ void GachaponExplosionFix(NJS_MODEL_SADX *a1)
 void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SET1000A");
+		AddSETFix("SET1000S");
+		AddSETFix("SET1001S");
+		AddSETFix("SET1002E");
+		AddSETFix("SET1002S");
+		AddSETFix("SET1003S");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SET1000A");
+		AddSETFix_Extra("SET1000S");
+		AddSETFix_Extra("SET1001S");
+		AddSETFix_Extra("SET1002E");
+		AddSETFix_Extra("SET1002S");
+		AddSETFix_Extra("SET1003S");
+	}
 	ReplacePVM("EFF_FINALEGG_POM");
 	ReplacePVM("FINALEGG1");
 	ReplacePVM("FINALEGG2");

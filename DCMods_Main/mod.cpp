@@ -29,6 +29,8 @@ static bool SADXWater_Past = false;
 static bool SADXWater_EggHornet = false;
 static bool SADXWater_ZeroE101R = false;
 
+std::string EnableSETFixes;
+
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
@@ -38,6 +40,13 @@ extern "C"
 			MessageBoxA(WindowHandle, "Mod Loader out of date. Dreamcast Conversion requires API version 6 or newer.",
 				"DC Conversion error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
+		}
+		HMODULE MRFinalEggFix = GetModuleHandle(L"MRFinalEggFix");
+		HMODULE WaterEffect = GetModuleHandle(L"WaterEffect");
+		if (MRFinalEggFix != nullptr)
+		{
+			MessageBoxA(WindowHandle, "You seem to be using a very old version of the Mystic Ruins Base Fix mod. Please update or remove it for DC Conversion to work properly. A newer fix is integrated into DC Conversion.",
+				"DC Conversion error: incompatible mod detected", MB_OK | MB_ICONERROR);
 		}
 		//Config stuff
 		//If there is no config.ini, make one
@@ -60,15 +69,22 @@ extern "C"
 		EnableMysticRuins = config->getBool("Levels", "EnableMysticRuins", true);
 		EnableEggCarrier = config->getBool("Levels", "EnableEggCarrier", true);
 		EnablePast = config->getBool("Levels", "EnablePast", true);
+		EnableSETFixes = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
 		delete config;
+		if (EnableEmeraldCoast == true && WaterEffect != nullptr)
+		{
+			MessageBoxA(WindowHandle, "The Enhanced Emerald Coast mod is not compatible with DC Emerald Coast. Please disable Enhanced Emerald Coast for the Dreamcast level to work. To get SADX-like water in DC Emerald Coast, enable SADX Style Water in Dreamcast Conversion's config.",
+				"DC Conversion error: incompatible mod detected", MB_OK | MB_ICONERROR);
+		}
 		//Init functions
 		if (EnableDCBranding == true) Branding_Init(path, helperFunctions);
 		if (EnableStationSquare == true) ADV00_Init(path, helperFunctions);
 		if (EnableEggCarrier == true) ADV01_Init(path, helperFunctions);
+		FixMRBase_Apply(path, helperFunctions);
 		if (EnableMysticRuins == true) ADV02_Init(path, helperFunctions);
 		if (EnablePast == true) ADV03_Init(path, helperFunctions);
 		Bosses_Init(path, helperFunctions);
-		if (EnableEmeraldCoast == true) EmeraldCoast_Init(path, helperFunctions);
+		if (WaterEffect == nullptr && EnableEmeraldCoast == true) EmeraldCoast_Init(path, helperFunctions);
 		if (EnableWindyValley == true) WindyValley_Init(path, helperFunctions);
 		if (EnableTwinklePark == true) TwinklePark_Init(path, helperFunctions);
 		if (EnableSpeedHighway == true) SpeedHighway_Init(path, helperFunctions);

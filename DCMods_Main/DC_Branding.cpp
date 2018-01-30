@@ -502,9 +502,11 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("TUTOBG_KNUCKLES");
 	ReplacePVM("TUTOBG_SONIC");
 	ReplacePVM("TUTOBG_TAILS");
+	ReplacePVM("AVA_FSCMN_E");
 	if (HD_GUI == nullptr)
 	{
 		ReplacePVMX("AVA_NEW16NO");
+		ReplacePVMX("CON_REGULAR");
 		ReplacePVMX("CON_REGULAR_E");
 		ReplacePVMX("PRESSSTART");
 		ReplacePVMX("TUTOMSG_AMY_E");
@@ -519,10 +521,10 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("AVA_DLG_E");
 		ReplacePVM("AVA_EMBLEMVIEW_E");
 		ReplacePVM("AVA_FILESEL_E");
-		ReplacePVM("AVA_FSCMN_E");
 		ReplacePVM("AVA_FSDLG_E");
 		ReplacePVM("AVA_OPTION_E");
 		ReplacePVM("AVA_SAN");
+		ReplacePVM("ADV_WINDOW");
 		ReplacePVM("AVA_SNDTEST_E");
 		ReplacePVM("AVA_SQUARE");
 		ReplacePVM("AVA_STNAM_E");
@@ -530,7 +532,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("AVA_TITLE_E");
 		ReplacePVM("AVA_TRIALACTSEL_E");
 		ReplacePVM("B_CHNAM_E");
-		ReplacePVM("B_CHNAM_SHOW_E");
 		ReplacePVM("M_CHNAM");
 		ReplacePVM("PRESSSTART");
 		ReplacePVM("SEGALOGO_E");
@@ -542,7 +543,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("SMRYBG_SUPERSONIC");
 		ReplacePVM("SMRYBG_TAILS");
 		ReplacePVM("TUTO_CMN_E");
-		ReplacePVM("TUTO_CMN_SHOW_E");
 		ReplacePVR("ABC_TXT");
 		ReplacePVR("A_STAGE01_E");
 		ReplacePVR("A_STAGE02_E");
@@ -744,7 +744,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteJump((void*)0x50BA90, DrawAVA_TITLE_BACK_E_DC);
 		//PVMs
 		//Japanese
-		GUITextures_Japanese[17].Name = "AVA_GTITLE0_ES";
+		GUITextures_Japanese[17].Name = "AVA_GTITLE0_S";
 		GUITextures_Japanese[20].Name = "AVA_TITLE_BACK_ES";
 		GUITextures_Japanese[29].Name = "AVA_TITLE_CMN_SMALLS";
 		//English

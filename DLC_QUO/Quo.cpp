@@ -8,6 +8,7 @@ FunctionPointer(void, sub_52F240, (), 0x52F240);
 FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79C0);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(HWND, WindowHandle, 0x03D0FD30);
 DataArray(ControllerData*, ControllerPointersShit, 0x03B0E77C, 8);
 
 static bool ModFailsafe = false;
@@ -785,6 +786,12 @@ extern "C"
 			WriteCall((void*)0x0062F098, LoadEverythingInStationSquareOrMysticRuinsActually);
 			WriteCall((void*)0x0062F102, LoadEverythingInStationSquareOrMysticRuinsActually);
 			WriteCall((void*)0x0052FB82, LoadEverythingInStationSquareOrMysticRuinsActually);
+		}
+		else
+		{
+			MessageBoxA(WindowHandle, "Please enable only one DLC mod at a time. The DLC mod will not function.",
+				"DLC mods error: more than one mod enabled", MB_OK | MB_ICONERROR);
+			return;
 		}
 	}
 	__declspec(dllexport) void __cdecl OnFrame()

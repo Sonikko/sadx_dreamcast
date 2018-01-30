@@ -231,6 +231,72 @@ void RenderOfficeDoor_Child(NJS_MODEL_SADX *a1, float scale)
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SETSS00A");
+		AddSETFix("SETSS00B");
+		AddSETFix("SETSS00E");
+		AddSETFix("SETSS00K");
+		AddSETFix("SETSS00L");
+		AddSETFix("SETSS00M");
+		AddSETFix("SETSS00S");
+		AddSETFix("SETSS01A");
+		AddSETFix("SETSS01B");
+		AddSETFix("SETSS01E");
+		AddSETFix("SETSS01K");
+		AddSETFix("SETSS01L");
+		AddSETFix("SETSS01M");
+		AddSETFix("SETSS01S");
+		AddSETFix("SETSS02S");
+		AddSETFix("SETSS03A");
+		AddSETFix("SETSS03B");
+		AddSETFix("SETSS03E");
+		AddSETFix("SETSS03K");
+		AddSETFix("SETSS03L");
+		AddSETFix("SETSS03M");
+		AddSETFix("SETSS03S");
+		AddSETFix("SETSS04A");
+		AddSETFix("SETSS04B");
+		AddSETFix("SETSS04E");
+		AddSETFix("SETSS04K");
+		AddSETFix("SETSS04L");
+		AddSETFix("SETSS04M");
+		AddSETFix("SETSS04S");
+		AddSETFix("SETSS05S");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SETSS00A");
+		AddSETFix_Extra("SETSS00B");
+		AddSETFix_Extra("SETSS00E");
+		AddSETFix_Extra("SETSS00K");
+		AddSETFix_Extra("SETSS00L");
+		AddSETFix_Extra("SETSS00M");
+		AddSETFix_Extra("SETSS00S");
+		AddSETFix_Extra("SETSS01A");
+		AddSETFix_Extra("SETSS01B");
+		AddSETFix_Extra("SETSS01E");
+		AddSETFix_Extra("SETSS01K");
+		AddSETFix_Extra("SETSS01L");
+		AddSETFix_Extra("SETSS01M");
+		AddSETFix_Extra("SETSS01S");
+		AddSETFix_Extra("SETSS02S");
+		AddSETFix_Extra("SETSS03A");
+		AddSETFix_Extra("SETSS03B");
+		AddSETFix_Extra("SETSS03E");
+		AddSETFix_Extra("SETSS03K");
+		AddSETFix_Extra("SETSS03L");
+		AddSETFix_Extra("SETSS03M");
+		AddSETFix_Extra("SETSS03S");
+		AddSETFix_Extra("SETSS04A");
+		AddSETFix_Extra("SETSS04B");
+		AddSETFix_Extra("SETSS04E");
+		AddSETFix_Extra("SETSS04K");
+		AddSETFix_Extra("SETSS04L");
+		AddSETFix_Extra("SETSS04M");
+		AddSETFix_Extra("SETSS04S");
+		AddSETFix_Extra("SETSS05S");
+	}
 	ReplacePVM("ADVSS00");
 	ReplacePVM("ADVSS01");
 	ReplacePVM("ADVSS05");

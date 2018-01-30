@@ -233,14 +233,82 @@ void FixMRBase(ObjectMaster *a1)
 	Direct3D_SetNearFarPlanes(LevelDrawDistance.Minimum, LevelDrawDistance.Maximum);
 }
 
-void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
+void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplacePVM("MR_FINALEGG");
+	//MR Base stuff
+	objectADV02_0020454C.evalflags |= NJD_EVAL_HIDE;
+	objectADV02_002046C8.evalflags |= NJD_EVAL_HIDE;
+	objectADV02_00204BC4.evalflags |= NJD_EVAL_HIDE;
+	objectADV02_00204D40.evalflags |= NJD_EVAL_HIDE;
+	objectADV02_0020523C.evalflags |= NJD_EVAL_HIDE;
+	objectADV02_002053B8.evalflags |= NJD_EVAL_HIDE;
+	objectADV02_002058B4.evalflags |= NJD_EVAL_HIDE;
+	objectADV02_00205A30.evalflags |= NJD_EVAL_HIDE;
+	WriteJump((void*)0x538430, FixMRBase);
+	___ADV02_ACTIONS[0]->object = &objectADV02_0020C3B0; //OFinalEgg
+	___ADV02_ACTIONS[0]->motion = &animation_000862E8; //OFinalEgg animation
+	___ADV02_ACTIONS[30]->object = &objectADV02_0020DC78; //OFinalWay
+	for (int i = 0; i < 3; i++)
+	{
+		MR3DrawDist[i].Maximum = -32000.0f;
+	}
+}
+
+void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
+{
+	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
+	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
+	NJS_MODEL_SADX **___ADV02_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle, "___ADV02_MODELS");
+	NJS_OBJECT **___ADV02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02_OBJECTS");
+	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
+	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
+	LandTable **___LANDTABLEMR = (LandTable **)GetProcAddress(handle, "___LANDTABLEMR");
+	char pathbuf[MAX_PATH];
+	if (EnableSETFixes == "Normal")
+	{
+		AddSETFix("SETMR00A");
+		AddSETFix("SETMR00B");
+		AddSETFix("SETMR00E");
+		AddSETFix("SETMR00K");
+		AddSETFix("SETMR00L");
+		AddSETFix("SETMR00M");
+		AddSETFix("SETMR00S");
+		AddSETFix("SETMR01A");
+		AddSETFix("SETMR01B");
+		AddSETFix("SETMR01E");
+		AddSETFix("SETMR01K");
+		AddSETFix("SETMR01L");
+		AddSETFix("SETMR01M");
+		AddSETFix("SETMR01S");
+		AddSETFix("SETMR02S");
+		AddSETFix("SETMR03S");
+	}
+	if (EnableSETFixes == "Extra")
+	{
+		AddSETFix_Extra("SETMR00A");
+		AddSETFix_Extra("SETMR00B");
+		AddSETFix_Extra("SETMR00E");
+		AddSETFix_Extra("SETMR00K");
+		AddSETFix_Extra("SETMR00L");
+		AddSETFix_Extra("SETMR00M");
+		AddSETFix_Extra("SETMR00S");
+		AddSETFix_Extra("SETMR01A");
+		AddSETFix_Extra("SETMR01B");
+		AddSETFix_Extra("SETMR01E");
+		AddSETFix_Extra("SETMR01K");
+		AddSETFix_Extra("SETMR01L");
+		AddSETFix_Extra("SETMR01M");
+		AddSETFix_Extra("SETMR01S");
+		AddSETFix_Extra("SETMR02S");
+		AddSETFix_Extra("SETMR03S");
+	}
 	ReplacePVM("ADV_MR01");
 	ReplacePVM("ADV_MR02");
 	ReplacePVM("ADV_MR03");
 	ReplacePVM("MROBJ");
-	ReplacePVM("MR_FINALEGG");
 	ReplacePVM("MR_SKY00");
 	ReplacePVM("MR_SKY01");
 	ReplacePVM("MR_SKY02");
@@ -259,16 +327,6 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	WriteData<1>((char*)0x006F4DA0, 0x04); //Emerald shard (cutscene) glow blending mode
 	WriteData<1>((char*)0x006F4BF1, 0x04); //Emerald shard (cutscene) glow blending mode	
-	//MR Base stuff
-	objectADV02_0020454C.evalflags |= NJD_EVAL_HIDE;
-	objectADV02_002046C8.evalflags |= NJD_EVAL_HIDE;
-	objectADV02_00204BC4.evalflags |= NJD_EVAL_HIDE;
-	objectADV02_00204D40.evalflags |= NJD_EVAL_HIDE;
-	objectADV02_0020523C.evalflags |= NJD_EVAL_HIDE;
-	objectADV02_002053B8.evalflags |= NJD_EVAL_HIDE;
-	objectADV02_002058B4.evalflags |= NJD_EVAL_HIDE;
-	objectADV02_00205A30.evalflags |= NJD_EVAL_HIDE;
-	WriteJump((void*)0x538430, FixMRBase);
 	//Cutscene after Lost World
 	WriteData((float*)0x006D2537, 16.0f); //Y1
 	WriteData((float*)0x006D2507, 16.0f); //Y2
@@ -276,8 +334,6 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((int*)0x006D1D13, 0); //
 	WriteData((int*)0x006D1D18, 0); //
 	WriteData((int*)0x006D1D1D, 0); //
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	slx0xbin = path;
 	slx0xbin.append("\\system\\SL_X0X.BIN");
 	slx1xbin = path;
@@ -336,22 +392,17 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 		MR3FogNight[i].Layer = -5000;
 		MR1DrawDist[i].Maximum = -10000.0f;
 		MR2DrawDist[i].Maximum = -10000.0f;
-		MR3DrawDist[i].Maximum = -32000.0f;
 		MR4DrawDist[i].Maximum = -4000.0f;
 	}
-	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
-	NJS_MODEL_SADX **___ADV02_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle, "___ADV02_MODELS");
 	___ADV02_TEXLISTS[4] = &texlist_mrtrain;
 	___ADV02_TEXLISTS[38] = &texlist_mr00;
 	___ADV02_TEXLISTS[39] = &texlist_mr01;
 	___ADV02_TEXLISTS[40] = &texlist_mr02;
 	___ADV02_TEXLISTS[41] = &texlist_mr03;
-	LandTable **___LANDTABLEMR = (LandTable **)GetProcAddress(handle, "___LANDTABLEMR");
 	___LANDTABLEMR[0] = &landtable_00017960;
 	___LANDTABLEMR[1] = &landtable_0009E7B0;
 	___LANDTABLEMR[2] = &landtable_00000178;
 	___LANDTABLEMR[3] = &landtable_0000019C;
-	NJS_OBJECT **___ADV02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02_OBJECTS");
 	//Palm trees near Tails' house
 	___ADV02_OBJECTS[67]->child->model = &attachADV02_001DCF1C;
 	___ADV02_OBJECTS[67]->child->child->model = &attachADV02_001DCC88;
@@ -397,7 +448,6 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	___ADV02_OBJECTS[70]->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
 	___ADV02_OBJECTS[69]->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
 	___ADV02_MODELS[15] = &attachADV02_0007C3B8; //Master Emerald glow
-	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	WriteData<1>((void*)0x52F800, 0xC3u); //Disable SADX jungle
 	___ADV02MR02_OBJECTS[141] = &objectADV02_001615BC;
 	___ADV02MR02_OBJECTS[142] = &objectADV02_00161B8C;
@@ -414,10 +464,6 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	___ADV02MR02_OBJECTS[118] = &objectADV02_001A08EC;
 	___ADV02MR02_OBJECTS[119] = &objectADV02_001A08EC;
 	___ADV02MR02_OBJECTS[178] = &objectADV02_001A08EC;
-	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
-	___ADV02_ACTIONS[0]->object = &objectADV02_0020C3B0; //OFinalEgg
-	___ADV02_ACTIONS[0]->motion = &animation_000862E8; //OFinalEgg animation
-	___ADV02_ACTIONS[30]->object = &objectADV02_0020DC78; //OFinalWay
 	___ADV02_ACTIONS[11]->object = &objectADV02_001B5F40; //Torokko
 	___ADV02_ACTIONS[29]->object = &objectADV02_001BBA04; //Ice Stone
 	___ADV02_ACTIONS[32]->object = &objectADV02_001F41C0; //Rustling grass
