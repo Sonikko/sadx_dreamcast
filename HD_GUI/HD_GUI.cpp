@@ -6,6 +6,7 @@
 
 #define ReplacePVMX(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "_HD.PVMX", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);
 #define ReplacePNG(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\pvr\\index.txt", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
+#define ReplacePNG_GoalRing(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\goalring\\index.txt", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
 
 static float Options_ArrowScale = 0.0f;
 static float Options_ArrowScaleAmount = 0.1f;
@@ -104,6 +105,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		HMODULE GoalRing = GetModuleHandle(L"GoalRing");
 		if (helperFunctions.Version < 6)
 		{
 			MessageBoxA(WindowHandle, "Mod Loader out of date. HD GUI requires API version 6 or newer.",
@@ -266,22 +268,37 @@ extern "C"
 		ReplacePNG("MISSION_K_2MIN_E");
 		ReplacePNG("MISSION_K_3EME_E");
 		ReplacePNG("MISSION_K_NOHINT_E");
-		ReplacePNG("MISSION_S_BOX25MIN_E");
-		ReplacePNG("MISSION_S_BOX2MIN_E");
-		ReplacePNG("MISSION_S_BOX3MIN_E");
-		ReplacePNG("MISSION_S_BOX45MIN_E");
-		ReplacePNG("MISSION_S_BOX4MIN_E");
-		ReplacePNG("MISSION_S_BOX5MIN_E");
-		ReplacePNG("MISSION_S_BOX_E");
+		if (GoalRing == nullptr)
+		{
+			ReplacePNG("MISSION_S_BOX_E");
+			ReplacePNG("MISSION_S_BOX25MIN_E");
+			ReplacePNG("MISSION_S_BOX2MIN_E");
+			ReplacePNG("MISSION_S_BOX3MIN_E");
+			ReplacePNG("MISSION_S_BOX45MIN_E");
+			ReplacePNG("MISSION_S_BOX4MIN_E");
+			ReplacePNG("MISSION_S_BOX5MIN_E");
+			ReplacePNG("MISSION_S_RINGBOX_E");
+			ReplacePNG("MISSION_T_BOX_E");
+		}
+		else
+		{
+			ReplacePNG_GoalRing("MISSION_S_BOX_E");
+			ReplacePNG_GoalRing("MISSION_S_BOX25MIN_E");
+			ReplacePNG_GoalRing("MISSION_S_BOX2MIN_E");
+			ReplacePNG_GoalRing("MISSION_S_BOX3MIN_E");
+			ReplacePNG_GoalRing("MISSION_S_BOX45MIN_E");
+			ReplacePNG_GoalRing("MISSION_S_BOX4MIN_E");
+			ReplacePNG_GoalRing("MISSION_S_BOX5MIN_E");
+			ReplacePNG_GoalRing("MISSION_S_RINGBOX_E");
+			ReplacePNG_GoalRing("MISSION_T_BOX_E");
+		}
 		ReplacePNG("MISSION_S_EGGC_E");
 		ReplacePNG("MISSION_S_EMECASINO_E");
 		ReplacePNG("MISSION_S_EMESNOW_E");
 		ReplacePNG("MISSION_S_EMEWIND_E");
 		ReplacePNG("MISSION_S_FEGG_E");
 		ReplacePNG("MISSION_S_ISEKI_E");
-		ReplacePNG("MISSION_S_RINGBOX_E");
 		ReplacePNG("MISSION_S_TAILS_E");
-		ReplacePNG("MISSION_T_BOX_E");
 		ReplacePNG("MISSION_T_EMECASINO_E");
 		ReplacePNG("MISSION_T_EMESNOW_E");
 		ReplacePNG("MISSION_T_EMEWIND_E");
