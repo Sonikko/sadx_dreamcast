@@ -314,6 +314,12 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("MR_SKY02");
 	ReplacePVM("MR_TRAIN");
 	ReplacePVM("TANKEN");
+	ReplacePVM("MROBJ_MAST");
+	ReplacePVM("MROBJ_MASTLDAM");
+	ReplacePVM("MROBJ_MASTSDAM");
+	ReplacePVM("MR_EGG");
+	ReplacePVM("MR_PYRAMID");
+	ReplacePVM("MR_TORNADO2");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
 	delete config;

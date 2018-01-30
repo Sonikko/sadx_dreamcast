@@ -518,7 +518,6 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVR("SONIC_EMBLM05");
 	ReplacePVR("SORA60");
 	ReplacePVR("SSTX_BODY");
-	ReplacePVR("STAFFROLL_TXT");
 	ReplacePVR("STG_S_LOCKMK");
 	ReplacePVR("STX_ICE0");
 	ReplacePVR("ST_016S_HPBAR");
@@ -539,18 +538,14 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("ANCIENT_LIGHT");
 	ReplacePVM("ANKO");
 	ReplacePVM("ANKO_T");
-	ReplacePVM("AVA_EXPLAIN");
 	ReplacePVM("A_MASTER");
 	ReplacePVM("BANB");
 	ReplacePVM("BIG_KAERU");
 	ReplacePVM("BO1_MODEL");
 	ReplacePVM("BULLET");
-	ReplacePVM("B_CHNAM_E");
 	ReplacePVM("CAPTUREBEAM");
 	ReplacePVM("CHAOS_EMERALD");
 	ReplacePVM("COERA");
-	ReplacePVM("C_SELECT1");
-	ReplacePVM("C_SELECT2");
 	ReplacePVM("E102");
 	ReplacePVM("E102BEAM");
 	ReplacePVM("E102EFFECT");
@@ -603,7 +598,6 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("FROG3");
 	ReplacePVM("F_EGG_ZANGAI");
 	ReplacePVM("GACHAPON");
-	ReplacePVM("GAMEOVER_E");
 	ReplacePVM("GOMA");
 	ReplacePVM("GORI");
 	ReplacePVM("GR1_MODEL");
@@ -635,12 +629,6 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("MOGURATATAKI");
 	ReplacePVM("MP_10000_POLICE");
 	ReplacePVM("MRACE_EGGMOBLE");
-	ReplacePVM("MROBJ_MAST");
-	ReplacePVM("MROBJ_MASTLDAM");
-	ReplacePVM("MROBJ_MASTSDAM");
-	ReplacePVM("MR_EGG");
-	ReplacePVM("MR_PYRAMID");
-	ReplacePVM("MR_TORNADO2");
 	ReplacePVM("M_EM_BLACK");
 	ReplacePVM("M_EM_BLUE");
 	ReplacePVM("M_EM_GREEN");
@@ -671,7 +659,6 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("TOGEBALL_TOGEBALL");
 	ReplacePVM("TR2CRASH");
 	ReplacePVM("TUBA");
-	ReplacePVM("TVSETTING");
 	ReplacePVM("TX_CHNAM_E");
 	ReplacePVM("UNAGI");
 	ReplacePVM("UNI_A_UNIBODY");

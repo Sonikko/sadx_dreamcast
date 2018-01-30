@@ -531,6 +531,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("AVA_SUUJI");
 		ReplacePVM("AVA_TITLE_E");
 		ReplacePVM("AVA_TRIALACTSEL_E");
+		ReplacePVM("GAMEOVER_E");
 		ReplacePVM("B_CHNAM_E");
 		ReplacePVM("M_CHNAM");
 		ReplacePVM("PRESSSTART");
