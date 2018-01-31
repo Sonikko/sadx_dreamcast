@@ -107,8 +107,8 @@ extern "C"
 		if (EnableMysticRuins == true) ADV02_OnFrame();
 		if (EnablePast == true) ADV03_OnFrame();
 		Bosses_OnFrame();
-		if (EnableDCBranding == true) EmeraldCoast_OnFrame();
-		if (EnableEmeraldCoast == true) WindyValley_OnFrame();
+		if (EnableEmeraldCoast == true) EmeraldCoast_OnFrame();
+		if (EnableWindyValley == true) WindyValley_OnFrame();
 		if (EnableTwinklePark == true) TwinklePark_OnFrame();
 		if (EnableSpeedHighway == true) SpeedHighway_OnFrame();
 		if (EnableRedMountain == true) RedMountain_OnFrame();
