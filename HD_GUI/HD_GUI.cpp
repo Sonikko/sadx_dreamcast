@@ -158,7 +158,7 @@ extern "C"
 		ReplacePVMX("FISHING");
 		//ReplacePVMX("GAMEOVER");
 		ReplacePVMX("GAMEOVER_E");
-		ReplacePVMX("GG_TEXLIST_US");
+		//ReplacePVMX("GG_TEXLIST_US");
 		ReplacePVMX("KNU_EFF");
 		ReplacePVMX("MAP_EC_A");
 		ReplacePVMX("MAP_EC_B");
