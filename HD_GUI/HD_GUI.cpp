@@ -317,6 +317,7 @@ extern "C"
 		ReplacePNG("ST_064S_LOCKB");
 		ReplacePNG("ST_064S_LOCKC");
 		ReplacePNG("ST_064S_SCORE");
+		ReplacePNG("ST_128S_HPGEJI");
 		ReplacePNG("ST_STAGE01_E");
 		ReplacePNG("ST_STAGE02_E");
 		ReplacePNG("ST_STAGE03_E");
