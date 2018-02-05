@@ -63,10 +63,9 @@ bool ForceDiffuse2Specular2(NJS_MATERIAL* material, Uint32 flags);
 bool ForceDiffuse2Specular3(NJS_MATERIAL* material, Uint32 flags);
 bool ForceDiffuse4Specular5(NJS_MATERIAL* material, Uint32 flags);
 
-#define ReplacePVM(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" a "_DC.PVM", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);
-#define ReplacePVR(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" a "_DC.PVR", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
-#define ReplaceBIN(a,b) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" b ".BIN", path); helperFunctions.ReplaceFile("system\\" a ".BIN", pathbuf);
-#define AddSETFix(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" a "_S.BIN", path); helperFunctions.ReplaceFile("system\\" a ".BIN", pathbuf);
-#define AddSETFix_Extra(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\system\\" a "_E.BIN", path); helperFunctions.ReplaceFile("system\\" a ".BIN", pathbuf);
-#define ReplacePVMX(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "_DC.PVMX", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);
-#define ReplacePVMX_SADXStyleWater(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\" a "W.PVMX", path); helperFunctions.ReplaceFile("system\\" a ".PVM", pathbuf);
+#define ReplacePVM(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_DC.PVM");
+#define ReplacePVR(a) helperFunctions.ReplaceFile("system\\" a ".PVR", "system\\" a "_DC.PVR");
+#define ReplaceBIN(a,b) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" b ".BIN");
+#define AddSETFix(a) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" a "_S.BIN");
+#define AddSETFix_Extra(a) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" a "_E.BIN");
+#define ReplacePVMX_SADXStyleWater(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "W.PVM");
