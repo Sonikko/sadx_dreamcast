@@ -34,7 +34,7 @@ static int transitionmode = 0;
 //Ini stuff
 static bool RipplesOn = true;
 static bool EnableTransition = false;
-static bool DisableSA1Titlescreen = false;
+static bool DisableSA1TitleScreen = false;
 static bool DisableFade = true;
 static bool DrawOverlay = true;
 static bool RemoveCream = false;
@@ -695,7 +695,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	const IniFile *defaults = new IniFile(std::string(path) + "\\default.ini");
 	RipplesOn = defaults->getBool("Branding", "RippleEffect", true);
 	EnableTransition = defaults->getBool("Branding", "EnableTransition", true);
-	DisableSA1Titlescreen = defaults->getBool("Branding", "DisableSA1TitleScreen", false);
+	DisableSA1TitleScreen = defaults->getBool("Branding", "DisableSA1TitleScreen", false);
 	DrawOverlay = defaults->getBool("Branding", "DrawOverlay", true);
 	RemoveCream = defaults->getBool("Branding", "RemoveCream", false);
 	DisableFade = defaults->getBool("Branding", "DisableFade", true);
@@ -720,7 +720,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
 	if (settings->hasKeyNonEmpty("Branding", "RippleEffect")) RipplesOn = settings->getBool("Branding", "RippleEffect", true);
 	if (settings->hasKeyNonEmpty("Branding", "EnableTransition")) EnableTransition = settings->getBool("Branding", "EnableTransition", true);
-	if (settings->hasKeyNonEmpty("Branding", "DisableSA1Titlescreen")) DisableSA1Titlescreen = settings->getBool("Branding", "DisableSA1TitleScreen", false);
+	if (settings->hasKeyNonEmpty("Branding", "DisableSA1TitleScreen")) DisableSA1TitleScreen = settings->getBool("Branding", "DisableSA1TitleScreen", false);
 	if (settings->hasKeyNonEmpty("Branding", "DrawOverlay")) DrawOverlay = settings->getBool("Branding", "DrawOverlay", true);
 	if (settings->hasKeyNonEmpty("Branding", "RemoveCream")) RemoveCream = settings->getBool("Branding", "RemoveCream", false);
 	if (settings->hasKeyNonEmpty("Branding", "DisableFade")) DisableFade = settings->getBool("Branding", "DisableFade", true);
@@ -745,7 +745,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Kill Cream
 	if (RemoveCream == true) WriteData<1>((void*)0x6353A0, 0xC3u);
 	//Title screen stuff
-	if (DisableSA1Titlescreen == false)
+	if (DisableSA1TitleScreen == false)
 	{
 		//640x480 stuff
 		WriteCall((void*)0x0050E547, DrawTitleBG_640);
@@ -919,7 +919,7 @@ void Branding_OnFrame()
 		LogoScaleXT = LogoScaleX;
 		LogoScaleYT = LogoScaleY;
 	}
-	if (DisableSA1Titlescreen == false && GameState == 21)
+	if (DisableSA1TitleScreen == false && GameState == 21)
 	{
 		if (titleframe == titledrawn) titleframe++;
 		if (logoframe == logodrawn) logoframe++;
