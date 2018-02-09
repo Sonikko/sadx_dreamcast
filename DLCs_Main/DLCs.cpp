@@ -3483,24 +3483,28 @@ void Christmas99_LoadStuff()
 	setdata_dlc.Distance = 612800.0f;
 	if ((GameMode == GameModes_Adventure_Field || GameMode == GameModes_Mission) && ObjectsLoaded == false)
 	{
-		obj = LoadObject((LoadObj)2, 3, OF0);
-		obj->SETData.SETData = &setdata_dlc;
-		if (obj)
+		//This damn tree
+		if (CurrentCharacter != 0 || GetEventFlag(EventFlags_Sonic_SpeedHighwayClear) || !GetEventFlag(EventFlags_Sonic_SpeedHighwayOpen))
 		{
-			ent = obj->Data1;
-			ent->Position.x = -23;
-			if (ForceSADXLayout == false) ent->Position.y = 2; else ent->Position.y = -1;
-			ent->Position.z = 1673;
-			ent->Index = 68;
-			ent->Rotation.x = 0;
-			ent->Rotation.y = 0;
-			ent->Rotation.z = 0;
-			ent->Scale.x = 1.0f;
-			ent->Scale.y = 1.0f;
-			ent->Scale.z = 1.0f;
-			ent->CharIndex = 0;
-			ent->Action = 26;
-			ent->NextAction = 3;
+			obj = LoadObject((LoadObj)2, 3, OF0);
+			obj->SETData.SETData = &setdata_dlc;
+			if (obj)
+			{
+				ent = obj->Data1;
+				ent->Position.x = -23;
+				if (ForceSADXLayout == false) ent->Position.y = 2; else ent->Position.y = -1;
+				ent->Position.z = 1673;
+				ent->Index = 68;
+				ent->Rotation.x = 0;
+				ent->Rotation.y = 0;
+				ent->Rotation.z = 0;
+				ent->Scale.x = 1.0f;
+				ent->Scale.y = 1.0f;
+				ent->Scale.z = 1.0f;
+				ent->CharIndex = 0;
+				ent->Action = 26;
+				ent->NextAction = 3;
+			}
 		}
 		obj = LoadObject((LoadObj)2, 3, OF0);
 		obj->SETData.SETData = &setdata_dlc;
@@ -9249,8 +9253,8 @@ void CallSambaCircuit()
 		if (CurrentCharacter == 2) CircuitID = TailsTrack;
 		if (CurrentCharacter == 3) CircuitID = KnucklesTrack;
 		if (CurrentCharacter == 5) CircuitID = AmyTrack;
-		if (CurrentCharacter == 6) CircuitID = BigTrack;
-		if (CurrentCharacter == 7) CircuitID = GammaTrack;
+		if (CurrentCharacter == 6) CircuitID = GammaTrack;
+		if (CurrentCharacter == 7) CircuitID = BigTrack;
 		SonicSSStartArray[11].Position.x = 635;
 		SonicSSStartArray[11].Position.y = 1.4f;
 		SonicSSStartArray[11].Position.z = 1570;
@@ -10496,7 +10500,7 @@ void DLCHook_LoadLevelIncrementAct(ObjectMaster *a1)
 		if (CurrentLevel == 3 && CurrentAct == 2) LoadHalloweenStuff_Twinkle3();
 	}
 	//Reebok challenge
-	if (CurrentDLC == 7)
+	if (CurrentDLC == 7 && GetEventFlag(EventFlags_Sonic_EmeraldCoastClear))
 	{
 		if (ChallengeAction == true && ChallengeOver == false && CurrentLevel == 1 && CurrentAct == 0 && CurrentCharacter == 0) LoadReebokStuffInEmeraldCoast();
 	}
@@ -10513,7 +10517,7 @@ void DLCHook_StationSquare()
 	if (CurrentDLC == 0)
 	{
 		//Challenge 1 (Sonic)
-		if (CurrentLevel == 26 && CurrentCharacter == 0) LoadATT1Stuff_SS();
+		if (CurrentLevel == 26 && CurrentCharacter == 0 && (GetEventFlag(EventFlags_Sonic_SpeedHighwayClear) || !GetEventFlag(EventFlags_Sonic_SpeedHighwayOpen))) LoadATT1Stuff_SS();
 		//Challenge 2 (Knuckles)
 		if ((CurrentLevel == 26 || CurrentLevel == 33) && CurrentCharacter == 3) LoadATT2Stuff_SSorMR();
 		//Challenge 3 (Tails)
@@ -10551,7 +10555,7 @@ void DLCHook_StationSquare()
 	//Reebok challenge
 	if (CurrentDLC == 7)
 	{
-		if (CurrentLevel == 26) LoadReebokStuffInStationSquare();
+		if (CurrentLevel == 26 && GetEventFlag(EventFlags_Sonic_EmeraldCoastClear)) LoadReebokStuffInStationSquare();
 	}
 	//Samba GP
 	if (CurrentDLC == 8)
