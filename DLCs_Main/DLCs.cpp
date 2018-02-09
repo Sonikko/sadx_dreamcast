@@ -4065,7 +4065,7 @@ void ReebokPoster_Main(ObjectMaster *a1)
 					ChallengeOver = false;
 					v1->Action = 1;
 					sub_412D80(LevelIDs_EmeraldCoast, 0);
-					HintTimer = 180;
+					HintTimer = 60;
 				}
 				if (ChallengeAction == true && v1->CharIndex == 4)
 				{
