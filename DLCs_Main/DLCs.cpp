@@ -3484,7 +3484,7 @@ void Christmas99_LoadStuff()
 	if ((GameMode == GameModes_Adventure_Field || GameMode == GameModes_Mission) && ObjectsLoaded == false)
 	{
 		//This damn tree
-		if (CurrentCharacter != 0 || GetEventFlag(EventFlags_Sonic_SpeedHighwayClear) || !GetEventFlag(EventFlags_Sonic_SpeedHighwayOpen))
+		if (CurrentCharacter != 0 || GetEventFlag(EventFlags_Sonic_SpeedHighwayClear))
 		{
 			obj = LoadObject((LoadObj)2, 3, OF0);
 			obj->SETData.SETData = &setdata_dlc;
