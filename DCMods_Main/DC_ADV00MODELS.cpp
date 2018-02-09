@@ -231,6 +231,38 @@ void RenderOfficeDoor_Child(NJS_MODEL_SADX *a1, float scale)
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+	HMODULE DLCs = GetModuleHandle(L"DLCs_Main");
+	ReplaceBIN_DC("SETSS00A");
+	ReplaceBIN_DC("SETSS00B");
+	ReplaceBIN_DC("SETSS00E");
+	ReplaceBIN_DC("SETSS00K");
+	ReplaceBIN_DC("SETSS00L");
+	ReplaceBIN_DC("SETSS00M");
+	ReplaceBIN_DC("SETSS00S");
+	ReplaceBIN_DC("SETSS01A");
+	ReplaceBIN_DC("SETSS01B");
+	ReplaceBIN_DC("SETSS01E");
+	ReplaceBIN_DC("SETSS01K");
+	ReplaceBIN_DC("SETSS01L");
+	ReplaceBIN_DC("SETSS01M");
+	ReplaceBIN_DC("SETSS01S");
+	ReplaceBIN_DC("SETSS02S");
+	ReplaceBIN_DC("SETSS03A");
+	ReplaceBIN_DC("SETSS03B");
+	ReplaceBIN_DC("SETSS03E");
+	ReplaceBIN_DC("SETSS03K");
+	ReplaceBIN_DC("SETSS03L");
+	ReplaceBIN_DC("SETSS03M");
+	ReplaceBIN_DC("SETSS03S");
+	ReplaceBIN_DC("SETSS04A");
+	ReplaceBIN_DC("SETSS04B");
+	ReplaceBIN_DC("SETSS04E");
+	ReplaceBIN_DC("SETSS04K");
+	ReplaceBIN_DC("SETSS04L");
+	ReplaceBIN_DC("SETSS04M");
+	ReplaceBIN_DC("SETSS04S");
+	ReplaceBIN_DC("SETSS05S");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SETSS00A");
@@ -297,6 +329,15 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		AddSETFix_Extra("SETSS04S");
 		AddSETFix_Extra("SETSS05S");
 	}
+	if (DLCs == nullptr)
+	{
+		ReplaceBIN_DC("CAMSS00S");
+		ReplaceBIN_DC("CAMSS01S");
+		ReplaceBIN_DC("CAMSS02S");
+		ReplaceBIN_DC("CAMSS03S");
+		ReplaceBIN_DC("CAMSS04S");
+		ReplaceBIN_DC("CAMSS05S");
+	}
 	ReplacePVM("ADVSS00");
 	ReplacePVM("ADVSS01");
 	ReplacePVM("ADVSS05");
@@ -349,7 +390,6 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x006532BB, 509.9f); //X2
 	WriteData((float*)0x006532B6, -89.4f); //Y2
 	WriteData((float*)0x006532B1, 812.3f); //Z2
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
 		material_register(CharacterStuff, LengthOfArray(CharacterStuff), &ForceDiffuse2Specular2);

@@ -112,6 +112,12 @@ void RenderWindy1Sky()
 
 void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	ReplaceBIN_DC("SET0201S");
+	ReplaceBIN_DC("CAM0200E");
+	ReplaceBIN_DC("CAM0200S");
+	ReplaceBIN_DC("CAM0201S");
+	ReplaceBIN_DC("CAM0202M");
+	ReplaceBIN_DC("CAM0202S");
 	//Tornado speed tweak
 	if (FramerateSetting < 2)
 	{

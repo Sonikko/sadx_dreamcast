@@ -113,6 +113,15 @@ void CrystalParticle(NJS_VECTOR *a1, NJS_VECTOR *a2, int a3, signed int a4)
 void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("CAM0800S");
+	ReplaceBIN_DC("CAM0801S");
+	ReplaceBIN_DC("CAM0802S");
+	ReplaceBIN_DC("CAM0803B");
+	ReplaceBIN_DC("SET0800S");
+	ReplaceBIN_DC("SET0801S");
+	ReplaceBIN_DC("SET0802M");
+	ReplaceBIN_DC("SET0802S");
+	ReplaceBIN_DC("SET0803B");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SET0800S");

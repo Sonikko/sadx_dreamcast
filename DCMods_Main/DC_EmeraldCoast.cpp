@@ -444,6 +444,11 @@ void WhaleSplash(NJS_OBJECT *a1)
 void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("SET0100E");
+	ReplaceBIN_DC("SET0100S");
+	ReplaceBIN_DC("SET0101M");
+	ReplaceBIN_DC("SET0101S");
+	ReplaceBIN_DC("SET0102B");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SET0100S");
@@ -596,6 +601,11 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		for (int i = 0; i < 3; i++)
 		{
+			ReplaceBIN_DC("CAM0100E");
+			ReplaceBIN_DC("CAM0100S");
+			ReplaceBIN_DC("CAM0101S");
+			ReplaceBIN_DC("CAM0102B");
+			ReplaceBIN_DC("CAM0102S");
 			SkyboxScale_EmeraldCoast1[i].x = 1.0f;
 			SkyboxScale_EmeraldCoast1[i].y = 1.0f;
 			SkyboxScale_EmeraldCoast1[i].z = 1.0f;

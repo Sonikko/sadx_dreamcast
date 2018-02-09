@@ -98,6 +98,16 @@ void AntennaSprite()
 void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("CAM0400M");
+	ReplaceBIN_DC("CAM0400S");
+	ReplaceBIN_DC("CAM0401S");
+	ReplaceBIN_DC("CAM0402K");
+	ReplaceBIN_DC("CAM0402S");
+	ReplaceBIN_DC("SET0400M");
+	ReplaceBIN_DC("SET0400S");
+	ReplaceBIN_DC("SET0401S");
+	ReplaceBIN_DC("SET0402K");
+	ReplaceBIN_DC("SET0402S");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SET0400M");

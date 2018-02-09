@@ -78,6 +78,12 @@ bool ForceFirstCharacterSpecular(NJS_MATERIAL* material, Uint32 flags)
 void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("CAMPAST00S");
+	ReplaceBIN_DC("CAMPAST01S");
+	ReplaceBIN_DC("CAMPAST02S");
+	ReplaceBIN_DC("SETPAST00S");
+	ReplaceBIN_DC("SETPAST01S");
+	ReplaceBIN_DC("SETPAST02S");
 	ReplacePVM("EFF_PAST");
 	ReplacePVM("EV_ALIFE");
 	ReplacePVM("K_PATYA");

@@ -4156,9 +4156,12 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Chao Race stuff
 	WriteJump((void*)0x00719DB0, LoadChaoRaceX);
 	WriteData((float*)0x00719D74, -16000.0f); //Draw distance
+	ReplaceBIN_DC("SETAL_RACE00S");
+	ReplaceBIN_DC("SETAL_RACE01S");
 	//Station Square garden stuff
 	if (EnableSSGarden == true)
 	{
+		ReplaceBIN_DC("SETMI3900M");
 		WriteCall((void*)0x00719597, LoadSSGardenObjectPVM);
 		WriteData<5>((void*)0x007195AE, 0x90); //Don't load SADX button prompts in SS garden
 		WriteData<5>((void*)0x0071957E, 0x90); //Disable the Sonic Team homepage prompt

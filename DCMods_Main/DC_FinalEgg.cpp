@@ -567,6 +567,18 @@ void GachaponExplosionFix(NJS_MODEL_SADX *a1)
 void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("CAM1000A");
+	ReplaceBIN_DC("CAM1000S");
+	ReplaceBIN_DC("CAM1001S");
+	ReplaceBIN_DC("CAM1002E");
+	ReplaceBIN_DC("CAM1002S");
+	ReplaceBIN_DC("CAM1003S");
+	ReplaceBIN_DC("SET1000A");
+	ReplaceBIN_DC("SET1000S");
+	ReplaceBIN_DC("SET1001S");
+	ReplaceBIN_DC("SET1002E");
+	ReplaceBIN_DC("SET1002S");
+	ReplaceBIN_DC("SET1003S");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SET1000A");

@@ -721,6 +721,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	delete config;
 	if (EnableChaos0 == true)
 	{
+		ReplaceBIN_DC("SET1500S");
 		ReplacePVM("LM_CHAOS0");
 		ReplacePVM("CHAOS0");
 		ReplacePVM("CHAOS0_EFFECT");
@@ -789,6 +790,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableChaos2 == true)
 	{
+		ReplaceBIN_DC("SET1600S");
 		ReplacePVM("CHAOS2");
 		ReplacePVM("LM_CHAOS2");
 		ReplacePVM("CHAOS2_BARRIER");
@@ -837,6 +839,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableChaos4 == true)
 	{
+		ReplaceBIN_DC("SET1700S");
 		ReplacePVM("CHAOS4_COMMON");
 		ReplacePVM("CHAOS4_HASHIRA");
 		ReplacePVM("CHAOS4_KAMA");
@@ -874,6 +877,9 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableChaos6 == true)
 	{
+		ReplaceBIN_DC("SET1800B");
+		ReplaceBIN_DC("SET1800S");
+		ReplaceBIN_DC("SET1801K");
 		ReplacePVM("LM_CHAOS6");
 		ReplacePVM("LM_CHAOS6_2");
 		ReplacePVM("CHAOS6");
@@ -906,6 +912,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableEggHornet == true)
 	{
+		ReplaceBIN_DC("SETEGM1S");
 		ReplacePVM("EGM1");
 		ReplacePVM("EGM1BARRIER");
 		ReplacePVM("EGM1EGGMAN");
@@ -952,6 +959,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableEggViper == true)
 	{
+		ReplaceBIN_DC("SETEGM3S");
 		ReplacePVM("EGM3CHIKEI");
 		ReplacePVM("EGM3MDL");
 		ReplacePVM("EGM3SPR");
@@ -961,6 +969,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableEggWalker == true)
 	{
+		ReplaceBIN_DC("SETEGM2S");
 		ReplacePVM("EGM2");
 		ReplacePVM("EGM2_BAKU");
 		ReplacePVM("EGM2_CAR");
@@ -980,6 +989,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableE101 == true)
 	{
+		ReplaceBIN_DC("SETE101E");
 		ReplacePVM("E101");
 		ReplacePVM("E101_TIKEI");
 		ResizeTextureList((NJS_TEXLIST*)0x14FBFB4, textures_e101);
@@ -992,6 +1002,9 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableZeroE101R == true)
 	{
+		ReplaceBIN_DC("SETE101RE");
+		ReplaceBIN_DC("SETZEROA");
+		ReplaceBIN_DC("SETZEROS");
 		ReplacePVM("E101R");
 		ReplacePVM("E101R_BG");
 		*(NJS_OBJECT*)0x00991268 = object_00591268; //Zero main and cutscene model
@@ -1019,6 +1032,8 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnablePerfectChaos == true)
 	{
+		ReplaceBIN_DC("SET1900S");
+		ReplaceBIN_DC("CAM1900S");
 		ReplacePVM("CHAOS7_0");
 		ReplacePVM("CHAOS7_0BREATH");
 		ReplacePVM("CHAOS7_0BREATH2ND");

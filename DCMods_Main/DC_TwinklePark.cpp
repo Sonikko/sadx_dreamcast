@@ -397,6 +397,18 @@ void FixArchLight_Pause(NJS_OBJECT *object)
 void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("CAM0300S");
+	ReplaceBIN_DC("CAM0301A");
+	ReplaceBIN_DC("CAM0301B");
+	ReplaceBIN_DC("CAM0301S");
+	ReplaceBIN_DC("CAM0302A");
+	ReplaceBIN_DC("CAM0302S");
+	ReplaceBIN_DC("SET0300S");
+	ReplaceBIN_DC("SET0301A");
+	ReplaceBIN_DC("SET0301B");
+	ReplaceBIN_DC("SET0301S");
+	ReplaceBIN_DC("SET0302A");
+	ReplaceBIN_DC("SET0302S");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SET0301A");

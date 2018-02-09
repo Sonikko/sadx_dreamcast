@@ -251,6 +251,26 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
 	LandTable **___LANDTABLEMR = (LandTable **)GetProcAddress(handle, "___LANDTABLEMR");
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("SETMR00A");
+	ReplaceBIN_DC("SETMR00B");
+	ReplaceBIN_DC("SETMR00E");
+	ReplaceBIN_DC("SETMR00K");
+	ReplaceBIN_DC("SETMR00L");
+	ReplaceBIN_DC("SETMR00M");
+	ReplaceBIN_DC("SETMR00S");
+	ReplaceBIN_DC("SETMR01A");
+	ReplaceBIN_DC("SETMR01B");
+	ReplaceBIN_DC("SETMR01E");
+	ReplaceBIN_DC("SETMR01K");
+	ReplaceBIN_DC("SETMR01L");
+	ReplaceBIN_DC("SETMR01M");
+	ReplaceBIN_DC("SETMR01S");
+	ReplaceBIN_DC("SETMR02S");
+	ReplaceBIN_DC("SETMR03S");
+	ReplaceBIN_DC("CAMMR00S");
+	ReplaceBIN_DC("CAMMR01S");
+	ReplaceBIN_DC("CAMMR02S");
+	ReplaceBIN_DC("CAMMR03S");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SETMR00A");

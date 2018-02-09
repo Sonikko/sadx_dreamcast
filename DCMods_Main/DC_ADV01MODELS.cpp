@@ -298,6 +298,29 @@ void RenderEggCarrier0NPC(NJS_ACTION *action, Float frame)
 void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("SETEC01S");
+	ReplaceBIN_DC("SETEC02S");
+	ReplaceBIN_DC("SETEC03S");
+	ReplaceBIN_DC("SETEC04S");
+	ReplaceBIN_DC("SETEC05S");
+	ReplaceBIN_DC("SETEC30S");
+	ReplaceBIN_DC("SETEC31S");
+	ReplaceBIN_DC("SETEC32S");
+	ReplaceBIN_DC("SETEC33S");
+	ReplaceBIN_DC("SETEC34S");
+	ReplaceBIN_DC("SETEC35S");
+	ReplaceBIN_DC("CAMEC00S");
+	ReplaceBIN_DC("CAMEC01S");
+	ReplaceBIN_DC("CAMEC02S");
+	ReplaceBIN_DC("CAMEC03S");
+	ReplaceBIN_DC("CAMEC04S");
+	ReplaceBIN_DC("CAMEC05S");
+	ReplaceBIN_DC("CAMEC30S");
+	ReplaceBIN_DC("CAMEC31S");
+	ReplaceBIN_DC("CAMEC32S");
+	ReplaceBIN_DC("CAMEC33S");
+	ReplaceBIN_DC("CAMEC34S");
+	ReplaceBIN_DC("CAMEC35S");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SETEC00S");

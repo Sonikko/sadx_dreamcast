@@ -74,6 +74,13 @@ void SetCloudColor(NJS_ARGB *a)
 void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("CAM0500S");
+	ReplaceBIN_DC("CAM0501E");
+	ReplaceBIN_DC("CAM0501S");
+	ReplaceBIN_DC("CAM0502K");
+	ReplaceBIN_DC("SET0500S");
+	ReplaceBIN_DC("SET0501E");
+	ReplaceBIN_DC("SET0501S");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SET0500S");

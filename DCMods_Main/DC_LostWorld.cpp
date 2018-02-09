@@ -26,6 +26,14 @@ NJS_MATERIAL* ObjectSpecular_LostWorld[] = {
 void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("CAM0700S");
+	ReplaceBIN_DC("CAM0701K");
+	ReplaceBIN_DC("CAM0701S");
+	ReplaceBIN_DC("CAM0702S");
+	ReplaceBIN_DC("SET0700S");
+	ReplaceBIN_DC("SET0701K");
+	ReplaceBIN_DC("SET0701S");
+	ReplaceBIN_DC("SET0702S");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SET0700S");

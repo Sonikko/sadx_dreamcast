@@ -195,6 +195,18 @@ NJS_MATERIAL* WhiteDiffuse_HotShelter[] = {
 void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("SET1200A");
+	ReplaceBIN_DC("SET1200B");
+	ReplaceBIN_DC("SET1201A");
+	ReplaceBIN_DC("SET1202E");
+	ReplaceBIN_DC("CAM1200A");
+	ReplaceBIN_DC("CAM1200B");
+	ReplaceBIN_DC("CAM1200S");
+	ReplaceBIN_DC("CAM1201A");
+	ReplaceBIN_DC("CAM1201S");
+	ReplaceBIN_DC("CAM1202E");
+	ReplaceBIN_DC("CAM1202S");
+	ReplaceBIN_DC("CAM1203S");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SET1200A");

@@ -781,6 +781,9 @@ void __cdecl TornadoCalculateCenterPoint(ObjectMaster *a1)
 void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("SET0000A");
+	ReplaceBIN_DC("SET0000S");
+	ReplaceBIN_DC("SET0001S");
 	HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
 	HMODULE SA1_Chars = GetModuleHandle(L"SA1_Chars");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
@@ -793,6 +796,11 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	VerticalResolutionHalf_float = VerticalResolution_float / 2.0f;
 	if (EnableSandHill == true)
 	{ 
+		ReplaceBIN_DC("CAMSBOARD00S");
+		ReplaceBIN_DC("CAMSBOARD01S");
+		ReplaceBIN_DC("SETSBOARD00M");
+		ReplaceBIN_DC("SETSBOARD00S");
+		ReplaceBIN_DC("SETSBOARD01S");
 		ReplacePVM("BG_SANDBOARD");
 		ReplacePVM("EFF_SANDBOARD");
 		ReplacePVM("OBJ_SANDBOARD");
@@ -802,15 +810,35 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableTwinkleCircuit == true)
 	{
+		ReplaceBIN_DC("SETMCART00S");
+		ReplaceBIN_DC("SETMCART01S");
+		ReplaceBIN_DC("SETMCART02S");
+		ReplaceBIN_DC("SETMCART03S");
+		ReplaceBIN_DC("SETMCART04S");
+		ReplaceBIN_DC("SETMCART05S");
+		ReplaceBIN_DC("CAMMCART00S");
+		ReplaceBIN_DC("CAMMCART01S");
+		ReplaceBIN_DC("CAMMCART02S");
+		ReplaceBIN_DC("CAMMCART03S");
+		ReplaceBIN_DC("CAMMCART04S");
+		ReplaceBIN_DC("CAMMCART05S");
 		if (EnableSETFixes == "Normal")
 		{
 			AddSETFix("SETMCART00S");
 			AddSETFix("SETMCART01S");
+			ReplaceBIN_DC("SETMCART02S");
+			ReplaceBIN_DC("SETMCART03S");
+			ReplaceBIN_DC("SETMCART04S");
+			ReplaceBIN_DC("SETMCART05S");
 		}
 		if (EnableSETFixes == "Extra")
 		{
 			AddSETFix_Extra("SETMCART00S");
 			AddSETFix_Extra("SETMCART01S");
+			ReplaceBIN_DC("SETMCART02S");
+			ReplaceBIN_DC("SETMCART03S");
+			ReplaceBIN_DC("SETMCART04S");
+			ReplaceBIN_DC("SETMCART05S");
 		}
 		ReplacePVM("MINI_CART01");
 		ReplacePVM("MINI_CART02");
@@ -823,6 +851,8 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableSkyChaseFixes == true)
 	{
+		ReplaceBIN_DC("CAMSHT1S");
+		ReplaceBIN_DC("CAMSHT2S");
 		//Resolution related fixes
 		WriteJump((void*)0x628D50, TornadoCalculateCenterPoint); //Calculate center for bullets
 		if (HorizontalResolution_float / VerticalResolution_float > 1.4f)

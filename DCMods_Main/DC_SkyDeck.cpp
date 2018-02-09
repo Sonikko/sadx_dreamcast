@@ -471,6 +471,18 @@ void RenderSmallCloud(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("SET0600M");
+	ReplaceBIN_DC("SET0600S");
+	ReplaceBIN_DC("SET0601M");
+	ReplaceBIN_DC("SET0601S");
+	ReplaceBIN_DC("SET0602K");
+	ReplaceBIN_DC("SET0602M");
+	ReplaceBIN_DC("SET0602S");
+	ReplaceBIN_DC("CAM0600M");
+	ReplaceBIN_DC("CAM0600S");
+	ReplaceBIN_DC("CAM0601S");
+	ReplaceBIN_DC("CAM0602K");
+	ReplaceBIN_DC("CAM0602S");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SET0600M");
