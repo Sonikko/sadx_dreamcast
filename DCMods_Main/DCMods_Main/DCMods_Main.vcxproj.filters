@@ -644,5 +644,8 @@
     <ClInclude Include="..\Data\TornadoCrash.h">
       <Filter>Header Files\Levels\ADV02MODELS</Filter>
     </ClInclude>
+    <ClInclude Include="..\Data\ChaoFruitModels.h">
+      <Filter>Header Files\Levels\Chao</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

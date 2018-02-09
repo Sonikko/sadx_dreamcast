@@ -266,6 +266,7 @@
     <ClInclude Include="..\Data\Casino3.h" />
     <ClInclude Include="..\Data\Casino4.h" />
     <ClInclude Include="..\Data\Casino_objects.h" />
+    <ClInclude Include="..\Data\ChaoFruitModels.h" />
     <ClInclude Include="..\Data\ChaoObjects.h" />
     <ClInclude Include="..\Data\ChaoRace.h" />
     <ClInclude Include="..\Data\ChaoRaceEntry.h" />

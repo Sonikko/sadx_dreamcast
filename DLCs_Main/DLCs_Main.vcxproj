@@ -20,8 +20,8 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
-    <ProjectGuid>{9470DBEE-6F72-4EB4-94D4-77DA51B90503}</ProjectGuid>
-    <RootNamespace>DLC_SambaGP</RootNamespace>
+    <ProjectGuid>{F7B5C701-3FAF-491A-AD56-40D96BCA7972}</ProjectGuid>
+    <RootNamespace>DLCsMain</RootNamespace>
     <WindowsTargetPlatformVersion>10.0.15063.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -79,12 +79,12 @@
       <FunctionLevelLinking>true</FunctionLevelLinking>
       <IntrinsicFunctions>true</IntrinsicFunctions>
       <SDLCheck>true</SDLCheck>
-      <DebugInformationFormat>None</DebugInformationFormat>
     </ClCompile>
     <Link>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <OutputFile>$(OutDir)SONICADV_511$(TargetExt)</OutputFile>
+      <AdditionalDependencies>$(SolutionDir)..\ModLoaderCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
@@ -115,10 +115,21 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SambaGP.cpp" />
+    <ClCompile Include="DLCs.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SambaDLC.h" />
+    <ClInclude Include="Balloon.h" />
+    <ClInclude Include="DLC_ATT.h" />
+    <ClInclude Include="DLC_Christmas98.h" />
+    <ClInclude Include="DLC_Christmas99.h" />
+    <ClInclude Include="DLC_Halloween.h" />
+    <ClInclude Include="DLC_LaunchParty.h" />
+    <ClInclude Include="DLC_Reebok.h" />
+    <ClInclude Include="DLC_SambaGP.h" />
+    <ClInclude Include="DLC_Y2K.h" />
+    <ClInclude Include="Messages.h" />
+    <ClInclude Include="Posters.h" />
+    <ClInclude Include="Timer.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

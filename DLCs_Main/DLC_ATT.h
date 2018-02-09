@@ -1,5 +1,3 @@
-#include <SADXModLoader.h>
-
 NJS_TEXNAME textures_att1[7];
 NJS_TEXLIST texlist_att1 = { arrayptrandlength(textures_att1) };
 
@@ -1358,40 +1356,40 @@ NJS_MATERIAL matlist_att1W[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 1, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
-Sint16 poly_00116FB4X[] = {
+Sint16 poly_poster[] = {
 	4, 3, 2, 1, 0
 };
 
-NJS_TEX uv_00116FC0X[] = {
+NJS_TEX uv_poster[] = {
 	{ 0, 255 },
 	{ 255, 255 },
 	{ 0, 0 },
 	{ 255 },
 };
 
-NJS_MESHSET_SADX meshlist_00116FD0X[] = {
-	{ NJD_MESHSET_TRIMESH | 0, 1, poly_00116FB4X, NULL, NULL, NULL, uv_00116FC0X, NULL }
+NJS_MESHSET_SADX meshlist_poster[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_poster, NULL, NULL, NULL, uv_poster, NULL }
 };
 
-NJS_VECTOR vertex_00116FE8X[] = {
+NJS_VECTOR vertex_poster[] = {
 	{ 10.0f, 10.0f, 0 },
 	{ -10.0f, 10.0f, 0 },
 	{ 10.0f, -10.0f, 0 },
 	{ -10.0f, -10.0f, 0 }
 };
 
-NJS_VECTOR normal_00117018X[] = {
+NJS_VECTOR normal_poster[] = {
 	{ 0, 0, 1 },
 	{ 0, 0, 1 },
 	{ 0, 0, 1 },
 	{ 0, 0, 1 }
 };
 
-NJS_MODEL_SADX attach_att1X = { vertex_00116FE8X, normal_00117018X, LengthOfArray(vertex_00116FE8X), meshlist_00116FD0X, matlist_att1X, LengthOfArray(meshlist_00116FD0X), LengthOfArray(matlist_att1X),{ 0, 1.5f, 0 }, 11.71537f, NULL };
+NJS_MODEL_SADX attach_att1X = { vertex_poster, normal_poster, LengthOfArray(vertex_poster), meshlist_poster, matlist_att1X, LengthOfArray(meshlist_poster), LengthOfArray(matlist_att1X),{ 0, 1.5f, 0 }, 11.71537f, NULL };
 
-NJS_MODEL_SADX attach_att1Z = { vertex_00116FE8X, normal_00117018X, LengthOfArray(vertex_00116FE8X), meshlist_00116FD0X, matlist_att1Z, LengthOfArray(meshlist_00116FD0X), LengthOfArray(matlist_att1Z),{ 0, 1.5f, 0 }, 11.71537f, NULL };
+NJS_MODEL_SADX attach_att1Z = { vertex_poster, normal_poster, LengthOfArray(vertex_poster), meshlist_poster, matlist_att1Z, LengthOfArray(meshlist_poster), LengthOfArray(matlist_att1Z),{ 0, 1.5f, 0 }, 11.71537f, NULL };
 
-NJS_MODEL_SADX attach_att1W = { vertex_00116FE8X, normal_00117018X, LengthOfArray(vertex_00116FE8X), meshlist_00116FD0X, matlist_att1W, LengthOfArray(meshlist_00116FD0X), LengthOfArray(matlist_att1W),{ 0, 1.5f, 0 }, 11.71537f, NULL };
+NJS_MODEL_SADX attach_att1W = { vertex_poster, normal_poster, LengthOfArray(vertex_poster), meshlist_poster, matlist_att1W, LengthOfArray(meshlist_poster), LengthOfArray(matlist_att1W),{ 0, 1.5f, 0 }, 11.71537f, NULL };
 
 NJS_OBJECT poster_att1_big = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_att1X, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
@@ -1413,9 +1411,9 @@ NJS_MATERIAL matlist_att2W[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 2, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
-NJS_MODEL_SADX attach_att2Z = { vertex_00116FE8X, normal_00117018X, LengthOfArray(vertex_00116FE8X), meshlist_00116FD0X, matlist_att2Z, LengthOfArray(meshlist_00116FD0X), LengthOfArray(matlist_att2Z),{ 0, 1.5f, 0 }, 11.71537f, NULL };
+NJS_MODEL_SADX attach_att2Z = { vertex_poster, normal_poster, LengthOfArray(vertex_poster), meshlist_poster, matlist_att2Z, LengthOfArray(meshlist_poster), LengthOfArray(matlist_att2Z),{ 0, 1.5f, 0 }, 11.71537f, NULL };
 
-NJS_MODEL_SADX attach_att2W = { vertex_00116FE8X, normal_00117018X, LengthOfArray(vertex_00116FE8X), meshlist_00116FD0X, matlist_att2W, LengthOfArray(meshlist_00116FD0X), LengthOfArray(matlist_att2W),{ 0, 1.5f, 0 }, 11.71537f, NULL };
+NJS_MODEL_SADX attach_att2W = { vertex_poster, normal_poster, LengthOfArray(vertex_poster), meshlist_poster, matlist_att2W, LengthOfArray(meshlist_poster), LengthOfArray(matlist_att2W),{ 0, 1.5f, 0 }, 11.71537f, NULL };
 
 NJS_OBJECT poster_att2_start = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_att2Z, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
@@ -1439,13 +1437,13 @@ NJS_MATERIAL matlist_att3W[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 5, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
-NJS_MODEL_SADX attach_att3X = { vertex_00116FE8X, normal_00117018X, LengthOfArray(vertex_00116FE8X), meshlist_00116FD0X, matlist_att3X, LengthOfArray(meshlist_00116FD0X), LengthOfArray(matlist_att3X),{ 0, 1.5f, 0 }, 11.71537f, NULL };
+NJS_MODEL_SADX attach_att3X = { vertex_poster, normal_poster, LengthOfArray(vertex_poster), meshlist_poster, matlist_att3X, LengthOfArray(meshlist_poster), LengthOfArray(matlist_att3X),{ 0, 1.5f, 0 }, 11.71537f, NULL };
 
-NJS_MODEL_SADX attach_att3Z = { vertex_00116FE8X, normal_00117018X, LengthOfArray(vertex_00116FE8X), meshlist_00116FD0X, matlist_att3Z, LengthOfArray(meshlist_00116FD0X), LengthOfArray(matlist_att3Z),{ 0, 1.5f, 0 }, 11.71537f, NULL };
+NJS_MODEL_SADX attach_att3Z = { vertex_poster, normal_poster, LengthOfArray(vertex_poster), meshlist_poster, matlist_att3Z, LengthOfArray(meshlist_poster), LengthOfArray(matlist_att3Z),{ 0, 1.5f, 0 }, 11.71537f, NULL };
 
-NJS_MODEL_SADX attach_att3W = { vertex_00116FE8X, normal_00117018X, LengthOfArray(vertex_00116FE8X), meshlist_00116FD0X, matlist_att3W, LengthOfArray(meshlist_00116FD0X), LengthOfArray(matlist_att3W),{ 0, 1.5f, 0 }, 11.71537f, NULL };
+NJS_MODEL_SADX attach_att3W = { vertex_poster, normal_poster, LengthOfArray(vertex_poster), meshlist_poster, matlist_att3W, LengthOfArray(meshlist_poster), LengthOfArray(matlist_att3W),{ 0, 1.5f, 0 }, 11.71537f, NULL };
 
-NJS_MODEL_SADX attach_att3Y = { vertex_00116FE8X, normal_00117018X, LengthOfArray(vertex_00116FE8X), meshlist_00116FD0X, matlist_att3Y, LengthOfArray(meshlist_00116FD0X), LengthOfArray(matlist_att3Y),{ 0, 1.5f, 0 }, 11.71537f, NULL };
+NJS_MODEL_SADX attach_att3Y = { vertex_poster, normal_poster, LengthOfArray(vertex_poster), meshlist_poster, matlist_att3Y, LengthOfArray(meshlist_poster), LengthOfArray(matlist_att3Y),{ 0, 1.5f, 0 }, 11.71537f, NULL };
 
 NJS_OBJECT poster_att3_start = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_att3Z, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
