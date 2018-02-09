@@ -8,8 +8,6 @@
 #include <IniFile.hpp>
 #include "DC_Levels.h"
 
-std::string plz0xbin;
-
 DataArray(FogData, FogData_SandHill, 0x0173BB74, 3);
 DataArray(FogData, FogData_HedgehogHammer, 0x027C69C4, 3);
 DataArray(SkyboxScale, SkyboxScale_SkyChase1, 0x027D6CE0, 3);
@@ -780,15 +778,6 @@ void __cdecl TornadoCalculateCenterPoint(ObjectMaster *a1)
 	njPopMatrix(1u);
 }
 
-const char* __cdecl SetPLZ0X(int level, int act)
-{
-	if (level == 35)
-	{
-		return plz0xbin.c_str();
-	}
-	else { return nullptr; }
-}
-
 void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -829,7 +818,7 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("MINI_CART04");
 		ReplacePVM("MINI_CART05");
 		ReplacePVM("MINI_CART06");
-		ReplacePVM("OBJ_MINI_CART");
+		if (HD_GUI == nullptr) ReplacePVM("OBJ_MINI_CART");
 		WriteData((LandTable**)0x7D205B, &landtable_00001A3C); //Twinkle Circuit
 	}
 	if (EnableSkyChaseFixes == true)
@@ -915,13 +904,10 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		*(NJS_OBJECT *)0x0298E7D0 = objectSHOOTING_0004AEE0; //Beam in Act 2
 	}
 	//Lighting stuff
-	plz0xbin = path;
-	plz0xbin.append("\\system\\PL_Z0X.BIN");
+	ReplaceBIN("PL_Z0B", "PL_Z0X");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
-		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
-		pl_load_register(SetPLZ0X);
 		material_register(ObjectBaseAndSpecular_Subgames, LengthOfArray(ObjectBaseAndSpecular_Subgames), &ForceDiffuse0Specular1);
 		material_register(LevelSpecular_Subgames, LengthOfArray(LevelSpecular_Subgames), &ForceDiffuse0Specular0);
 		material_register(WhiteDiffuse_Subgames, LengthOfArray(WhiteDiffuse_Subgames), &ForceWhiteDiffuse1);

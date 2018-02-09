@@ -11,8 +11,6 @@
 #include <IniFile.hpp>
 #include "DC_Levels.h"
 
-std::string pl90xbin;
-
 static short CurrentPlayer = -1;
 static float distance_float;
 static int anim1 = 75;
@@ -664,15 +662,6 @@ void RenderLightA(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 	DrawQueueDepthBias = 0;
 }
 
-const char* __cdecl SetPL90X(int level, int act)
-{
-	if (level == 9 && act == 0)
-	{
-		return pl90xbin.c_str();
-	}
-	else { return nullptr; }
-}
-
 void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -707,13 +696,10 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((LandTable**)0x97DB30, &landtable_000AF120);
 	WriteData((LandTable**)0x97DB34, &landtable_000D8440);
 	//Lantern stuff
-	pl90xbin = path;
-	pl90xbin.append("\\system\\PL_90X.BIN");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+	ReplaceBIN("PL_90B", "PL_90X");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
-		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
-		pl_load_register(SetPL90X);
 		material_register(LevelSpecular_Casino, LengthOfArray(LevelSpecular_Casino), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_Casino, LengthOfArray(ObjectSpecular_Casino), &ForceDiffuse0Specular1);
 		material_register(WhiteDiffuse_Casino, LengthOfArray(WhiteDiffuse_Casino), &ForceWhiteDiffuse1);

@@ -25,8 +25,6 @@
 #include "DC_Levels.h"
 #include <IniFile.hpp>
 
-std::string plm0xbin;
-
 //Chaos 6 material arrays
 DataArray(NJS_MATERIAL, matlist_00F975B0, 0x013975B0, 3);
 DataArray(NJS_MATERIAL, matlist_00F98C98, 0x01398C98, 6);
@@ -417,15 +415,6 @@ void WaterTexture_BossWaves()
 			e101rwater++;
 		}
 	}
-}
-
-const char* __cdecl SetPLM0X(int level, int act)
-{
-	if (level == 22)
-	{
-		return plm0xbin.c_str();
-	}
-	else { return nullptr; }
 }
 
 void FixChaos0Car(NJS_ACTION *a1, float frame, float scale)
@@ -1082,14 +1071,11 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		}
 	}
 	//Lighting stuff
-	plm0xbin = path;
-	plm0xbin.append("\\system\\PL_M0X.BIN");
+	ReplaceBIN("PL_M0B", "PL_M0X");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	HMODULE SA1Chars = GetModuleHandle(L"SA1_Chars");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
-		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
-		pl_load_register(SetPLM0X);
 		material_register(Chaos6ObjectMaterials, LengthOfArray(Chaos6ObjectMaterials), &ForceDiffuse0Specular0or1);
 		material_register(WhiteDiffuse_Boss, LengthOfArray(WhiteDiffuse_Boss), &ForceWhiteDiffuse1);
 	}

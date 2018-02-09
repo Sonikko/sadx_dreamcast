@@ -26,7 +26,6 @@ FunctionPointer(void, sub_6F4570, (ObjectMaster *a1), 0x6F4570);
 DataPointer(ObjectMaster*, dword_3C85138, 0x3C85138);
 HMODULE ADV01MODELS = GetModuleHandle(L"ADV01MODELS");
 HMODULE ADV01CMODELS = GetModuleHandle(L"ADV01CMODELS");
-std::string plw1xbin;
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataArray(PVMEntry, stru_10F34A8, 0x10F34A8, 6);
 DataArray(PVMEntry, stru_1101360, 0x1101360, 2);
@@ -70,15 +69,6 @@ NJS_ACTION **___ADV01_ACTIONS = (NJS_ACTION **)GetProcAddress(ADV01MODELS, "___A
 NJS_OBJECT **___ADV01_OBJECTS = (NJS_OBJECT **)GetProcAddress(ADV01MODELS, "___ADV01_OBJECTS");
 NJS_OBJECT **___ADV01EC00_OBJECTS = (NJS_OBJECT **)GetProcAddress(ADV01MODELS, "___ADV01EC00_OBJECTS");
 NJS_MODEL_SADX **___ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(ADV01CMODELS, "___ADV01C_MODELS");
-
-const char* __cdecl SetPLW1X(int level, int act)
-{
-	if (level == 32 && act == 1)
-	{
-		return plw1xbin.c_str();
-	}
-	else { return nullptr; }
-}
 
 NJS_MATERIAL* ObjectSpecularADV01[] = {
 	//OMast
@@ -403,13 +393,10 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x00678CCB, -143.85f); //X2
 	WriteData((float*)0x00678CC6, 15.93f); //Y2
 	WriteData((float*)0x00678CC1, 80.25f); //Z2
-	plw1xbin = path;
-	plw1xbin.append("\\system\\PL_W1X.BIN");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
+	ReplaceBIN("PL_W1B", "PL_W1X");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
-		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
-		pl_load_register(SetPLW1X);
 		material_register(ObjectSpecularADV01, LengthOfArray(ObjectSpecularADV01), &ForceDiffuse0Specular1);
 		//material_register(LevelSpecularADV01, LengthOfArray(LevelSpecularADV01), &ForceDiffuse0Specular0);
 		material_register(WhiteDiffuseADV01, LengthOfArray(WhiteDiffuseADV01), &ForceWhiteDiffuse1);

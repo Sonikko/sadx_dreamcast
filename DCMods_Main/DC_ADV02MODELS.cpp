@@ -22,11 +22,6 @@
 #include <IniFile.hpp>
 #include "DC_Levels.h"
 
-
-std::string slx0xbin;
-std::string slx1xbin;
-std::string slx2xbin;
-
 HMODULE ADV02MODELS = GetModuleHandle(L"ADV02MODELS");
 NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV02MODELS, "___ADV02_TEXLISTS");
 NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(ADV02MODELS, "___ADV02_ACTIONS");
@@ -59,17 +54,6 @@ static int uvADV02_anim = 1;
 static int SADXStyleWater = false;
 NJS_TEXNAME textures_mrtrain[31];
 NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
-
-const char* __cdecl SetSLX0X(int level, int act)
-{
-	if (level == 33 && act != 3)
-	{
-		if (GetTimeOfDay() == 0) return slx0xbin.c_str();
-		if (GetTimeOfDay() == 1) return slx1xbin.c_str();
-		if (GetTimeOfDay() == 2) return slx2xbin.c_str();
-	}
-	else { return nullptr; }
-}
 
 void __cdecl SetWaterTexture()
 {
@@ -340,16 +324,11 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((int*)0x006D1D13, 0); //
 	WriteData((int*)0x006D1D18, 0); //
 	WriteData((int*)0x006D1D1D, 0); //
-	slx0xbin = path;
-	slx0xbin.append("\\system\\SL_X0X.BIN");
-	slx1xbin = path;
-	slx1xbin.append("\\system\\SL_X1X.BIN");
-	slx2xbin = path;
-	slx2xbin.append("\\system\\SL_X2X.BIN");
+	ReplaceBIN("SL_X0B", "SL_X0X");
+	ReplaceBIN("SL_X1B", "SL_X1X");
+	ReplaceBIN("SL_X2B", "SL_X2X");
 	if (handle != nullptr && Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
-		typedef const char* (__cdecl* lantern_load_cb)(int level, int act);
-		sl_load_register(SetSLX0X);
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceDiffuse0Specular1);
 		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceDiffuse0Specular0);
 		material_register(WhiteDiffuse, LengthOfArray(WhiteDiffuse), &ForceWhiteDiffuse1);
