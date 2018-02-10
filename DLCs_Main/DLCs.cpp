@@ -10641,6 +10641,15 @@ extern "C"
 		Dec1DLC = config->getInt("Seasonal DLC settings", "Dec1DLC", 2);
 		Dec2DLC = config->getInt("Seasonal DLC settings", "Dec2DLC", 1);
 		delete config;
+		if (ForceSADXLayout == false)
+		{
+			ReplaceBIN("CAMSS00S", "CAMSS00S_DC");
+			ReplaceBIN("CAMSS01S", "CAMSS01S_DC");
+			ReplaceBIN("CAMSS02S", "CAMSS02S_DC");
+			ReplaceBIN("CAMSS03S", "CAMSS03S_DC");
+			ReplaceBIN("CAMSS04S", "CAMSS04S_DC");
+			ReplaceBIN("CAMSS05S", "CAMSS05S_DC");
+		}
 		FirstMonthDLCs[1] = Jan1DLC;
 		FirstMonthDLCs[2] = Feb1DLC;
 		FirstMonthDLCs[3] = Mar1DLC;
@@ -10739,6 +10748,12 @@ extern "C"
 		//QUO challenge
 		if (CurrentDLC == 6)
 		{
+			ReplaceBIN("CAMSS00S", "CAMSS00S_F");
+			ReplaceBIN("CAMSS01S", "CAMSS01S_F");
+			ReplaceBIN("CAMSS02S", "CAMSS02S_F");
+			ReplaceBIN("CAMSS03S", "CAMSS03S_F");
+			ReplaceBIN("CAMSS04S", "CAMSS04S_F");
+			ReplaceBIN("CAMSS05S", "CAMSS05S_F");
 			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
 			helperFunctions.RegisterCommonObjectPVM(QuoTextures);
 			helperFunctions.RegisterCommonObjectPVM(TimerTextures);
