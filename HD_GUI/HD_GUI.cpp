@@ -6,7 +6,7 @@
 
 #define ReplacePVMX(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_HD.PVM");
 #define ReplacePNG(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\pvr\\index.txt", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
-#define ReplacePNG_GoalRing(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\goalring\\index.txt", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
+#define ReplacePNG_GoalRing(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\m_goalring\\index.txt", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
 
 static float Options_ArrowScale = 0.0f;
 static float Options_ArrowScaleAmount = 0.1f;
@@ -105,6 +105,13 @@ void ScaleCharselJapaneseText_LikeSeriouslyWTF(int that_cant_be_right, float x, 
 	DrawBG(that_cant_be_right, x+5.0f, y, z, 0.77999997f, 0.77999997f);
 }
 
+void HelpAvaSquareThing(unsigned __int8 n, float x, float y, float z, float scaleX, float scaleY)
+{
+	Direct3D_EnableZWrite(0);
+	DrawBG_ava_square_a(n, x, y, z, scaleX, scaleY);
+	Direct3D_EnableZWrite(1);
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
@@ -117,8 +124,15 @@ extern "C"
 				"HD GUI error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
+		WriteCall((void*)0x00504DC4, HelpAvaSquareThing);
 		WriteCall((void*)0x0050717E, ScaleCharselJapaneseText_LikeSeriouslyWTF);
 		WriteCall((void*)0x005070E2, ScaleCharselJapaneseText_LikeSeriouslyWTF);
+		WriteData<1>((char*)0x0091C00C, 0i8); //You win/lose text alignment
+		WriteData<1>((char*)0x0091C00E, 0i8); //You win/lose text alignment
+		WriteData<1>((char*)0x0091C020, 0i8); //You win/lose text alignment
+		WriteData<1>((char*)0x0091C022, 0i8); //You win/lose text alignment
+		WriteData<1>((char*)0x0091C034, 0i8); //You win/lose text alignment
+		WriteData<1>((char*)0x0091C048, 0i8); //You win/lose text alignment
 		char pathbuf[MAX_PATH];
 		ReplacePVMX("ADV_WINDOW");
 		ReplacePVMX("AVA_BACK");
@@ -554,7 +568,3 @@ extern "C"
 		}
 	}
 }
-
-
-
-
