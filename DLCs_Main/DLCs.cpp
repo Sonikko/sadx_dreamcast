@@ -86,7 +86,7 @@ DataArray(FieldStartPosition, BigSSStartArray, 0x0090BDF8, 6);
 DataArray(FieldStartPosition, E102SSStartArray, 0x0090BE70, 7);
 
 //Common
-static bool EverybodySuperSonicRacing = true;
+static bool EverybodySuperSonicRacing;
 static int CurrentDLC;
 static bool ObjectsLoaded = false;
 static bool ObjectsLoaded_SS = false;
@@ -9673,7 +9673,7 @@ void Y2KPoster_Display(ObjectMaster *a1)
 		njPushMatrix(0);
 		njTranslateV(0, &v1->Position);
 		njRotateY(0, v3 + 0xC000);
-		ProcessModelNode_AB_Wrapper(&poster, 1.0f);
+		ProcessModelNode_AB_Wrapper(&y2kposter, 1.0f);
 		njPopMatrix(1u);
 	}
 }
@@ -10609,7 +10609,7 @@ extern "C"
 		CurrentDLC = config->getInt("General settings", "DLCSingle", 0);
 		SegaVoiceMode = config->getBool("General settings", "EnableSegaVoice", true);
 		SegaVoiceLanguage = config->getString("General settings", "SegaVoiceLanguage", "English");
-		EverybodySuperSonicRacing = config->getBool("Samba GP settings", "SuperSonicRacing", true);
+		EverybodySuperSonicRacing = config->getBool("Samba GP settings", "SuperSonicRacing", false);
 		SonicTrack = config->getInt("Samba GP settings", "SonicTrack", 2);
 		TailsTrack = config->getInt("Samba GP settings", "TailsTrack", 1);
 		KnucklesTrack = config->getInt("Samba GP settings", "KnucklesTrack", 3);

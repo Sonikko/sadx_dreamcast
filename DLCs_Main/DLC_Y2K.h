@@ -629,5 +629,42 @@ NJS_MODEL_SADX attach_000014EC = { vertex_0000076C, normal_00000E2C, LengthOfArr
 
 NJS_OBJECT object_00001514 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_000014EC, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
+NJS_MATERIAL matlist_y2kposter[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 3, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_y2kposter[] = {
+	4, 3, 2, 1, 0
+};
+
+NJS_TEX uv_y2kposter[] = {
+	{ 0, 255 },
+	{ 255, 255 },
+	{ 0 },
+	{ 255, 0 }
+};
+
+NJS_MESHSET_SADX meshlist_y2kposter[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_y2kposter, NULL, NULL, NULL, uv_y2kposter, NULL }
+};
+
+NJS_VECTOR vertex_y2kposter[] = {
+	{ 0, 10.0f, -10.0f },
+	{ 0, 10.0f, 10.0f },
+	{ 0, -10.0f, -10.0f },
+	{ 0, -10.0f, 10.0f }
+};
+
+NJS_VECTOR normal_y2kposter[] = {
+	{ 1, 0, 0 },
+	{ 1, 0, 0 },
+	{ 1, 0, 0 },
+	{ 1, 0, 0 }
+};
+
+NJS_MODEL_SADX attach_y2kposter = { vertex_y2kposter, normal_y2kposter, LengthOfArray(vertex_y2kposter), meshlist_y2kposter, matlist_y2kposter, LengthOfArray(meshlist_y2kposter), LengthOfArray(matlist_y2kposter),{ 0, 1.5f, 0 }, 11.71537f, NULL };
+
+NJS_OBJECT y2kposter = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_y2kposter, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
 NJS_TEXNAME textures_y2k[4];
 NJS_TEXLIST texlist_y2k = { arrayptrandlength(textures_y2k) };
