@@ -92,6 +92,7 @@ static bool ObjectsLoaded = false;
 static bool ObjectsLoaded_SS = false;
 static bool ObjectsLoaded_MR = false;
 static bool ForceSADXLayout = false;
+static bool DisableDuringStory = false;
 static bool TimerLoaded = false;
 static int PreviousLevel = 0;
 static int PreviousAct = 0;
@@ -10484,104 +10485,113 @@ void LoadY2KRings()
 void DLCHook_LoadLevelIncrementAct(ObjectMaster *a1)
 {
 	sub_4570B0();
-	if (CurrentDLC == 0)
+	if (IsAdventureComplete(GetCharacterSelection()) || DisableDuringStory == false)
 	{
-		if (CurrentLevel == 4 && CurrentAct == 0)
+		if (CurrentDLC == 0)
 		{
-			if (ChallengeAction == true && ChallengeOver == false && CurrentLevel == 4 && CurrentAct == 0 && CurrentCharacter == 0) LoadATT1Stuff();
+			if (CurrentLevel == 4 && CurrentAct == 0)
+			{
+				if (ChallengeAction == true && ChallengeOver == false && CurrentLevel == 4 && CurrentAct == 0 && CurrentCharacter == 0) LoadATT1Stuff();
+			}
+			if (CurrentLevel == 38 && CurrentCharacter == 2) LoadATT3Stuff(); //Challenge 3
 		}
-		if (CurrentLevel == 38 && CurrentCharacter == 2) LoadATT3Stuff(); //Challenge 3
-	}
-	//Halloween
-	if (CurrentDLC == 4)
-	{
-		if (CurrentLevel == 3 && CurrentAct == 0) LoadHalloweenStuff_Twinkle1();
-		if (CurrentLevel == 3 && CurrentAct == 1) LoadHalloweenStuff_Twinkle2();
-		if (CurrentLevel == 3 && CurrentAct == 2) LoadHalloweenStuff_Twinkle3();
-	}
-	//Reebok challenge
-	if (CurrentDLC == 7 && GetEventFlag(EventFlags_Sonic_EmeraldCoastClear))
-	{
-		if (ChallengeAction == true && ChallengeOver == false && CurrentLevel == 1 && CurrentAct == 0 && CurrentCharacter == 0) LoadReebokStuffInEmeraldCoast();
-	}
-	//Y2K Rings
-	if (CurrentDLC == 9)
-	{
-		if (CurrentLevel != 26 && CurrentLevel != 33 && CurrentLevel != 29 && CurrentLevel != 32 && CurrentLevel != 34) LoadY2KRings();
+		//Halloween
+		if (CurrentDLC == 4)
+		{
+			if (CurrentLevel == 3 && CurrentAct == 0) LoadHalloweenStuff_Twinkle1();
+			if (CurrentLevel == 3 && CurrentAct == 1) LoadHalloweenStuff_Twinkle2();
+			if (CurrentLevel == 3 && CurrentAct == 2) LoadHalloweenStuff_Twinkle3();
+		}
+		//Reebok challenge
+		if (CurrentDLC == 7 && GetEventFlag(EventFlags_Sonic_EmeraldCoastClear))
+		{
+			if (ChallengeAction == true && ChallengeOver == false && CurrentLevel == 1 && CurrentAct == 0 && CurrentCharacter == 0) LoadReebokStuffInEmeraldCoast();
+		}
+		//Y2K Rings
+		if (CurrentDLC == 9)
+		{
+			if (CurrentLevel != 26 && CurrentLevel != 33 && CurrentLevel != 29 && CurrentLevel != 32 && CurrentLevel != 34) LoadY2KRings();
+		}
 	}
 }
 
 void DLCHook_StationSquare()
 {
 	sub_62E980();
-	if (CurrentDLC == 0)
+	if (IsAdventureComplete(GetCharacterSelection()) || DisableDuringStory == false)
 	{
-		//Challenge 1 (Sonic)
-		if (CurrentLevel == 26 && CurrentCharacter == 0 && (GetEventFlag(EventFlags_Sonic_SpeedHighwayClear) || !GetEventFlag(EventFlags_Sonic_SpeedHighwayOpen))) LoadATT1Stuff_SS();
-		//Challenge 2 (Knuckles)
-		if ((CurrentLevel == 26 || CurrentLevel == 33) && CurrentCharacter == 3) LoadATT2Stuff_SSorMR();
-		//Challenge 3 (Tails)
-		if (CurrentLevel == 26 && CurrentCharacter == 2) LoadATT3Stuff_SS(); //Challenge 3
-	}
-	if (CurrentDLC == 1)
-	{
-		if (CurrentLevel == 26) Christmas98_LoadStuff();
-	}
-	//Christmas 99
-	if (CurrentDLC == 2)
-	{
-		if (CurrentLevel == 26) Christmas99_LoadStuff();
-	}
-	//Famitsu
-	if (CurrentDLC == 3)
-	{
-		if (CurrentLevel == 26) Famitsu_LoadStuff();
-	}
-	//Halloween
-	if (CurrentDLC == 4)
-	{
-		if (CurrentLevel == 26) LoadHalloweenStuff_StationSquare();
-	}
-	//Launch Party
-	if (CurrentDLC == 5)
-	{
-		if (CurrentLevel == 26) LoadLaunchPartyStuff_SS();
-	}
-	//QUO challenge
-	if (CurrentDLC == 6)
-	{
-		if (CurrentLevel == 26 || CurrentLevel == 33) LoadQUOStuff();
-	}
-	//Reebok challenge
-	if (CurrentDLC == 7)
-	{
-		if (CurrentLevel == 26 && GetEventFlag(EventFlags_Sonic_EmeraldCoastClear)) LoadReebokStuffInStationSquare();
-	}
-	//Samba GP
-	if (CurrentDLC == 8)
-	{
-		if (CurrentLevel == 26) LoadSambaGateEntry();
-	}
-	//Y2K
-	if (CurrentDLC == 9)
-	{
-		if (CurrentLevel == 26) LoadY2KRings_StationSquare(); else LoadY2KRings();
+		if (CurrentDLC == 0)
+		{
+			//Challenge 1 (Sonic)
+			if (CurrentLevel == 26 && CurrentCharacter == 0 && (GetEventFlag(EventFlags_Sonic_SpeedHighwayClear) || !GetEventFlag(EventFlags_Sonic_SpeedHighwayOpen))) LoadATT1Stuff_SS();
+			//Challenge 2 (Knuckles)
+			if ((CurrentLevel == 26 || CurrentLevel == 33) && CurrentCharacter == 3) LoadATT2Stuff_SSorMR();
+			//Challenge 3 (Tails)
+			if (CurrentLevel == 26 && CurrentCharacter == 2) LoadATT3Stuff_SS(); //Challenge 3
+		}
+		if (CurrentDLC == 1)
+		{
+			if (CurrentLevel == 26) Christmas98_LoadStuff();
+		}
+		//Christmas 99
+		if (CurrentDLC == 2)
+		{
+			if (CurrentLevel == 26) Christmas99_LoadStuff();
+		}
+		//Famitsu
+		if (CurrentDLC == 3)
+		{
+			if (CurrentLevel == 26) Famitsu_LoadStuff();
+		}
+		//Halloween
+		if (CurrentDLC == 4)
+		{
+			if (CurrentLevel == 26) LoadHalloweenStuff_StationSquare();
+		}
+		//Launch Party
+		if (CurrentDLC == 5)
+		{
+			if (CurrentLevel == 26) LoadLaunchPartyStuff_SS();
+		}
+		//QUO challenge
+		if (CurrentDLC == 6)
+		{
+			if (CurrentLevel == 26 || CurrentLevel == 33) LoadQUOStuff();
+		}
+		//Reebok challenge
+		if (CurrentDLC == 7)
+		{
+			if (CurrentLevel == 26 && GetEventFlag(EventFlags_Sonic_EmeraldCoastClear)) LoadReebokStuffInStationSquare();
+		}
+		//Samba GP
+		if (CurrentDLC == 8)
+		{
+			if (CurrentLevel == 26) LoadSambaGateEntry();
+		}
+		//Y2K
+		if (CurrentDLC == 9)
+		{
+			if (CurrentLevel == 26) LoadY2KRings_StationSquare(); else LoadY2KRings();
+		}
 	}
 }
 
 void DLCHook_MysticRuins()
 {
 	sub_52F240();
-	//ATT challenges
-	if (CurrentDLC == 0)
+	if (IsAdventureComplete(GetCharacterSelection()) || DisableDuringStory == false)
 	{
-		//Challenge 2 (Knuckles)
-		if ((CurrentLevel == 26 || CurrentLevel == 33) && CurrentCharacter == 3) LoadATT2Stuff_SSorMR();
-	}
-	//QUO challenge
-	if (CurrentDLC == 6)
-	{
-		if (CurrentLevel == 26 || CurrentLevel == 33) LoadQUOStuff();
+		//ATT challenges
+		if (CurrentDLC == 0)
+		{
+			//Challenge 2 (Knuckles)
+			if ((CurrentLevel == 26 || CurrentLevel == 33) && CurrentCharacter == 3) LoadATT2Stuff_SSorMR();
+		}
+		//QUO challenge
+		if (CurrentDLC == 6)
+		{
+			if (CurrentLevel == 26 || CurrentLevel == 33) LoadQUOStuff();
+		}
 	}
 }
 
@@ -10604,6 +10614,7 @@ extern "C"
 		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 		MenuVoiceMode = config->getInt("General settings", "MenuVoiceThing", -1);
 		if (MenuVoiceMode == 9) MenuVoiceMode = rand() % 8 + 1;
+		DisableDuringStory = config->getBool("General settings", "DisableDuringStory", false);
 		ForceSADXLayout = config->getBool("General settings", "ForceSADXMode", false);
 		DLCMode = config->getString("General settings", "DLCMode", "Random");
 		CurrentDLC = config->getInt("General settings", "DLCSingle", 0);
@@ -10803,65 +10814,296 @@ extern "C"
 			if (MenuVoice != MenuVoiceMode) MenuVoice = MenuVoiceMode;
 		}
 		if (HintTimer > 0) HintTimer--;
-		if (CurrentDLC == 0)
+		if (IsAdventureComplete(GetCharacterSelection()) || DisableDuringStory == false)
 		{
-			if (CurrentCharacter == 0)
+			if (CurrentDLC == 0)
 			{
-				if (GameState != 16)
+				if (CurrentCharacter == 0)
 				{
-					if (GameState == 6 || CurrentLevel != 26 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
+					if (GameState != 16)
 					{
-						ObjectsLoaded = false;
+						if (GameState == 6 || CurrentLevel != 26 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
+						{
+							ObjectsLoaded = false;
+						}
+						if (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Adventure_ActionStg && GameMode != GameModes_Mission)
+						{
+							HighwayGoal = false;
+							ChallengeAction = false;
+							ChallengeOver = false;
+							ChallengeTimer = 0;
+							ObjectsLoaded = false;
+						}
+						if (CurrentLevel == 4 && GameState == 9 && HighwayGoal == false)
+						{
+							ChallengeAction = false;
+							ChallengeOver = false;
+							ChallengeTimer = 0;
+							ObjectsLoaded = false;
+						}
 					}
-					if (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Adventure_ActionStg && GameMode != GameModes_Mission)
+				}
+				if (CurrentCharacter == 3)
+				{
+					if (GameState != 16)
 					{
-						HighwayGoal = false;
-						ChallengeAction = false;
-						ChallengeOver = false;
-						ChallengeTimer = 0;
-						ObjectsLoaded = false;
+						if (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission)
+						{
+							ChallengeAction = false;
+							ChallengeOver = false;
+							Treasure1 = false;
+							Treasure2 = false;
+							Treasure3 = false;
+							Treasure4 = false;
+							ChallengeTimer = 0;
+							ObjectsLoaded = false;
+						}
+						if (PreviousLevel != CurrentLevel)
+						{
+							ObjectsLoaded = false;
+							PreviousLevel = CurrentLevel;
+							PreviousAct = CurrentAct;
+						}
+						if (GameState == 6)
+						{
+							ObjectsLoaded = false;
+						}
 					}
-					if (CurrentLevel == 4 && GameState == 9 && HighwayGoal == false)
+				}
+				if (CurrentCharacter == 2)
+				{
+					if (GameState != 16)
 					{
-						ChallengeAction = false;
-						ChallengeOver = false;
-						ChallengeTimer = 0;
-						ObjectsLoaded = false;
+						if (CurrentLevel != 38 || GameState == 21)
+						{
+							ChallengeAction = false;
+							ChallengeOver = false;
+							Gate1 = false;
+							Gate2 = false;
+							Gate3 = false;
+							Gate4 = false;
+							Gate5 = false;
+							Gate6 = false;
+							Gate7 = false;
+							Gate8 = false;
+							Gate9 = false;
+							Gate10 = false;
+							ChallengeTimer = 0;
+						}
+						if (CurrentLevel != 26 || GameState == 6)
+						{
+							ObjectsLoaded = false;
+						}
+						if (CurrentLevel == 33 && CollectedAll == 10 && ChallengeOver == false && Camera_Data1 != nullptr)
+						{
+							sub_4B79C0((char *)(&ATT3_Message4), 360);
+							Gate1 = false;
+							Gate2 = false;
+							Gate3 = false;
+							Gate4 = false;
+							Gate5 = false;
+							Gate6 = false;
+							Gate7 = false;
+							Gate8 = false;
+							Gate9 = false;
+							Gate10 = false;
+							CollectedAll = 0;
+							ChallengeTimer = 0;
+							ChallengeOver = false;
+							ChallengeAction = false;
+						}
 					}
 				}
 			}
-			if (CurrentCharacter == 3)
+			if (CurrentDLC == 1)
+			{
+				if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
+				{
+					ObjectsLoaded = false;
+					MusicMode = 0;
+					WriteData<1>((char*)0x0062EEF9, MusicIDs_StationSquare);
+				}
+			}
+			if (CurrentDLC == 2)
+			{
+				if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
+				{
+					ObjectsLoaded = false;
+					MusicMode = 0;
+					WriteData<1>((char*)0x0062EEF9, MusicIDs_StationSquare);
+				}
+			}
+			if (CurrentDLC == 3)
+			{
+				HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
+				NJS_OBJECT **___ADV00SS01_OBJECTS = (NJS_OBJECT **)GetProcAddress(ADV00MODELS, "___ADV00SS01_OBJECTS");
+				if (GameState != 16)
+				{
+					if (GameState == 6)
+					{
+						ObjectsLoaded = false;
+						Collected1 = false;
+						Collected2 = false;
+						Collected3 = false;
+						Collected4 = false;
+						Collected5 = false;
+						CollectedAll = 0;
+						ChallengeAction = false;
+						ChallengeTimer = 0;
+					}
+					if (ForceSADXLayout == true && ChallengeAction == true && ADV00MODELS != nullptr)
+					{
+						COL_whatever.Flags = 0x80040000;
+						___ADV00SS01_OBJECTS[28]->pos[1] = 20;
+					}
+					if (CurrentLevel != 26 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
+					{
+						ObjectsLoaded = false;
+						Collected1 = false;
+						Collected2 = false;
+						Collected3 = false;
+						Collected4 = false;
+						Collected5 = false;
+						CollectedAll = 0;
+						ChallengeAction = false;
+						ChallengeTimer = 0;
+					}
+				}
+			}
+			if (CurrentDLC == 4)
+			{
+				if (CurrentLevel != 26 || GameState == 6 || GameState == 21)
+				{
+					ObjectsLoaded = false;
+				}
+			}
+			if (CurrentDLC == 5)
+			{
+				if (CurrentLevel != 26 || GameState == 6 || GameState == 21)
+				{
+					ObjectsLoaded = false;
+				}
+			}
+			if (CurrentDLC == 6)
 			{
 				if (GameState != 16)
 				{
 					if (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission)
 					{
+						CollectedAll = 0;
+						CollectedSS1 = false;
+						CollectedSS2 = false;
+						CollectedSS3 = false;
+						CollectedMR1 = false;
+						CollectedMR2 = false;
+						CollectedMR3 = false;
+						ChallengeTimer = 0;
 						ChallengeAction = false;
-						ChallengeOver = false;
+						ObjectsLoaded_SS = false;
+						ObjectsLoaded_MR = false;
+						TimerLoaded = false;
+					}
+					if (GameState == 6)
+					{
+						ObjectsLoaded_SS = false;
+						ObjectsLoaded_MR = false;
+						TimerLoaded = false;
+					}
+					if (PreviousLevel != CurrentLevel)
+					{
+						if (PreviousLevel == 26) ObjectsLoaded_SS = false;
+						if (PreviousLevel == 33) ObjectsLoaded_MR = false;
+						TimerLoaded = false;
+						PreviousLevel = CurrentLevel;
+					}
+				}
+			}
+			if (CurrentDLC == 7)
+			{
+				if (GameState != 16)
+				{
+					if (GameState == 6)
+					{
+						ObjectsLoaded = false;
+					}
+					if (CurrentLevel != 26 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
+					{
+						ObjectsLoaded = false;
+					}
+					if (ChallengeAction == true && (CurrentLevel != 1 || CurrentAct != 0))
+					{
+						ChallengeTimer = 0;
+						Collected1 = false;
+						Collected2 = false;
+						Collected3 = false;
+						Collected4 = false;
+						Collected5 = false;
+						CollectedAll = 0;
+					}
+				}
+			}
+			if (CurrentDLC == 8)
+			{
+				if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
+				{
+					ObjectsLoaded = false;
+				}
+			}
+			if (CurrentDLC == 9)
+			{
+				if (GameState != 16)
+				{
+					if (CurrentLevel != 26)
+					{
+						ObjectsLoaded = false;
+						WriteData<1>((char*)0x0062EEF9, MusicIDs_s_square);
+					}
+					if (GameState == 6 || GameState == 7 || GameState == 21)
+					{
+						MusicMode = 0;
+						ObjectsLoaded = false;
+						WriteData<1>((char*)0x0062EEF9, MusicIDs_s_square);
+					}
+					if (PreviousLevel != CurrentLevel)
+					{
+						MusicMode = 0;
+						PreviousLevel = CurrentLevel;
+						PreviousAct = CurrentAct;
+					}
+					if (CurrentLevel != 26 && PreviousAct != CurrentAct)
+					{
+						MusicMode = 0;
+						PreviousLevel = CurrentLevel;
+						PreviousAct = CurrentAct;
+					}
+				}
+			}
+		}
+	}
+
+	__declspec(dllexport) void __cdecl OnInput()
+	{
+		if (IsAdventureComplete(GetCharacterSelection()) || DisableDuringStory == false)
+		{
+			if (CurrentDLC == 0)
+			{
+				if (CurrentCharacter == 3 && GameState == 16)
+				{
+					if (ChallengeAction == true && (ControllerPointersShit[0]->PressedButtons & Buttons_Y) == Buttons_Y)
+					{
+						CollectedAll = 0;
 						Treasure1 = false;
 						Treasure2 = false;
 						Treasure3 = false;
 						Treasure4 = false;
 						ChallengeTimer = 0;
-						ObjectsLoaded = false;
-					}
-					if (PreviousLevel != CurrentLevel)
-					{
-						ObjectsLoaded = false;
-						PreviousLevel = CurrentLevel;
-						PreviousAct = CurrentAct;
-					}
-					if (GameState == 6)
-					{
-						ObjectsLoaded = false;
+						ChallengeAction = false;
+						ChallengeOver = false;
 					}
 				}
-			}
-			if (CurrentCharacter == 2)
-			{
-				if (GameState != 16)
+				if (CurrentCharacter == 2 && GameState == 16)
 				{
-					if (CurrentLevel != 38 || GameState == 21)
+					if (ChallengeAction == true && (ControllerPointersShit[0]->PressedButtons & Buttons_Y) == Buttons_Y)
 					{
 						ChallengeAction = false;
 						ChallengeOver = false;
@@ -10877,105 +11119,25 @@ extern "C"
 						Gate10 = false;
 						ChallengeTimer = 0;
 					}
-					if (CurrentLevel != 26 || GameState == 6)
-					{
-						ObjectsLoaded = false;
-					}
-					if (CurrentLevel == 33 && CollectedAll == 10 && ChallengeOver == false && Camera_Data1 != nullptr)
-					{
-						sub_4B79C0((char *)(&ATT3_Message4), 360);
-						Gate1 = false;
-						Gate2 = false;
-						Gate3 = false;
-						Gate4 = false;
-						Gate5 = false;
-						Gate6 = false;
-						Gate7 = false;
-						Gate8 = false;
-						Gate9 = false;
-						Gate10 = false;
-						CollectedAll = 0;
-						ChallengeTimer = 0;
-						ChallengeOver = false;
-						ChallengeAction = false;
-					}
 				}
 			}
-		}
-		if (CurrentDLC == 1)
-		{
-			if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
+			if (CurrentDLC == 3 && GameState == 16)
 			{
-				ObjectsLoaded = false;
-				MusicMode = 0;
-				WriteData<1>((char*)0x0062EEF9, MusicIDs_StationSquare);
-			}
-		}
-		if (CurrentDLC == 2)
-		{
-			if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
-			{
-				ObjectsLoaded = false;
-				MusicMode = 0;
-				WriteData<1>((char*)0x0062EEF9, MusicIDs_StationSquare);
-			}
-		}
-		if (CurrentDLC == 3)
-		{
-			HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
-			NJS_OBJECT **___ADV00SS01_OBJECTS = (NJS_OBJECT **)GetProcAddress(ADV00MODELS, "___ADV00SS01_OBJECTS");
-			if (GameState != 16)
-			{
-				if (GameState == 6)
+				if (ChallengeAction == true && (ControllerPointersShit[0]->PressedButtons & Buttons_Y) == Buttons_Y)
 				{
-					ObjectsLoaded = false;
+					CollectedAll = 0;
 					Collected1 = false;
 					Collected2 = false;
 					Collected3 = false;
 					Collected4 = false;
 					Collected5 = false;
-					CollectedAll = 0;
-					ChallengeAction = false;
 					ChallengeTimer = 0;
-				}
-				if (ForceSADXLayout == true && ChallengeAction == true && ADV00MODELS != nullptr)
-				{
-					COL_whatever.Flags = 0x80040000;
-					___ADV00SS01_OBJECTS[28]->pos[1] = 20;
-				}
-				if (CurrentLevel != 26 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
-				{
-					ObjectsLoaded = false;
-					Collected1 = false;
-					Collected2 = false;
-					Collected3 = false;
-					Collected4 = false;
-					Collected5 = false;
-					CollectedAll = 0;
 					ChallengeAction = false;
-					ChallengeTimer = 0;
 				}
 			}
-		}
-		if (CurrentDLC == 4)
-		{
-			if (CurrentLevel != 26 || GameState == 6 || GameState == 21)
+			if (CurrentDLC == 6 && GameState == 16)
 			{
-				ObjectsLoaded = false;
-			}
-		}
-		if (CurrentDLC == 5)
-		{
-			if (CurrentLevel != 26 || GameState == 6 || GameState == 21)
-			{
-				ObjectsLoaded = false;
-			}
-		}
-		if (CurrentDLC == 6)
-		{
-			if (GameState != 16)
-			{
-				if (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission)
+				if (ChallengeAction == true && (ControllerPointersShit[0]->PressedButtons & Buttons_Y) == Buttons_Y)
 				{
 					CollectedAll = 0;
 					CollectedSS1 = false;
@@ -10986,153 +11148,8 @@ extern "C"
 					CollectedMR3 = false;
 					ChallengeTimer = 0;
 					ChallengeAction = false;
-					ObjectsLoaded_SS = false;
-					ObjectsLoaded_MR = false;
-					TimerLoaded = false;
-				}
-				if (GameState == 6)
-				{
-					ObjectsLoaded_SS = false;
-					ObjectsLoaded_MR = false;
-					TimerLoaded = false;
-				}
-				if (PreviousLevel != CurrentLevel)
-				{
-					if (PreviousLevel == 26) ObjectsLoaded_SS = false;
-					if (PreviousLevel == 33) ObjectsLoaded_MR = false;
-					TimerLoaded = false;
-					PreviousLevel = CurrentLevel;
 				}
 			}
-		}
-		if (CurrentDLC == 7)
-		{
-			if (GameState != 16)
-			{
-				if (GameState == 6)
-				{
-					ObjectsLoaded = false;
-				}
-				if (CurrentLevel != 26 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
-				{
-					ObjectsLoaded = false;
-				}
-				if (ChallengeAction == true && (CurrentLevel != 1 || CurrentAct != 0))
-				{
-					ChallengeTimer = 0;
-					Collected1 = false;
-					Collected2 = false;
-					Collected3 = false;
-					Collected4 = false;
-					Collected5 = false;
-					CollectedAll = 0;
-				}
-			}
-		}
-		if (CurrentDLC == 8)
-		{
-			if (CurrentLevel != 26 || GameState == 6 || GameState == 21 || (GameMode != GameModes_Adventure_Field && GameMode != GameModes_Mission))
-			{
-				ObjectsLoaded = false;
-			}
-		}
-		if (CurrentDLC == 9)
-		{
-			if (GameState != 16)
-			{
-				if (CurrentLevel != 26)
-				{
-					ObjectsLoaded = false;
-					WriteData<1>((char*)0x0062EEF9, MusicIDs_s_square);
-				}
-				if (GameState == 6 || GameState == 7 || GameState == 21)
-				{
-					MusicMode = 0;
-					ObjectsLoaded = false;
-					WriteData<1>((char*)0x0062EEF9, MusicIDs_s_square);
-				}
-				if (PreviousLevel != CurrentLevel)
-				{
-					MusicMode = 0;
-					PreviousLevel = CurrentLevel;
-					PreviousAct = CurrentAct;
-				}
-				if (CurrentLevel != 26 && PreviousAct != CurrentAct)
-				{
-					MusicMode = 0;
-					PreviousLevel = CurrentLevel;
-					PreviousAct = CurrentAct;
-				}
-			}
-		}
-	}
-
-	__declspec(dllexport) void __cdecl OnInput()
-	{
-		if (CurrentDLC == 0)
-		{
-		if (CurrentCharacter == 3 && GameState == 16)
-		{
-		if (ChallengeAction == true && (ControllerPointersShit[0]->PressedButtons & Buttons_Y) == Buttons_Y)
-		{
-		CollectedAll = 0;
-		Treasure1 = false;
-		Treasure2 = false;
-		Treasure3 = false;
-		Treasure4 = false;
-		ChallengeTimer = 0;
-		ChallengeAction = false;
-		ChallengeOver = false;
-		}
-		}
-		if (CurrentCharacter == 2 && GameState == 16)
-		{
-		if (ChallengeAction == true && (ControllerPointersShit[0]->PressedButtons & Buttons_Y) == Buttons_Y)
-		{
-		ChallengeAction = false;
-		ChallengeOver = false;
-		Gate1 = false;
-		Gate2 = false;
-		Gate3 = false;
-		Gate4 = false;
-		Gate5 = false;
-		Gate6 = false;
-		Gate7 = false;
-		Gate8 = false;
-		Gate9 = false;
-		Gate10 = false;
-		ChallengeTimer = 0;
-		}
-		}
-		}
-		if (CurrentDLC == 3 && GameState == 16)
-		{
-		if (ChallengeAction == true && (ControllerPointersShit[0]->PressedButtons & Buttons_Y) == Buttons_Y)
-		{
-		CollectedAll = 0;
-		Collected1 = false;
-		Collected2 = false;
-		Collected3 = false;
-		Collected4 = false;
-		Collected5 = false;
-		ChallengeTimer = 0;
-		ChallengeAction = false;
-		}
-		}
-		if (CurrentDLC == 6 && GameState == 16)
-		{
-		if (ChallengeAction == true && (ControllerPointersShit[0]->PressedButtons & Buttons_Y) == Buttons_Y)
-		{
-		CollectedAll = 0;
-		CollectedSS1 = false;
-		CollectedSS2 = false;
-		CollectedSS3 = false;
-		CollectedMR1 = false;
-		CollectedMR2 = false;
-		CollectedMR3 = false;
-		ChallengeTimer = 0;
-		ChallengeAction = false;
-		}
 		}
 	}
 }
