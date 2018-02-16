@@ -502,6 +502,15 @@ void GammaHook()
 }
 
 FunctionPointer(double, sub_49EAD0, (float a1, float a2, float a3, int a4), 0x49EAD0);
+FunctionPointer(float, sub_49E920, (float x, float y, float z, Rotation3 *rotation), 0x49E920);
+
+float __cdecl EggKeeperFix(float x, float y, float z, Rotation3 *rotation)
+{
+	float result;
+	result = sub_49E920(x, y, z, rotation);
+	if (result == -1000000) result = y;
+	return result;
+}
 
 double __cdecl AmenboFix(float a1, float a2, float a3, int a4)
 {
@@ -687,6 +696,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("ZOU");
 	//Fix for Sweep badnik
 	WriteCall((void*)0x007AA9F9, AmenboFix);
+	WriteCall((void*)0x0049EFE7, EggKeeperFix);
 	//Robot chest stuff
 	WriteData<1>((char*)0x004CFC05, 0x08); //Zero constant material thing
 	WriteData<1>((char*)0x004CFC99, 0x08); //Zero constant material thing
