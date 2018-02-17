@@ -50,6 +50,8 @@ static bool EnableDCRipple = true;
 static float heat_float1 = 1.0f; //1
 static float heat_float2 = 0.2f; //0.5
 static float alphathing = 1.0f;
+static float TailsWiggleSpeed_Run = 0.005;
+static float TailsWiggleSpeed_Rotation = 2048.0f;
 
 NJS_MATERIAL* FirstCharacterSpecular_General[] = {
 	//Hedgehog Hammer targets (possibly SL objects?)
@@ -837,6 +839,24 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		WriteData<1>((char*)0x004A6B8C, 0x07); //Leon timer 1
 		WriteData<1>((char*)0x004A81C1, 0x1E); //Leon timer 2
+	}
+	//Tails' tails wiggle speed
+	if (FramerateSetting < 2)
+	{
+		WriteData((float**)0x461284, &TailsWiggleSpeed_Run);
+		WriteData((float**)0x461276, &TailsWiggleSpeed_Run);
+		WriteData((float**)0x4613C0, &TailsWiggleSpeed_Rotation);
+		WriteData<1>((char*)0x0045DA2D, 0x03); //1 
+		WriteData<1>((char*)0x0045DA0D, 0x02); //2
+		WriteData<1>((char*)0x0045DA0C, 0x80); //2
+		WriteData<1>((char*)0x0045DA15, 0x03); //3 
+		WriteData<1>((char*)0x0045DA14, 0x80); //3
+		WriteData<1>((char*)0x0045DA1D, 0x04); //4
+		WriteData<1>((char*)0x0045DA7E, 0x28); //5
+		WriteData<1>((char*)0x004612DB, 0x01); //6
+		WriteData<1>((char*)0x004612DA, 0x99); //6
+		WriteData<1>((char*)0x004612EE, 0x01); //7
+		WriteData<1>((char*)0x004612ED, 0x99); //7
 	}
 	//Robot chest stuff
 	WriteData<1>((char*)0x004CFC05, 0x08); //Zero constant material thing
