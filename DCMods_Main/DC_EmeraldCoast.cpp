@@ -449,6 +449,7 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0101M");
 	ReplaceBIN_DC("SET0101S");
 	ReplaceBIN_DC("SET0102B");
+	ReplaceBIN_DC("SET0102S");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SET0100S");

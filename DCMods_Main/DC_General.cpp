@@ -4,7 +4,6 @@
 #include <math.h> 
 #include <lanternapi.h>
 #include "Animals.h"
-#include "Itembox.h"
 #include "EmeraldGlow.h"
 #include "TornadoCrash.h"
 #include "EggmobileNPC.h"
@@ -253,9 +252,9 @@ void __cdecl Knuckles_MaximumHeat_DrawX(NJS_VECTOR *position, float alpha)
 			njRotateY(0, (unsigned __int16)(unsigned __int64)y);
 		}
 		njSetTexture(&KNU_EFF_TEXLIST);
-		SomeDepthThing = 2000.0f;
+		DrawQueueDepthBias = 2000.0f;
 		ProcessModelNode_A_WrapperB(&object_003291C4, QueuedModelFlagsB_SomeTextureThing);
-		SomeDepthThing = 0.0f;
+		DrawQueueDepthBias = 0.0f;
 		njPopMatrix(1u);
 		ClampGlobalColorThing_Thing();
 	}
@@ -520,6 +519,140 @@ double __cdecl AmenboFix(float a1, float a2, float a3, int a4)
 	return u;
 }
 
+void __cdecl ItemBox_Display_Destroyed_Rotate(ObjectMaster* _this)
+{
+	auto v1 = _this->Data1;
+	SetTextureToCommon();
+	njPushMatrix(nullptr);
+	njTranslateV(nullptr, &v1->Position);
+
+	// Rotate
+	if (EnableSETFixes != "Off")
+	{
+		njRotateEx((Angle*)&v1->Rotation, 0);
+	}
+	DrawModel(&ItemBox_Base_MODEL);
+	njPopMatrix(1u);
+}
+
+void __cdecl ItemBox_Display_Unknown_Rotate(ObjectMaster* _this)
+{
+	auto v1 = _this->Data1;
+	if (!MissedFrames)
+	{
+		ItemBoxPowerups[6].Texture = MetalSonicFlag ? 98 : LifeTextures[GetCurrentCharacterID()];
+		if (IsVisible(&v1->Position, 20.0f))
+		{
+			SetTextureToCommon();
+			njPushMatrixEx();
+
+			auto model = (NJS_MODEL_SADX *)late_alloca(44);
+			auto material = (NJS_MATERIAL *)late_alloca(20);
+
+			if (model && material)
+			{
+				njTranslateEx(&v1->Position);
+
+				// Rotate
+				if (EnableSETFixes != "Off")
+				{
+					njRotateEx((Angle*)&v1->Rotation, 0);
+				}
+				if (v1->Action != 2)
+				{
+					auto scale = v1->Scale.z * 0.2f;
+					njScale(nullptr, scale, scale, scale);
+				}
+				njPushMatrixEx();
+				njTranslate(nullptr, 0.0f, 7.5f, 0.0f);
+				auto v6 = (Uint16)(v1->Scale.y * 65536.0f * 0.002777777777777778f);
+				if (v6)
+				{
+					njRotateY(nullptr, v6);
+				}
+				memcpy(model, &ItemBox_Item_MODEL, 0x2Cu);
+				memcpy(material, ItemBox_Item_MODEL.mats, 0x14u);
+				model->mats = material;
+				auto texId = ItemBoxPowerups[(int)_this->Data1->Scale.x].Texture;
+				ItemBox_CurrentItem = (int)_this->Data1->Scale.x;
+				material->attr_texId = texId;
+				DrawModel(model);
+				njPopMatrixEx();
+				DrawQueueDepthBias = 0xC68C4000;
+
+				// This was originally DrawModelIGuess_N, but that's wrong.
+				DrawModel(&ItemBox_Base_MODEL);
+
+				DrawModel_Queue(&ItemBox_Capsule_MODEL, QueuedModelFlagsB_EnableZWrite);
+
+				// This was originally DrawModelIGuess_N, but that's wrong.
+				DrawModel(&ItemBox_Top_MODEL);
+
+				DrawQueueDepthBias = 0;
+			}
+			njPopMatrixEx();
+		}
+	}
+}
+
+void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
+{
+	auto v1 = _this->Data1;
+	if (!MissedFrames)
+	{
+		ItemBoxPowerups[6].Texture = MetalSonicFlag ? 98 : LifeTextures[GetCurrentCharacterID()];
+		if (IsVisible(&v1->Position, 20.0f))
+		{
+			SetTextureToCommon();
+			njPushMatrix(nullptr);
+			njTranslateV(nullptr, &v1->Position);
+
+			// Rotate
+			if (EnableSETFixes != "Off")
+			{
+				njRotateEx((Angle*)&v1->Rotation, 0);
+			}
+			if (v1->Action != 2)
+			{
+				auto scale = v1->Scale.z * 0.2f;
+				njScale(nullptr, scale, scale, scale);
+			}
+			auto model = (NJS_MODEL_SADX *)late_alloca(44);
+			auto material = (NJS_MATERIAL *)late_alloca(20);
+
+			if (model && material)
+			{
+				njPushMatrixEx();
+				njTranslate(nullptr, 0.0f, 7.5f, 0.0f);
+				auto v6 = (Uint16)(v1->Scale.y * 65536.0f * 0.002777777777777778f);
+				if (v6)
+				{
+					njRotateY(nullptr, v6);
+				}
+				memcpy(model, &ItemBox_Item_MODEL, 0x2Cu);
+				memcpy(material, ItemBox_Item_MODEL.mats, 0x14u);
+
+				model->mats = material;
+				auto v7 = ItemBoxPowerups[(int)_this->Data1->Scale.x].Texture;
+				ItemBox_CurrentItem = (int)_this->Data1->Scale.x;
+				material->attr_texId = v7;
+
+				DrawModel(model);
+				njPopMatrixEx();
+
+				// This was originally DrawModelIGuess_N, but that's wrong.
+				DrawModel(&ItemBox_Base_MODEL);
+
+				DrawModel_Queue(&ItemBox_Capsule_MODEL, QueuedModelFlagsB_EnableZWrite);
+
+				// This was originally DrawModelIGuess_N, but that's wrong.
+				DrawModel(&ItemBox_Top_MODEL);
+			}
+			njPopMatrixEx();
+		}
+	}
+}
+
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -694,9 +827,17 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("WING_P");
 	ReplacePVM("WING_T");
 	ReplacePVM("ZOU");
-	//Fix for Sweep badnik
+	//Fix for badniks not spawning
 	WriteCall((void*)0x007AA9F9, AmenboFix);
 	WriteCall((void*)0x0049EFE7, EggKeeperFix);
+	//Leon fixes
+	WriteData((float**)0x004CD75A, &_nj_screen_.w); //from SADXFE
+	WriteData((float**)0x004CD77C, &_nj_screen_.h); //from SADXFE
+	if (FramerateSetting < 2)
+	{
+		WriteData<1>((char*)0x004A6B8C, 0x07); //Leon timer 1
+		WriteData<1>((char*)0x004A81C1, 0x1E); //Leon timer 2
+	}
 	//Robot chest stuff
 	WriteData<1>((char*)0x004CFC05, 0x08); //Zero constant material thing
 	WriteData<1>((char*)0x004CFC99, 0x08); //Zero constant material thing

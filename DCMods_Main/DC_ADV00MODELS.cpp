@@ -248,6 +248,7 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SETSS01M");
 	ReplaceBIN_DC("SETSS01S");
 	ReplaceBIN_DC("SETSS02S");
+	ReplaceBIN_DC("SETSS02B");
 	ReplaceBIN_DC("SETSS03A");
 	ReplaceBIN_DC("SETSS03B");
 	ReplaceBIN_DC("SETSS03E");

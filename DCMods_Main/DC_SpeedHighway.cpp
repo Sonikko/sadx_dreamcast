@@ -302,7 +302,7 @@ void SpeedHighway_OnFrame()
 		if (RocketAlphaDir == -4 && RocketAlpha <= 0) RocketAlphaDir = 4;
 		RocketAlpha = RocketAlpha + RocketAlphaDir;
 		AntennaAlpha = RocketAlpha;
-		if (CurrentAct == 2)
+		if (CurrentAct == 2 && GameState != 16)
 		{
 			if ((FramerateSetting < 2 && FrameCounterUnpaused % 4 == 0) || (FramerateSetting >= 2 && FrameCounterUnpaused % 2 == 0)) shwwater++;
 			if (shwwater > 119) shwwater = 106;

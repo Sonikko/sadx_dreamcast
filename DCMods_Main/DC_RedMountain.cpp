@@ -81,6 +81,7 @@ void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0500S");
 	ReplaceBIN_DC("SET0501E");
 	ReplaceBIN_DC("SET0501S");
+	ReplaceBIN_DC("SET0502K");
 	if (EnableSETFixes == "Normal")
 	{
 		AddSETFix("SET0500S");

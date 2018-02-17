@@ -851,6 +851,8 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableSkyChaseFixes == true)
 	{
+		ReplaceBIN_DC("SETSHT1S");
+		ReplaceBIN_DC("SETSHT2S");
 		ReplaceBIN_DC("CAMSHT1S");
 		ReplaceBIN_DC("CAMSHT2S");
 		//Resolution related fixes

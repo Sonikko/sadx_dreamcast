@@ -192,13 +192,22 @@ NJS_MATERIAL* WhiteDiffuse_HotShelter[] = {
 	&matlistSTG12_0015C248[7],
 };
 
+void AmyHatchFix(ObjectMaster *obj, CollisionData *collisionArray, int count, unsigned __int8 list)
+{
+	if (CurrentCharacter != 5) Collision_Init(obj, collisionArray, count, list);
+}
+
 void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SET1200A");
 	ReplaceBIN_DC("SET1200B");
+	ReplaceBIN_DC("SET1200S");
 	ReplaceBIN_DC("SET1201A");
+	ReplaceBIN_DC("SET1201S");
 	ReplaceBIN_DC("SET1202E");
+	ReplaceBIN_DC("SET1202S");
+	ReplaceBIN_DC("SET1203S");
 	ReplaceBIN_DC("CAM1200A");
 	ReplaceBIN_DC("CAM1200B");
 	ReplaceBIN_DC("CAM1200S");
@@ -228,6 +237,7 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("HOTSHELTER4");
 	ReplacePVM("SHELTER_COLUMN");
 	ReplacePVM("SHELTER_SUIMEN");
+	WriteCall((void*)0x0059F75C, AmyHatchFix); //Don't make the ventilation hatch solid when playing as Amy
 	WriteData((LandTable**)0x97DB88, &landtable_0001970C);
 	WriteData((LandTable**)0x97DB8C, &landtable_0005277C);
 	WriteData((LandTable**)0x97DB90, &landtable_000B0DA4);
@@ -289,7 +299,13 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 		FogData_HotShelter3[i].Layer = 500.0f;
 		FogData_HotShelter3[i].Distance = 1800.0f;
 	}
+	//Hide Suimen stuff
+	((NJS_OBJECT*)0x0180FCC0)->evalflags |= NJD_EVAL_HIDE;
+	((NJS_OBJECT*)0x0180FA2C)->evalflags |= NJD_EVAL_HIDE;
+	((NJS_OBJECT*)0x0180F7F0)->evalflags |= NJD_EVAL_HIDE;
+	((NJS_OBJECT*)0x0180FBB4)->evalflags |= NJD_EVAL_HIDE;
 }
+
 void HotShelter_OnFrame()
 {
 	{

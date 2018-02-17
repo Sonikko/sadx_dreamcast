@@ -298,13 +298,37 @@ void RenderEggCarrier0NPC(NJS_ACTION *action, Float frame)
 void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN_DC("SETEC00S");
+	ReplaceBIN_DC("SETEC00M");
+	ReplaceBIN_DC("SETEC00K");
+	ReplaceBIN_DC("SETEC00A");
+	ReplaceBIN_DC("SETEC00E");
+	ReplaceBIN_DC("SETEC00B");
 	ReplaceBIN_DC("SETEC01S");
+	ReplaceBIN_DC("SETEC01M");
+	ReplaceBIN_DC("SETEC01K");
+	ReplaceBIN_DC("SETEC01A");
+	ReplaceBIN_DC("SETEC01E");
+	ReplaceBIN_DC("SETEC01B");
 	ReplaceBIN_DC("SETEC02S");
+	ReplaceBIN_DC("SETEC02M");
+	ReplaceBIN_DC("SETEC02K");
+	ReplaceBIN_DC("SETEC02A");
+	ReplaceBIN_DC("SETEC02E");
+	ReplaceBIN_DC("SETEC02B");
 	ReplaceBIN_DC("SETEC03S");
+	ReplaceBIN_DC("SETEC03M");
 	ReplaceBIN_DC("SETEC04S");
+	ReplaceBIN_DC("SETEC04M");
+	ReplaceBIN_DC("SETEC04K");
+	ReplaceBIN_DC("SETEC04A");
+	ReplaceBIN_DC("SETEC04E");
+	ReplaceBIN_DC("SETEC04B");
 	ReplaceBIN_DC("SETEC05S");
+	ReplaceBIN_DC("SETEC05M");
 	ReplaceBIN_DC("SETEC30S");
 	ReplaceBIN_DC("SETEC31S");
+	ReplaceBIN_DC("SETEC31B");
 	ReplaceBIN_DC("SETEC32S");
 	ReplaceBIN_DC("SETEC33S");
 	ReplaceBIN_DC("SETEC34S");
