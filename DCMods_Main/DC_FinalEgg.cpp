@@ -401,6 +401,49 @@ NJS_MATERIAL* ObjectSpecular_FinalEgg[] = {
 	((NJS_MATERIAL*)0x019DACA4),
 };
 
+NJS_MATERIAL* NeutralMaterials[] = {
+	//Sonic doll shoes
+	((NJS_MATERIAL*)0x01C2DB60),
+	((NJS_MATERIAL*)0x01C2DB74),
+	((NJS_MATERIAL*)0x01C2DB88),
+	((NJS_MATERIAL*)0x01C2DB9C),
+	((NJS_MATERIAL*)0x01C2DBB0),
+	((NJS_MATERIAL*)0x01C2CCC0),
+	((NJS_MATERIAL*)0x01C2CCD4),
+	((NJS_MATERIAL*)0x01C2CCE8),
+	((NJS_MATERIAL*)0x01C2CCFC),
+	((NJS_MATERIAL*)0x01C2CD10),
+	//Knuckles doll shoes
+	((NJS_MATERIAL*)0x01C313D0),
+	((NJS_MATERIAL*)0x01C313E4),
+	((NJS_MATERIAL*)0x01C313F8),
+	((NJS_MATERIAL*)0x01C3140C),
+	((NJS_MATERIAL*)0x01C31420),
+	((NJS_MATERIAL*)0x01C31434),
+	((NJS_MATERIAL*)0x01C30218),
+	((NJS_MATERIAL*)0x01C3022C),
+	((NJS_MATERIAL*)0x01C30240),
+	((NJS_MATERIAL*)0x01C30254),
+	((NJS_MATERIAL*)0x01C30268),
+	((NJS_MATERIAL*)0x01C3027C),
+	//Tails doll gloves
+	((NJS_MATERIAL*)0x01C36218),
+	((NJS_MATERIAL*)0x01C3622C),
+	((NJS_MATERIAL*)0x01C342A8),
+	((NJS_MATERIAL*)0x01C342BC),
+	//Tails doll shoes
+	((NJS_MATERIAL*)0x01C35BA0),
+	((NJS_MATERIAL*)0x01C35BB4),
+	((NJS_MATERIAL*)0x01C35BC8),
+	((NJS_MATERIAL*)0x01C35BDC),
+	((NJS_MATERIAL*)0x01C35BF0),
+	((NJS_MATERIAL*)0x01C33C40),
+	((NJS_MATERIAL*)0x01C33C54),
+	((NJS_MATERIAL*)0x01C33C68),
+	((NJS_MATERIAL*)0x01C33C7C),
+	((NJS_MATERIAL*)0x01C33C90),
+};
+
 NJS_MATERIAL* WhiteDiffuse_FinalEgg[] = {
 	//0LightCamera
 	((NJS_MATERIAL*)0x019FD098),
@@ -603,6 +646,8 @@ void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("FINALEGG3");
 	ReplacePVM("FINALEGG4");
 	ReplacePVM("OBJ_FINALEGG");
+	ReplaceBIN("PL_A0B", "PL_A0X");
+	ReplaceBIN("PL_A2B", "PL_A2X");
 	TexLists_Obj[10] = FinalEggObjectTextures;
 	WriteData((LandTable**)0x97DB48, &landtable_0001D108); //Act 1
 	WriteData((LandTable**)0x97DB4C, &landtable_00083CCC); //Act 2
@@ -617,6 +662,7 @@ void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 		material_register(LevelSpecular_FinalEgg, LengthOfArray(LevelSpecular_FinalEgg), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_FinalEgg, LengthOfArray(ObjectSpecular_FinalEgg), &ForceDiffuse0Specular1);
 		material_register(WhiteDiffuse_FinalEgg, LengthOfArray(WhiteDiffuse_FinalEgg), &ForceWhiteDiffuse1);
+		material_register(NeutralMaterials, LengthOfArray(NeutralMaterials), &RemoveMaterialColors);
 	}
 	//Environment maps thing
 	WriteCall((void*)0x005B3785, SetGachaponEnvMaps1);

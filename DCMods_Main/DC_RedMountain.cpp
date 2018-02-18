@@ -105,6 +105,7 @@ void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("MOUNTAIN_STEAM");
 	ReplacePVM("OBJ_MOUNTAIN");
 	ReplacePVM("YOUGAN_ANIM");
+	ReplaceBIN("PL_51B", "PL_51X");
 	WriteData((LandTable**)0x97DAA8, &landtable_00018CB8);
 	WriteData((LandTable**)0x97DAAC, &landtable_0001A8FC);
 	WriteData((LandTable**)0x97DAB0, &landtable_0001E358);

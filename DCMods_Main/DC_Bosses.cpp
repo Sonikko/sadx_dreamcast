@@ -721,6 +721,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	delete config;
 	if (EnableChaos0 == true)
 	{
+		ReplaceBIN("PL_G0B", "PL_G0X");
 		ReplaceBIN_DC("SET1500S");
 		ReplacePVM("LM_CHAOS0");
 		ReplacePVM("CHAOS0");
@@ -959,6 +960,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableEggViper == true)
 	{
+		ReplaceBIN("PL_M0B", "PL_M0X");
 		ReplaceBIN_DC("SETEGM3S");
 		ReplacePVM("EGM3CHIKEI");
 		ReplacePVM("EGM3MDL");
@@ -1086,13 +1088,12 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		}
 	}
 	//Lighting stuff
-	ReplaceBIN("PL_M0B", "PL_M0X");
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	HMODULE SA1Chars = GetModuleHandle(L"SA1_Chars");
 	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
 	{
 		material_register(Chaos6ObjectMaterials, LengthOfArray(Chaos6ObjectMaterials), &ForceDiffuse0Specular0or1);
-		material_register(WhiteDiffuse_Boss, LengthOfArray(WhiteDiffuse_Boss), &ForceWhiteDiffuse1);
+		material_register(WhiteDiffuse_Boss, LengthOfArray(WhiteDiffuse_Boss), &ForceWhiteDiffuse3Specular1);
 	}
 	//SADX style water
 	if (EnableEggHornet == true && SADXStyleWater_EggHornet == true)

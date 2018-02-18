@@ -186,24 +186,6 @@ bool E101Function(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-bool ForceWhiteDiffuseFirstCharSpecular(NJS_MATERIAL* material, Uint32 flags)
-{
-	set_specular(2, false);
-	set_diffuse(1, false);
-	diffuse_override(true);
-	use_default_diffuse(true);
-	return true;
-}
-
-bool ForceWhiteDiffuseSecondCharSpecular(NJS_MATERIAL* material, Uint32 flags)
-{
-	set_specular(3, false);
-	set_diffuse(1, false);
-	diffuse_override(true);
-	use_default_diffuse(true);
-	return true;
-}
-
 void RenderEmeraldWithGlow(NJS_OBJECT *a1, int scale)
 {
 	ProcessModelNode_D_Wrapper(a1, scale);

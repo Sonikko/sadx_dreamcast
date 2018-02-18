@@ -2,9 +2,24 @@
 #include <SADXModLoader.h>
 #include <lanternapi.h>
 
+bool RemoveMaterialColors(NJS_MATERIAL* material, Uint32 flags)
+{
+	material->diffuse.argb.r = 178;
+	material->diffuse.argb.g = 178;
+	material->diffuse.argb.b = 178;
+	return true;
+}
+
 bool ForceWhiteDiffuse1(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_diffuse(1, false);
+	use_default_diffuse(true);
+	return true;
+}
+
+bool ForceWhiteDiffuse3(NJS_MATERIAL* material, Uint32 flags)
+{
+	set_diffuse(3, false);
 	use_default_diffuse(true);
 	return true;
 }

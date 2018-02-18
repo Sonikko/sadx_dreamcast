@@ -98,6 +98,8 @@ void AntennaSprite()
 void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
+	ReplaceBIN("PL_40B", "PL_40X");
+	ReplaceBIN("PL_41B", "PL_41X");
 	ReplaceBIN_DC("CAM0400M");
 	ReplaceBIN_DC("CAM0400S");
 	ReplaceBIN_DC("CAM0401S");
