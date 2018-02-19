@@ -38,10 +38,11 @@ DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, FramerateSetting_Config, 0x0089295C);
 FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
 FunctionPointer(EntityData1*, sub_4B9430, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4B9430);
 
+static bool FixesApplied = false;
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
 static int EmeraldGlowAlpha = 255;
@@ -817,29 +818,6 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Leon fixes
 	WriteData((float**)0x004CD75A, &_nj_screen_.w); //from SADXFE
 	WriteData((float**)0x004CD77C, &_nj_screen_.h); //from SADXFE
-	if (FramerateSetting < 2)
-	{
-		WriteData<1>((char*)0x004A6B8C, 0x07); //Leon timer 1
-		WriteData<1>((char*)0x004A81C1, 0x1E); //Leon timer 2
-	}
-	//Tails' tails wiggle speed
-	if (FramerateSetting < 2)
-	{
-		WriteData((float**)0x461284, &TailsWiggleSpeed_Run);
-		WriteData((float**)0x461276, &TailsWiggleSpeed_Run);
-		WriteData((float**)0x4613C0, &TailsWiggleSpeed_Rotation);
-		WriteData<1>((char*)0x0045DA2D, 0x03); //1 
-		WriteData<1>((char*)0x0045DA0D, 0x02); //2
-		WriteData<1>((char*)0x0045DA0C, 0x80); //2
-		WriteData<1>((char*)0x0045DA15, 0x03); //3 
-		WriteData<1>((char*)0x0045DA14, 0x80); //3
-		WriteData<1>((char*)0x0045DA1D, 0x04); //4
-		WriteData<1>((char*)0x0045DA7E, 0x28); //5
-		WriteData<1>((char*)0x004612DB, 0x01); //6
-		WriteData<1>((char*)0x004612DA, 0x99); //6
-		WriteData<1>((char*)0x004612EE, 0x01); //7
-		WriteData<1>((char*)0x004612ED, 0x99); //7
-	}
 	//Robot chest stuff
 	WriteData<1>((char*)0x004CFC05, 0x08); //Zero constant material thing
 	WriteData<1>((char*)0x004CFC99, 0x08); //Zero constant material thing
@@ -1035,6 +1013,34 @@ void General_OnFrame()
 {
 	//Fix broken welds after playing as Metal Sonic
 	if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
+	//A bunch of other fixes that I had to do in OnFrame because the game can't read its own framerate setting
+	if (FixesApplied == false && (GameState == 15 || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21))
+	{
+		if (FramerateSetting_Config == 1)
+		{
+			WriteData<1>((char*)0x004A6B8C, 0x07); //Leon timer 1
+			WriteData<1>((char*)0x004A81C1, 0x1E); //Leon timer 2
+		}
+		//Tails' tails wiggle speed
+		if (FramerateSetting_Config == 1)
+		{
+			WriteData((float**)0x461284, &TailsWiggleSpeed_Run);
+			WriteData((float**)0x461276, &TailsWiggleSpeed_Run);
+			WriteData((float**)0x4613C0, &TailsWiggleSpeed_Rotation);
+			WriteData<1>((char*)0x0045DA2D, 0x03); //1 
+			WriteData<1>((char*)0x0045DA0D, 0x02); //2
+			WriteData<1>((char*)0x0045DA0C, 0x80); //2
+			WriteData<1>((char*)0x0045DA15, 0x03); //3 
+			WriteData<1>((char*)0x0045DA14, 0x80); //3
+			WriteData<1>((char*)0x0045DA1D, 0x04); //4
+			WriteData<1>((char*)0x0045DA7E, 0x28); //5
+			WriteData<1>((char*)0x004612DB, 0x01); //6
+			WriteData<1>((char*)0x004612DA, 0x99); //6
+			WriteData<1>((char*)0x004612EE, 0x01); //7
+			WriteData<1>((char*)0x004612ED, 0x99); //7
+		}
+		FixesApplied = true;
+	}
 	//Alpha rejection
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr)
