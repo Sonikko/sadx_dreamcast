@@ -1033,6 +1033,8 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void General_OnFrame()
 {
+	//Fix broken welds after playing as Metal Sonic
+	if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
 	//Alpha rejection
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (Lantern != nullptr)
