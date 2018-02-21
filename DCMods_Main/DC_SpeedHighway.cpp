@@ -110,7 +110,7 @@ void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0401S");
 	ReplaceBIN_DC("SET0402K");
 	ReplaceBIN_DC("SET0402S");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SET0400M");
 		AddSETFix("SET0400S");
@@ -118,7 +118,7 @@ void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
 		AddSETFix("SET0402K");
 		AddSETFix("SET0402S");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SET0400M");
 		AddSETFix_Extra("SET0400S");
@@ -151,8 +151,7 @@ void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x00615DB5, AntennaSprite);
 	WriteData<1>((char*)0x00615DBB, 0x8); //Antenna sprite blending SA_SRC
 	WriteCall((void*)0x00614122, RocketSprite);
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(WhiteDiffuse_Highway, LengthOfArray(WhiteDiffuse_Highway), &ForceWhiteDiffuse1);
 	}

@@ -784,12 +784,9 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0000A");
 	ReplaceBIN_DC("SET0000S");
 	ReplaceBIN_DC("SET0001S");
-	HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
-	HMODULE SA1_Chars = GetModuleHandle(L"SA1_Chars");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	EnableTwinkleCircuit = config->getBool("Miscellaneous", "EnableTwinkleCircuit", true);
 	EnableSandHill = config->getBool("Miscellaneous", "EnableSandHil", true);
-	EnableSkyChaseFixes = config->getBool("Miscellaneous", "EnableSkyChaseFixes", true);
 	delete config;
 	HorizontalResolution_float = HorizontalResolution;
 	VerticalResolution_float = VerticalResolution;
@@ -822,7 +819,7 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplaceBIN_DC("CAMMCART03S");
 		ReplaceBIN_DC("CAMMCART04S");
 		ReplaceBIN_DC("CAMMCART05S");
-		if (EnableSETFixes == "Normal")
+		if (EnableSETFixes == 1)
 		{
 			AddSETFix("SETMCART00S");
 			AddSETFix("SETMCART01S");
@@ -831,7 +828,7 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 			ReplaceBIN_DC("SETMCART04S");
 			ReplaceBIN_DC("SETMCART05S");
 		}
-		if (EnableSETFixes == "Extra")
+		if (EnableSETFixes == 2)
 		{
 			AddSETFix_Extra("SETMCART00S");
 			AddSETFix_Extra("SETMCART01S");
@@ -846,11 +843,9 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("MINI_CART04");
 		ReplacePVM("MINI_CART05");
 		ReplacePVM("MINI_CART06");
-		if (HD_GUI == nullptr) ReplacePVM("OBJ_MINI_CART");
+		if (DLLLoaded_HDGUI == false) ReplacePVM("OBJ_MINI_CART");
 		WriteData((LandTable**)0x7D205B, &landtable_00001A3C); //Twinkle Circuit
 	}
-	if (EnableSkyChaseFixes == true)
-	{
 		ReplaceBIN_DC("SETSHT1S");
 		ReplaceBIN_DC("SETSHT2S");
 		ReplaceBIN_DC("CAMSHT1S");
@@ -915,15 +910,14 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		((NJS_OBJECT*)0x02917F34)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		WriteData((char*)0x0062751B, 0x00, 1); //Force Tornado light type
 		WriteData((char*)0x0062AC1F, 0x00, 1); //Force Tornado light type (transformation cutscene)
-	}
 	if (EnableSkyChaseEnemyModels == true)
 	{
-		if (SA1_Chars == nullptr)
+		if (DLLLoaded_SA1Chars == false)
 		{
 			ReplacePVM("SHOOTING1");
 			ReplacePVM("SHOOTING2");
 		}
-		if (HD_GUI == nullptr)
+		if (DLLLoaded_HDGUI == false)
 		{
 			ReplacePVM("SHOOTING0");
 		}
@@ -937,8 +931,7 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	//Lighting stuff
 	ReplaceBIN("PL_Z0B", "PL_Z0X");
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(ObjectBaseAndSpecular_Subgames, LengthOfArray(ObjectBaseAndSpecular_Subgames), &ForceDiffuse0Specular1);
 		material_register(LevelSpecular_Subgames, LengthOfArray(LevelSpecular_Subgames), &ForceDiffuse0Specular0);

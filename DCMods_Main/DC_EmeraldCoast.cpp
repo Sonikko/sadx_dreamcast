@@ -450,13 +450,13 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0101S");
 	ReplaceBIN_DC("SET0102B");
 	ReplaceBIN_DC("SET0102S");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SET0100S");
 		AddSETFix("SET0100E");
 		AddSETFix("SET0101S");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SET0100S");
 		AddSETFix_Extra("SET0100E");
@@ -477,8 +477,7 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((LandTable**)0x97DA30, &landtable_0011DD58); //Act 3
 	WriteCall((void*)0x00502F8F, WhaleSplash);
 	WriteCall((void*)0x00502F9A, WhaleSplash);
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(LevelSpecular_STG01, LengthOfArray(LevelSpecular_STG01), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_STG01, LengthOfArray(ObjectSpecular_STG01), &ForceDiffuse0Specular1);

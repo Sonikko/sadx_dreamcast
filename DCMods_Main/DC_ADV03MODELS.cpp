@@ -114,8 +114,7 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x0068BA8F, 86.0f); //Ripple 3 Y
 	WriteData((float*)0x0068BA8A, 52.42f); //Ripple 3 Z
 	HMODULE handle = GetModuleHandle(L"ADV03MODELS");
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (handle != nullptr && Lantern != nullptr && GetProcAddress(Lantern, "materialADV03_register") != nullptr)
+	if (handle != nullptr && DLLLoaded_Lantern == true)
 	{
 		material_register(SecondCharacterSpecular, LengthOfArray(SecondCharacterSpecular), &ForceDiffuse2Specular3);
 		material_register(FirstCharacterSpecular, LengthOfArray(FirstCharacterSpecular), &ForceDiffuse2Specular2);

@@ -1088,9 +1088,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		}
 	}
 	//Lighting stuff
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	HMODULE SA1Chars = GetModuleHandle(L"SA1_Chars");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(Chaos6ObjectMaterials, LengthOfArray(Chaos6ObjectMaterials), &ForceDiffuse0Specular0or1);
 		material_register(WhiteDiffuse_Boss, LengthOfArray(WhiteDiffuse_Boss), &ForceWhiteDiffuse3Specular1);
@@ -1197,9 +1195,8 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 
 void Bosses_OnFrame()
 {
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	//Egg Viper effect
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 
 		//Hopefully disable all this before it gets ugly

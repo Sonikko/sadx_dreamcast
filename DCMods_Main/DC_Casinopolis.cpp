@@ -678,7 +678,7 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0902S");
 	ReplaceBIN_DC("SET0903S");
 	ReplaceBIN_DC("SETMI0900K");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SET0900K");
 		AddSETFix("SET0900S");
@@ -687,7 +687,7 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 		AddSETFix("SET0902S");
 		AddSETFix("SET0903S");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SET0900K");
 		AddSETFix_Extra("SET0900S");
@@ -709,9 +709,8 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((LandTable**)0x97DB30, &landtable_000AF120);
 	WriteData((LandTable**)0x97DB34, &landtable_000D8440);
 	//Lantern stuff
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	ReplaceBIN("PL_90B", "PL_90X");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(LevelSpecular_Casino, LengthOfArray(LevelSpecular_Casino), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_Casino, LengthOfArray(ObjectSpecular_Casino), &ForceDiffuse0Specular1);
@@ -864,8 +863,7 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void Casinopolis_OnFrame()
 {
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		//Failsafe stuff for palette blending
 		if (WhiteSonic == true && (InsideMachine == 0 || CurrentLevel != 9 || CurrentAct != 0 || GameMode == GameModes_Menu || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21))

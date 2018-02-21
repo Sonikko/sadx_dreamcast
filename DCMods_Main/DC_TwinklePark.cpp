@@ -409,14 +409,14 @@ void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0301S");
 	ReplaceBIN_DC("SET0302A");
 	ReplaceBIN_DC("SET0302S");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SET0301A");
 		AddSETFix("SET0301B");
 		AddSETFix("SET0301S");
 		AddSETFix("SET0302A");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SET0301A");
 		AddSETFix_Extra("SET0301B");
@@ -455,7 +455,7 @@ void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteJump((void*)0x0061CAFE, TwinkleParkHook);
 	WriteJump((void*)0x0061D570, SkyBox_TwinklePark_LoadX);
 	//Amy's barrel fix
-	HMODULE CHRMODELS2 = GetModuleHandle(L"CHRMODELS2_orig");
+	HMODULE CHRMODELS2 = GetModuleHandle(L"CHRMODELS_orig");
 	if (CHRMODELS2 != nullptr)
 	{
 		NJS_OBJECT **___AMY_OBJECTS = (NJS_OBJECT **)GetProcAddress(CHRMODELS2, "___AMY_OBJECTS");
@@ -463,8 +463,7 @@ void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 		___AMY_OBJECTS[1]->child->child->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 	}
 	((NJS_OBJECT*)0x008BF3A0)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //shadow blob
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(LevelSpecular_Twinkle, LengthOfArray(LevelSpecular_Twinkle), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_Twinkle, LengthOfArray(ObjectSpecular_Twinkle), &ForceDiffuse0Specular1);

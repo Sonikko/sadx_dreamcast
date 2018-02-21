@@ -38,7 +38,6 @@ DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
-DataPointer(int, FramerateSetting_Config, 0x0089295C);
 FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
 FunctionPointer(EntityData1*, sub_4B9430, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4B9430);
 
@@ -512,7 +511,7 @@ void __cdecl ItemBox_Display_Destroyed_Rotate(ObjectMaster* _this)
 	njTranslateV(nullptr, &v1->Position);
 
 	// Rotate
-	if (EnableSETFixes != "Off")
+	if (EnableSETFixes != 0)
 	{
 		njRotateEx((Angle*)&v1->Rotation, 0);
 	}
@@ -539,7 +538,7 @@ void __cdecl ItemBox_Display_Unknown_Rotate(ObjectMaster* _this)
 				njTranslateEx(&v1->Position);
 
 				// Rotate
-				if (EnableSETFixes != "Off")
+				if (EnableSETFixes != 0)
 				{
 					njRotateEx((Angle*)&v1->Rotation, 0);
 				}
@@ -593,7 +592,7 @@ void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
 			njTranslateV(nullptr, &v1->Position);
 
 			// Rotate
-			if (EnableSETFixes != "Off")
+			if (EnableSETFixes != 0)
 			{
 				njRotateEx((Angle*)&v1->Rotation, 0);
 			}
@@ -860,8 +859,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	((NJS_OBJECT*)0x0317A108)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 	((NJS_OBJECT*)0x03179D4C)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 	((NJS_OBJECT*)0x03179B7C)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
-	HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
-	if (HD_GUI == nullptr)
+	if (DLLLoaded_HDGUI == false)
 	{
 		ReplacePVM("OBJ_REGULAR");
 		ResizeTextureList(&OBJ_REGULAR_TEXLIST, 100); //Added DC ripple texture
@@ -960,8 +958,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Casino
 	WriteCall((void*)0x005DCFB0, RenderEmeraldWithGlow);
 	WriteCall((void*)0x005DCF7D, RotateEmerald);
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "allow_landtable_specular") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		allow_landtable_specular(true);
 		material_register(FirstCharacterSpecular_General, LengthOfArray(FirstCharacterSpecular_General), &ForceDiffuse2Specular2);
@@ -1042,8 +1039,7 @@ void General_OnFrame()
 		FixesApplied = true;
 	}
 	//Alpha rejection
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (Lantern != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		if (AlphaRejectionMode == 0 && CurrentLevel != 25 && GameMode != GameModes_CharSel && GameMode != GameModes_Menu && CurrentChaoStage != 2)
 		{

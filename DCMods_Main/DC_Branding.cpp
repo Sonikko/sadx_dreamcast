@@ -464,7 +464,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	char pathbuf[MAX_PATH];
 	f480_Fixed = 1.0f + VerticalResolution;
 	f640_Fixed = 1.0f + HorizontalResolution;
-	HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
 	//Set PVM names
 	ReplacePVM("ENDBG_AMY_0");
 	ReplacePVM("ENDBG_AMY_1");
@@ -503,7 +502,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("TUTOBG_SONIC");
 	ReplacePVM("TUTOBG_TAILS");
 	ReplacePVM("AVA_FSCMN_E");
-	if (HD_GUI == nullptr)
+	if (DLLLoaded_HDGUI == false)
 	{
 		ReplacePVM("AVA_NEW16NO");
 		ReplacePVM("CON_REGULAR");
@@ -653,10 +652,10 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVR("T_STATIONSQUARE_E");
 	}
 	//File icon
-	if (HD_GUI == nullptr) WriteCall((void*)0x005092A1, DrawTexture_Hook); 
+	if (DLLLoaded_HDGUI == false) WriteCall((void*)0x005092A1, DrawTexture_Hook); 
 	else WriteCall((void*)0x005092A1, FileIcon_Hook);
 	//Various fixes already included in HD GUI
-	if (HD_GUI == nullptr)
+	if (DLLLoaded_HDGUI == false)
 	{
 		//Screen fade fixes
 		WriteData((float**)0x00433385, &f480_Fixed); //Screen fade resolution
@@ -905,8 +904,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void Branding_OnFrame()
 {
-	HMODULE HD_GUI = GetModuleHandle(L"HD_GUI");
-	if (GameMode == GameModes_Menu && HD_GUI != nullptr)
+	if (GameMode == GameModes_Menu && DLLLoaded_HDGUI == true)
 	{
 		if (Options_ArrowScale > 0.5f) Options_ArrowScaleAmount = -0.02f;
 		if (Options_ArrowScale < 0.0f) Options_ArrowScaleAmount = 0.02f;

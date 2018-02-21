@@ -29,28 +29,39 @@ static bool SADXWater_Past = false;
 static bool SADXWater_EggHornet = false;
 static bool SADXWater_ZeroE101R = false;
 
-std::string EnableSETFixes;
+int EnableSETFixes = 1;
+
+bool DLLLoaded_SA1Chars = false;
+bool DLLLoaded_Lantern = false;
+bool DLLLoaded_HDGUI = false;
+bool DLLLoaded_DLCs = false;
 
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		//Check which DLLs are loaded
+		if (GetModuleHandle(TEXT("HD_GUI.dll")) != nullptr) DLLLoaded_HDGUI = true;
+		if (GetModuleHandle(TEXT("SA1_Chars.dll")) != nullptr) DLLLoaded_SA1Chars = true;
+		if (GetModuleHandle(TEXT("sadx-dc-lighting.dll")) != nullptr) DLLLoaded_Lantern = true;
+		if (GetModuleHandle(TEXT("DLCs_Main.dll")) != nullptr) DLLLoaded_DLCs = true;
+		HMODULE MRFinalEggFix = GetModuleHandle(L"MRFinalEggFix");
+		HMODULE WaterEffect = GetModuleHandle(L"WaterEffect");
+		//Error messages
 		if (helperFunctions.Version < 6)
 		{
 			MessageBoxA(WindowHandle, "Mod Loader out of date. Dreamcast Conversion requires API version 6 or newer.",
 				"DC Conversion error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
-		HMODULE MRFinalEggFix = GetModuleHandle(L"MRFinalEggFix");
-		HMODULE WaterEffect = GetModuleHandle(L"WaterEffect");
 		if (MRFinalEggFix != nullptr)
 		{
 			MessageBoxA(WindowHandle, "You seem to be using a very old version of the Mystic Ruins Base Fix mod. Please update or remove it for DC Conversion to work properly. A newer fix is integrated into DC Conversion.",
 				"DC Conversion error: incompatible mod detected", MB_OK | MB_ICONERROR);
 		}
-		//Config stuff
 		//If there is no config.ini, make one
 		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
+		//Config stuff
 		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 		//Read config stuff for levels and branding
 		EnableDCBranding = config->getBool("General", "EnableDreamcastBranding", true);
@@ -69,8 +80,13 @@ extern "C"
 		EnableMysticRuins = config->getBool("Levels", "EnableMysticRuins", true);
 		EnableEggCarrier = config->getBool("Levels", "EnableEggCarrier", true);
 		EnablePast = config->getBool("Levels", "EnablePast", true);
-		EnableSETFixes = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
+		std::string EnableSETFixes_String = "Normal";
+		EnableSETFixes_String = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
+		if (EnableSETFixes_String == "Off") EnableSETFixes = 0;
+		if (EnableSETFixes_String == "Normal") EnableSETFixes = 1;
+		if (EnableSETFixes_String == "Extra") EnableSETFixes = 2;
 		delete config;
+		//Another error message
 		if (EnableEmeraldCoast == true && WaterEffect != nullptr)
 		{
 			MessageBoxA(WindowHandle, "The Enhanced Emerald Coast mod is not compatible with DC Emerald Coast. Please disable Enhanced Emerald Coast for the Dreamcast level to work. To get SADX-like water in DC Emerald Coast, enable SADX Style Water in Dreamcast Conversion's config.",

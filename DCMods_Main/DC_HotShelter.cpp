@@ -216,14 +216,14 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAM1202E");
 	ReplaceBIN_DC("CAM1202S");
 	ReplaceBIN_DC("CAM1203S");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SET1200A");
 		AddSETFix("SET1200B");
 		AddSETFix("SET1201A");
 		AddSETFix("SET1202E");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SET1200A");
 		AddSETFix_Extra("SET1200B");
@@ -241,12 +241,11 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((LandTable**)0x97DB88, &landtable_0001970C);
 	WriteData((LandTable**)0x97DB8C, &landtable_0005277C);
 	WriteData((LandTable**)0x97DB90, &landtable_000B0DA4);
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	//Texlists
 	ResizeTextureList((NJS_TEXLIST*)0x180DFF4, textures_shelter1);
 	ResizeTextureList((NJS_TEXLIST*)0x17F56F4, textures_shelter2);
 	ResizeTextureList((NJS_TEXLIST*)0x17F4F74, textures_shelter3);
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(LevelSpecular_HotShelter, LengthOfArray(LevelSpecular_HotShelter), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_HotShelter, LengthOfArray(ObjectSpecular_HotShelter), &ForceDiffuse0Specular1);

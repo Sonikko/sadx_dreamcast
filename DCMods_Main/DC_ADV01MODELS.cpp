@@ -345,7 +345,7 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAMEC33S");
 	ReplaceBIN_DC("CAMEC34S");
 	ReplaceBIN_DC("CAMEC35S");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SETEC00S");
 		AddSETFix("SETEC01S");
@@ -360,7 +360,7 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 		AddSETFix("SETEC34S");
 		AddSETFix("SETEC35S");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SETEC00S");
 		AddSETFix_Extra("SETEC01S");
@@ -442,7 +442,7 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x00678CC1, 80.25f); //Z2
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	ReplaceBIN("PL_W1B", "PL_W1X");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(ObjectSpecularADV01, LengthOfArray(ObjectSpecularADV01), &ForceDiffuse0Specular1);
 		//material_register(LevelSpecularADV01, LengthOfArray(LevelSpecularADV01), &ForceDiffuse0Specular0);
@@ -587,7 +587,7 @@ void ADV01_OnFrame()
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (CurrentLevel == 32 && GameState != 16)
 	{
-		if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr && dword_3C85138 == 0)
+		if (DLLLoaded_Lantern == true && dword_3C85138 == 0)
 		{
 			set_blend_factor(0.0f);
 			set_shader_flags(ShaderFlags_Blend, false);

@@ -231,8 +231,6 @@ void RenderOfficeDoor_Child(NJS_MODEL_SADX *a1, float scale)
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	HMODULE DLCs = GetModuleHandle(L"DLCs_Main");
 	ReplaceBIN_DC("SETSS00A");
 	ReplaceBIN_DC("SETSS00B");
 	ReplaceBIN_DC("SETSS00E");
@@ -264,7 +262,7 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SETSS04M");
 	ReplaceBIN_DC("SETSS04S");
 	ReplaceBIN_DC("SETSS05S");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SETSS00A");
 		AddSETFix("SETSS00B");
@@ -297,7 +295,7 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		AddSETFix("SETSS04S");
 		AddSETFix("SETSS05S");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SETSS00A");
 		AddSETFix_Extra("SETSS00B");
@@ -330,7 +328,7 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		AddSETFix_Extra("SETSS04S");
 		AddSETFix_Extra("SETSS05S");
 	}
-	if (DLCs == nullptr)
+	if (DLLLoaded_DLCs == false)
 	{
 		ReplaceBIN_DC("CAMSS00S");
 		ReplaceBIN_DC("CAMSS01S");
@@ -391,7 +389,7 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x006532BB, 509.9f); //X2
 	WriteData((float*)0x006532B6, -89.4f); //Y2
 	WriteData((float*)0x006532B1, 812.3f); //Z2
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(CharacterStuff, LengthOfArray(CharacterStuff), &ForceDiffuse2Specular2);
 		material_register(LevelSpecularADV00, LengthOfArray(LevelSpecularADV00), &ForceDiffuse0Specular0);
@@ -517,7 +515,6 @@ void ADV00_OnFrame()
 {
 	auto CharObj1PtrsThing = EntityData1Ptrs[0];
 	if (CurrentLevel == 26 && GetTimeOfDay() == 0) WriteData<1>((void*)0x0063A906, 0x01); else WriteData<1>((void*)0x0063A906, 0x05);
-	HMODULE handle = GetModuleHandle(L"ADV00MODELS");
 	//Act 2 (Sewers)
 	if (CurrentLevel == 26 && CurrentAct == 2)
 	{

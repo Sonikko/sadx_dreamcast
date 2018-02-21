@@ -122,7 +122,7 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0802M");
 	ReplaceBIN_DC("SET0802S");
 	ReplaceBIN_DC("SET0803B");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SET0800S");
 		AddSETFix("SET0801S");
@@ -130,7 +130,7 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 		AddSETFix("SET0802S");
 		AddSETFix("SET0803B");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SET0800S");
 		AddSETFix_Extra("SET0801S");

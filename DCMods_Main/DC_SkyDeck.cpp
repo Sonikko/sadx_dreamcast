@@ -483,7 +483,7 @@ void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAM0601S");
 	ReplaceBIN_DC("CAM0602K");
 	ReplaceBIN_DC("CAM0602S");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SET0600M");
 		AddSETFix("SET0600S");
@@ -491,7 +491,7 @@ void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 		AddSETFix("SET0602K");
 		AddSETFix("SET0602S");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SET0600M");
 		AddSETFix_Extra("SET0600S");
@@ -533,8 +533,7 @@ void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x005ED72F, RenderSmallCloud);
 	WriteJump((void*)0x005ED1E0, SkyDeckSky_new);
 	//Lantern stuff
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(WhiteDiffuse_SkyDeck, LengthOfArray(WhiteDiffuse_SkyDeck), &ForceWhiteDiffuse1);
 		material_register(ObjectSpecular_SkyDeck, LengthOfArray(ObjectSpecular_SkyDeck), &ForceDiffuse0Specular1);

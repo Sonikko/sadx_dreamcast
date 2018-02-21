@@ -622,7 +622,7 @@ void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET1002E");
 	ReplaceBIN_DC("SET1002S");
 	ReplaceBIN_DC("SET1003S");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SET1000A");
 		AddSETFix("SET1000S");
@@ -631,7 +631,7 @@ void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 		AddSETFix("SET1002S");
 		AddSETFix("SET1003S");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SET1000A");
 		AddSETFix_Extra("SET1000S");
@@ -656,8 +656,7 @@ void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x005AE0A5, FinalEggHook);
 	WriteCall((void*)0x005AE060, FinalEggHook);
 	WriteData<1>((void*)0x005ADC40, 0xC3u); //Kill the SetClip function
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(LevelSpecular_FinalEgg, LengthOfArray(LevelSpecular_FinalEgg), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_FinalEgg, LengthOfArray(ObjectSpecular_FinalEgg), &ForceDiffuse0Specular1);

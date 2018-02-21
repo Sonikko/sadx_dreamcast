@@ -4,8 +4,14 @@
 #include <stdio.h>
 #include <string>
 DataPointer(HWND, WindowHandle, 0x03D0FD30);
+DataPointer(int, FramerateSetting_Config, 0x0089295C);
 
-extern std::string EnableSETFixes;
+extern int EnableSETFixes;
+extern bool DLLLoaded_DLCs;
+extern bool DLLLoaded_SA1Chars;
+extern bool DLLLoaded_Lantern;
+extern bool DLLLoaded_HDGUI;
+
 void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions);
 void DisableSADXWaterFog();
 void Branding_Init(const char *path, const HelperFunctions &helperFunctions);

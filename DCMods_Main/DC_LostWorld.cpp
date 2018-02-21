@@ -34,14 +34,14 @@ void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0701K");
 	ReplaceBIN_DC("SET0701S");
 	ReplaceBIN_DC("SET0702S");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SET0700S");
 		AddSETFix("SET0701K");
 		AddSETFix("SET0701S");
 		AddSETFix("SET0702S");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SET0700S");
 		AddSETFix_Extra("SET0701K");
@@ -57,8 +57,7 @@ void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((LandTable**)0x97DAE8, &landtable_0000D560);
 	WriteData((LandTable**)0x97DAEC, &landtable_00063A6C);
 	WriteData((LandTable**)0x97DAF0, &landtable_000F928C);
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(ObjectSpecular_LostWorld, LengthOfArray(ObjectSpecular_LostWorld), &ForceDiffuse0Specular1);
 	}

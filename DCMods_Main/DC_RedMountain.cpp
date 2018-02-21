@@ -82,14 +82,14 @@ void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0501E");
 	ReplaceBIN_DC("SET0501S");
 	ReplaceBIN_DC("SET0502K");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SET0500S");
 		AddSETFix("SET0501E");
 		AddSETFix("SET0501S");
 		AddSETFix("SET0502K");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SET0500S");
 		AddSETFix_Extra("SET0501E");
@@ -112,8 +112,7 @@ void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x00600CA3, SetCloudColor);
 	WriteCall((void*)0x006011D8, RenderRMSky1);
 	WriteCall((void*)0x0060121C, RenderRMSky2);
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
-	if (Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (DLLLoaded_Lantern == true)
 	{
 		material_register(LevelSpecular_Mountain, LengthOfArray(LevelSpecular_Mountain), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_Mountain, LengthOfArray(ObjectSpecular_Mountain), &ForceDiffuse0Specular1);

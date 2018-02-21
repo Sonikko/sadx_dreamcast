@@ -242,7 +242,6 @@ void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions)
 
 void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
 	NJS_MODEL_SADX **___ADV02_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle, "___ADV02_MODELS");
@@ -271,7 +270,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAMMR01S");
 	ReplaceBIN_DC("CAMMR02S");
 	ReplaceBIN_DC("CAMMR03S");
-	if (EnableSETFixes == "Normal")
+	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SETMR00A");
 		AddSETFix("SETMR00B");
@@ -290,7 +289,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 		AddSETFix("SETMR02S");
 		AddSETFix("SETMR03S");
 	}
-	if (EnableSETFixes == "Extra")
+	if (EnableSETFixes == 2)
 	{
 		AddSETFix_Extra("SETMR00A");
 		AddSETFix_Extra("SETMR00B");
@@ -347,7 +346,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN("SL_X0B", "SL_X0X");
 	ReplaceBIN("SL_X1B", "SL_X1X");
 	ReplaceBIN("SL_X2B", "SL_X2X");
-	if (handle != nullptr && Lantern != nullptr && GetProcAddress(Lantern, "material_register") != nullptr)
+	if (handle != nullptr && DLLLoaded_Lantern == true)
 	{
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceDiffuse0Specular1);
 		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceDiffuse0Specular0);
