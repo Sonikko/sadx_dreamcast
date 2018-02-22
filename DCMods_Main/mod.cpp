@@ -138,5 +138,9 @@ extern "C"
 		ChaoGardens_OnFrame();
 		General_OnFrame();
 	}
+	_declspec(dllexport) void __cdecl OnRenderDeviceReset()
+	{
+		SkyChaseFix_Main();
+	}
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 }

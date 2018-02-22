@@ -778,6 +778,51 @@ void __cdecl TornadoCalculateCenterPoint(ObjectMaster *a1)
 	njPopMatrix(1u);
 }
 
+void SkyChaseFix_Main()
+{
+	//Resolution related fixes
+	HorizontalResolution_float = HorizontalResolution;
+	VerticalResolution_float = VerticalResolution;
+	VerticalResolutionHalf_float = VerticalResolution_float / 2.0f;
+	WriteJump((void*)0x628D50, TornadoCalculateCenterPoint); //Calculate center for bullets
+	if (HorizontalResolution_float / VerticalResolution_float > 1.4f)
+	{
+		if (HorizontalResolution_float / VerticalResolution_float > 2.2f) widescreenthing = 240.0f; else widescreenthing = 103.0f;
+		SkyChaseLimit_Left = 80.0f + widescreenthing;
+		SkyChaseLimit_Right = 560.0f + widescreenthing;
+	}
+	WriteData((float**)0x00627F4D, &float_tornadospeed); //Tornado Speed (always 1)
+	WriteData((float**)0x00627F60, &float_one); //Horizontal limit
+	WriteData((float**)0x00627F72, &float_one); //Vertical limit
+	//Hodai fixes
+	WriteData((float**)0x0043854D, &HorizontalResolution_float);
+	WriteData((float**)0x00438571, &VerticalResolutionHalf_float);
+	WriteData((float**)0x0043857F, &VerticalResolutionHalf_float);
+	WriteCall((void*)0x0062C764, SetSkyChaseRocketColor);
+	WriteCall((void*)0x0062C704, RenderSkyChaseRocket);
+	//Sky Chase reticle and multiplier fixes
+	float_reticlespeedmultiplier = VerticalResolution / 480.0f;
+	float_targetsize = pow(VerticalResolution / 15.0f, 2);
+	WriteData((float**)0x628AF7, &float_targetsize); //Target size
+	WriteData((float**)0x00629472, &float_reticlespeedmultiplier); //Target speed
+	//Limits for reticle
+	WriteData((float**)0x00628994, &float_reticlespeedmultiplier); //right
+	WriteData((float**)0x006289B6, &float_reticlespeedmultiplier); //left
+	WriteData((float**)0x006289F1, &float_reticlespeedmultiplier); //top
+	WriteData((float**)0x00628A13, &float_reticlespeedmultiplier); //bottom
+	WriteData((float**)0x0062899A, &SkyChaseLimit_Right);
+	WriteData((float**)0x006289BC, &SkyChaseLimit_Left);
+	WriteData((float**)0x006289F7, &SkyChaseLimit_Top);
+	WriteData((float**)0x00628A19, &SkyChaseLimit_Bottom);
+	//Visual stuff
+	WriteCall((void*)0x00629004, TornadoTarget_Render);
+	WriteCall((void*)0x00628FE5, TornadoTarget_Render);
+	WriteJump((void*)0x00628DB0, TornadoTargetSprite_TargetLock_DisplayX);
+	WriteData((double**)0x00627D14, &SkyChaseSkyRotationMultiplier); //Rotate the sky in the opposite direction
+	WriteData((float*)0x00628951, VerticalResolution / 480.0f); //Reticle scale X
+	WriteData((float*)0x0062895B, VerticalResolution / 480.0f); //Reticle scale Y
+}
+
 void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -788,9 +833,6 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 	EnableTwinkleCircuit = config->getBool("Miscellaneous", "EnableTwinkleCircuit", true);
 	EnableSandHill = config->getBool("Miscellaneous", "EnableSandHil", true);
 	delete config;
-	HorizontalResolution_float = HorizontalResolution;
-	VerticalResolution_float = VerticalResolution;
-	VerticalResolutionHalf_float = VerticalResolution_float / 2.0f;
 	if (EnableSandHill == true)
 	{ 
 		ReplaceBIN_DC("CAMSBOARD00S");
@@ -850,45 +892,8 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplaceBIN_DC("SETSHT2S");
 		ReplaceBIN_DC("CAMSHT1S");
 		ReplaceBIN_DC("CAMSHT2S");
-		//Resolution related fixes
-		WriteJump((void*)0x628D50, TornadoCalculateCenterPoint); //Calculate center for bullets
-		if (HorizontalResolution_float / VerticalResolution_float > 1.4f)
-		{
-			if (HorizontalResolution_float / VerticalResolution_float > 2.2f) widescreenthing = 240.0f;
-			SkyChaseLimit_Left = 80.0f + widescreenthing;
-			SkyChaseLimit_Right = 560.0f + widescreenthing;
-		}
-		WriteData((float**)0x00627F4D, &float_tornadospeed); //Tornado Speed (always 1)
-		WriteData((float**)0x00627F60, &float_one); //Horizontal limit
-		WriteData((float**)0x00627F72, &float_one); //Vertical limit
-		//Hodai fixes
-		WriteData((float**)0x0043854D, &HorizontalResolution_float);
-		WriteData((float**)0x00438571, &VerticalResolutionHalf_float);
-		WriteData((float**)0x0043857F, &VerticalResolutionHalf_float);
-		WriteCall((void*)0x0062C764, SetSkyChaseRocketColor);
-		WriteCall((void*)0x0062C704, RenderSkyChaseRocket);
-		//Sky Chase reticle and multiplier fixes
-		float_reticlespeedmultiplier = VerticalResolution / 480.0f;
-		float_targetsize = pow(VerticalResolution / 15.0f, 2);
-		WriteData((float**)0x628AF7, &float_targetsize); //Target size
-		WriteData((float**)0x00629472, &float_reticlespeedmultiplier); //Target speed
-		//Limits for reticle
-		WriteData((float**)0x00628994, &float_reticlespeedmultiplier); //right
-		WriteData((float**)0x006289B6, &float_reticlespeedmultiplier); //left
-		WriteData((float**)0x006289F1, &float_reticlespeedmultiplier); //top
-		WriteData((float**)0x00628A13, &float_reticlespeedmultiplier); //bottom
-		WriteData((float**)0x0062899A, &SkyChaseLimit_Right);
-		WriteData((float**)0x006289BC, &SkyChaseLimit_Left);
-		WriteData((float**)0x006289F7, &SkyChaseLimit_Top);
-		WriteData((float**)0x00628A19, &SkyChaseLimit_Bottom);
-		//Visual stuff
-		WriteCall((void*)0x00629004, TornadoTarget_Render);
-		WriteCall((void*)0x00628FE5, TornadoTarget_Render);
-		WriteJump((void*)0x00628DB0, TornadoTargetSprite_TargetLock_DisplayX);
-		WriteData((double**)0x00627D14, &SkyChaseSkyRotationMultiplier); //Rotate the sky in the opposite direction
-		WriteData((float*)0x00628951, VerticalResolution / 480.0f); //Reticle scale X
-		WriteData((float*)0x0062895B, VerticalResolution / 480.0f); //Reticle scale Y
-		//Sky Chase fixes
+		SkyChaseFix_Main(); // Sky Chase fixes
+		//Other Sky Chase fixes
 		((NJS_OBJECT*)0x028DFD34)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Sky materials in Act 1
 		((NJS_OBJECT*)0x028175F4)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Sky materials in Act 1
 		SkyboxScale_SkyChase1->Far.x = 4.0f;
