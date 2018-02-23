@@ -54,7 +54,8 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions);
 void ChaoGardens_OnFrame();
 void General_Init(const char *path, const HelperFunctions &helperFunctions);
 void General_OnFrame();
-void SkyChaseFix_Main();
+void SkyChaseFix_Init();
+void SkyChaseFix_UpdateBounds();
 
 bool ForceWhiteDiffuse1(NJS_MATERIAL* material, Uint32 flags);
 bool ForceWhiteDiffuse3(NJS_MATERIAL* material, Uint32 flags);

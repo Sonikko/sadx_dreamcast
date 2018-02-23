@@ -12,22 +12,7 @@ DataArray(FogData, FogData_SandHill, 0x0173BB74, 3);
 DataArray(FogData, FogData_HedgehogHammer, 0x027C69C4, 3);
 DataArray(SkyboxScale, SkyboxScale_SkyChase1, 0x027D6CE0, 3);
 DataArray(DrawDistance, DrawDist_SkyChase1, 0x027D6D58, 3);
-DataArray(PVMEntry, SKYCHASE_OBJECT_TEXLISTS, 0x90E5E8, 11);
-DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
 
-static float float_one = 1.0f;
-static float float_tornadospeed = 1.0f;
-static float float_targetsize = 1;
-static float float_reticlespeedmultiplier = 2.0f;
-static float HorizontalResolution_float = 640.0f;
-static float VerticalResolution_float = 480.0f;
-static float VerticalResolutionHalf_float = 240.0f;
-static double SkyChaseSkyRotationMultiplier = -0.5f;
-static float SkyChaseLimit_Right = 560.0f;
-static float SkyChaseLimit_Left = 80.0f;
-static float SkyChaseLimit_Top = 400.0f;
-static float SkyChaseLimit_Bottom = 80.0f;
-static float widescreenthing = 103.0f;
 static int EnableTwinkleCircuit = true;
 static int EnableSandHill = true;
 static int EnableSkyChaseFixes = true;
@@ -712,117 +697,6 @@ void FixSkybox(NJS_OBJECT *a1, float scale)
 	}
 }
 
-void __cdecl TornadoTargetSprite_TargetLock_DisplayX(ObjectMaster *a1)
-{
-	EntityData1 *v1; // esi
-	NJS_POINT2 position; // [esp+4h] [ebp-8h]
-
-	v1 = a1->Data1;
-	if (!MissedFrames && !CheckSkyChaseActionThing())
-	{
-		njPushMatrix(0);
-		njColorBlendingMode(0, NJD_COLOR_BLENDING_ONE);
-		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
-		SetMaterialAndSpriteColor_Float(1.0f, 1.0f, 1.0f, 1.0f);
-		njSetTexture(&TARGET_TEXLIST);
-		njProjectScreen(0, &v1->Position, &position);
-		*(NJS_POINT2 *)&TornadoTarget_SPRITE.p.x = position;
-		TornadoTarget_SPRITE.sy = v1->Scale.y * (VerticalResolution / 480.0f);
-		njTextureShadingMode(1);
-		if (GameState != 16) njDrawSprite2D_ForcePriority(&TornadoTarget_SPRITE, 2, 1000.0f, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR);
-		njPopMatrix(1u);
-		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
-		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
-		ClampGlobalColorThing_Thing();
-		njTextureShadingMode(2);
-	}
-}
-
-void TornadoTarget_Render(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr, QueuedModelFlagsB queue_flags)
-{
-	njTextureShadingMode(1);
-	njDrawSprite2D_Queue(sp, n, pri, attr, queue_flags);
-	njTextureShadingMode(2);
-}
-
-void RenderSkyChaseRocket(NJS_POINT3COL *a1, int texnum, NJD_DRAW n, QueuedModelFlagsB a4)
-{
-	DrawQueueDepthBias = 20000.0f;
-	DrawTriFanThing_Queue(a1, texnum, n, QueuedModelFlagsB_SomeTextureThing);
-	DrawQueueDepthBias = 0;
-}
-
-void SetSkyChaseRocketColor(float a, float r, float g, float b)
-{
-	AddConstantAttr(0, NJD_FLAG_IGNORE_LIGHT);
-	SetMaterialAndSpriteColor_Float(1.0f, 1.0f, 1.0f, 1.0f);
-}
-
-void __cdecl TornadoCalculateCenterPoint(ObjectMaster *a1)
-{
-	EntityData1 *data1; // eax
-	EntityData1 *parent_data1; // ecx
-	NJS_VECTOR *position; // esi
-	double y; // st7
-
-	data1 = a1->Data1;
-	parent_data1 = a1->Parent->Data1;
-	position = &data1->Position;
-	data1->Position.x = parent_data1->Position.x - (HorizontalResolution_float * 0.5f);
-	y = parent_data1->Position.y - (VerticalResolution_float * 0.5f);
-	data1->Position.z = 1000.0f * (VerticalResolution_float / 480.0f);
-	data1->Position.y = y;
-	njPushMatrix(0);
-	njInvertMatrix(0);
-	njCalcPoint(0, position, position);
-	njPopMatrix(1u);
-}
-
-void SkyChaseFix_Main()
-{
-	//Resolution related fixes
-	HorizontalResolution_float = HorizontalResolution;
-	VerticalResolution_float = VerticalResolution;
-	VerticalResolutionHalf_float = VerticalResolution_float / 2.0f;
-	WriteJump((void*)0x628D50, TornadoCalculateCenterPoint); //Calculate center for bullets
-	if (HorizontalResolution_float / VerticalResolution_float > 1.4f)
-	{
-		if (HorizontalResolution_float / VerticalResolution_float > 2.2f) widescreenthing = 240.0f; else widescreenthing = 103.0f;
-		SkyChaseLimit_Left = 80.0f + widescreenthing;
-		SkyChaseLimit_Right = 560.0f + widescreenthing;
-	}
-	WriteData((float**)0x00627F4D, &float_tornadospeed); //Tornado Speed (always 1)
-	WriteData((float**)0x00627F60, &float_one); //Horizontal limit
-	WriteData((float**)0x00627F72, &float_one); //Vertical limit
-	//Hodai fixes
-	WriteData((float**)0x0043854D, &HorizontalResolution_float);
-	WriteData((float**)0x00438571, &VerticalResolutionHalf_float);
-	WriteData((float**)0x0043857F, &VerticalResolutionHalf_float);
-	WriteCall((void*)0x0062C764, SetSkyChaseRocketColor);
-	WriteCall((void*)0x0062C704, RenderSkyChaseRocket);
-	//Sky Chase reticle and multiplier fixes
-	float_reticlespeedmultiplier = VerticalResolution / 480.0f;
-	float_targetsize = pow(VerticalResolution / 15.0f, 2);
-	WriteData((float**)0x628AF7, &float_targetsize); //Target size
-	WriteData((float**)0x00629472, &float_reticlespeedmultiplier); //Target speed
-	//Limits for reticle
-	WriteData((float**)0x00628994, &float_reticlespeedmultiplier); //right
-	WriteData((float**)0x006289B6, &float_reticlespeedmultiplier); //left
-	WriteData((float**)0x006289F1, &float_reticlespeedmultiplier); //top
-	WriteData((float**)0x00628A13, &float_reticlespeedmultiplier); //bottom
-	WriteData((float**)0x0062899A, &SkyChaseLimit_Right);
-	WriteData((float**)0x006289BC, &SkyChaseLimit_Left);
-	WriteData((float**)0x006289F7, &SkyChaseLimit_Top);
-	WriteData((float**)0x00628A19, &SkyChaseLimit_Bottom);
-	//Visual stuff
-	WriteCall((void*)0x00629004, TornadoTarget_Render);
-	WriteCall((void*)0x00628FE5, TornadoTarget_Render);
-	WriteJump((void*)0x00628DB0, TornadoTargetSprite_TargetLock_DisplayX);
-	WriteData((double**)0x00627D14, &SkyChaseSkyRotationMultiplier); //Rotate the sky in the opposite direction
-	WriteData((float*)0x00628951, VerticalResolution / 480.0f); //Reticle scale X
-	WriteData((float*)0x0062895B, VerticalResolution / 480.0f); //Reticle scale Y
-}
-
 void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -892,7 +766,6 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplaceBIN_DC("SETSHT2S");
 		ReplaceBIN_DC("CAMSHT1S");
 		ReplaceBIN_DC("CAMSHT2S");
-		SkyChaseFix_Main(); // Sky Chase fixes
 		//Other Sky Chase fixes
 		((NJS_OBJECT*)0x028DFD34)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Sky materials in Act 1
 		((NJS_OBJECT*)0x028175F4)->basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF; //Sky materials in Act 1

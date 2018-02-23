@@ -111,6 +111,7 @@ extern "C"
 		if (EnableCasinopolis == true) Casinopolis_Init(path, helperFunctions);
 		if (EnableFinalEgg == true) FinalEgg_Init(path, helperFunctions);
 		if (EnableHotShelter == true) HotShelter_Init(path, helperFunctions);
+		SkyChaseFix_Init();
 		Subgames_Init(path, helperFunctions);
 		ChaoGardens_Init(path, helperFunctions);
 		General_Init(path, helperFunctions);
@@ -140,7 +141,7 @@ extern "C"
 	}
 	_declspec(dllexport) void __cdecl OnRenderDeviceReset()
 	{
-		SkyChaseFix_Main();
+		SkyChaseFix_UpdateBounds();
 	}
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 }
