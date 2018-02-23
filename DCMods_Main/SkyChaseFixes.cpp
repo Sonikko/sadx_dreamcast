@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
-#include "SkyChaseFixes.h"
 
 DataArray(SkyboxScale, SkyboxScale_SkyChase1, 0x027D6CE0, 3);
 DataArray(DrawDistance, DrawDist_SkyChase1, 0x027D6D58, 3);
