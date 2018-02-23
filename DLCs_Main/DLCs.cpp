@@ -21,7 +21,6 @@ std::string DLCMode;
 std::string LaunchPartyDLCMode = "US";
 std::string SegaVoiceLanguage = "English";
 
-bool SegaVoiceMode;
 int MenuVoiceMode;
 
 int SonicTrack;
@@ -183,7 +182,7 @@ static int GetVoiceNumber(int value)
 
 static void PlaySegaSonicTeamVoice()
 {
-	if (SegaVoiceMode == true)
+	if (SegaVoiceLanguage != "Off")
 	{
 		if (SegaLogo_Frames == 1 && SoundManager_ptr == nullptr)
 		{
@@ -10618,7 +10617,6 @@ extern "C"
 		ForceSADXLayout = config->getBool("General settings", "ForceSADXMode", false);
 		DLCMode = config->getString("General settings", "DLCMode", "Random");
 		CurrentDLC = config->getInt("General settings", "DLCSingle", 0);
-		SegaVoiceMode = config->getBool("General settings", "EnableSegaVoice", true);
 		SegaVoiceLanguage = config->getString("General settings", "SegaVoiceLanguage", "English");
 		EverybodySuperSonicRacing = config->getBool("Samba GP settings", "SuperSonicRacing", false);
 		SonicTrack = config->getInt("Samba GP settings", "SonicTrack", 2);
@@ -10787,7 +10785,7 @@ extern "C"
 		{
 			helperFunctions.RegisterCommonObjectPVM(Y2KTextures);
 		}
-		if (SegaVoiceMode == true)
+		if (SegaVoiceLanguage != "Off")
 		{
 			std::random_device r;
 			std::mt19937 mt(r());
