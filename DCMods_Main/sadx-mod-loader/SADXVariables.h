@@ -2333,7 +2333,7 @@ DataPointer(NJS_COLOR, _nj_texglobal_color_, 0x3D08488);
 DataPointer(NJS_COLOR, EntityVertexColor, 0x3D0848C);
 DataPointer(int, Direct3D_CurrentCullMode, 0x3D08490);
 DataPointer(NJS_COLOR, LandTableVertexColor, 0x3D08494);
-DataPointer(RenderFlags, LastRenderFlags, 0x3D08498);
+DataPointer(int, LastRenderFlags, 0x3D08498);
 DataPointer(int, Direct3D_FogEnabled_NeverAccessed, 0x3D0849C);
 DataPointer(__int64, FrameFrequency, 0x3D084A8);
 DataPointer(WPARAM, wParam, 0x3D08534);
