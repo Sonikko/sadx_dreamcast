@@ -40,8 +40,11 @@ DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
 FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
 FunctionPointer(EntityData1*, sub_4B9430, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4B9430);
+FunctionPointer(void, sub_436550, (), 0x436550);
 
+static bool EnableCutsceneFix = true;
 static bool FixesApplied = false;
+static int CutsceneDelay = -1;
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
 static int EmeraldGlowAlpha = 255;
@@ -637,6 +640,11 @@ void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
 	}
 }
 
+void CutsceneFix(int a1, int a2)
+{
+	CutsceneDelay = 120;
+}
+
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -880,7 +888,14 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Config stuff
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	EnableDCRipple = config->getBool("General", "EnableDreamcastWaterRipple", true);
+	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
 	delete config;
+	//Fix for cutscene transitions
+	if (EnableCutsceneFix == true)
+	{
+		WriteCall((void*)0x43131D, CutsceneFix);
+		WriteCall((void*)0x4311E3, CutsceneFix);
+	}
 	//Ripples
 	if (EnableDCRipple == true)
 	{
@@ -1008,6 +1023,16 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void General_OnFrame()
 {
+	//Fix cutscene stuff
+	if (EnableCutsceneFix == true && CutsceneDelay != -1)
+	{
+		if (CutsceneDelay > 0) CutsceneDelay--;
+		if (CutsceneDelay <= 0)
+		{
+			sub_436550();
+			CutsceneDelay = -1;
+		}
+	}
 	//Fix broken welds after playing as Metal Sonic
 	if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
 	//A bunch of other fixes that I had to do in OnFrame because the game can't read its own framerate setting
