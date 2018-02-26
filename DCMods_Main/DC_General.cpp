@@ -646,7 +646,7 @@ void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
 
 void CutsceneFix(int a1, int a2)
 {
-	CutsceneDelay = 120;
+	if (FramerateSetting == 1) CutsceneDelay = 120; else CutsceneDelay = 60;
 }
 
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
