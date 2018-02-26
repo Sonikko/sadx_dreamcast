@@ -45,7 +45,6 @@ FunctionPointer(void, sub_436550, (), 0x436550);
 
 static bool EnableCutsceneFix = true;
 static bool FixesApplied = false;
-static int CutsceneDelay = -1;
 static int FramerateSettingOld = 0;
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
@@ -644,11 +643,6 @@ void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
 	}
 }
 
-void CutsceneFix(int a1, int a2)
-{
-	if (FramerateSetting == 1) CutsceneDelay = 120; else CutsceneDelay = 60;
-}
-
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -897,8 +891,8 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Fix for cutscene transitions
 	if (EnableCutsceneFix == true)
 	{
-		WriteCall((void*)0x43131D, CutsceneFix);
-		WriteCall((void*)0x4311E3, CutsceneFix);
+		WriteData<5>((void*)0x43131D, 0x90u);
+		WriteData<5>((void*)0x4311E3, 0x90u);
 	}
 	//Ripples
 	if (EnableDCRipple == true)
@@ -1027,16 +1021,6 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void General_OnFrame()
 {
-	//Fix cutscene stuff
-	if (EnableCutsceneFix == true && CutsceneDelay != -1)
-	{
-		if (CutsceneDelay > 0) CutsceneDelay--;
-		if (CutsceneDelay <= 0)
-		{
-			sub_436550();
-			CutsceneDelay = -1;
-		}
-	}
 	//Fix broken welds after playing as Metal Sonic
 	if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
 	//A bunch of other fixes that I had to do in OnFrame because shit changes all the time
