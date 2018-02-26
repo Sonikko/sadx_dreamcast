@@ -38,6 +38,7 @@ DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
 FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
 FunctionPointer(EntityData1*, sub_4B9430, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4B9430);
 FunctionPointer(void, sub_436550, (), 0x436550);
@@ -45,6 +46,7 @@ FunctionPointer(void, sub_436550, (), 0x436550);
 static bool EnableCutsceneFix = true;
 static bool FixesApplied = false;
 static int CutsceneDelay = -1;
+static int FramerateSettingOld = 0;
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
 static int EmeraldGlowAlpha = 255;
@@ -54,7 +56,9 @@ static float heat_float1 = 1.0f; //1
 static float heat_float2 = 0.2f; //0.5
 static float alphathing = 1.0f;
 static float TailsWiggleSpeed_Run = 0.005;
+static float TailsWiggleSpeed_RunX2 = 0.01;
 static float TailsWiggleSpeed_Rotation = 2048.0f;
+static float TailsWiggleSpeed_RotationX2 = 4096.0f;
 
 NJS_MATERIAL* FirstCharacterSpecular_General[] = {
 	//Hedgehog Hammer targets (possibly SL objects?)
@@ -1035,16 +1039,26 @@ void General_OnFrame()
 	}
 	//Fix broken welds after playing as Metal Sonic
 	if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
-	//A bunch of other fixes that I had to do in OnFrame because the game can't read its own framerate setting
-	if (FixesApplied == false && (GameState == 15 || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21))
+	//A bunch of other fixes that I had to do in OnFrame because shit changes all the time
+	if (FramerateSettingOld != FramerateSetting)
 	{
-		if (FramerateSetting_Config == 1)
+		FixesApplied = false;
+	}
+	if (FixesApplied == false)
+	{
+		//Leon fixes
+		if (FramerateSetting == 1)
 		{
 			WriteData<1>((char*)0x004A6B8C, 0x07); //Leon timer 1
 			WriteData<1>((char*)0x004A81C1, 0x1E); //Leon timer 2
 		}
+		else
+		{
+			WriteData<1>((char*)0x004A6B8C, 0x14); //Leon timer 1
+			WriteData<1>((char*)0x004A81C1, 0x3C); //Leon timer 2
+		}
 		//Tails' tails wiggle speed
-		if (FramerateSetting_Config == 1)
+		if (FramerateSetting == 1)
 		{
 			WriteData((float**)0x461284, &TailsWiggleSpeed_Run);
 			WriteData((float**)0x461276, &TailsWiggleSpeed_Run);
@@ -1061,7 +1075,25 @@ void General_OnFrame()
 			WriteData<1>((char*)0x004612EE, 0x01); //7
 			WriteData<1>((char*)0x004612ED, 0x99); //7
 		}
+		else
+		{
+			WriteData((float**)0x461284, &TailsWiggleSpeed_RunX2);
+			WriteData((float**)0x461276, &TailsWiggleSpeed_RunX2);
+			WriteData((float**)0x4613C0, &TailsWiggleSpeed_RotationX2);
+			WriteData<1>((char*)0x0045DA2D, 0x06); //1 
+			WriteData<1>((char*)0x0045DA0D, 0x05); //2
+			WriteData<1>((char*)0x0045DA0C, 0x00); //2
+			WriteData<1>((char*)0x0045DA15, 0x07); //3 
+			WriteData<1>((char*)0x0045DA14, 0x00); //3
+			WriteData<1>((char*)0x0045DA1D, 0x08); //4
+			WriteData<1>((char*)0x0045DA7E, 0x50); //5
+			WriteData<1>((char*)0x004612DB, 0x03); //6
+			WriteData<1>((char*)0x004612DA, 0x33); //6
+			WriteData<1>((char*)0x004612EE, 0x03); //7
+			WriteData<1>((char*)0x004612ED, 0x33); //7
+		}
 		FixesApplied = true;
+		FramerateSettingOld = FramerateSetting;
 	}
 	//Alpha rejection
 	if (DLLLoaded_Lantern == true)
