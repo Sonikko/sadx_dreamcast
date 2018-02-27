@@ -651,9 +651,9 @@ void SetFontColor(NJS_ARGB *a1)
 	PrintDebug("G: %f\n", a1->g);
 	PrintDebug("B: %f\n", a1->b);*/
 	a1->a = a1->a*0.85f;
-	a1->r = 0.91f;
-	a1->g = 0.91f;
-	a1->b = 0.97f;
+	a1->r = 0.901f;
+	a1->g = 0.901f;
+	a1->b = 0.988f;
 	SetMaterialAndSpriteColor_Float(a1->a, a1->r, a1->g, a1->b);
 }
 
@@ -906,11 +906,13 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Enable Impress font (experimental)
 	if (EnableImpressFont == "Impress")
 	{
+		WriteData<1>((char*)0x0040D2E4, 0i8);
 		ReplaceBIN("FONTDATA1", "FONTDATA1_I");
 		WriteCall((void*)0x0040D78A, SetFontColor);
 	}
 	if (EnableImpressFont == "ComicSans")
 	{
+		WriteData<1>((char*)0x0040D2E4, 0i8);
 		ReplaceBIN("FONTDATA1", "FONTDATA1_C");
 		WriteCall((void*)0x0040D78A, SetFontColor);
 	}

@@ -850,6 +850,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("CHAOS4_TIKEI");
 		ReplacePVM("CHAOS4_WAVE");
 		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 swamp water
+		WriteData<1>((char*)0x00555B3F, 0x08); //Chaos 4 bubble blending mode SA_SRC instead of SA_ONE
 		ResizeTextureList((NJS_TEXLIST*)0x118FF08, textures_chaos4dc);
 		WriteJump((void*)0x550D10, Chaos4Skybox);
 		WriteData((LandTable**)0x7D1CD6, &landtable_00000238); //Chaos 4
