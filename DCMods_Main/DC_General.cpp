@@ -45,6 +45,7 @@ FunctionPointer(void, sub_436550, (), 0x436550);
 
 static bool EnableCutsceneFix = true;
 static std::string EnableImpressFont = "Off";
+static bool ColorizeFont = false;
 static bool FixesApplied = false;
 static int FramerateSettingOld = 0;
 static int EnvMapMode = 0;
@@ -646,10 +647,6 @@ void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
 
 void SetFontColor(NJS_ARGB *a1)
 {
-	/*PrintDebug("A: %f\n", a1->a);
-	PrintDebug("R: %f\n", a1->r);
-	PrintDebug("G: %f\n", a1->g);
-	PrintDebug("B: %f\n", a1->b);*/
 	a1->a = a1->a*0.85f;
 	a1->r = 0.901f;
 	a1->g = 0.901f;
@@ -901,21 +898,22 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	EnableDCRipple = config->getBool("General", "EnableDreamcastWaterRipple", true);
 	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
-	EnableImpressFont = config->getString("General", "EnableImpressFont", "Off");
+	EnableImpressFont = config->getString("General", "EnableImpressFont", "Impress");
+	ColorizeFont = config->getBool("General", "ColorizeFont", false);
 	delete config;
-	//Enable Impress font (experimental)
+	//Enable Impress font
 	if (EnableImpressFont == "Impress")
 	{
 		WriteData<1>((char*)0x0040D2E4, 0i8);
 		ReplaceBIN("FONTDATA1", "FONTDATA1_I");
-		WriteCall((void*)0x0040D78A, SetFontColor);
 	}
+	//Enable Comic Sans font (experimental)
 	if (EnableImpressFont == "ComicSans")
 	{
 		WriteData<1>((char*)0x0040D2E4, 0i8);
 		ReplaceBIN("FONTDATA1", "FONTDATA1_C");
-		WriteCall((void*)0x0040D78A, SetFontColor);
 	}
+	if (ColorizeFont == true) WriteCall((void*)0x0040D78A, SetFontColor);
 	//Fix for cutscene transitions
 	if (EnableCutsceneFix == true)
 	{
