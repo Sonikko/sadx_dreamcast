@@ -44,6 +44,7 @@ FunctionPointer(EntityData1*, sub_4B9430, (NJS_VECTOR *a1, NJS_VECTOR *a2, float
 FunctionPointer(void, sub_436550, (), 0x436550);
 
 static bool EnableCutsceneFix = true;
+static std::string EnableImpressFont = "Off";
 static bool FixesApplied = false;
 static int FramerateSettingOld = 0;
 static int EnvMapMode = 0;
@@ -643,6 +644,19 @@ void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
 	}
 }
 
+void SetFontColor(NJS_ARGB *a1)
+{
+	/*PrintDebug("A: %f\n", a1->a);
+	PrintDebug("R: %f\n", a1->r);
+	PrintDebug("G: %f\n", a1->g);
+	PrintDebug("B: %f\n", a1->b);*/
+	a1->a = a1->a*0.85f;
+	a1->r = 0.91f;
+	a1->g = 0.91f;
+	a1->b = 0.97f;
+	SetMaterialAndSpriteColor_Float(a1->a, a1->r, a1->g, a1->b);
+}
+
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -887,7 +901,19 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	EnableDCRipple = config->getBool("General", "EnableDreamcastWaterRipple", true);
 	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
+	EnableImpressFont = config->getString("General", "EnableImpressFont", "Off");
 	delete config;
+	//Enable Impress font (experimental)
+	if (EnableImpressFont == "Impress")
+	{
+		ReplaceBIN("FONTDATA1", "FONTDATA1_I");
+		WriteCall((void*)0x0040D78A, SetFontColor);
+	}
+	if (EnableImpressFont == "ComicSans")
+	{
+		ReplaceBIN("FONTDATA1", "FONTDATA1_C");
+		WriteCall((void*)0x0040D78A, SetFontColor);
+	}
 	//Fix for cutscene transitions
 	if (EnableCutsceneFix == true)
 	{
