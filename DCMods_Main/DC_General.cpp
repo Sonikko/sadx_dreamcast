@@ -46,6 +46,7 @@ FunctionPointer(void, sub_436550, (), 0x436550);
 static bool EnableCutsceneFix = true;
 static std::string EnableImpressFont = "Off";
 static bool ColorizeFont = false;
+static bool DisableFontSmoothing = true;
 static bool FixesApplied = false;
 static int FramerateSettingOld = 0;
 static int EnvMapMode = 0;
@@ -645,15 +646,6 @@ void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
 	}
 }
 
-void SetFontColor(NJS_ARGB *a1)
-{
-	a1->a = a1->a*0.85f;
-	a1->r = 0.901f;
-	a1->g = 0.901f;
-	a1->b = 0.988f;
-	SetMaterialAndSpriteColor_Float(a1->a, a1->r, a1->g, a1->b);
-}
-
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -900,20 +892,46 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
 	EnableImpressFont = config->getString("General", "EnableImpressFont", "Impress");
 	ColorizeFont = config->getBool("General", "ColorizeFont", false);
+	DisableFontSmoothing = config->getBool("General", "DisableFontSmoothing", true);
 	delete config;
 	//Enable Impress font
+	if (DisableFontSmoothing == true)
+	{
+		//This is a safer fix but it leaves a faint outline
+		//WriteData<1>((char*)0x0040DA0B, 0x77);
+		//WriteData<1>((char*)0x0040DA0C, 0x07);
+		//Disable entirely
+		WriteData<1>((char*)0x0040DBD6, 0i8);
+		WriteData<1>((char*)0x0040DBDA, 0i8);
+		WriteData<1>((char*)0x0040DBF5, 0i8);
+		WriteData<1>((char*)0x0040DC45, 0i8);
+		WriteData<1>((char*)0x0040DC49, 0i8);
+		WriteData<1>((char*)0x0040DC60, 0i8);
+		WriteData<1>((char*)0x0040DC64, 0i8);
+		WriteData<1>((char*)0x0040DCB4, 0i8);
+		WriteData<1>((char*)0x0040DCB8, 0i8);
+		WriteData<1>((char*)0x0040DCCF, 0i8);
+		WriteData<1>((char*)0x0040DCD3, 0i8);
+		WriteData<1>((char*)0x0040DB7C, 0i8);
+		WriteData<1>((char*)0x0040DB80, 0i8);
+		WriteData<1>((char*)0x0040DB5D, 0i8);
+		WriteData<1>((char*)0x0040DB61, 0i8);
+	}
 	if (EnableImpressFont == "Impress")
 	{
-		WriteData<1>((char*)0x0040D2E4, 0i8);
 		ReplaceBIN("FONTDATA1", "FONTDATA1_I");
 	}
 	//Enable Comic Sans font (experimental)
 	if (EnableImpressFont == "ComicSans")
 	{
-		WriteData<1>((char*)0x0040D2E4, 0i8);
 		ReplaceBIN("FONTDATA1", "FONTDATA1_C");
 	}
-	if (ColorizeFont == true) WriteCall((void*)0x0040D78A, SetFontColor);
+	if (ColorizeFont == true)
+	{
+		WriteData<1>((char*)0x0040E292, 0xD7);
+		WriteData<1>((char*)0x0040E293, 0xC8);
+		WriteData<1>((char*)0x0040E294, 0xC8);
+	}
 	//Fix for cutscene transitions
 	if (EnableCutsceneFix == true)
 	{
