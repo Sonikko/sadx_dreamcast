@@ -139,6 +139,10 @@ extern "C"
 		ChaoGardens_OnFrame();
 		General_OnFrame();
 	}
+	__declspec(dllexport) void __cdecl OnInput()
+	{
+		General_OnInput();
+	}
 	_declspec(dllexport) void __cdecl OnRenderDeviceReset()
 	{
 		SkyChaseFix_UpdateBounds();

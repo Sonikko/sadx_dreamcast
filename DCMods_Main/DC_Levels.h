@@ -54,6 +54,7 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions);
 void ChaoGardens_OnFrame();
 void General_Init(const char *path, const HelperFunctions &helperFunctions);
 void General_OnFrame();
+void General_OnInput();
 void SkyChaseFix_Init();
 void SkyChaseFix_UpdateBounds();
 

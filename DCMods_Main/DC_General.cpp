@@ -42,12 +42,16 @@ DataPointer(int, FramerateSetting, 0x0389D7DC);
 FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
 FunctionPointer(EntityData1*, sub_4B9430, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4B9430);
 FunctionPointer(void, sub_436550, (), 0x436550);
+FunctionPointer(void, sub_40EFE0, (), 0x40EFE0);
 
 static bool EnableCutsceneFix = true;
 static std::string EnableImpressFont = "Off";
 static bool ColorizeFont = false;
+static bool ColorizeVideos = true;
+static bool FadeoutVideos = true;
 static bool DisableFontSmoothing = true;
 static bool FixesApplied = false;
+static int SkippingVideo = 0;
 static int FramerateSettingOld = 0;
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
@@ -646,6 +650,57 @@ void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
 	}
 }
 
+void DrawVideoWithSpecular(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr)
+{
+	if (SkippingVideo == 1)
+	{
+		if (DefaultVideoColor.r >= 0.02f)
+		{
+			DefaultVideoColor.r = DefaultVideoColor.r - 0.02f;
+			DefaultVideoColor.g = DefaultVideoColor.g - 0.02f;
+			DefaultVideoColor.b = DefaultVideoColor.b - 0.02f;
+		}
+		else
+		{
+			SkippingVideo = 2;
+			if (ColorizeVideos == true)
+			{
+				DefaultVideoColor.r = 0.7529411764705882f;
+				DefaultVideoColor.g = 0.7529411764705882f;
+				DefaultVideoColor.b = 0.7529411764705882f;
+			}
+			else
+			{
+				DefaultVideoColor.r = 1.0f;
+				DefaultVideoColor.g = 1.0f;
+				DefaultVideoColor.b = 1.0f;
+			}
+		}
+	}
+	if (SkippingVideo != 2)
+	{
+		njDrawSprite2D_DrawNow(sp, n, pri, attr);
+		if (ColorizeVideos == true)
+		{
+			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+			DrawRect_Queue(0, 0, sp->tanim->sx, sp->tanim->sy, pri, 0x06FFFFFF, QueuedModelFlagsB_SomeTextureThing);
+			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		}
+	}
+}
+
+void InputHookForVideos()
+
+{
+	if (SkippingVideo == 2)
+	{
+		ControllerPointers[0]->PressedButtons |= Buttons_C;
+	}
+	sub_40EFE0();
+}
+
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -892,8 +947,24 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
 	EnableImpressFont = config->getString("General", "EnableImpressFont", "Impress");
 	ColorizeFont = config->getBool("General", "ColorizeFont", false);
+	ColorizeVideos = config->getBool("General", "ColorizeVideos", true);
+	FadeoutVideos = config->getBool("General", "FadeoutVideos", true);
 	DisableFontSmoothing = config->getBool("General", "DisableFontSmoothing", true);
 	delete config;
+	//Enable Dreamcast-like colorization for FMVs
+	if (ColorizeVideos == true)
+	{
+		DefaultVideoColor.r = 0.7529411764705882f;
+		DefaultVideoColor.g = 0.7529411764705882f;
+		DefaultVideoColor.b = 0.7529411764705882f;
+		WriteCall((void*)0x00513A9B, DrawVideoWithSpecular);
+	}
+	if (FadeoutVideos == true)
+	{
+		WriteCall((void*)0x00513271, InputHookForVideos);
+		WriteData<1>((char*)0x005132B9, 0x01); //Wait for Button_C instead of Button_A or Button_Start
+		WriteCall((void*)0x00513A9B, DrawVideoWithSpecular);
+	}
 	//Enable Impress font
 	if (DisableFontSmoothing == true)
 	{
@@ -1065,6 +1136,8 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void General_OnFrame()
 {
+	//Reset the skip video thing
+	if (SkippingVideo != 0 && GameMode != GameModes_Movie) SkippingVideo = 0;
 	//Fix broken welds after playing as Metal Sonic
 	if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
 	//A bunch of other fixes that I had to do in OnFrame because shit changes all the time
@@ -1165,4 +1238,14 @@ void General_OnFrame()
 	//Chaos 1 puddle
 	if (CurrentLevel == 33 && CutsceneID != 57) ((NJS_MATERIAL*)0x02D64FD8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 	else ((NJS_MATERIAL*)0x02D64FD8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+}
+void General_OnInput()
+{
+	if (GameMode == GameModes_Movie)
+	{
+		if (ControllerPointers[0]->PressedButtons & (Buttons_Start | Buttons_A))
+		{
+			SkippingVideo = true;
+		}
+	}
 }
