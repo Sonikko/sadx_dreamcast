@@ -349,8 +349,8 @@ void DrawLogo_640()
 				}
 				transitionframe++;
 			}
-			xpos = (320 - LogoScaleXT * 256.0f * HorizontalStretch) / 2.0f;
-			ypos = (240 - LogoScaleYT * 128.0f * HorizontalStretch) / 2.0f;
+			xpos = (640.0f - LogoScaleXT * 512.0f) / 2.0f;
+			ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - LogoScaleYT * 15.5f;
 			//Draw logo transition
 			SetVtxColorB(0x7FFFFFFF);
 			if (LogoScaleXT <= 2.0f) DrawBG(4, xpos, ypos, 1.2f, LogoScaleXT, LogoScaleYT);
