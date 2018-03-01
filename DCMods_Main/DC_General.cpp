@@ -28,6 +28,7 @@ NJS_SPRITE Heat1Sprite = { { 0, 0, 0 }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x0091BD28,
 NJS_SPRITE Heat2Sprite = { { 0, 0, 0 }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x0091BD28, &Heat2Texanim };
 
 DataArray(char, byte_3C5B37C, 0x3C5B37C, 52);
+DataPointer(int, dword_3C60000, 0x3C60000);
 DataPointer(NJS_MODEL_SADX, stru_8BC0F4, 0x8BC0F4);
 DataPointer(NJS_MODEL_SADX, stru_8BBD84, 0x8BBD84);
 DataPointer(NJS_MODEL_SADX, stru_989384, 0x989384);
@@ -1137,7 +1138,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 void General_OnFrame()
 {
 	//Reset the skip video thing
-	if (SkippingVideo != 0 && GameMode != GameModes_Movie) SkippingVideo = 0;
+	if (SkippingVideo != 0 && dword_3C60000 != 1) SkippingVideo = 0;
 	//Fix broken welds after playing as Metal Sonic
 	if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
 	//A bunch of other fixes that I had to do in OnFrame because shit changes all the time
@@ -1241,7 +1242,7 @@ void General_OnFrame()
 }
 void General_OnInput()
 {
-	if (GameMode == GameModes_Movie)
+	if (dword_3C60000 == 1)
 	{
 		if (ControllerPointers[0]->PressedButtons & (Buttons_Start | Buttons_A))
 		{
