@@ -4,12 +4,17 @@
 #include "DC_Levels.h"
 
 DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(CreditsList, MainCredits, 0x2BC2FD0);
 DataArray(PVMEntry, GUITextures_Japanese, 0x007EECF0, 30);
 DataArray(PVMEntry, GUITextures_English, 0x007EEDE0, 30);
 DataArray(PVMEntry, GUITextures_French, 0x007EEED0, 30);
 DataArray(PVMEntry, GUITextures_Spanish, 0x007EEFC0, 30);
 DataArray(PVMEntry, GUITextures_German, 0x007EF0B0, 30);
 
+FunctionPointer(ObjectMaster*, sub_510390, (int a1), 0x510390);
+
+static NJS_COLOR TitleBGTransparency;
+static NJS_COLOR BlackFadeout;
 static float Options_ArrowScale = 0.0f;
 static float Options_ArrowScaleAmount = 0.1f;
 static float HalfResHZ = 320.0f;
@@ -29,8 +34,9 @@ static int logoframe = 0;
 static int logodrawn = -1;
 static int startframe = 0;
 static int startdrawn = -1;
-static int transitionframe = 0;
 static int transitionmode = 0;
+static bool titlebackloaded = false;
+static bool disablevtxcolor = false;
 //Ini stuff
 static bool RipplesOn = true;
 static bool EnableTransition = false;
@@ -71,22 +77,489 @@ static float control_hzoffset = 566.0f;
 static float camera_vertoffset = 75.0f;
 static float camera_hzoffset = 215.0f;
 
-int __cdecl sub_505810()
+CreditsEntry SA1Credits[] = {
+{ 1, 0, 0, 0, "SONIC ADVENTURE STAFF" },
+{ 8, -1, 0, 0, "" },
+{ 2, -1, 0, 0, "Executive producers" },
+{ 3, -1, 0, 0, "Hayao Nakayama" },
+{ 3, -1, 0, 0, "Shoichiro Irimajiri" },
+{ 2, -1, 0, 0, "Project management" },
+{ 3, -1, 0, 0, "Syuji Utsumi" },
+{ 3, -1, 0, 0, "Youji Ishii" },
+{ 0, 0, 0, 0, "" }, //MAIN
+{ 2, -1, 0, 0, "Producer" },
+{ 3, -1, 0, 0, "Yuji Naka" },
+{ 2, -1, 0, 0, "Director" },
+{ 3, -1, 0, 0, "Takashi Iizuka" },
+{ 2, -1, 0, 0, "Art director" },
+{ 3, -1, 0, 0, "Kazuyuki Hoshino" },
+{ 2, -1, 0, 0, "Main programmer" },
+{ 3, -1, 0, 0, "Tetsu Katano" },
+{ 2, -1, 0, 0, "Sound director" },
+{ 3, -1, 0, 0, "Jun Senoue" },
+{ 8, -1, 0, 0, "" },
+{ 2, -1, 0, 0, "Character designer" },
+{ 3, -1, 0, 0, "Yuji Uekawa" },
+{ 2, -1, 0, 0, "Character game designers" },
+{ 3, -1, 0, 0, "Takashi Iizuka" },
+{ 3, -1, 0, 0, "Takao Miyoshi" },
+{ 3, -1, 0, 0, "Yojiro Ogawa" },
+{ 2, -1, 0, 0, "Player character programmers" },
+{ 3, -1, 0, 0, "Tetsu Katano" },
+{ 3, -1, 0, 0, "Masanobu Yamamoto" },
+{ 3, -1, 0, 0, "Kouichi Toya" },
+{ 3, -1, 0, 0, "Yasuhiro Takahashi" },
+{ 3, -1, 0, 0, "Kazuyuki Mukaida" },
+{ 2, -1, 0, 0, "Character motion designers" },
+{ 3, -1, 0, 0, "Yuji Uekawa" },
+{ 3, -1, 0, 0, "Akikazu Mizuno" },
+{ 0, 1, 0, 0, "" }, //FIELD STAFF
+{ 2, -1, 0, 0, "Field designers" },
+{ 3, -1, 0, 0, "Takao Miyoshi" },
+{ 3, -1, 0, 0, "Shiro Maekawa" },
+{ 3, -1, 0, 0, "Yojiro Ogawa" },
+{ 3, -1, 0, 0, "Yuichiro Suzuki" },
+{ 3, -1, 0, 0, "Shun Nakamura" },
+{ 3, -1, 0, 0, "Takashi Iizuka" },
+{ 2, -1, 0, 0, "Lead field programmers" },
+{ 3, -1, 0, 0, "Masahiro Wakayama" },
+{ 3, -1, 0, 0, "Takuya Matsumoto" },
+{ 3, -1, 0, 0, "Tetsu Katano" },
+{ 3, -1, 0, 0, "Akio Setsumasa" },
+{ 2, -1, 0, 0, "Field programmers" },
+{ 3, -1, 0, 0, "Takeshi Sakakibara" },
+{ 3, -1, 0, 0, "Yoshitaka Kawabata" },
+{ 3, -1, 0, 0, "Akihiko Shinya" },
+{ 3, -1, 0, 0, "Shinya Matsunami" },
+{ 3, -1, 0, 0, "Kouji Ogino" },
+{ 3, -1, 0, 0, "Masakazu Miura" },
+{ 2, -1, 0, 0, "Lead field artists" },
+{ 3, -1, 0, 0, "Kazuyuki Hoshino" },
+{ 3, -1, 0, 0, "Nobuhiko Honda" },
+{ 3, -1, 0, 0, "Hideaki Moriya" },
+{ 3, -1, 0, 0, "Michikazu Tamamura" },
+{ 3, -1, 0, 0, "Masamichi Harada" },
+{ 3, -1, 0, 0, "Satoshi Sakai" },
+{ 3, -1, 0, 0, "Hiroshi Nishiyama" },
+{ 2, -1, 0, 0, "Field artists" },
+{ 3, -1, 0, 0, "Makiko Banju" },
+{ 3, -1, 0, 0, "Akira Mikame" },
+{ 3, -1, 0, 0, "Satoshi Okano" },
+{ 3, -1, 0, 0, "Kensuke Kita" },
+{ 3, -1, 0, 0, "Yoshinari Amaike" },
+{ 3, -1, 0, 0, "Ai Ikeda" },
+{ 3, -1, 0, 0, "Kosei Kitamura" },
+{ 3, -1, 0, 0, "Takayuki Hatamura" },
+{ 3, -1, 0, 0, "Yoshitaka Miura" },
+{ 3, -1, 0, 0, "Kazuko Ito" },
+{ 3, -1, 0, 0, "Yuki Takahashi" },
+{ 3, -1, 0, 0, "Takanori Fukazawa" },
+{ 3, -1, 0, 0, "Yasuhisa Nakagawa" },
+{ 2, -1, 0, 0, "Visual effects designer" },
+{ 3, -1, 0, 0, "Sachiko Kawamura" },
+{ 2, -1, 0, 0, "Field program support" },
+{ 3, -1, 0, 0, "Hideto Fujishita" },
+{ 3, -1, 0, 0, "Yuhki Hatakeyama" },
+{ 2, -1, 0, 0, "Field art support" },
+{ 3, -1, 0, 0, "Misaqa Kitamura" },
+{ 3, -1, 0, 0, "Yoshihito Takahashi" },
+{ 3, -1, 0, 0, "Miho Takayanagi" },
+{ 3, -1, 0, 0, "Nanako Yarimizu" },
+{ 3, -1, 0, 0, "Katsumi Yokota" },
+{ 3, -1, 0, 0, "Wataru Watanabe" },
+{ 3, -1, 0, 0, "Chisai Abe" },
+{ 3, -1, 0, 0, "Maki Kaneko" },
+{ 2, -1, 0, 0, "Visual effects support" },
+{ 3, -1, 0, 0, "Naoko Hamada" },
+{ 0, 2, 0, 0, "" }, //ENEMY STAFF
+{ 2, -1, 0, 0, "\"CHAOS\" game designers" },
+{ 3, -1, 0, 0, "Takashi Iizuka" },
+{ 3, -1, 0, 0, "Norihito Kato" },
+{ 2, -1, 0, 0, "\"CHAOS\" programmer" },
+{ 3, -1, 0, 0, "Kouichi Toya" },
+{ 2, -1, 0, 0, "\"CHAOS\" character designer" },
+{ 3, -1, 0, 0, "Yuji Uekawa" },
+{ 2, -1, 0, 0, "Enemy game designers" },
+{ 3, -1, 0, 0, "Takao Miyoshi" },
+{ 3, -1, 0, 0, "Daisuke Mori" },
+{ 3, -1, 0, 0, "Kenjiro Morimoto" },
+{ 2, -1, 0, 0, "Enemy programmer" },
+{ 3, -1, 0, 0, "Yoshihisa Hashimoto" },
+{ 2, -1, 0, 0, "Enemy character designers" },
+{ 3, -1, 0, 0, "Kazuyuki Hoshino" },
+{ 3, -1, 0, 0, "Tohru Watanuki" },
+{ 3, -1, 0, 0, "Satoshi Sakai" },
+{ 2, -1, 0, 0, "Enemy program support" },
+{ 3, -1, 0, 0, "Mitsuteru Iwaki" },
+{ 3, -1, 0, 0, "Tohru Mita" },
+{ 3, -1, 0, 0, "Mitsuru Takahashi" },
+{ 2, -1, 0, 0, "Enemy art support" },
+{ 3, -1, 0, 0, "Satoshi Yokokawa" },
+{ 3, -1, 0, 0, "Masami Hayashi" },
+{ 3, -1, 0, 0, "Satoshi Arai" },
+{ 3, -1, 0, 0, "Takehiko Akabane" },
+{ 3, -1, 0, 0, "Haruo Nakano" },
+{ 3, -1, 0, 0, "Yuichi Ide" },
+{ 0, 3, 0, 0, "" }, //A-LIFE SYSTEM STAFF
+{ 2, -1, 0, 0, "A-LIFE system designers" },
+{ 3, -1, 0, 0, "Shiro Maekawa" },
+{ 3, -1, 0, 0, "Daisuke Mori" },
+{ 2, -1, 0, 0, "A-LIFE system programmer" },
+{ 3, -1, 0, 0, "Yoshihisa Hashimoto" },
+{ 2, -1, 0, 0, "Program advisor" },
+{ 3, -1, 0, 0, "Yasuhiro Takahashi" },
+{ 2, -1, 0, 0, "Lead A-LIFE artist" },
+{ 3, -1, 0, 0, "Tohru Watanuki" },
+{ 2, -1, 0, 0, "Artists" },
+{ 3, -1, 0, 0, "Sachiko Kawamura" },
+{ 3, -1, 0, 0, "Hiroyuki Watanabe" },
+{ 2, -1, 0, 0, "Modeling art support" },
+{ 3, -1, 0, 0, "Chika Kohjitani" },
+{ 3, -1, 0, 0, "Yuichi Higuchi" },
+{ 2, -1, 0, 0, "Visual memory game designer" },
+{ 3, -1, 0, 0, "Shiro Maekawa" },
+{ 2, -1, 0, 0, "Visual memory programmer" },
+{ 3, -1, 0, 0, "Jun Fukushima" },
+{ 0, 4, 0, 0, "" }, //STORY EVENT STAFF
+{ 2, -1, 0, 0, "Story event director" },
+{ 3, -1, 0, 0, "Akinori Nishiyama" },
+{ 2, -1, 0, 0, "Story event coordinator" },
+{ 3, -1, 0, 0, "Naoto Ohshima" },
+{ 2, -1, 0, 0, "Scenario writer" },
+{ 3, -1, 0, 0, "Akinori Nishiyama" },
+{ 2, -1, 0, 0, "Event scene editors" },
+{ 3, -1, 0, 0, "Shintaro Hata" },
+{ 3, -1, 0, 0, "Kenichi Fujiwara" },
+{ 3, -1, 0, 0, "Eitaro Toyoda" },
+{ 2, -1, 0, 0, "Story sequence programmer" },
+{ 3, -1, 0, 0, "Yoshitaka Kawabata" },
+{ 2, -1, 0, 0, "Story event programmers" },
+{ 3, -1, 0, 0, "Takaaki Saito" },
+{ 3, -1, 0, 0, "Masato Nakazawa" },
+{ 2, -1, 0, 0, "Event motion designers" },
+{ 3, -1, 0, 0, "Naoto Ohshima" },
+{ 3, -1, 0, 0, "Tomonori Dobashi" },
+{ 2, -1, 0, 0, "Event scene edit support" },
+{ 3, -1, 0, 0, "Hiroyuki Abe" },
+{ 2, -1, 0, 0, "Event program support" },
+{ 3, -1, 0, 0, "Koh Midoro" },
+{ 3, -1, 0, 0, "Kunihiko Mori" },
+{ 2, -1, 0, 0, "Modeling art support" },
+{ 3, -1, 0, 0, "Toshiyuki Mukaiyama" },
+{ 3, -1, 0, 0, "Shinichi Higashi" },
+{ 3, -1, 0, 0, "Kazuo Komuro" },
+{ 3, -1, 0, 0, "Toshihiro Ito" },
+{ 3, -1, 0, 0, "Toshiyuki Takamatsu" },
+{ 3, -1, 0, 0, "Satsuki Nagano" },
+{ 0, 5, 0, 0, "" }, //CG MOVIE STAFF
+{ 2, -1, 0, 0, "CG movie producer" },
+{ 3, -1, 0, 0, "Naoto Ohshima" },
+{ 2, -1, 0, 0, "CG movie director" },
+{ 3, -1, 0, 0, "Manabu Kusunoki" },
+{ 2, -1, 0, 0, "Lead CG movie artist" },
+{ 3, -1, 0, 0, "Norihiro Nishiyama" },
+{ 2, -1, 0, 0, "CG movie artists" },
+{ 3, -1, 0, 0, "Masahiro Kumono" },
+{ 3, -1, 0, 0, "Motomu Hayashi" },
+{ 3, -1, 0, 0, "Tsuyoshi Morimoto" },
+{ 3, -1, 0, 0, "Tamotsu Kushibe" },
+{ 3, -1, 0, 0, "Kouji Kubo" },
+{ 3, -1, 0, 0, "Emiko Hirose" },
+{ 3, -1, 0, 0, "Naomi Honda" },
+{ 3, -1, 0, 0, "Masashi Yamaguchi" },
+{ 3, -1, 0, 0, "Isamu Yamasaki" },
+{ 2, -1, 0, 0, "Opening movie editor" },
+{ 3, -1, 0, 0, "Naoto Ohshima" },
+{ 2, -1, 0, 0, "MA studio" },
+{ 3, -1, 0, 0, "Maruni Studio, Tokyo, Japan" },
+{ 2, -1, 0, 0, "MA engineer" },
+{ 3, -1, 0, 0, "Koji Ito (Maruni Studio)" },
+{ 0, 6, 0, 0, "" }, //COORDINATORS
+{ 2, -1, 0, 0, "Program coordinator" },
+{ 3, -1, 0, 0, "Takahiro Hamano" },
+{ 2, -1, 0, 0, "Camera system programmer" },
+{ 3, -1, 0, 0, "Takeshi Sakakibara" },
+{ 2, -1, 0, 0, "Technical supervisor" },
+{ 3, -1, 0, 0, "Takuya Matsumoto" },
+{ 2, -1, 0, 0, "Technical staff coordinators" },
+{ 3, -1, 0, 0, "Masanobu Yamamoto" },
+{ 3, -1, 0, 0, "Osamu Hori" },
+{ 3, -1, 0, 0, "Kazuyuki Mukaida" },
+{ 2, -1, 0, 0, "Art staff coordinators" },
+{ 3, -1, 0, 0, "Minoru Matsuura" },
+{ 3, -1, 0, 0, "Atsushi Seimiya" },
+{ 3, -1, 0, 0, "Chie Yoshida" },
+{ 0, 7, 0, 0, "" }, //SOUND STAFF
+{ 2, -1, 0, 0, "Executive sound coordinator" },
+{ 3, -1, 0, 0, "Yukifumi Makino" },
+{ 2, -1, 0, 0, "Lead music composer" },
+{ 3, -1, 0, 0, "Jun Senoue" },
+{ 2, -1, 0, 0, "Music composers" },
+{ 3, -1, 0, 0, "Kenichi Tokoi" },
+{ 3, -1, 0, 0, "Fumie Kumatani" },
+{ 2, -1, 0, 0, "Sound effects" },
+{ 3, -1, 0, 0, "Masaru Setsumaru" },
+{ 3, -1, 0, 0, "Tatsuyuki Maeda" },
+{ 3, -1, 0, 0, "Yutaka Minobe" },
+{ 3, -1, 0, 0, "Takashi Endo (1991,Inc.)" },
+{ 2, -1, 0, 0, "Music produced by" },
+{ 3, -1, 0, 0, "Jun Senoue" },
+{ 3, -1, 0, 0, "Atsushi \"SUSHI\" Kosugi (Beat On Beat,Inc.)" },
+{ 2, -1, 0, 0, "Recording studios" },
+{ 3, -1, 0, 0, "A&M Studio, Hollywood, CA." },
+{ 3, -1, 0, 0, "Cam-Am Recorders, Tarzana, CA." },
+{ 3, -1, 0, 0, "Avatar Studio, N.Y., NY." },
+{ 3, -1, 0, 0, "Beat On Beat Studio, N.Y., NY." },
+{ 3, -1, 0, 0, "Sound On Sound Studio, N.Y., NY." },
+{ 3, -1, 0, 0, "MIT Studio, Tokyo" },
+{ 3, -1, 0, 0, "MAGNET Studio, Tokyo" },
+{ 3, -1, 0, 0, "SEGA Digital Studio" },
+{ 2, -1, 0, 0, "Recording engineers" },
+{ 3, -1, 0, 0, "Stan Katayama" },
+{ 3, -1, 0, 0, "Roy Hendrickson" },
+{ 3, -1, 0, 0, "Justin Luchter" },
+{ 3, -1, 0, 0, "Masahiro Fukuhara (MIT Studio) " },
+{ 3, -1, 0, 0, "Hirokazu Akashi (SEGA Digital Studio) " },
+{ 3, -1, 0, 0, "Yoshitada Miya (SEGA Digital Studio) " },
+{ 2, -1, 0, 0, "Recording coordination" },
+{ 3, -1, 0, 0, "Atsushi \"SUSHI\" Kosugi (Beat On Beat,Inc.)" },
+{ 3, -1, 0, 0, "Emi Akimoto (Global Vision Productions)" },
+{ 3, -1, 0, 0, "Makoto Suzuki (Compozila)" },
+{ 2, -1, 0, 0, "Mastering studio" },
+{ 3, -1, 0, 0, "Master Disk Studio, N.Y., NY." },
+{ 3, -1, 0, 0, "WARNER MUSIC JAPAN, Tokyo" },
+{ 2, -1, 0, 0, "Mastering engineers" },
+{ 3, -1, 0, 0, "Scott Hull (Master Disk Studio)" },
+{ 3, -1, 0, 0, "Isao Kikuchi (WARNER MUSIC JAPAN)" },
+{ 0, 8, 0, 0, "" }, //Musicians
+{ 2, -1, 0, 0, "Vocals" },
+{ 3, -1, 0, 0, "Johnny Gioeli" },
+{ 3, -1, 0, 0, "Tony Harnell" },
+{ 3, -1, 0, 0, "Ted Poley" },
+{ 3, -1, 0, 0, "Marlon Saunders" },
+{ 3, -1, 0, 0, "Dread Fox" },
+{ 3, -1, 0, 0, "Nikki Gregoroff" },
+{ 3, -1, 0, 0, "Karen Brake" },
+{ 3, -1, 0, 0, "Terry Woods" },
+{ 3, -1, 0, 0, "Maxine Waters" },
+{ 2, -1, 0, 0, "Guitars" },
+{ 3, -1, 0, 0, "Jun Senoue" },
+{ 3, -1, 0, 0, "Mike Campbell" },
+{ 3, -1, 0, 0, "Jon Paris" },
+{ 3, -1, 0, 0, "Rohn Lawrence" },
+{ 3, -1, 0, 0, "Kenichi Tokoi" },
+{ 2, -1, 0, 0, "Bass" },
+{ 3, -1, 0, 0, "Naoto Shibata" },
+{ 3, -1, 0, 0, "Will Lee" },
+{ 3, -1, 0, 0, "Takeshi Taneda" },
+{ 3, -1, 0, 0, "Zev Katz" },
+{ 3, -1, 0, 0, "Jun Senoue" },
+{ 3, -1, 0, 0, "Kenichi Tokoi" },
+{ 2, -1, 0, 0, "Drums" },
+{ 3, -1, 0, 0, "Hiro Honma" },
+{ 3, -1, 0, 0, "Ricky Wellman" },
+{ 2, -1, 0, 0, "Keyboards" },
+{ 3, -1, 0, 0, "Philippe Saisse" },
+{ 3, -1, 0, 0, "Yutaka Minobe" },
+{ 3, -1, 0, 0, "Jun Senoue" },
+{ 2, -1, 0, 0, "Percussion" },
+{ 3, -1, 0, 0, "Bashiri Johnson" },
+{ 2, -1, 0, 0, "Horn section" },
+{ 3, -1, 0, 0, "East 4th Horns" },
+{ 2, -1, 0, 0, "Voice files operation" },
+{ 3, -1, 0, 0, "Hideki Abe" },
+{ 2, -1, 0, 0, "Sound technical adviser" },
+{ 3, -1, 0, 0, "Tadashi Jyokagi" },
+{ 2, -1, 0, 0, "Lyrics translation" },
+{ 3, -1, 0, 0, "Takahiro Fukada" },
+{ 0, 9, 0, 0, "" }, //JAPANESE VOICE
+{ 2, -1, 0, 0, "Japanese character voices" },
+{ 3, -1, 0, 0, "Junichi Kanemaru" },
+{ 3, -1, 0, 0, "Kazuki Hayashi" },
+{ 3, -1, 0, 0, "Nobutoshi Hayashi" },
+{ 3, -1, 0, 0, "Taeko Kawada" },
+{ 3, -1, 0, 0, "Jyoji Nakata" },
+{ 3, -1, 0, 0, "Syun Yashiro" },
+{ 3, -1, 0, 0, "Kaori Aso" },
+{ 3, -1, 0, 0, "Kaho Kouda" },
+{ 3, -1, 0, 0, "Toru Okawa" },
+{ 3, -1, 0, 0, "Chikao Otsuka" },
+{ 2, -1, 0, 0, "Postrecording producer" },
+{ 3, -1, 0, 0, "Hiroyuki Inage" },
+{ 3, -1, 0, 0, "(TOHOKUSHINSHA)" },
+{ 2, -1, 0, 0, "Postrecording director" },
+{ 3, -1, 0, 0, "Eriko Kimura" },
+{ 3, -1, 0, 0, "(TOHOKUSHINSHA)" },
+{ 2, -1, 0, 0, "Recording" },
+{ 3, -1, 0, 0, "OMNIBUS JAPAN" },
+{ 0, 10, 0, 0, "" }, //ENGLISH VOICE
+{ 2, -1, 0, 0, "English character voices" },
+{ 3, -1, 0, 0, "Ryan Drummond" },
+{ 3, -1, 0, 0, "Corey Bringas" },
+{ 3, -1, 0, 0, "Michael Mcgaharn" },
+{ 3, -1, 0, 0, "Jennifer Douillard" },
+{ 3, -1, 0, 0, "Jon St. John" },
+{ 3, -1, 0, 0, "Elara Distler" },
+{ 3, -1, 0, 0, "Deem Bristow" },
+{ 3, -1, 0, 0, "Steve Brodie" },
+{ 2, -1, 0, 0, "Postrecording director" },
+{ 3, -1, 0, 0, "Lani Minella" },
+{ 3, -1, 0, 0, "Bobby White" },
+{ 2, -1, 0, 0, "Recording Studio" },
+{ 3, -1, 0, 0, "Lightspan, San Diego, CA." },
+{ 3, -1, 0, 0, "Audio Banks, Santa Monica, CA." },
+{ 0, 11, 0, 0, "" }, //LOCALIZATION
+{ 2, -1, 0, 0, "Localization staff" },
+{ 3, -1, 0, 0, "Keith Palmer (SOA)" },
+{ 3, -1, 0, 0, "Osamu Shibamiya (SOA)" },
+{ 3, -1, 0, 0, "Shinobu Shindo (SOJ)" },
+{ 3, -1, 0, 0, "Monika Hudgins (SOJ)" },
+{ 3, -1, 0, 0, "Nulty Dave (SOE)" },
+{ 3, -1, 0, 0, "Katsu Sato (SOE)" },
+{ 8, -1, 0, 0, "" },
+{ 2, -1, 0, 0, "Executive management" },
+{ 3, -1, 0, 0, "Sadahiko Hirose" },
+{ 3, -1, 0, 0, "Hidekazu Yukawa" },
+{ 3, -1, 0, 0, "Hideki Sato" },
+{ 3, -1, 0, 0, "Hideki Okamura" },
+{ 3, -1, 0, 0, "Okitane Usui" },
+{ 3, -1, 0, 0, "" },
+{ 3, -1, 0, 0, "Toshiro Kezuka" },
+{ 3, -1, 0, 0, "Bernard Stolar" },
+{ 3, -1, 0, 0, "Makoto Kaneshiro" },
+{ 2, -1, 0, 0, "Executive coordination" },
+{ 3, -1, 0, 0, "Shinobu Toyoda" },
+{ 3, -1, 0, 0, "Toshinori Asai" },
+{ 3, -1, 0, 0, "Noriyoshi Ohba" },
+{ 3, -1, 0, 0, "Jin Shimazaki" },
+{ 3, -1, 0, 0, "Makoto Oshitani" },
+{ 3, -1, 0, 0, "Masanao Maeda" },
+{ 2, -1, 0, 0, "Marketing producer" },
+{ 3, -1, 0, 0, "Tomoaki Ogawa" },
+{ 2, -1, 0, 0, "Promotion management" },
+{ 3, -1, 0, 0, "Kunihisa Ueno" },
+{ 3, -1, 0, 0, "Kenichi Sato" },
+{ 3, -1, 0, 0, "Seijiro Sannabe" },
+{ 3, -1, 0, 0, "Hirokazu Kanno" },
+{ 3, -1, 0, 0, "Masatoshi Kawaguchi" },
+{ 3, -1, 0, 0, "Mitsuru Takahashi" },
+{ 3, -1, 0, 0, "Kenji Kato" },
+{ 3, -1, 0, 0, "Hiroto Kikuchi" },
+{ 2, -1, 0, 0, "Public relations" },
+{ 3, -1, 0, 0, "Tadashi Takezaki" },
+{ 3, -1, 0, 0, "Junji Yamazaki" },
+{ 3, -1, 0, 0, "Masanori Hirano" },
+{ 2, -1, 0, 0, "Software support" },
+{ 3, -1, 0, 0, "Masaharu Yoshii" },
+{ 3, -1, 0, 0, "Takashi Ando" },
+{ 3, -1, 0, 0, "Tomoaki Saito" },
+{ 3, -1, 0, 0, "Kazuhiro Takase" },
+{ 3, -1, 0, 0, "Takashi Shoji" },
+{ 3, -1, 0, 0, "Hiroaki Sano" },
+{ 3, -1, 0, 0, "Hakuro Matsuda" },
+{ 3, -1, 0, 0, "Kenei Unoki" },
+{ 3, -1, 0, 0, "Akira Ohe" },
+{ 3, -1, 0, 0, "and... " },
+{ 3, -1, 0, 0, "Dreamcast LIBRARY STAFF" },
+{ 3, -1, 0, 0, "Masao Oshimi (CRI)" },
+{ 3, -1, 0, 0, "Tomonori Saguchi (CRI)" },
+{ 3, -1, 0, 0, "Yutaka Sugano" },
+{ 2, -1, 0, 0, "Hardware support" },
+{ 3, -1, 0, 0, "Nobuhisa Yamada" },
+{ 3, -1, 0, 0, "Osamu Kaji" },
+{ 3, -1, 0, 0, "Shiro Hagiwara" },
+{ 3, -1, 0, 0, "Taku Matsubara" },
+{ 3, -1, 0, 0, "Shoji Nishikawa" },
+{ 3, -1, 0, 0, "Takashi Sekimoto" },
+{ 3, -1, 0, 0, "Shuji Hori" },
+{ 3, -1, 0, 0, "Osamu Hosokawa" },
+{ 3, -1, 0, 0, "Hirokazu Hama" },
+{ 3, -1, 0, 0, "Kenji Tosaki" },
+{ 3, -1, 0, 0, "Atsunori Himoto" },
+{ 3, -1, 0, 0, "and... " },
+{ 3, -1, 0, 0, "Dreamcast HARDWARE STAFF" },
+{ 2, -1, 0, 0, "Visual material editors" },
+{ 3, -1, 0, 0, "Yuji Sawairi" },
+{ 3, -1, 0, 0, "Ikuo Ishizaka" },
+{ 3, -1, 0, 0, "Takayuki Ohta" },
+{ 2, -1, 0, 0, "Manual production" },
+{ 3, -1, 0, 0, "Kaoru Ichigozaki" },
+{ 3, -1, 0, 0, "Youichi Takahashi" },
+{ 3, -1, 0, 0, "Chieko Nakamura" },
+{ 3, -1, 0, 0, "Makoto Nishino" },
+{ 3, -1, 0, 0, "Monika Hudgins" },
+{ 2, -1, 0, 0, "Browser production" },
+{ 3, -1, 0, 0, "Tetsuya Kaku" },
+{ 3, -1, 0, 0, "Paul Stathacopoulos" },
+{ 3, -1, 0, 0, "Hiroaki Ito" },
+{ 3, -1, 0, 0, "Takeshi Ito" },
+{ 3, -1, 0, 0, "ACCESS CO.,LTD." },
+{ 3, -1, 0, 0, "Planetweb,Inc." },
+{ 2, -1, 0, 0, "Internet support" },
+{ 3, -1, 0, 0, "Keitaro Shigemasa (SNI)" },
+{ 3, -1, 0, 0, "Tomoaki Yoshioka" },
+{ 3, -1, 0, 0, "Mutsuhiro Fujii" },
+{ 3, -1, 0, 0, "Masaya Miyauchi" },
+{ 3, -1, 0, 0, "Takamitsu Shoji" },
+{ 3, -1, 0, 0, "A.J. Briones" },
+{ 3, -1, 0, 0, "Alexander Villagran" },
+{ 3, -1, 0, 0, "Masamitsu Uchiyama" },
+{ 2, -1, 0, 0, "Special thanks" },
+{ 3, -1, 0, 0, "Tomoko Sasaki" },
+{ 3, -1, 0, 0, "Naofumi Hataya" },
+{ 3, -1, 0, 0, "Sawako Sogabe" },
+{ 3, -1, 0, 0, "Yoshiaki Kashima" },
+{ 3, -1, 0, 0, "Isao Miyazaki (ESP Guitars)" },
+{ 3, -1, 0, 0, "Hiroki Hayashi (ESP Guitars)" },
+{ 3, -1, 0, 0, "Yosuke Okunari" },
+{ 3, -1, 0, 0, "" },
+{ 3, -1, 0, 0, "Yukio Aoyama" },
+{ 3, -1, 0, 0, "Yuki Kobayashi" },
+{ 3, -1, 0, 0, "Shadow Roldan" },
+{ 2, -1, 0, 0, "Executive supervisor" },
+{ 3, -1, 0, 0, "Isao Okawa" },
+{ 10, -1, 0, 0, "" },
+{ 5, 2, 0, 0, "MPEG ROGO" },
+{ 5, 0, 0, 0, "ADX ROGO" },
+{ 5, 3, 0, 0, "SEGA Digital Studio ROGO" },
+{ 8, -1, 0, 0, "" },
+{ 5, 1, 0, 0, "SONIC TEAM ROGO" },
+{ 8, -1, 0, 0, "" },
+{ 6, -1, 0, 0, "presented by" },
+{ 7, -1, 0, 0, "SEGA ENTERPRISES,LTD." }
+};
+
+int __cdecl PlayStartSound_EnableTransition()
 {
 	if (EnableTransition == true)
 	{
 		transitionmode = 1;
+		disablevtxcolor = true;
 	}
-	return PlaySound(2, 0, 0, 0);
+	PlaySound(2, 0, 0, 0);
+	return 0;
 }
 
-Sint32 __cdecl DrawAVA_TITLE_BACK_E_DC(float a1)
+int __cdecl PlayReturnSound_EnableTransition()
 {
+	PlaySound(3, 0, 0, 0);
+	if (EnableTransition == true)
+	{
+		transitionmode = 3;
+		disablevtxcolor = true;
+	}
+	return 0;
+}
+
+void __cdecl DrawAVA_TITLE_BACK_E_DC(float depth)
+{
+	titlebackloaded = true;
+	if (transitionmode == 2) transitionmode = 3;
 	float xpos = 0;
 	float ypos = 0;
 	float scaleX = 0;
 	float scaleY = 0;
-	int tn = 0;
+	int texturenumber = 0;
 	int surfacesucks = 0;
 	float y; // ST08_4@1
 	float x; // ST04_4@1
@@ -104,12 +577,12 @@ Sint32 __cdecl DrawAVA_TITLE_BACK_E_DC(float a1)
 	float v14; // ST04_4@1
 	float v15; // ST08_4@1
 	float v16; // ST04_4@1
-	NJS_TEXLIST *texturelist; // [sp+1Ch] [bp+4h]@1
+	float z; // [sp+1Ch] [bp+4h]@1
 	njSetTexture(&ava_title_e_TEXLIST);
 	njTextureShadingMode(1);
 	SetVtxColorB(0xFFFFFFFF);
 	njSetTexture(&ava_title_back_e_TEXLIST);
-	*(float *)&texturelist = a1 - 4.0f;
+	z = depth - 4.0f;
 	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) surfacesucks = -48.0f;
 	if (float(HorizontalResolution) / float(VerticalResolution) >= 2.2f) surfacesucks = -96.0f;
 	//Draw main menu BG
@@ -117,42 +590,41 @@ Sint32 __cdecl DrawAVA_TITLE_BACK_E_DC(float a1)
 	ypos = BackgroundOffsetY *  (VerticalStretch*rewritestretch) * BackgroundScaleY;
 	scaleX = HorizontalStretch * 0.5f * BackgroundScaleX;
 	scaleY = VerticalStretch * rewritestretch * BackgroundScaleY;
-	DrawBG(tn, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+	DrawBG(texturenumber, xpos, ypos, z, scaleX, scaleY);
 
 	xpos = (BackgroundOffsetX + 256.0f)* HorizontalStretch * BackgroundScaleX;
 	ypos = BackgroundOffsetY * (VerticalStretch*rewritestretch) * BackgroundScaleY;
-	DrawBG(tn + 1, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+	DrawBG(texturenumber + 1, xpos, ypos, z, scaleX, scaleY);
 
 	xpos = BackgroundOffsetX* HorizontalStretch * BackgroundScaleX;
 	ypos = (VerticalStretch*rewritestretch) * (512.0f + BackgroundOffsetY)*BackgroundScaleY;
-	DrawBG(tn + 2, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+	DrawBG(texturenumber + 2, xpos, ypos, z, scaleX, scaleY);
 
 	xpos = (BackgroundOffsetX + 256.0f)*BackgroundScaleX * HorizontalStretch;
 	ypos = (VerticalStretch*rewritestretch) * (512.0f + BackgroundOffsetY)*BackgroundScaleY;
-	DrawBG(tn + 3, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+	DrawBG(texturenumber + 3, xpos, ypos, z, scaleX, scaleY);
 
 	xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
 	ypos = BackgroundOffsetY * (VerticalStretch*rewritestretch) * BackgroundScaleY;
-	DrawBG(tn + 4, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+	DrawBG(texturenumber + 4, xpos, ypos, z, scaleX, scaleY);
 
 	xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
 	ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY + 256.0f)*BackgroundScaleY;
-	DrawBG(tn + 5, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+	DrawBG(texturenumber + 5, xpos, ypos, z, scaleX, scaleY);
 
 	xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
 	ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY + 512.0f)*BackgroundScaleY;
-	DrawBG(tn + 6, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
+	DrawBG(texturenumber + 6, xpos, ypos, z, scaleX, scaleY);
 
 	xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
 	ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY + 768.0f)*BackgroundScaleY;
-	DrawBG(tn + 7, xpos, ypos, *(float *)&texturelist, scaleX, scaleY);
-	//DrawBG(7, 0, 0, *(float *)&texturelist, HorizontalStretch, HorizontalStretch);
+	DrawBG(texturenumber + 7, xpos, ypos, z, scaleX, scaleY);
 	//Draw logo
-	DrawBG(8, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, *(float *)&texturelist, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
+	DrawBG(8, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, z, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
 	//Draw logo overlay
-	if (DrawOverlay == true) DrawBG(9, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, *(float *)&texturelist, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
+	if (DrawOverlay == true) DrawBG(9, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, z, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
 	njTextureShadingMode(2);
-	return njSetTexture(&ava_title_e_TEXLIST);
+	njSetTexture(&ava_title_e_TEXLIST);
 }
 
 void BoxBackgroundColor()
@@ -160,227 +632,315 @@ void BoxBackgroundColor()
 	SetMaterialAndSpriteColor_Float(0.8f, 1.0f, 1.0f, 1.0f);
 }
 
-void DrawTitleBG()
-{
-	int tn;
-	float xpos;
-	float ypos;
-	float scaleX;
-	float scaleY;
-	if (!DroppedFrames)
-	{
-		if (titledrawn != titleframe)
-		{
-			if (titleframe > 22) titleframe = 0;
-			if (RipplesOn == false) tn = 0; else tn = 8 + (titleframe * 8);
-			xpos = BackgroundOffsetX * HorizontalStretch * BackgroundScaleX;
-			ypos = BackgroundOffsetY *  (VerticalStretch*rewritestretch) * BackgroundScaleY;
-			scaleX = HorizontalStretch * 0.5f * BackgroundScaleX;
-			scaleY = VerticalStretch * rewritestretch * BackgroundScaleY;
-			DrawBG(tn, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = (BackgroundOffsetX + 256.0f)* HorizontalStretch * BackgroundScaleX;
-			ypos = BackgroundOffsetY * (VerticalStretch*rewritestretch) * BackgroundScaleY;
-			DrawBG(tn + 1, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = BackgroundOffsetX* HorizontalStretch * BackgroundScaleX;
-			ypos = (VerticalStretch*rewritestretch) * (512.0f + BackgroundOffsetY)*BackgroundScaleY;
-			DrawBG(tn + 2, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = (BackgroundOffsetX + 256.0f)*BackgroundScaleX * HorizontalStretch;
-			ypos = (VerticalStretch*rewritestretch) * (512.0f + BackgroundOffsetY)*BackgroundScaleY;
-			DrawBG(tn + 3, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
-			ypos = BackgroundOffsetY * (VerticalStretch*rewritestretch) * BackgroundScaleY;
-			DrawBG(tn + 4, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
-			ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY + 256.0f)*BackgroundScaleY;
-			DrawBG(tn + 5, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
-			ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY + 512.0f)*BackgroundScaleY;
-			DrawBG(tn + 6, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
-			ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY + 768.0f)*BackgroundScaleY;
-			DrawBG(tn + 7, xpos, ypos, 2.0f, scaleX, scaleY);
-			titledrawn = titleframe;
-		}
-	}
-}
-
-void DrawTitleBG_640()
-{
-	int tn;
-	float xpos;
-	float ypos;
-	float scaleX;
-	float scaleY;
-	if (!DroppedFrames)
-	{
-		if (titledrawn != titleframe)
-		{
-			if (titleframe > 22) titleframe = 0;
-			if (RipplesOn == false) tn = 0; else tn = 8 + (titleframe * 8);
-			scaleX = 1.0f;
-			scaleY = 1.0f;
-
-			xpos = 0;
-			ypos = 0;
-			DrawBG(tn, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = 256;
-			ypos = 0;
-			DrawBG(tn + 1, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = 0;
-			ypos = 256;
-			DrawBG(tn + 2, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = 256;
-			ypos = 256;
-			DrawBG(tn + 3, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = 512;
-			ypos = 0;
-			DrawBG(tn + 4, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = 512;
-			ypos = 128;
-			DrawBG(tn + 5, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = 512;
-			ypos = 256;
-			DrawBG(tn + 6, xpos, ypos, 2.0f, scaleX, scaleY);
-
-			xpos = 512;
-			ypos = 384;
-			DrawBG(tn + 7, xpos, ypos, 2.0f, scaleX, scaleY);
-			titledrawn = titleframe;
-		}
-	}
-}
-
 void DrawLogo()
 {
-	float xpos;
-	float smalloff;
-	float ypos;
-	float surfacesucks = 0.0f;
-	if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) smalloff = -60; //16:10
-	if (float(HorizontalResolution) / float(VerticalResolution) <= 1.3f) smalloff = -40; //5:4
-	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) surfacesucks = -48.0f;
-	if (float(HorizontalResolution) / float(VerticalResolution) > 2.2f)  surfacesucks = -96.0f;
-	if (logodrawn != logoframe)
+	if (HorizontalStretch != 1.0f)
 	{
-		njSetTexture((NJS_TEXLIST*)0x010D7C48); //AVA_GTITLE0_E
-		if (logoframe > 128) logoframe = 0;
-		//Draw logo
+		if (transitionmode == 0) TitleBGTransparency.argb.a = 255;
+		//Draw AVA_BACK first
+		if (EnableTransition == true && titlebackloaded == false)
+		{
+			njSetTexture(&ava_back_TEXLIST);
+			SetVtxColorB(0xFFFFFFFF);
+			DrawTiledBG_AVA_BACK(1.2f);
+		}
+		//Variables for logo/background
+		float xpos;
+		float ypos;
+		float smalloff;
+		float surfacesucks = 0.0f;
+		int texturenumber;
+		float scaleX;
+		float scaleY;
+		if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) smalloff = -60; //16:10
+		if (float(HorizontalResolution) / float(VerticalResolution) <= 1.3f) smalloff = -40; //5:4
+		if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) surfacesucks = -48.0f;
+		if (float(HorizontalResolution) / float(VerticalResolution) > 2.2f)  surfacesucks = -96.0f;
+		//Draw title BG
+		njSetTexture(&ava_title_cmn_TEXLIST);
 		njTextureShadingMode(1);
-		SetVtxColorB(0xFFFFFFFF);
-		DrawBG(0, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
-		//Draw logo overlay
-		if (DrawOverlay == true) DrawBG(1, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
-		//Disable this stuff for ultra wide screens because there isn't enough space
-		if (float(HorizontalResolution) / float(VerticalResolution) < 2.2f)
+		if (!DroppedFrames)
 		{
-			//Draw Sonic Team logo
-			DrawBG(2, (320 - 32 + SonicTeamOffsetX)*HorizontalStretch, (64 + surfacesucks + SonicTeamOffsetY)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-			//Draw copyright text
-			DrawBG(3, (64 + TextOffsetX)*HorizontalStretch, (960 - 168 + TextOffsetY + surfacesucks)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			if (titlebackloaded == false) SetVtxColorB(TitleBGTransparency.color); else SetVtxColorB(0xFFFFFFFF);
+			if (titledrawn != titleframe)
+			{
+				if (titleframe > 22) titleframe = 0;
+				if (RipplesOn == false) texturenumber = 0; else texturenumber = 8 + (titleframe * 8);
+				xpos = BackgroundOffsetX * HorizontalStretch * BackgroundScaleX;
+				ypos = BackgroundOffsetY * (VerticalStretch*rewritestretch) * BackgroundScaleY;
+				scaleX = HorizontalStretch * 0.5f * BackgroundScaleX;
+				scaleY = VerticalStretch * rewritestretch * BackgroundScaleY;
+				DrawBG(texturenumber, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = (BackgroundOffsetX + 256.0f)* HorizontalStretch * BackgroundScaleX;
+				ypos = BackgroundOffsetY * (VerticalStretch*rewritestretch) * BackgroundScaleY;
+				DrawBG(texturenumber + 1, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = BackgroundOffsetX * HorizontalStretch * BackgroundScaleX;
+				ypos = (VerticalStretch*rewritestretch) * (512.0f + BackgroundOffsetY)*BackgroundScaleY;
+				DrawBG(texturenumber + 2, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = (BackgroundOffsetX + 256.0f)*BackgroundScaleX * HorizontalStretch;
+				ypos = (VerticalStretch*rewritestretch) * (512.0f + BackgroundOffsetY)*BackgroundScaleY;
+				DrawBG(texturenumber + 3, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
+				ypos = BackgroundOffsetY * (VerticalStretch*rewritestretch) * BackgroundScaleY;
+				DrawBG(texturenumber + 4, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
+				ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY + 256.0f)*BackgroundScaleY;
+				DrawBG(texturenumber + 5, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
+				ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY + 512.0f)*BackgroundScaleY;
+				DrawBG(texturenumber + 6, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = (BackgroundOffsetX + 512.0f)*BackgroundScaleX * HorizontalStretch;
+				ypos = (VerticalStretch*rewritestretch) * (BackgroundOffsetY + 768.0f)*BackgroundScaleY;
+				DrawBG(texturenumber + 7, xpos, ypos, 1.2f, scaleX, scaleY);
+				titledrawn = titleframe;
+			}
 		}
-		//Ultra wide
-		if (float(HorizontalResolution) / float(VerticalResolution) >= 2.2f)
+		//Draw logo
+		if (logodrawn != logoframe)
 		{
-			//Draw Sonic Team logo
-			DrawBG(2, (320 - 32 + SonicTeamOffsetX)*HorizontalStretch, (64 + surfacesucks + SonicTeamOffsetY)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f*0.8f, VerticalStretch * rewritestretch*0.8f);
-			//Draw copyright text
-			DrawBG(3, (64 + TextOffsetX)*HorizontalStretch, (960 - 168 + TextOffsetY + surfacesucks)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f*0.8f, VerticalStretch * rewritestretch*0.8f);
+			njSetTexture((NJS_TEXLIST*)0x010D7C48); //AVA_GTITLE0_E
+			if (logoframe > 128) logoframe = 0;
+			//Draw logo
+			SetVtxColorB(TitleBGTransparency.color);
+			DrawBG(0, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
+			//Draw logo overlay
+			if (DrawOverlay == true) DrawBG(1, LogoOffsetX*HorizontalStretch*LogoScaleX, VerticalStretch*(LogoOffsetY + surfacesucks)*LogoScaleY* rewritestretch, 1.2f, HorizontalStretch * 0.5f*LogoScaleX, VerticalStretch * rewritestretch*LogoScaleY);
+			//Disable this stuff for ultra wide screens because there isn't enough space
+			if (float(HorizontalResolution) / float(VerticalResolution) < 2.2f)
+			{
+				//Draw Sonic Team logo
+				DrawBG(2, (320 - 32 + SonicTeamOffsetX)*HorizontalStretch, (64 + surfacesucks + SonicTeamOffsetY)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+				//Draw copyright text
+				DrawBG(3, (64 + TextOffsetX)*HorizontalStretch, (960 - 168 + TextOffsetY + surfacesucks)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+			}
+			//Ultra wide
+			if (float(HorizontalResolution) / float(VerticalResolution) >= 2.2f)
+			{
+				//Draw Sonic Team logo
+				DrawBG(2, (320 - 32 + SonicTeamOffsetX)*HorizontalStretch, (64 + surfacesucks + SonicTeamOffsetY)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f*0.8f, VerticalStretch * rewritestretch*0.8f);
+				//Draw copyright text
+				DrawBG(3, (64 + TextOffsetX)*HorizontalStretch, (960 - 168 + TextOffsetY + surfacesucks)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f*0.8f, VerticalStretch * rewritestretch*0.8f);
+			}
+			logodrawn = logoframe;
 		}
-		logodrawn = logoframe;
 		if (transitionmode != 0)
 		{
 			if (transitionmode == 1)
 			{
 				{
-					if (LogoScaleXT < LogoScaleX * 2.0f)LogoScaleXT = LogoScaleXT*1.12f;
-					if (LogoScaleYT < LogoScaleY * 2.0f)LogoScaleYT = LogoScaleYT*1.12f;
+					if (TitleBGTransparency.argb.a >= 16)
+					{
+						TitleBGTransparency.argb.a -= 16;
+						if (LogoScaleXT < LogoScaleX * 2.0f) LogoScaleXT = LogoScaleXT * 1.05f;
+						if (LogoScaleYT < LogoScaleY * 2.0f) LogoScaleYT = LogoScaleYT * 1.05f;
+						if (BlackFadeout.argb.a <= 48) BlackFadeout.argb.a += 16;
+					}
+					else
+					{
+						transitionmode = 2;
+						TitleBGTransparency.argb.a = 0;
+						BlackFadeout.argb.a = 64;
+						LogoScaleXT = LogoScaleX * 2.0f;
+						LogoScaleYT = LogoScaleY * 2.0f;
+					}
 				}
-				transitionframe++;
+			}
+			if (transitionmode == 3)
+			{
+				if (TitleBGTransparency.argb.a <= 223)
+				{
+					if (BlackFadeout.argb.a >= 4) BlackFadeout.argb.a -= 4;
+					TitleBGTransparency.argb.a += 32;
+					if (LogoScaleXT > LogoScaleX) LogoScaleXT = LogoScaleXT * 0.92f;
+					if (LogoScaleYT > LogoScaleY) LogoScaleYT = LogoScaleYT * 0.92f;
+				}
+				else
+				{
+					transitionmode = 0;
+					TitleBGTransparency.argb.a = 255;
+					LogoScaleXT = LogoScaleX;
+					LogoScaleYT = LogoScaleY;
+				}
 			}
 			xpos = (HorizontalResolution - LogoScaleXT * 512.0f * HorizontalStretch) / 2.0f;
 			ypos = (VerticalResolution - LogoScaleYT * 256.0f * HorizontalStretch + smalloff * VerticalStretch * rewritestretch) / 2.0f;
 			//Draw logo transition
-			SetVtxColorB(0x7FFFFFFF);
-			if (LogoScaleXT <= 2.0f*LogoScaleX) DrawBG(0, xpos, ypos, 1.2f, HorizontalStretch * 0.5f*LogoScaleXT, VerticalStretch * rewritestretch*LogoScaleYT);
+			SetVtxColorB(TitleBGTransparency.color);
+			if (LogoScaleXT > 1.1f) DrawBG(0, xpos, ypos, 1.2f, HorizontalStretch * 0.5f*LogoScaleXT, VerticalStretch * rewritestretch*LogoScaleYT);
 		}
 		njTextureShadingMode(2);
+		//Draw black box if transitioning
+		if (transitionmode == 3 || transitionmode == 1) DrawRect_Queue(0, 0, HorizontalResolution, VerticalResolution, 1.2f, BlackFadeout.color, QueuedModelFlagsB_SomeTextureThing);
 	}
 }
 
 void DrawLogo_640()
 {
-	float xpos;
-	float ypos;
-	if (RipplesOn == true && logodrawn != logoframe)
+	if (HorizontalStretch == 1)
 	{
-		njSetTexture((NJS_TEXLIST*)0x010D7C48); //AVA_GTITLE0_E
-		if (logoframe > 128) logoframe = 0;
-		//Draw logo
+		//Variables for logo/background
+		float xpos;
+		float ypos;
+		int texturenumber;
+		float scaleX;
+		float scaleY;
+		if (transitionmode == 0) TitleBGTransparency.argb.a = 255;
+		//Draw AVA_BACK first
+		if (titlebackloaded == false)
+		{
+			njSetTexture(&ava_back_TEXLIST);
+			SetVtxColorB(0xFFFFFFFF);
+			if (!DroppedFrames)
+			{
+				DrawTiledBG_AVA_BACK(1.2f);
+			}
+		}
+		//Draw title screen BG
+		njSetTexture(&ava_title_cmn_small_TEXLIST);
 		njTextureShadingMode(1);
-		SetVtxColorB(0xFFFFFFFF);
-		DrawBG(4, 64, 81, 1.2f, 1.0f, 1.0f);
-		//Draw logo overlay
-		if (DrawOverlay == true) DrawBG(5, 64, 81, 1.2f, 1.0f, 1.0f);
-		//Draw Sonic Team logo
-		DrawBG(6, (320 - 32), 35, 1.2f, 1.0f, 1.0f);
-		//Draw copyright text
-		DrawBG(7, 64, (480 - 84), 1.2f, 1.0f, 1.0f);
-		logodrawn = logoframe;
+		if (!DroppedFrames)
+		{
+			if (titlebackloaded == false) SetVtxColorB(TitleBGTransparency.color); else SetVtxColorB(0xFFFFFFFF);
+			if (titledrawn != titleframe)
+			{
+				if (titleframe > 22) titleframe = 0;
+				if (RipplesOn == false) texturenumber = 0; else texturenumber = 8 + (titleframe * 8);
+				scaleX = 1.0f;
+				scaleY = 1.0f;
+
+				xpos = 0;
+				ypos = 0;
+				DrawBG(texturenumber, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = 256;
+				ypos = 0;
+				DrawBG(texturenumber + 1, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = 0;
+				ypos = 256;
+				DrawBG(texturenumber + 2, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = 256;
+				ypos = 256;
+				DrawBG(texturenumber + 3, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = 512;
+				ypos = 0;
+				DrawBG(texturenumber + 4, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = 512;
+				ypos = 128;
+				DrawBG(texturenumber + 5, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = 512;
+				ypos = 256;
+				DrawBG(texturenumber + 6, xpos, ypos, 1.2f, scaleX, scaleY);
+
+				xpos = 512;
+				ypos = 384;
+				DrawBG(texturenumber + 7, xpos, ypos, 1.2f, scaleX, scaleY);
+				titledrawn = titleframe;
+			}
+		}
+		//Draw logo separately if ripples are enabled
+		if (RipplesOn == true && logodrawn != logoframe)
+		{
+			njSetTexture((NJS_TEXLIST*)0x010D7C48); //AVA_GTITLE0_E
+			if (logoframe > 128) logoframe = 0;
+			//Draw logo
+			SetVtxColorB(TitleBGTransparency.color);
+			DrawBG(4, 64, 81, 1.2f, 1.0f, 1.0f);
+			//Draw logo overlay
+			if (DrawOverlay == true) DrawBG(5, 64, 81, 1.2f, 1.0f, 1.0f);
+			//Draw Sonic Team logo
+			DrawBG(6, (320 - 32), 35, 1.2f, 1.0f, 1.0f);
+			//Draw copyright text
+			DrawBG(7, 64, (480 - 84), 1.2f, 1.0f, 1.0f);
+			logodrawn = logoframe;
+		}
 		if (transitionmode != 0)
 		{
 			if (transitionmode == 1)
 			{
 				{
-					if (LogoScaleXT < LogoScaleX * 2.0f)LogoScaleXT = LogoScaleXT*1.12f;
-					if (LogoScaleYT < LogoScaleY * 2.0f)LogoScaleYT = LogoScaleYT*1.12f;
+					if (TitleBGTransparency.argb.a >= 16)
+					{
+						TitleBGTransparency.argb.a -= 16;
+						if (LogoScaleXT < LogoScaleX * 2.0f) LogoScaleXT = LogoScaleXT * 1.05f;
+						if (LogoScaleYT < LogoScaleY * 2.0f) LogoScaleYT = LogoScaleYT * 1.05f;
+						if (BlackFadeout.argb.a <= 48) BlackFadeout.argb.a += 16;
+					}
+					else
+					{
+						transitionmode = 2;
+						TitleBGTransparency.argb.a = 0;
+						BlackFadeout.argb.a = 64;
+						LogoScaleXT = LogoScaleX * 2.0f;
+						LogoScaleYT = LogoScaleY * 2.0f;
+					}
 				}
-				transitionframe++;
 			}
+			if (transitionmode == 3)
+			{
+				if (TitleBGTransparency.argb.a <= 223)
+				{
+					if (BlackFadeout.argb.a >= 4) BlackFadeout.argb.a -= 4;
+					TitleBGTransparency.argb.a += 32;
+					if (LogoScaleXT > LogoScaleX) LogoScaleXT = LogoScaleXT * 0.92f;
+					if (LogoScaleYT > LogoScaleY) LogoScaleYT = LogoScaleYT * 0.92f;
+				}
+				else
+				{
+					transitionmode = 0;
+					TitleBGTransparency.argb.a = 255;
+					LogoScaleXT = LogoScaleX;
+					LogoScaleYT = LogoScaleY;
+				}
+			}
+			//Draw logo transition
+			SetVtxColorB(TitleBGTransparency.color);
 			xpos = (640.0f - LogoScaleXT * 512.0f) / 2.0f;
 			ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - LogoScaleYT * 15.5f;
-			//Draw logo transition
-			SetVtxColorB(0x7FFFFFFF);
-			if (LogoScaleXT <= 2.0f) DrawBG(4, xpos, ypos, 1.2f, LogoScaleXT, LogoScaleYT);
+			if (LogoScaleXT > 1.1f) DrawBG(4, xpos, ypos, 1.2f, LogoScaleXT, LogoScaleYT);
 		}
 		njTextureShadingMode(2);
+		//Draw black box if transitioning
+		if (transitionmode == 3 || transitionmode == 1) DrawRect_Queue(0, 0, HorizontalResolution, VerticalResolution, 1.2f, BlackFadeout.color, QueuedModelFlagsB_SomeTextureThing);
 	}
 }
 
 void DrawPressStart()
 {
-	njTextureShadingMode(1);
-	float yoff = 112.0f;
-	if (float(HorizontalResolution) / float(VerticalResolution) < 1.5f) yoff = 112.0f; //4:3
-	if (float(HorizontalResolution) / float(VerticalResolution) > 1.6f) yoff = 82.0f; //16:9
-	if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) yoff = 120.0f; //16:10
-	if (float(HorizontalResolution) / float(VerticalResolution) <= 1.3f) yoff = 134; //5:4
-	if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) yoff = 92.0f; //3:2
-	if (float(HorizontalResolution) / float(VerticalResolution) > 2.2f) yoff = 48.0f; //Ultra wide
-	if (!(HorizontalResolution == 640 && VerticalResolution == 480) && startdrawn != startframe)
+	if (transitionmode != 1)
 	{
-		if (startframe > 128) startframe = 0;
-		DrawBG(8, HorizontalStretch*(320.0f - 128.0f + PressStartOffsetX), VerticalResolution - HorizontalStretch*(yoff - PressStartOffsetY), 1.1f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+		njTextureShadingMode(1);
+		float yoff = 112.0f;
+		if (float(HorizontalResolution) / float(VerticalResolution) < 1.5f) yoff = 112.0f; //4:3
+		if (float(HorizontalResolution) / float(VerticalResolution) > 1.6f) yoff = 82.0f; //16:9
+		if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) yoff = 120.0f; //16:10
+		if (float(HorizontalResolution) / float(VerticalResolution) <= 1.3f) yoff = 134; //5:4
+		if (float(HorizontalResolution) / float(VerticalResolution) == 1.5f) yoff = 92.0f; //3:2
+		if (float(HorizontalResolution) / float(VerticalResolution) > 2.2f) yoff = 48.0f; //Ultra wide
+		if (!(HorizontalResolution == 640 && VerticalResolution == 480) && startdrawn != startframe)
+		{
+			if (startframe > 128) startframe = 0;
+			DrawBG(8, HorizontalStretch*(320.0f - 128.0f + PressStartOffsetX), VerticalResolution - HorizontalStretch * (yoff - PressStartOffsetY), 1.1f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+		}
+		if (HorizontalResolution == 640 && VerticalResolution == 480 && startdrawn != startframe)
+		{
+			if (startframe > 128) startframe = 0;
+			DrawBG(8, (320.0f - 128.0f), (480 - 114), 1.1f, 0.5f, 0.5f);
+		}
+		startdrawn = startframe;
+		njTextureShadingMode(2);
 	}
-	if (HorizontalResolution == 640 && VerticalResolution == 480 && startdrawn != startframe)
-	{
-		if (startframe > 128) startframe = 0;
-		DrawBG(8, (320.0f - 128.0f), (480 - 114), 1.1f, 0.5f, 0.5f);
-	}
-	startdrawn = startframe;
-	njTextureShadingMode(2);
 }
 
 void DrawShadow_Hook(int texnum, float x, float y, float z, float scaleX, float scaleY)
@@ -459,8 +1019,55 @@ void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, flo
 	njTextureShadingMode(2);
 }
 
+void LoadTitleScreenHook(int a1)
+{
+	LoadPVM("AVA_BACK", &ava_back_TEXLIST);
+	sub_510390(a1);
+}
+
+void FileSelectAVABACKHook(float depth)
+{
+	SetVtxColorA(0xFFFFFFFF);
+	DrawTiledBG_AVA_BACK(depth);
+}
+
+void VtxColorHook(Uint32 color)
+{
+	if (disablevtxcolor == true) SetVtxColorA(0xFFFFFFFF);
+	else SetVtxColorA(color);
+}
+
+void VtxColorHook_Options(Uint32 color)
+{
+	disablevtxcolor = false;
+	SetVtxColorA(color);
+}
+
+void DrawBG_CreditsLogo(int texnum, float x, float y, float z, float scaleX, float scaleY)
+{
+	NJS_COLOR vtxcolor;
+	int vtx;
+	vtxcolor.color = 0xFFFFFFFF;
+	if (y < 0.0f)
+	{
+		vtx = 255 + (int)(y*4.0f);
+		if (vtx <= 0) vtxcolor.argb.a = 0;
+		else vtxcolor.argb.a = vtx;
+	}
+	SetVtxColorB(vtxcolor.color);
+	Direct3D_SetZFunc(7u);
+	Direct3D_EnableZWrite(0);
+	DrawBG(texnum, x, y, z, scaleX, scaleX);
+	Direct3D_EnableZWrite(1);
+	Direct3D_SetZFunc(3u);
+}
+
 void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	//Credits
+	WriteCall((void*)0x00640ACC, DrawBG_CreditsLogo);
+	MainCredits.Count = 449;
+	MainCredits.Entries = (CreditsEntry*)&SA1Credits;
 	char pathbuf[MAX_PATH];
 	f480_Fixed = 1.0f + VerticalResolution;
 	f640_Fixed = 1.0f + HorizontalResolution;
@@ -504,6 +1111,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("AVA_FSCMN_E");
 	if (DLLLoaded_HDGUI == false)
 	{
+		ReplacePVM("ENDBG_LOGO");
 		ReplacePVM("AVA_NEW16NO");
 		ReplacePVM("CON_REGULAR");
 		ReplacePVM("CON_REGULAR_E");
@@ -747,8 +1355,9 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	if (DisableSA1TitleScreen == false)
 	{
 		//640x480 stuff
-		WriteCall((void*)0x0050E547, DrawTitleBG_640);
-		WriteCall((void*)0x0050E58E, DrawLogo_640);
+		WriteCall((void*)0x0050E4D5, DrawLogo_640);
+		WriteData<5>((void*)0x0050E547, 0x90);
+		WriteData<5>((void*)0x0050E58E, 0x90);
 		WriteData<5>((void*)0x0050E659, 0x90);
 		WriteData<5>((void*)0x0050E6F4, 0x90);
 		WriteData<5>((void*)0x0050E754, 0x90);
@@ -765,7 +1374,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		//Kill titlescreen fade
 		if (DisableFade == true) WriteData<5>((char*)0x0050E49B, 0x90);
 		ResizeTextureList((NJS_TEXLIST*)0x010D7C80, 10);
-		WriteJump((void*)0x505810, sub_505810);
 		WriteJump((void*)0x50BA90, DrawAVA_TITLE_BACK_E_DC);
 		//PVMs
 		//Japanese
@@ -811,8 +1419,9 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		if (float(HorizontalResolution) / float(VerticalResolution) == 1.6f) rewritestretch = 0.6f; //16:10
 		if (float(HorizontalResolution) / float(VerticalResolution) > 2.2f)  rewritestretch = 0.9f; //Ultra wide
 		if (RipplesOn == true) ResizeTextureList((NJS_TEXLIST*)0x010D7C58, 192);
-		WriteCall((void*)0x0050E6F4, DrawTitleBG);
-		WriteCall((void*)0x0050E8AF, DrawLogo);
+		WriteData<5>((char*)0x0050E6F4, 0x90);
+		WriteData<5>((char*)0x0050E8AF, 0x90);
+		WriteCall((void*)0x0050E4B1, DrawLogo);
 		WriteCall((void*)0x0051002B, DrawPressStart);
 		//Kill other BG
 		WriteData<5>((char*)0x0050E754, 0x90);
@@ -867,19 +1476,20 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		//Kill PressEnter
 		WriteData<5>((char*)0x00510085, 0x90);
 		WriteData<5>((char*)0x005100EB, 0x90);
-		//Some other stuff
-		WriteData<1>((char*)0x0050E8BA, 0x1); //Draw logo only once
-		WriteData<1>((char*)0x0050E81F, 0x1); //Draw title screen BG only once)
-		WriteData((float**)0x0050E87C, &rewritestretch); //Disable logo stretching
-		//Scrolling
-		WriteData((float**)0x0050E83B, &zero); //Disable titlescreen scrolling 
-		WriteData((float**)0x0050E5BB, &zero); //Disable titlescreen scrolling (640x480)
-		//Offset
-		WriteData((float**)0x0050E6C2, &zero); //Disable horizontal offset
-		WriteData((float*)0x0050E6E7, -1.0f); //Disable vertical offset row 1
-		WriteData((float**)0x0050E73D, &one); //Disable vertical offset row 2
-		WriteData((float**)0x0050E79D, &one); //Disable vertical offset row 3
-		WriteData((float**)0x0050E7FD, &one); //Disable vertical offset row 4
+		//Various transition stuff
+		BlackFadeout.color = 0x00000000;
+		TitleBGTransparency.argb.r = 255;
+		TitleBGTransparency.argb.g = 255;
+		TitleBGTransparency.argb.b = 255;
+		if (EnableTransition == true)
+		{
+			WriteCall((void*)0x503DD8, PlayReturnSound_EnableTransition);
+			WriteCall((void*)0x50E386, PlayStartSound_EnableTransition);
+			WriteCall((void*)0x50557D, FileSelectAVABACKHook);
+			WriteCall((void*)0x50558D, VtxColorHook);
+			WriteCall((void*)0x509829, VtxColorHook_Options);
+			WriteData((void**)0x010D7B60, (void*)LoadTitleScreenHook);
+		}
 	}
 	WriteData<1>((void*)0x0042CCF3, 0x0F); //Disable Sonic Team logo
 	//Pause box stuff
@@ -904,18 +1514,15 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void Branding_OnFrame()
 {
+	if (GameMode != GameModes_Menu && transitionmode == 2)
+	{
+		transitionmode = 3;
+	}
 	if (GameMode == GameModes_Menu && DLLLoaded_HDGUI == true)
 	{
 		if (Options_ArrowScale > 0.5f) Options_ArrowScaleAmount = -0.02f;
 		if (Options_ArrowScale < 0.0f) Options_ArrowScaleAmount = 0.02f;
 		Options_ArrowScale = Options_ArrowScale + Options_ArrowScaleAmount;
-	}
-	if (transitionmode != 0 && transitionframe >= 15)
-	{
-		transitionmode = 0;
-		transitionframe = 0;
-		LogoScaleXT = LogoScaleX;
-		LogoScaleYT = LogoScaleY;
 	}
 	if (DisableSA1TitleScreen == false && GameState == 21)
 	{
