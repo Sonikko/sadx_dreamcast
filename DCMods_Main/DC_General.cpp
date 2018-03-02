@@ -685,7 +685,7 @@ void DrawVideoWithSpecular(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr)
 		{
 			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
 			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
-			DrawRect_Queue(0, 0, sp->tanim->sx, sp->tanim->sy, pri, 0x06FFFFFF, QueuedModelFlagsB_SomeTextureThing);
+			//DrawRect_Queue(0, 0, sp->tanim->sx, sp->tanim->sy, pri, 0x06FFFFFF, QueuedModelFlagsB_SomeTextureThing);
 			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
 			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 		}
