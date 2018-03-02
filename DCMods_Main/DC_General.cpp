@@ -27,6 +27,18 @@ NJS_TEXANIM Heat2Texanim = { 56, 64, 28, 32, 0, 0, 0xFF, 0xFF, 2, 0 };
 NJS_SPRITE Heat1Sprite = { { 0, 0, 0 }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x0091BD28, &Heat1Texanim };
 NJS_SPRITE Heat2Sprite = { { 0, 0, 0 }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x0091BD28, &Heat2Texanim };
 
+NJS_POINT2COL VideoFrame_Point2Col;
+
+NJS_POINT2 VideoFrame_Points[] = {
+	{ 0, 0 },
+	{ 0, 480 },
+	{ 640, 0 },
+	{ 640, 480 },
+};
+
+NJS_COLOR VideoFrame_Colors[4];
+NJD_DRAW VideoFrame_Attr = 0x62;
+
 DataArray(char, byte_3C5B37C, 0x3C5B37C, 52);
 DataPointer(int, dword_3C60000, 0x3C60000);
 DataPointer(NJS_MODEL_SADX, stru_8BC0F4, 0x8BC0F4);
@@ -44,6 +56,8 @@ FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
 FunctionPointer(EntityData1*, sub_4B9430, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4B9430);
 FunctionPointer(void, sub_436550, (), 0x436550);
 FunctionPointer(void, sub_40EFE0, (), 0x40EFE0);
+FunctionPointer(double, sub_49EAD0, (float a1, float a2, float a3, int a4), 0x49EAD0);
+FunctionPointer(float, sub_49E920, (float x, float y, float z, Rotation3 *rotation), 0x49E920);
 
 static bool EnableCutsceneFix = true;
 static std::string EnableImpressFont = "Off";
@@ -215,6 +229,21 @@ void RenderEmeraldWithGlow(NJS_OBJECT *a1, int scale)
 	njDrawSprite3D(&EmeraldGlowSprite, 0, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR);
 	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
 	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+}
+
+void InitVideoFrameStuff()
+{
+	VideoFrame_Points[1] = { 0, (float)VerticalResolution };
+	VideoFrame_Points[2] = { (float)HorizontalResolution, 0 };
+	VideoFrame_Points[3] = { (float)HorizontalResolution, (float)VerticalResolution };
+	VideoFrame_Colors[0].color = 0x06FFFFFF;
+	VideoFrame_Colors[1].color = 0x06FFFFFF;
+	VideoFrame_Colors[2].color = 0x06FFFFFF;
+	VideoFrame_Colors[3].color = 0x06FFFFFF;
+	VideoFrame_Point2Col.p = (NJS_POINT2*)&VideoFrame_Points;
+	VideoFrame_Point2Col.col = (NJS_COLOR*)&VideoFrame_Colors;
+	VideoFrame_Point2Col.tex = 0;
+	VideoFrame_Point2Col.num = 4;
 }
 
 void RotateEmerald()
@@ -498,9 +527,6 @@ void GammaHook()
 	else SetMaterialAndSpriteColor_Float(0.85f, 1.0f, 1.0f, 1.0f);
 }
 
-FunctionPointer(double, sub_49EAD0, (float a1, float a2, float a3, int a4), 0x49EAD0);
-FunctionPointer(float, sub_49E920, (float x, float y, float z, Rotation3 *rotation), 0x49E920);
-
 float __cdecl EggKeeperFix(float x, float y, float z, Rotation3 *rotation)
 {
 	float result;
@@ -651,7 +677,7 @@ void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
 	}
 }
 
-void DrawVideoWithSpecular(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr)
+void DrawVideoWithSpecular(int width, int height)
 {
 	if (SkippingVideo == 1)
 	{
@@ -680,12 +706,16 @@ void DrawVideoWithSpecular(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr)
 	}
 	if (SkippingVideo != 2)
 	{
-		njDrawSprite2D_DrawNow(sp, n, pri, attr);
+		DisplayVideoFrame(width, height);
 		if (ColorizeVideos == true)
 		{
 			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
 			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
-			//DrawRect_Queue(0, 0, sp->tanim->sx, sp->tanim->sy, pri, 0x06FFFFFF, QueuedModelFlagsB_SomeTextureThing);
+			Direct3D_SetZFunc(7u);
+			Direct3D_EnableZWrite(0);
+			njDrawTriangle2D_SomeOtherVersion((NJS_POINT2COL*)&VideoFrame_Point2Col, 4, -1000.0f, VideoFrame_Attr);
+			Direct3D_EnableZWrite(1);
+			Direct3D_SetZFunc(3u);
 			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
 			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 		}
@@ -955,16 +985,17 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Enable Dreamcast-like colorization for FMVs
 	if (ColorizeVideos == true)
 	{
+		InitVideoFrameStuff();
 		DefaultVideoColor.r = 0.7529411764705882f;
 		DefaultVideoColor.g = 0.7529411764705882f;
 		DefaultVideoColor.b = 0.7529411764705882f;
-		WriteCall((void*)0x00513A9B, DrawVideoWithSpecular);
+		WriteCall((void*)0x0051330A, DrawVideoWithSpecular);
 	}
 	if (FadeoutVideos == true)
 	{
 		WriteCall((void*)0x00513271, InputHookForVideos);
 		WriteData<1>((char*)0x005132B9, 0x01); //Wait for Button_C instead of Button_A or Button_Start
-		WriteCall((void*)0x00513A9B, DrawVideoWithSpecular);
+		WriteCall((void*)0x0051330A, DrawVideoWithSpecular);
 	}
 	//Enable Impress font
 	if (DisableFontSmoothing == true)
