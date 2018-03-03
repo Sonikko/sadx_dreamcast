@@ -909,7 +909,7 @@ void DrawLogo_640()
 			SetVtxColorB(TitleBGTransparency.color);
 			xpos = (640.0f - LogoScaleXT * 512.0f) / 2.0f;
 			if (RipplesOn == true) ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - LogoScaleYT * 15.5f;
-			else ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - LogoScaleYT * 15.5f;
+			else ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - LogoScaleYT;
 			if (LogoScaleXT > 1.1f) DrawBG(4, xpos, ypos, 1.2f, LogoScaleXT, LogoScaleYT);
 		}
 		njTextureShadingMode(2);
