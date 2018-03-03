@@ -793,7 +793,7 @@ void DrawLogo_640()
 		float scaleY;
 		if (transitionmode == 0) TitleBGTransparency.argb.a = 255;
 		//Draw AVA_BACK first
-		if (titlebackloaded == false)
+		if (EnableTransition == true && titlebackloaded == false)
 		{
 			njSetTexture(&ava_back_TEXLIST);
 			SetVtxColorB(0xFFFFFFFF);
@@ -850,19 +850,20 @@ void DrawLogo_640()
 			}
 		}
 		//Draw logo separately if ripples are enabled
-		if (RipplesOn == true && logodrawn != logoframe)
+		if (logodrawn != logoframe)
 		{
 			njSetTexture((NJS_TEXLIST*)0x010D7C48); //AVA_GTITLE0_E
 			if (logoframe > 128) logoframe = 0;
-			//Draw logo
+			//Draw logo if using logo-less background
 			SetVtxColorB(TitleBGTransparency.color);
-			DrawBG(4, 64, 81, 1.2f, 1.0f, 1.0f);
+			if (RipplesOn == true) DrawBG(4, 64, 81, 1.2f, 1.0f, 1.0f);
 			//Draw logo overlay
-			if (DrawOverlay == true) DrawBG(5, 64, 81, 1.2f, 1.0f, 1.0f);
-			//Draw Sonic Team logo
-			DrawBG(6, (320 - 32), 35, 1.2f, 1.0f, 1.0f);
-			//Draw copyright text
-			DrawBG(7, 64, (480 - 84), 1.2f, 1.0f, 1.0f);
+			if (RipplesOn == true && DrawOverlay == true) DrawBG(5, 64, 81, 1.2f, 1.0f, 1.0f);
+			if (RipplesOn == false && DrawOverlay == true) DrawBG(5, 64, 112, 1.2f, 1.0f, 1.0f);
+			//Draw Sonic Team logo if using logo-less background
+			if (RipplesOn == true) DrawBG(6, (320 - 32), 35, 1.2f, 1.0f, 1.0f);
+			//Draw copyright text if using logo-less background
+			if (RipplesOn == true) DrawBG(7, 64, (480 - 84), 1.2f, 1.0f, 1.0f);
 			logodrawn = logoframe;
 		}
 		if (transitionmode != 0)
@@ -907,7 +908,8 @@ void DrawLogo_640()
 			//Draw logo transition
 			SetVtxColorB(TitleBGTransparency.color);
 			xpos = (640.0f - LogoScaleXT * 512.0f) / 2.0f;
-			ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - LogoScaleYT * 15.5f;
+			if (RipplesOn == true) ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - LogoScaleYT * 15.5f;
+			else ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - LogoScaleYT * 15.5f;
 			if (LogoScaleXT > 1.1f) DrawBG(4, xpos, ypos, 1.2f, LogoScaleXT, LogoScaleYT);
 		}
 		njTextureShadingMode(2);
