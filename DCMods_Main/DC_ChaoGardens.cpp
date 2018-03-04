@@ -3938,6 +3938,34 @@ void __cdecl ChaoStgEntrance_MainX(ObjectMaster *a1)
 	LevelDrawDistance.Maximum = -12000.0f;
 }
 
+void LoadChaoGardenHintMessages()
+{
+	WriteData((HintText_Entry**)0x9BF06C, (HintText_Entry*)&ChaoGardenMessages_Japanese);
+	WriteData((HintText_Entry**)0x9BF080, (HintText_Entry*)&ChaoGardenMessages_Japanese);
+	WriteData((HintText_Entry**)0x9BF094, (HintText_Entry*)&ChaoGardenMessages_Japanese);
+	WriteData((HintText_Entry**)0x9BF0A8, (HintText_Entry*)&ChaoGardenMessages_Japanese);
+
+	WriteData((HintText_Entry**)0x9BF070, (HintText_Entry*)&ChaoGardenMessages_English);
+	WriteData((HintText_Entry**)0x9BF084, (HintText_Entry*)&ChaoGardenMessages_English);
+	WriteData((HintText_Entry**)0x9BF098, (HintText_Entry*)&ChaoGardenMessages_English);
+	WriteData((HintText_Entry**)0x9BF0AC, (HintText_Entry*)&ChaoGardenMessages_English);
+
+	WriteData((HintText_Entry**)0x9BF074, (HintText_Entry*)&ChaoGardenMessages_French);
+	WriteData((HintText_Entry**)0x9BF088, (HintText_Entry*)&ChaoGardenMessages_French);
+	WriteData((HintText_Entry**)0x9BF09C, (HintText_Entry*)&ChaoGardenMessages_French);
+	WriteData((HintText_Entry**)0x9BF0B0, (HintText_Entry*)&ChaoGardenMessages_French);
+
+	WriteData((HintText_Entry**)0x9BF078, (HintText_Entry*)&ChaoGardenMessages_Spanish);
+	WriteData((HintText_Entry**)0x9BF08C, (HintText_Entry*)&ChaoGardenMessages_Spanish);
+	WriteData((HintText_Entry**)0x9BF0A0, (HintText_Entry*)&ChaoGardenMessages_Spanish);
+	WriteData((HintText_Entry**)0x9BF0B4, (HintText_Entry*)&ChaoGardenMessages_Spanish);
+
+	WriteData((HintText_Entry**)0x9BF07C, (HintText_Entry*)&ChaoGardenMessages_German);
+	WriteData((HintText_Entry**)0x9BF090, (HintText_Entry*)&ChaoGardenMessages_German);
+	WriteData((HintText_Entry**)0x9BF0A4, (HintText_Entry*)&ChaoGardenMessages_German);
+	WriteData((HintText_Entry**)0x9BF0B8, (HintText_Entry*)&ChaoGardenMessages_German);
+}
+
 void __cdecl LoadRaceEntryX()
 {
 	if (SkipSA1Entry == 1)
@@ -4087,11 +4115,7 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("GARDEN02");
 	ReplacePVM("OBJ_AL_RACE");
 	ReplacePVM("OBJ_AL_RACE_E");
-	WriteData((HintText_Entry**)0x9BF06C, &ChaoGardenMessages_Japanese[0]);
-	WriteData((HintText_Entry**)0x9BF070, &ChaoGardenMessages_English[0]);
-	WriteData((HintText_Entry**)0x9BF074, &ChaoGardenMessages_French[0]);
-	WriteData((HintText_Entry**)0x9BF078, &ChaoGardenMessages_Spanish[0]);
-	WriteData((HintText_Entry**)0x9BF07C, &ChaoGardenMessages_German[0]);
+	LoadChaoGardenHintMessages();
 	//Config stuff
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	EnableSSGarden = config->getBool("Chao Gardens", "EnableStationSquareGarden", true);
