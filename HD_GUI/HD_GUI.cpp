@@ -271,7 +271,6 @@ extern "C"
 		ReplacePNG("HYOJI_BALLS_E");
 		ReplacePNG("HYOJI_EMBLEM0");
 		ReplacePNG("HYOJI_EMBLEM1");
-		ReplacePNG("index.txt");
 		ReplacePNG("K_STAGE01");
 		ReplacePNG("K_STAGE01_E");
 		ReplacePNG("K_STAGE02");
