@@ -1003,8 +1003,8 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 		//This is a safer fix but it leaves a faint outline
 		//WriteData<1>((char*)0x0040DA0B, 0x77);
 		//WriteData<1>((char*)0x0040DA0C, 0x07);
-		//Disable entirely
-		WriteData<1>((char*)0x0040DBD6, 0i8);
+		//This is apparently dangerous
+		/*WriteData<1>((char*)0x0040DBD6, 0i8);
 		WriteData<1>((char*)0x0040DBDA, 0i8);
 		WriteData<1>((char*)0x0040DBF5, 0i8);
 		WriteData<1>((char*)0x0040DC45, 0i8);
@@ -1018,7 +1018,9 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteData<1>((char*)0x0040DB7C, 0i8);
 		WriteData<1>((char*)0x0040DB80, 0i8);
 		WriteData<1>((char*)0x0040DB5D, 0i8);
-		WriteData<1>((char*)0x0040DB61, 0i8);
+		WriteData<1>((char*)0x0040DB61, 0i8);*/
+		//This makes the subtitle texture ARGB1555
+		WriteData<1>((char*)0x0040D2E4, 0i8);
 	}
 	if (EnableImpressFont == "Impress")
 	{
