@@ -1000,27 +1000,10 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Enable Impress font
 	if (DisableFontSmoothing == true)
 	{
-		//This is a safer fix but it leaves a faint outline
-		//WriteData<1>((char*)0x0040DA0B, 0x77);
-		//WriteData<1>((char*)0x0040DA0C, 0x07);
-		//This is apparently dangerous
-		/*WriteData<1>((char*)0x0040DBD6, 0i8);
-		WriteData<1>((char*)0x0040DBDA, 0i8);
-		WriteData<1>((char*)0x0040DBF5, 0i8);
-		WriteData<1>((char*)0x0040DC45, 0i8);
-		WriteData<1>((char*)0x0040DC49, 0i8);
-		WriteData<1>((char*)0x0040DC60, 0i8);
-		WriteData<1>((char*)0x0040DC64, 0i8);
-		WriteData<1>((char*)0x0040DCB4, 0i8);
-		WriteData<1>((char*)0x0040DCB8, 0i8);
-		WriteData<1>((char*)0x0040DCCF, 0i8);
-		WriteData<1>((char*)0x0040DCD3, 0i8);
-		WriteData<1>((char*)0x0040DB7C, 0i8);
-		WriteData<1>((char*)0x0040DB80, 0i8);
-		WriteData<1>((char*)0x0040DB5D, 0i8);
-		WriteData<1>((char*)0x0040DB61, 0i8);*/
-		//This makes the subtitle texture ARGB1555
-		WriteData<1>((char*)0x0040D2E4, 0i8);
+		//Probably better than making the whole texture ARGB1555
+		WriteData<1>((char*)0x0040DA0B, 0x00);
+		WriteData<1>((char*)0x0040DA0C, 0x00);
+		WriteData<1>((char*)0x0040DA12, 0x00);
 	}
 	if (EnableImpressFont == "Impress")
 	{
