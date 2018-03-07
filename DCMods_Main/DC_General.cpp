@@ -1171,7 +1171,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 void General_OnFrame()
 {
 	//Reset the skip video thing
-	if (SkippingVideo != 0 && dword_3C60000 != 1) SkippingVideo = 0;
+	if (SkippingVideo == 2 && dword_3C60000 != 1) SkippingVideo = 0;
 	//Fix broken welds after playing as Metal Sonic
 	if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
 	//A bunch of other fixes that I had to do in OnFrame because shit changes all the time
@@ -1279,7 +1279,7 @@ void General_OnInput()
 	{
 		if (ControllerPointers[0]->PressedButtons & (Buttons_Start | Buttons_A))
 		{
-			SkippingVideo = true;
+			SkippingVideo = 1;
 		}
 	}
 }
