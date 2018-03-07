@@ -61,7 +61,7 @@ FunctionPointer(float, sub_49E920, (float x, float y, float z, Rotation3 *rotati
 
 static bool EnableCutsceneFix = true;
 static std::string EnableImpressFont = "Off";
-static bool ColorizeFont = false;
+static bool ColorizeFont = true;
 static bool ColorizeVideos = true;
 static bool FadeoutVideos = true;
 static bool DisableFontSmoothing = true;
@@ -977,7 +977,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	EnableDCRipple = config->getBool("General", "EnableDreamcastWaterRipple", true);
 	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
 	EnableImpressFont = config->getString("General", "EnableImpressFont", "Impress");
-	ColorizeFont = config->getBool("General", "ColorizeFont", false);
+	ColorizeFont = config->getBool("General", "ColorizeFont", true);
 	ColorizeVideos = config->getBool("General", "ColorizeVideos", true);
 	FadeoutVideos = config->getBool("General", "FadeoutVideos", true);
 	DisableFontSmoothing = config->getBool("General", "DisableFontSmoothing", true);
