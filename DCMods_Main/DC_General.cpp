@@ -732,6 +732,13 @@ void InputHookForVideos()
 	sub_40EFE0();
 }
 
+FunctionPointer(SubtitleThing *, sub_6424A0, (int a1, int a2, float a3, float a4, float a5, float a6, float a7, float a8), 0x6424A0);
+
+void ColorizeRecapText(int a1, int a2, float a3, float a4, float a5, float a6, float a7, float a8)
+{
+	sub_6424A0(a1, 0xFFF8F8F8, a3, a4, a5, a6, a7, a8);
+}
+
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -1016,9 +1023,16 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (ColorizeFont == true)
 	{
-		WriteData<1>((char*)0x0040E292, 0xD7);
-		WriteData<1>((char*)0x0040E293, 0xC8);
-		WriteData<1>((char*)0x0040E294, 0xC8);
+		//Subtitles (ARGB from 0 to F: CEEF)
+		WriteData<1>((char*)0x0040E28D, 0xEF);
+		WriteData<1>((char*)0x0040E28E, 0xCE);
+		//Pause menu text (ARGB from 00 to FF: BFEFEFFF)
+		WriteData<1>((char*)0x0040E541, 0xFF);
+		WriteData<1>((char*)0x0040E542, 0xEF);
+		WriteData<1>((char*)0x0040E543, 0xEF);
+		WriteData<1>((char*)0x0040E544, 0xBF);
+		//Recap screen (just FF F8 F8 F8)
+		WriteCall((void*)0x006428AD, ColorizeRecapText);
 	}
 	//Fix for cutscene transitions
 	if (EnableCutsceneFix == true)
@@ -1038,7 +1052,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x0049F1C0, FixWaterSplash);
 	//Gamma's chest patch lol
 	HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
-	((NJS_MATERIAL*)((size_t)CHRMODELS + +0x00200DE8))->attrflags &= ~NJD_FLAG_USE_ALPHA; //Unnecessary alpha in Gamma's model
+	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x00200DE8))->attrflags &= ~NJD_FLAG_USE_ALPHA; //Unnecessary alpha in Gamma's model
 	WriteCall((void*)0x0047FE13, GammaHook); //Gamma's chest transparency
 	//Character effects
 	WriteJump((void*)0x004A1630, Sonic_DisplayLightDashModelX);
