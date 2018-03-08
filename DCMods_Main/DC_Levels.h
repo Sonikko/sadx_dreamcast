@@ -81,3 +81,30 @@ bool ForceDiffuse4Specular5(NJS_MATERIAL* material, Uint32 flags);
 #define AddSETFix(a) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" a "_S.BIN");
 #define AddSETFix_Extra(a) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" a "_E.BIN");
 #define ReplacePVMX_SADXStyleWater(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "W.PVM");
+
+struct SubtitleThing
+{
+	char field_0;
+	char gap1[1];
+	float px;
+	float py;
+	int field_6;
+	int field_8;
+	float sx;
+	float sy;
+	__int16 width;
+	__int16 height;
+	__int16 field_12;
+	__int16 field_14;
+	__int16 field_16;
+	__int16 field_18;
+	__int16 field_1A;
+	NJS_BGRA colorA;
+	NJS_COLOR colorB;
+	float scale;
+	void *data_or_d3dtexture;
+	NJS_TEXMEMLIST *texmem;
+	NJS_TEXLIST tlist;
+	NJS_TEXNAME texname;
+	int flags;
+};
