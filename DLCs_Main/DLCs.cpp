@@ -91,7 +91,7 @@ static bool ObjectsLoaded = false;
 static bool ObjectsLoaded_SS = false;
 static bool ObjectsLoaded_MR = false;
 static bool ForceSADXLayout = false;
-static bool DisableDuringStory = false;
+static bool DisableDuringStory = true;
 static bool TimerLoaded = false;
 static int PreviousLevel = 0;
 static int PreviousAct = 0;
@@ -10613,7 +10613,7 @@ extern "C"
 		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 		MenuVoiceMode = config->getInt("General settings", "MenuVoiceThing", -1);
 		if (MenuVoiceMode == 9) MenuVoiceMode = rand() % 8 + 1;
-		DisableDuringStory = config->getBool("General settings", "DisableDuringStory", false);
+		DisableDuringStory = config->getBool("General settings", "DisableDuringStory", true);
 		ForceSADXLayout = config->getBool("General settings", "ForceSADXMode", false);
 		DLCMode = config->getString("General settings", "DLCMode", "Random");
 		CurrentDLC = config->getInt("General settings", "DLCSingle", 0);
