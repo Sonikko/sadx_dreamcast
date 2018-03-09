@@ -460,15 +460,15 @@ extern "C"
 		}
 		else
 		{
-			ReplacePNG("MISSION_S_2MIN");
-			ReplacePNG("MISSION_S_2MINH");
-			ReplacePNG("MISSION_S_3MIN");
-			ReplacePNG("MISSION_S_4MIN");
-			ReplacePNG("MISSION_S_4MINH");
-			ReplacePNG("MISSION_S_5MIN");
-			ReplacePNG("MISSION_S_BOX");
-			ReplacePNG("MISSION_S_RINGBOX");
-			ReplacePNG("MISSION_T_BOX");
+			ReplacePNG_GoalRing("MISSION_S_2MIN");
+			ReplacePNG_GoalRing("MISSION_S_2MINH");
+			ReplacePNG_GoalRing("MISSION_S_3MIN");
+			ReplacePNG_GoalRing("MISSION_S_4MIN");
+			ReplacePNG_GoalRing("MISSION_S_4MINH");
+			ReplacePNG_GoalRing("MISSION_S_5MIN");
+			ReplacePNG_GoalRing("MISSION_S_BOX");
+			ReplacePNG_GoalRing("MISSION_S_RINGBOX");
+			ReplacePNG_GoalRing("MISSION_T_BOX");
 			ReplacePNG_GoalRing("MISSION_S_BOX_E");
 			ReplacePNG_GoalRing("MISSION_S_BOX25MIN_E");
 			ReplacePNG_GoalRing("MISSION_S_BOX2MIN_E");
