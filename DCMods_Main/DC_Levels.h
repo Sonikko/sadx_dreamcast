@@ -103,7 +103,7 @@ struct SubtitleThing
 	NJS_COLOR colorB;
 	float scale;
 	void *data_or_d3dtexture;
-	NJS_TEXMEMLIST *texmem;
+	Uint32 gbix;
 	NJS_TEXLIST tlist;
 	NJS_TEXNAME texname;
 	int flags;
