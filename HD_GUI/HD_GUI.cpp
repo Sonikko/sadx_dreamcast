@@ -343,7 +343,6 @@ extern "C"
 		ReplacePNG("MISSION_K_2MIN_E");
 		ReplacePNG("MISSION_K_3EME");
 		ReplacePNG("MISSION_K_3EME_E");
-		ReplacePNG("MISSION_K_3EME_F");
 		ReplacePNG("MISSION_K_NOHINT");
 		ReplacePNG("MISSION_K_NOHINT_E");
 		ReplacePNG("MISSION_S_2MIN");
