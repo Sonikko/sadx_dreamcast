@@ -10,8 +10,12 @@ DataArray(PVMEntry, GUITextures_English, 0x007EEDE0, 30);
 DataArray(PVMEntry, GUITextures_French, 0x007EEED0, 30);
 DataArray(PVMEntry, GUITextures_Spanish, 0x007EEFC0, 30);
 DataArray(PVMEntry, GUITextures_German, 0x007EF0B0, 30);
+DataArray(NJS_TEXANIM, PauseMenu_TEXANIMs, 0x009177B8, 15);
 
 FunctionPointer(ObjectMaster*, sub_510390, (int a1), 0x510390);
+
+NJS_TEXANIM PauseBar_Top = { 0x10, 0x10, 0, 0, 0, 0, 0, 0, 8, 0x20 };
+NJS_TEXANIM PauseBar_Bottom = { 0x10, 0x10, 0, 0, 0, 255, 0, 255, 8, 0x20 };
 
 static NJS_COLOR TitleBGTransparency;
 static NJS_COLOR BlackFadeout;
@@ -1064,6 +1068,126 @@ void DrawBG_CreditsLogo(int texnum, float x, float y, float z, float scaleX, flo
 	Direct3D_SetZFunc(3u);
 }
 
+void __cdecl PauseMenu_ActuallyDrawTheThings_Flip(int n, NJS_POINT2 *pos, NJS_POINT2 *scale, int colorize, int flipmode)
+{
+	NJD_SPRITE spriteflags = NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR;
+	float pri; // [esp+0h] [ebp-24h]
+	NJS_SPRITE _sp; // [esp+4h] [ebp-20h]
+	if (flipmode == 1) spriteflags |= NJD_SPRITE_HFLIP;
+	if (flipmode == 2) spriteflags |= NJD_SPRITE_VFLIP;
+	if (flipmode == 3) spriteflags |= NJD_SPRITE_VFLIP | NJD_SPRITE_HFLIP;
+	_sp.tlist = &PauseMenu_TEXLIST;
+	_sp.p.x = pos->x;
+	_sp.p.y = pos->y;
+	_sp.p.z = -1.0001;
+	_sp.sx = scale->x;
+	_sp.sy = scale->y;
+	pri = -1.0001;
+	if (-1.0001 >= -3.0 && -1.0001 < 12048.0)
+	{
+		pri = -1.0001 + 22048.0;
+	}
+	if (colorize == 0)
+	{
+		_sp.tanim = &PauseMenu_TEXANIM;
+		SetMaterialAndSpriteColor_Float(0.9f, 1.0f, 1.0f, 1.0f);
+		njDrawSprite2D_Queue(&_sp, n, pri, spriteflags, QueuedModelFlagsB_SomeTextureThing);
+	}
+	if (colorize == 1)
+	{
+		_sp.tanim = &PauseMenu_TEXANIM;
+		SetMaterialAndSpriteColor_Float(0.9f, 0.0f, 0.4588f, 0.7803f);
+		njDrawSprite2D_Queue(&_sp, n, pri, spriteflags, QueuedModelFlagsB_SomeTextureThing);
+	}
+	if (colorize == 2)
+	{
+		_sp.tanim = &PauseMenu_TEXANIM;
+		SetMaterialAndSpriteColor_Float(0.9f, 0.0f, 0, 0.3058f);
+		njDrawSprite2D_Queue(&_sp, n, pri, spriteflags, QueuedModelFlagsB_SomeTextureThing);
+	}
+	if (colorize == 3)
+	{
+		_sp.tanim = &PauseBar_Top;
+		SetMaterialAndSpriteColor_Float(0.9f, 1.0f, 1.0f, 1.0f);
+		njDrawSprite2D_Queue(&_sp, 0, pri, spriteflags, QueuedModelFlagsB_SomeTextureThing);
+	}
+	if (colorize == 4)
+	{
+		_sp.tanim = &PauseBar_Bottom;
+		SetMaterialAndSpriteColor_Float(0.9f, 1.0f, 1.0f, 1.0f);
+		njDrawSprite2D_Queue(&_sp, 0, pri, spriteflags, QueuedModelFlagsB_SomeTextureThing);
+	}
+}
+
+void DrawPauseBox_DC(int n, NJS_POINT2 *pos, NJS_POINT2 *scale)
+{
+	NJS_POINT2 tempps;
+	NJS_POINT2 newpos;
+	NJS_POINT2 scaleorig;
+	scaleorig.x = scale->x;
+	scaleorig.y = scale->y - 1.5f;
+	newpos.x = pos->x;
+	newpos.y = pos->y + 12.0f;
+	NJS_POINT2 scale2;
+	//Main
+	PauseMenu_ActuallyDrawTheThings_Flip(8, &newpos, &scaleorig, 0, 0);
+	//Top left to right
+	tempps.x = newpos.x;
+	tempps.y = newpos.y - 16;
+	scale2.x = scale->x;
+	scale2.y = 1.0f;
+	PauseMenu_ActuallyDrawTheThings_Flip(8, &tempps, &scale2, 3, 0);
+	//Top left
+	tempps.x = newpos.x - 16;
+	tempps.y = newpos.y - 16;
+	scale2.x = 1.0f;
+	scale2.y = 1.0f;
+	PauseMenu_ActuallyDrawTheThings_Flip(7, &tempps, &scale2, 1, 0);
+	//Top right
+	tempps.x = newpos.x + scale->x*16.0f;
+	tempps.y = newpos.y - 16;
+	scale2.x = 1.0f;
+	scale2.y = 1.0f;
+	PauseMenu_ActuallyDrawTheThings_Flip(7, &tempps, &scale2, 1, 1);
+	//Bottom left to right
+	tempps.x = newpos.x;
+	tempps.y = newpos.y + scaleorig.y * 16;
+	scale2.x = scale->x;
+	scale2.y = 1.0f;
+	PauseMenu_ActuallyDrawTheThings_Flip(8, &tempps, &scale2, 4, 0);
+	//Top to bottom left
+	tempps.x = newpos.x - 16;
+	tempps.y = newpos.y;
+	scale2.x = 1.0f;
+	scale2.y = scaleorig.y;
+	PauseMenu_ActuallyDrawTheThings_Flip(8, &tempps, &scale2, 0, 0);
+	//Top to bottom right
+	tempps.x = newpos.x + scale->x*16.0f;
+	tempps.y = newpos.y;
+	scale2.x = 1.0f;
+	scale2.y = scaleorig.y;
+	PauseMenu_ActuallyDrawTheThings_Flip(8, &tempps, &scale2, 0, 0);
+	//Bottom left
+	tempps.x = newpos.x - 16;
+	tempps.y = newpos.y + scaleorig.y * 16.0f;
+	scale2.x = 1.0f;
+	scale2.y = 1.0f;
+	PauseMenu_ActuallyDrawTheThings_Flip(7, &tempps, &scale2, 2, 2);
+	//Bottom right
+	tempps.x = newpos.x + scale->x*16.0f;
+	tempps.y = newpos.y + scaleorig.y * 16.0f;
+	scale2.x = 1.0f;
+	scale2.y = 1.0f;
+	PauseMenu_ActuallyDrawTheThings_Flip(7, &tempps, &scale2, 2, 3);
+}
+
+void DrawSprite_Hook(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr, QueuedModelFlagsB queue_flags)
+{
+	njTextureShadingMode(1);
+	njDrawSprite2D_Queue(sp, n, pri, attr, queue_flags);
+	njTextureShadingMode(2);
+}
+
 void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	//Credits
@@ -1284,6 +1408,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteCall((void*)0x00511A8B, DisplayScreenTexture_AlwaysTop); //Move the "Select your character" text to top
 		WriteData<5>((void*)0x00511C18, 0x90); //Disable ZFunc stuff to prevent character model overlap issues
 		//Shadow blending fixes
+		WriteCall((void*)0x00457F2F, DrawSprite_Hook);
 		WriteCall((void*)0x0050B584, DrawShadow_Hook);
 		WriteCall((void*)0x00431D37, DrawShadow_Hook);
 		WriteCall((void*)0x00506EFF, DrawShadow_Hook);
@@ -1495,21 +1620,9 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	WriteData<1>((void*)0x0042CCF3, 0x0F); //Disable Sonic Team logo
 	//Pause box stuff
-	WriteData((float*)0x00458501, 17.1f); //Pause box X scale
-	WriteData<1>((char*)0x00459106, 0x50); //Controls X shift
-	WriteData<1>((char*)0x0045917E, 0x50); //Controls X shift
-	WriteData((float**)0x004584C6, &pausexpos); //Pause box X position
-	WriteData((float*)0x00459070, 17.1f); //Controls X scale
-	WriteData((float**)0x00459054, &control_vertoffset);
-	WriteData((float**)0x00459039, &control_hzoffset);
-	WriteData((float**)0x00458D4D, &camera_hzoffset);
-	WriteData((float**)0x00458D68, &camera_vertoffset);
-	WriteData((float*)0x00459077, 23.0f); //Y position (Controls)
-	WriteData((float*)0x00458D78, 27.0f); //X position (Camera)
-	WriteData((float*)0x00458D7F, 5.0f); //Y position (Camera)
-	WriteCall((void*)0x004585C8, BoxBackgroundColor);
-	WriteCall((void*)0x0045902F, BoxBackgroundColor);
-	WriteCall((void*)0x00458DA9, BoxBackgroundColor);
+	WriteCall((void*)0x004585DA, DrawPauseBox_DC);
+	WriteCall((void*)0x00459085, DrawPauseBox_DC);
+	WriteCall((void*)0x00458DBB, DrawPauseBox_DC);
 	WriteData((float*)0x00458125, 1.0f); //Selection box B
 	WriteData((float*)0x0045812A, 0.7f); //Selection box G
 	WriteData((float*)0x0045812F, 0.0f); //Selection box R
@@ -1531,33 +1644,5 @@ void Branding_OnFrame()
 		if (titleframe == titledrawn) titleframe++;
 		if (logoframe == logodrawn) logoframe++;
 		if (startframe == startdrawn) startframe++;
-	}
-	if (GameState == 16)
-	{
-		char optionCount = GetPauseDisplayOptions(&options);
-		if (optionCount == 6)
-		{
-			WriteData((float*)0x0045852C, 21.0f); //Pause box Y scale (4 options)
-			WriteData((float*)0x00458523, 21.0f); //Pause box Y scale (3 options)
-			WriteData((float*)0x00458511, 21.0f); //Pause box Y scale (5 options)
-		}
-		if (optionCount == 5)
-		{
-			WriteData((float*)0x0045852C, 17.9f); //Pause box Y scale (4 options)
-			WriteData((float*)0x00458523, 17.9f); //Pause box Y scale (3 options)
-			WriteData((float*)0x00458511, 17.9f); //Pause box Y scale (5 options)
-		}
-		if (optionCount == 4)
-		{
-			WriteData((float*)0x0045852C, 17.15f); //Pause box Y scale (4 options)
-			WriteData((float*)0x00458523, 17.15f); //Pause box Y scale (3 options)
-			WriteData((float*)0x00458511, 17.15f); //Pause box Y scale (5 options)
-		}
-		if (optionCount == 3)
-		{
-			WriteData((float*)0x0045852C, 11.7f); //Pause box Y scale (4 options)
-			WriteData((float*)0x00458523, 11.7f); //Pause box Y scale (3 options)
-			WriteData((float*)0x00458511, 11.7f); //Pause box Y scale (5 options)
-		}
 	}
 }
