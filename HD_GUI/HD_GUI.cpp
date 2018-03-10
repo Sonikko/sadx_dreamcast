@@ -112,6 +112,13 @@ void HelpAvaSquareThing(unsigned __int8 n, float x, float y, float z, float scal
 	Direct3D_EnableZWrite(1);
 }
 
+void DrawSprite_Hook(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr, QueuedModelFlagsB queue_flags)
+{
+	njTextureShadingMode(1);
+	njDrawSprite2D_Queue(sp, n, pri, attr, queue_flags);
+	njTextureShadingMode(2);
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
@@ -124,6 +131,7 @@ extern "C"
 				"HD GUI error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
+		WriteCall((void*)0x00457F2F, DrawSprite_Hook);
 		WriteCall((void*)0x00504DC4, HelpAvaSquareThing);
 		WriteCall((void*)0x0050717E, ScaleCharselJapaneseText_LikeSeriouslyWTF);
 		WriteCall((void*)0x005070E2, ScaleCharselJapaneseText_LikeSeriouslyWTF);
