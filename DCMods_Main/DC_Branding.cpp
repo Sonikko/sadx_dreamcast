@@ -1191,6 +1191,8 @@ void DrawSprite_Hook(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr, QueuedMo
 void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	//Credits
+	WriteData((float*)0x006415DA, 1.5f); //EngBG X scale
+	WriteData((float*)0x006415DF, 1.5f); //EngBG Y scale
 	WriteCall((void*)0x00640ACC, DrawBG_CreditsLogo);
 	MainCredits.Count = 449;
 	MainCredits.Entries = (CreditsEntry*)&SA1Credits;
