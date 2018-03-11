@@ -71,6 +71,7 @@ static int FramerateSettingOld = 0;
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
 static int EmeraldGlowAlpha = 255;
+static int SkipVideoTimer = 0;
 static bool EmeraldGlowDirection = false;
 static bool EnableDCRipple = true;
 static float heat_float1 = 1.0f; //1
@@ -1168,7 +1169,11 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 void General_OnFrame()
 {
 	//Reset the skip video thing
-	if (SkippingVideo == 2 && dword_3C60000 != 1) SkippingVideo = 0;
+	if (SkippingVideo == 2)
+	{
+		if (dword_3C60000 != 1) SkipVideoTimer--;
+		if (SkipVideoTimer <= 0) SkippingVideo = 0;
+	}
 	//Fix broken welds after playing as Metal Sonic
 	if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
 	//A bunch of other fixes that I had to do in OnFrame because shit changes all the time
@@ -1272,11 +1277,12 @@ void General_OnFrame()
 }
 void General_OnInput()
 {
-	if (dword_3C60000 == 1)
+	if (dword_3C60000 == 1 && SkippingVideo == 0)
 	{
 		if (ControllerPointers[0]->PressedButtons & (Buttons_Start | Buttons_A))
 		{
 			SkippingVideo = 1;
+			SkipVideoTimer = 300;
 		}
 	}
 }
