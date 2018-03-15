@@ -27,24 +27,6 @@ NJS_TEXANIM Heat2Texanim = { 56, 64, 28, 32, 0, 0, 0xFF, 0xFF, 2, 0 };
 NJS_SPRITE Heat1Sprite = { { 0, 0, 0 }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x0091BD28, &Heat1Texanim };
 NJS_SPRITE Heat2Sprite = { { 0, 0, 0 }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x0091BD28, &Heat2Texanim };
 
-NJS_POINT2COL VideoFrame_Point2Col;
-
-NJS_POINT2 VideoFrame_Points[] = {
-	{ 0, 0 },
-	{ 0, 480 },
-	{ 640, 0 },
-	{ 640, 480 },
-};
-
-NJS_COLOR VideoFrame_Colors[4];
-NJD_DRAW VideoFrame_Attr = 0x62;
-
-DataArray(char, byte_3C5B37C, 0x3C5B37C, 52);
-DataPointer(int, dword_3C60000, 0x3C60000);
-DataPointer(NJS_MODEL_SADX, stru_8BC0F4, 0x8BC0F4);
-DataPointer(NJS_MODEL_SADX, stru_8BBD84, 0x8BBD84);
-DataPointer(NJS_MODEL_SADX, stru_989384, 0x989384);
-DataPointer(D3DCOLORVALUE, stru_3D0B7C8, 0x3D0B7C8);
 DataPointer(NJS_OBJECT, stru_8B22F4, 0x8B22F4);
 DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(float, EnvMap1, 0x038A5DD0);
@@ -58,20 +40,17 @@ FunctionPointer(void, sub_436550, (), 0x436550);
 FunctionPointer(void, sub_40EFE0, (), 0x40EFE0);
 FunctionPointer(double, sub_49EAD0, (float a1, float a2, float a3, int a4), 0x49EAD0);
 FunctionPointer(float, sub_49E920, (float x, float y, float z, Rotation3 *rotation), 0x49E920);
+FunctionPointer(SubtitleThing *, sub_6424A0, (int a1, int a2, float a3, float a4, float a5, float a6, float a7, float a8), 0x6424A0);
 
 static bool EnableCutsceneFix = true;
 static std::string EnableImpressFont = "Off";
 static bool ColorizeFont = true;
-static bool ColorizeVideos = true;
-static bool FadeoutVideos = true;
 static bool DisableFontSmoothing = true;
 static bool FixesApplied = false;
-static int SkippingVideo = 0;
 static int FramerateSettingOld = 0;
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
 static int EmeraldGlowAlpha = 255;
-static int SkipVideoTimer = 0;
 static bool EmeraldGlowDirection = false;
 static bool EnableDCRipple = true;
 static float heat_float1 = 1.0f; //1
@@ -230,21 +209,6 @@ void RenderEmeraldWithGlow(NJS_OBJECT *a1, int scale)
 	njDrawSprite3D(&EmeraldGlowSprite, 0, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR);
 	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
 	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
-}
-
-void InitVideoFrameStuff()
-{
-	VideoFrame_Points[1] = { 0, (float)VerticalResolution };
-	VideoFrame_Points[2] = { (float)HorizontalResolution, 0 };
-	VideoFrame_Points[3] = { (float)HorizontalResolution, (float)VerticalResolution };
-	VideoFrame_Colors[0].color = 0x06FFFFFF;
-	VideoFrame_Colors[1].color = 0x06FFFFFF;
-	VideoFrame_Colors[2].color = 0x06FFFFFF;
-	VideoFrame_Colors[3].color = 0x06FFFFFF;
-	VideoFrame_Point2Col.p = (NJS_POINT2*)&VideoFrame_Points;
-	VideoFrame_Point2Col.col = (NJS_COLOR*)&VideoFrame_Colors;
-	VideoFrame_Point2Col.tex = 0;
-	VideoFrame_Point2Col.num = 4;
 }
 
 void RotateEmerald()
@@ -678,62 +642,7 @@ void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
 	}
 }
 
-void DrawVideoWithSpecular(int width, int height)
-{
-	if (SkippingVideo == 1)
-	{
-		if (DefaultVideoColor.r >= 0.02f)
-		{
-			DefaultVideoColor.r = DefaultVideoColor.r - 0.02f;
-			DefaultVideoColor.g = DefaultVideoColor.g - 0.02f;
-			DefaultVideoColor.b = DefaultVideoColor.b - 0.02f;
-		}
-		else
-		{
-			SkippingVideo = 2;
-			if (ColorizeVideos == true)
-			{
-				DefaultVideoColor.r = 0.7529411764705882f;
-				DefaultVideoColor.g = 0.7529411764705882f;
-				DefaultVideoColor.b = 0.7529411764705882f;
-			}
-			else
-			{
-				DefaultVideoColor.r = 1.0f;
-				DefaultVideoColor.g = 1.0f;
-				DefaultVideoColor.b = 1.0f;
-			}
-		}
-	}
-	if (SkippingVideo != 2)
-	{
-		DisplayVideoFrame(width, height);
-		if (ColorizeVideos == true)
-		{
-			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
-			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
-			Direct3D_SetZFunc(7u);
-			Direct3D_EnableZWrite(0);
-			njDrawTriangle2D_SomeOtherVersion((NJS_POINT2COL*)&VideoFrame_Point2Col, 4, -1000.0f, VideoFrame_Attr);
-			Direct3D_EnableZWrite(1);
-			Direct3D_SetZFunc(3u);
-			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
-			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
-		}
-	}
-}
 
-void InputHookForVideos()
-
-{
-	if (SkippingVideo == 2)
-	{
-		ControllerPointers[0]->PressedButtons |= Buttons_C;
-	}
-	sub_40EFE0();
-}
-
-FunctionPointer(SubtitleThing *, sub_6424A0, (int a1, int a2, float a3, float a4, float a5, float a6, float a7, float a8), 0x6424A0);
 
 void ColorizeRecapText(int a1, int a2, float a3, float a4, float a5, float a6, float a7, float a8)
 {
@@ -986,25 +895,8 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
 	EnableImpressFont = config->getString("General", "EnableImpressFont", "Impress");
 	ColorizeFont = config->getBool("General", "ColorizeFont", true);
-	ColorizeVideos = config->getBool("General", "ColorizeVideos", true);
-	FadeoutVideos = config->getBool("General", "FadeoutVideos", true);
 	DisableFontSmoothing = config->getBool("General", "DisableFontSmoothing", true);
 	delete config;
-	//Enable Dreamcast-like colorization for FMVs
-	if (ColorizeVideos == true)
-	{
-		InitVideoFrameStuff();
-		DefaultVideoColor.r = 0.7529411764705882f;
-		DefaultVideoColor.g = 0.7529411764705882f;
-		DefaultVideoColor.b = 0.7529411764705882f;
-		WriteCall((void*)0x0051330A, DrawVideoWithSpecular);
-	}
-	if (FadeoutVideos == true)
-	{
-		WriteCall((void*)0x00513271, InputHookForVideos);
-		WriteData<1>((char*)0x005132B9, 0x01); //Wait for Button_C instead of Button_A or Button_Start
-		WriteCall((void*)0x0051330A, DrawVideoWithSpecular);
-	}
 	//Enable Impress font
 	if (DisableFontSmoothing == true)
 	{
@@ -1168,14 +1060,11 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void General_OnFrame()
 {
-	//Reset the skip video thing
-	if (SkippingVideo == 2)
-	{
-		if (dword_3C60000 != 1) SkipVideoTimer--;
-		if (SkipVideoTimer <= 0) SkippingVideo = 0;
-	}
 	//Fix broken welds after playing as Metal Sonic
-	if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
+	if (DLLLoaded_SADXFE == false)
+	{
+		if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
+	}
 	//A bunch of other fixes that I had to do in OnFrame because shit changes all the time
 	if (FramerateSettingOld != FramerateSetting)
 	{
@@ -1274,15 +1163,4 @@ void General_OnFrame()
 	//Chaos 1 puddle
 	if (CurrentLevel == 33 && CutsceneID != 57) ((NJS_MATERIAL*)0x02D64FD8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 	else ((NJS_MATERIAL*)0x02D64FD8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-}
-void General_OnInput()
-{
-	if (dword_3C60000 == 1 && SkippingVideo == 0)
-	{
-		if (ControllerPointers[0]->PressedButtons & (Buttons_Start | Buttons_A))
-		{
-			SkippingVideo = 1;
-			SkipVideoTimer = 300;
-		}
-	}
 }
