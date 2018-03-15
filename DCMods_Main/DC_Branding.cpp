@@ -82,7 +82,7 @@ static float camera_vertoffset = 75.0f;
 static float camera_hzoffset = 215.0f;
 
 CreditsEntry SA1Credits[] = {
-{ 1, 0, 0, 0, "SONIC ADVENTURE STAFF" },
+	{ 1, 0, 0, 0, "SONIC ADVENTURE STAFF" },
 { 3, -1, 0, 0, " " },
 { 2, -1, 0, 0, "Executive producers" },
 { 3, -1, 0, 0, "Hayao Nakayama" },
@@ -1620,7 +1620,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 			WriteData((void**)0x010D7B60, (void*)LoadTitleScreenHook);
 		}
 	}
-	WriteData<1>((void*)0x0042CCF3, 0x0F); //Disable Sonic Team logo
 	//Pause box stuff
 	WriteCall((void*)0x004585DA, DrawPauseBox_DC);
 	WriteCall((void*)0x00459085, DrawPauseBox_DC);
