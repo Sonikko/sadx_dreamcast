@@ -11,6 +11,7 @@ extern bool DLLLoaded_DLCs;
 extern bool DLLLoaded_SA1Chars;
 extern bool DLLLoaded_Lantern;
 extern bool DLLLoaded_HDGUI;
+extern bool DLLLoaded_SADXFE;
 
 void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions);
 void DisableSADXWaterFog();
@@ -54,7 +55,9 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions);
 void ChaoGardens_OnFrame();
 void General_Init(const char *path, const HelperFunctions &helperFunctions);
 void General_OnFrame();
-void General_OnInput();
+void Videos_Init(const char *path, const HelperFunctions &helperFunctions);
+void Videos_OnFrame();
+void Videos_OnInput();
 void SkyChaseFix_Init();
 void SkyChaseFix_UpdateBounds();
 

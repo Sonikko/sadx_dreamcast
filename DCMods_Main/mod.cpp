@@ -35,6 +35,7 @@ bool DLLLoaded_SA1Chars = false;
 bool DLLLoaded_Lantern = false;
 bool DLLLoaded_HDGUI = false;
 bool DLLLoaded_DLCs = false;
+bool DLLLoaded_SADXFE = false;
 
 extern "C"
 {
@@ -45,6 +46,7 @@ extern "C"
 		if (GetModuleHandle(TEXT("SA1_Chars.dll")) != nullptr) DLLLoaded_SA1Chars = true;
 		if (GetModuleHandle(TEXT("sadx-dc-lighting.dll")) != nullptr) DLLLoaded_Lantern = true;
 		if (GetModuleHandle(TEXT("DLCs_Main.dll")) != nullptr) DLLLoaded_DLCs = true;
+		if (GetModuleHandle(TEXT("sadx-fixed-edition.dll")) != nullptr) DLLLoaded_SADXFE = true;
 		HMODULE MRFinalEggFix = GetModuleHandle(L"MRFinalEggFix");
 		HMODULE WaterEffect = GetModuleHandle(L"WaterEffect");
 		//Error messages
@@ -115,6 +117,7 @@ extern "C"
 		Subgames_Init(path, helperFunctions);
 		ChaoGardens_Init(path, helperFunctions);
 		General_Init(path, helperFunctions);
+		Videos_Init(path, helperFunctions);
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
@@ -138,10 +141,11 @@ extern "C"
 		//Subgames_OnFrame();
 		ChaoGardens_OnFrame();
 		General_OnFrame();
+		Videos_OnFrame();
 	}
 	__declspec(dllexport) void __cdecl OnInput()
 	{
-		General_OnInput();
+		Videos_OnInput();
 	}
 	_declspec(dllexport) void __cdecl OnRenderDeviceReset()
 	{
