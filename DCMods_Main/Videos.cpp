@@ -10,10 +10,11 @@ static bool SA1Intro = false;
 static int SonicTeamLogoMode = 2;
 
 //Video stuff
-static int VideoFadeMode = 0;
+static int VideoFadeMode = 1;
 static int VideoPlayMode = 0;
 static int VideoFadeValue = 255;
 static bool SkipPressed = false;
+static bool AreYouEvenPlayingVideos = false;
 static int GameModePrevious = -1;
 
 DataPointer(NJS_TEXANIM, VideoFrame_TEXANIM, 0x3C600C8);
@@ -233,6 +234,8 @@ void Videos_Init(const char *path, const HelperFunctions &helperFunctions)
 
 void Videos_OnFrame()
 {
+	//Check if the game has video stuff loaded
+	if (CurrentVideoNumber >= 0 && CurrentVideoNumber <= 9) AreYouEvenPlayingVideos = true; else AreYouEvenPlayingVideos = false;
 	if (GameModePrevious != GameMode)
 	{
 		//Check if the player has skipped the Sonic Team logo; if not, play the intro
@@ -261,14 +264,24 @@ void Videos_OnFrame()
 		}
 		GameModePrevious = GameMode;
 	}
+	//Reset fadeouts in story mode
+	if (GameMode != GameModes_Movie && GameModePrevious == GameMode && AreYouEvenPlayingVideos == false)
+	{
+		SkipPressed = false;
+		VideoPlayMode = 0;
+		if (SonicTeamLogoMode == 0) VideoList0[0] = 9; else VideoList0[0] = 0;
+		VideoFadeMode = 1;
+		VideoFadeValue = 255;
+	}
 }
 void Videos_OnInput()
 {
 	//Input hook for videos
-	if (CurrentVideoNumber >= 0 && CurrentVideoNumber <= 9 && GameMode != GameModes_Logo)
+	if (CurrentVideoNumber >= 0 && CurrentVideoNumber <= 9 && GameMode != GameModes_Logo && GameMode != GameModes_CharSel)
 	{
-		if (ControllerPointers[0]->PressedButtons & (Buttons_Start | Buttons_A))
+		if (SkipPressed == false && ControllerPointers[0]->PressedButtons & (Buttons_Start | Buttons_A))
 		{
+			PrintDebug("Skip pressed!\n");
 			SkipPressed = true;
 		}
 	}
