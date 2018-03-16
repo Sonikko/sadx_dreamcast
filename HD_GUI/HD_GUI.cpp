@@ -184,6 +184,7 @@ extern "C"
 		ReplacePVMX("E102TIME");
 		ReplacePVMX("EMBLEM");
 		ReplacePVMX("EXTRA");
+		ReplacePVMX("ENDBG_LOGO");
 		ReplacePVMX("FISHING");
 		ReplacePVMX("GAMEOVER");
 		ReplacePVMX("GAMEOVER_E");
