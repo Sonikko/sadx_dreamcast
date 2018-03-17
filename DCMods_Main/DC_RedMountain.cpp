@@ -73,6 +73,7 @@ void SetCloudColor(NJS_ARGB *a)
 
 void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	double cloudcoloroffset = 0.0f;
 	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAM0500S");
 	ReplaceBIN_DC("CAM0501E");
@@ -109,7 +110,7 @@ void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((LandTable**)0x97DAA8, &landtable_00018CB8);
 	WriteData((LandTable**)0x97DAAC, &landtable_0001A8FC);
 	WriteData((LandTable**)0x97DAB0, &landtable_0001E358);
-	WriteCall((void*)0x00600CA3, SetCloudColor);
+	WriteData((double**)0x600C8F, &cloudcoloroffset);
 	WriteCall((void*)0x006011D8, RenderRMSky1);
 	WriteCall((void*)0x0060121C, RenderRMSky2);
 	if (DLLLoaded_Lantern == true)
