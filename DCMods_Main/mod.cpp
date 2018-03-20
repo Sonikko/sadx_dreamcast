@@ -20,6 +20,7 @@ static bool EnableStationSquare = true;
 static bool EnableMysticRuins = true;
 static bool EnableEggCarrier = true;
 static bool EnablePast = true;
+static bool DisableAllVideoStuff = true;
 
 static bool SADXWater_EmeraldCoast = false;
 static bool SADXWater_StationSquare = false;
@@ -82,6 +83,7 @@ extern "C"
 		EnableMysticRuins = config->getBool("Levels", "EnableMysticRuins", true);
 		EnableEggCarrier = config->getBool("Levels", "EnableEggCarrier", true);
 		EnablePast = config->getBool("Levels", "EnablePast", true);
+		DisableAllVideoStuff = config->getBool("Videos", "DisableAllVideoStuff", false);
 		std::string EnableSETFixes_String = "Normal";
 		EnableSETFixes_String = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
 		if (EnableSETFixes_String == "Off") EnableSETFixes = 0;
@@ -117,7 +119,7 @@ extern "C"
 		Subgames_Init(path, helperFunctions);
 		ChaoGardens_Init(path, helperFunctions);
 		General_Init(path, helperFunctions);
-		Videos_Init(path, helperFunctions);
+		if (DisableAllVideoStuff == false) Videos_Init(path, helperFunctions);
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
@@ -141,11 +143,11 @@ extern "C"
 		//Subgames_OnFrame();
 		ChaoGardens_OnFrame();
 		General_OnFrame();
-		Videos_OnFrame();
+		if (DisableAllVideoStuff == false) Videos_OnFrame();
 	}
 	__declspec(dllexport) void __cdecl OnInput()
 	{
-		Videos_OnInput();
+		if (DisableAllVideoStuff == false) Videos_OnInput();
 	}
 	_declspec(dllexport) void __cdecl OnRenderDeviceReset()
 	{

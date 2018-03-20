@@ -29,7 +29,7 @@ NJD_DRAW VideoFrame_Attr = 0x62;
 FunctionPointer(void, sub_40EFE0, (), 0x40EFE0);
 
 VideoData VideoDataArray[] = {
-	{ "system\\SAH448_6.MPG", 0, 6420, 320, 448 },
+	{ "system\\intro.mpg", 0, 6420, 640, 448 },
 	{ "system\\Sa1.mpg", 0, 5760, 640, 480 },
 	{ "system\\Sa2.mpg", 0, 786, 640, 480 },
 	{ "system\\Sa3.mpg", 0, 1750, 640, 480 },
@@ -38,7 +38,7 @@ VideoData VideoDataArray[] = {
 	{ "system\\Sa6.mpg", 0, 1250, 640, 480 },
 	{ "system\\Sa7.mpg", 0, 630, 640, 480 },
 	{ "system\\Sa8.mpg", 0, 1110, 640, 480 },
-	{ "system\\SLH448_1.MPG", 0, 300, 320, 448 },
+	{ "system\\sonicteam.mpg", 0, 300, 640, 448 },
 };
 
 char VideoList0[] = { 9, -1 };
@@ -183,19 +183,16 @@ void DrawVideoWithSpecular(int width, int height)
 
 void Videos_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	if (Exists(helperFunctions.GetReplaceablePath("system\\SAH448_6.MPG")))
-	{
-		SA1Intro = true;
-		if (Exists(helperFunctions.GetReplaceablePath("system\\SLH448_1.MPG")))
-		{
-			SonicTeamLogoMode = 0;
-		}
-		else SonicTeamLogoMode = 1;
-	}
 	//Set up settings
 	const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
-	ColorizeVideos = settings->getBool("General", "ColorizeVideos", true);
-	if (SA1Intro == false) SonicTeamLogoMode = 2;
+	ColorizeVideos = settings->getBool("Videos", "ColorizeVideos", true);
+	SA1Intro = settings->getBool("Videos", "EnableSA1Intro", true);
+	//Set Sonic Team logo mode
+	std::string SonicTeamLogo_String = "Animated";
+	SonicTeamLogo_String = settings->getString("Videos", "SonicTeamLogoMode", "Animated");
+	if (SonicTeamLogo_String == "Animated") SonicTeamLogoMode = 0;
+	if (SonicTeamLogo_String == "Static") SonicTeamLogoMode = 1;
+	if (SonicTeamLogo_String == "Off") SonicTeamLogoMode = 2;
 	delete settings;
 	//Video stuff
 	InitVideoFrameStuff();
@@ -221,14 +218,53 @@ void Videos_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		VideoList0[0] = 0;
 	}
-	if (SonicTeamLogoMode != 1) WriteData<1>((void*)0x0042CCF3, 0x0F); //Disable Sonic Team logo
-	if (SA1Intro == false)
+	if (SonicTeamLogoMode != 1) WriteData<1>((void*)0x0042CCF3, 0x0F); //Disable the SADX Sonic Team logo
+	//Check for untouched SA1 videos
+	if (SA1Intro == true)
 	{
-		VideoDataArray[0].Filename = "system\\RE-US.mpg";
+		if (Exists(helperFunctions.GetReplaceablePath("system\\SAH448_6.MPG")))
+		{
+			VideoDataArray[0].Filename = "system\\SAH448_6.MPG";
+			VideoDataArray[0].field_4 = 0;
+			VideoDataArray[0].NumFrames = 6420;
+			VideoDataArray[0].Width = 320;
+			VideoDataArray[0].Height = 448;
+		}
+		else
+		{
+			VideoDataArray[0].Filename = "system\\INTRO.MPG";
+			VideoDataArray[0].field_4 = 0;
+			VideoDataArray[0].Width = 640;
+			VideoDataArray[0].Height = 480;
+			VideoDataArray[0].NumFrames = 6420;
+		}
+	}
+	else
+	{
+		VideoDataArray[0].Filename = "system\\RE-US.MPG";
 		VideoDataArray[0].field_4 = 0;
 		VideoDataArray[0].Width = 640;
 		VideoDataArray[0].Height = 480;
 		VideoDataArray[0].NumFrames = 2147483647;
+	}
+	if (SonicTeamLogoMode == 0)
+	{
+		if (Exists(helperFunctions.GetReplaceablePath("system\\SLH448_1.MPG")))
+		{
+			VideoDataArray[9].Filename = "system\\SLH448_1.MPG";
+			VideoDataArray[9].field_4 = 0;
+			VideoDataArray[9].NumFrames = 300;
+			VideoDataArray[9].Width = 320;
+			VideoDataArray[9].Height = 448;
+		}
+		else
+		{
+			VideoDataArray[9].Filename = "system\\SONICTEAM.MPG";
+			VideoDataArray[9].field_4 = 0;
+			VideoDataArray[9].NumFrames = 300;
+			VideoDataArray[9].Width = 640;
+			VideoDataArray[9].Height = 480;
+		}
 	}
 }
 
