@@ -119,6 +119,15 @@ void DrawSprite_Hook(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr, QueuedMo
 	njTextureShadingMode(2);
 }
 
+void DrawRandomRingIcon(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr)
+{
+	sp->tanim->sx = 32;
+	sp->tanim->sy = 32;
+	sp->tanim->cx = 16;
+	sp->tanim->cy = 16;
+	njDrawSprite2D_ForcePriority(sp, n, pri, attr);
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
@@ -131,6 +140,15 @@ extern "C"
 				"HD GUI error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
+		//Fix random ring icon
+		float RingIconOffset = 0.0f;
+		float RingIconOffsetMain = 370.0f;
+		WriteData((float**)0x4C044B, &RingIconOffsetMain);
+		WriteData((float**)0x4C03F5, &RingIconOffset);
+		WriteCall((void*)0x4C04CD, DrawRandomRingIcon);
+		WriteCall((void*)0x4C049E, DrawRandomRingIcon);
+		WriteCall((void*)0x4C04FC, DrawRandomRingIcon);
+		//Various fixes
 		WriteCall((void*)0x00457F2F, DrawSprite_Hook);
 		WriteCall((void*)0x00504DC4, HelpAvaSquareThing);
 		WriteCall((void*)0x0050717E, ScaleCharselJapaneseText_LikeSeriouslyWTF);
