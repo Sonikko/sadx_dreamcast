@@ -702,6 +702,8 @@ void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0x19FEFE4 = objectSTG10_001AEDFC;  // Light
 	*(NJS_MODEL_SADX*)0x19D8BC0 = attachSTG10_015D8BC0;  // Laser
 	*(NJS_OBJECT*)0x01C28C78 = objectSTG10_01828C78; // O Stand Light
+	ObjList_FEgg[59].UseDistance = 1; // O Suikomi 
+	ObjList_FEgg[59].Distance = 1600000.0f; // O Suikomi
 	WriteJump((void*)0x5AE330, sub_5AE330); //O Texture function
 	WriteJump(OStandLight_Display, OStandLight_DisplayFixed); //O Stand Light function
 	WriteJump((void*)0x005B4690, sub_5B4690); //Cylinder function
