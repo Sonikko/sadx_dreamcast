@@ -133,6 +133,7 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		char pathbuf[MAX_PATH];
 		HMODULE GoalRing = GetModuleHandle(L"GoalRing");
 		if (helperFunctions.Version < 6)
 		{
@@ -159,7 +160,6 @@ extern "C"
 		WriteData<1>((char*)0x0091C022, 0i8); //You win/lose text alignment
 		WriteData<1>((char*)0x0091C034, 0i8); //You win/lose text alignment
 		WriteData<1>((char*)0x0091C048, 0i8); //You win/lose text alignment
-		char pathbuf[MAX_PATH];
 		ReplacePVMX("ADV_WINDOW");
 		ReplacePVMX("AVA_BACK");
 		ReplacePVMX("AVA_CHSEL");
@@ -422,7 +422,6 @@ extern "C"
 		ReplacePNG("M_STAGE04_E");
 		ReplacePNG("M_STAGE05");
 		ReplacePNG("M_STAGE05_E");
-		ReplacePNG("s.txt");
 		ReplacePNG("STAFFROLL_TXT");
 		ReplacePNG("ST_064S_LOCKA");
 		ReplacePNG("ST_064S_LOCKB");
