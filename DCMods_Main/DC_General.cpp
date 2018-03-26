@@ -60,6 +60,8 @@ static float TailsWiggleSpeed_Run = 0.005;
 static float TailsWiggleSpeed_RunX2 = 0.01;
 static float TailsWiggleSpeed_Rotation = 2048.0f;
 static float TailsWiggleSpeed_RotationX2 = 4096.0f;
+//Animation Speed Tweaks
+float DashPanelAnimationSpeedOverride = 0.25f;
 
 NJS_MATERIAL* FirstCharacterSpecular_General[] = {
 	//Hedgehog Hammer targets (possibly SL objects?)
@@ -823,6 +825,8 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("WING_P");
 	ReplacePVM("WING_T");
 	ReplacePVM("ZOU");
+	//Dashpanels Animation speed fix
+	WriteData((float**)0x007A441B, &DashPanelAnimationSpeedOverride);
 	//Fix for badniks not spawning
 	WriteCall((void*)0x007AA9F9, AmenboFix);
 	WriteCall((void*)0x0049EFE7, EggKeeperFix);
@@ -1163,4 +1167,10 @@ void General_OnFrame()
 	//Chaos 1 puddle
 	if (CurrentLevel == 33 && CutsceneID != 57) ((NJS_MATERIAL*)0x02D64FD8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 	else ((NJS_MATERIAL*)0x02D64FD8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+
+	//AnimationSpeed Tweaks
+	if (FramerateSetting >= 2)
+		DashPanelAnimationSpeedOverride = 1.0f;else
+		DashPanelAnimationSpeedOverride = 0.25f;
+
 }
