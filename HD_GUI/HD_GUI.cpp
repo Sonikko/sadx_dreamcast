@@ -135,10 +135,7 @@ extern "C"
 			return;
 		}
 		//Fix random ring icon
-		float RingIconOffset = 0.0f;
 		WriteData((NJS_TEXANIM**)0x4C03FF, &RandomRingIconPart_TEXANIM);
-		WriteData((float**)0x4C044B, (float*)0x7E6BA0); //Random ring icon offset value to match the regular icon
-		WriteData((float**)0x4C03F5, &RingIconOffset); //Remove horizontal offset
 		//Various fixes
 		WriteCall((void*)0x00457F2F, DrawSprite_Hook);
 		WriteCall((void*)0x00504DC4, HelpAvaSquareThing);
