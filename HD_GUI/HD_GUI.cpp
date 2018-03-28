@@ -23,6 +23,7 @@ static float f480_Fixed = 0;
 static float f640_Fixed = 0;
 
 DataPointer(HWND, WindowHandle, 0x03D0FD30);
+NJS_TEXANIM RandomRingIconPart_TEXANIM = { 32, 32, 16, 16, 0, 0, 255, 255, 95, 0x20 };
 
 void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, float Texture_Z)
 {
@@ -119,21 +120,13 @@ void DrawSprite_Hook(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr, QueuedMo
 	njTextureShadingMode(2);
 }
 
-void DrawRandomRingIcon(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr)
-{
-	sp->tanim->sx = 32;
-	sp->tanim->sy = 32;
-	sp->tanim->cx = 16;
-	sp->tanim->cy = 16;
-	njDrawSprite2D_ForcePriority(sp, n, pri, attr);
-}
-
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		char pathbuf[MAX_PATH];
+
 		HMODULE GoalRing = GetModuleHandle(L"GoalRing");
 		if (helperFunctions.Version < 6)
 		{
@@ -143,12 +136,9 @@ extern "C"
 		}
 		//Fix random ring icon
 		float RingIconOffset = 0.0f;
-		float RingIconOffsetMain = 370.0f;
-		WriteData((float**)0x4C044B, &RingIconOffsetMain);
-		WriteData((float**)0x4C03F5, &RingIconOffset);
-		WriteCall((void*)0x4C04CD, DrawRandomRingIcon);
-		WriteCall((void*)0x4C049E, DrawRandomRingIcon);
-		WriteCall((void*)0x4C04FC, DrawRandomRingIcon);
+		WriteData((NJS_TEXANIM**)0x4C03FF, &RandomRingIconPart_TEXANIM);
+		WriteData((float**)0x4C044B, (float*)0x7E6BA0); //Random ring icon offset value to match the regular icon
+		WriteData((float**)0x4C03F5, &RingIconOffset); //Remove horizontal offset
 		//Various fixes
 		WriteCall((void*)0x00457F2F, DrawSprite_Hook);
 		WriteCall((void*)0x00504DC4, HelpAvaSquareThing);
