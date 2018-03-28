@@ -13,8 +13,9 @@ static int UVShift1 = 0;
 static int UVShift2 = 0;
 static int SkyboxAlpha = 255;
 static bool SkyDeckTransitionEnable = false;
-//OTutu OMeka speed tweaks
-float OMekaSpeedOverride = 0.5f;
+//Speed Tweaks
+float OMekaSpeedOverride = 0.5f;//O Tutu O Meka
+float TankhSpeedOverride = 0.25f;//Tank h
 DataPointer(float, SkyDeckAltitude, 0x03C80610); //0 to 700
 DataPointer(float, CurrentSkyBoxScaleX, 0x03ABDC94);
 DataPointer(float, CurrentSkyBoxScaleY, 0x03ABDC98);
@@ -646,8 +647,9 @@ void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 		SkyDeck3SkyboxScale->Near.x = 1.0f;
 		SkyDeck3SkyboxScale->Near.y = 1.0f;
 		SkyDeck3SkyboxScale->Near.z = 1.0f;
-		//OMeka OTutu Speed Fix
-		WriteData((float**)0x005F4146, &OMekaSpeedOverride);//OMeka OTutu		
+		//Speed Tweaks
+		WriteData((float**)0x005F4146, &OMekaSpeedOverride);//OMeka OTutu	
+		WriteData((float**)0x005EE248, &TankhSpeedOverride);//Tank h		
 	}
 }
 
@@ -750,11 +752,16 @@ void SkyDeck_OnFrame()
 				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[2].attrflags &= ~NJD_FLAG_USE_ALPHA;
 				((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[3].attrflags &= ~NJD_FLAG_USE_ALPHA;
 
-				//Frameratesetting for Speed Fixes
-				if (FramerateSetting >= 2)
-					OMekaSpeedOverride = 1.0f; else
-					OMekaSpeedOverride = 0.5f;
 			}
 		}
 	}
+	//Frameratesetting for Speed Fixes
+	//OMeka OTutu
+	if (FramerateSetting >= 2)
+		OMekaSpeedOverride = 1.0f; else
+		OMekaSpeedOverride = 0.5f;
+	//Tank_h
+	if (FramerateSetting >= 2)
+		TankhSpeedOverride = 1.0f; else
+		TankhSpeedOverride = 0.25f;
 }

@@ -128,7 +128,7 @@ void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteData<1>((char*)0x004DD8C8, 0xAC);
 		WriteData<1>((char*)0x004DD8C9, 0i8);
 	}
-	//Big Fans Speed Tweak
+	//Fans Speed Tweak
 	WriteData((double**)0x004E1169, &OHaneaSpeedOverride);
 	WriteData((double**)0x004E113E, &OHaneaSpeedOverride);
 	WriteData((double**)0x004E1194, &OHaneaSpeedOverride);
@@ -279,7 +279,7 @@ void WindyValley_OnFrame()
 			}
 		}
 	}
-	//FramerateSettings for fans' speed override
+	//FramerateSettings for fans speed override
 	if(FramerateSetting >=2)
 		OHaneaSpeedOverride = 0.002777777f; else
 		OHaneaSpeedOverride = 0.0013888885f;
