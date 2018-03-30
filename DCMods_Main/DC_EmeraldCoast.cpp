@@ -28,6 +28,8 @@ static bool lilocean = false;
 static bool SADXStyleWater = false;
 static bool IamStupidAndIWantFuckedUpOcean = false;
 static NJS_VECTOR oldpos{ 0,0,0 };
+
+
 DataArray(NJS_TEX, uvSTG01_00CBB000_data, 0x10BB000, LengthOfArray(uvSTG01_00CBB000));
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
@@ -873,4 +875,8 @@ void EmeraldCoast_OnFrame()
 			anim8++;
 		}
 	}
+	//OTaki Speed Override
+	if (FramerateSetting >= 2)
+	WriteData<1>((char*)0x004FB8BE, 0x08); else
+	WriteData<1>((char*)0x004FB8BE, 0x00);
 }

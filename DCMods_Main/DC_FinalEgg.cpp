@@ -27,7 +27,9 @@ FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
 FunctionPointer(void, sub_5ADCF0, (), 0x5ADCF0);
 
+
 static int cylinderframe = 0;
+float OFunAnimationSpeedOverride = 0.25f; //Floating Fan Animation Speed Tweak
 SETObjData setdata_fe = {};
 
 PVMEntry FinalEggObjectTextures[] = {
@@ -656,6 +658,7 @@ void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x005AE0A5, FinalEggHook);
 	WriteCall((void*)0x005AE060, FinalEggHook);
 	WriteData<1>((void*)0x005ADC40, 0xC3u); //Kill the SetClip function
+	WriteData((float**)0x005B7530, &OFunAnimationSpeedOverride);//Floating Fan Animation Speed Tweaks
 	if (DLLLoaded_Lantern == true)
 	{
 		material_register(LevelSpecular_FinalEgg, LengthOfArray(LevelSpecular_FinalEgg), &ForceDiffuse0Specular0);
@@ -764,4 +767,8 @@ void FinalEgg_OnFrame()
 		((NJS_OBJECT*)0x1A4583C)->basicdxmodel->mats[0].attr_texId = cylinderframe;
 		((NJS_OBJECT*)0x1A45620)->basicdxmodel->mats->attr_texId = cylinderframe;
 	}
+	//Floating Fan Animation Speed Tweak
+	if (FramerateSetting >= 2)
+		OFunAnimationSpeedOverride = 1.0f; else
+		OFunAnimationSpeedOverride = 0.25f;
 }
