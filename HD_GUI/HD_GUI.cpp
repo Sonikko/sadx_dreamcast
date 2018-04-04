@@ -147,6 +147,28 @@ extern "C"
 		WriteData<1>((char*)0x0091C022, 0i8); //You win/lose text alignment
 		WriteData<1>((char*)0x0091C034, 0i8); //You win/lose text alignment
 		WriteData<1>((char*)0x0091C048, 0i8); //You win/lose text alignment
+		ReplacePVMX("ENDBG_AMY_0");
+		ReplacePVMX("ENDBG_AMY_1");
+		ReplacePVMX("ENDBG_AMY_2");
+		ReplacePVMX("ENDBG_BIG_0");
+		ReplacePVMX("ENDBG_BIG_1");
+		ReplacePVMX("ENDBG_BIG_2");
+		ReplacePVMX("ENDBG_E102_0");
+		ReplacePVMX("ENDBG_E102_1");
+		ReplacePVMX("ENDBG_E102_2");
+		ReplacePVMX("ENDBG_KNUCKLES_0");
+		ReplacePVMX("ENDBG_KNUCKLES_1");
+		ReplacePVMX("ENDBG_KNUCKLES_2");
+		ReplacePVMX("ENDBG_SONIC_0");
+		ReplacePVMX("ENDBG_SONIC_1");
+		ReplacePVMX("ENDBG_SONIC_2");
+		ReplacePVMX("ENDBG_SUPERSONIC_0");
+		ReplacePVMX("ENDBG_SUPERSONIC_1");
+		ReplacePVMX("ENDBG_SUPERSONIC_2");
+		ReplacePVMX("ENDBG_SUPERSONIC_3");
+		ReplacePVMX("ENDBG_TAILS_0");
+		ReplacePVMX("ENDBG_TAILS_1");
+		ReplacePVMX("ENDBG_TAILS_2");
 		ReplacePVMX("ADV_WINDOW");
 		ReplacePVMX("AVA_BACK");
 		ReplacePVMX("AVA_CHSEL");
