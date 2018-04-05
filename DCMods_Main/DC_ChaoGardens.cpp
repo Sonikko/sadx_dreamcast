@@ -3726,12 +3726,24 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 	}
 	if (CurrentChaoStage == 5)
 	{
-		ent->Position.x = 131.67f;
-		ent->Position.y = 2.6f;
-		ent->Position.z = -204.28f;
-		ent->Rotation.x = 0xFFB0;
-		ent->Rotation.y = 0xAFD6;
-		ent->Rotation.z = 0xFFDE;
+		if (EnableECGarden == true)
+		{
+			ent->Position.x = 131.67f;
+			ent->Position.y = 2.6f;
+			ent->Position.z = -204.28f;
+			ent->Rotation.x = 0xFFB0;
+			ent->Rotation.y = 0xAFD6;
+			ent->Rotation.z = 0xFFDE;
+		}
+		else
+		{
+			ent->Position.x = 131.67f;
+			ent->Position.y = 0;
+			ent->Position.z = -204.28f;
+			ent->Rotation.x = 0xFFB0;
+			ent->Rotation.y = 0xAFD6;
+			ent->Rotation.z = 0xFFDE;
+		}
 	}
 	if (CurrentChaoStage == 6)
 	{
@@ -4146,6 +4158,10 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 	ResizeTextureList(&ChaoTexLists[0], 144); //AL_BODY
 	ResizeTextureList((NJS_TEXLIST*)0x033A1338, 31); //AL_DX_OBJ_CMN
 	//Name Machine stuff
+	ECGardenStartPoint.Position.y = 71.0f; //Prevent endless jumping in EC garden with the DC model for the Name Machine
+	MRGardenReturnPoint.Position.x = 219; //Same for MR garden
+	MRGardenReturnPoint.Position.y = 15.45f; //Same for MR garden
+	MRGardenReturnPoint.Position.z = -48.5f; //Same for MR garden
 	*(NJS_OBJECT*)0x33CFC70 = objectCHAO_001834CC; //Name Machine
 	*(NJS_OBJECT*)0x33CB04C = objectCHAO_001826E8; //Name machine button
 	WriteCall((void*)0x00729EEF, ChaoNameMachineCollision);
@@ -4255,9 +4271,6 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Mystic Ruins garden stuff
 	if (EnableMRGarden == true)
 	{
-		MRGardenReturnPoint.Position.x = 219;
-		MRGardenReturnPoint.Position.y = 15.45f;
-		MRGardenReturnPoint.Position.z = -48.5f;
 		WriteData<5>((void*)0x00718E20, 0x90); //Don't load SADX button prompts in MR garden
 		WriteJump((void*)0x00718E90, LoadMRGardenX);
 		WriteJump((void*)0x0072A790, sub_72A790); //Mystic Ruins garden function 1
@@ -4304,7 +4317,6 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 	if (EnableECGarden == true)
 	{
 		WriteData<5>((void*)0x00719181, 0x90); //Don't load SADX button prompts in EC garden
-		ECGardenStartPoint.Position.y = 71.0f;
 		WriteCall((void*)0x00729289, NameMachineTexlist);
 		WriteJump((void*)0x007191D0, LoadECGardenX);
 		WriteData((float*)0x007191BF, -12000.0f); //Draw distance
