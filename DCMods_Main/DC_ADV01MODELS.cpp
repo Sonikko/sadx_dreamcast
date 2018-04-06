@@ -156,6 +156,65 @@ NJS_MATERIAL* WhiteDiffuseADV01[] = {
 	&matlistADV01_000165BC[9],
 };
 
+void __cdecl ECDoorBarrier1X(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi
+	Angle v2; // eax
+
+	v1 = a1->Data1;
+	if (v1->Status & 0x200)
+	{
+		if (!MissedFrames)
+		{
+			SetTextureToLevelObj();
+			njPushMatrix(0);
+			njTranslateV(0, &v1->Position);
+			v2 = v1->Rotation.y;
+			if (v2)
+			{
+				njRotateY(0, (unsigned __int16)v2);
+			}
+			ProcessModelNode((NJS_OBJECT*)ADV01C_OBJECTS[21], QueuedModelFlagsB_SomeTextureThing, 1.0f);
+			njPopMatrix(1u);
+		}
+	}
+}
+
+void __cdecl ECDoorBarrier2X(int a1, EntityData1 *a2)
+{
+	Angle v2; // eax
+
+	if (!MissedFrames)
+	{
+		SetTextureToLevelObj();
+		njPushMatrix(0);
+		njTranslateV(0, &a2->Position);
+		v2 = a2->Rotation.y;
+		if (v2)
+		{
+			njRotateY(0, (unsigned __int16)v2);
+		}
+		ProcessModelNode((NJS_OBJECT*)ADV01C_OBJECTS[21], QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		njPopMatrix(1u);
+	}
+}
+
+static void __declspec(naked) ECDoorBarrier2_asm()
+{
+	__asm
+	{
+		push esi // a2
+		push ecx
+
+		// Call your __cdecl function here:
+		call ECDoorBarrier2X
+
+		pop esi // a2
+		pop ecx
+		retn
+	}
+}
+
 void sub_10001050(NJS_OBJECT *a1)
 {
 	NJS_MODEL_SADX *v1; // edx@1
@@ -423,6 +482,9 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("ADV_EC02");
 		ReplacePVM("EC_SEA");
 	}
+	//Door barrier fixes (Gamma's story)
+	WriteJump((void*)0x52B2E0, ECDoorBarrier1X); 
+	WriteJump((void*)0x52B250, ECDoorBarrier2_asm);
 	WriteCall((void*)0x0051AB88, RenderEggCarrier0NPC); //Chaos 4 glitch fix
 	WriteJump((void*)0x51B210, EggCarrierSkyBox);
 	WriteJump((void*)0x51B3B0, EggCarrierSkyBottom);
@@ -592,30 +654,6 @@ void ADV01_OnFrame()
 			set_blend_factor(0.0f);
 			set_shader_flags(ShaderFlags_Blend, false);
 		}
-		//EC Interior barrier stuff
-		//Water reservoir and Ammunition Room
-		if (CurrentCharacter == 6)
-		{
-			collist_0000C670[LengthOfArray(collist_0000C670) - 4].Flags = 0x00000000;
-			collist_0000C670[LengthOfArray(collist_0000C670) - 5].Flags = 0x00000000;
-		}
-		else
-		{
-			collist_0000C670[LengthOfArray(collist_0000C670) - 4].Flags = 0x80040000;
-			collist_0000C670[LengthOfArray(collist_0000C670) - 5].Flags = 0x80040000;
-		}
-		//Hot Shelter room
-		if (CurrentCharacter != 5 && CurrentCharacter != 6 && CurrentCharacter != 7) collist_0000C670[LengthOfArray(collist_0000C670) - 2].Flags = 0x80040000; //Lock Hot Shelter room for everyone but Amy, Big and Gamma
-		if (CurrentCharacter == 5 || CurrentCharacter == 7) collist_0000C670[LengthOfArray(collist_0000C670) - 2].Flags = 0x00000000; //Unlock Hot Shelter room for Amy and Big
-		if (CurrentCharacter == 6 && !GetEventFlag(EventFlags_Gamma_RedMountainClear)) collist_0000C670[LengthOfArray(collist_0000C670) - 2].Flags = 0x80040000; //Lock Hot Shelter room for Gamma
-		if (CurrentCharacter == 6 && GetEventFlag(EventFlags_Gamma_RedMountainClear)) collist_0000C670[LengthOfArray(collist_0000C670) - 2].Flags = 0x00000000; //Unlock Hot Shelter room for Gamma
-																																								//Hedgehog Hammer room
-		if (CurrentCharacter == 5 || CurrentCharacter == 6 || CurrentCharacter == 7) collist_0000C670[LengthOfArray(collist_0000C670) - 3].Flags = 0x00000000; //Unlock prison room for Amy, Big and Gamma
-		else collist_0000C670[LengthOfArray(collist_0000C670) - 3].Flags = 0x80040000; //Lock prison room for everyone else
-																					   //E101 Beta room
-		if (CurrentCharacter != 6) collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x80040000; //Lock E101 Beta room for everyone but Gamma
-		if (CurrentCharacter == 6 && GetEventFlag(EventFlags_Gamma_JetBooster))	collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x80040000; //Lock E101 Beta room for Gamma
-		if (CurrentCharacter == 6 && !GetEventFlag(EventFlags_Gamma_JetBooster)) collist_0000C670[LengthOfArray(collist_0000C670) - 1].Flags = 0x00000000; //Unlock E101 Beta room for Gamma
 	}
 	if (CurrentLevel == 29 && CurrentAct == 0)
 	{

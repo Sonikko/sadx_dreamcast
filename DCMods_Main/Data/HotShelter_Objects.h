@@ -1,4 +1,44 @@
 #pragma once
+
+//BiriBiri sprite
+
+NJS_MATERIAL biribiri_matlist[] = {
+	{ { 0xFFFFFFFF },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_LIGHT | NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ALPHA | NJD_DA_ONE | NJD_SA_SRC }
+};
+
+Sint16 poly_00116FB4X[] = {
+	4, 3, 2, 1, 0
+};
+
+NJS_TEX uv_00116FC0X[] = {
+	{ 0, 0 },
+	{ 255, 0 },
+	{ 0, 255 },
+	{ 255, 255 },
+};
+
+NJS_MESHSET_SADX biribiri_meshlist[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_00116FB4X, NULL, NULL, NULL, uv_00116FC0X, NULL }
+};
+
+NJS_VECTOR biribiri_vertex[] = {
+	{ -10.0f, 10.0f, 0 },
+	{ 10.0f, 10.0f, 0 },
+	{ -10.0f, -10.0f, 0 },
+	{ 10.0f, -10.0f, 0 }
+};
+
+NJS_VECTOR biribiri_normal[] = {
+	{ 1, 0, 0 },
+	{ 1, 0, 0 },
+	{ 1, 0, 0 },
+	{ 1, 0, 0 }
+};
+
+NJS_MODEL_SADX attach_00117048X = { biribiri_vertex, biribiri_normal, LengthOfArray(biribiri_vertex), biribiri_meshlist, biribiri_matlist, LengthOfArray(biribiri_meshlist), LengthOfArray(biribiri_matlist),{ 0, 1.5f, 0 }, 11.71537f, NULL };
+
+NJS_OBJECT biribiri = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00117048X, 12.0f, 0, 0, 0, 0, 0x4000, 1, 1, 1, NULL, NULL };
+
 NJS_MATERIAL matlistSTG12_0155C190[] = {
 	{ { 0xFFB2B2B2 },{ 0x00FFFFFF }, 11, 37, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0x00FFFFFF }, 11, 37, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },

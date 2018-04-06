@@ -25764,7 +25764,6 @@ NJS_OBJECT objectADV01_000715A8 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachA
 
 
 COL collist_0000C670[] = {
-	//{ { 0.01697f, -6, -48.49997f }, 146.8124f, 0, 0, &objectADV01_0003B450, 0, 0x80000000 },
 	{ { 167, 17.5f, 100 }, 33.17001f, 0, 0, &objectADV01_0002835C, 0, 0x40000001 },
 	{ { 0, -2.5f, 36 }, 268.8164f, 0, 0, &objectADV01_000290C4, 0, 0x20000001 },
 	{ { 80.00037f, 18.75f, -300 }, 123.0917f, 0, 0, &objectADV01_00029358, 0, 0x20000001 },
@@ -25887,18 +25886,13 @@ COL collist_0000C670[] = {
 	{ { 0.000023f, 62.5f, 244 }, 134.1874f, 0, 0, &objectADV01_000343F4, 0, 0x80040001 },
 	{ { -170.5f, 42.5f, -380 }, 20.89258f, 0, 0, &objectADV01_000321D4, 0, 0x80040001 },
 	{ { 132.0001f, 82.5f, -340.0001f }, 81.62261f, 0, 0, &objectADV01_00035EE8, 0, 0x80040001 },
-	{ { -193, 100.1f, -280.5f }, 146.8124f, 0, 0, &Barrier_ReservoirRoom, 0, 0x00000000 },
-	{ { 187, 100.1f, -3 }, 146.8124f, 0, 0, &Barrier_AmmunitionRoom, 0, 0x00000000 },
-	{ { -62, 20.1f, 192 }, 146.8124f, 0, 0, &Barrier_Prison, 0, 0x00000000 },
-	{ { 0, 20.1f, 247 }, 146.8124f, 0, 0, &Barrier_HotShelter, 0, 0x00000000 },
-	{ { 62, 20.1f, 192 }, 146.8124f, 0, 0, &Barrier_E101Room, 0, 0x00000000 }
 };
 
 GeoAnimData animlist_0000D798[] = {
 	{ 0, 1, 100, &objectADV01_00032F3C, &action_animation_000330A0, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_ec31[47];
+NJS_TEXNAME textures_ec31[45];
 NJS_TEXLIST texlist_ec31 = { arrayptrandlength(textures_ec31) };
 
 LandTable landtable_0000D7B0 = { LengthOfArray(collist_0000C670), LengthOfArray(animlist_0000D798), 9, 0, collist_0000C670, animlist_0000D798, "ADV_EC31", (NJS_TEXLIST *)&texlist_ec31, 0, 0 };
