@@ -15,6 +15,7 @@ static float suimen_increment = 0.0f;
 static int suimen_direction = 1;
 static int TextureAnim = 78;
 static int WaterThing_VShift = 0;
+static int BiriBiri_frame = 0;
 
 NJS_MATERIAL* LevelSpecular_HotShelter[] = {
 	((NJS_MATERIAL*)0x01A3AD08), //Glass tube elevator
@@ -197,6 +198,12 @@ void AmyHatchFix(ObjectMaster *obj, CollisionData *collisionArray, int count, un
 	if (CurrentCharacter != 5) Collision_Init(obj, collisionArray, count, list);
 }
 
+void Biribiri_ReplaceSprite(NJS_SPRITE *_sp, Int n, NJD_SPRITE attr)
+{
+	njSetTexture(&LIGHTNING_TEXLIST);
+	ProcessModelNode(&biribiri, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+}
+
 void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -238,6 +245,7 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("SHELTER_COLUMN");
 	ReplacePVM("SHELTER_SUIMEN");
 	WriteCall((void*)0x0059F75C, AmyHatchFix); //Don't make the ventilation hatch solid when playing as Amy
+	WriteCall((void*)0x5A2205, Biribiri_ReplaceSprite); //BiriBiri fix
 	WriteData((LandTable**)0x97DB88, &landtable_0001970C);
 	WriteData((LandTable**)0x97DB8C, &landtable_0005277C);
 	WriteData((LandTable**)0x97DB90, &landtable_000B0DA4);
@@ -338,6 +346,12 @@ void HotShelter_OnFrame()
 			matlistSTG12_0140F608[0].attr_texId = TextureAnim;
 			matlistSTG12_0140FA60[0].attr_texId = TextureAnim;
 			if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)TextureAnim++;
+		}
+		if (CurrentLevel == 12 && CurrentAct == 1 && GameState != 16)
+		{
+			biribiri_matlist[0].attr_texId = BiriBiri_frame;
+			if ((FramerateSetting < 2 && FrameCounter % 2 == 0) || (FramerateSetting >= 2 && FrameCounter % 4 == 0)) BiriBiri_frame++;
+			if (BiriBiri_frame > 7) BiriBiri_frame = 0;
 		}
 	}
 }

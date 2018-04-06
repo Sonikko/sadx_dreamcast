@@ -135,10 +135,7 @@ extern "C"
 			return;
 		}
 		//Fix random ring icon
-		float RingIconOffset = 0.0f;
 		WriteData((NJS_TEXANIM**)0x4C03FF, &RandomRingIconPart_TEXANIM);
-		WriteData((float**)0x4C044B, (float*)0x7E6BA0); //Random ring icon offset value to match the regular icon
-		WriteData((float**)0x4C03F5, &RingIconOffset); //Remove horizontal offset
 		//Various fixes
 		WriteCall((void*)0x00457F2F, DrawSprite_Hook);
 		WriteCall((void*)0x00504DC4, HelpAvaSquareThing);
@@ -150,6 +147,28 @@ extern "C"
 		WriteData<1>((char*)0x0091C022, 0i8); //You win/lose text alignment
 		WriteData<1>((char*)0x0091C034, 0i8); //You win/lose text alignment
 		WriteData<1>((char*)0x0091C048, 0i8); //You win/lose text alignment
+		ReplacePVMX("ENDBG_AMY_0");
+		ReplacePVMX("ENDBG_AMY_1");
+		ReplacePVMX("ENDBG_AMY_2");
+		ReplacePVMX("ENDBG_BIG_0");
+		ReplacePVMX("ENDBG_BIG_1");
+		ReplacePVMX("ENDBG_BIG_2");
+		ReplacePVMX("ENDBG_E102_0");
+		ReplacePVMX("ENDBG_E102_1");
+		ReplacePVMX("ENDBG_E102_2");
+		ReplacePVMX("ENDBG_KNUCKLES_0");
+		ReplacePVMX("ENDBG_KNUCKLES_1");
+		ReplacePVMX("ENDBG_KNUCKLES_2");
+		ReplacePVMX("ENDBG_SONIC_0");
+		ReplacePVMX("ENDBG_SONIC_1");
+		ReplacePVMX("ENDBG_SONIC_2");
+		ReplacePVMX("ENDBG_SUPERSONIC_0");
+		ReplacePVMX("ENDBG_SUPERSONIC_1");
+		ReplacePVMX("ENDBG_SUPERSONIC_2");
+		ReplacePVMX("ENDBG_SUPERSONIC_3");
+		ReplacePVMX("ENDBG_TAILS_0");
+		ReplacePVMX("ENDBG_TAILS_1");
+		ReplacePVMX("ENDBG_TAILS_2");
 		ReplacePVMX("ADV_WINDOW");
 		ReplacePVMX("AVA_BACK");
 		ReplacePVMX("AVA_CHSEL");

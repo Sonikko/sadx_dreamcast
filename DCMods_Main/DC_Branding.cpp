@@ -1200,28 +1200,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	f480_Fixed = 1.0f + VerticalResolution;
 	f640_Fixed = 1.0f + HorizontalResolution;
 	//Set PVM names
-	ReplacePVM("ENDBG_AMY_0");
-	ReplacePVM("ENDBG_AMY_1");
-	ReplacePVM("ENDBG_AMY_2");
-	ReplacePVM("ENDBG_BIG_0");
-	ReplacePVM("ENDBG_BIG_1");
-	ReplacePVM("ENDBG_BIG_2");
-	ReplacePVM("ENDBG_E102_0");
-	ReplacePVM("ENDBG_E102_1");
-	ReplacePVM("ENDBG_E102_2");
-	ReplacePVM("ENDBG_KNUCKLES_0");
-	ReplacePVM("ENDBG_KNUCKLES_1");
-	ReplacePVM("ENDBG_KNUCKLES_2");
-	ReplacePVM("ENDBG_SONIC_0");
-	ReplacePVM("ENDBG_SONIC_1");
-	ReplacePVM("ENDBG_SONIC_2");
-	ReplacePVM("ENDBG_SUPERSONIC_0");
-	ReplacePVM("ENDBG_SUPERSONIC_1");
-	ReplacePVM("ENDBG_SUPERSONIC_2");
-	ReplacePVM("ENDBG_SUPERSONIC_3");
-	ReplacePVM("ENDBG_TAILS_0");
-	ReplacePVM("ENDBG_TAILS_1");
-	ReplacePVM("ENDBG_TAILS_2");
 	ReplacePVM("GG_TEXLIST_US");
 	ReplacePVM("ENDBG_LAST_AMY");
 	ReplacePVM("ENDBG_LAST_BIG");
@@ -1239,6 +1217,28 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("AVA_FSCMN_E");
 	if (DLLLoaded_HDGUI == false)
 	{
+		ReplacePVM("ENDBG_AMY_0");
+		ReplacePVM("ENDBG_AMY_1");
+		ReplacePVM("ENDBG_AMY_2");
+		ReplacePVM("ENDBG_BIG_0");
+		ReplacePVM("ENDBG_BIG_1");
+		ReplacePVM("ENDBG_BIG_2");
+		ReplacePVM("ENDBG_E102_0");
+		ReplacePVM("ENDBG_E102_1");
+		ReplacePVM("ENDBG_E102_2");
+		ReplacePVM("ENDBG_KNUCKLES_0");
+		ReplacePVM("ENDBG_KNUCKLES_1");
+		ReplacePVM("ENDBG_KNUCKLES_2");
+		ReplacePVM("ENDBG_SONIC_0");
+		ReplacePVM("ENDBG_SONIC_1");
+		ReplacePVM("ENDBG_SONIC_2");
+		ReplacePVM("ENDBG_SUPERSONIC_0");
+		ReplacePVM("ENDBG_SUPERSONIC_1");
+		ReplacePVM("ENDBG_SUPERSONIC_2");
+		ReplacePVM("ENDBG_SUPERSONIC_3");
+		ReplacePVM("ENDBG_TAILS_0");
+		ReplacePVM("ENDBG_TAILS_1");
+		ReplacePVM("ENDBG_TAILS_2");
 		ReplacePVM("ENDBG_LOGO");
 		ReplacePVM("AVA_NEW16NO");
 		ReplacePVM("CON_REGULAR");
