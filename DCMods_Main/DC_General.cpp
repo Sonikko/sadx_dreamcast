@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <Trampoline.h>
 #include "stdlib.h"
 #include <math.h> 
 #include <lanternapi.h>
@@ -62,6 +63,21 @@ static float TailsWiggleSpeed_Rotation = 2048.0f;
 static float TailsWiggleSpeed_RotationX2 = 4096.0f;
 //Animation Speed Tweaks
 float DashPanelAnimationSpeedOverride = 0.25f;
+
+//TPanel slowdown
+static void __cdecl Spinner_Init_r(ObjectMaster *a2);
+static Trampoline Spinner_Init_t(0x4BD00, 0x4BD07, Spinner_Init_r);
+static void __cdecl Spinner_Init_r(ObjectMaster *a2)
+{
+	auto original = reinterpret_cast<decltype(Spinner_Init_r)*>(Spinner_Init_t.Target());
+	if (FramerateSetting < 2)
+	{
+		a2->Data1->Scale.x = a2->Data1->Scale.x / 2;
+		a2->Data1->Scale.y = a2->Data1->Scale.y / 2;
+		a2->Data1->Scale.z = a2->Data1->Scale.z / 2;
+	}
+	original(a2);
+}
 
 NJS_MATERIAL* FirstCharacterSpecular_General[] = {
 	//Hedgehog Hammer targets (possibly SL objects?)
