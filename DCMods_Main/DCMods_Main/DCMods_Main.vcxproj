@@ -241,7 +241,6 @@
     <ClInclude Include="..\Data\ADV01C_05.h" />
     <ClInclude Include="..\Data\ADV01_0.h" />
     <ClInclude Include="..\Data\ADV01_0_animlist.h" />
-    <ClInclude Include="..\Data\ADV01_0_PC.h" />
     <ClInclude Include="..\Data\ADV01_1.h" />
     <ClInclude Include="..\Data\ADV01_2.h" />
     <ClInclude Include="..\Data\ADV01_3.h" />
