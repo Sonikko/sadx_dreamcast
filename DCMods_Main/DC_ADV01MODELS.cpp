@@ -363,7 +363,10 @@ void EggCarrierSea()
 		ProcessModelNode_A_Wrapper(&objectADV01_00007C50, QueuedModelFlagsB_3, 1.0f);
 		njPopMatrix(1u);
 	}
-	if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ocean_dc++;
+	if (GameState != 16)
+	{
+		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ocean_dc++;
+	}
 }
 
 void SetECOceanTexlist()
