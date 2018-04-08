@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <Trampoline.h>
 #include "Palm.h"
 #include "ADV03_00_PC.h"
 #include "ADV03_00.h"
@@ -12,6 +13,7 @@
 
 HMODULE Past = GetModuleHandle(L"ADV03MODELS");
 
+FunctionPointer(void, sub_408350, (NJS_ACTION *a1, float a2, int a3, float a4), 0x408350);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataArray(DrawDistance, DrawDist_Past1, 0x0111E540, 3);
 DataArray(DrawDistance, DrawDist_Past2, 0x0111E558, 3);
@@ -19,11 +21,12 @@ DataArray(DrawDistance, DrawDist_Past3, 0x0111E570, 3);
 DataArray(FogData, FogData_Past1, 0x0111E588, 3);
 DataArray(FogData, FogData_Past2, 0x0111E5B8, 3);
 DataArray(FogData, FogData_Past3, 0x0111E5E8, 3);
-static int animframe1 = 75;
-static int animframe2 = 72;
-static int animframe3 = 59;
-static char animframe_water = 84;
-static char animframe_water2 = 86;
+static int ocean_act1 = 73;
+static int ocean_act2 = 59;
+static int water_act1 = 59;
+static int water_act2 = 59;
+static char ocean_act1_sadx = 83;
+static char ocean_act2_sadx = 85;
 static bool SADXStyleWater = false;
 
 NJS_MATERIAL* SecondCharacterSpecular[] = {
@@ -75,6 +78,82 @@ bool ForceFirstCharacterSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
+static void __cdecl Past_OceanDraw_r(OceanData *a1);
+static Trampoline Past_OceanDraw_t(0x542850, 0x542858, Past_OceanDraw_r);
+static void __cdecl Past_OceanDraw_r(OceanData *a1)
+{
+	auto original = reinterpret_cast<decltype(Past_OceanDraw_r)*>(Past_OceanDraw_t.Target());
+	if (CurrentAct == 1)
+	{
+		if (GameState != 16)
+		{
+			if (ocean_act1 > 82) ocean_act1 = 73;
+			if (water_act1 > 72) water_act1 = 59;
+			if (ocean_act1_sadx > 97) ocean_act1_sadx = 83;
+			matlistADV03_0006DBD0[0].attr_texId = ocean_act1;
+			matlistADV03_00095CF8[0].attr_texId = water_act1;
+			matlistADV03_000950C4[0].attr_texId = water_act1;
+			matlistADV03_0009542C[0].attr_texId = water_act1;
+			WriteData<1>((char*)0x0054287B, ocean_act1_sadx);
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+			{
+				ocean_act1++;
+				water_act1++;
+				ocean_act1_sadx++;
+			}
+		}
+		njSetTexture(&texlist_past01);
+		DrawQueueDepthBias = 1000.0f;
+		ProcessModelNode(&objectADV03_0008B2E0Z, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		DrawQueueDepthBias = 2500.0f;
+		ProcessModelNode(&objectADV03_0009609C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		DrawQueueDepthBias = 0;
+	}
+	if (CurrentAct == 2)
+	{
+		if (GameState != 16)
+		{
+			if (water_act2 > 74) water_act2 = 61;
+			if (ocean_act2 > 84) ocean_act2 = 75;
+			if (ocean_act2_sadx > 99) ocean_act2_sadx = 85;
+			matlistADV03_000C7840[0].attr_texId = water_act2;
+			matlistADV03_000C6C0C[0].attr_texId = water_act2;
+			matlistADV03_000C6F74[0].attr_texId = water_act2;
+			matlistADV03_0009DEBC[0].attr_texId = ocean_act2;			
+			WriteData<1>((char*)0x005428A0, ocean_act2_sadx);
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+			{
+				ocean_act2++;
+				water_act2++;
+				ocean_act2_sadx++;
+			}
+		}
+		njSetTexture(&texlist_past02);
+		DrawQueueDepthBias = 1000.0f;
+		ProcessModelNode(&objectADV03_000BCC28Z, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		DrawQueueDepthBias = 2500.0f;
+		ProcessModelNode(&objectADV03_000C7BE4, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		DrawQueueDepthBias = 0;
+	}
+	if (SADXStyleWater == true) original(a1);
+}
+
+void RenderPalm2(NJS_ACTION *a1, float a2, int a3, float a4)
+{
+	sub_408350(a1, a2, a3, a4);
+	DrawQueueDepthBias = -17000.0f;
+	ProcessModelNode(&object_00122F30_2, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	DrawQueueDepthBias = 0.0f;
+}
+
+void RenderPalm1(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
+{
+	ProcessModelNode_C_VerifyTexList(&object_00125250, a2, a3);
+	DrawQueueDepthBias = -17000.0f;
+	ProcessModelNode(&object_0012521C_2, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	DrawQueueDepthBias = 0.0f;
+}
+
 void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -103,6 +182,10 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("PAST01");
 		ReplacePVM("PAST02");
 	}
+	//Palm fixes
+	ADV03_ACTIONS[10]->object->model = &attach_00122F04;
+	WriteCall((void*)0x545C1A, RenderPalm1);
+	WriteCall((void*)0x545BFD, RenderPalm2);
 	//Tikal cutscene water ripple thing
 	WriteData((float*)0x0068BA27, -40.7f); //Ripple 1 X
 	WriteData((float*)0x0068BA22, 86.0f); //Ripple 1 Y
@@ -122,18 +205,17 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (SADXStyleWater == true)
 	{
-		ResizeTextureList(&texlist_past01, 101);
-		ResizeTextureList(&texlist_past02, 103);
-		WriteData<1>((char*)0x0054287B, 0x56); // wave texture ID act 2
-		WriteData<1>((char*)0x00542880, 0x63); // water texture ID act 2
-		WriteData<1>((char*)0x005428A0, 0x56); // wave texture ID act 3
-		WriteData<1>((char*)0x005428A5, 0x65); // water texture ID act 3
+		ResizeTextureList(&texlist_past01, 100);
+		ResizeTextureList(&texlist_past02, 102);
+		WriteData<1>((char*)0x0054287B, 0x53); // wave texture ID act 2
+		WriteData<1>((char*)0x00542880, 0x62); // water texture ID act 2
+		WriteData<1>((char*)0x005428A0, 0x55); // wave texture ID act 3
+		WriteData<1>((char*)0x005428A5, 0x64); // water texture ID act 3
 		collist_0006735C[0].Flags = 0x00000020;
 		collist_000976C0[0].Flags = 0x00000020;
 	}
 	else
 	{
-		WriteData<1>((void*)0x542850, 0xC3u);
 		collist_0006735C[0].Flags = 0x80000020;
 		collist_000976C0[0].Flags = 0x80000020;
 	}
@@ -173,34 +255,4 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 	___ADV03_OBJECTS[15] = &objectADV03_00027158; //small tree shadow
 	___ADV03_OBJECTS[13] = &objectADV03_00016CA0; //OWell
 	___ADV03_OBJECTS[18] = &objectADV03_00027054; //well shadow
-}
-
-void ADV03_OnFrame()
-{
-	if (CurrentLevel == 34 && CurrentAct == 1 && GameState != 16)
-	{
-		if (animframe2 > 82) animframe2 = 73;
-		if (animframe3 > 72) animframe3 = 59;
-		if (animframe_water > 98)animframe_water = 84;
-		matlistADV03_0006DBD0[0].attr_texId = animframe2;
-		matlistADV03_00095CF8[0].attr_texId = animframe3;
-		matlistADV03_000950C4[0].attr_texId = animframe3;
-		matlistADV03_0009542C[0].attr_texId = animframe3;
-		WriteData<1>((char*)0x0054287B, animframe_water);
-		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
-		{
-			animframe2++;
-			animframe3++;
-		}
-		if (FramerateSetting < 2 && FrameCounter % 5 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) animframe_water++;
-	}
-	if (CurrentLevel == 34 && CurrentAct == 2 && GameState != 16)
-	{
-		if (animframe1 > 84) animframe1 = 75;
-		if (animframe_water2 > 100) animframe_water2 = 86;
-		matlistADV03_0009DEBC[0].attr_texId = animframe1;
-		WriteData<1>((char*)0x005428A0, animframe_water2);
-		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) animframe1++;
-		if (FramerateSetting < 2 && FrameCounter % 5 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) animframe_water2++;
-	}
 }
