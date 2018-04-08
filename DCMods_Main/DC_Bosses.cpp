@@ -442,7 +442,7 @@ void Chaos4Skybox(ObjectMaster *o1)
 	NJS_VECTOR a2;
 	//Swamp animation
 	if (Chaos4Water > 13) Chaos4Water = 0;
-	matlist_000429E8[0].attr_texId = 13;
+	matlist_000429E8[0].attr_texId = Chaos4Water;
 	if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) Chaos4Water++;
 	if (!MissedFrames)
 	{
