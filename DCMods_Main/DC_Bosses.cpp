@@ -457,7 +457,7 @@ void Chaos4Skybox(ObjectMaster *o1)
 		WaterTrans = 153.0f*(1.0f + Chaos4NumaTransparency);
 		matlist_000429E8[0].diffuse.argb.a = (int)WaterTrans;
 		njPushMatrix(0);
-		DrawQueueDepthBias = -17000.0f;
+		DrawQueueDepthBias = 4000.0f;
 		if (Chaos4NumaTransparency > -1.0f) ProcessModelNode(&object_0004476C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 		njPopMatrix(1u);
 		DrawQueueDepthBias = 0.0f;

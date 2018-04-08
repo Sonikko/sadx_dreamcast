@@ -95,7 +95,7 @@ static void __cdecl Past_OceanDraw_r(OceanData *a1)
 			matlistADV03_000950C4[0].attr_texId = water_act1;
 			matlistADV03_0009542C[0].attr_texId = water_act1;
 			WriteData<1>((char*)0x0054287B, ocean_act1_sadx);
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+			if ((FramerateSetting < 2 && FrameCounter % 4 == 0) || (FramerateSetting == 2 && FrameCounter % 2 == 0) || FramerateSetting > 2)
 			{
 				ocean_act1++;
 				water_act1++;
@@ -116,9 +116,9 @@ static void __cdecl Past_OceanDraw_r(OceanData *a1)
 			if (water_act2 > 74) water_act2 = 61;
 			if (ocean_act2 > 84) ocean_act2 = 75;
 			if (ocean_act2_sadx > 99) ocean_act2_sadx = 85;
-			matlistADV03_000C7840[0].attr_texId = water_act2;
-			matlistADV03_000C6C0C[0].attr_texId = water_act2;
-			matlistADV03_000C6F74[0].attr_texId = water_act2;
+			//matlistADV03_000C7840[0].attr_texId = water_act2; //Apparently SADX does it on its own
+			//matlistADV03_000C6C0C[0].attr_texId = water_act2; //Apparently SADX does it on its own
+			//matlistADV03_000C6F74[0].attr_texId = water_act2; //Apparently SADX does it on its own
 			matlistADV03_0009DEBC[0].attr_texId = ocean_act2;			
 			WriteData<1>((char*)0x005428A0, ocean_act2_sadx);
 			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
