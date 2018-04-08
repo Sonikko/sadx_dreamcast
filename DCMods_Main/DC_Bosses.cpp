@@ -52,6 +52,7 @@ DataArray(DrawDistance, DrawDist_E101R, 0x015225D8, 3);
 DataArray(DrawDistance, DrawDist_Zero, 0x016B4D98, 3);
 DataArray(PVMEntry, EGGVIPER_TEXLISTS, 0x165D498, 11);
 DataArray(PVMEntry, CHAOS4_OBJECT_TEXLISTS, 0x118FDB0, 18);
+DataPointer(PVMEntry, PVMEntry_CHAOS0EFFECT, 0x1120180);
 DataPointer(unsigned char, byte_3C5A7EF, 0x3C5A7EF);
 DataPointer(unsigned char, byte_3C5A7ED, 0x3C5A7ED);
 DataPointer(unsigned char, byte_03C6C944, 0x03C6C944);
@@ -678,6 +679,118 @@ void E101R_AfterImageArmConstantAttr(Uint32 and_attr, Uint32 or_attr)
 	AddConstantAttr(0, NJD_FLAG_IGNORE_LIGHT);
 }
 
+void Spotlight_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	if (!DroppedFrames)
+	{
+		njSetTexture(PVMEntry_CHAOS0EFFECT.TexList);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		njRotateXYZ(0, 0x4000, 0, 0);
+		DrawQueueDepthBias = -17000.0f;
+		ProcessModelNode(&spotlight, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		njPopMatrix(1u);
+		DrawQueueDepthBias = 0;
+	}
+}
+
+void Spotlight_Main(ObjectMaster *a1)
+{
+	Spotlight_Display(a1);
+}
+
+void Spotlight_Load(ObjectMaster *a1)
+{
+	a1->MainSub = (void(__cdecl *)(ObjectMaster *))Spotlight_Main;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))Spotlight_Display;
+	a1->DeleteSub = DeleteObject_DynamicCOL;
+}
+
+void Chaos0SpotlightHook()
+{
+	Chaos0_Rain_Load();
+	//Load spotlight
+	ObjectMaster *obj;
+	EntityData1 *ent;
+	ObjectFunc(OF0, Spotlight_Load);
+	SETObjData setdata_sp = {};
+	setdata_sp.Distance = 612800.0f;
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 291.83f;
+		ent->Position.y = 0.1f;
+		ent->Position.z = 385.525f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 313.0f;
+		ent->Position.y = 0.11f;
+		ent->Position.z = 389.525f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 368.06f;
+		ent->Position.y = 0.1f;
+		ent->Position.z = 340.66f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 385.06f;
+		ent->Position.y = 0.11f;
+		ent->Position.z = 330.66f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 160.685f;
+		ent->Position.y = 0.1f;
+		ent->Position.z = 348.04f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 183.685f;
+		ent->Position.y = 0.11f;
+		ent->Position.z = 360.04f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 258.325f;
+		ent->Position.y = 0.1f;
+		ent->Position.z = 434.675f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 235.325f;
+		ent->Position.y = 0.1f;
+		ent->Position.z = 440.675f;
+	}
+}
+
 void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -788,6 +901,8 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		((NJS_OBJECT*)0x02C60644)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 		((NJS_OBJECT*)0x02C5F884)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 		((NJS_OBJECT*)0x02C5F618)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
+		//Spotlight hook
+		WriteCall((void*)0x545DA3, Chaos0SpotlightHook);
 	}
 	if (EnableChaos2 == true)
 	{
