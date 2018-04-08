@@ -61,7 +61,6 @@ DataPointer(unsigned char, byte_03C5A7EF, 0x03C5A7EF);
 DataPointer(float, dword_3C6A998, 0x3C6A998);
 DataPointer(NJS_OBJECT, stru_13A6E8C, 0x13A6E8C);
 DataPointer(NJS_ARGB, nj_constant_material_temp, 0x03B18220);
-DataPointer(float, Chaos4Hitpoints, 0x03C58158);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, EVEffect, 0x3C6E1EC);
 DataPointer(int, CutsceneID, 0x3B2C570);
@@ -73,6 +72,7 @@ DataPointer(NJS_SPRITE, stru_1494030, 0x1494030);
 DataPointer(NJS_SPRITE, stru_1494064, 0x1494064);
 DataPointer(NJS_ARGB, stru_1494114, 0x1494114);
 DataPointer(NJS_ARGB, stru_1494124, 0x1494124);
+DataPointer(float, Chaos4NumaTransparency, 0x3C688D4);
 DataPointer(char, EggViperByteThing, 0x03C6E178);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(float, EggViperHitCount, 0x03C58158);
@@ -99,8 +99,7 @@ static float EggViper_blendfactor_min = 0.005f;
 static unsigned char EggHornetTrigger = 0;
 static float TornadoAlpha = 1.0f;
 static int TornadoTrigger = 0;
-static bool Chaos4Defeated = 0;
-static int Chaos4Water = 27;
+static int Chaos4Water = 0;
 static float EggViperHitCount_Old = 0.0f;
 static int E101ROcean = 81;
 static int EggHornetWater1 = 118;
@@ -436,17 +435,32 @@ void FixChaos2Columns(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 
 void Chaos4Skybox(ObjectMaster *o1)
 {
+	float WaterTrans;
 	float xshift = -145.92953f;
 	float zshift = -27.3004f;
 	NJS_VECTOR a1;
 	NJS_VECTOR a2;
+	//Swamp animation
+	if (Chaos4Water > 13) Chaos4Water = 0;
+	matlist_000429E8[0].attr_texId = 13;
+	if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) Chaos4Water++;
 	if (!MissedFrames)
 	{
+		//Skybox
 		njSetTexture(&CHAOS4_OBJECT_TEXLIST);
 		j_ClampGlobalColorThing_Thing();
 		njPushMatrix(0);
 		sub_408530((NJS_OBJECT*)0x11C2C20);
 		njPopMatrix(1u);
+		//Swamp water
+		njSetTexture(&CHAOS4_NUMA_TEXLIST);
+		WaterTrans = 153.0f*(1.0f + Chaos4NumaTransparency);
+		matlist_000429E8[0].diffuse.argb.a = (int)WaterTrans;
+		njPushMatrix(0);
+		DrawQueueDepthBias = -17000.0f;
+		if (Chaos4NumaTransparency > -1.0f) ProcessModelNode(&object_0004476C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		njPopMatrix(1u);
+		DrawQueueDepthBias = 0.0f;
 	}
 	if (GameState == 15)
 	{
@@ -964,7 +978,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("CHAOS4_SHIBUKI");
 		ReplacePVM("CHAOS4_TIKEI");
 		ReplacePVM("CHAOS4_WAVE");
-		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 swamp water
+		*(NJS_OBJECT*)0x11C4B90 = object_000425F8; // Chaos4 swamp water
 		WriteData<1>((char*)0x00555B3F, 0x08); //Chaos 4 bubble blending mode SA_SRC instead of SA_ONE
 		ResizeTextureList((NJS_TEXLIST*)0x118FF08, textures_chaos4dc);
 		WriteJump((void*)0x550D10, Chaos4Skybox);
@@ -1562,18 +1576,6 @@ void Bosses_OnFrame()
 			}
 		}
 	}
-	if (EnableChaos4 == true && CurrentLevel == 17 && GameState != 16)
-	{
-		if (Chaos4Water < 13) Chaos4Water = 26;
-		matlist_000429E8[0].attr_texId = Chaos4Water;
-		if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) Chaos4Water--;
-	}
-	if (EnableChaos4 == true && CurrentLevel == 17 && LevelFrameCount < 70)
-	{
-		matlist_000429E8[0].diffuse.argb.a = 0xBF; //set water alpha back to normal if level is restarted
-		object_000425F8.basicdxmodel->mats[0].diffuse.argb.a = 0x65;
-		Chaos4Defeated = 0;
-	}
 	if (EnableEggHornet == true && CurrentLevel == 20 && GameState != 16)
 	{
 		if (EggHornetWater1 > 127) EggHornetWater1 = 118;
@@ -1588,12 +1590,5 @@ void Bosses_OnFrame()
 			EggHornetWater1++;
 			EggHornetWater2++;
 		}
-	}
-	if (EnableChaos4 == true)
-	{
-		if (CurrentLevel == 17 && GameState == 15 && Chaos4Hitpoints > 4 && LevelFrameCount > 70 && matlist_000429E8[0].diffuse.argb.a > 3)matlist_000429E8[0].diffuse.argb.a = matlist_000429E8[0].diffuse.argb.a - 4; //make water invisible when Chaos4 gets in there
-		if (CurrentLevel == 17 && GameState == 15 && Chaos4Hitpoints < 1) Chaos4Defeated = 1;
-		if (CurrentLevel == 17 && Chaos4Defeated == 1 && object_000425F8.basicdxmodel->mats[0].diffuse.argb.a > 0) object_000425F8.basicdxmodel->mats[0].diffuse.argb.a--;
-		if (CurrentLevel == 17 && Chaos4Defeated == 1 && matlist_000429E8[0].diffuse.argb.a < 0xBF) matlist_000429E8[0].diffuse.argb.a = matlist_000429E8[0].diffuse.argb.a + 4;
 	}
 }
