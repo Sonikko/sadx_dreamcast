@@ -8,8 +8,9 @@
 #include "DC_Levels.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataArray(NJS_TEX, uvSTG12_01410790, 0x01810790, 20); //water thing UVs 1
-DataArray(NJS_TEX, uvSTG12_014107E0, 0x018107E0, 56); //water thing UVs 2
+DataArray(NJS_TEX, uvSTG12_01410790, 0x01810790, 20); //Water thing UVs 1
+DataArray(NJS_TEX, uvSTG12_014107E0, 0x018107E0, 56); //Water thing UVs 2
+DataArray(NJS_OBJECT*, SuimenArray, 0x1873B98, 4); //Array of Suimen objects
 
 static float suimen_increment = 0.0f;
 static int suimen_direction = 1;
@@ -204,6 +205,53 @@ void Biribiri_ReplaceSprite(NJS_SPRITE *_sp, Int n, NJD_SPRITE attr)
 	ProcessModelNode(&biribiri, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 }
 
+void __cdecl RenderSuimen(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi
+	Angle v2; // eax
+	Angle v3; // eax
+
+	v1 = a1->Data1;
+	if (!MissedFrames)
+	{
+		njSetTexture(&SHELTER_SUIMEN_TEXLIST);
+		njControl3D_Backup();
+		njControl3D_Add(NJD_CONTROL_3D_CONSTANT_ATTR);
+		BackupConstantAttr();
+		AddConstantAttr(0, NJD_FLAG_USE_ALPHA);
+		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		njTranslate(0, 0.0, *(Float *)&v1->LoopData, 0.0f);
+		v2 = v1->Rotation.z;
+		if (v2)
+		{
+			njRotateZ(0, (unsigned __int16)v2);
+		}
+		v3 = v1->Rotation.x;
+		if (v3)
+		{
+			njRotateX(0, (unsigned __int16)v3);
+		}
+		DrawQueueDepthBias = -17952.0f;
+		ProcessModelNode_A_Wrapper(SuimenArray[v1->NextAction], (QueuedModelFlagsB)0, 1.0f);
+		DrawQueueDepthBias = 0.0f;
+		ClampGlobalColorThing_Thing();
+		RestoreConstantAttr();
+		njControl3D_Restore();
+		njPopMatrix(1u);
+	}
+}
+
+void RenderOHikari(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
+{
+	ProcessModelNode_C_VerifyTexList(a1, a2, a3);
+	DrawQueueDepthBias = 1000.0f;
+	ProcessModelNode(&objectSTG12_0015CC48_2, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+	DrawQueueDepthBias = 0.0f;
+}
+
 void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -270,6 +318,8 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 	((NJS_MATERIAL*)0x0182E080)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //KaitenMeter
 	((NJS_MATERIAL*)0x0182E080)->diffuse.color = 0x00000000; //KaitenMeter
 	//Object replacements
+	WriteJump((void*)0x5A8F60, RenderSuimen); //Fix Suimen flickering
+	WriteCall((void*)0x59D444, RenderOHikari); //Add back OHikari green light
 	*(NJS_OBJECT*)0x180391C = objectSTG12_0016F268; //Colored cube 1
 	*(NJS_OBJECT*)0x1804CD4 = objectSTG12_00170054; //Colored cube 2
 	*(NJS_OBJECT*)0x180608C = objectSTG12_00170E40; //Colored cube 3
@@ -306,11 +356,6 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 		FogData_HotShelter3[i].Layer = 500.0f;
 		FogData_HotShelter3[i].Distance = 1800.0f;
 	}
-	//Hide Suimen stuff
-	((NJS_OBJECT*)0x0180FCC0)->evalflags |= NJD_EVAL_HIDE;
-	((NJS_OBJECT*)0x0180FA2C)->evalflags |= NJD_EVAL_HIDE;
-	((NJS_OBJECT*)0x0180F7F0)->evalflags |= NJD_EVAL_HIDE;
-	((NJS_OBJECT*)0x0180FBB4)->evalflags |= NJD_EVAL_HIDE;
 }
 
 void HotShelter_OnFrame()
@@ -331,23 +376,9 @@ void HotShelter_OnFrame()
 					uvSTG12_01410790[i].v = uvSTG12_01410790_0[i].v + WaterThing_VShift * 2;
 				}
 			}
-			//Move water up and down
-			objectSTG12_0140FCC0.pos[1] = -5 + suimen_increment;
-			objectSTG12_0140FA2C.pos[1] = 74 + suimen_increment;
-			objectSTG12_0140F7F0.pos[1] = 64 + suimen_increment;
-			objectSTG12_0140FBB4.pos[1] = 75 + suimen_increment;
-			if (suimen_direction == 1)	suimen_increment = suimen_increment + 0.005f;
-			if (suimen_increment >= 1.5f) suimen_direction = -1;
-			if (suimen_direction == -1)	suimen_increment = suimen_increment - 0.005f;
-			if (suimen_increment <= -1.5f) suimen_direction = 1;
-			if (TextureAnim > 91) TextureAnim = 78;
-			matlistSTG12_0140FBE8[0].attr_texId = TextureAnim;
-			matlistSTG12_0140F824[0].attr_texId = TextureAnim;
-			matlistSTG12_0140F608[0].attr_texId = TextureAnim;
-			matlistSTG12_0140FA60[0].attr_texId = TextureAnim;
-			if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)TextureAnim++;
 		}
-		if (CurrentLevel == 12 && CurrentAct == 1 && GameState != 16)
+		//BiriBiri fix
+		if (CurrentLevel == 12 && GameState != 16)
 		{
 			biribiri_matlist[0].attr_texId = BiriBiri_frame;
 			if ((FramerateSetting < 2 && FrameCounter % 2 == 0) || (FramerateSetting >= 2 && FrameCounter % 4 == 0)) BiriBiri_frame++;

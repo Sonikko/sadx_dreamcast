@@ -25870,12 +25870,6 @@ COL collist_00018020[] = {
 	{ { 60, 38, -400 }, 34.62658f, 0, 0, &objectSTG12_0004ABBC, 0, 0x80000000 },
 	{ { -321, 38, -358 }, 34.62658f, 0, 0, &objectSTG12_0004ABF0, 0, 0x80000000 },
 	{ { -379, 38, -500 }, 34.62658f, 0, 0, &objectSTG12_0004AC24, 0, 0x80000000 },
-	//{ { -183, 75, -502 }, 300, 0, 0, &objectSTG12_014329C0, 0, 0x81000001 }, //glass1
-	//{ { -83, 75, -503 }, 300, 0, 0, &objectSTG12_0143371C, 0, 0x81000001 }, //glass2
-	{ { 180, -5, -645 }, 200, 0, 0, &objectSTG12_0140FCC0, 0, 0x82000002 }, //pool
-	{ { -370, 69, -340 }, 200, 0, 0, &objectSTG12_0140FA2C, 0, 0x82000002 }, //suimen left
-	{ { -85, 66, -485 }, 200, 0, 0, &objectSTG12_0140F7F0, 0, 0x82000002 }, //suimen right
-	{ { 120, 69, -780 }, 200, 0, 0, &objectSTG12_0140FBB4, 0, 0x82000002 }, //suimen far
 	{ { -37, 13.60827f, -245 }, 16.03699f, 0, 0, &objectSTG12_0004AC58, 0, 0xE0000001 },
 	{ { 37, 13.60827f, -125 }, 16.03699f, 0, 0, &objectSTG12_0004AC8C, 0, 0xE0000001 },
 	{ { -37, 13.27896f, -125 }, 15.75852f, 0, 0, &objectSTG12_0004ACC0, 0, 0xE0000001 },
@@ -25897,7 +25891,7 @@ GeoAnimData animlist_000196C4[] = {
 	{ 0, 1, 30, &objectSTG12_0003347C, &action_animation_000336A0, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_shelter1[92];
+NJS_TEXNAME textures_shelter1[78];
 NJS_TEXLIST texlist_hotshelter1 = { arrayptrandlength(textures_shelter1) };
 
 LandTable landtable_0001970C = { LengthOfArray(collist_00018020), LengthOfArray(animlist_000196C4), 0xD, 450, collist_00018020, animlist_000196C4, "HOTSHELTER1", (NJS_TEXLIST *)&texlist_hotshelter1, 0, 0 };
