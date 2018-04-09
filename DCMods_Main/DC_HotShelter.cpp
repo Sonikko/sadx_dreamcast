@@ -10,6 +10,7 @@
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataArray(NJS_TEX, uvSTG12_01410790, 0x01810790, 20); //Water thing UVs 1
 DataArray(NJS_TEX, uvSTG12_014107E0, 0x018107E0, 56); //Water thing UVs 2
+DataArray(NJS_MATERIAL, WaterThingMaterials, 0x18106C4, 2); //Water thing materials
 DataArray(NJS_OBJECT*, SuimenArray, 0x1873B98, 4); //Array of Suimen objects
 
 static float suimen_increment = 0.0f;
@@ -294,6 +295,8 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("SHELTER_SUIMEN");
 	WriteCall((void*)0x0059F75C, AmyHatchFix); //Don't make the ventilation hatch solid when playing as Amy
 	WriteCall((void*)0x5A2205, Biribiri_ReplaceSprite); //BiriBiri fix
+	WaterThingMaterials[0].attr_texId = 44;
+	WaterThingMaterials[1].attr_texId = 3;
 	WriteData((LandTable**)0x97DB88, &landtable_0001970C);
 	WriteData((LandTable**)0x97DB8C, &landtable_0005277C);
 	WriteData((LandTable**)0x97DB90, &landtable_000B0DA4);
@@ -318,7 +321,7 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 	((NJS_MATERIAL*)0x0182E080)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //KaitenMeter
 	((NJS_MATERIAL*)0x0182E080)->diffuse.color = 0x00000000; //KaitenMeter
 	//Object replacements
-	WriteJump((void*)0x5A8F60, RenderSuimen); //Fix Suimen flickering
+	WriteJump((void*)0x5A8F60, RenderSuimen); //Fix Suimen flickering?
 	WriteCall((void*)0x59D444, RenderOHikari); //Add back OHikari green light
 	*(NJS_OBJECT*)0x180391C = objectSTG12_0016F268; //Colored cube 1
 	*(NJS_OBJECT*)0x1804CD4 = objectSTG12_00170054; //Colored cube 2
