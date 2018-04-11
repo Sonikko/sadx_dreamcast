@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
+#include <Trampoline.h>
 #include <lanternapi.h>
 #include <string>
 #include "EggHornet.h"
@@ -52,6 +53,7 @@ DataArray(DrawDistance, DrawDist_E101R, 0x015225D8, 3);
 DataArray(DrawDistance, DrawDist_Zero, 0x016B4D98, 3);
 DataArray(PVMEntry, EGGVIPER_TEXLISTS, 0x165D498, 11);
 DataArray(PVMEntry, CHAOS4_OBJECT_TEXLISTS, 0x118FDB0, 18);
+DataPointer(PVMEntry, PVMEntry_CHAOS0EFFECT, 0x1120180);
 DataPointer(unsigned char, byte_3C5A7EF, 0x3C5A7EF);
 DataPointer(unsigned char, byte_3C5A7ED, 0x3C5A7ED);
 DataPointer(unsigned char, byte_03C6C944, 0x03C6C944);
@@ -60,7 +62,6 @@ DataPointer(unsigned char, byte_03C5A7EF, 0x03C5A7EF);
 DataPointer(float, dword_3C6A998, 0x3C6A998);
 DataPointer(NJS_OBJECT, stru_13A6E8C, 0x13A6E8C);
 DataPointer(NJS_ARGB, nj_constant_material_temp, 0x03B18220);
-DataPointer(float, Chaos4Hitpoints, 0x03C58158);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, EVEffect, 0x3C6E1EC);
 DataPointer(int, CutsceneID, 0x3B2C570);
@@ -72,6 +73,7 @@ DataPointer(NJS_SPRITE, stru_1494030, 0x1494030);
 DataPointer(NJS_SPRITE, stru_1494064, 0x1494064);
 DataPointer(NJS_ARGB, stru_1494114, 0x1494114);
 DataPointer(NJS_ARGB, stru_1494124, 0x1494124);
+DataPointer(float, Chaos4NumaTransparency, 0x3C688D4);
 DataPointer(char, EggViperByteThing, 0x03C6E178);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(float, EggViperHitCount, 0x03C58158);
@@ -98,23 +100,21 @@ static float EggViper_blendfactor_min = 0.005f;
 static unsigned char EggHornetTrigger = 0;
 static float TornadoAlpha = 1.0f;
 static int TornadoTrigger = 0;
-static bool Chaos4Defeated = 0;
-static int Chaos4Water = 27;
+static int Chaos4Water = 0;
 static float EggViperHitCount_Old = 0.0f;
-static int E101ROcean = 81;
 static int EggHornetWater1 = 118;
 static int EggHornetWater2 = 128;
 static int EggHornet_Rotation = 0;
 static int EggHornet_RotationDirection = 1;
-static int egghornetwater = 143;
-static int e101rwater = 87;
+static int egghornetwater_sadx = 143;
 static int E101REffectMode = 1;
 static float e101rframe = 0;
 static NJS_VECTOR E101R_ParticleVector = { 0,0,0 };
 static int E101R_ParticleA = 0;
 static int E101R_ParticleB = 0;
 static int E101R_ParticleC = 0;
-
+static int e101rsea_dc = 4;
+static int e101rsea_sadx = 4;
 static bool EnableChaos0 = true;
 static bool EnableChaos2 = true;
 static bool EnableChaos4 = true;
@@ -398,21 +398,21 @@ void __cdecl Chaos7Damage_DisplayX(ObjectMaster *a1)
 void WaterTexture_BossOcean()
 {
 	if (CurrentLevel == 20) njSetTextureNum(158);
-	if (CurrentLevel == 23 || CurrentLevel == 25) njSetTextureNum(102);
+	if (CurrentLevel == 23 || CurrentLevel == 25) njSetTextureNum(19);
 }
 
 void WaterTexture_BossWaves()
 {
-	if (egghornetwater > 157) egghornetwater = 143;
-	if (e101rwater > 101) e101rwater = 87;
-	if (CurrentLevel == 20) njSetTextureNum(egghornetwater);
-	if (CurrentLevel == 23 || CurrentLevel == 25) njSetTextureNum(e101rwater);
+	if (egghornetwater_sadx > 157) egghornetwater_sadx = 143;
+	if (e101rsea_sadx > 18) e101rsea_sadx = 4;
+	if (CurrentLevel == 20) njSetTextureNum(egghornetwater_sadx);
+	if (CurrentLevel == 23 || CurrentLevel == 25) njSetTextureNum(e101rsea_sadx);
 	if (GameState != 16)
 	{
 		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 		{
-			egghornetwater++;
-			e101rwater++;
+			egghornetwater_sadx++;
+			e101rsea_sadx++;
 		}
 	}
 }
@@ -435,17 +435,32 @@ void FixChaos2Columns(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 
 void Chaos4Skybox(ObjectMaster *o1)
 {
+	float WaterTrans;
 	float xshift = -145.92953f;
 	float zshift = -27.3004f;
 	NJS_VECTOR a1;
 	NJS_VECTOR a2;
+	//Swamp animation
+	if (Chaos4Water > 13) Chaos4Water = 0;
+	matlist_000429E8[0].attr_texId = Chaos4Water;
+	if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) Chaos4Water++;
 	if (!MissedFrames)
 	{
+		//Skybox
 		njSetTexture(&CHAOS4_OBJECT_TEXLIST);
 		j_ClampGlobalColorThing_Thing();
 		njPushMatrix(0);
 		sub_408530((NJS_OBJECT*)0x11C2C20);
 		njPopMatrix(1u);
+		//Swamp water
+		njSetTexture(&CHAOS4_NUMA_TEXLIST);
+		WaterTrans = 153.0f*(1.0f + Chaos4NumaTransparency);
+		matlist_000429E8[0].diffuse.argb.a = (int)WaterTrans;
+		njPushMatrix(0);
+		DrawQueueDepthBias = 4000.0f;
+		if (Chaos4NumaTransparency > -1.0f) ProcessModelNode(&object_0004476C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		njPopMatrix(1u);
+		DrawQueueDepthBias = 0.0f;
 	}
 	if (GameState == 15)
 	{
@@ -616,7 +631,6 @@ void RenderE101RStuff()
 	njSetTexture((NJS_TEXLIST *)0x16B460C);
 	njPushMatrix(0);
 	njTranslate(0, 0, 0, 0);
-	if (SADXStyleWater_ZeroE101R == false) ProcessModelNode_AB_Wrapper(&object_00007C50, 1.0f);
 	ProcessModelNode_AB_Wrapper(&objectR_0001AD68, 1.0f);
 	ProcessModelNode_AB_Wrapper(&objectR_0001C3BC, 1.0f);
 	ProcessModelNode_AB_Wrapper(&objectR_0001BDF4, 1.0f);
@@ -678,6 +692,166 @@ void E101R_AfterImageArmConstantAttr(Uint32 and_attr, Uint32 or_attr)
 	AddConstantAttr(0, NJD_FLAG_IGNORE_LIGHT);
 }
 
+void Spotlight_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	if (collist_00005280[4].Flags & ColFlags_Visible && !DroppedFrames)
+	{
+		njSetTexture(PVMEntry_CHAOS0EFFECT.TexList);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		njRotateXYZ(0, 0x4000, 0, 0);
+		DrawQueueDepthBias = -17000.0f;
+		ProcessModelNode(&spotlight, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		njPopMatrix(1u);
+		DrawQueueDepthBias = 0;
+	}
+}
+
+void Spotlight_Main(ObjectMaster *a1)
+{
+	Spotlight_Display(a1);
+}
+
+void Spotlight_Load(ObjectMaster *a1)
+{
+	a1->MainSub = (void(__cdecl *)(ObjectMaster *))Spotlight_Main;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))Spotlight_Display;
+	a1->DeleteSub = DeleteObject_DynamicCOL;
+}
+
+void Chaos0SpotlightHook()
+{
+	Chaos0_Rain_Load();
+	//Load spotlight
+	ObjectMaster *obj;
+	EntityData1 *ent;
+	ObjectFunc(OF0, Spotlight_Load);
+	SETObjData setdata_sp = {};
+	setdata_sp.Distance = 612800.0f;
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 291.83f;
+		ent->Position.y = 0.1f;
+		ent->Position.z = 385.525f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 313.0f;
+		ent->Position.y = 0.11f;
+		ent->Position.z = 389.525f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 368.06f;
+		ent->Position.y = 0.1f;
+		ent->Position.z = 340.66f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 385.06f;
+		ent->Position.y = 0.11f;
+		ent->Position.z = 330.66f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 160.685f;
+		ent->Position.y = 0.1f;
+		ent->Position.z = 348.04f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 183.685f;
+		ent->Position.y = 0.11f;
+		ent->Position.z = 360.04f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 258.325f;
+		ent->Position.y = 0.1f;
+		ent->Position.z = 434.675f;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF0);
+	obj->SETData.SETData = &setdata_sp;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 235.325f;
+		ent->Position.y = 0.1f;
+		ent->Position.z = 440.675f;
+	}
+}
+
+void RenderBossECOcean()
+{
+	if (e101rsea_dc > 13) e101rsea_dc = 4;
+	matlist_00007B80[0].attr_texId = e101rsea_dc;
+	if (!DroppedFrames)
+	{
+		DisableFog();
+		njSetTexture(&EC_SEA_TEXLIST);
+		njPushMatrix(0);
+		njTranslate(0, Camera_Data1->Position.x, 0, Camera_Data1->Position.z);
+		ProcessModelNode(&object_00007C50, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		njPopMatrix(1u);
+	}
+	if (GameState != 16) 
+	{
+		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) e101rsea_dc++;
+	}
+}
+
+static void __cdecl E101R_OceanDraw_r(OceanData *a1);
+static Trampoline E101R_OceanDraw_t(0x56CC30, 0x56CC38, E101R_OceanDraw_r);
+static void __cdecl E101R_OceanDraw_r(OceanData *a1)
+{
+	auto original = reinterpret_cast<decltype(E101R_OceanDraw_r)*>(E101R_OceanDraw_t.Target());
+	if (SADXStyleWater_ZeroE101R == false) RenderBossECOcean();
+	else original(a1);
+}
+
+static void __cdecl Zero_OceanDraw_r(OceanData *a1);
+static Trampoline Zero_OceanDraw_t(0x587E10, 0x587E18, Zero_OceanDraw_r);
+static void __cdecl Zero_OceanDraw_r(OceanData *a1)
+{
+	auto original = reinterpret_cast<decltype(Zero_OceanDraw_r)*>(Zero_OceanDraw_t.Target());
+	if (SADXStyleWater_ZeroE101R == false) RenderBossECOcean();
+	else original(a1);
+}
+
+void LoadBossECOceanPVM(const char *filename, NJS_TEXLIST *texlist)
+{
+	LoadPVM(filename, texlist);
+	LoadPVM("EC_SEA", &EC_SEA_TEXLIST);
+}
+
+void LoadBossECOceanTexlist()
+{
+	njSetTexture(&EC_SEA_TEXLIST);
+}
+
 void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -705,8 +879,8 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	NJS_TEXLIST **___BOSSCHAOS0_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___BOSSCHAOS0_TEXLISTS");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	//SADX water
-	SADXStyleWater_EggHornet = config->getBool("SADX Style Water", "EggHornet", false);
-	SADXStyleWater_ZeroE101R = config->getBool("SADX Style Water", "ZeroE101R", false);
+	SADXStyleWater_EggHornet = config->getBool("SADX Style Water", "MysticRuins", false);
+	SADXStyleWater_ZeroE101R = config->getBool("SADX Style Water", "EggCarrier", false);
 	//Levels
 	EnableChaos0 = config->getBool("Bosses", "EnableChaos0", true);
 	EnableChaos2 = config->getBool("Bosses", "EnableChaos2", true);
@@ -788,6 +962,8 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		((NJS_OBJECT*)0x02C60644)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 		((NJS_OBJECT*)0x02C5F884)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
 		((NJS_OBJECT*)0x02C5F618)->basicdxmodel->mats[0].diffuse.color = 0x7FB2B2B2;
+		//Spotlight hook
+		WriteCall((void*)0x545DA3, Chaos0SpotlightHook);
 	}
 	if (EnableChaos2 == true)
 	{
@@ -849,7 +1025,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("CHAOS4_SHIBUKI");
 		ReplacePVM("CHAOS4_TIKEI");
 		ReplacePVM("CHAOS4_WAVE");
-		memcpy((void*)0x011C4B90, &object_000425F8, sizeof(object_000425F8)); // Chaos4 swamp water
+		*(NJS_OBJECT*)0x11C4B90 = object_000425F8; // Chaos4 swamp water
 		WriteData<1>((char*)0x00555B3F, 0x08); //Chaos 4 bubble blending mode SA_SRC instead of SA_ONE
 		ResizeTextureList((NJS_TEXLIST*)0x118FF08, textures_chaos4dc);
 		WriteJump((void*)0x550D10, Chaos4Skybox);
@@ -1010,11 +1186,17 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplaceBIN_DC("SETZEROS");
 		ReplacePVM("E101R");
 		ReplacePVM("E101R_BG");
+		ReplacePVM("E101R_TIKEI");
 		*(NJS_OBJECT*)0x00991268 = object_00591268; //Zero main and cutscene model
 		*(NJS_OBJECT *)0x02DA8664 = object_029A8664; //E101R model in cutscenes
+		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 76); //Zero/E101R texlist
 		WriteData((LandTable**)0x7D1D64, &landtable_00000110); //Zero
 		WriteData((LandTable**)0x7D1DD1, &landtable_00000180); //E101R
 		//E-101R fixes
+		WriteCall((void*)0x587E88, LoadBossECOceanTexlist);
+		WriteCall((void*)0x56CCA8, LoadBossECOceanTexlist);
+		WriteCall((void*)0x569078, LoadBossECOceanPVM);
+		WriteCall((void*)0x585448, LoadBossECOceanPVM);
 		ShadowBlob_Model.basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		WriteCall((void*)0x0056FF4A, E101R_RetrieveParticleStuff);
 		WriteCall((void*)0x0056FF61, E101R_SwapParticleOrder);
@@ -1121,22 +1303,14 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	if (EnableZeroE101R == true && SADXStyleWater_ZeroE101R == true)
 	{
-		ReplacePVMX_SADXStyleWater("E101R_TIKEI");
-		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 104); //Zero/E101R texlist
-		collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x00000000;
+		ReplacePVMX_SADXStyleWater("EC_SEA");
+		ResizeTextureList(&EC_SEA_TEXLIST, 21);
 		WriteCall((void*)0x0056CD15, WaterTexture_BossWaves); //E101R ocean
 		WriteCall((void*)0x0056CD7B, WaterTexture_BossOcean); //E101R ocean
 		WriteCall((void*)0x00587EF5, WaterTexture_BossWaves); //Zero ocean
 		WriteCall((void*)0x00587F5B, WaterTexture_BossOcean); //Zero ocean
 	}
-	if (EnableZeroE101R == true && SADXStyleWater_ZeroE101R == false)
-	{
-		ReplacePVM("E101R_TIKEI");
-		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 87); //Zero/E101R texlist
-		collist_000096DC[LengthOfArray(collist_000096DC) - 1].Flags = 0x80000000;
-		WriteData<1>((void*)0x587E10, 0xC3u); //E101R water
-		WriteData<1>((void*)0x56CC30, 0xC3u); //Zero water
-	}
+
 	//Fog and draw distance
 	for (int i = 0; i < 3; i++)
 	{
@@ -1433,32 +1607,6 @@ void Bosses_OnFrame()
 		}
 	}
 	//water animation
-	if (EnableZeroE101R == true && (CurrentLevel == 23 || CurrentLevel == 25))
-	{
-		if (GameState != 16)
-		{
-			if (E101ROcean > 86) E101ROcean = 77;
-			matlist_00007B80[0].attr_texId = E101ROcean;
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) E101ROcean++;
-			if (Camera_Data1 != nullptr)
-			{
-				object_00007C50.pos[0] = Camera_Data1->Position.x;
-				object_00007C50.pos[2] = Camera_Data1->Position.z;
-			}
-		}
-	}
-	if (EnableChaos4 == true && CurrentLevel == 17 && GameState != 16)
-	{
-		if (Chaos4Water < 13) Chaos4Water = 26;
-		matlist_000429E8[0].attr_texId = Chaos4Water;
-		if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) Chaos4Water--;
-	}
-	if (EnableChaos4 == true && CurrentLevel == 17 && LevelFrameCount < 70)
-	{
-		matlist_000429E8[0].diffuse.argb.a = 0xBF; //set water alpha back to normal if level is restarted
-		object_000425F8.basicdxmodel->mats[0].diffuse.argb.a = 0x65;
-		Chaos4Defeated = 0;
-	}
 	if (EnableEggHornet == true && CurrentLevel == 20 && GameState != 16)
 	{
 		if (EggHornetWater1 > 127) EggHornetWater1 = 118;
@@ -1473,12 +1621,5 @@ void Bosses_OnFrame()
 			EggHornetWater1++;
 			EggHornetWater2++;
 		}
-	}
-	if (EnableChaos4 == true)
-	{
-		if (CurrentLevel == 17 && GameState == 15 && Chaos4Hitpoints > 4 && LevelFrameCount > 70 && matlist_000429E8[0].diffuse.argb.a > 3)matlist_000429E8[0].diffuse.argb.a = matlist_000429E8[0].diffuse.argb.a - 4; //make water invisible when Chaos4 gets in there
-		if (CurrentLevel == 17 && GameState == 15 && Chaos4Hitpoints < 1) Chaos4Defeated = 1;
-		if (CurrentLevel == 17 && Chaos4Defeated == 1 && object_000425F8.basicdxmodel->mats[0].diffuse.argb.a > 0) object_000425F8.basicdxmodel->mats[0].diffuse.argb.a--;
-		if (CurrentLevel == 17 && Chaos4Defeated == 1 && matlist_000429E8[0].diffuse.argb.a < 0xBF) matlist_000429E8[0].diffuse.argb.a = matlist_000429E8[0].diffuse.argb.a + 4;
 	}
 }

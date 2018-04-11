@@ -191,9 +191,6 @@
     <ClInclude Include="..\Data\ADV01_0_animlist.h">
       <Filter>Header Files\Levels\ADV01MODELS</Filter>
     </ClInclude>
-    <ClInclude Include="..\Data\ADV01_0_PC.h">
-      <Filter>Header Files\Levels\ADV01MODELS</Filter>
-    </ClInclude>
     <ClInclude Include="..\Data\ADV01_1.h">
       <Filter>Header Files\Levels\ADV01MODELS</Filter>
     </ClInclude>
@@ -236,16 +233,7 @@
     <ClInclude Include="..\Data\ADV03_01.h">
       <Filter>Header Files\Levels\ADV03MODELS</Filter>
     </ClInclude>
-    <ClInclude Include="..\Data\ADV03_01_fixes.h">
-      <Filter>Header Files\Levels\ADV03MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Data\ADV03_01_PC.h">
-      <Filter>Header Files\Levels\ADV03MODELS</Filter>
-    </ClInclude>
     <ClInclude Include="..\Data\ADV03_02.h">
-      <Filter>Header Files\Levels\ADV03MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="..\Data\ADV03_02_PC.h">
       <Filter>Header Files\Levels\ADV03MODELS</Filter>
     </ClInclude>
     <ClInclude Include="..\Data\ADVSS00(CityHall).h">

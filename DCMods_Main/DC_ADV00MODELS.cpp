@@ -23,7 +23,7 @@ static int anim5 = 60;
 static int anim6 = 219;
 static int anim7 = 120;
 static int anim_sadx = 268;
-static int anim_sadx2 = 132;
+static int anim_sadx2 = 123;
 static bool SADXStyleWater = false;
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
@@ -38,11 +38,12 @@ DataArray(FogData, StationSquare6Fog, 0x02AA3E00, 3);
 DataArray(DrawDistance, StationSquare6DrawDist, 0x02AA3CF8, 3);
 FunctionPointer(void, sub_405470, (NJS_ACTION *a1, float a2, int a3), 0x405470);
 FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
+FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *model, int blend, float scale), 0x409E70);
 
 void __cdecl WaterTexture()
 {
-	if (CurrentAct == 4 && GetTimeOfDay() != 1) njSetTextureNum(128);
-	if (CurrentAct == 4 && GetTimeOfDay() == 1) njSetTextureNum(131);
+	if (CurrentAct == 4 && GetTimeOfDay() != 1) njSetTextureNum(119);
+	if (CurrentAct == 4 && GetTimeOfDay() == 1) njSetTextureNum(122);
 	if (CurrentAct == 3 && GetTimeOfDay() == 1) njSetTextureNum(267);
 	if (CurrentAct == 3 && GetTimeOfDay() != 1) njSetTextureNum(266);
 }
@@ -61,7 +62,7 @@ void __cdecl SSWater()
 	{
 		if (!DroppedFrames)
 		{
-			njSetTexture(&texlist4); //Act 3
+			njSetTexture(&texlist_advss03); //Act 3
 			njPushMatrix(0);
 			njTranslate(0, 0, 0, 0);
 			ProcessModelNode_AB_Wrapper(&objectADV00_00114E50Z, 1.0f);
@@ -226,6 +227,18 @@ void RenderOfficeDoor_Child(NJS_MODEL_SADX *a1, float scale)
 {
 	DrawQueueDepthBias = -3000.0f;
 	DrawModel_Queue(a1, QueuedModelFlagsB_EnableZWrite);
+}
+
+void RenderPoolChair(NJS_MODEL_SADX *a1, int a2, float a3)
+{
+	sub_409E70(&attach_00182AB0, a2, a3);
+	DrawQueueDepthBias = 1000.0f;
+	ProcessModelNode(&object_00182AD8_2, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	DrawQueueDepthBias = 1100.0f;
+	ProcessModelNode(&object_00182AD8_3, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	DrawQueueDepthBias = 1200.0f;
+	ProcessModelNode(&object_00182AD8_4, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	DrawQueueDepthBias = 0.0f;
 }
 
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
@@ -416,8 +429,8 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		matlistADV00_00151E54[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 		matlistADV00_001566E4[0].diffuse.argb.a = 0;
 		objectADV00_00151F24.pos[1] = -29.5f;
-		ResizeTextureList(&texlist4, 283);
-		ResizeTextureList(&texlist5, 147);
+		ResizeTextureList(&texlist_advss03, 283);
+		ResizeTextureList(&texlist_advss04, 138);
 		WriteData((int*)0x006311BB, 268);
 		WriteData((int*)0x006311D9, 266);
 		WriteData((int*)0x006311D2, 267);
@@ -450,7 +463,7 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Objects
 	*(NJS_OBJECT*)0x2AB2CCC = objectADV00_001689C4; //Shop 2 door
 	((NJS_ACTION*)0x2AB2D9C)->object = &objectADV00_001689C4; //Shop 2 door
-	WriteData<5>((void*)0x0063A6A4, 0x90); // Pool chair
+	WriteCall((void*)0x0063A6A4, RenderPoolChair); // Pool chair
 	*(NJS_OBJECT*)0x02DBD6D0 = objectADV00_00011208; // Event helicopter
 	*(NJS_OBJECT*)0x02AD4EA4 = objectADV00_00186E88; // Hidden door 1
 	*(NJS_OBJECT*)0x02AD4CD4 = objectADV00_00186CC4; // Hidden door 2
@@ -480,12 +493,12 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	___LANDTABLESS[3] = &landtable_000DCEBC;
 	___LANDTABLESS[4] = &landtable_00135A90;
 	___LANDTABLESS[5] = &landtable_001573CC;
-	___ADV00_TEXLISTS[0] = &texlist1;
-	___ADV00_TEXLISTS[1] = &texlist2;
-	___ADV00_TEXLISTS[2] = &texlist3;
-	___ADV00_TEXLISTS[3] = &texlist4;
-	___ADV00_TEXLISTS[4] = &texlist5;
-	___ADV00_TEXLISTS[5] = &texlist6;
+	___ADV00_TEXLISTS[0] = &texlist_advss00;
+	___ADV00_TEXLISTS[1] = &texlist_advss01;
+	___ADV00_TEXLISTS[2] = &texlist_advss02;
+	___ADV00_TEXLISTS[3] = &texlist_advss03;
+	___ADV00_TEXLISTS[4] = &texlist_advss04;
+	___ADV00_TEXLISTS[5] = &texlist_advss05;
 	//Fog data
 	for (int i = 0; i < 3; i++)
 	{
@@ -968,7 +981,7 @@ void ADV00_OnFrame()
 	//Sea animations Act 4 (Hotel)
 	if (CurrentLevel == 26 && CurrentAct == 4 && GameState != 16)
 	{
-		if (anim_sadx2 > 146) anim_sadx2 = 132;
+		if (anim_sadx2 > 137) anim_sadx2 = 123;
 		if (anim7 > 86) anim7 = 65;
 		if (anim7 > 65 && anim7 < 78) anim7 = 78;
 		if (anim4 > 100) anim4 = 59;

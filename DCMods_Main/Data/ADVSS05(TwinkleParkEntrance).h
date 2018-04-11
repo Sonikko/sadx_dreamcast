@@ -1,6 +1,6 @@
 #pragma once
-NJS_TEXNAME textures6[33];
-NJS_TEXLIST texlist6 = { arrayptrandlength(textures6) };
+NJS_TEXNAME textures_advss05[33];
+NJS_TEXLIST texlist_advss05 = { arrayptrandlength(textures_advss05) };
 
 NJS_MATERIAL matlistADV00_00157584[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 19, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_FLAT | NJD_DA_INV_SRC | NJD_SA_SRC }
@@ -3212,7 +3212,7 @@ COL collist_001570D8[] = {
 	{ { 866.75f, 65.5f, 1771.495f }, 63.47795f, 0, 0, &objectADV00_0015D870, 0, 0x80000000 }
 };
 
-LandTable landtable_001573CC = { LengthOfArray(collist_001570D8), 0, 0xC, 1700, collist_001570D8, NULL, "ADVSS05", (NJS_TEXLIST *)&texlist6 , 0, 0 };
+LandTable landtable_001573CC = { LengthOfArray(collist_001570D8), 0, 0xC, 1700, collist_001570D8, NULL, "ADVSS05", (NJS_TEXLIST *)&texlist_advss05 , 0, 0 };
 
 
 NJS_MATERIAL matlistADV00_0015E498[] = {

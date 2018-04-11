@@ -161,7 +161,6 @@ void __cdecl Cowgirl_Display(ObjectMaster *a1)
 	v1 = a1->Data1;
 	if (!ClipObject(a1, 640010.0) && IsVisible(&v1->Position, 280.0))
 	{
-		auto entity = EntityData1Ptrs[0];
 		njSetTexture((NJS_TEXLIST*)0x01DF0920); //OBJ_CASINO9
 		njPushMatrix(0);
 		njTranslate(0, 311.62f, 0, 338.93f);
@@ -662,6 +661,30 @@ void RenderLightA(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 	DrawQueueDepthBias = 0;
 }
 
+void RenderOKBSText(NJS_OBJECT *obj, float scale)
+{
+	ProcessModelNode_AB_Wrapper(obj, scale);
+	DrawQueueDepthBias = 1000.0f;
+	ProcessModelNode(&objectSTG09_01A3FD04, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+	DrawQueueDepthBias = 0;
+}
+
+void RenderOKBCText(NJS_ACTION *a1, float frame, float scale)
+{
+	sub_405450(a1, frame, scale);
+	DrawQueueDepthBias = 1000.0f;
+	ProcessModelNode(&objectSTG09_01A3D734, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+	DrawQueueDepthBias = 0;
+}
+
+void RenderNeonK(NJS_MODEL_SADX *model, float scale)
+{
+	sub_407A00(model, scale);
+	DrawQueueDepthBias = 1000.0f;
+	ProcessModelNode(&objectSTG09_01A74A94Z, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+	DrawQueueDepthBias = 0;
+}
+
 void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -764,7 +787,6 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 		stru_1E763B8[0].origin.z = stru_1E763B8[0].origin.z - 14;
 		stru_1E763B8[1].origin.z = stru_1E763B8[1].origin.z - 14;
 		stru_1E763B8[2].origin.z = stru_1E763B8[2].origin.z - 14;
-		collist_00023DA0[LengthOfArray(collist_00023DA0) - 4].Flags = 0x00000000;
 		WriteJump((void*)0x5CAA90, Cowgirl_Display);
 	}
 	*(NJS_MODEL_SADX*)0x01DF7140 = attachSTG09_00177188; //Slot red
@@ -806,7 +828,7 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0x1DC4644 = objectSTG09_00146978; //Reala thing 2
 	*(NJS_OBJECT*)0x1DC6114 = objectSTG09_001483B8; //Reala thing 3
 	*(NJS_OBJECT*)0x1DC7BE4 = objectSTG09_00149DF8; //Reala thing 4
-											   //Yaji (arrow object) fixes
+	//Yaji (arrow object) fixes
 	yajitex[0].u = 509;
 	yajitex[1].u = 510;
 	((NJS_MODEL_SADX*)0x01DDB5D0)->mats[0].attrflags |= NJD_FLAG_FLIP_U;
@@ -842,11 +864,14 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	lionmesh[0].vertuv = uvSTG09_019FEA58;
 	((NJS_OBJECT*)0x01E3FD04)->evalflags |= NJD_EVAL_HIDE; //Hide OKbS
 	((NJS_OBJECT*)0x01E3D734)->evalflags |= NJD_EVAL_HIDE; //Hide OKbC
+	WriteCall((void*)0x5CE84B, RenderOKBSText);
+	WriteCall((void*)0x5CEA2A, RenderOKBCText);
 	ResizeTextureList((NJS_TEXLIST*)0x1D1B050, textures_casino1);
 	ResizeTextureList((NJS_TEXLIST*)0x1CBD1C4, textures_casino2);
 	ResizeTextureList((NJS_TEXLIST*)0x1C8AF04, textures_casino3);
 	ResizeTextureList((NJS_TEXLIST*)0x1C47004, textures_casino4);
-	*(NJS_MODEL_SADX*)0x01E74A68 = attachSTG09_01A74A68; //billboard
+	*(NJS_MODEL_SADX*)0x01E74A68 = attachSTG09_01A74A68; //NeonK
+	WriteCall((void*)0x5CAB34, RenderNeonK);
 	*(NJS_MODEL_SADX*)0x01E46F30 = attachSTG09_001C4DCC; //OCfa rotating thing
 	for (int i = 0; i < 3; i++)
 	{

@@ -1356,8 +1356,8 @@ NJS_VECTOR normalADV00_001C06D0[] = {
 
 NJS_MODEL_SADX attachADV00_001C11E0 = { vertexADV00_001BFBC0, normalADV00_001C06D0, LengthOfArray(vertexADV00_001BFBC0), meshlistADV00_001BFB18, matlistADV00_001BE610, LengthOfArray(meshlistADV00_001BFB18), LengthOfArray(matlistADV00_001BE610),{ 0.293301f, 26.07793f, -1.650064f }, 32.56704f, NULL };
 
-NJS_TEXNAME textures5[128];
-NJS_TEXLIST texlist5 = { arrayptrandlength(textures5) };
+NJS_TEXNAME textures_advss04[119];
+NJS_TEXLIST texlist_advss04 = { arrayptrandlength(textures_advss04) };
 
 NJS_MATERIAL matlistADV00_00136050[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 43, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -18113,15 +18113,6 @@ COL collist_00134D10[] = {
 	{ { -172.55f, 122.5f, 1915 }, 139.6057f, 0, 0, &objectADV00_00156ED0, 0, 0x80000000 },
 	{ { -172.55f, 177.5f, 1915 }, 139.6057f, 0, 0, &objectADV00_00156F04, 0, 0x80000000 },
 	{ { -731.9571f, -10.5f, 2012.492f }, 741.9803f, 0, 0, &objectADV00_00156F38, 0, 0x80000000 },
-	{ { -507.53f, 0, 1911.2f }, 560, 0, 0, &objectADV00_parasol1, 0, 0x80000000 },
-	{ { -505.98f, 0, 2000.69f }, 560, 0, 0, &objectADV00_parasol2, 0, 0x80000000 },
-	{ { -507.27f, 0, 1866.36f }, 560, 0, 0, &objectADV00_parasol3, 0, 0x80000000 },
-	{ { -500.49f, 0, 1815.64f }, 560, 0, 0, &objectADV00_parasol4, 0, 0x80000000 },
-	{ { -304.96f, 0, 1995.62f }, 560, 0, 0, &objectADV00_parasol5, 0, 0x80000000 },
-	{ { -205.81f, 0, 1976.39f }, 560, 0, 0, &objectADV00_parasol6, 0, 0x80000000 },
-	{ { -187.34f, 0, 1913.9f }, 560, 0, 0, &objectADV00_parasol7, 0, 0x80000000 },
-	{ { -210.04f, 0, 1853.89f }, 560, 0, 0, &objectADV00_parasol8, 0, 0x80000000 },
-	{ { -274.22f, 0, 1825.87f }, 560, 0, 0, &objectADV00_parasol9, 0, 0x80000000 },
 	{ { -705.9538f, 63.99175f, 2187.786f }, 92.20733f, 0, 0, &objectADV00_00154978, 0, 0x80040000 },
 	{ { -749.4633f, 63.01091f, 2109.519f }, 92.20733f, 0, 0, &objectADV00_00156F6C, 0, 0x80040100 },
 	{ { -854.6483f, 64.30426f, 2159.636f }, 92.20733f, 0, 0, &objectADV00_00156FA0, 0, 0x80040100 },
@@ -18143,4 +18134,4 @@ COL collist_00134D10[] = {
 	{ { -340, -2, 1920 }, 125.2996f, 0, 0, &objectADV00_001567F0, 0, 0x80000002 },//pool water
 };
 
-LandTable landtable_00135A90 = { LengthOfArray(collist_00134D10), 0, 0xC, 1500, collist_00134D10, NULL, "ADVSS04", (NJS_TEXLIST *)&texlist5 , 0, 0 };
+LandTable landtable_00135A90 = { LengthOfArray(collist_00134D10), 0, 0xC, 1500, collist_00134D10, NULL, "ADVSS04", (NJS_TEXLIST *)&texlist_advss04 , 0, 0 };
