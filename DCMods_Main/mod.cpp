@@ -21,6 +21,7 @@ static bool EnableMysticRuins = true;
 static bool EnableEggCarrier = true;
 static bool EnablePast = true;
 static bool DisableAllVideoStuff = true;
+static bool EnableSpeedFixes = true;
 
 static bool SADXWater_EmeraldCoast = false;
 static bool SADXWater_StationSquare = false;
@@ -68,6 +69,7 @@ extern "C"
 		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 		//Read config stuff for levels and branding
 		EnableDCBranding = config->getBool("General", "EnableDreamcastBranding", true);
+		EnableSpeedFixes = config->getBool("General", "EnableSpeedFixes", true);
 		EnableEmeraldCoast = config->getBool("Levels", "EnableEmeraldCoast", true);
 		EnableWindyValley = config->getBool("Levels", "EnableWindyValley", true);
 		EnableTwinklePark = config->getBool("Levels", "EnableTwinklePark", true);
@@ -120,6 +122,7 @@ extern "C"
 		ChaoGardens_Init(path, helperFunctions);
 		General_Init(path, helperFunctions);
 		if (DisableAllVideoStuff == false) Videos_Init(path, helperFunctions);
+		if (EnableSpeedFixes == true) SpeedFixes_Init();
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
@@ -144,6 +147,7 @@ extern "C"
 		ChaoGardens_OnFrame();
 		General_OnFrame();
 		if (DisableAllVideoStuff == false) Videos_OnFrame();
+		if (EnableSpeedFixes == true) SpeedFixes_OnFrame();
 	}
 	__declspec(dllexport) void __cdecl OnInput()
 	{

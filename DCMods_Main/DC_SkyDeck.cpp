@@ -13,9 +13,6 @@ static int UVShift1 = 0;
 static int UVShift2 = 0;
 static int SkyboxAlpha = 255;
 static bool SkyDeckTransitionEnable = false;
-//Speed Tweaks
-float OMekaSpeedOverride = 0.5f;//O Tutu O Meka
-float TankhSpeedOverride = 0.25f;//Tank h
 DataPointer(float, SkyDeckAltitude, 0x03C80610); //0 to 700
 DataPointer(float, CurrentSkyBoxScaleX, 0x03ABDC94);
 DataPointer(float, CurrentSkyBoxScaleY, 0x03ABDC98);
@@ -646,10 +643,7 @@ void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 		SkyDeck3SkyboxScale->Normal.z = 1.0f;
 		SkyDeck3SkyboxScale->Near.x = 1.0f;
 		SkyDeck3SkyboxScale->Near.y = 1.0f;
-		SkyDeck3SkyboxScale->Near.z = 1.0f;
-		//Speed Tweaks
-		WriteData((float**)0x005F4146, &OMekaSpeedOverride);//OMeka OTutu	
-		WriteData((float**)0x005EE248, &TankhSpeedOverride);//Tank h		
+		SkyDeck3SkyboxScale->Near.z = 1.0f;	
 	}
 }
 
@@ -755,13 +749,4 @@ void SkyDeck_OnFrame()
 			}
 		}
 	}
-	//Frameratesetting for Speed Fixes
-	//OMeka OTutu
-	if (FramerateSetting >= 2)
-		OMekaSpeedOverride = 1.0f; else
-		OMekaSpeedOverride = 0.5f;
-	//Tank_h
-	if (FramerateSetting >= 2)
-		TankhSpeedOverride = 1.0f; else
-		TankhSpeedOverride = 0.25f;
 }

@@ -60,6 +60,8 @@ void Videos_OnFrame();
 void Videos_OnInput();
 void SkyChaseFix_Init();
 void SkyChaseFix_UpdateBounds();
+void SpeedFixes_Init();
+void SpeedFixes_OnFrame();
 
 bool ForceWhiteDiffuse1(NJS_MATERIAL* material, Uint32 flags);
 bool ForceWhiteDiffuse3(NJS_MATERIAL* material, Uint32 flags);

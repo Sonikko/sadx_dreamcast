@@ -47,8 +47,6 @@ static bool EnableCutsceneFix = true;
 static std::string EnableImpressFont = "Off";
 static bool ColorizeFont = true;
 static bool DisableFontSmoothing = true;
-static bool FixesApplied = false;
-static int FramerateSettingOld = 0;
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
 static int EmeraldGlowAlpha = 255;
@@ -57,16 +55,6 @@ static bool EnableDCRipple = true;
 static float heat_float1 = 1.0f; //1
 static float heat_float2 = 0.2f; //0.5
 static float alphathing = 1.0f;
-static float TailsWiggleSpeed_Run = 0.005;
-static float TailsWiggleSpeed_RunX2 = 0.01;
-static float TailsWiggleSpeed_Rotation = 2048.0f;
-static float TailsWiggleSpeed_RotationX2 = 4096.0f;
-//Animation Speed Tweaks
-float DashPanelAnimationSpeedOverride = 0.25f;
-short SpinnerYAnimationSpeedOverride = 384;
-short SpinnerXAnimationSpeedOverride = 288;
-short SpinnerZAnimationSpeedOverride = 416;
-short SpinnerBladesAnimationSpeedOverride = 6144;
 
 NJS_MATERIAL* FirstCharacterSpecular_General[] = {
 	//Hedgehog Hammer targets (possibly SL objects?)
@@ -839,13 +827,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("WING_P");
 	ReplacePVM("WING_T");
 	ReplacePVM("ZOU");
-	//Animation speed fix
-	WriteData((float**)0x007A441B, &DashPanelAnimationSpeedOverride);
-	WriteData((short*)0x4AFB90, SpinnerYAnimationSpeedOverride);
-	WriteData((short*)0x4AFB8A, SpinnerXAnimationSpeedOverride);
-	WriteData((short*)0x4AFB85, SpinnerZAnimationSpeedOverride);
-	WriteData((short*)0x4AFD67, SpinnerBladesAnimationSpeedOverride);
-		//Fix for badniks not spawning
+	//Fix for badniks not spawning
 	WriteCall((void*)0x007AA9F9, AmenboFix);
 	WriteCall((void*)0x0049EFE7, EggKeeperFix);
 	//Leon fixes
@@ -1090,62 +1072,6 @@ void General_OnFrame()
 	{
 		if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
 	}
-	//A bunch of other fixes that I had to do in OnFrame because shit changes all the time
-	if (FramerateSettingOld != FramerateSetting)
-	{
-		FixesApplied = false;
-	}
-	if (FixesApplied == false)
-	{
-		//Leon fixes
-		if (FramerateSetting == 1)
-		{
-			WriteData<1>((char*)0x004A6B8C, 0x07); //Leon timer 1
-			WriteData<1>((char*)0x004A81C1, 0x1E); //Leon timer 2
-		}
-		else
-		{
-			WriteData<1>((char*)0x004A6B8C, 0x14); //Leon timer 1
-			WriteData<1>((char*)0x004A81C1, 0x3C); //Leon timer 2
-		}
-		//Tails' tails wiggle speed
-		if (FramerateSetting == 1)
-		{
-			WriteData((float**)0x461284, &TailsWiggleSpeed_Run);
-			WriteData((float**)0x461276, &TailsWiggleSpeed_Run);
-			WriteData((float**)0x4613C0, &TailsWiggleSpeed_Rotation);
-			WriteData<1>((char*)0x0045DA2D, 0x03); //1 
-			WriteData<1>((char*)0x0045DA0D, 0x02); //2
-			WriteData<1>((char*)0x0045DA0C, 0x80); //2
-			WriteData<1>((char*)0x0045DA15, 0x03); //3 
-			WriteData<1>((char*)0x0045DA14, 0x80); //3
-			WriteData<1>((char*)0x0045DA1D, 0x04); //4
-			WriteData<1>((char*)0x0045DA7E, 0x28); //5
-			WriteData<1>((char*)0x004612DB, 0x01); //6
-			WriteData<1>((char*)0x004612DA, 0x99); //6
-			WriteData<1>((char*)0x004612EE, 0x01); //7
-			WriteData<1>((char*)0x004612ED, 0x99); //7
-		}
-		else
-		{
-			WriteData((float**)0x461284, &TailsWiggleSpeed_RunX2);
-			WriteData((float**)0x461276, &TailsWiggleSpeed_RunX2);
-			WriteData((float**)0x4613C0, &TailsWiggleSpeed_RotationX2);
-			WriteData<1>((char*)0x0045DA2D, 0x06); //1 
-			WriteData<1>((char*)0x0045DA0D, 0x05); //2
-			WriteData<1>((char*)0x0045DA0C, 0x00); //2
-			WriteData<1>((char*)0x0045DA15, 0x07); //3 
-			WriteData<1>((char*)0x0045DA14, 0x00); //3
-			WriteData<1>((char*)0x0045DA1D, 0x08); //4
-			WriteData<1>((char*)0x0045DA7E, 0x50); //5
-			WriteData<1>((char*)0x004612DB, 0x03); //6
-			WriteData<1>((char*)0x004612DA, 0x33); //6
-			WriteData<1>((char*)0x004612EE, 0x03); //7
-			WriteData<1>((char*)0x004612ED, 0x33); //7
-		}
-		FixesApplied = true;
-		FramerateSettingOld = FramerateSetting;
-	}
 	//Alpha rejection
 	if (DLLLoaded_Lantern == true)
 	{
@@ -1187,22 +1113,5 @@ void General_OnFrame()
 	}
 	//Chaos 1 puddle
 	if (CurrentLevel == 33 && CutsceneID != 57) ((NJS_MATERIAL*)0x02D64FD8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
-	else ((NJS_MATERIAL*)0x02D64FD8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
-
-	//AnimationSpeed Tweaks
-	if (FramerateSetting >= 2)
-		DashPanelAnimationSpeedOverride = 1.0f;else
-		DashPanelAnimationSpeedOverride = 0.25f;
-	if (FramerateSetting >= 2)
-		SpinnerYAnimationSpeedOverride = 768; else
-		SpinnerYAnimationSpeedOverride = 384;
-	if (FramerateSetting >= 2)
-		SpinnerXAnimationSpeedOverride = 576; else
-		SpinnerXAnimationSpeedOverride = 288;
-	if (FramerateSetting >= 2)
-		SpinnerZAnimationSpeedOverride = 832; else
-		SpinnerZAnimationSpeedOverride = 416;
-	if (FramerateSetting >= 2)
-		SpinnerBladesAnimationSpeedOverride = 12288; else
-		SpinnerBladesAnimationSpeedOverride = 6144;
+	else ((NJS_MATERIAL*)0x02D64FD8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;	
 }
