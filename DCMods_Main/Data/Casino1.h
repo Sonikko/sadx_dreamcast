@@ -33348,13 +33348,10 @@ COL collist_00023DA0[] = {
 	{ { -128.3576f, -125, -309.9343f }, 56.67119f, 0, 0, &objectSTG09_0005907C, 0, 0x80040000 },
 	{ { -332.6874f, -166.45f, 150.42f }, 400, 0, 0, &objectSTG09_000483B4_2, 0, 0x80040000 }, //transparent area around Mizu stuff
 	{ { -294.3481f, -11.99954f, 86.71259f }, 589.6112f, 0, 0, &objectSTG09_019798D4, 0, 0x80040000 }, //water under ship
-	{ { 311.62, 0, 338.93 }, 200.0f, 0, 0, &objectSTG09_01A74A94Z, 0, 0xC2040000 }, //neon k
 	{ { 0, 32.5f, -256.5f }, 215.4356f, 0, 0, &objectSTG09_000506DC, 0, 0x80000000 }, //fence
-	{ { 271.24f, -131.39f, 121.96f }, 200, 0, 0, &objectSTG09_01A3FD04, 0, 0x80000000 }, //O KBS
-	{ { -105.87f, -142.39f, 252.9f }, 200, 0, 0, &objectSTG09_01A3D734, 0, 0x80000000 }, //O KBC
 };
 
-NJS_TEXNAME textures_casino1[136];
+NJS_TEXNAME textures_casino1[131];
 NJS_TEXLIST texlist_casino1 = { arrayptrandlength(textures_casino1) };
 
 LandTable landtable_00025EAC = { LengthOfArray(collist_00023DA0), 0, 0xC, 800, collist_00023DA0, NULL, "CASINO01", (NJS_TEXLIST *)&texlist_casino1, 0, 0 };

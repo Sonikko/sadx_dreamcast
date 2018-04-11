@@ -29,12 +29,8 @@ HMODULE ADV01CMODELS = GetModuleHandle(L"ADV01CMODELS");
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataArray(PVMEntry, stru_10F34A8, 0x10F34A8, 6);
 DataArray(PVMEntry, stru_1101360, 0x1101360, 2);
-static int water1 = 98;
-static int water2 = 90;
-static int water3 = 66;
-static char water_sadx1 = 108;
-static char water_sadx2 = 100;
-static char water_sadx3 = 76;
+static int ocean_dc = 4;
+static int ocean_sadx = 4;
 static int SADXStyleWater = false;
 DataArray(DrawDistance, EggCarrierOutsideDrawDist1, 0x010F2264, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist2, 0x010F227C, 3);
@@ -354,6 +350,37 @@ void RenderEggCarrier0NPC(NJS_ACTION *action, Float frame)
 	else njAction(action, frame);
 }
 
+void EggCarrierSea()
+{
+	if (ocean_dc > 13) ocean_dc = 4;
+	matlistADV01_00007B80[0].attr_texId = ocean_dc;
+	if (!DroppedFrames)
+	{
+		DisableFog();
+		njSetTexture(&EC_SEA_TEXLIST);
+		njPushMatrix(0);
+		njTranslate(0, Camera_Data1->Position.x, 0, Camera_Data1->Position.z);
+		ProcessModelNode_A_Wrapper(&objectADV01_00007C50, QueuedModelFlagsB_3, 1.0f);
+		njPopMatrix(1u);
+	}
+	if (GameState != 16)
+	{
+		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ocean_dc++;
+	}
+}
+
+void SetECOceanTexlist()
+{
+	if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ocean_sadx++;
+	if (ocean_sadx > 18) ocean_sadx = 4;
+	njSetTexture(&EC_SEA_TEXLIST);
+}
+
+void SetECOceanTexture()
+{
+	njSetTextureNum(ocean_sadx);
+}
+
 void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -465,22 +492,29 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("OBJ_EC00");
 	ReplacePVM("OBJ_EC30");
 	ReplacePVM("PVME101FACTORY");
+	ReplacePVM("ADV_EC00");
+	ReplacePVM("ADV_EC01");
+	ReplacePVM("ADV_EC02");
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "EggCarrier", false);
 	delete config;
 	if (SADXStyleWater == true)
 	{
-		ReplacePVMX_SADXStyleWater("ADV_EC00");
-		ReplacePVMX_SADXStyleWater("ADV_EC01");
-		ReplacePVMX_SADXStyleWater("ADV_EC02");
 		ReplacePVMX_SADXStyleWater("EC_SEA");
+		ResizeTextureList(&EC_SEA_TEXLIST, 21);
+		WriteCall((void*)0x0051C4FD, SetECOceanTexlist);
+		WriteCall((void*)0x0051C51B, SetECOceanTexlist);
+		WriteCall((void*)0x0051C4DA, SetECOceanTexlist);
+		WriteCall((void*)0x51C5B3, SetECOceanTexture);
+		WriteData<1>((char*)0x0051C4E8, 0x13); //act 1 water
+		WriteData<1>((char*)0x0051C50B, 0x13); //act 2 water
+		WriteData<1>((char*)0x0051C529, 0x13); //act 3 water
+		WriteData((float*)0x0051C5EC, 2.5f); //Z fighting fix
 	}
 	else
 	{
-		ReplacePVM("ADV_EC00");
-		ReplacePVM("ADV_EC01");
-		ReplacePVM("ADV_EC02");
 		ReplacePVM("EC_SEA");
+		WriteJump((void*)0x0051C440, EggCarrierSea);
 	}
 	//Door barrier fixes (Gamma's story)
 	WriteJump((void*)0x52B2E0, ECDoorBarrier1X); 
@@ -511,20 +545,6 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 		material_register(WhiteDiffuseADV01, LengthOfArray(WhiteDiffuseADV01), &ForceWhiteDiffuse1);
 		WriteCall((void*)0x006F4577, TurnLightsOff); //Turn the lights off
 		WriteCall((void*)0x006F4620, TurnLightsOn); //Turn the lights on
-	}
-	if (SADXStyleWater == true)
-	{
-		ResizeTextureList(&texlist_ec00, 125);
-		ResizeTextureList(&texlist_ec01, 117);
-		ResizeTextureList(&texlist_ec02, 93);
-		WriteData<1>((char*)0x0051C4E8, 0x7B); //act 1 water
-		WriteData<1>((char*)0x0051C50B, 0x73); //act 2 water
-		WriteData<1>((char*)0x0051C529, 0x5B); //act 3 water
-		WriteData((float*)0x0051C5EC, 2.5f); //Z fighting fix
-	}
-	else
-	{
-		WriteData<1>((void*)0x0051C440, 0xC3u);
 	}
 	WriteJump((char *)GetProcAddress(ADV01MODELS, "SetClip_EC00"), SetClip_EC00);
 	WriteJump((char *)GetProcAddress(ADV01MODELS, "SetClip_EC01"), SetClip_EC01);
@@ -646,7 +666,6 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 
 void ADV01_OnFrame()
 {
-	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	if (CurrentLevel == 32 && GameState != 16)
 	{
 		if (DLLLoaded_Lantern == true && dword_3C85138 == 0)
@@ -654,68 +673,5 @@ void ADV01_OnFrame()
 			set_blend_factor(0.0f);
 			set_shader_flags(ShaderFlags_Blend, false);
 		}
-	}
-	if (CurrentLevel == 29 && CurrentAct == 0)
-	{
-		if (GameState != 16)
-		{
-			if (water1 > 107) water1 = 98;
-			if (water_sadx1 > 122) water_sadx1 = 108;
-			matlistADV01_00007B80[0].attr_texId = water1;
-			if (Camera_Data1 != nullptr)
-			{
-				objectADV01_00007C50.pos[0] = Camera_Data1->Position.x;
-				objectADV01_00007C50.pos[2] = Camera_Data1->Position.z;
-			}
-			if (SADXStyleWater == true) WriteData<1>((char*)0x0051C4E0, water_sadx1);
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
-			{
-				water1++;
-				water_sadx1++;
-			}
-		}
-		if (IsEggCarrierSunk() && SADXStyleWater == false) collist_0015F764[LengthOfArray(collist_0015F764) - 1].Flags = 0x80000000; else collist_0015F764[LengthOfArray(collist_0015F764) - 1].Flags = 0x00000000;
-	}
-	if (CurrentLevel == 29 && CurrentAct == 1)
-	{
-		if (GameState != 16)
-		{
-			if (water_sadx2 > 114) water_sadx2 = 100;
-			if (water2 > 99) water2 = 90;
-			matlistADV01_00007B80_1[0].attr_texId = water2;
-			if (Camera_Data1 != nullptr)
-			{
-				objectADV01_00007C50_1.pos[0] = Camera_Data1->Position.x;
-				objectADV01_00007C50_1.pos[2] = Camera_Data1->Position.z;
-			}
-			if (SADXStyleWater == true) WriteData<1>((char*)0x0051C503, water_sadx2);
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
-			{
-				water2++;
-				water_sadx2++;
-			}
-		}
-		if (IsEggCarrierSunk() && SADXStyleWater == false) collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x80000000; else collist_00162284[LengthOfArray(collist_00162284) - 1].Flags = 0x00000000;
-	}
-	if (CurrentLevel == 29 && CurrentAct == 2)
-	{
-		if (GameState != 16)
-		{
-			if (water3 > 75) water3 = 66;
-			if (water_sadx3 > 90) water_sadx3 = 76;
-			matlistADV01_00007B80_2[0].attr_texId = water3;
-			if (Camera_Data1 != nullptr)
-			{
-				objectADV01_00007C50_2.pos[0] = Camera_Data1->Position.x;
-				objectADV01_00007C50_2.pos[2] = Camera_Data1->Position.z;
-			}
-			if (SADXStyleWater == true) WriteData<1>((char*)0x0051C521, water_sadx3);
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
-			{
-				water3++;
-				water_sadx3++;
-			}
-		}
-		if (IsEggCarrierSunk() && SADXStyleWater == false) collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x80000000; else collist_00163214[LengthOfArray(collist_00163214) - 1].Flags = 0x00000000;
 	}
 }

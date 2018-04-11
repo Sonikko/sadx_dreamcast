@@ -44755,12 +44755,6 @@ COL collist_000AD36C[] = {
 	{ { 34.99996f, 92.92498f, -1125 }, 47.67338f, 0, 0, &objectSTG12_000D4BD8_2, 0, 0xC0000001 },
 	{ { 41.00986f, 92.92498f, -1294.694f }, 126.0664f, 0, 0, &objectSTG12_000D497C_2, 0, 0xA0000001 },
 	{ { -51.84613f, 93.02594f, -1336.694f }, 84.04818f, 0, 0, &objectSTG12_000D4720_2, 0, 0xA0000001 },
-	{ { 216.09, 322.11, -270.52 }, 14.62437f, 0, 0, &GLIGHT1, 0, 0x81000000 },//lights start
-	{ { 214.92, 322.11, -215.72 }, 14.62437f, 0, 0, &GLIGHT2, 0, 0x81000000 },
-	{ { 215.34, 322.11, -157.48 }, 14.62437f, 0, 0, &GLIGHT3, 0, 0x81000000 },
-	{ { -255.52, 322.11, -153.73 }, 14.62437f, 0, 0, &GLIGHT4, 0, 0x81000000 },
-	{ { -256.09, 322.11, -212.28 }, 14.62437f, 0, 0, &GLIGHT5, 0, 0x81000000 },
-	{ { -255.79, 322.11, -268.71 }, 14.62437f, 0, 0, &GLIGHT6, 0, 0x81000000 },	//lights end
 };
 
 GeoAnimData animlist_000B0D14[] = {
@@ -44772,7 +44766,7 @@ GeoAnimData animlist_000B0D14[] = {
 	{ 0, 1, 27, &objectSTG12_0005C538, &action_animation_0005C72C, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_shelter3[122];
+NJS_TEXNAME textures_shelter3[121];
 NJS_TEXLIST texlist_hotshelter3 = { arrayptrandlength(textures_shelter3) };
 
 LandTable landtable_000B0DA4 = { LengthOfArray(collist_000AD36C), LengthOfArray(animlist_000B0D14), 0xD, 650, collist_000AD36C, animlist_000B0D14, "HOTSHELTER3", (NJS_TEXLIST *)&texlist_hotshelter3 , 0, 0 };

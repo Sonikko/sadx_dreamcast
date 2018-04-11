@@ -21,6 +21,7 @@ FunctionPointer(void, sub_61D4E0, (ObjectMaster *a1), 0x61D4E0);
 FunctionPointer(void, sub_61D1F0, (ObjectMaster *a1), 0x61D1F0);
 FunctionPointer(void, sub_4BA5D0, (NJS_OBJECT *a1, ObjectThingC *a2), 0x4BA5D0);
 FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
+FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
 
 HMODULE CHRMODELS2 = GetModuleHandle(L"CHRMODELS2_orig");
 
@@ -394,6 +395,14 @@ void FixArchLight_Pause(NJS_OBJECT *object)
 	}
 }
 
+void RenderCatapult(NJS_ACTION *a1, float frame, float scale)
+{
+	sub_405450(a1, frame, scale);
+	DrawQueueDepthBias = -17000.0f;
+	ProcessModelNode(&objectSTG03_000A3CCCX, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	DrawQueueDepthBias = 0.0f;
+}
+
 void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -484,6 +493,7 @@ void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0x27A67B4 = objectSTG03_000A8D60; //OBowWindow
 	*(NJS_OBJECT*)0x027B23E4 = objectSTG03_000B0818; //Trap door
 	*(NJS_OBJECT*)0x027A0454 = objectSTG03_000A3CCC; //Bowling catapult
+	WriteCall((void*)0x621FE5, RenderCatapult); //Catapult fix
 	*(NJS_OBJECT*)0x027B5884 = objectSTG03_000B2A40; //O Foothold
 	*(NJS_OBJECT*)0x038E50C4 = objectSTG03_034E50C4; //Buyon material fixes
 	*(NJS_OBJECT*)0x038E3584 = objectSTG03_034E3584;	//Buyon material fixes

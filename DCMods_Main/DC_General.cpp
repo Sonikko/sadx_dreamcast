@@ -699,9 +699,6 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVR("STG_S_LOCKMK");
 	ReplacePVR("STX_ICE0");
 	ReplacePVR("ST_016S_HPBAR");
-	ReplacePVR("ST_064S_LOCKA");
-	ReplacePVR("ST_064S_LOCKB");
-	ReplacePVR("ST_064S_LOCKC");
 	ReplacePVR("SW_NBG2");
 	ReplacePVR("S_WT28");
 	ReplacePVR("S_WT32");
@@ -906,6 +903,9 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	if (DLLLoaded_HDGUI == false)
 	{
 		ReplacePVM("OBJ_REGULAR");
+		ReplacePVR("ST_064S_LOCKA");
+		ReplacePVR("ST_064S_LOCKB");
+		ReplacePVR("ST_064S_LOCKC");
 		ResizeTextureList(&OBJ_REGULAR_TEXLIST, 100); //Added DC ripple texture
 	}
 	WriteJump(ItemBox_Display_Destroyed, ItemBox_Display_Destroyed_Rotate);

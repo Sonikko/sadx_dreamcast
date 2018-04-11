@@ -17267,7 +17267,6 @@ COL collist_00009FA4[] = {
 	{ { -134.1181f, 681.5402f, -386.0016f }, 136.1435f, 0, 0, &objectR_0001D5E0, 0, 0x00000001 }, //This is rendered separately
 	{ { -0.7125624f, 681.5402f, -507.521f }, 214.3001f, 0, 0, &objectR_0001C958, 0, 0x00000001 }, //This is rendered separately
 	{ { 134.9767f, 681.5402f, -385.4529f }, 135.7921f, 0, 0, &objectR_0001CC84, 0, 0x00000001 }, //This is rendered separately
-	{ { 0, 0, 0 }, 10000, 0, 0, &object_00007C50, 0, 0x00000001 }
 };
 
 GeoAnimData animlistR_0000A5F8[] = {

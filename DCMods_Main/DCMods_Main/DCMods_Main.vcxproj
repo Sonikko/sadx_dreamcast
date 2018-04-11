@@ -241,7 +241,6 @@
     <ClInclude Include="..\Data\ADV01C_05.h" />
     <ClInclude Include="..\Data\ADV01_0.h" />
     <ClInclude Include="..\Data\ADV01_0_animlist.h" />
-    <ClInclude Include="..\Data\ADV01_0_PC.h" />
     <ClInclude Include="..\Data\ADV01_1.h" />
     <ClInclude Include="..\Data\ADV01_2.h" />
     <ClInclude Include="..\Data\ADV01_3.h" />
@@ -250,10 +249,7 @@
     <ClInclude Include="..\Data\ADV03_00.h" />
     <ClInclude Include="..\Data\ADV03_00_PC.h" />
     <ClInclude Include="..\Data\ADV03_01.h" />
-    <ClInclude Include="..\Data\ADV03_01_fixes.h" />
-    <ClInclude Include="..\Data\ADV03_01_PC.h" />
     <ClInclude Include="..\Data\ADV03_02.h" />
-    <ClInclude Include="..\Data\ADV03_02_PC.h" />
     <ClInclude Include="..\Data\ADVSS00(CityHall).h" />
     <ClInclude Include="..\Data\ADVSS01(CasinoArea).h" />
     <ClInclude Include="..\Data\ADVSS02(Sewers).h" />

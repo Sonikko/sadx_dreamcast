@@ -7672,7 +7672,6 @@ COL collist_00045098[] = {
 	{ { -4.695968f, 52.12697f, 87.13354f }, 564.6829f, 0, 0, &object_0004B004, 0, 0x80000000 }, //forest
 	{ { 1.033577f, -5.143047f, -37.50925f }, 375.097f, 0, 0, &object_0004B6F0, 0, 0x80040000 }, //bottom
 	{ { -8.901687f, 20.08343f, 92.49529f }, 560.811f, 0, 0, &object_0004A68C, 0, 0x80000000 }, //foliage
-	{ { -7.3974f, -18.81778f, 77.26566f }, 532.6468f, 0, 0, &object_0004476C, 0, 0x84000400 },
 	{ { 10.83572f, 37.90828f, -290.86f }, 58.92595f, 0, 0, &object_0004CF40, 0, 0x80000000 },
 	{ { 127.7964f, 34.74735f, -220.467f }, 58.92594f, 0, 0, &object_0004CF74, 0, 0x80000000 },
 	{ { 252.5965f, 39.32698f, 46.61761f }, 58.92595f, 0, 0, &object_0004CFDC, 0, 0x80000000 },
@@ -7745,7 +7744,7 @@ GeoAnimData animlist_00045AB8[] = {
 	{ 0, 0.5f, 60, &object_000086B4, &action_animation_00016428, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_chaos4dc[27];
+NJS_TEXNAME textures_chaos4dc[13];
 NJS_TEXLIST texlist_chaos4dc = { arrayptrandlength(textures_chaos4dc) };
 
 LandTable landtable_00000238 = { LengthOfArray(collist_00045098), LengthOfArray(animlist_00045AB8), 0xD, 20000, collist_00045098, animlist_00045AB8, "CHAOS4_TIKEI", (NJS_TEXLIST *)&texlist_chaos4dc, 0, 0 };

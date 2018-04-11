@@ -23819,14 +23819,6 @@ NJS_OBJECT objectADV03_000FB49C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_
 
 COL collist_000976C0[] = {
 	{ { -545.4837f, -220, 999.9899f }, 2876.595f, 0, 0, &objectADV03_0009E8A8, 0, 0x80000020 }, //SA1 water
-	{ { -104, 0, 223 }, 0, 0, 0, &palm1_2, 0, 0x80000000 }, //palm1
-	{ { -231, 0, 87 }, 0, 0, 0, &palm2_2, 0, 0x80000000 }, //palm2
-	{ { -226, 0, -96 }, 0, 0, 0, &palm3_2, 0, 0x80000000 }, //palm3
-	{ { -89, 0, -228 }, 0, 0, 0, &palm4_2, 0, 0x80000000 }, //palm4
-	{ { 95, 0, -225 }, 0, 0, 0, &palm5_2, 0, 0x80000000 }, //palm5
-	{ { 232, 0, -88 }, 0, 0, 0, &palm6_2, 0, 0x80000000 }, //palm6
-	{ { 227, 0, 95 }, 0, 0, 0, &palm7_2, 0, 0x80000000 }, //palm7
-	{ { 93, 0, 226 }, 0, 0, 0, &palm8_2, 0, 0x80000000 }, //palm8
 	{ { 0, -25.5f, 0.0000075f }, 240.111f, 0, 0, &objectADV03_000C1930, 0, 0x80000000 }, //big reflection
 	{ { -557.4172f, 361.3719f, 247.6629f }, 193.6107f, 0, 0, &objectADV03_00099AE0, 0, 0x20200001 },
 	{ { -479.877f, 362.7543f, -103.188f }, 228.1082f, 0, 0, &objectADV03_00099CFC, 0, 0x20200001 },
@@ -24039,17 +24031,17 @@ COL collist_000976C0[] = {
 	{ { -1842.818f, 135.2002f, 505.7282f }, 1950.322f, 0, 0, &objectADV03_000A4D18, 0, 0x80000020 },
 	{ { 0.000007729999f, 22.75f, -0.0000207f }, 247.2982f, 0, 0, &objectADV03_000C780C, 0, 0xC0000002 },
 	{ { -152.5f, -35.5f, -152.5f }, 37.08352f, 0, 0, &objectADV03_000C8CF4, 0, 0x80000000 },
-	{ { 0, 1, 0 }, 395.6269f, 0, 0, &objectADV03_000BCC28Z, 0, 0x80000001 },
+	{ { 0, 1, 0 }, 395.6269f, 0, 0, &objectADV03_000BCC28Z, 0, 0x00000001 }, //transparent floor
 	{ { 0, 65.25f, 0 }, 171.0811f, 0, 0, &objectADV03_000AFA9C, 0, 0xC0000001 },
 	{ { 640.3376f, -76.15028f, 1938.285f }, 247.1542f, 0, 0, &objectADV03_000C8F98, 0, 0x80000000 },
 	{ { 0, 65.25f, 0 }, 171.0811f, 0, 0, &objectADV03_000AFA9CZ, 0, 0x80000001 },
 	{ { 0, 87.5f, 0 }, 125.0876f, 0, 0, &objectADV03_000C71B4, 0, 0xA0000002 },//water top
 	{ { 0.000008f, 22.75f, -0.00002f }, 176.6047f, 0, 0, &objectADV03_000FB49C, 0, 0xA4000002 },
-	{ { 0, -0.25f, 0 }, 381.8376f, 0, 0, &objectADV03_000C7BE4, 0, 0xA0000002 }, //water
+	{ { 0, -0.25f, 0 }, 381.8376f, 0, 0, &objectADV03_000C7BE4, 0, 0x00000002 }, //water
 	
 };
 
-NJS_TEXNAME textures_past2[86];
+NJS_TEXNAME textures_past2[85];
 NJS_TEXLIST texlist_past02 = { arrayptrandlength(textures_past2) };
 
 LandTable landtable_000002C0 = { LengthOfArray(collist_000976C0), 0, 8, 0, collist_000976C0, NULL, "PAST02", (NJS_TEXLIST *)&texlist_past02, 0, 0 };
