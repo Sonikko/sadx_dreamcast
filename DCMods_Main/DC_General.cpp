@@ -63,21 +63,10 @@ static float TailsWiggleSpeed_Rotation = 2048.0f;
 static float TailsWiggleSpeed_RotationX2 = 4096.0f;
 //Animation Speed Tweaks
 float DashPanelAnimationSpeedOverride = 0.25f;
-
-//TPanel slowdown
-static void __cdecl Spinner_Init_r(ObjectMaster *a2);
-static Trampoline Spinner_Init_t(0x4BD00, 0x4BD07, Spinner_Init_r);
-static void __cdecl Spinner_Init_r(ObjectMaster *a2)
-{
-	auto original = reinterpret_cast<decltype(Spinner_Init_r)*>(Spinner_Init_t.Target());
-	if (FramerateSetting < 2)
-	{
-		a2->Data1->Scale.x = a2->Data1->Scale.x / 2;
-		a2->Data1->Scale.y = a2->Data1->Scale.y / 2;
-		a2->Data1->Scale.z = a2->Data1->Scale.z / 2;
-	}
-	original(a2);
-}
+short SpinnerYAnimationSpeedOverride = 384;
+short SpinnerXAnimationSpeedOverride = 288;
+short SpinnerZAnimationSpeedOverride = 416;
+short SpinnerBladesAnimationSpeedOverride = 6144;
 
 NJS_MATERIAL* FirstCharacterSpecular_General[] = {
 	//Hedgehog Hammer targets (possibly SL objects?)
@@ -850,9 +839,13 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("WING_P");
 	ReplacePVM("WING_T");
 	ReplacePVM("ZOU");
-	//Dashpanels Animation speed fix
+	//Animation speed fix
 	WriteData((float**)0x007A441B, &DashPanelAnimationSpeedOverride);
-	//Fix for badniks not spawning
+	WriteData((short*)0x4AFB90, SpinnerYAnimationSpeedOverride);
+	WriteData((short*)0x4AFB8A, SpinnerXAnimationSpeedOverride);
+	WriteData((short*)0x4AFB85, SpinnerZAnimationSpeedOverride);
+	WriteData((short*)0x4AFD67, SpinnerBladesAnimationSpeedOverride);
+		//Fix for badniks not spawning
 	WriteCall((void*)0x007AA9F9, AmenboFix);
 	WriteCall((void*)0x0049EFE7, EggKeeperFix);
 	//Leon fixes
@@ -1200,5 +1193,16 @@ void General_OnFrame()
 	if (FramerateSetting >= 2)
 		DashPanelAnimationSpeedOverride = 1.0f;else
 		DashPanelAnimationSpeedOverride = 0.25f;
-
+	if (FramerateSetting >= 2)
+		SpinnerYAnimationSpeedOverride = 768; else
+		SpinnerYAnimationSpeedOverride = 384;
+	if (FramerateSetting >= 2)
+		SpinnerXAnimationSpeedOverride = 576; else
+		SpinnerXAnimationSpeedOverride = 288;
+	if (FramerateSetting >= 2)
+		SpinnerZAnimationSpeedOverride = 832; else
+		SpinnerZAnimationSpeedOverride = 416;
+	if (FramerateSetting >= 2)
+		SpinnerBladesAnimationSpeedOverride = 12288; else
+		SpinnerBladesAnimationSpeedOverride = 6144;
 }
