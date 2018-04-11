@@ -57,16 +57,7 @@ static bool EnableDCRipple = true;
 static float heat_float1 = 1.0f; //1
 static float heat_float2 = 0.2f; //0.5
 static float alphathing = 1.0f;
-static float TailsWiggleSpeed_Run = 0.005;
-static float TailsWiggleSpeed_RunX2 = 0.01;
-static float TailsWiggleSpeed_Rotation = 2048.0f;
-static float TailsWiggleSpeed_RotationX2 = 4096.0f;
-//Animation Speed Tweaks
-float DashPanelAnimationSpeedOverride = 0.25f;
-short SpinnerYAnimationSpeedOverride = 384;
-short SpinnerXAnimationSpeedOverride = 288;
-short SpinnerZAnimationSpeedOverride = 416;
-short SpinnerBladesAnimationSpeedOverride = 6144;
+
 
 NJS_MATERIAL* FirstCharacterSpecular_General[] = {
 	//Hedgehog Hammer targets (possibly SL objects?)
