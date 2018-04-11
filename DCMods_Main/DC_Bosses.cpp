@@ -696,7 +696,7 @@ void Spotlight_Display(ObjectMaster *a1)
 {
 	EntityData1 *v1;
 	v1 = a1->Data1;
-	if (!DroppedFrames)
+	if (collist_00005280[4].Flags & ColFlags_Visible && !DroppedFrames)
 	{
 		njSetTexture(PVMEntry_CHAOS0EFFECT.TexList);
 		njPushMatrix(0);
