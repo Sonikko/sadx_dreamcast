@@ -804,6 +804,7 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_MODEL_SADX*)0x01DDF318 = attachSTG09_00160DA4; //CardUV 1
 	*(NJS_MODEL_SADX*)0x01DDF180 = attachSTG09_00160C14_2; //CardUV 2
 	*(NJS_MODEL_SADX*)0x01E5DBC8 = attachSTG09_001DA2E0; //OKDAnm
+	*(NJS_MODEL_SADX*)0x01E0D048 = attach_0018C0D0; //Sonic token
 	//UV fixes
 	memcpy((void*)0x1E3C3C8, uvSTG09_001BA8B0, sizeof(uvSTG09_001BA8B0)); //O KBB
 	memcpy((void*)0x1E3C868, uvSTG09_001BAD3C, sizeof(uvSTG09_001BAD3C)); //O KBR
