@@ -39,7 +39,7 @@ double OBigTuraraAnimationSpeedOverride = 0.0013888885f;
 
 //Red Mountain
 float OGLSpeedOverride = 0.25f;
-//float OLampSpeedOverride = 0.1f;
+float OLampSpeedOverride = 0.025f;
 
 //Sky Deck
 float OMekaSpeedOverride = 0.5f;
@@ -48,8 +48,6 @@ float TankhSpeedOverride = 0.25f;
 //Casinopolis
 double OKaizAnimationSpeedOverride = 0.001388885f;
 int OCrystalAnimationSpeedOverride = 168;
-
-//Lost World
 
 void SpeedFixes_Init()
 {
@@ -84,7 +82,6 @@ void SpeedFixes_Init()
 	//Red Mountain
 	WriteData((float**)0x0060C885, &OGLSpeedOverride);	//OGL Speed Tweak
 	WriteData((float**)0x0060B361, &OGLSpeedOverride);	//O Gear Speed Tweak
-	//WriteData((float**)0x00606676, &OLampSpeedOverride); //OLamp Speed Tweak
 	//Sky Deck
 	WriteData((float**)0x005F4146, &OMekaSpeedOverride);//OMeka OTutu	
 	WriteData((float**)0x005EE248, &TankhSpeedOverride);//Tank h	
@@ -95,7 +92,6 @@ void SpeedFixes_Init()
 	WriteData((double**)0x5C5E9C, &OKaizAnimationSpeedOverride); //Captain Pirate / KaizS Animation Speed Tweak
 	WriteData((double**)0x5D3F90, &OKaizAnimationSpeedOverride); //Captain Pirate / KaizS Animation Speed Tweak
 	WriteData((int**)0x5D3D68, &OCrystalAnimationSpeedOverride); //Spinning golden emerald Animation Speed Tweak	
-	//Lost World
 }
 
 void SpeedFixes_OnFrame()
@@ -136,14 +132,9 @@ void SpeedFixes_OnFrame()
 			TankhSpeedOverride = 1.0f;
 			//Red Mountain
 			OGLSpeedOverride = 0.5f;
-			//OLampSpeedOverride = 0.05f;
 			//Casinopolis
 			OKaizAnimationSpeedOverride = 0.00277777f;
 			OCrystalAnimationSpeedOverride = 336;
-			//Lost World
-			OTPanel3 = 8;
-			OTPanelSpeedOverride = 0.016949153;
-		
 		}
 		//60 FPS values
 		else
@@ -176,15 +167,12 @@ void SpeedFixes_OnFrame()
 			OBigTuraraAnimationSpeedOverride = 0.0013888885f;
 			//Red Mountain
 			OGLSpeedOverride = 0.25f;
-			//OLampSpeedOverride = 0.1f;
 			//Sky Deck
 			OMekaSpeedOverride = 0.5f;
 			TankhSpeedOverride = 0.25f;
 			//Casinopolis
 			OKaizAnimationSpeedOverride = 0.001388885f;
 			OCrystalAnimationSpeedOverride = 168;
-			//Lost World
-		
 		}
 		SpeedFixes_Init();
 		FramerateSettingOld = FramerateSetting;
