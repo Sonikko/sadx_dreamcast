@@ -25,7 +25,6 @@ DataPointer(NJS_BGRA, CurrentFogColorX, 0x03ABDC68);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *a1, int a2, float a3), 0x409E70);
 FunctionPointer(void, sub_408530, (NJS_OBJECT *o), 0x408530);
-double OHaneaSpeedOverride = 0.0013888885f; //Fans SpeedOverride
 static int TornadoMode = 0;
 static float SkyTrans = 1.0f;
 
@@ -122,16 +121,6 @@ void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAM0201S");
 	ReplaceBIN_DC("CAM0202M");
 	ReplaceBIN_DC("CAM0202S");
-	//Tornado speed tweak
-	if (FramerateSetting < 2)
-	{
-		WriteData<1>((char*)0x004DD8C8, 0xAC);
-		WriteData<1>((char*)0x004DD8C9, 0i8);
-	}
-	//Fans Speed Tweak
-	WriteData((double**)0x004E1169, &OHaneaSpeedOverride);
-	WriteData((double**)0x004E113E, &OHaneaSpeedOverride);
-	WriteData((double**)0x004E1194, &OHaneaSpeedOverride);
 	char pathbuf[MAX_PATH];
 	if (EnableSETFixes == 1)
 	{
@@ -279,10 +268,4 @@ void WindyValley_OnFrame()
 			}
 		}
 	}
-	//FramerateSettings for fans speed override
-	if(FramerateSetting >=2)
-		OHaneaSpeedOverride = 0.002777777f; else
-		OHaneaSpeedOverride = 0.0013888885f;
-		
-			
 }

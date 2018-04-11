@@ -13,7 +13,6 @@ DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
 FunctionPointer(double, sub_789320, (float), 0x789320);
 FunctionPointer(void, sub_600BF0, (ObjectMaster *a1, NJS_OBJECT *a2), 0x600BF0);
-float OGLSpeedOverride = 0.25f; // OGL Speed Tweak
 static int UVShift1 = 0;
 static int UVShift2 = 0;
 
@@ -113,8 +112,7 @@ void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((double**)0x600C8F, &cloudcoloroffset);
 	WriteCall((void*)0x006011D8, RenderRMSky1);
 	WriteCall((void*)0x0060121C, RenderRMSky2);
-	WriteData((float**)0x0060C885, &OGLSpeedOverride);	//OGL Speed Tweak
-	WriteData((float**)0x0060B361, &OGLSpeedOverride);	//O Gear Speed Tweak
+
 	if (DLLLoaded_Lantern == true)
 	{
 		material_register(LevelSpecular_Mountain, LengthOfArray(LevelSpecular_Mountain), &ForceDiffuse0Specular0);
@@ -186,8 +184,4 @@ void RedMountain_OnFrame()
 			if (Camera_Data1->Position.y > 900) CurrentDrawDistance = -9000.0f;
 		}
 	}
-	//FramerateSetting for OGLSpeedOverride
-	if (FramerateSetting >= 2)
-	OGLSpeedOverride = 0.5f; else
-	OGLSpeedOverride = 0.25f;
 }
