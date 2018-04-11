@@ -87,7 +87,9 @@ DataPointer(int, InsideMachine, 0x3C7507C);
 DataPointer(NJS_OBJECT*, unk_1E05954, 0x1E05954);
 DataPointer(CollisionData, stru_1E77604, 0x1E77604);
 DataPointer(NJS_OBJECT, stru_1DF198C, 0x1DF198C);
-
+//Animation Speed Tweaks
+double OKaizAnimationSpeedOverride = 0.001388885f;
+int OCrystalAnimationSpeedOverride = 168;
 void __cdecl Loop_Display(ObjectMaster *a1)
 {
 	EntityData1 *v1; // esi@1
@@ -749,6 +751,12 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteJump((void*)0x5D44A0, TutuB_Display); //OTutuB display
 	WriteJump((void*)0x5D4550, TutuC_Display); //OTutuC display
 	WriteData((int*)0x1E77E58, 128); //Gear rotation speed
+	WriteData((double**)0x5C802C, &OKaizAnimationSpeedOverride); //OKaiza Animation Speed Tweak
+	WriteData((double**)0x5C747C, &OKaizAnimationSpeedOverride); //OKaizb Animation Speed Tweak
+	WriteData((double**)0x5C698C, &OKaizAnimationSpeedOverride); // Green Pirate / KaizC Animation Speed Tweak
+	WriteData((double**)0x5C5E9C, &OKaizAnimationSpeedOverride); //Captain Pirate / KaizS Animation Speed Tweak
+	WriteData((double**)0x5D3F90, &OKaizAnimationSpeedOverride); //Captain Pirate / KaizS Animation Speed Tweak
+	WriteData((int**)0x5D3D68, &OCrystalAnimationSpeedOverride); //Spinning golden emerald Animation Speed Tweak
 	//Config stuff
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	CowgirlOn = config->getBool("Miscellaneous", "EnableCasinopolisCowgirl", true);
@@ -1124,4 +1132,11 @@ void Casinopolis_OnFrame()
 			uvSTG09_00160A9C[rl].v = uvSTG09_00160A9C_0[rl].v + carduvSTG09_reala;
 		}
 	}
+	//Animation Speed Fix
+	if (FramerateSetting >= 2) 
+		OKaizAnimationSpeedOverride = 0.00277777f; else
+		OKaizAnimationSpeedOverride = 0.001388885f;
+	if (FramerateSetting >= 2)
+		OCrystalAnimationSpeedOverride = 336; else
+		OCrystalAnimationSpeedOverride = 168;
 }
