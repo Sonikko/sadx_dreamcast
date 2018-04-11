@@ -58,7 +58,6 @@ static float heat_float1 = 1.0f; //1
 static float heat_float2 = 0.2f; //0.5
 static float alphathing = 1.0f;
 
-
 NJS_MATERIAL* FirstCharacterSpecular_General[] = {
 	//Hedgehog Hammer targets (possibly SL objects?)
 	(NJS_MATERIAL*)((size_t)ADV01CMODELS2 + 0x0011C478),
@@ -830,12 +829,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("WING_P");
 	ReplacePVM("WING_T");
 	ReplacePVM("ZOU");
-	//Animation speed fix
-	WriteData((float**)0x007A441B, &DashPanelAnimationSpeedOverride);
-	WriteData((short*)0x4AFB90, SpinnerYAnimationSpeedOverride);
-	WriteData((short*)0x4AFB8A, SpinnerXAnimationSpeedOverride);
-	WriteData((short*)0x4AFB85, SpinnerZAnimationSpeedOverride);
-	WriteData((short*)0x4AFD67, SpinnerBladesAnimationSpeedOverride);
+	
 		//Fix for badniks not spawning
 	WriteCall((void*)0x007AA9F9, AmenboFix);
 	WriteCall((void*)0x0049EFE7, EggKeeperFix);
