@@ -34,9 +34,6 @@ char TakiSpeed = 8;
 short TornadoSpeed = 345;
 double OHaneaSpeedOverride = 0.0013888885f;
 
-//Ice Cap
-double OBigTuraraAnimationSpeedOverride = 0.0013888885f;
-
 //Red Mountain
 float OGLSpeedOverride = 0.25f;
 float OLampSpeedOverride = 0.025f;
@@ -125,8 +122,6 @@ void SpeedFixes_OnFrame()
 			//Windy Valley
 			TornadoSpeed = 345;
 			OHaneaSpeedOverride = 0.002777777f;
-			//Ice Cap
-			OBigTuraraAnimationSpeedOverride = 0.002777777f;
 			//Sky Deck
 			OMekaSpeedOverride = 1.0f;
 			TankhSpeedOverride = 1.0f;
@@ -163,8 +158,6 @@ void SpeedFixes_OnFrame()
 			//Windy Valley
 			TornadoSpeed = 172;
 			OHaneaSpeedOverride = 0.0013888885f;
-			//Ice Cap
-			OBigTuraraAnimationSpeedOverride = 0.0013888885f;
 			//Red Mountain
 			OGLSpeedOverride = 0.25f;
 			//Sky Deck
