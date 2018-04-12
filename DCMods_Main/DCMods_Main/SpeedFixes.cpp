@@ -73,9 +73,9 @@ void SpeedFixes_Init()
 	WriteData((short*)0x004612DA, Tails_819); //6
 	WriteData((short*)0x004612ED, Tails_819); //7
 	//Emerald Coast
-	WriteData<1>((char*)0x004FB8BE, TakiSpeed);
+	WriteData((char*)0x004FB8BE, TakiSpeed);
 	//Windy Valley
-	WriteData<1>((short*)0x004DD8C8, TornadoSpeed);
+	WriteData((short*)0x004DD8C8, TornadoSpeed);
 	WriteData((double**)0x004E1169, &OHaneaSpeedOverride);
 	WriteData((double**)0x004E113E, &OHaneaSpeedOverride);
 	WriteData((double**)0x004E1194, &OHaneaSpeedOverride);
