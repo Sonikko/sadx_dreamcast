@@ -98,6 +98,12 @@ void AntennaSprite(NJS_ARGB *a1)
 		q1.g = 0;
 		q1.b = 0;
 	}
+	else if (a1->r > 1.0f)
+	{
+		q1.r = 1.0f;
+		q1.g = 1.0f;
+		q1.b = 1.0f;
+	}
 	else
 	{
 		q1.r = a1->r;
@@ -161,7 +167,9 @@ void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x00615D60, AntennaModel);
 	//Fix light sprites in various objects
 	WriteData<1>((char*)0x00615DBB, 0x8); //Antenna sprite blending SA_SRC
-	WriteData((float**)0x61662B, (float*)0x7DCB5C); //Prevent inversion of the GCLight sprite alpha sign
+	WriteData((float**)0x00615DA0, (float*)0x7DCB10); //Antenna sprite maximum brightness 1.0 instead of 0.5
+	WriteData((float**)0x00616625, (float*)0x7DCC98); //GCLight sprite maximum brightness 0.5 instead of 0.8
+	WriteData((float**)0x0061662B, (float*)0x7DCB5C); //Prevent inversion of the GCLight sprite alpha sign
 	WriteCall((void*)0x00615DB5, AntennaSprite);
 	WriteCall((void*)0x00616649, AntennaSprite); //This works for GCLight too
 	WriteCall((void*)0x00614122, RocketSprite);
