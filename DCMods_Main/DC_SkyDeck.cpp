@@ -27,7 +27,13 @@ DataPointer(NJS_OBJECT, stru_214E2A0, 0x214E2A0);
 DataPointer(NJS_OBJECT, stru_214C9E4, 0x214C9E4);
 DataPointer(NJS_OBJECT, stru_214E3AC, 0x214E3AC);
 DataPointer(NJS_OBJECT, stru_214BF20, 0x214BF20);
+DataArray(NJS_OBJECT*, Connect0DebrisArray, 0x223AE90, 9);
+DataArray(NJS_OBJECT*, Talap0DebrisArray, 0x0223AF78, 34);
+DataArray(char, byte_223AEB4, 0x223AEB4, 100);
+DataArray(char, byte_223B000, 0x223B000, 4);
 FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
+FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float scale), 0x407A00);
+FunctionPointer(void, sub_5ED790, (ObjectMaster *a1, NJS_OBJECT *a2), 0x5ED790);
 
 NJS_MATERIAL* WhiteDiffuse_SkyDeck[] = {
 	//Aircraft stuff
@@ -467,6 +473,141 @@ void RenderSmallCloud(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 	DrawQueueDepthBias = 0.0f;
 }
 
+void __cdecl Connect0Display_FixedRotation(ObjectMaster *a1)
+{
+	ObjectMaster *v1; // esi
+	EntityData1 *v2; // ebp
+	Angle v3; // eax
+	int v4; // ebx
+	NJS_OBJECT **v5; // edi
+	void *v6; // esi
+	Sint32 v7; // eax
+	int v8; // esi
+	Angle v9; // eax
+	Angle v10; // eax
+
+	v1 = a1;
+	v2 = a1->Data1;
+	if (!ClipObject(a1, 4410100.0f) && v2->Action != 1 && !MissedFrames)
+	{
+		njPushMatrix(0);
+		njTranslateV(0, &v2->Position);
+		v3 = v2->Rotation.y;
+		if (v3 && !*(Sint32*)&v2->LoopData)
+		{
+			njRotateY(0, (unsigned __int16)v3);
+		}
+		if (*(Sint32*)&v2->LoopData)
+		{
+			njSetTexture(&OBJ_SKYDECK_TEXLIST);
+			v4 = 0;
+			v5 = Connect0DebrisArray;
+			do
+			{
+				v6 = (void *)v2->LoopData;
+				v7 = *(_DWORD *)(*(Sint32*)&v6 + v4);
+				v8 = v4 + *(Sint32*)&v6;
+				if (!v7)
+				{
+					njPushMatrix(0);
+					njTranslateV(0, (NJS_VECTOR *)(v8 + 16));
+					v9 = *(_DWORD *)(v8 + 40);
+					if (v9)
+					{
+						njRotateZ(0, v9);
+					}
+					v10 = *(_DWORD *)(v8 + 36);
+					if (v10)
+					{
+						njRotateX(0, v10);
+					}
+					sub_407A00((*v5)->basicdxmodel, 1.0f);
+					njPopMatrix(1u);
+				}
+				++v5;
+				v4 += 44;
+			} while ((signed int)v5 < (signed int)byte_223AEB4);
+			v1 = a1;
+		}
+		else
+		{
+			njSetTexture(&OBJ_SKYDECK_TEXLIST);
+			ProcessModelNode_AB_Wrapper((NJS_OBJECT*)0x216B984, 1.0);
+		}
+		njPopMatrix(1u);
+		if (!*(Sint32*)&v2->LoopData)
+		{
+			sub_5ED790(v1, (NJS_OBJECT*)0x21D6D44);
+		}
+	}
+}
+
+void __cdecl Talap0Display_FixedRotation(ObjectMaster *a2)
+{
+	EntityData1 *v1; // ebp
+	Angle v2; // eax
+	Angle v22; // eax
+	int v3; // ebx
+	NJS_OBJECT** v4; // edi
+	void *v5; // esi
+	int v6; // eax
+	int v7; // esi
+	Angle v8; // eax
+	Angle v9; // eax
+
+	v1 = a2->Data1;
+	if (!ClipObject(a2, 4410100.0) && v1->Action != 1 && !MissedFrames)
+	{
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		v2 = v1->Rotation.y;
+		v22 = v1->Rotation.y + 0xC000;
+		if (v2 && !*(Sint32 *)&v1->LoopData)
+		{
+			njRotateY(0, v2);
+		}
+		if (*(Sint32 *)&v1->LoopData)
+		{
+			njRotateY(0, v22);
+			njSetTexture(&OBJ_SKYDECK_TEXLIST);
+			v3 = 0;
+			v4 = Talap0DebrisArray;
+			do
+			{
+				v5 = (void *)v1->LoopData;
+				v6 = *(_DWORD *)(*(Sint32 *)&v5 + v3);
+				v7 = v3 + *(Sint32*)&v5;
+				if (!v6)
+				{
+					njPushMatrix(0);
+					njTranslateV(0, (NJS_VECTOR *)(v7 + 16));
+					v8 = *(_DWORD *)(v7 + 40);
+					if (v8)
+					{
+						njRotateZ(0, v8);
+					}
+					v9 = *(_DWORD *)(v7 + 36);
+					if (v9)
+					{
+						njRotateX(0, v9);
+					}
+					sub_407A00(*((NJS_MODEL_SADX **)*v4 + 1), 1.0);
+					njPopMatrix(1u);
+				}
+				++v4;
+				v3 += 44;
+			} while ((signed int)v4 < (signed int)byte_223B000);
+			njPopMatrix(1u);
+		}
+		else
+		{
+			njSetTexture(&OBJ_SKYDECK_TEXLIST);
+			ProcessModelNode_AB_Wrapper((NJS_OBJECT*)0x21642D4, 1.0);
+			njPopMatrix(1u);
+		}
+	}
+}
+
 void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -531,6 +672,9 @@ void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 	((NJS_OBJECT*)0x214C9E4)->basicdxmodel->mats[3].attrflags |= NJD_DA_ONE | NJD_SA_ONE;
 	WriteCall((void*)0x005ED72F, RenderSmallCloud);
 	WriteJump((void*)0x005ED1E0, SkyDeckSky_new);
+	//Platform rotation fixes
+	WriteJump((void*)0x5FAD60, Connect0Display_FixedRotation);
+	WriteJump((void*)0x5FB4C0, Talap0Display_FixedRotation);
 	//Lantern stuff
 	if (DLLLoaded_Lantern == true)
 	{

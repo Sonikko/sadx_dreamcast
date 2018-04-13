@@ -25,6 +25,7 @@ DataPointer(NJS_BGRA, CurrentFogColorX, 0x03ABDC68);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *a1, int a2, float a3), 0x409E70);
 FunctionPointer(void, sub_408530, (NJS_OBJECT *o), 0x408530);
+FunctionPointer(void, sub_408350, (NJS_ACTION *a1, float a2, int a3, float a4), 0x408350);
 static int TornadoMode = 0;
 static float SkyTrans = 1.0f;
 
@@ -109,6 +110,14 @@ void RenderWindy1Sky()
 	DrawQueueDepthBias = 0;
 }
 
+void FixBranch(NJS_ACTION *a1, float a2, int a3, float a4)
+{
+	DrawQueueDepthBias = 2000.0f;
+	sub_408350(a1, a2, a3, a4);
+	DrawQueueDepthBias = 2200.0f;
+	sub_408350(&action_OTREEM_Action, a2, a3, a4);
+}
+
 void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SET0200S");
@@ -188,6 +197,10 @@ void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0xC30C44 = objectSTG02_00830C44; //Wind gate 2
 	*(NJS_OBJECT*)0xC305A4 = objectSTG02_008305A4; //Wind gate 3
 	*(NJS_OBJECT*)0xC2FF04 = objectSTG02_0082FF04; //Wind gate 4
+	//OTreeM fixes
+	*(NJS_OBJECT*)0xC2663C = object_000CB98C; //OTreeM DC model
+	WriteCall((void*)0x4E2BA1, FixBranch);
+	//Skybox/fog data stuff
 	for (int i = 0; i < 3; i++)
 	{
 		SkyboxScale_Windy1->Far.x = 1.0f;
