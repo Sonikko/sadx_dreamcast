@@ -232,7 +232,6 @@ void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData<1>((void*)0x0061A8EA, 0); //blending mode for glass
 	WriteData<1>((void*)0x0061A8EA, 0); //blending mode for glass 2
 	WriteData<1>((void*)0x0061A951, 0); //blending mode for glass 3
-	//WriteData<1>((char*)0x006167BA, 0x02); //OClight Speed Tweak
 	ResizeTextureList((NJS_TEXLIST*)0x2592E8C, textures_highway1);
 	ResizeTextureList((NJS_TEXLIST*)0x2581310, textures_highway2);
 	ResizeTextureList((NJS_TEXLIST*)0x24CAC94, textures_highway3);
