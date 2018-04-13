@@ -75,11 +75,11 @@ NJS_MATERIAL* WhiteDiffuse_Highway[] = {
 	((NJS_MATERIAL*)0x00971AF0),
 };
 
-void RocketSprite()
+void RocketSprite(float a, float r, float g, float b)
 {
-	if (RocketAlpha < 0) RocketAlpha = 0;
-	if (RocketAlpha > 255) RocketAlpha = 255;
-	SetMaterialAndSpriteColor_Float(RocketAlpha / 255.0f, 1.0f, 1.0f, 1.0f);
+	float af;
+	if (a < 0.0f) af = 0; else af = a;
+	SetMaterialAndSpriteColor_Float(af, r, g, b);
 }
 
 void AntennaModel(NJS_OBJECT *obj)
@@ -88,11 +88,23 @@ void AntennaModel(NJS_OBJECT *obj)
 	ProcessModelNode(&objectSTG04_022919C0_2, (QueuedModelFlagsB)0, 1.0f);
 }
 
-void AntennaSprite()
+void AntennaSprite(NJS_ARGB *a1)
 {
-	if (AntennaAlpha < 0) AntennaAlpha = 0;
-	if (AntennaAlpha > 255) AntennaAlpha = 255;
-	SetMaterialAndSpriteColor_Float(AntennaAlpha / 255.0f, 1.0f, 1.0f, 1.0f);
+	NJS_ARGB q1;
+	q1.a = 1.0f;
+	if (a1->r < 0.0f)
+	{
+		q1.r = 0;
+		q1.g = 0;
+		q1.b = 0;
+	}
+	else
+	{
+		q1.r = a1->r;
+		q1.g = a1->g;
+		q1.b = a1->b;
+	}
+	SetMaterialAndSpriteColor(&q1);
 }
 
 void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
@@ -145,11 +157,13 @@ void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x0061BB31, FountainPart3);
 	WriteData((NJS_OBJECT**)0x0061BC4C, &objectSTG04_00134B34); //Fountain bottom
 	WriteData((NJS_OBJECT**)0x026B3150, &objectSTG04_001350C8); //Fountain side
-	//Fix rocket/antenna sprite
 	*(NJS_OBJECT*)0x026919C0 = objectSTG04_022919C0; //Antenna model
 	WriteCall((void*)0x00615D60, AntennaModel);
-	WriteCall((void*)0x00615DB5, AntennaSprite);
+	//Fix light sprites in various objects
 	WriteData<1>((char*)0x00615DBB, 0x8); //Antenna sprite blending SA_SRC
+	WriteData((float**)0x61662B, (float*)0x7DCB5C); //Prevent inversion of the GCLight sprite alpha sign
+	WriteCall((void*)0x00615DB5, AntennaSprite);
+	WriteCall((void*)0x00616649, AntennaSprite); //This works for GCLight too
 	WriteCall((void*)0x00614122, RocketSprite);
 	if (DLLLoaded_Lantern == true)
 	{
