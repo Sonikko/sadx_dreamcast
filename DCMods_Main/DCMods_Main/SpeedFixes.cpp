@@ -39,7 +39,6 @@ float LeafPathRotxyOverride = 512.0f;
 float LeafPathPositionOverride = 0.444999995f; 
 float WCWindSpeedOverride = 0.05f;
 
-
 //Twinkle Park
 float Flag1AnimationSpeedOverride = 0.2f;
 
@@ -56,10 +55,8 @@ double OKaizAnimationSpeedOverride = 0.001388885f;
 int OCrystalAnimationSpeedOverride = 168;
 
 //Lost World
-/*float OTPanelSpeedOverride = 12.5f;
 float OTPanel1SpeedOverride = 0.0084745765f;
-char OTPanelTimer = 126;*/
-
+char OTPanelTimer = 120;
 
 void SpeedFixes_Init()
 {
@@ -131,20 +128,9 @@ void SpeedFixes_Init()
 	WriteData((double**)0x5D3F90, &OKaizAnimationSpeedOverride); //Captain Pirate / KaizS Animation Speed Tweak
 	WriteData((int**)0x5D3D68, &OCrystalAnimationSpeedOverride); //Spinning golden emerald Animation Speed Tweak	
 	//Lost World
-	/*WriteData((float**)0x005E8FD8, &OTPanelSpeedOverride);
-	WriteData((float**)0x005E8FE6, &OTPanelSpeedOverride);
-	//Place with multiplier
-	WriteData((float**)0x005E8EBB, &OTPanelSpeedOverride);
-	WriteData((float**)0x005E8EE2, &OTPanelSpeedOverride);
-	WriteData((float**)0x005E8EF9, &OTPanelSpeedOverride);
-	WriteData((float**)0x005E8F07, &OTPanelSpeedOverride);
-	*/
-	/*WriteData((float**)0x005E8F37, &OTPanel1SpeedOverride);
-	WriteData<1>((char*)0x005E9F45, OTPanelTimer); */
-
-	
-	
-}
+	WriteData((float**)0x005E8F37, &OTPanel1SpeedOverride); //multiplier
+	WriteData((char*)0x005E8BBD, OTPanelTimer);
+	}
 
 void SpeedFixes_OnFrame()
 {
@@ -194,12 +180,9 @@ void SpeedFixes_OnFrame()
 			OKaizAnimationSpeedOverride = 0.00277777f;
 			OCrystalAnimationSpeedOverride = 336;
 			//LostWorld
-			/*OTPanelSpeedOverride = 25.0f;
 			OTPanel1SpeedOverride = 0.016949153f;
-			OTPanelTimer = 253;*/
-			
-
-		}
+			OTPanelTimer = 60;
+			}
 		//60 FPS values
 		else
 		{
@@ -244,12 +227,9 @@ void SpeedFixes_OnFrame()
 			OKaizAnimationSpeedOverride = 0.001388885f;
 			OCrystalAnimationSpeedOverride = 168;
 			//LostWorld
-			/*OTPanelSpeedOverride = 12.5f;
 			OTPanel1SpeedOverride = 0.0084745765f;
-			OTPanelTimer = 126;*/
-			
-
-		}
+			OTPanelTimer = 120;
+			}
 		SpeedFixes_Init();
 		FramerateSettingOld = FramerateSetting;
 	}
