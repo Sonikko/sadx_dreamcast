@@ -87,7 +87,6 @@ DataPointer(int, InsideMachine, 0x3C7507C);
 DataPointer(NJS_OBJECT*, unk_1E05954, 0x1E05954);
 DataPointer(CollisionData, stru_1E77604, 0x1E77604);
 DataPointer(NJS_OBJECT, stru_1DF198C, 0x1DF198C);
-
 void __cdecl Loop_Display(ObjectMaster *a1)
 {
 	EntityData1 *v1; // esi@1
@@ -772,7 +771,7 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteJump((void*)0x5D44A0, TutuB_Display); //OTutuB display
 	WriteJump((void*)0x5D4550, TutuC_Display); //OTutuC display
 	WriteData((int*)0x1E77E58, 128); //Gear rotation speed
-	//Config stuff
+									 //Config stuff
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	CowgirlOn = config->getBool("Miscellaneous", "EnableCasinopolisCowgirl", true);
 	delete config;
