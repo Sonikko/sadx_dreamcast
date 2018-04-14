@@ -23,6 +23,20 @@ NJS_MATERIAL* ObjectSpecular_LostWorld[] = {
 
 };
 
+void RenderLWPlatformTriangle(NJS_MODEL_SADX *model, QueuedModelFlagsB blend, float scale)
+{
+	DrawQueueDepthBias = -2000.0f;
+	DrawModel_QueueVisible(model, blend, scale);
+	DrawQueueDepthBias = 0.0f;
+}
+
+void RenderLWPlatformLight(NJS_MODEL_SADX *model, QueuedModelFlagsB blend, float scale)
+{
+	DrawQueueDepthBias = -1000.0f;
+	DrawModel_QueueVisible(model, blend, scale);
+	DrawQueueDepthBias = 0.0f;
+}
+
 void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -115,6 +129,8 @@ void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 	((NJS_OBJECT*)0x279B014)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 	WriteData((float*)0x814CB4, -25.0f); //LW2 fog stuff
 	WriteData<1>((char*)0x005E315D, 0i8); //Prevent the mirror room from disabling character lighting
+	WriteCall((void*)0x5E9216, RenderLWPlatformTriangle);
+	WriteCall((void*)0x5E927F, RenderLWPlatformLight);
 	ResizeTextureList((NJS_TEXLIST*)0x1F6F02C, textures_lw1);
 	ResizeTextureList((NJS_TEXLIST*)0x1E9B9AC, textures_lw2);
 	ResizeTextureList((NJS_TEXLIST*)0x1E79D80, textures_lw3);
