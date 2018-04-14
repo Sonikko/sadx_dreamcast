@@ -127,7 +127,6 @@ void SpeedFixes_Init()
 	WriteData((double**)0x5C747C, &OKaizAnimationSpeedOverride); //OKaizb Animation Speed Tweak
 	WriteData((double**)0x5C698C, &OKaizAnimationSpeedOverride); //Green Pirate / KaizC Animation Speed Tweak
 	WriteData((double**)0x5C5E9C, &OKaizAnimationSpeedOverride); //Captain Pirate / KaizS Animation Speed Tweak
-	WriteData((double**)0x5D3F90, &OKaizAnimationSpeedOverride); //Captain Pirate / KaizS Animation Speed Tweak
 	WriteData((int**)0x5D3D68, &OCrystalAnimationSpeedOverride); //Spinning golden emerald Animation Speed Tweak	
 	//Lost World
 	WriteData((float**)0x005E8F37, &OTPanel1SpeedOverride); //multiplier
