@@ -27,6 +27,7 @@ static int RotationAngle2 = 0;
 static int SoundPlayed = 0;
 static int shift1 = 65;
 static int shift2 = -10;
+static int shift3 = 0;
 static int carduvSTG09_reala = 1;
 static float cowgirlframe = 0;
 static int cowgirl_shift1 = 65;
@@ -861,7 +862,7 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 		bumpertex2[uvSTG09_bump2].v = uvSTG09_01998418[uvSTG09_bump2].v;
 	}
 	//Lion top animation
-	lionmesh[0].vertuv = uvSTG09_019FEA58;
+	lionmesh[0].vertuv = uv_lion;
 	((NJS_OBJECT*)0x01E3FD04)->evalflags |= NJD_EVAL_HIDE; //Hide OKbS
 	((NJS_OBJECT*)0x01E3D734)->evalflags |= NJD_EVAL_HIDE; //Hide OKbC
 	WriteCall((void*)0x5CE84B, RenderOKBSText);
@@ -1053,6 +1054,14 @@ void Casinopolis_OnFrame()
 		matlistSTG09_01979784[0].attr_texId = anim1;
 		if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim1_actual++;
 		//Card machine and lion top animation
+		if (FrameCounter % 8 == 0)
+		{
+			shift3 = (shift3 + 127) % 255;
+		}
+		for (int xz2 = 0; xz2 < LengthOfArray(uv_lion); xz2++)
+		{
+			uv_lion[xz2].u = (uv_lion_0[xz2].u - shift3);
+		}
 		if (FrameCounter % 12 == 0)
 		{
 			shift1 = (shift1 + 65) % 255;
@@ -1096,10 +1105,6 @@ void Casinopolis_OnFrame()
 			for (int xz = 0; xz < LengthOfArray(uvSTG09_01A48AD8); xz++)
 			{
 				uvSTG09_01A48AD8[xz].u = (uvSTG09_01A48AD8_0[xz].u + shift1);
-			}
-			for (int xz2 = 0; xz2 < LengthOfArray(uvSTG09_019FEA58); xz2++)
-			{
-				uvSTG09_019FEA58[xz2].u = (uvSTG09_019FEA58_0[xz2].u - shift1);
 			}
 		}
 		//Waterfalls

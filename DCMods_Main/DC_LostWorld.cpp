@@ -147,7 +147,7 @@ void LostWorld_OnFrame()
 		matlistSTG07_000584CC[0].attr_texId = animw1;
 		matlistSTG07_00057E90[0].attr_texId = animw1;
 		matlistSTG07_00059BE8[0].attr_texId = animw1;
-		if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) animw1++;
+		if (!MissedFrames) animw1++;
 	}
 	if (CurrentLevel == 7 && CurrentAct == 1 && GameState != 16)
 	{
@@ -163,6 +163,6 @@ void LostWorld_OnFrame()
 		matlistSTG07_000ECF80[0].attr_texId = animw2;
 		matlistSTG07_000EABDC[0].attr_texId = animw2;
 		matlistSTG07_000EBB3C[0].attr_texId = animw2;
-		if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) animw2++;
+		if (!MissedFrames) animw2++;
 	}
 }
