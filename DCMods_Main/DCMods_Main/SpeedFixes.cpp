@@ -57,6 +57,8 @@ int OCrystalAnimationSpeedOverride = 168;
 //Lost World
 float OTPanel1SpeedOverride = 0.0084745765f;
 char OTPanelTimer = 120;
+char LostWorldDoorFix = 34;
+char LostWorldDoorFix1 = 6;
 
 void SpeedFixes_Init()
 {
@@ -125,11 +127,15 @@ void SpeedFixes_Init()
 	WriteData((double**)0x5C747C, &OKaizAnimationSpeedOverride); //OKaizb Animation Speed Tweak
 	WriteData((double**)0x5C698C, &OKaizAnimationSpeedOverride); //Green Pirate / KaizC Animation Speed Tweak
 	WriteData((double**)0x5C5E9C, &OKaizAnimationSpeedOverride); //Captain Pirate / KaizS Animation Speed Tweak
-	WriteData((double**)0x5D3F90, &OKaizAnimationSpeedOverride); //Captain Pirate / KaizS Animation Speed Tweak
 	WriteData((int**)0x5D3D68, &OCrystalAnimationSpeedOverride); //Spinning golden emerald Animation Speed Tweak	
 	//Lost World
 	WriteData((float**)0x005E8F37, &OTPanel1SpeedOverride); //multiplier
 	WriteData((char*)0x005E8BBD, OTPanelTimer);
+	WriteData((char*)0x005E7C3A, LostWorldDoorFix);
+	WriteData((char*)0x005E78E1, LostWorldDoorFix);
+	WriteData((char*)0x005E7C63, LostWorldDoorFix1);
+	WriteData((char*)0x005E7841, LostWorldDoorFix1);
+
 	}
 
 void SpeedFixes_OnFrame()
@@ -182,6 +188,8 @@ void SpeedFixes_OnFrame()
 			//LostWorld
 			OTPanel1SpeedOverride = 0.016949153f;
 			OTPanelTimer = 60;
+			LostWorldDoorFix = 17;
+			LostWorldDoorFix1 = 3;
 			}
 		//60 FPS values
 		else
@@ -229,6 +237,8 @@ void SpeedFixes_OnFrame()
 			//LostWorld
 			OTPanel1SpeedOverride = 0.0084745765f;
 			OTPanelTimer = 120;
+			LostWorldDoorFix = 34;
+			LostWorldDoorFix1 = 6;
 			}
 		SpeedFixes_Init();
 		FramerateSettingOld = FramerateSetting;
