@@ -7,6 +7,7 @@ DataPointer(HWND, WindowHandle, 0x03D0FD30);
 DataPointer(int, FramerateSetting_Config, 0x0089295C);
 
 extern int EnableSETFixes;
+extern bool EnableSpeedFixes;
 extern bool DLLLoaded_DLCs;
 extern bool DLLLoaded_SA1Chars;
 extern bool DLLLoaded_Lantern;

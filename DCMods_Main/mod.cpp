@@ -21,7 +21,6 @@ static bool EnableMysticRuins = true;
 static bool EnableEggCarrier = true;
 static bool EnablePast = true;
 static bool DisableAllVideoStuff = true;
-static bool EnableSpeedFixes = true;
 
 static bool SADXWater_EmeraldCoast = false;
 static bool SADXWater_StationSquare = false;
@@ -38,6 +37,7 @@ bool DLLLoaded_Lantern = false;
 bool DLLLoaded_HDGUI = false;
 bool DLLLoaded_DLCs = false;
 bool DLLLoaded_SADXFE = false;
+bool EnableSpeedFixes = true;
 
 extern "C"
 {

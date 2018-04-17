@@ -231,9 +231,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
     </ClCompile>
     <ClCompile Include="..\Videos.cpp" />
-    <ClCompile Include="SpeedFixes.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Use</PrecompiledHeader>
-    </ClCompile>
+    <ClCompile Include="..\SpeedFixes.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\Data\ADV01C_00.h" />

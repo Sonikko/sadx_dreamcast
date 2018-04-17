@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
-#include <Trampoline.h>
 #include "stdlib.h"
 #include <math.h> 
 #include <lanternapi.h>
@@ -640,20 +639,6 @@ void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
 void ColorizeRecapText(int a1, int a2, float a3, float a4, float a5, float a6, float a7, float a8)
 {
 	sub_6424A0(a1, 0xFFF8F8F8, a3, a4, a5, a6, a7, a8);
-}
-
-//Spike balls slowdown
-
-static void __cdecl SwingSpikeBall_Load_r(ObjectMaster *a1);
-static Trampoline SwingSpikeBall_Load_t(0x7A4260, 0x7A4266, SwingSpikeBall_Load_r);
-static void __cdecl SwingSpikeBall_Load_r(ObjectMaster *a1)
-{
-	auto original = reinterpret_cast<decltype(SwingSpikeBall_Load_r)*>(SwingSpikeBall_Load_t.Target());
-	if (FramerateSetting < 2)
-	{
-		a1->Data1->Scale.z = a1->Data1->Scale.z / 2;
-	}
-	original(a1);
 }
 
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
