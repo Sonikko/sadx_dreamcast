@@ -7,7 +7,11 @@
 #include "HotShelter3.h"
 #include "DC_Levels.h"
 
+FunctionPointer(void, sub_405370, (NJS_OBJECT *a1, NJS_MOTION *a2, float a3, float a4), 0x405370);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(float, E105HitCounter, 0x03C58158);
+DataPointer(float, CurrentFogDist, 0x03ABDC64);
+DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataArray(NJS_TEX, uvSTG12_01410790, 0x01810790, 20); //Water thing UVs 1
 DataArray(NJS_TEX, uvSTG12_014107E0, 0x018107E0, 56); //Water thing UVs 2
 DataArray(NJS_MATERIAL, WaterThingMaterials, 0x18106C4, 2); //Water thing materials
@@ -17,6 +21,8 @@ static float suimen_increment = 0.0f;
 static int suimen_direction = 1;
 static int TextureAnim = 78;
 static int WaterThing_VShift = 0;
+static bool ReduceHotShelterFog = false;
+static Angle E105Angle = 0;
 
 NJS_MATERIAL* LevelSpecular_HotShelter[] = {
 	((NJS_MATERIAL*)0x01A3AD08), //Glass tube elevator
@@ -246,6 +252,27 @@ void RenderOHikari(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 	DrawQueueDepthBias = 0.0f;
 }
 
+void E105Animation(NJS_OBJECT *a1, NJS_MOTION *a2, float a3, float a4)
+{
+	sub_405370(a1, a2, a3, a4);
+	if (!MissedFrames && GameState != 16 && E105HitCounter > 0)
+	{
+		E105Angle = (E105Angle + 1024 * FramerateSetting) % 65535;
+		((NJS_OBJECT*)0x017D6C64)->pos[1] = -7.5f - 7.5f*njSin((E105Angle + 1024 * FramerateSetting) % 65535);
+		((NJS_OBJECT*)0x017D72FC)->pos[1] = -7.5f - 7.5f*njSin((E105Angle + 8192 + 1024 * FramerateSetting) % 65535);
+		((NJS_OBJECT*)0x017D7994)->pos[1] = -7.5f - 7.5f*njSin((E105Angle + 24576 + 1024 * FramerateSetting) % 65535);
+		((NJS_OBJECT*)0x017D589C)->pos[1] = -7.5f - 7.5f*njSin((E105Angle + 49152 + 1024 * FramerateSetting) % 65535);
+		((NJS_OBJECT*)0x017D5F34)->pos[1] = -7.5f - 7.5f*njSin((E105Angle + 32768 + 1024 * FramerateSetting) % 65535);
+		((NJS_OBJECT*)0x017D65CC)->pos[1] = -7.5f - 7.5f*njSin((E105Angle + 16384 + 1024 * FramerateSetting) % 65535);
+	}
+}
+
+void PlayMusicHook_DisableE105Fog(MusicIDs song)
+{
+	PlayMusic(song);
+	ReduceHotShelterFog = true;
+}
+
 void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -286,6 +313,8 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("HOTSHELTER4");
 	ReplacePVM("SHELTER_COLUMN");
 	ReplacePVM("SHELTER_SUIMEN");
+	WriteCall((void*)0x5A3A03, PlayMusicHook_DisableE105Fog); //Hook to disable fog in E105 room
+	WriteCall((void*)0x005A3C99, E105Animation); //Add missing E105 Zeta animation
 	WriteCall((void*)0x0059F75C, AmyHatchFix); //Don't make the ventilation hatch solid when playing as Amy
 	WaterThingMaterials[0].attr_texId = 44;
 	WaterThingMaterials[1].attr_texId = 3;
@@ -356,6 +385,16 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 void HotShelter_OnFrame()
 {
 	{
+		if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21) ReduceHotShelterFog = false;
+		//Fog in E105 room
+		if (CurrentLevel == 12 && CurrentAct == 2 && GameState != 16)
+		{
+			if (ReduceHotShelterFog == true)
+			{
+				if (CurrentFogDist < 6000) CurrentFogDist = CurrentFogDist + 32.0f;
+				if (CurrentFogLayer < 2000) CurrentFogLayer = CurrentFogLayer + 16.0f;
+			}
+		}
 		if (CurrentLevel == 12 && CurrentAct == 0 && GameState != 16)
 		{
 			//Waterfall UVs
