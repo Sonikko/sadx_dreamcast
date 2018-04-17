@@ -62,20 +62,6 @@ char OTPanelTimer = 120;
 char LostWorldDoorFix = 34;
 char LostWorldDoorFix1 = 6;
 
-//Spike balls slowdown
-
-static void __cdecl SwingSpikeBall_Main_r(ObjectMaster *a1);
-static Trampoline SwingSpikeBall_Main_t(0x7A3F00, 0x7A3F07, SwingSpikeBall_Main_r);
-static void __cdecl SwingSpikeBall_Main_r(ObjectMaster *a1)
-{
-	auto original = reinterpret_cast<decltype(SwingSpikeBall_Main_r)*>(SwingSpikeBall_Main_t.Target());
-	if (EnableSpeedFixes == true && CurrentLevel == 6 && FramerateSetting < 2)
-	{
-		a1->Data1->Scale.z = a1->Data1->Scale.z * 0.5f;
-	}
-	original(a1);
-}
-
 void SpeedFixes_Init()
 {
 	//General
