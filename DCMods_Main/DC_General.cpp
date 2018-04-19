@@ -46,6 +46,7 @@ static bool EnableCutsceneFix = true;
 static std::string EnableImpressFont = "Off";
 static bool ColorizeFont = true;
 static bool DisableFontSmoothing = true;
+static bool EnableLSDFix = false;
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
 static int EmeraldGlowAlpha = 255;
@@ -54,6 +55,7 @@ static bool EnableDCRipple = true;
 static float heat_float1 = 1.0f; //1
 static float heat_float2 = 0.2f; //0.5
 static float alphathing = 1.0f;
+static float LSDFix = 16.0f;
 
 NJS_MATERIAL* FirstCharacterSpecular_General[] = {
 	//Hedgehog Hammer targets (possibly SL objects?)
@@ -888,7 +890,16 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	EnableImpressFont = config->getString("General", "EnableImpressFont", "Impress");
 	ColorizeFont = config->getBool("General", "ColorizeFont", true);
 	DisableFontSmoothing = config->getBool("General", "DisableFontSmoothing", true);
+	EnableLSDFix = config->getBool("Miscellaneous", "EnableLSDFix", false);
 	delete config;
+	//Light Speed Dash distance fix
+	if (EnableLSDFix == true)
+	{
+		WriteData<1>((char*)0x0049306C, 0x80);
+		WriteData<1>((char*)0x00492FED, 0x80);
+		WriteData<1>((char*)0x00492CC1, 0x80);
+		WriteData((float**)0x00492CB0, &LSDFix);
+	}
 	//Enable Impress font
 	if (DisableFontSmoothing == true)
 	{
