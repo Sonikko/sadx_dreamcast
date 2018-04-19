@@ -895,10 +895,10 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Light Speed Dash distance fix
 	if (EnableLSDFix == true)
 	{
-		WriteData<1>((char*)0x0049306C, 0x80);
-		WriteData<1>((char*)0x00492FED, 0x80);
-		WriteData<1>((char*)0x00492CC1, 0x80);
-		WriteData((float**)0x00492CB0, &LSDFix);
+		WriteData<1>((char*)0x0049306C, 0x80); //Initial speed 16 instead of 8
+		WriteData<1>((char*)0x00492FED, 0x80); //Initial speed 16 instead of 8
+		WriteData<1>((char*)0x00492CC1, 0x80); //Set speed to 16 if below minimum
+		WriteData((float**)0x00492CB0, &LSDFix); //16 is the minimum speed
 	}
 	//Enable Impress font
 	if (DisableFontSmoothing == true)
