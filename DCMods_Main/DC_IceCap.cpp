@@ -110,6 +110,37 @@ void CrystalParticle(NJS_VECTOR *a1, NJS_VECTOR *a2, int a3, signed int a4)
 	ParticleDepthOverride = 0;
 }
 
+void __cdecl FixedAvalanche(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi
+	EntityData1 *v2; // eax
+	Angle v3; // ecx
+	Angle v4; // ecx
+
+	v1 = a1->Data1;
+	if (!MissedFrames)
+	{
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		v2 = Camera_Data1;
+		v3 = Camera_Data1->Rotation.y;
+		if (v3)
+		{
+			njRotateY(0, (unsigned __int16)v3);
+			v2 = Camera_Data1;
+		}
+		v4 = v2->Rotation.x;
+		if (v4)
+		{
+			njRotateX(0, (unsigned __int16)v4);
+		}
+		njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		njDrawSprite3D_Queue((NJS_SPRITE*)0xE94658, *(Sint32*)&v1->Object / 2, NJD_SPRITE_ALPHA, QueuedModelFlagsB_SomeTextureThing);
+		njPopMatrix(1u);
+	}
+}
+
 void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -158,6 +189,7 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 	//WriteJump((void*)0x4EF5A0, sub_4EF5A0X);
 	WriteCall((void*)0x004EFEF7, RenderIcicleSpriteThing);
 	WriteCall((void*)0x004EFE10, RenderSmallIcicles);
+	WriteJump((void*)0x4EB770, FixedAvalanche);
 	*(NJS_OBJECT*)0x00E6FECC = objectSTG08_00A6FECC; // Giant icicle
 	//Snowboard fix
 	HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
