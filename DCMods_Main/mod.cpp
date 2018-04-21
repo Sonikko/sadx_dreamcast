@@ -4,6 +4,7 @@
 #include <IniFile.hpp>
 #include "DC_Levels.h"
 
+bool EnableWindowTitle = true;
 bool EnableDCBranding = true;
 bool EnableEmeraldCoast = true;
 bool EnableWindyValley = true;
@@ -52,9 +53,9 @@ extern "C"
 		HMODULE MRFinalEggFix = GetModuleHandle(L"MRFinalEggFix");
 		HMODULE WaterEffect = GetModuleHandle(L"WaterEffect");
 		//Error messages
-		if (helperFunctions.Version < 6)
+		if (helperFunctions.Version < 7)
 		{
-			MessageBoxA(WindowHandle, "Mod Loader out of date. Dreamcast Conversion requires API version 6 or newer.",
+			MessageBoxA(WindowHandle, "Please update SADX Mod Loader. Dreamcast Conversion requires API version 7 or newer.",
 				"DC Conversion error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
@@ -70,6 +71,7 @@ extern "C"
 		//Read config stuff for levels and branding
 		EnableDCBranding = config->getBool("General", "EnableDreamcastBranding", true);
 		EnableSpeedFixes = config->getBool("General", "EnableSpeedFixes", true);
+		EnableWindowTitle = config->getBool("General", "EnableWindowTitle", true);
 		EnableEmeraldCoast = config->getBool("Levels", "EnableEmeraldCoast", true);
 		EnableWindyValley = config->getBool("Levels", "EnableWindyValley", true);
 		EnableTwinklePark = config->getBool("Levels", "EnableTwinklePark", true);
@@ -92,6 +94,8 @@ extern "C"
 		if (EnableSETFixes_String == "Normal") EnableSETFixes = 1;
 		if (EnableSETFixes_String == "Extra") EnableSETFixes = 2;
 		delete config;
+		//Set window title
+		if (EnableWindowTitle == true) helperFunctions.SetWindowTitle("Sonic Adventure");
 		//Another error message
 		if (EnableEmeraldCoast == true && WaterEffect != nullptr)
 		{
