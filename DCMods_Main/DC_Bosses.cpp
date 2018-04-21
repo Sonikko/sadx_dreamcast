@@ -828,7 +828,10 @@ static Trampoline E101R_OceanDraw_t(0x56CC30, 0x56CC38, E101R_OceanDraw_r);
 static void __cdecl E101R_OceanDraw_r(OceanData *a1)
 {
 	auto original = reinterpret_cast<decltype(E101R_OceanDraw_r)*>(E101R_OceanDraw_t.Target());
-	if (SADXStyleWater_ZeroE101R == false) RenderBossECOcean();
+	if (EnableZeroE101R == true && SADXStyleWater_ZeroE101R == false)
+	{
+		RenderBossECOcean();
+	}
 	else original(a1);
 }
 
@@ -837,7 +840,10 @@ static Trampoline Zero_OceanDraw_t(0x587E10, 0x587E18, Zero_OceanDraw_r);
 static void __cdecl Zero_OceanDraw_r(OceanData *a1)
 {
 	auto original = reinterpret_cast<decltype(Zero_OceanDraw_r)*>(Zero_OceanDraw_t.Target());
-	if (SADXStyleWater_ZeroE101R == false) RenderBossECOcean();
+	if (EnableZeroE101R == true && SADXStyleWater_ZeroE101R == false)
+	{
+		RenderBossECOcean();
+	}
 	else original(a1);
 }
 

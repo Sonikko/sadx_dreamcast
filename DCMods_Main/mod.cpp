@@ -4,23 +4,23 @@
 #include <IniFile.hpp>
 #include "DC_Levels.h"
 
-static bool EnableDCBranding = true;
-static bool EnableEmeraldCoast = true;
-static bool EnableWindyValley = true;
-static bool EnableTwinklePark = true;
-static bool EnableSpeedHighway = true;
-static bool EnableRedMountain = true;
-static bool EnableSkyDeck = true;
-static bool EnableLostWorld = true; 
-static bool EnableIceCap = true;
-static bool EnableCasinopolis = true;
-static bool EnableFinalEgg = true;
-static bool EnableHotShelter = true;
-static bool EnableStationSquare = true;
-static bool EnableMysticRuins = true;
-static bool EnableEggCarrier = true;
-static bool EnablePast = true;
-static bool DisableAllVideoStuff = true;
+bool EnableDCBranding = true;
+bool EnableEmeraldCoast = true;
+bool EnableWindyValley = true;
+bool EnableTwinklePark = true;
+bool EnableSpeedHighway = true;
+bool EnableRedMountain = true;
+bool EnableSkyDeck = true;
+bool EnableLostWorld = true; 
+bool EnableIceCap = true;
+bool EnableCasinopolis = true;
+bool EnableFinalEgg = true;
+bool EnableHotShelter = true;
+bool EnableStationSquare = true;
+bool EnableMysticRuins = true;
+bool EnableEggCarrier = true;
+bool EnablePast = true;
+bool DisableAllVideoStuff = true;
 
 static bool SADXWater_EmeraldCoast = false;
 static bool SADXWater_StationSquare = false;

@@ -1,6 +1,5 @@
 #include "stdafx.h"
 #include <SADXModLoader.h>
-#include <Trampoline.h>
 #include "DC_Levels.h"
 #include <IniFile.hpp>
 
