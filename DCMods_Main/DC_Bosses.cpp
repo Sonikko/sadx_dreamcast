@@ -907,6 +907,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("CHAOS0");
 		ReplacePVM("CHAOS0_EFFECT");
 		ReplacePVM("CHAOS0_OBJECT");
+		WriteData<1>((char*)0x54932B, 0x08); //Police car lights blending mode
 		___LANDTABLEBOSSCHAOS0[0] = &landtable_000001D8;
 		___BOSSCHAOS0_TEXLISTS[2] = &texlist_chaos0;
 		___BOSSCHAOS0_TEXLISTS[3] = &chaos0_object;
