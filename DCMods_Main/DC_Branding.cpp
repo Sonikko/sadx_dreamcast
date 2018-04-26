@@ -1070,6 +1070,10 @@ void DrawBG_CreditsLogo(int texnum, float x, float y, float z, float scaleX, flo
 
 void __cdecl PauseMenu_ActuallyDrawTheThings_Flip(int n, NJS_POINT2 *pos, NJS_POINT2 *scale, int colorize, int flipmode)
 {
+	float r;
+	float g;
+	float b;
+	int numpieces;
 	NJD_SPRITE spriteflags = NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR;
 	float pri; // [esp+0h] [ebp-24h]
 	NJS_SPRITE _sp; // [esp+4h] [ebp-20h]
@@ -1089,32 +1093,41 @@ void __cdecl PauseMenu_ActuallyDrawTheThings_Flip(int n, NJS_POINT2 *pos, NJS_PO
 	}
 	if (colorize == 0)
 	{
-		_sp.tanim = &PauseMenu_TEXANIM;
-		SetMaterialAndSpriteColor_Float(0.9f, 1.0f, 1.0f, 1.0f);
-		njDrawSprite2D_Queue(&_sp, n, pri, spriteflags, QueuedModelFlagsB_SomeTextureThing);
+		numpieces = (scale->y) * 16;
+
+		for (int i = 0; i < numpieces; i++)
+		{
+			_sp.sy = 1.0f/16.0f;
+			_sp.p.y = pos->y + i;
+			_sp.tanim = &PauseMenu_TEXANIM;
+			g = 0.458f - (0.458f / numpieces)*i;
+			b = 0.78f - (0.48f / numpieces)*i;
+			SetMaterialAndSpriteColor_Float(0.9f, 0, g, b);
+			njDrawSprite2D_Queue(&_sp, n, pri, spriteflags, QueuedModelFlagsB_SomeTextureThing);
+		}
 	}
 	if (colorize == 1)
 	{
 		_sp.tanim = &PauseMenu_TEXANIM;
-		SetMaterialAndSpriteColor_Float(0.9f, 0.0f, 0.4588f, 0.7803f);
+		SetMaterialAndSpriteColor_Float(0.9f, 0.0f, 0.458f, 0.78f);
 		njDrawSprite2D_Queue(&_sp, n, pri, spriteflags, QueuedModelFlagsB_SomeTextureThing);
 	}
 	if (colorize == 2)
 	{
 		_sp.tanim = &PauseMenu_TEXANIM;
-		SetMaterialAndSpriteColor_Float(0.9f, 0.0f, 0, 0.3058f);
+		SetMaterialAndSpriteColor_Float(0.9f, 0.0f, 0, 0.3f);
 		njDrawSprite2D_Queue(&_sp, n, pri, spriteflags, QueuedModelFlagsB_SomeTextureThing);
 	}
 	if (colorize == 3)
 	{
 		_sp.tanim = &PauseBar_Top;
-		SetMaterialAndSpriteColor_Float(0.9f, 1.0f, 1.0f, 1.0f);
+		SetMaterialAndSpriteColor_Float(0.9f, 0.0f, 0.458f, 0.78f);
 		njDrawSprite2D_Queue(&_sp, 0, pri, spriteflags, QueuedModelFlagsB_SomeTextureThing);
 	}
 	if (colorize == 4)
 	{
 		_sp.tanim = &PauseBar_Bottom;
-		SetMaterialAndSpriteColor_Float(0.9f, 1.0f, 1.0f, 1.0f);
+		SetMaterialAndSpriteColor_Float(0.9f, 0.0f, 0, 0.3f);
 		njDrawSprite2D_Queue(&_sp, 0, pri, spriteflags, QueuedModelFlagsB_SomeTextureThing);
 	}
 }
@@ -1179,6 +1192,52 @@ void DrawPauseBox_DC(int n, NJS_POINT2 *pos, NJS_POINT2 *scale)
 	scale2.x = 1.0f;
 	scale2.y = 1.0f;
 	PauseMenu_ActuallyDrawTheThings_Flip(7, &tempps, &scale2, 2, 3);
+}
+
+void DrawPauseSelectionBox_DC(int n, NJS_POINT2 *pos, NJS_POINT2 *scale)
+{
+	float r;
+	float g;
+	float b;
+	int numpieces;
+
+	float pri; // [esp+0h] [ebp-24h]
+	NJS_SPRITE _sp; // [esp+4h] [ebp-20h]
+
+	_sp.tlist = &PauseMenu_TEXLIST;
+	_sp.tanim = &PauseMenu_TEXANIM;
+	_sp.p.x = pos->x;
+	_sp.p.y = pos->y;
+	_sp.p.z = -1.0001;
+	_sp.sx = scale->x;
+	_sp.sy = scale->y;
+	pri = -1.0001;
+	if (-1.0001 >= -3.0 && -1.0001 < 12048.0)
+	{
+		pri = -1.0001 + 22048.0;
+	}
+	numpieces = 32 * scale->y;
+	for (int i = 0; i < numpieces; i++)
+	{
+		//Draw left side+top to bottom
+		if (i<3*scale->y || i>29 * scale->y)_sp.sx = scale->x*8.0f;
+		else _sp.sx = (scale->x*8.0f)/64.0f;
+		_sp.sy = 1.0f/16.0f;
+		_sp.p.x = pos->x;
+		_sp.p.y = pos->y + i;
+		_sp.tanim = &PauseMenu_TEXANIM;
+		r = 0.820f + (0.066f / (float)numpieces)*i;
+		g = 0.549f + (0.301f / (float)numpieces)*i;
+		b = 0.027f + (0.031f / (float)numpieces)*i;
+		SetMaterialAndSpriteColor_Float(1.0f, r, g, b);
+		njDrawSprite2D_Queue(&_sp, 8, pri, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR, QueuedModelFlagsB_SomeTextureThing);
+		//Draw right side
+		if (i >= 3 * scale->y && i <= 29 * scale->y)
+		{
+			_sp.p.x = pos->x + 126.0f*scale->x;
+			njDrawSprite2D_Queue(&_sp, 8, pri, NJD_SPRITE_ALPHA | NJD_SPRITE_COLOR, QueuedModelFlagsB_SomeTextureThing);
+		}
+	}
 }
 
 void DrawSprite_Hook(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr, QueuedModelFlagsB queue_flags)
@@ -1621,6 +1680,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		}
 	}
 	//Pause box stuff
+	WriteCall((void*)0x00458232, DrawPauseSelectionBox_DC);
 	WriteCall((void*)0x004585DA, DrawPauseBox_DC);
 	WriteCall((void*)0x00459085, DrawPauseBox_DC);
 	WriteCall((void*)0x00458DBB, DrawPauseBox_DC);
