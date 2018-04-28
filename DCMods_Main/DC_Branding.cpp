@@ -1359,9 +1359,9 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("TUTOBG_SONIC");
 	ReplacePVM("TUTOBG_TAILS");
 	ReplacePVM("AVA_FSCMN_E");
-	WriteCall((void*)0x64393E, GreenRect_Wrapper);
 	if (DLLLoaded_HDGUI == false)
 	{
+		WriteCall((void*)0x64393E, GreenRect_Wrapper); //Fix alpha rejection on green rectangle in tutorials
 		//Tutorial stuff
 		//PVMs
 		ReplacePVM("TUTO_CMN");

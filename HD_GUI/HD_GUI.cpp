@@ -120,13 +120,19 @@ void DrawSprite_Hook(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr, QueuedMo
 	njTextureShadingMode(2);
 }
 
+void GreenRect_Wrapper(float x, float y, float z, float width, float height)
+{
+	njTextureShadingMode(1);
+	GreenMenuRect_Draw(x, y, z, width, height);
+	njTextureShadingMode(2);
+}
+
 extern "C"
 {
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		char pathbuf[MAX_PATH];
-
 		HMODULE GoalRing = GetModuleHandle(L"GoalRing");
 		if (helperFunctions.Version < 6)
 		{
@@ -134,6 +140,8 @@ extern "C"
 				"HD GUI error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
+		//Fix green rectangle in tutorials
+		WriteCall((void*)0x64393E, GreenRect_Wrapper);
 		//Fix random ring icon
 		WriteData((NJS_TEXANIM**)0x4C03FF, &RandomRingIconPart_TEXANIM);
 		//Various fixes
