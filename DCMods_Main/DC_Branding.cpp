@@ -3,6 +3,27 @@
 #include <IniFile.hpp>
 #include "DC_Levels.h"
 
+struct TutorialScreenData
+{
+	__int16 BoxX;
+	__int16 BoxY;
+	__int16 anonymous_2;
+	__int16 BoxScaleX;
+	__int16 BoxScaleY;
+	__int16 anonymous_3;
+	void *Pointer1;
+	void *Pointer2;
+};
+
+struct TutorialScreenItem
+{
+	char TexID;
+	char unknown;
+	__int16 XOffset;
+	__int16 YOffset;
+};
+
+FunctionPointer(ObjectMaster*, sub_510390, (int a1), 0x510390);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(CreditsList, MainCredits, 0x2BC2FD0);
 DataArray(PVMEntry, GUITextures_Japanese, 0x007EECF0, 30);
@@ -12,7 +33,57 @@ DataArray(PVMEntry, GUITextures_Spanish, 0x007EEFC0, 30);
 DataArray(PVMEntry, GUITextures_German, 0x007EF0B0, 30);
 DataArray(NJS_TEXANIM, PauseMenu_TEXANIMs, 0x009177B8, 15);
 
-FunctionPointer(ObjectMaster*, sub_510390, (int a1), 0x510390);
+//Tutorial screens
+DataArray(TutorialScreenData, TutoScreenSonic_E, 0x2BC3C30, 7);
+DataArray(TutorialScreenData, TutoScreenSonic_J, 0x2BC3BA0, 7);
+DataArray(TutorialScreenData, TutoScreenSonic_F, 0x2BC3CC0, 7);
+DataArray(TutorialScreenData, TutoScreenSonic_G, 0x2BC3DE0, 7);
+DataArray(TutorialScreenData, TutoScreenSonic_S, 0x2BC3D50, 7);
+DataArray(TutorialScreenData, TutoScreenTails_E, 0x2BC4018, 7);
+DataArray(TutorialScreenData, TutoScreenTails_J, 0x2BC3F78, 7);
+DataArray(TutorialScreenData, TutoScreenTails_F, 0x2BC40A8, 7);
+DataArray(TutorialScreenData, TutoScreenTails_S, 0x2BC4138, 7);
+DataArray(TutorialScreenData, TutoScreenTails_G, 0x2BC41C8, 7);
+DataArray(TutorialScreenData, TutoScreenKnuckles_E, 0x2BC4450, 7);
+DataArray(TutorialScreenData, TutoScreenKnuckles_J, 0x2BC4398, 7);
+DataArray(TutorialScreenData, TutoScreenKnuckles_F, 0x2BC44F0, 7);
+DataArray(TutorialScreenData, TutoScreenKnuckles_G, 0x2BC4630, 7);
+DataArray(TutorialScreenData, TutoScreenKnuckles_S, 0x2BC4590, 7);
+DataArray(TutorialScreenData, TutoScreenAmy_E, 0x2BC4830, 7);
+DataArray(TutorialScreenData, TutoScreenAmy_J, 0x2BC47A0, 7);
+DataArray(TutorialScreenData, TutoScreenAmy_F, 0x2BC48C0, 7);
+DataArray(TutorialScreenData, TutoScreenAmy_G, 0x2BC49E0, 7);
+DataArray(TutorialScreenData, TutoScreenAmy_S, 0x2BC4950, 7);
+DataArray(TutorialScreenData, TutoScreenBig_E, 0x2BC5158, 9);
+DataArray(TutorialScreenData, TutoScreenBig_J, 0x2BC5090, 10);
+DataArray(TutorialScreenData, TutoScreenBig_F, 0x2BC5210, 9);
+DataArray(TutorialScreenData, TutoScreenBig_G, 0x2BC5380, 9);
+DataArray(TutorialScreenData, TutoScreenBig_S, 0x2BC52C8, 9);
+DataArray(TutorialScreenData, TutoScreenGamma_E, 0x2BC4C08, 8);
+DataArray(TutorialScreenData, TutoScreenGamma_J, 0x2BC4B68, 8);
+DataArray(TutorialScreenData, TutoScreenGamma_F, 0x2BC4CA8, 8);
+DataArray(TutorialScreenData, TutoScreenGamma_G, 0x2BC4DE8, 8);
+DataArray(TutorialScreenData, TutoScreenGamma_S, 0x2BC4D48, 8);
+
+//Tutorial screen items
+DataArray(TutorialScreenItem, TutorialLayout_Sonic_Page1_E, 0x02BC3ACE, 6);
+DataArray(TutorialScreenItem, TutorialLayout_Sonic_Page1_J, 0x02BC3A8E, 5);
+DataArray(TutorialScreenItem, TutorialLayout_SharedTailsKnucklesPage1_E, 0x2BC3E90, 4);
+DataArray(TutorialScreenItem, TutorialLayout_SharedTailsKnucklesPage1_J, 0x2BC3E74, 3);
+DataPointer(TutorialScreenItem, TutorialLayout_Tails_Page1_E, 0x2BC3EB2);
+DataPointer(TutorialScreenItem, TutorialLayout_Tails_Page1_J, 0x2BC3EAA);
+DataPointer(TutorialScreenItem, TutorialLayout_Knuckles_Page1_E, 0x2BC425E);
+DataPointer(TutorialScreenItem, TutorialLayout_Knuckles_Page1_J, 0x2BC4256);
+DataArray(TutorialScreenItem, TutorialLayout_AmyGamma_Page1_E, 0x2BC46E6, 4);
+DataArray(TutorialScreenItem, TutorialLayout_AmyGamma_Page1_J, 0x2BC46D2, 3);
+DataArray(TutorialScreenItem, TutorialLayout_Amy_Page1_E, 0x2BC4712, 2);
+DataArray(TutorialScreenItem, TutorialLayout_Amy_Page1_J, 0x2BC4702, 2);
+DataArray(TutorialScreenItem, TutorialLayout_BigPage1_E, 0x2BC4E8A, 4);
+DataArray(TutorialScreenItem, TutorialLayout_BigPage1Part2_E, 0x2BC4EB6, 2);
+DataArray(TutorialScreenItem, TutorialLayout_BigPage1Part2_J, 0x2BC4EA6, 2);
+DataArray(TutorialScreenItem, TutorialLayout_BigPage5_E, 0x2BC4F46, 6);
+DataArray(TutorialScreenItem, TutorialLayout_Gamma_Page1_E, 0x2BC4A7E, 2);
+DataArray(TutorialScreenItem, TutorialLayout_Gamma_Page1_J, 0x2BC4A6E, 2);
 
 NJS_TEXANIM PauseBar_Top = { 0x10, 0x10, 0, 0, 0, 0, 0, 0, 8, 0x20 };
 NJS_TEXANIM PauseBar_Bottom = { 0x10, 0x10, 0, 0, 0, 255, 0, 255, 8, 0x20 };
@@ -80,6 +151,13 @@ static float control_vertoffset = 455.0f;
 static float control_hzoffset = 566.0f;
 static float camera_vertoffset = 75.0f;
 static float camera_hzoffset = 215.0f;
+
+float PadManuXOffset_F = 175.0f;
+float PadManuXOffset_General = 220.0f;
+float PadManuXOffset_J = 200.0f;
+float PadManuYOffset = 136.0f;
+float PadManuYOffset2 = 105.0f;
+float PadManuYMultiplier = 1.0f;
 
 CreditsEntry SA1Credits[] = {
 	{ 1, 0, 0, 0, "SONIC ADVENTURE STAFF" },
@@ -1247,6 +1325,13 @@ void DrawSprite_Hook(NJS_SPRITE *sp, Int n, Float pri, NJD_SPRITE attr, QueuedMo
 	njTextureShadingMode(2);
 }
 
+void GreenRect_Wrapper(float x, float y, float z, float width, float height)
+{
+	njTextureShadingMode(1);
+	GreenMenuRect_Draw(x, y, z, width, height);
+	njTextureShadingMode(2);
+}
+
 void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	//Credits
@@ -1274,8 +1359,330 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("TUTOBG_SONIC");
 	ReplacePVM("TUTOBG_TAILS");
 	ReplacePVM("AVA_FSCMN_E");
+	WriteCall((void*)0x64393E, GreenRect_Wrapper);
 	if (DLLLoaded_HDGUI == false)
 	{
+		//Tutorial stuff
+		//PVMs
+		ReplacePVM("TUTO_CMN");
+		ReplacePVM("TUTO_CMN_E");
+		ReplacePVM("TUTOMSG_AMY_E");
+		ReplacePVM("TUTOMSG_BIG_E");
+		ReplacePVM("TUTOMSG_E102_E");
+		ReplacePVM("TUTOMSG_KNUCKLES_E");
+		ReplacePVM("TUTOMSG_SONIC_E");
+		ReplacePVM("TUTOMSG_TAILS_E");
+		ReplacePVM("TUTOMSG_AMY");
+		ReplacePVM("TUTOMSG_AMY_F");
+		ReplacePVM("TUTOMSG_AMY_G");
+		ReplacePVM("TUTOMSG_AMY_S");
+		ReplacePVM("TUTOMSG_BIG");
+		ReplacePVM("TUTOMSG_BIG_F");
+		ReplacePVM("TUTOMSG_BIG_G");
+		ReplacePVM("TUTOMSG_BIG_S");
+		ReplacePVM("TUTOMSG_E102");
+		ReplacePVM("TUTOMSG_E102_F");
+		ReplacePVM("TUTOMSG_E102_G");
+		ReplacePVM("TUTOMSG_E102_S");
+		ReplacePVM("TUTOMSG_KNUCKLES");
+		ReplacePVM("TUTOMSG_KNUCKLES_F");
+		ReplacePVM("TUTOMSG_KNUCKLES_G");
+		ReplacePVM("TUTOMSG_KNUCKLES_S");
+		ReplacePVM("TUTOMSG_SONIC");
+		ReplacePVM("TUTOMSG_SONIC_F");
+		ReplacePVM("TUTOMSG_SONIC_G");
+		ReplacePVM("TUTOMSG_SONIC_S");
+		ReplacePVM("TUTOMSG_TAILS");
+		ReplacePVM("TUTOMSG_TAILS_F");
+		ReplacePVM("TUTOMSG_TAILS_G");
+		ReplacePVM("TUTOMSG_TAILS_S");
+		WriteData((float**)0x0064328D, &PadManuXOffset_F);
+		WriteData((float**)0x00643295, &PadManuXOffset_General);
+		WriteData((float**)0x00643280, &PadManuXOffset_J);
+		WriteData((float**)0x006432C6, &PadManuYOffset);
+		WriteData((float**)0x006432E4, &PadManuYOffset2);
+		WriteData((float**)0x006432D4, &PadManuYMultiplier);
+//Sonic
+		//English
+		TutoScreenSonic_E[0].BoxScaleX = 390;
+		TutoScreenSonic_E[0].BoxScaleY = 144;
+		TutoScreenSonic_E[0].BoxX = 210;
+		TutoScreenSonic_E[4].BoxScaleY = 160;
+		TutorialLayout_Sonic_Page1_E[1].XOffset = 136; //Rotate camera
+		TutorialLayout_Sonic_Page1_E[1].YOffset = 0; //Rotate camera
+		TutorialLayout_Sonic_Page1_E[2].XOffset = 136; //Maneuver character
+		TutorialLayout_Sonic_Page1_E[2].YOffset = 24; //Maneuver character
+		TutorialLayout_Sonic_Page1_E[4].XOffset = 136; //A button
+		TutorialLayout_Sonic_Page1_E[4].YOffset = 64; //A button
+		TutorialLayout_Sonic_Page1_E[4].TexID = 3;
+		TutorialLayout_Sonic_Page1_E[5].TexID = 4;
+		TutorialLayout_Sonic_Page1_E[5].XOffset = 136;
+		TutorialLayout_Sonic_Page1_E[5].YOffset = 96;
+		WriteData<1>((__int16*)0x02BC3AE2, (__int16)1000); //Hide an extra item in controls page (all langs)
+		//Japanese
+		TutoScreenSonic_J[0].BoxScaleX = 400;
+		TutoScreenSonic_J[0].BoxScaleY = 144;
+		TutoScreenSonic_J[0].BoxX = 200;
+		TutoScreenSonic_J[4].BoxScaleY = 160;
+		TutorialLayout_Sonic_Page1_J[1].XOffset = 136; //Rotate camera
+		TutorialLayout_Sonic_Page1_J[1].YOffset = 0; //Rotate camera
+		TutorialLayout_Sonic_Page1_J[2].XOffset = 136; //Maneuver character
+		TutorialLayout_Sonic_Page1_J[2].YOffset = 24; //Maneuver character
+		TutorialLayout_Sonic_Page1_J[3].XOffset = 136; //A button
+		TutorialLayout_Sonic_Page1_J[3].YOffset = 64; //A button
+		TutorialLayout_Sonic_Page1_J[3].TexID = 3;
+		TutorialLayout_Sonic_Page1_J[4].TexID = 4;
+		TutorialLayout_Sonic_Page1_J[4].XOffset = 136;
+		TutorialLayout_Sonic_Page1_J[4].YOffset = 96;
+		//German
+		TutoScreenSonic_G[0].BoxScaleX = 380;
+		TutoScreenSonic_G[0].BoxScaleY = 144;
+		TutoScreenSonic_G[0].BoxX = 220;
+		TutoScreenSonic_G[3].BoxScaleY = 160;
+		TutoScreenSonic_G[4].BoxScaleY = 160;
+		//French
+		TutoScreenSonic_F[4].BoxScaleY = 192;
+		TutoScreenSonic_F[0].BoxScaleX = 425;
+		TutoScreenSonic_F[0].BoxScaleY = 144;
+		TutoScreenSonic_F[0].BoxX = 175;
+		//Spanish
+		TutoScreenSonic_S[0].BoxScaleX = 370;
+		TutoScreenSonic_S[0].BoxScaleY = 144;
+		TutoScreenSonic_S[0].BoxX = 230;
+		TutoScreenSonic_S[4].BoxScaleY = 192;
+//Tails
+		//English
+		TutoScreenTails_E[0].BoxScaleX = 390;
+		TutoScreenTails_E[0].BoxScaleY = 144;
+		TutoScreenTails_E[0].BoxX = 210;
+		TutoScreenTails_E[4].BoxScaleY = 160;
+		TutorialLayout_SharedTailsKnucklesPage1_E[0].XOffset = 136; //Rotate camera
+		TutorialLayout_SharedTailsKnucklesPage1_E[0].YOffset = 0; //Rotate camera
+		TutorialLayout_SharedTailsKnucklesPage1_E[1].XOffset = 136; //Maneuver character
+		TutorialLayout_SharedTailsKnucklesPage1_E[1].YOffset = 24; //Maneuver character
+		TutorialLayout_SharedTailsKnucklesPage1_E[3].XOffset = 136; //A button
+		TutorialLayout_SharedTailsKnucklesPage1_E[3].YOffset = 96; //A button
+		TutorialLayout_Tails_Page1_E.XOffset = 136; //Tail attack
+		TutorialLayout_Tails_Page1_E.YOffset = 64; //Tail attack
+		//Japanese
+		TutoScreenTails_J[0].BoxScaleX = 400;
+		TutoScreenTails_J[0].BoxScaleY = 144;
+		TutoScreenTails_J[0].BoxX = 200;
+		TutoScreenTails_J[4].BoxScaleY = 160;
+		TutorialLayout_SharedTailsKnucklesPage1_J[0].XOffset = 136; //Rotate camera
+		TutorialLayout_SharedTailsKnucklesPage1_J[0].YOffset = 0; //Rotate camera
+		TutorialLayout_SharedTailsKnucklesPage1_J[1].XOffset = 136; //Maneuver character
+		TutorialLayout_SharedTailsKnucklesPage1_J[1].YOffset = 24; //Maneuver character
+		TutorialLayout_SharedTailsKnucklesPage1_J[2].XOffset = 136; //A button
+		TutorialLayout_SharedTailsKnucklesPage1_J[2].YOffset = 96; //A button
+		TutorialLayout_Tails_Page1_J.XOffset = 136; //Tail attack
+		TutorialLayout_Tails_Page1_J.YOffset = 64; //Tail attack
+		//French
+		TutoScreenTails_F[4].BoxScaleY = 192;
+		TutoScreenTails_F[0].BoxScaleX = 425;
+		TutoScreenTails_F[0].BoxScaleY = 144;
+		TutoScreenTails_F[0].BoxX = 175;
+		//German
+		TutoScreenTails_G[0].BoxScaleX = 390;
+		TutoScreenTails_G[0].BoxScaleY = 144;
+		TutoScreenTails_G[0].BoxX = 210;
+		TutoScreenTails_G[3].BoxScaleY = 128;
+		TutoScreenTails_G[4].BoxScaleY = 160;
+		TutoScreenTails_G[0].BoxScaleX = 380;
+		TutoScreenTails_G[0].BoxScaleY = 144;
+		TutoScreenTails_G[0].BoxX = 220;
+		WriteData((__int16*)0x02BC3E9E, (__int16)1000); //Hide an extra item in controls page
+		//Spanish
+		TutoScreenTails_S[0].BoxScaleX = 370;
+		TutoScreenTails_S[0].BoxScaleY = 144;
+		TutoScreenTails_S[0].BoxX = 230;
+		TutoScreenTails_S[4].BoxScaleY = 192;
+//Knuckles
+		//English
+		TutoScreenKnuckles_E[0].BoxScaleX = 390;
+		TutoScreenKnuckles_E[0].BoxScaleY = 144;
+		TutoScreenKnuckles_E[0].BoxX = 210;
+		TutoScreenKnuckles_E[4].BoxX = 180;
+		TutoScreenKnuckles_E[4].BoxScaleY = 128;
+		TutoScreenKnuckles_E[4].BoxScaleX = 425;
+		TutoScreenKnuckles_E[5].BoxScaleY = 160;
+		TutorialLayout_Knuckles_Page1_E.XOffset = 136; //Punch attack
+		TutorialLayout_Knuckles_Page1_E.YOffset = 64; //Punch attack
+		WriteData<1>((char*)0x02BC4308, 0x03); //Number of items in Maximum Heat screen, remove unnecessary line
+		//Japanese
+		TutoScreenKnuckles_J[0].BoxScaleX = 400;
+		TutoScreenKnuckles_J[0].BoxScaleY = 144;
+		TutoScreenKnuckles_J[0].BoxX = 200;
+		TutoScreenKnuckles_J[4].BoxX = 180;
+		TutoScreenKnuckles_J[4].BoxScaleY = 128;
+		TutoScreenKnuckles_J[4].BoxScaleX = 425;
+		TutoScreenKnuckles_J[5].BoxScaleY = 160;
+		TutorialLayout_Knuckles_Page1_J.XOffset = 136; //Punch attack
+		TutorialLayout_Knuckles_Page1_J.YOffset = 64; //Punch attack
+		//German
+		TutoScreenKnuckles_G[0].BoxScaleX = 380;
+		TutoScreenKnuckles_G[0].BoxScaleY = 144;
+		TutoScreenKnuckles_G[0].BoxX = 220;
+		TutoScreenKnuckles_G[2].BoxScaleY = 128;
+		TutoScreenKnuckles_G[4].BoxX = 180;
+		TutoScreenKnuckles_G[4].BoxScaleX = 420;
+		TutoScreenKnuckles_G[4].BoxScaleY = 128;
+		TutoScreenKnuckles_G[5].BoxScaleY = 160;
+		WriteData((__int16*)0x02BC42E0, (__int16)1000); //Hide an extra item in Climbing page
+		//French
+		TutoScreenKnuckles_F[0].BoxScaleX = 430;
+		TutoScreenKnuckles_F[0].BoxScaleY = 144;
+		TutoScreenKnuckles_F[0].BoxX = 170;
+		TutoScreenKnuckles_F[1].BoxScaleX = 455;
+		TutoScreenKnuckles_F[1].BoxX = 145;
+		TutoScreenKnuckles_F[4].BoxScaleX = 475;
+		TutoScreenKnuckles_F[4].BoxX = 125;
+		TutoScreenKnuckles_F[4].BoxScaleY = 128;
+		TutoScreenKnuckles_F[5].BoxScaleY = 192;
+		WriteData((__int16*)0x02BC3E9E, (__int16)1000); //Hide an extra item in Controls page
+		WriteData((__int16*)0x02BC433A, (__int16)1000); //Hide an extra item in Maximum Heat page
+		WriteData((__int16*)0x02BC4340, (__int16)1000); //Hide an extra item in Maximum Heat page
+		//Spanish
+		TutoScreenKnuckles_S[0].BoxScaleX = 370;
+		TutoScreenKnuckles_S[0].BoxScaleY = 144;
+		TutoScreenKnuckles_S[0].BoxX = 230;
+		TutoScreenKnuckles_S[4].BoxScaleX = 415;
+		TutoScreenKnuckles_S[4].BoxX = 190;
+		TutoScreenKnuckles_S[4].BoxScaleY = 128;
+		TutoScreenKnuckles_S[5].BoxScaleY = 192;
+//Amy
+		//English
+		TutoScreenAmy_E[0].BoxScaleX = 390;
+		TutoScreenAmy_E[0].BoxScaleY = 144;
+		TutoScreenAmy_E[0].BoxX = 210;
+		TutoScreenAmy_E[4].BoxScaleY = 160;
+		TutorialLayout_AmyGamma_Page1_E[1].XOffset = 136; //Rotate camera
+		TutorialLayout_AmyGamma_Page1_E[1].YOffset = 0; //Rotate camera
+		TutorialLayout_AmyGamma_Page1_E[2].XOffset = 136; //Maneuver character
+		TutorialLayout_AmyGamma_Page1_E[2].YOffset = 24; //Maneuver character
+		TutorialLayout_Amy_Page1_E[0].XOffset = 136; //A
+		TutorialLayout_Amy_Page1_E[0].YOffset = 96; //A
+		TutorialLayout_Amy_Page1_E[1].XOffset = 136; //B
+		TutorialLayout_Amy_Page1_E[1].YOffset = 64; //B
+		//Japanese
+		TutoScreenAmy_J[0].BoxScaleX = 400;
+		TutoScreenAmy_J[0].BoxScaleY = 144;
+		TutoScreenAmy_J[0].BoxX = 200;
+		TutoScreenAmy_J[4].BoxScaleY = 160;
+		TutorialLayout_AmyGamma_Page1_J[1].XOffset = 136; //Rotate camera
+		TutorialLayout_AmyGamma_Page1_J[1].YOffset = 0; //Rotate camera
+		TutorialLayout_AmyGamma_Page1_J[2].XOffset = 136; //Maneuver character
+		TutorialLayout_AmyGamma_Page1_J[2].YOffset = 24; //Maneuver character
+		TutorialLayout_Amy_Page1_J[0].XOffset = 136; //A
+		TutorialLayout_Amy_Page1_J[0].YOffset = 96; //A
+		TutorialLayout_Amy_Page1_J[1].XOffset = 136; //B
+		TutorialLayout_Amy_Page1_J[1].YOffset = 64; //B
+		//German
+		TutoScreenAmy_G[0].BoxScaleX = 380;
+		TutoScreenAmy_G[0].BoxScaleY = 144;
+		TutoScreenAmy_G[0].BoxX = 220;
+		TutoScreenAmy_G[4].BoxScaleY = 160;
+		WriteData((__int16*)0x02BC46FA, (__int16)1000); //Hide an extra item in controls page
+		//French
+		TutoScreenAmy_F[0].BoxScaleX = 425;
+		TutoScreenAmy_F[0].BoxScaleY = 144;
+		TutoScreenAmy_F[0].BoxX = 175;
+		TutoScreenAmy_F[4].BoxScaleY = 192;
+		//Spanish
+		TutoScreenAmy_S[0].BoxScaleX = 370;
+		TutoScreenAmy_S[0].BoxScaleY = 144;
+		TutoScreenAmy_S[0].BoxX = 230;
+		TutoScreenAmy_S[4].BoxScaleY = 192;
+//Big
+		//English
+		TutoScreenBig_E[0].BoxScaleX = 390;
+		TutoScreenBig_E[0].BoxScaleY = 144;
+		TutoScreenBig_E[0].BoxX = 210;
+		TutoScreenBig_E[4].BoxScaleY = 128;
+		TutoScreenBig_E[7].BoxScaleX = 420;
+		TutoScreenBig_E[7].BoxX = 180;
+		TutorialLayout_BigPage1_E[1].XOffset = 136; //Rotate camera
+		TutorialLayout_BigPage1_E[1].YOffset = 0; //Rotate camera
+		TutorialLayout_BigPage1_E[2].XOffset = 136; //Maneuver character
+		TutorialLayout_BigPage1_E[2].YOffset = 24; //Maneuver character
+		TutorialLayout_BigPage1Part2_E[0].XOffset = 136; //A
+		TutorialLayout_BigPage1Part2_E[0].YOffset = 96; //A
+		TutorialLayout_BigPage1Part2_E[1].XOffset = 136; //B
+		TutorialLayout_BigPage1Part2_E[1].YOffset = 64; //B
+		TutorialLayout_BigPage5_E[2].TexID = 32; //Hide "Tugging the rod"
+		TutorialLayout_BigPage5_E[3].YOffset = 64; //Move A up
+		TutorialLayout_BigPage5_E[4].YOffset = 96; //Move B up
+		//Japanese
+		TutoScreenBig_J[0].BoxScaleX = 400;
+		TutoScreenBig_J[0].BoxScaleY = 144;
+		TutoScreenBig_J[0].BoxX = 200;
+		TutoScreenBig_J[4].BoxScaleY = 160;
+		TutoScreenBig_J[7].BoxScaleX = 400;
+		TutoScreenBig_J[7].BoxX = 200;
+		TutorialLayout_BigPage1Part2_J[0].XOffset = 136; //A
+		TutorialLayout_BigPage1Part2_J[0].YOffset = 96; //A
+		TutorialLayout_BigPage1Part2_J[1].XOffset = 136; //B
+		TutorialLayout_BigPage1Part2_J[1].YOffset = 64; //B
+		//German
+		TutoScreenBig_G[0].BoxScaleX = 395;
+		TutoScreenBig_G[0].BoxScaleY = 144;
+		TutoScreenBig_G[0].BoxX = 205;
+		TutoScreenBig_G[4].BoxScaleY = 128;
+		WriteData((__int16*)0x02BC4E9E, (__int16)1000); //Hide an extra item in controls page
+		//French
+		TutoScreenBig_F[0].BoxScaleX = 425;
+		TutoScreenBig_F[0].BoxScaleY = 144;
+		TutoScreenBig_F[0].BoxX = 175;
+		TutoScreenBig_F[4].BoxScaleY = 128;
+		TutoScreenBig_F[7].BoxScaleX = 445;
+		TutoScreenBig_F[7].BoxX = 155;
+		//Spanish
+		TutoScreenBig_S[0].BoxScaleX = 370;
+		TutoScreenBig_S[0].BoxScaleY = 144;
+		TutoScreenBig_S[0].BoxX = 230;
+		TutoScreenBig_S[4].BoxScaleX = 275;
+		TutoScreenBig_S[4].BoxX = 325;
+		TutoScreenBig_S[4].BoxScaleY = 128;
+		TutoScreenBig_S[7].BoxScaleX = 420;
+		TutoScreenBig_S[7].BoxX = 180;
+		TutoScreenBig_S[7].BoxScaleX = 475;
+		TutoScreenBig_S[7].BoxX = 125;
+//Gamma
+		//English
+		TutoScreenGamma_E[0].BoxScaleX = 390;
+		TutoScreenGamma_E[0].BoxScaleY = 144;
+		TutoScreenGamma_E[0].BoxX = 210;
+		TutoScreenGamma_E[4].BoxScaleY = 160;
+		TutorialLayout_Gamma_Page1_E[0].XOffset = 136; //A
+		TutorialLayout_Gamma_Page1_E[0].YOffset = 96; //A
+		TutorialLayout_Gamma_Page1_E[1].XOffset = 136; //B
+		TutorialLayout_Gamma_Page1_E[1].YOffset = 64; //B
+		//Japanese
+		TutoScreenGamma_J[0].BoxScaleX = 400;
+		TutoScreenGamma_J[0].BoxScaleY = 144;
+		TutoScreenGamma_J[0].BoxX = 200;
+		TutoScreenGamma_J[4].BoxScaleY = 160;
+		TutorialLayout_Gamma_Page1_J[0].XOffset = 136; //A
+		TutorialLayout_Gamma_Page1_J[0].YOffset = 96; //A
+		TutorialLayout_Gamma_Page1_J[1].XOffset = 136; //B
+		TutorialLayout_Gamma_Page1_J[1].YOffset = 64; //B
+		//German
+		TutoScreenGamma_G[4].BoxScaleY = 160;
+		TutoScreenGamma_G[0].BoxScaleX = 380;
+		TutoScreenGamma_G[0].BoxScaleY = 144;
+		TutoScreenGamma_G[0].BoxX = 220;
+		//French
+		TutoScreenGamma_F[0].BoxScaleX = 425;
+		TutoScreenGamma_F[0].BoxScaleY = 144;
+		TutoScreenGamma_F[0].BoxX = 175;
+		TutoScreenGamma_F[1].BoxScaleY = 192;
+		TutoScreenGamma_F[4].BoxScaleY = 192;
+		WriteData((__int16*)0x02BC4AE4, (__int16)1000); //Hide an extra item in the second page
+		//Spanish
+		TutoScreenGamma_S[0].BoxScaleX = 370;
+		TutoScreenGamma_S[0].BoxScaleY = 144;
+		TutoScreenGamma_S[0].BoxX = 230;
+		TutoScreenGamma_S[4].BoxScaleY = 192;	
 		ReplacePVM("ENDBG_AMY_0");
 		ReplacePVM("ENDBG_AMY_1");
 		ReplacePVM("ENDBG_AMY_2");
@@ -1303,12 +1710,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("CON_REGULAR");
 		ReplacePVM("CON_REGULAR_E");
 		ReplacePVM("PRESSSTART");
-		ReplacePVM("TUTOMSG_AMY_E");
-		ReplacePVM("TUTOMSG_BIG_E");
-		ReplacePVM("TUTOMSG_E102_E");
-		ReplacePVM("TUTOMSG_KNUCKLES_E");
-		ReplacePVM("TUTOMSG_SONIC_E");
-		ReplacePVM("TUTOMSG_TAILS_E");
 		ReplacePVM("AVA_BACK");
 		ReplacePVM("AVA_CHSEL_E");
 		ReplacePVM("AVA_CSR");
@@ -1337,7 +1738,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("SMRYBG_SONIC");
 		ReplacePVM("SMRYBG_SUPERSONIC");
 		ReplacePVM("SMRYBG_TAILS");
-		ReplacePVM("TUTO_CMN_E");
 		ReplacePVR("ABC_TXT");
 		ReplacePVR("A_STAGE01_E");
 		ReplacePVR("A_STAGE02_E");
@@ -1690,6 +2090,12 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void Branding_OnFrame()
 {
+	//This game is a hardcoded piece of shit
+	if (TextLanguage == 3) PadManuXOffset_General = 230;
+	if (TextLanguage == 4 && GetCharacterSelection() != 4) PadManuXOffset_General = 220;
+	if (TextLanguage == 4 && GetCharacterSelection() == 4) PadManuXOffset_General = 205;
+	if (TextLanguage != 3 && TextLanguage != 4) PadManuXOffset_General = 205;
+	if (GetCharacterSelection() == 2) PadManuXOffset_F = 170; else PadManuXOffset_F = 175;
 	if (GameMode != GameModes_Menu && transitionmode == 2)
 	{
 		transitionmode = 3;
