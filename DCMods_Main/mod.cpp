@@ -156,7 +156,7 @@ extern "C"
 	__declspec(dllexport) void __cdecl OnInput()
 	{
 		if (DisableAllVideoStuff == false) Videos_OnInput();
-		if (CutsceneSkipMode == 0) General_OnInput();
+		if (CutsceneSkipMode != 3) General_OnInput();
 	}
 	_declspec(dllexport) void __cdecl OnRenderDeviceReset()
 	{

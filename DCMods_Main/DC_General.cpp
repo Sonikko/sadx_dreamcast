@@ -905,7 +905,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	EnableLSDFix = config->getBool("Miscellaneous", "EnableLSDFix", false);
 	delete config;
 	//Cancel cutscenes with C button
-	if (CutsceneSkipMode != 1)
+	if (CutsceneSkipMode != 3)
 	{
 		WriteData<1>((char*)0x00431520, 0x01);
 		if (CutsceneSkipMode != 2) WriteCall((void*)0x4314F9, InputHookForCutscenes);
@@ -1082,36 +1082,58 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 void General_OnFrame()
 {
 	//Cutscene skip
-	if (SkipPressed_Cutscene == true)
+	if (CutsceneSkipMode <= 1 && SkipPressed_Cutscene == true)
 	{
-		if (CutsceneFadeMode == 0)
+		if (CutsceneSkipMode == 0)
 		{
-			CutsceneFadeValue += 8;
-			if (CutsceneFadeValue >= 255)
+			if (CutsceneFadeMode == 0)
 			{
-				CutsceneFadeValue = 255;
-				CutsceneFadeMode = 1;
+				CutsceneFadeValue += 8;
+				if (CutsceneFadeValue >= 255)
+				{
+					CutsceneFadeValue = 255;
+					CutsceneFadeMode = 1;
+				}
 			}
+			if (CutsceneFadeMode == 1)
+			{
+				if (EV_MainThread_ptr != nullptr)
+				{
+					PrintDebug("Trying to skip the cutscene...\n");
+				}
+				else
+				{
+					CutsceneFadeMode = 2;
+					PrintDebug("Cutscene skipped!\n");
+				}
+			}
+			if (CutsceneFadeMode == 2)
+			{
+				CutsceneFadeValue -= 8;
+				if (CutsceneFadeValue <= 0)
+				{
+					CutsceneFadeValue = 0;
+					CutsceneFadeMode = 0;
+					SkipPressed_Cutscene = false;
+				}
+			}
+			DisplayVideoFadeout(CutsceneFadeValue, 1);
 		}
-		if (CutsceneFadeMode == 1)
+		if (CutsceneSkipMode == 1)
 		{
 			if (EV_MainThread_ptr != nullptr)
 			{
+				CutsceneFadeMode = 1;
 				PrintDebug("Trying to skip the cutscene...\n");
 			}
-			else CutsceneFadeMode = 2;
-		}
-		if (CutsceneFadeMode == 2)
-		{
-			CutsceneFadeValue -= 8;
-			if (CutsceneFadeValue <= 0)
+			else
 			{
-				CutsceneFadeValue = 0;
 				CutsceneFadeMode = 0;
+				CutsceneFadeValue = 0;
 				SkipPressed_Cutscene = false;
+				PrintDebug("Cutscene skipped!\n");
 			}
 		}
-		DisplayVideoFadeout(CutsceneFadeValue, 1);
 	}
 	//Fix broken welds after playing as Metal Sonic
 	if (DLLLoaded_SADXFE == false)
@@ -1165,7 +1187,7 @@ void General_OnFrame()
 void General_OnInput()
 {
 	//Input hook for cutscenes
-	if (CutsceneSkipMode == 0 && SkipPressed_Cutscene == false)
+	if (CutsceneSkipMode < 2 && SkipPressed_Cutscene == false)
 		if (EV_MainThread_ptr != 0 && ControllerPointers[0]->PressedButtons & Buttons_Start)
 		{
 			PrintDebug("Cutscene skip pressed!\n");
