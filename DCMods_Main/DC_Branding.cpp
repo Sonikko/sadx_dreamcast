@@ -1418,7 +1418,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		TutorialLayout_Sonic_Page1_E[5].TexID = 4;
 		TutorialLayout_Sonic_Page1_E[5].XOffset = 136;
 		TutorialLayout_Sonic_Page1_E[5].YOffset = 96;
-		WriteData<1>((__int16*)0x02BC3AE2, (__int16)1000); //Hide an extra item in controls page (all langs)
+		WriteData((__int16*)0x02BC3AE2, (__int16)2000); //Hide an extra item in controls page (all langs)
 		//Japanese
 		TutoScreenSonic_J[0].BoxScaleX = 400;
 		TutoScreenSonic_J[0].BoxScaleY = 144;
@@ -1491,7 +1491,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		TutoScreenTails_G[0].BoxScaleX = 380;
 		TutoScreenTails_G[0].BoxScaleY = 144;
 		TutoScreenTails_G[0].BoxX = 220;
-		WriteData((__int16*)0x02BC3E9E, (__int16)1000); //Hide an extra item in controls page
+		WriteData((__int16*)0x02BC3E9E, (__int16)2000); //Hide an extra item in controls page
 		//Spanish
 		TutoScreenTails_S[0].BoxScaleX = 370;
 		TutoScreenTails_S[0].BoxScaleY = 144;
@@ -1528,7 +1528,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		TutoScreenKnuckles_G[4].BoxScaleX = 420;
 		TutoScreenKnuckles_G[4].BoxScaleY = 128;
 		TutoScreenKnuckles_G[5].BoxScaleY = 160;
-		WriteData((__int16*)0x02BC42E0, (__int16)1000); //Hide an extra item in Climbing page
+		WriteData((__int16*)0x02BC42E0, (__int16)2000); //Hide an extra item in Climbing page
 		//French
 		TutoScreenKnuckles_F[0].BoxScaleX = 430;
 		TutoScreenKnuckles_F[0].BoxScaleY = 144;
@@ -1539,9 +1539,9 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		TutoScreenKnuckles_F[4].BoxX = 125;
 		TutoScreenKnuckles_F[4].BoxScaleY = 128;
 		TutoScreenKnuckles_F[5].BoxScaleY = 192;
-		WriteData((__int16*)0x02BC3E9E, (__int16)1000); //Hide an extra item in Controls page
-		WriteData((__int16*)0x02BC433A, (__int16)1000); //Hide an extra item in Maximum Heat page
-		WriteData((__int16*)0x02BC4340, (__int16)1000); //Hide an extra item in Maximum Heat page
+		WriteData((__int16*)0x02BC3E9E, (__int16)2000); //Hide an extra item in Controls page
+		WriteData((__int16*)0x02BC433A, (__int16)2000); //Hide an extra item in Maximum Heat page
+		WriteData((__int16*)0x02BC4340, (__int16)2000); //Hide an extra item in Maximum Heat page
 		//Spanish
 		TutoScreenKnuckles_S[0].BoxScaleX = 370;
 		TutoScreenKnuckles_S[0].BoxScaleY = 144;
@@ -1582,7 +1582,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		TutoScreenAmy_G[0].BoxScaleY = 144;
 		TutoScreenAmy_G[0].BoxX = 220;
 		TutoScreenAmy_G[4].BoxScaleY = 160;
-		WriteData((__int16*)0x02BC46FA, (__int16)1000); //Hide an extra item in controls page
+		WriteData((__int16*)0x02BC46FA, (__int16)2000); //Hide an extra item in controls page
 		//French
 		TutoScreenAmy_F[0].BoxScaleX = 425;
 		TutoScreenAmy_F[0].BoxScaleY = 144;
@@ -1628,7 +1628,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		TutoScreenBig_G[0].BoxScaleY = 144;
 		TutoScreenBig_G[0].BoxX = 205;
 		TutoScreenBig_G[4].BoxScaleY = 128;
-		WriteData((__int16*)0x02BC4E9E, (__int16)1000); //Hide an extra item in controls page
+		WriteData((__int16*)0x02BC4E9E, (__int16)2000); //Hide an extra item in controls page
 		//French
 		TutoScreenBig_F[0].BoxScaleX = 425;
 		TutoScreenBig_F[0].BoxScaleY = 144;
@@ -1677,7 +1677,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		TutoScreenGamma_F[0].BoxX = 175;
 		TutoScreenGamma_F[1].BoxScaleY = 192;
 		TutoScreenGamma_F[4].BoxScaleY = 192;
-		WriteData((__int16*)0x02BC4AE4, (__int16)1000); //Hide an extra item in the second page
+		WriteData((__int16*)0x02BC4AE4, (__int16)2000); //Hide an extra item in the second page
 		//Spanish
 		TutoScreenGamma_S[0].BoxScaleX = 370;
 		TutoScreenGamma_S[0].BoxScaleY = 144;
@@ -2091,11 +2091,14 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 void Branding_OnFrame()
 {
 	//This game is a hardcoded piece of shit
-	if (TextLanguage == 3) PadManuXOffset_General = 230;
-	if (TextLanguage == 4 && GetCharacterSelection() != 4) PadManuXOffset_General = 220;
-	if (TextLanguage == 4 && GetCharacterSelection() == 4) PadManuXOffset_General = 205;
-	if (TextLanguage != 3 && TextLanguage != 4) PadManuXOffset_General = 205;
-	if (GetCharacterSelection() == 2) PadManuXOffset_F = 170; else PadManuXOffset_F = 175;
+	if (DLLLoaded_HDGUI  == false)
+	{
+		if (TextLanguage == 3) PadManuXOffset_General = 230;
+		if (TextLanguage == 4 && GetCharacterSelection() != 4) PadManuXOffset_General = 220;
+		if (TextLanguage == 4 && GetCharacterSelection() == 4) PadManuXOffset_General = 205;
+		if (TextLanguage != 3 && TextLanguage != 4) PadManuXOffset_General = 205;
+		if (GetCharacterSelection() == 2) PadManuXOffset_F = 170; else PadManuXOffset_F = 175;
+	}
 	if (GameMode != GameModes_Menu && transitionmode == 2)
 	{
 		transitionmode = 3;
