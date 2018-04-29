@@ -41,8 +41,10 @@ FunctionPointer(void, sub_40EFE0, (), 0x40EFE0);
 FunctionPointer(double, sub_49EAD0, (float a1, float a2, float a3, int a4), 0x49EAD0);
 FunctionPointer(float, sub_49E920, (float x, float y, float z, Rotation3 *rotation), 0x49E920);
 FunctionPointer(SubtitleThing *, sub_6424A0, (int a1, int a2, float a3, float a4, float a5, float a6, float a7, float a8), 0x6424A0);
+FunctionPointer(void, sub_4014B0, (), 0x4014B0);
 
 static bool EnableCutsceneFix = true;
+int CutsceneSkipMode = 0;
 static std::string EnableImpressFont = "Off";
 static bool ColorizeFont = true;
 static bool DisableFontSmoothing = true;
@@ -56,6 +58,9 @@ static float heat_float1 = 1.0f; //1
 static float heat_float2 = 0.2f; //0.5
 static float alphathing = 1.0f;
 static float LSDFix = 16.0f;
+static int CutsceneFadeValue = 0;
+static int CutsceneFadeMode = 0;
+static bool SkipPressed_Cutscene = false;
 
 NJS_MATERIAL* FirstCharacterSpecular_General[] = {
 	//Hedgehog Hammer targets (possibly SL objects?)
@@ -643,6 +648,12 @@ void ColorizeRecapText(int a1, int a2, float a3, float a4, float a5, float a6, f
 	sub_6424A0(a1, 0xFFF8F8F8, a3, a4, a5, a6, a7, a8);
 }
 
+void InputHookForCutscenes()
+{
+	sub_4014B0();
+	if (CutsceneFadeMode == 1) ControllerPointers[0]->PressedButtons |= Buttons_C;
+}
+
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -888,10 +899,17 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	EnableDCRipple = config->getBool("General", "EnableDreamcastWaterRipple", true);
 	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
 	EnableImpressFont = config->getString("General", "EnableImpressFont", "Impress");
+	CutsceneSkipMode = config->getInt("General", "CutsceneSkipMode", 0);
 	ColorizeFont = config->getBool("General", "ColorizeFont", true);
 	DisableFontSmoothing = config->getBool("General", "DisableFontSmoothing", true);
 	EnableLSDFix = config->getBool("Miscellaneous", "EnableLSDFix", false);
 	delete config;
+	//Cancel cutscenes with C button
+	if (CutsceneSkipMode != 1)
+	{
+		WriteData<1>((char*)0x00431520, 0x01);
+		if (CutsceneSkipMode != 2) WriteCall((void*)0x4314F9, InputHookForCutscenes);
+	}
 	//Light Speed Dash distance fix
 	if (EnableLSDFix == true)
 	{
@@ -1063,6 +1081,38 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void General_OnFrame()
 {
+	//Cutscene skip
+	if (SkipPressed_Cutscene == true)
+	{
+		if (CutsceneFadeMode == 0)
+		{
+			CutsceneFadeValue += 8;
+			if (CutsceneFadeValue >= 255)
+			{
+				CutsceneFadeValue = 255;
+				CutsceneFadeMode = 1;
+			}
+		}
+		if (CutsceneFadeMode == 1)
+		{
+			if (EV_MainThread_ptr != nullptr)
+			{
+				PrintDebug("Trying to skip the cutscene...\n");
+			}
+			else CutsceneFadeMode = 2;
+		}
+		if (CutsceneFadeMode == 2)
+		{
+			CutsceneFadeValue -= 8;
+			if (CutsceneFadeValue <= 0)
+			{
+				CutsceneFadeValue = 0;
+				CutsceneFadeMode = 0;
+				SkipPressed_Cutscene = false;
+			}
+		}
+		DisplayVideoFadeout(CutsceneFadeValue, 1);
+	}
 	//Fix broken welds after playing as Metal Sonic
 	if (DLLLoaded_SADXFE == false)
 	{
@@ -1110,4 +1160,15 @@ void General_OnFrame()
 	//Chaos 1 puddle
 	if (CurrentLevel == 33 && CutsceneID != 57) ((NJS_MATERIAL*)0x02D64FD8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 	else ((NJS_MATERIAL*)0x02D64FD8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;	
+}
+
+void General_OnInput()
+{
+	//Input hook for cutscenes
+	if (CutsceneSkipMode == 0 && SkipPressed_Cutscene == false)
+		if (EV_MainThread_ptr != 0 && ControllerPointers[0]->PressedButtons & Buttons_Start)
+		{
+			PrintDebug("Cutscene skip pressed!\n");
+			SkipPressed_Cutscene = true;
+		}
 }

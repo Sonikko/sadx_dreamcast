@@ -7,6 +7,7 @@ DataPointer(HWND, WindowHandle, 0x03D0FD30);
 DataPointer(int, FramerateSetting_Config, 0x0089295C);
 
 extern int EnableSETFixes;
+extern int CutsceneSkipMode;
 extern bool EnableSpeedFixes;
 extern bool DLLLoaded_DLCs;
 extern bool DLLLoaded_SA1Chars;
@@ -73,6 +74,7 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions);
 void ChaoGardens_OnFrame();
 void General_Init(const char *path, const HelperFunctions &helperFunctions);
 void General_OnFrame();
+void General_OnInput();
 void Videos_Init(const char *path, const HelperFunctions &helperFunctions);
 void Videos_OnFrame();
 void Videos_OnInput();
@@ -96,6 +98,8 @@ bool ForceDiffuse0Specular0or1(NJS_MATERIAL* material, Uint32 flags);
 bool ForceDiffuse2Specular2(NJS_MATERIAL* material, Uint32 flags);
 bool ForceDiffuse2Specular3(NJS_MATERIAL* material, Uint32 flags);
 bool ForceDiffuse4Specular5(NJS_MATERIAL* material, Uint32 flags);
+
+void DisplayVideoFadeout(int fadeout, int mode);
 
 #define ReplacePVM(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_DC.PVM");
 #define ReplacePVR(a) helperFunctions.ReplaceFile("system\\" a ".PVR", "system\\" a "_DC.PVR");

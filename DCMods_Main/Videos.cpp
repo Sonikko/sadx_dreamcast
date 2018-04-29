@@ -116,7 +116,7 @@ void InputHookForVideos()
 	sub_40EFE0();
 }
 
-void DisplayVideoFadeout(int fadeout)
+void DisplayVideoFadeout(int fadeout, int mode)
 {
 	NJS_POINT2COL VideoFadeoutFrame;
 	VideoFadeout_Colors[0].argb.a = fadeout;
@@ -130,7 +130,8 @@ void DisplayVideoFadeout(int fadeout)
 	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 	Direct3D_SetZFunc(7u);
 	Direct3D_EnableZWrite(0);
-	njDrawTriangle2D_SomeOtherVersion((NJS_POINT2COL*)&VideoFadeoutFrame, 4, -1000.0f, NJD_TRANSPARENT | NJD_FILL);
+	if (mode == 0) njDrawTriangle2D_SomeOtherVersion((NJS_POINT2COL*)&VideoFadeoutFrame, 4, -1000.0f, NJD_TRANSPARENT | NJD_FILL);
+	else DrawRect_Queue(0.0, 0.0, HorizontalResolution, VerticalResolution, 22048.0f, fadeout << 24, QueuedModelFlagsB_EnableZWrite);
 	Direct3D_EnableZWrite(1);
 	Direct3D_SetZFunc(3u);
 }
@@ -176,7 +177,7 @@ void DrawVideoWithSpecular(int width, int height)
 		if (VideoFadeValue < 255) VideoFadeValue = VideoFadeValue + 6;
 		if (VideoFadeValue > 255) VideoFadeValue = 255;
 	}
-	if (VideoFadeMode != 0) DisplayVideoFadeout(VideoFadeValue);
+	if (VideoFadeMode != 0) DisplayVideoFadeout(VideoFadeValue, 0);
 	if (VideoFadeMode < 2 && SkipPressed == true) VideoFadeMode = 2;
 	if (VideoFadeMode == 2 && VideoFadeValue >= 254 && SkipPressed == true) VideoPlayMode = 3;
 }
