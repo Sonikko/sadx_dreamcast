@@ -654,6 +654,18 @@ void InputHookForCutscenes()
 	if (CutsceneFadeMode == 1) ControllerPointers[0]->PressedButtons |= Buttons_C;
 }
 
+void DrawUnderwaterOverlay(NJS_MATRIX_PTR m)
+{
+	NJS_COLOR WaterOverlay_Colors;
+	njPushMatrix(m);
+	njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+	WaterOverlay_Colors.color = 0x1E0008FF;
+	DrawRect_Queue(0.0, 0.0, HorizontalResolution, VerticalResolution, 22041.496f, WaterOverlay_Colors.argb.b | ((WaterOverlay_Colors.argb.g | (*(unsigned __int16 *)&WaterOverlay_Colors.argb.r << 8)) << 8), QueuedModelFlagsB_EnableZWrite);
+	njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+}
+
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
 {
 	char pathbuf[MAX_PATH];
@@ -964,6 +976,8 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	//Water splash particle
 	WriteCall((void*)0x0049F1C0, FixWaterSplash);
+	//Underwater overlay
+	WriteCall((void*)0x43708D, DrawUnderwaterOverlay);
 	//Gamma's chest patch lol
 	HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x00200DE8))->attrflags &= ~NJD_FLAG_USE_ALPHA; //Unnecessary alpha in Gamma's model
