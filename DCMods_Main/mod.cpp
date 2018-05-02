@@ -30,6 +30,7 @@ static bool SADXWater_EggCarrier = false;
 static bool SADXWater_Past = false;
 static bool SADXWater_EggHornet = false;
 static bool SADXWater_ZeroE101R = false;
+static bool OldModsFound = false;
 
 int EnableSETFixes = 1;
 
@@ -39,6 +40,38 @@ bool DLLLoaded_HDGUI = false;
 bool DLLLoaded_DLCs = false;
 bool DLLLoaded_SADXFE = false;
 bool EnableSpeedFixes = true;
+
+std::string OldModsMessage = "Old/incompatible mods detected!\n \nThe following mods are outdated and will cause problems if you leave them enabled. These mods are no longer needed because they are built into the main Dreamcast Conversion mod.\n \nPlease uninstall the following mods in the Mod Manager:\n \n";
+
+std::string OldModDLLs[] = { 
+	"DC_Bosses",
+	"DC_Branding",
+	"DC_ChaoGardens",
+	"DC_Casinopolis",
+	"DC_ADV00MODELS",
+	"DC_ADV01MODELS",
+	"DC_ADV02MODELS",
+	"DC_ADV03MODELS",
+	"DC_EmeraldCoast",
+	"DC_EnvMaps",
+	"DC_FinalEgg",
+	"DC_General",
+	"DC_HotShelter",
+	"DC_IceCap",
+	"DC_LostWorld",
+	"DC_RedMountain",
+	"DC_SkyDeck",
+	"DC_SpeedHighway",
+	"DC_TwinklePark",
+	"DC_WindyValley",
+	"DC_SubGames",
+	"DC_TornadoModels",
+	"DisableSA1TitleScreen",
+	"KillCream",
+	"RevertECDrawDistance",
+	"SADXStyleWater",
+	"MRFinalEggFix"
+};
 
 extern "C"
 {
@@ -50,7 +83,6 @@ extern "C"
 		if (GetModuleHandle(TEXT("sadx-dc-lighting.dll")) != nullptr) DLLLoaded_Lantern = true;
 		if (GetModuleHandle(TEXT("DLCs_Main.dll")) != nullptr) DLLLoaded_DLCs = true;
 		if (GetModuleHandle(TEXT("sadx-fixed-edition.dll")) != nullptr) DLLLoaded_SADXFE = true;
-		HMODULE MRFinalEggFix = GetModuleHandle(L"MRFinalEggFix");
 		HMODULE WaterEffect = GetModuleHandle(L"WaterEffect");
 		//Error messages
 		if (helperFunctions.Version < 7)
@@ -59,10 +91,21 @@ extern "C"
 				"DC Conversion error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
-		if (MRFinalEggFix != nullptr)
+		//Check old mod DLLs
+		for (int i = 0; i < LengthOfArray(OldModDLLs); i++)
 		{
-			MessageBoxA(WindowHandle, "You seem to be using a very old version of the Mystic Ruins Base Fix mod. Please update or remove it for DC Conversion to work properly. A newer fix is integrated into DC Conversion.",
-				"DC Conversion error: incompatible mod detected", MB_OK | MB_ICONERROR);
+			LPCSTR OldModHandle = OldModDLLs[i].c_str();
+			if (GetModuleHandleA(OldModHandle) != nullptr)
+			{
+				OldModsMessage += OldModDLLs[i] + "\n";
+				OldModsFound = true;
+			}
+		}
+		if (OldModsFound == true)
+		{
+			LPCSTR OldModsLPC = OldModsMessage.c_str();
+			MessageBoxA(WindowHandle, OldModsLPC, "DC Conversion error: incompatible mods detected", MB_OK | MB_ICONERROR);
+			return;
 		}
 		//If there is no config.ini, make one
 		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
