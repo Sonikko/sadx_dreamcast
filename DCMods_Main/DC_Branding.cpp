@@ -24,6 +24,7 @@ struct TutorialScreenItem
 };
 
 FunctionPointer(ObjectMaster*, sub_510390, (int a1), 0x510390);
+FunctionPointer(void, sub_505B40, (int a1), 0x505B40);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(CreditsList, MainCredits, 0x2BC2FD0);
 DataArray(PVMEntry, GUITextures_Japanese, 0x007EECF0, 30);
@@ -118,7 +119,7 @@ static bool disablevtxcolor = false;
 static bool RipplesOn = true;
 static bool EnableTransition = false;
 static bool DisableSA1TitleScreen = false;
-static bool DisableFade = true;
+static bool EnableInternational = true;
 static bool DrawOverlay = true;
 static bool RemoveCream = false;
 static int TextOffsetX = 0;
@@ -613,6 +614,13 @@ CreditsEntry SA1Credits[] = {
 { 7, -1, 0, 0, "SEGA ENTERPRISES,LTD." }
 };
 
+void DelayTransitionHook(int a1)
+{
+	transitionmode = 1;
+	titlebackloaded = true;
+	sub_505B40(a1);
+}
+
 int __cdecl PlayStartSound_EnableTransition()
 {
 	if (EnableTransition == true)
@@ -808,6 +816,10 @@ void DrawLogo()
 				if (SonicTeamAlpha >= -240) SonicTeamAlpha -= 16;
 				else SonicTeamAlpha = 0;
 			}
+			if (EnableTransition == false)
+			{
+				SonicTeamAlpha = 255;
+			}
 			if (SonicTeamAlpha >= 0) SonicTeamTransparency.argb.a = SonicTeamAlpha;
 			else SonicTeamTransparency.argb.a = 0;
 			//Disable this stuff for ultra wide screens because there isn't enough space
@@ -817,8 +829,10 @@ void DrawLogo()
 				{
 					SetVtxColorB(SonicTeamTransparency.color);
 					//Draw Sonic Team logo
-					DrawBG(2, (320 - 32 + SonicTeamOffsetX)*HorizontalStretch, (64 + surfacesucks + SonicTeamOffsetY)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
-					//Draw copyright text
+					DrawBG(2, (320 - 32 + SonicTeamOffsetX)*HorizontalStretch, (65 + surfacesucks + SonicTeamOffsetY)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+					//Subtitle or SEGA text
+					//if (EnableInternational == true) DrawBG(9, (64 + TextOffsetX)*HorizontalStretch, (960 - 344  + TextOffsetY + surfacesucks)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
+					//else 
 					DrawBG(3, (64 + TextOffsetX)*HorizontalStretch, (960 - 168 + TextOffsetY + surfacesucks)*VerticalStretch* rewritestretch, 1.2f, HorizontalStretch * 0.5f, VerticalStretch * rewritestretch);
 				}
 			}
@@ -916,7 +930,7 @@ void DrawLogo_640()
 		float scaleY;
 		if (transitionmode == 0) TitleBGTransparency.argb.a = 255;
 		//Draw AVA_BACK first
-		if (EnableTransition == true && titlebackloaded == false)
+		if (EnableTransition == true && titlebackloaded == false && transitionmode != -1)
 		{
 			njSetTexture(&ava_back_TEXLIST);
 			SetVtxColorB(0xFFFFFFFF);
@@ -979,14 +993,35 @@ void DrawLogo_640()
 			if (logoframe > 128) logoframe = 0;
 			//Draw logo if using logo-less background
 			SetVtxColorB(TitleBGTransparency.color);
-			if (RipplesOn == true) DrawBG(4, 64, 81, 1.2f, 1.0f, 1.0f);
+			if (RipplesOn == true) DrawBG(4, 69, 80, 1.2f, 1.0f, 1.0f);
 			//Draw logo overlay
 			if (RipplesOn == true && DrawOverlay == true) DrawBG(5, 64, 81, 1.2f, 1.0f, 1.0f);
 			if (RipplesOn == false && DrawOverlay == true) DrawBG(5, 64, 112, 1.2f, 1.0f, 1.0f);
-			//Draw Sonic Team logo if using logo-less background
-			if (RipplesOn == true) DrawBG(6, (320 - 32), 35, 1.2f, 1.0f, 1.0f);
-			//Draw copyright text if using logo-less background
-			if (RipplesOn == true) DrawBG(7, 64, (480 - 84), 1.2f, 1.0f, 1.0f);
+			if (RipplesOn == true)
+			{
+				if (EnableTransition == true && transitionmode == 0)
+				{
+					if (SonicTeamAlpha <= 247) SonicTeamAlpha += 4;
+					else SonicTeamAlpha = 255;
+				}
+				if (EnableTransition == true && transitionmode == 1)
+				{
+					if (SonicTeamAlpha >= -240) SonicTeamAlpha -= 16;
+					else SonicTeamAlpha = 0;
+				}
+				if (EnableTransition == false)
+				{
+					SonicTeamAlpha = 255;
+				}
+				if (SonicTeamAlpha >= 0) SonicTeamTransparency.argb.a = SonicTeamAlpha;
+				else SonicTeamTransparency.argb.a = 0;
+				SetVtxColorB(SonicTeamTransparency.color);
+				DrawBG(6, (320 - 32), 33, 1.2f, 1.0f, 1.0f);
+				//Subtitle or SEGA text
+				//if (EnableInternational == true) DrawBG(10, 64, 308, 1.2f, 1.0f, 1.0f);
+				//else 
+				DrawBG(7, 64, 308+92, 1.2f, 1.0f, 1.0f);
+			}
 			logodrawn = logoframe;
 		}
 		if (transitionmode != 0)
@@ -1028,16 +1063,33 @@ void DrawLogo_640()
 					LogoScaleYT = LogoScaleY;
 				}
 			}
+			if (transitionmode == -1)
+			{
+				if (TitleBGTransparency.argb.a <= 223)
+				{
+					if (BlackFadeout.argb.a >= 4) BlackFadeout.argb.a -= 4;
+					TitleBGTransparency.argb.a += 32;
+					if (LogoScaleXT > LogoScaleX) LogoScaleXT = LogoScaleXT * 0.92f;
+					if (LogoScaleYT > LogoScaleY) LogoScaleYT = LogoScaleYT * 0.92f;
+				}
+				else
+				{
+					transitionmode = 0;
+					TitleBGTransparency.argb.a = 255;
+					LogoScaleXT = LogoScaleX;
+					LogoScaleYT = LogoScaleY;
+				}
+			}
 			//Draw logo transition
 			SetVtxColorB(TitleBGTransparency.color);
-			xpos = (640.0f - LogoScaleXT * 512.0f) / 2.0f;
-			if (RipplesOn == true) ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - LogoScaleYT * 15.5f;
-			else ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - LogoScaleYT;
+			xpos = (640.0f - LogoScaleXT * 502.0f) / 2.0f;
+			if (RipplesOn == true) ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - (32.0f/LogoScaleYT);
+			else ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f;
 			if (LogoScaleXT > 1.02f) DrawBG(4, xpos, ypos, 1.2f, LogoScaleXT, LogoScaleYT);
 		}
 		njTextureShadingMode(2);
 		//Draw black box if transitioning
-		if (transitionmode == 3 || transitionmode == 1) DrawRect_Queue(0, 0, HorizontalResolution, VerticalResolution, 1.2f, BlackFadeout.color, QueuedModelFlagsB_SomeTextureThing);
+		if (transitionmode == 3 || transitionmode == 1 || transitionmode == -1) DrawRect_Queue(0, 0, HorizontalResolution, VerticalResolution, 1.2f, BlackFadeout.color, QueuedModelFlagsB_SomeTextureThing);
 	}
 }
 
@@ -1946,7 +1998,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	DisableSA1TitleScreen = defaults->getBool("Branding", "DisableSA1TitleScreen", false);
 	DrawOverlay = defaults->getBool("Branding", "DrawOverlay", true);
 	RemoveCream = defaults->getBool("Branding", "RemoveCream", false);
-	DisableFade = defaults->getBool("Branding", "DisableFade", true);
+	EnableInternational = defaults->getBool("Branding", "EnableInternational", true);
 	TextOffsetX = defaults->getInt(SectionName, "CopyrightOffsetX", 0);
 	TextOffsetY = defaults->getInt(SectionName, "CopyrightOffsetY", 0);
 	PressStartOffsetX = defaults->getInt(SectionName, "PressStartOffsetX", 0);
@@ -1971,7 +2023,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	if (settings->hasKeyNonEmpty("Branding", "DisableSA1TitleScreen")) DisableSA1TitleScreen = settings->getBool("Branding", "DisableSA1TitleScreen", false);
 	if (settings->hasKeyNonEmpty("Branding", "DrawOverlay")) DrawOverlay = settings->getBool("Branding", "DrawOverlay", true);
 	if (settings->hasKeyNonEmpty("Branding", "RemoveCream")) RemoveCream = settings->getBool("Branding", "RemoveCream", false);
-	if (settings->hasKeyNonEmpty("Branding", "DisableFade")) DisableFade = settings->getBool("Branding", "DisableFade", true);
+	if (settings->hasKeyNonEmpty("Branding", "EnableInternational")) EnableInternational = settings->getBool("Branding", "EnableInternational", true);
 	if (settings->hasKeyNonEmpty(SectionName, "CopyrightOffsetX")) TextOffsetX = settings->getInt(SectionName, "CopyrightOffsetX", 0);
 	if (settings->hasKeyNonEmpty(SectionName, "CopyrightOffsetY")) TextOffsetY = settings->getInt(SectionName, "CopyrightOffsetY", 0);
 	if (settings->hasKeyNonEmpty(SectionName, "PressStartOffsetX")) PressStartOffsetX = settings->getInt(SectionName, "PressStartOffsetX", 0);
@@ -2013,7 +2065,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteData<5>((void*)0x0050F612, 0x90);
 		WriteData<5>((void*)0x0050FF59, 0x90);
 		//Kill titlescreen fade
-		if (DisableFade == true) WriteData<5>((char*)0x0050E49B, 0x90);
+		WriteData<5>((char*)0x0050E49B, 0x90);
 		ResizeTextureList((NJS_TEXLIST*)0x010D7C80, 10);
 		WriteJump((void*)0x50BA90, DrawAVA_TITLE_BACK_E_DC);
 		//PVMs
@@ -2139,6 +2191,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 			WriteCall((void*)0x50557D, FileSelectAVABACKHook);
 			WriteCall((void*)0x50558D, VtxColorHook);
 			WriteCall((void*)0x509829, VtxColorHook_Options);
+			WriteCall((void*)0x50E3E2, DelayTransitionHook);
 			WriteData((void**)0x010D7B60, (void*)LoadTitleScreenHook);
 		}
 	}
