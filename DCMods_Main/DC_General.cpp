@@ -1201,7 +1201,7 @@ void General_OnFrame()
 void General_OnInput()
 {
 	//Input hook for cutscenes
-	if (CutsceneSkipMode < 2 && SkipPressed_Cutscene == false)
+	if (CutsceneSkipMode < 2 && SkipPressed_Cutscene == false && !DemoPlaying)
 		if (EV_MainThread_ptr != 0 && ControllerPointers[0]->PressedButtons & Buttons_Start)
 		{
 			PrintDebug("Cutscene skip pressed!\n");
