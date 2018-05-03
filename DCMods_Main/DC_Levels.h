@@ -80,6 +80,7 @@ void Videos_OnFrame();
 void Videos_OnInput();
 void SkyChaseFix_Init();
 void SkyChaseFix_UpdateBounds();
+void Branding_SetUpVariables();
 void SpeedFixes_Init();
 void SpeedFixes_OnFrame();
 

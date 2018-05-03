@@ -204,6 +204,7 @@ extern "C"
 	_declspec(dllexport) void __cdecl OnRenderDeviceReset()
 	{
 		SkyChaseFix_UpdateBounds();
+		Branding_SetUpVariables();
 	}
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 }
