@@ -605,12 +605,9 @@ void DelayTransitionHook(int a1)
 
 int __cdecl PlayStartSound_EnableTransition()
 {
-	if (EnableTransition == true)
-	{
-		disableavaback = false;
-		transitionmode = 1;
-		disablevtxcolor = true;
-	}
+	disableavaback = false;
+	transitionmode = 1;
+	disablevtxcolor = true;
 	PlaySound(2, 0, 0, 0);
 	return 0;
 }
@@ -618,12 +615,9 @@ int __cdecl PlayStartSound_EnableTransition()
 int __cdecl PlayReturnSound_EnableTransition()
 {
 	PlaySound(3, 0, 0, 0);
-	if (EnableTransition == true)
-	{
-		transitionmode = 3;
-		disablevtxcolor = true;
-		SonicTeamAlpha = -256;
-	}
+	transitionmode = 3;
+	disablevtxcolor = true;
+	SonicTeamAlpha = -256;
 	return 0;
 }
 
@@ -657,6 +651,7 @@ void __cdecl DrawAVA_TITLE_BACK_E_DC(float depth)
 	float v16; // ST04_4@1
 	float z; // [sp+1Ch] [bp+4h]@1
 	njTextureShadingMode(1);
+	njSetTexture(&ava_title_e_TEXLIST);
 	SetVtxColorB(0xFFFFFFFF);
 	njSetTexture(&ava_title_back_e_TEXLIST);
 	z = depth - 4.0f;
@@ -743,7 +738,7 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 	float scaleY2;
 	if (transitionmode == 0) TitleBGTransparency.argb.a = 255;
 	//Draw AVA_BACK first
-	if (disableavaback == false && EnableTransition == true && titlebackloaded == false && transitionmode != -1)
+	if (disableavaback == false && titlebackloaded == false && transitionmode != -1)
 	{
 		njSetTexture(&ava_back_TEXLIST);
 		SetVtxColorB(0xFFFFFFFF);
@@ -863,12 +858,12 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		if (is640) texturenumber = 5; else texturenumber = 1;
 		if (DrawOverlay == true) DrawBG(texturenumber, xpos, ypos, 1.2f, scaleX, scaleY);
 		//Sonic Team logo fade-in
-		if (EnableTransition == true && transitionmode == 0)
+		if (transitionmode == 0)
 		{
 			if (SonicTeamAlpha <= 247) SonicTeamAlpha += 4;
 			else SonicTeamAlpha = 255;
 		}
-		if (EnableTransition == true && transitionmode == 1)
+		if (transitionmode == 1)
 		{
 			if (SonicTeamAlpha >= -240) SonicTeamAlpha -= 16;
 			else SonicTeamAlpha = 0;
@@ -975,7 +970,7 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 			else ypos = (VerticalResolution - LogoScaleYT * 262.0f *ResolutionScaleY) / 2.0f;
 		}
 		SetVtxColorB(TitleBGTransparency.color);
-		if (LogoScaleXT > 1.02f) DrawBG(texturenumber, xpos, ypos, 1.2f, LogoScaleXT*scaleX, LogoScaleYT*scaleY);
+		if (EnableTransition == true && LogoScaleXT > 1.02f) DrawBG(texturenumber, xpos, ypos, 1.2f, LogoScaleXT*scaleX, LogoScaleYT*scaleY);
 	}
 	njTextureShadingMode(2);
 	//Draw black box if transitioning
@@ -1084,32 +1079,29 @@ void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, flo
 
 void LoadTitleScreenHook(int a1)
 {
-	if (EnableTransition == true)
+	if (titlebackloaded == false)
 	{
-		if (titlebackloaded == false)
-		{
-			LoadPVM("AVA_BACK", &ava_back_TEXLIST);
-			LoadPVM("adv_window_hd", &adv_window_TEXLIST);
-			LoadPVM("ava_square_hd", &ava_square_TEXLIST);
-			LoadPVM("ava_csr_hd", &ava_csr_TEXLIST);
-			LoadPVM("ava_dlg_e_hd", &ava_dlg_e_TEXLIST);
-			LoadPVM("ava_fsdlg_e_hd", &ava_fsdlg_g_TEXLIST);
-			LoadPVM("ava_emblem_hd", &ava_emblem_TEXLIST);
-			LoadPVM("ava_suuji_hd", &ava_suuji_TEXLIST);
-			LoadPVM("m_chnam_hd", &m_chnam_TEXLIST);
-			LoadPVM("ava_vmssel_e_hd", &ava_vmssel_e_TEXLIST);
-			LoadPVM("ava_filesel_e_hd", &ava_filesel_e_TEXLIST);
-			LoadPVM("ava_stnam_e_hd", &ava_stnam_e_TEXLIST);
-			LoadPVM("ava_san_hd", &ava_san_TEXLIST);
-		}
-		else
-		{
-			LoadPVM("AVA_TITLE_BACK_E", &ava_title_back_e_TEXLIST);
-			LoadPVM("adv_window_hd", &adv_window_TEXLIST);
-			LoadPVM("ava_square_hd", &ava_square_TEXLIST);
-			if (!TextLanguage) LoadPVM("AVA_TITLE", &ava_title_e_TEXLIST);
-			else LoadPVM("AVA_TITLE_E", &ava_title_e_TEXLIST);
-		}
+		LoadPVM("AVA_BACK", &ava_back_TEXLIST);
+		LoadPVM("adv_window_hd", &adv_window_TEXLIST);
+		LoadPVM("ava_square_hd", &ava_square_TEXLIST);
+		LoadPVM("ava_csr_hd", &ava_csr_TEXLIST);
+		LoadPVM("ava_dlg_e_hd", &ava_dlg_e_TEXLIST);
+		LoadPVM("ava_fsdlg_e_hd", &ava_fsdlg_g_TEXLIST);
+		LoadPVM("ava_emblem_hd", &ava_emblem_TEXLIST);
+		LoadPVM("ava_suuji_hd", &ava_suuji_TEXLIST);
+		LoadPVM("m_chnam_hd", &m_chnam_TEXLIST);
+		LoadPVM("ava_vmssel_e_hd", &ava_vmssel_e_TEXLIST);
+		LoadPVM("ava_filesel_e_hd", &ava_filesel_e_TEXLIST);
+		LoadPVM("ava_stnam_e_hd", &ava_stnam_e_TEXLIST);
+		LoadPVM("ava_san_hd", &ava_san_TEXLIST);
+	}
+	else
+	{
+		LoadPVM("AVA_TITLE_BACK_ES", &ava_title_back_e_TEXLIST);
+		LoadPVM("adv_window_hd", &adv_window_TEXLIST);
+		LoadPVM("ava_square_hd", &ava_square_TEXLIST);
+		if (!TextLanguage) LoadPVM("AVA_TITLE", &ava_title_e_TEXLIST);
+		else LoadPVM("AVA_TITLE_E", &ava_title_e_TEXLIST);
 	}
 	sub_510390(a1);
 }
@@ -2062,23 +2054,21 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		SonicTeamTransparency.argb.r = 255;
 		SonicTeamTransparency.argb.g = 255;
 		SonicTeamTransparency.argb.b = 255;
-		if (EnableTransition == true)
-		{
-			transitionmode = -1;
-			LogoScaleXT = LogoScaleX * 2.0f;
-			LogoScaleYT = LogoScaleY * 2.0f;
-			TitleBGTransparency.argb.a = 0;
-			SonicTeamTransparency.argb.a = 0;
-			SonicTeamAlpha = -256;
-			BlackFadeout.argb.a = 64;
-			WriteCall((void*)0x503DD8, PlayReturnSound_EnableTransition);
-			WriteCall((void*)0x50E386, PlayStartSound_EnableTransition);
-			WriteCall((void*)0x50557D, FileSelectAVABACKHook);
-			WriteCall((void*)0x50558D, VtxColorHook);
-			WriteCall((void*)0x509829, VtxColorHook_Options);
-			WriteCall((void*)0x50E3E2, DelayTransitionHook);
-			WriteData((void**)0x010D7B60, (void*)LoadTitleScreenHook);
-		}
+		//Transition stuff
+		transitionmode = -1;
+		LogoScaleXT = LogoScaleX * 2.0f;
+		LogoScaleYT = LogoScaleY * 2.0f;
+		TitleBGTransparency.argb.a = 0;
+		SonicTeamTransparency.argb.a = 0;
+		SonicTeamAlpha = -256;
+		BlackFadeout.argb.a = 64;
+		WriteCall((void*)0x503DD8, PlayReturnSound_EnableTransition);
+		WriteCall((void*)0x50E386, PlayStartSound_EnableTransition);
+		WriteCall((void*)0x50557D, FileSelectAVABACKHook);
+		WriteCall((void*)0x50558D, VtxColorHook);
+		WriteCall((void*)0x509829, VtxColorHook_Options);
+		WriteCall((void*)0x50E3E2, DelayTransitionHook);
+		WriteData((void**)0x010D7B60, (void*)LoadTitleScreenHook);
 	}
 	//Pause box stuff
 	WriteCall((void*)0x00458232, DrawPauseSelectionBox_DC);
