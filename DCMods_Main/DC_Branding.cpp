@@ -103,6 +103,7 @@ static NJS_COLOR TitleBGTransparency;
 static NJS_COLOR SonicTeamTransparency;
 static int SonicTeamAlpha;
 static NJS_COLOR BlackFadeout;
+static NJS_COLOR WhiteFadeout;
 static int titleframe = 0;
 static int titledrawn = -1;
 static int logoframe = 0;
@@ -617,7 +618,7 @@ int __cdecl PlayReturnSound_EnableTransition()
 	PlaySound(3, 0, 0, 0);
 	transitionmode = 3;
 	disablevtxcolor = true;
-	SonicTeamAlpha = -256;
+	SonicTeamAlpha = 0;
 	return 0;
 }
 
@@ -625,14 +626,17 @@ void __cdecl DrawAVA_TITLE_BACK_E_DC(float depth)
 {
 	titlebackloaded = true;
 	disablevtxcolor = true;
-	SonicTeamAlpha = -256;
 	if (transitionmode == 2) transitionmode = 3;
 	float xpos = 0;
 	float ypos = 0;
 	float ydelta = 0;
-	float scaleX = 0;
-	float scaleY = 0;
+	float scaleX = 1.0f;
+	float scaleY = 1.0f;
+	float scaleX2 = 1.0f;
+	float scaleY2 = 1.0f;
 	int texturenumber = 0;
+	bool is640 = false;
+	bool OffsetOn = true;
 	float y; // ST08_4@1
 	float x; // ST04_4@1
 	float v3; // ST08_4@1
@@ -655,50 +659,69 @@ void __cdecl DrawAVA_TITLE_BACK_E_DC(float depth)
 	SetVtxColorB(0xFFFFFFFF);
 	njSetTexture(&ava_title_back_e_TEXLIST);
 	z = depth - 4.0f;
+	if (HorizontalStretch == 1.0f) is640 = true;
+	else is640 = false;
 	//Draw main menu BG
-	if (ResolutionScaleX > ResolutionScaleY)
+	if (is640 == true)
 	{
-		scaleX = ResolutionScaleX / 2.0f;
-		scaleY = ResolutionScaleX / 2.0f;
-		ydelta = (VerticalResolution_float - (480.0f*ResolutionScaleX)) / 2.0f;
+		OffsetOn = false;
+		scaleX = 0.5f;
+		scaleY = 0.5f;
+		scaleX2 = 1.0f;
+		scaleY2 = 1.0f;
+		ydelta = 0;
 	}
 	else
 	{
-		scaleX = ResolutionScaleY / 2.0f;
-		scaleY = ResolutionScaleY / 2.0f;
-		ydelta = (VerticalResolution_float - (480.0f*ResolutionScaleY)) / 2.0f;
+		if (ResolutionScaleX > ResolutionScaleY)
+		{
+			scaleX = ResolutionScaleX / 2.0f;
+			scaleY = ResolutionScaleX / 2.0f;
+			scaleX2 = ResolutionScaleX;
+			scaleY2 = ResolutionScaleX;
+			ydelta = (VerticalResolution_float - (480.0f*ResolutionScaleX)) / 2.0f;
+		}
+		else
+		{
+			scaleX = ResolutionScaleY / 2.0f;
+			scaleY = ResolutionScaleY / 2.0f;
+			scaleX2 = ResolutionScaleY;
+			scaleY2 = ResolutionScaleY;
+			ydelta = (VerticalResolution_float - (480.0f*ResolutionScaleY)) / 2.0f;
+		}
+		OffsetOn = RipplesOn;
 	}
 	//1
-	xpos = -16.0f*RipplesOn;
+	xpos = -16.0f*OffsetOn;
 	ypos = 0 - abs(ydelta);
 	DrawBG(texturenumber, xpos, ypos, z, scaleX, scaleY);
 	//2
-	xpos = -16.0f*RipplesOn + 256.0f*scaleX*2.0f;
+	xpos = -16.0f*OffsetOn + 256.0f*scaleX2;
 	ypos = 0 - abs(ydelta);
 	DrawBG(texturenumber + 1, xpos, ypos, z, scaleX, scaleY);
 	//3
-	xpos = -16.0f*RipplesOn;
-	ypos = 0 - abs(ydelta) + 256.0f*scaleY*2.0f;
+	xpos = -16.0f*OffsetOn;
+	ypos = 0 - abs(ydelta) + 256.0f*scaleY2;
 	DrawBG(texturenumber + 2, xpos, ypos, z, scaleX, scaleY);
 	//4
-	xpos = -16.0f*RipplesOn + 256.0f*scaleX*2.0f;
-	ypos = 0 - abs(ydelta) + 256.0f*scaleY*2.0f;
+	xpos = -16.0f*OffsetOn + 256.0f*scaleX2;
+	ypos = 0 - abs(ydelta) + 256.0f*scaleY2;
 	DrawBG(texturenumber + 3, xpos, ypos, z, scaleX, scaleY);
 	//5
-	xpos = -16.0f*RipplesOn + 512.0f*scaleX*2.0f;
+	xpos = -16.0f*OffsetOn + 512.0f*scaleX2;
 	ypos = 0 - abs(ydelta);
 	DrawBG(texturenumber + 4, xpos, ypos, z, scaleX, scaleY);
 	//6
-	xpos = -16.0f*RipplesOn + 512.0f*scaleX*2.0f;
-	ypos = 0 - abs(ydelta) + 128.0f*scaleY*2.0f;
+	xpos = -16.0f*OffsetOn + 512.0f*scaleX2;
+	ypos = 0 - abs(ydelta) + 128.0f*scaleY2;
 	DrawBG(texturenumber + 5, xpos, ypos, z, scaleX, scaleY);
 	//7
-	xpos = -16.0f*RipplesOn + 512.0f*scaleX*2.0f;
-	ypos = 0 - abs(ydelta) + 256.0f*scaleY*2.0f;
+	xpos = -16.0f*OffsetOn + 512.0f*scaleX2;
+	ypos = 0 - abs(ydelta) + 256.0f*scaleY2;
 	DrawBG(texturenumber + 6, xpos, ypos, z, scaleX, scaleY);
 	//8
-	xpos = -16.0f*RipplesOn + 512.0f*scaleX*2.0f;
-	ypos = 0 - abs(ydelta) + 384.0f*scaleY*2.0f;
+	xpos = -16.0f*OffsetOn + 512.0f*scaleX2;
+	ypos = 0 - abs(ydelta) + 384.0f*scaleY2;
 	DrawBG(texturenumber + 7, xpos, ypos, z, scaleX, scaleY);
 	//Draw logo
 	if (SA1LogoMode < 2)
@@ -865,7 +888,7 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		}
 		if (transitionmode == 1)
 		{
-			if (SonicTeamAlpha >= -240) SonicTeamAlpha -= 16;
+			if (SonicTeamAlpha >= 0) SonicTeamAlpha -= 16;
 			else SonicTeamAlpha = 0;
 		}
 		if (EnableTransition == false)
@@ -920,13 +943,14 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		{
 			if (TitleBGTransparency.argb.a <= 223)
 			{
-				if (BlackFadeout.argb.a >= 4) BlackFadeout.argb.a -= 4;
+				if (BlackFadeout.argb.a >= 8) BlackFadeout.argb.a -= 8;
 				TitleBGTransparency.argb.a += 32;
 				if (LogoScaleXT > LogoScaleX) LogoScaleXT = LogoScaleXT * 0.92f;
 				if (LogoScaleYT > LogoScaleY) LogoScaleYT = LogoScaleYT * 0.92f;
 			}
 			else
 			{
+				BlackFadeout.argb.a = 0;
 				transitionmode = 0;
 				TitleBGTransparency.argb.a = 255;
 				LogoScaleXT = LogoScaleX;
@@ -973,8 +997,19 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		if (EnableTransition == true && LogoScaleXT > 1.02f) DrawBG(texturenumber, xpos, ypos, 1.2f, LogoScaleXT*scaleX, LogoScaleYT*scaleY);
 	}
 	njTextureShadingMode(2);
-	//Draw black box if transitioning
-	if (transitionmode == 3 || transitionmode == 1 || transitionmode == -1) DrawRect_Queue(0, 0, HorizontalResolution, VerticalResolution, 1.2f, BlackFadeout.color, QueuedModelFlagsB_SomeTextureThing);
+	//Draw black/white box if transitioning
+	if ((transitionmode >= 1 && transitionmode < 3) || transitionmode == -1)
+	{
+		if (WhiteFadeout.argb.a < 160) WhiteFadeout.argb.a += 16;
+		else WhiteFadeout.argb.a = 153;
+	}
+	if (transitionmode == 3 || transitionmode < 1)
+	{
+		if (WhiteFadeout.argb.a >= 16) WhiteFadeout.argb.a -= 16;
+		else WhiteFadeout.argb.a = 0;
+	}
+	if (titlebackloaded == true && disableavaback == false) DrawRect_Queue(0, 0, HorizontalResolution, VerticalResolution, 1.2f, WhiteFadeout.color, QueuedModelFlagsB_SomeTextureThing);
+	DrawRect_Queue(0, 0, HorizontalResolution, VerticalResolution, 1.2f, BlackFadeout.color, QueuedModelFlagsB_SomeTextureThing);
 }
 
 void DrawPressStart(int texnum, float x, float y, float z, float scaleX, float scaleY)
@@ -1370,7 +1405,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x006415DA, 1.5f); //EngBG X scale
 	WriteData((float*)0x006415DF, 1.5f); //EngBG Y scale
 	WriteCall((void*)0x00640ACC, DrawBG_CreditsLogo);
-	WriteCall((void*)0x51036F, VtxColorHook2);
 	MainCredits.Count = 449;
 	MainCredits.Entries = (CreditsEntry*)&SA1Credits;
 	char pathbuf[MAX_PATH];
@@ -2048,6 +2082,10 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteData<5>((char*)0x005100EB, 0x90);
 		//Various transition stuff
 		BlackFadeout.color = 0x00000000;
+		WhiteFadeout.argb.r = 255;
+		WhiteFadeout.argb.g = 255;
+		WhiteFadeout.argb.b = 255;
+		WhiteFadeout.argb.a = 0;
 		TitleBGTransparency.argb.r = 255;
 		TitleBGTransparency.argb.g = 255;
 		TitleBGTransparency.argb.b = 255;
@@ -2061,11 +2099,12 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		TitleBGTransparency.argb.a = 0;
 		SonicTeamTransparency.argb.a = 0;
 		SonicTeamAlpha = -256;
-		BlackFadeout.argb.a = 64;
+		BlackFadeout.argb.a = 0;
 		WriteCall((void*)0x503DD8, PlayReturnSound_EnableTransition);
 		WriteCall((void*)0x50E386, PlayStartSound_EnableTransition);
 		WriteCall((void*)0x50557D, FileSelectAVABACKHook);
 		WriteCall((void*)0x50558D, VtxColorHook);
+		WriteCall((void*)0x51036F, VtxColorHook2);
 		WriteCall((void*)0x509829, VtxColorHook_Options);
 		WriteCall((void*)0x50E3E2, DelayTransitionHook);
 		WriteData((void**)0x010D7B60, (void*)LoadTitleScreenHook);
