@@ -82,7 +82,7 @@ void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 	Hasira1Model.mats[0].diffuse.color = 0x99B2B2B2;
 	*(NJS_OBJECT*)0x20144CC = objectSTG07_0013BB70; //Kusa02 type 1
 	*(NJS_OBJECT*)0x2015968 = objectSTG07_0013CA2C; //Kusa02 type 2
-	*(NJS_MODEL_SADX*)0x0202FF74 = attachSTG07_00151E30; //Aokiswitch
+	//*(NJS_MODEL_SADX*)0x0202FF74 = attachSTG07_00151E30; //Aokiswitch
 	*(NJS_OBJECT*)0x201AF8C = objectSTG07_00140C64; //Box part 1 object
 	*(NJS_OBJECT*)0x201B1C4 = objectSTG07_00140E84; //Box part 2 object
 	*(NJS_OBJECT*)0x201B40C = objectSTG07_001410B4; //Box part 3 object
