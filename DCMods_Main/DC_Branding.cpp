@@ -23,6 +23,18 @@ struct TutorialScreenItem
 	__int16 YOffset;
 };
 
+NJS_TEXNAME textures_titleback[11];
+NJS_TEXLIST texlist_titleback = { arrayptrandlength(textures_titleback) };
+
+NJS_TEXNAME textures_cmnx[184];
+NJS_TEXLIST texlist_cmnx = { arrayptrandlength(textures_cmnx) };
+
+NJS_TEXNAME textures_cmns[8];
+NJS_TEXLIST texlist_cmns = { arrayptrandlength(textures_cmns) };
+
+NJS_TEXNAME textures_gtitle[20];
+NJS_TEXLIST texlist_gtitle = { arrayptrandlength(textures_gtitle) };
+
 FunctionPointer(ObjectMaster*, sub_510390, (int a1), 0x510390);
 FunctionPointer(void, sub_505B40, (int a1), 0x505B40);
 DataPointer(int, DroppedFrames, 0x03B1117C);
@@ -657,7 +669,7 @@ void __cdecl DrawAVA_TITLE_BACK_E_DC(float depth)
 	njTextureShadingMode(1);
 	njSetTexture(&ava_title_e_TEXLIST);
 	SetVtxColorB(0xFFFFFFFF);
-	njSetTexture(&ava_title_back_e_TEXLIST);
+	njSetTexture(&texlist_titleback);
 	z = depth - 4.0f;
 	if (HorizontalStretch == 1.0f) is640 = true;
 	else is640 = false;
@@ -726,7 +738,8 @@ void __cdecl DrawAVA_TITLE_BACK_E_DC(float depth)
 	//Draw logo
 	if (SA1LogoMode < 2)
 	{
-		xpos = ResolutionDeltaX + 69 * ResolutionScaleY;
+		if (!TextLanguage) xpos = ResolutionDeltaX + 64 * ResolutionScaleY; //Japanese
+		else xpos = ResolutionDeltaX + 69 * ResolutionScaleY;
 		ypos = ResolutionDeltaY + 80 * ResolutionScaleY;
 	}
 	else
@@ -734,7 +747,11 @@ void __cdecl DrawAVA_TITLE_BACK_E_DC(float depth)
 		xpos = ResolutionDeltaX + 64 * ResolutionScaleY;
 		ypos = ResolutionDeltaY + 109 * ResolutionScaleY;
 	}
-	DrawBG(8, xpos, ypos, z, ResolutionScaleY / 2.0f, ResolutionScaleY / 2.0f);
+	//Draw logo shadow first
+	DrawBG(11, xpos - (4.0f * RipplesOn * ResolutionScaleY), ypos, z, ResolutionScaleY / 2.0f, ResolutionScaleY / 2.0f);
+	//Draw the actual logo
+	if (!TextLanguage && SA1LogoMode != 1) DrawBG(10, xpos, ypos, z, ResolutionScaleY / 2.0f, ResolutionScaleY / 2.0f); //Japanese
+	else DrawBG(8, xpos, ypos, z, ResolutionScaleY / 2.0f, ResolutionScaleY / 2.0f);
 	//Draw logo overlay
 	if (DrawOverlay == true) DrawBG(9, xpos, ypos, z, ResolutionScaleY / 2.0f, ResolutionScaleY / 2.0f);
 	njTextureShadingMode(2);
@@ -770,8 +787,7 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 	//Draw title BG
 	if (HorizontalStretch == 1.0f) is640 = true;
 	else is640 = false;
-	if (is640) njSetTexture(&ava_title_cmn_small_TEXLIST);
-	else njSetTexture(&ava_title_cmn_TEXLIST);
+	if (RipplesOn == true) njSetTexture(&texlist_cmnx); else njSetTexture(&texlist_cmns);
 	njTextureShadingMode(1);
 	if (!DroppedFrames)
 	{
@@ -779,7 +795,7 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		if (titledrawn != titleframe)
 		{
 			if (titleframe > 22) titleframe = 0;
-			if (RipplesOn == false) texturenumber = 0; else texturenumber = 8 + (titleframe * 8);
+			if (RipplesOn == false) texturenumber = 0; else texturenumber = titleframe * 8;
 			//Set scaling
 			if (is640 == true)
 			{
@@ -848,15 +864,15 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 	//Draw logo
 	if (logodrawn != logoframe)
 	{
-		if (!TextLanguage) njSetTexture(&TexList_Ava_Gtitle0);
-		else njSetTexture(&ava_gtitle0_e_TEXLIST);
+		njSetTexture(&texlist_gtitle);
 		if (logoframe > 128) logoframe = 0;
 		//Draw logo
 		if (titlebackloaded == false || disableavaback == true)  SetVtxColorB(TitleBGTransparency.color);
 		else SetVtxColorB(0xFFFFFFFF);
 		if (SA1LogoMode < 2)
 		{
-			xpos = ResolutionDeltaX + 69 * ResolutionScaleY;
+			if (!TextLanguage) xpos = ResolutionDeltaX + 64 * ResolutionScaleY; //Japanese
+			else xpos = ResolutionDeltaX + 69 * ResolutionScaleY;
 			ypos = ResolutionDeltaY + 80 * ResolutionScaleY;
 		}
 		else
@@ -866,25 +882,37 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		}
 		if (is640)
 		{
-			texturenumber = 4;
+			//Use J logo only in non-International mode
+			if (!TextLanguage && SA1LogoMode != 1) texturenumber = 3; else texturenumber = 1;
 			scaleX = 1.0f;
 			scaleY = 1.0f;
 		}
 		else
 		{
-			texturenumber = 0;
+			//Use J logo only in non-International mode
+			if (!TextLanguage && SA1LogoMode != 1) texturenumber = 2; else texturenumber = 0;
 			scaleX = ResolutionScaleY / 2.0f;
 			scaleY = ResolutionScaleY / 2.0f;
 		}
+		//Draw logo shadow
+		if (is640)
+		{
+			DrawBG(19, xpos - (4.0f * RipplesOn * ResolutionScaleY), ypos, 1.2f, scaleX, scaleY);
+		}
+		else
+		{
+			DrawBG(18, xpos - (4.0f * RipplesOn * ResolutionScaleY), ypos, 1.2f, scaleX, scaleY);
+		}
+		//Draw the actual logo
 		DrawBG(texturenumber, xpos, ypos, 1.2f, scaleX, scaleY);
 		//Draw logo overlay
-		if (is640) texturenumber = 5; else texturenumber = 1;
+		if (is640) texturenumber = 5; else texturenumber = 4;
 		if (DrawOverlay == true) DrawBG(texturenumber, xpos, ypos, 1.2f, scaleX, scaleY);
 		//Sonic Team logo fade-in
 		if (transitionmode == 0)
 		{
 			if (SonicTeamAlpha <= 247) SonicTeamAlpha += 4;
-			else SonicTeamAlpha = 255;
+			else SonicTeamAlpha = TitleBGTransparency.argb.a;
 		}
 		if (transitionmode == 1)
 		{
@@ -893,7 +921,7 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		}
 		if (EnableTransition == false)
 		{
-			SonicTeamAlpha = 255;
+			SonicTeamAlpha = TitleBGTransparency.argb.a;
 		}
 		if (SonicTeamAlpha >= 0) SonicTeamTransparency.argb.a = SonicTeamAlpha;
 		else SonicTeamTransparency.argb.a = 0;
@@ -901,17 +929,24 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		{
 			SetVtxColorB(SonicTeamTransparency.color);
 			//Draw Sonic Team logo
-			if (is640) texturenumber = 6; else texturenumber = 2;
-			DrawBG(texturenumber, ResolutionDeltaX + 288 * ResolutionScaleY, ResolutionDeltaY + 32.5f * ResolutionScaleY, 1.2f, scaleX, scaleY);
-			//Subtitle or SEGA text
+			if (is640) texturenumber = 11; else texturenumber = 10;
+			DrawBG(texturenumber, ResolutionDeltaX + 288 * ResolutionScaleY, ResolutionDeltaY + 33.0f * ResolutionScaleY, 1.2f, scaleX, scaleY);
+			//International subtitle
 			if (SA1LogoMode == 1)
 			{
-				if (is640) texturenumber = 10; else texturenumber = 9;
+				if (is640)
+				{
+					if (!TextLanguage) texturenumber = 9; else texturenumber = 8;
+				} 
+				else
+				{
+					if (!TextLanguage) texturenumber = 7; else texturenumber = 6;
+				}
 				DrawBG(texturenumber, ResolutionDeltaX + 64 * ResolutionScaleY, ResolutionDeltaY + (300 + 8 * TextLanguage)* ResolutionScaleY, 1.2f, scaleX, scaleY);
 			}
 			else
 			{
-				if (is640) texturenumber = 7; else texturenumber = 3;
+				if (is640) texturenumber = 13; else texturenumber = 12;
 				DrawBG(texturenumber, ResolutionDeltaX + 64 * ResolutionScaleY, ResolutionDeltaY + 400 * ResolutionScaleY, 1.2f, scaleX, scaleY);
 			}
 		}
@@ -979,7 +1014,7 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		{
 			scaleX = 1.0f;
 			scaleY = 1.0f;
-			texturenumber = 4;
+			texturenumber = 1;
 			xpos = (640.0f - LogoScaleXT * 502.0f) / 2.0f;
 			if (SA1LogoMode != 2) ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - 32.0f / LogoScaleYT;
 			else ypos = (480.0f - LogoScaleYT * 262.0f) / 2.0f;
@@ -1019,17 +1054,16 @@ void DrawPressStart(int texnum, float x, float y, float z, float scaleX, float s
 	if (transitionmode != 1)
 	{
 		njTextureShadingMode(1);
-		if (!TextLanguage) njSetTexture(&TexList_Ava_Gtitle0);
-		else njSetTexture(&ava_gtitle0_e_TEXLIST);
-		if (!(HorizontalResolution == 640 && VerticalResolution == 480) && startdrawn != startframe)
+		njSetTexture(&texlist_gtitle);
+		if (HorizontalStretch != 1.0f && startdrawn != startframe)
 		{
 			if (startframe > 128) startframe = 0;
-			DrawBG(8, ResolutionDeltaX+ sourcepos_x *ResolutionScaleY, ResolutionDeltaY+ sourcepos_y *ResolutionScaleY, 1.1f, ResolutionScaleY/2.0f, ResolutionScaleY / 2.0f);
+			DrawBG(16, ResolutionDeltaX+ sourcepos_x *ResolutionScaleY, ResolutionDeltaY+ sourcepos_y *ResolutionScaleY, 1.1f, ResolutionScaleY/2.0f, ResolutionScaleY / 2.0f);
 		}
-		if (HorizontalResolution == 640 && VerticalResolution == 480 && startdrawn != startframe)
+		if (HorizontalStretch == 1.0f && startdrawn != startframe)
 		{
 			if (startframe > 128) startframe = 0;
-			DrawBG(11, sourcepos_x, sourcepos_y, 1.1f, 1.0f, 1.0f);
+			DrawBG(17, sourcepos_x, sourcepos_y, 1.1f, 1.0f, 1.0f);
 		}
 		startdrawn = startframe;
 		njTextureShadingMode(2);
@@ -1114,29 +1148,35 @@ void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, flo
 
 void LoadTitleScreenHook(int a1)
 {
-	if (titlebackloaded == false)
+	PrintDebug("Loading title screen textures...\n");
+	LoadPVM("AVA_TITLE_BACK_ES", &texlist_titleback);
+	LoadPVM("AVA_GTITLE0_ES", &texlist_gtitle);
+	if (RipplesOn == true)
 	{
-		LoadPVM("AVA_BACK", &ava_back_TEXLIST);
-		LoadPVM("adv_window_hd", &adv_window_TEXLIST);
-		LoadPVM("ava_square_hd", &ava_square_TEXLIST);
-		LoadPVM("ava_csr_hd", &ava_csr_TEXLIST);
-		LoadPVM("ava_dlg_e_hd", &ava_dlg_e_TEXLIST);
-		LoadPVM("ava_fsdlg_e_hd", &ava_fsdlg_g_TEXLIST);
-		LoadPVM("ava_emblem_hd", &ava_emblem_TEXLIST);
-		LoadPVM("ava_suuji_hd", &ava_suuji_TEXLIST);
-		LoadPVM("m_chnam_hd", &m_chnam_TEXLIST);
-		LoadPVM("ava_vmssel_e_hd", &ava_vmssel_e_TEXLIST);
-		LoadPVM("ava_filesel_e_hd", &ava_filesel_e_TEXLIST);
-		LoadPVM("ava_stnam_e_hd", &ava_stnam_e_TEXLIST);
-		LoadPVM("ava_san_hd", &ava_san_TEXLIST);
+		if (HorizontalStretch == 1.0f) LoadPVM("AVA_TITLE_CMN_SMALLX", &texlist_cmnx);
+		else LoadPVM("AVA_TITLE_CMNX", &texlist_cmnx);
 	}
 	else
 	{
-		LoadPVM("AVA_TITLE_BACK_ES", &ava_title_back_e_TEXLIST);
-		LoadPVM("adv_window_hd", &adv_window_TEXLIST);
-		LoadPVM("ava_square_hd", &ava_square_TEXLIST);
-		if (!TextLanguage) LoadPVM("AVA_TITLE", &ava_title_e_TEXLIST);
-		else LoadPVM("AVA_TITLE_E", &ava_title_e_TEXLIST);
+		if (HorizontalStretch == 1.0f) LoadPVM("AVA_TITLE_CMN_SMALLS", &texlist_cmns);
+		else LoadPVM("AVA_TITLE_CMNS", &texlist_cmns);
+	}
+	if (titlebackloaded == false)
+	{
+		PrintDebug("Precaching file select textures...\n");
+		LoadPVM("AVA_BACK", &ava_back_TEXLIST);
+		LoadPVM("adv_window", &adv_window_TEXLIST);
+		LoadPVM("ava_square", &ava_square_TEXLIST);
+		LoadPVM("ava_csr", &ava_csr_TEXLIST);
+		LoadPVM("ava_dlg_e", &ava_dlg_e_TEXLIST);
+		LoadPVM("ava_fsdlg_e", &ava_fsdlg_g_TEXLIST);
+		LoadPVM("ava_emblem", &ava_emblem_TEXLIST);
+		LoadPVM("ava_suuji", &ava_suuji_TEXLIST);
+		LoadPVM("m_chnam", &m_chnam_TEXLIST);
+		LoadPVM("ava_vmssel_e", &ava_vmssel_e_TEXLIST);
+		LoadPVM("ava_filesel_e", &ava_filesel_e_TEXLIST);
+		LoadPVM("ava_stnam_e", &ava_stnam_e_TEXLIST);
+		LoadPVM("ava_san", &ava_san_TEXLIST);
 	}
 	sub_510390(a1);
 }
@@ -1368,11 +1408,6 @@ void GreenRect_Wrapper(float x, float y, float z, float width, float height)
 	njTextureShadingMode(1);
 	GreenMenuRect_Draw(x, y, z, width, height);
 	njTextureShadingMode(2);
-}
-
-void LoadPVM_JapaneseHook(const char *filename, NJS_TEXLIST *texlist)
-{
-	LoadPVM("ava_gtitle0_s", texlist);
 }
 
 void Branding_SetUpVariables()
@@ -1955,6 +1990,32 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Title screen stuff
 	if (DisableSA1TitleScreen == false)
 	{
+		//Disable native PVMs
+		ResizeTextureList(&ava_title_cmn_TEXLIST, 1);
+		ResizeTextureList(&ava_gtitle0_e_TEXLIST, 1);
+		ResizeTextureList(&TexList_Ava_Gtitle0, 1);
+		ResizeTextureList(&ava_title_cmn_small_TEXLIST, 1);
+		ResizeTextureList(&ava_title_back_e_TEXLIST, 1);
+		GUITextures_Japanese[17].Name = "AVA_TITLE_EMPTY";
+		GUITextures_English[17].Name = "AVA_TITLE_EMPTY";
+		GUITextures_French[17].Name = "AVA_TITLE_EMPTY";
+		GUITextures_Spanish[17].Name = "AVA_TITLE_EMPTY";
+		GUITextures_German[17].Name = "AVA_TITLE_EMPTY";
+		GUITextures_Japanese[20].Name = "AVA_TITLE_EMPTY";
+		GUITextures_English[20].Name = "AVA_TITLE_EMPTY";
+		GUITextures_French[20].Name = "AVA_TITLE_EMPTY";
+		GUITextures_Spanish[20].Name = "AVA_TITLE_EMPTY";
+		GUITextures_German[20].Name = "AVA_TITLE_EMPTY";
+		GUITextures_Japanese[18].Name = "AVA_TITLE_EMPTY";
+		GUITextures_English[18].Name = "AVA_TITLE_EMPTY";
+		GUITextures_French[18].Name = "AVA_TITLE_EMPTY";
+		GUITextures_Spanish[18].Name = "AVA_TITLE_EMPTY";
+		GUITextures_German[18].Name = "AVA_TITLE_EMPTY";
+		GUITextures_Japanese[29].Name = "AVA_TITLE_EMPTY";
+		GUITextures_English[29].Name = "AVA_TITLE_EMPTY";
+		GUITextures_German[29].Name = "AVA_TITLE_EMPTY";
+		GUITextures_Spanish[29].Name = "AVA_TITLE_EMPTY";
+		GUITextures_French[29].Name = "AVA_TITLE_EMPTY";
 		//640x480 stuff
 		WriteData<5>((void*)0x0050E4D5, 0x90);
 		WriteData<5>((void*)0x0050E547, 0x90);
@@ -1974,55 +2035,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteData<5>((void*)0x0050FF59, 0x90);
 		//Kill titlescreen fade
 		WriteData<5>((char*)0x0050E49B, 0x90);
-		//Texlists
-		ResizeTextureList(&ava_gtitle0_e_TEXLIST, 12);
-		ResizeTextureList(&TexList_Ava_Gtitle0, 12);
-		ResizeTextureList(&ava_title_back_e_TEXLIST, 10);
 		WriteJump((void*)0x50BA90, DrawAVA_TITLE_BACK_E_DC);
-		//PVMs
-		//Japanese
-		WriteCall((void*)0x510158, LoadPVM_JapaneseHook);
-		GUITextures_Japanese[17].Name = "AVA_GTITLE0_ES";
-		GUITextures_Japanese[20].Name = "AVA_TITLE_BACK_ES";
-		GUITextures_Japanese[29].Name = "AVA_TITLE_CMN_SMALLS";
-		//English
-		GUITextures_English[17].Name = "AVA_GTITLE0_ES";
-		GUITextures_English[20].Name = "AVA_TITLE_BACK_ES";
-		GUITextures_English[29].Name = "AVA_TITLE_CMN_SMALLS";
-		//French
-		GUITextures_French[17].Name = "AVA_GTITLE0_ES";
-		GUITextures_French[20].Name = "AVA_TITLE_BACK_ES";
-		GUITextures_French[29].Name = "AVA_TITLE_CMN_SMALLS";
-		//Spanish
-		GUITextures_Spanish[17].Name = "AVA_GTITLE0_ES";
-		GUITextures_Spanish[20].Name = "AVA_TITLE_BACK_ES";
-		GUITextures_Spanish[29].Name = "AVA_TITLE_CMN_SMALLS";
-		//German
-		GUITextures_German[17].Name = "AVA_GTITLE0_ES";
-		GUITextures_German[20].Name = "AVA_TITLE_BACK_ES";
-		GUITextures_German[29].Name = "AVA_TITLE_CMN_SMALLS";
-		if (RipplesOn == true)
-		{
-			GUITextures_Japanese[18].Name = "AVA_TITLE_CMNX";
-			GUITextures_English[18].Name = "AVA_TITLE_CMNX";
-			GUITextures_French[18].Name = "AVA_TITLE_CMNX";
-			GUITextures_Spanish[18].Name = "AVA_TITLE_CMNX";
-			GUITextures_German[18].Name = "AVA_TITLE_CMNX";
-		}
-		else
-		{
-			GUITextures_Japanese[18].Name = "AVA_TITLE_CMNS";
-			GUITextures_English[18].Name = "AVA_TITLE_CMNS";
-			GUITextures_French[18].Name = "AVA_TITLE_CMNS";
-			GUITextures_Spanish[18].Name = "AVA_TITLE_CMNS";
-			GUITextures_German[18].Name = "AVA_TITLE_CMNS";
-		}
-		//Logo
-		if (RipplesOn == true)
-		{
-			ResizeTextureList(&ava_title_cmn_TEXLIST, 192);
-			ResizeTextureList(&ava_title_cmn_small_TEXLIST, 192);
-		}
 		WriteData<5>((char*)0x0050E6F4, 0x90);
 		WriteData<5>((char*)0x0050E8AF, 0x90);
 		WriteCall((void*)0x0050E4B1, DrawTitleScreen);
