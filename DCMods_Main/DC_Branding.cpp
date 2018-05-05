@@ -111,11 +111,11 @@ static float VerticalResolution_float = 640.0f;
 static float f480_Fixed = 0;
 static float f640_Fixed = 0;
 //Title screen
+NJS_COLOR TitleBackOverlayColor;
 static NJS_COLOR TitleBGTransparency;
 static NJS_COLOR SonicTeamTransparency;
 static int SonicTeamAlpha;
 static NJS_COLOR BlackFadeout;
-static NJS_COLOR WhiteFadeout;
 static int titleframe = 0;
 static int titledrawn = -1;
 static int logoframe = 0;
@@ -123,6 +123,7 @@ static int logodrawn = -1;
 static int startframe = 0;
 static int startdrawn = -1;
 static int transitionmode = 0;
+static bool whiteoverlaydrawn = false;
 static bool titlebackloaded = false;
 static bool disablevtxcolor = false;
 static bool disableavaback = false; 
@@ -638,7 +639,6 @@ void __cdecl DrawAVA_TITLE_BACK_E_DC(float depth)
 {
 	titlebackloaded = true;
 	disablevtxcolor = true;
-	if (transitionmode == 2) transitionmode = 3;
 	float xpos = 0;
 	float ypos = 0;
 	float ydelta = 0;
@@ -669,16 +669,16 @@ void __cdecl DrawAVA_TITLE_BACK_E_DC(float depth)
 	njTextureShadingMode(1);
 	njSetTexture(&ava_title_e_TEXLIST);
 	SetVtxColorB(0xFFFFFFFF);
-	njSetTexture(&texlist_titleback);
+	njSetTexture(&texlist_cmns);
 	z = depth - 4.0f;
 	if (HorizontalStretch == 1.0f) is640 = true;
 	else is640 = false;
 	//Draw main menu BG
-	if (is640 == true)
+	if (is640)
 	{
 		OffsetOn = false;
-		scaleX = 0.5f;
-		scaleY = 0.5f;
+		scaleX = 1.0f;
+		scaleY = 1.0f;
 		scaleX2 = 1.0f;
 		scaleY2 = 1.0f;
 		ydelta = 0;
@@ -736,6 +736,7 @@ void __cdecl DrawAVA_TITLE_BACK_E_DC(float depth)
 	ypos = 0 - abs(ydelta) + 384.0f*scaleY2;
 	DrawBG(texturenumber + 7, xpos, ypos, z, scaleX, scaleY);
 	//Draw logo
+	njSetTexture(&texlist_gtitle);
 	if (SA1LogoMode < 2)
 	{
 		if (!TextLanguage) xpos = ResolutionDeltaX + 64 * ResolutionScaleY; //Japanese
@@ -747,13 +748,47 @@ void __cdecl DrawAVA_TITLE_BACK_E_DC(float depth)
 		xpos = ResolutionDeltaX + 64 * ResolutionScaleY;
 		ypos = ResolutionDeltaY + 109 * ResolutionScaleY;
 	}
-	//Draw logo shadow first
-	DrawBG(11, xpos - (4.0f * RipplesOn * ResolutionScaleY), ypos, z, ResolutionScaleY / 2.0f, ResolutionScaleY / 2.0f);
+	if (SA1LogoMode < 2)
+	{
+		if (!TextLanguage) xpos = ResolutionDeltaX + 64 * ResolutionScaleY; //Japanese
+		else xpos = ResolutionDeltaX + 69 * ResolutionScaleY;
+		ypos = ResolutionDeltaY + 80 * ResolutionScaleY;
+	}
+	else
+	{
+		xpos = ResolutionDeltaX + 64 * ResolutionScaleY;
+		ypos = ResolutionDeltaY + 109 * ResolutionScaleY;
+	}
+	if (is640)
+	{
+		scaleX = 1.0f;
+		scaleY = 1.0f;
+	}
+	else
+	{
+		scaleX = ResolutionScaleY / 2.0f;
+		scaleY = ResolutionScaleY / 2.0f;
+	}
+	//Use J logo only in non-International mode
+	if (!TextLanguage && SA1LogoMode != 1) texturenumber = 1; else texturenumber = 0;
+	//Draw logo shadow
+	DrawBG(9, xpos - (4.0f * RipplesOn * ResolutionScaleY), ypos, z, scaleX, scaleY);
 	//Draw the actual logo
-	if (!TextLanguage && SA1LogoMode != 1) DrawBG(10, xpos, ypos, z, ResolutionScaleY / 2.0f, ResolutionScaleY / 2.0f); //Japanese
-	else DrawBG(8, xpos, ypos, z, ResolutionScaleY / 2.0f, ResolutionScaleY / 2.0f);
+	DrawBG(texturenumber, xpos, ypos, z, scaleX, scaleY);
 	//Draw logo overlay
-	if (DrawOverlay == true) DrawBG(9, xpos, ypos, z, ResolutionScaleY / 2.0f, ResolutionScaleY / 2.0f);
+	texturenumber = 2;
+	if (DrawOverlay == true) DrawBG(texturenumber, xpos, ypos, z, scaleX, scaleY);
+	//Draw white overlay
+	if (!whiteoverlaydrawn)
+	{
+		njSetTexture(&texlist_cmns);
+		SetVtxColorB(0x99FFFFFF);
+		xpos = -16.0f*ResolutionScaleX;
+		ypos = 0;
+		DrawBG(7, xpos, ypos, z, 5* ResolutionScaleX, 4 * ResolutionScaleX);
+		SetVtxColorB(0xFFFFFFFF);
+		transitionmode = 3;
+	}
 	njTextureShadingMode(2);
 	njSetTexture(&ava_title_e_TEXLIST);
 }
@@ -882,31 +917,22 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		}
 		if (is640)
 		{
-			//Use J logo only in non-International mode
-			if (!TextLanguage && SA1LogoMode != 1) texturenumber = 3; else texturenumber = 1;
 			scaleX = 1.0f;
 			scaleY = 1.0f;
 		}
 		else
 		{
-			//Use J logo only in non-International mode
-			if (!TextLanguage && SA1LogoMode != 1) texturenumber = 2; else texturenumber = 0;
 			scaleX = ResolutionScaleY / 2.0f;
 			scaleY = ResolutionScaleY / 2.0f;
 		}
+		//Use J logo only in non-International mode
+		if (!TextLanguage && SA1LogoMode != 1) texturenumber = 1; else texturenumber = 0;
 		//Draw logo shadow
-		if (is640)
-		{
-			DrawBG(19, xpos - (4.0f * RipplesOn * ResolutionScaleY), ypos, 1.2f, scaleX, scaleY);
-		}
-		else
-		{
-			DrawBG(18, xpos - (4.0f * RipplesOn * ResolutionScaleY), ypos, 1.2f, scaleX, scaleY);
-		}
+		DrawBG(9, xpos - (4.0f * RipplesOn * ResolutionScaleY), ypos, 1.2f, scaleX, scaleY);
 		//Draw the actual logo
 		DrawBG(texturenumber, xpos, ypos, 1.2f, scaleX, scaleY);
 		//Draw logo overlay
-		if (is640) texturenumber = 5; else texturenumber = 4;
+		texturenumber = 2;
 		if (DrawOverlay == true) DrawBG(texturenumber, xpos, ypos, 1.2f, scaleX, scaleY);
 		//Sonic Team logo fade-in
 		if (transitionmode == 0)
@@ -929,24 +955,18 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		{
 			SetVtxColorB(SonicTeamTransparency.color);
 			//Draw Sonic Team logo
-			if (is640) texturenumber = 11; else texturenumber = 10;
+			texturenumber = 5;
 			DrawBG(texturenumber, ResolutionDeltaX + 288 * ResolutionScaleY, ResolutionDeltaY + 33.0f * ResolutionScaleY, 1.2f, scaleX, scaleY);
 			//International subtitle
 			if (SA1LogoMode == 1)
 			{
-				if (is640)
-				{
-					if (!TextLanguage) texturenumber = 9; else texturenumber = 8;
-				} 
-				else
-				{
-					if (!TextLanguage) texturenumber = 7; else texturenumber = 6;
-				}
+				if (!TextLanguage) texturenumber = 4; else texturenumber = 3;
 				DrawBG(texturenumber, ResolutionDeltaX + 64 * ResolutionScaleY, ResolutionDeltaY + (300 + 8 * TextLanguage)* ResolutionScaleY, 1.2f, scaleX, scaleY);
 			}
+			//Or SEGA text
 			else
 			{
-				if (is640) texturenumber = 13; else texturenumber = 12;
+				if (!TextLanguage) texturenumber = 7; else texturenumber = 6;
 				DrawBG(texturenumber, ResolutionDeltaX + 64 * ResolutionScaleY, ResolutionDeltaY + 400 * ResolutionScaleY, 1.2f, scaleX, scaleY);
 			}
 		}
@@ -1014,7 +1034,6 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		{
 			scaleX = 1.0f;
 			scaleY = 1.0f;
-			texturenumber = 1;
 			xpos = (640.0f - LogoScaleXT * 502.0f) / 2.0f;
 			if (SA1LogoMode != 2) ypos = (480.0f - LogoScaleYT * 256.0f) / 2.0f - 32.0f / LogoScaleYT;
 			else ypos = (480.0f - LogoScaleYT * 262.0f) / 2.0f;
@@ -1023,28 +1042,41 @@ void DrawTitleScreen(NJS_TEXLIST *texlist)
 		{
 			scaleX = ResolutionScaleY / 2.0f;
 			scaleY = ResolutionScaleY / 2.0f;
-			texturenumber = 0;
 			xpos = (HorizontalResolution - LogoScaleXT * 502.0f * ResolutionScaleY) / 2.0f;
 			if (SA1LogoMode != 2) ypos = (VerticalResolution - LogoScaleYT * 256.0f * ResolutionScaleY) / 2.0f - (32.0f* ResolutionScaleY) / LogoScaleYT;
 			else ypos = (VerticalResolution - LogoScaleYT * 262.0f *ResolutionScaleY) / 2.0f;
 		}
+		texturenumber = 0;
 		SetVtxColorB(TitleBGTransparency.color);
-		if (EnableTransition == true && LogoScaleXT > 1.02f) DrawBG(texturenumber, xpos, ypos, 1.2f, LogoScaleXT*scaleX, LogoScaleYT*scaleY);
+		if (EnableTransition == true && LogoScaleXT > 1.02f)
+		{
+			DrawBG(texturenumber, xpos, ypos, 1.2f, LogoScaleXT*scaleX, LogoScaleYT*scaleY);
+			if (DrawOverlay == true) DrawBG(2, xpos, ypos, 1.2f, LogoScaleXT*scaleX, LogoScaleYT*scaleY); //Draw overlay
+		}
 	}
 	njTextureShadingMode(2);
 	//Draw black/white box if transitioning
 	if ((transitionmode >= 1 && transitionmode < 3) || transitionmode == -1)
 	{
-		if (WhiteFadeout.argb.a < 160) WhiteFadeout.argb.a += 16;
-		else WhiteFadeout.argb.a = 153;
+		if (TitleBackOverlayColor.argb.a < 160) TitleBackOverlayColor.argb.a += 8;
+		else TitleBackOverlayColor.argb.a = 153;
 	}
 	if (transitionmode == 3 || transitionmode < 1)
 	{
-		if (WhiteFadeout.argb.a >= 16) WhiteFadeout.argb.a -= 16;
-		else WhiteFadeout.argb.a = 0;
+		if (TitleBackOverlayColor.argb.a >= 8) TitleBackOverlayColor.argb.a -= 8;
+		else TitleBackOverlayColor.argb.a = 0;
 	}
-	if (titlebackloaded == true && disableavaback == false) DrawRect_Queue(0, 0, HorizontalResolution, VerticalResolution, 1.2f, WhiteFadeout.color, QueuedModelFlagsB_SomeTextureThing);
-	DrawRect_Queue(0, 0, HorizontalResolution, VerticalResolution, 1.2f, BlackFadeout.color, QueuedModelFlagsB_SomeTextureThing);
+	if (titlebackloaded == true && disableavaback == false)
+	{
+		njSetTexture(&texlist_cmns);
+		SetVtxColorB(TitleBackOverlayColor.color);
+		xpos = -16.0f*ResolutionScaleX;
+		ypos = 0;
+		DrawBG(7, xpos, ypos, 1.2f, 5 * ResolutionScaleX, 4 * ResolutionScaleX);
+		SetVtxColorB(0xFFFFFFFF);
+		whiteoverlaydrawn = true;
+	}
+	else DrawRect_Queue(0, 0, HorizontalResolution, VerticalResolution, 1.2f, BlackFadeout.color, QueuedModelFlagsB_SomeTextureThing);
 }
 
 void DrawPressStart(int texnum, float x, float y, float z, float scaleX, float scaleY)
@@ -1055,17 +1087,19 @@ void DrawPressStart(int texnum, float x, float y, float z, float scaleX, float s
 	{
 		njTextureShadingMode(1);
 		njSetTexture(&texlist_gtitle);
-		if (HorizontalStretch != 1.0f && startdrawn != startframe)
+		if (startdrawn != startframe)
 		{
+			if (HorizontalStretch != 1.0f)
+			{
+				DrawBG(8, ResolutionDeltaX + sourcepos_x * ResolutionScaleY, ResolutionDeltaY + sourcepos_y * ResolutionScaleY, 1.1f, ResolutionScaleY / 2.0f, ResolutionScaleY / 2.0f);
+			}
+			else
+			{
+				DrawBG(8, sourcepos_x, sourcepos_y, 1.1f, 1.0f, 1.0f);
+			}
 			if (startframe > 128) startframe = 0;
-			DrawBG(16, ResolutionDeltaX+ sourcepos_x *ResolutionScaleY, ResolutionDeltaY+ sourcepos_y *ResolutionScaleY, 1.1f, ResolutionScaleY/2.0f, ResolutionScaleY / 2.0f);
+			startdrawn = startframe;
 		}
-		if (HorizontalStretch == 1.0f && startdrawn != startframe)
-		{
-			if (startframe > 128) startframe = 0;
-			DrawBG(17, sourcepos_x, sourcepos_y, 1.1f, 1.0f, 1.0f);
-		}
-		startdrawn = startframe;
 		njTextureShadingMode(2);
 	}
 }
@@ -1149,17 +1183,17 @@ void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, flo
 void LoadTitleScreenHook(int a1)
 {
 	PrintDebug("Loading title screen textures...\n");
-	LoadPVM("AVA_TITLE_BACK_ES", &texlist_titleback);
-	LoadPVM("AVA_GTITLE0_ES", &texlist_gtitle);
-	if (RipplesOn == true)
+	if (HorizontalStretch == 1.0f)
 	{
-		if (HorizontalStretch == 1.0f) LoadPVM("AVA_TITLE_CMN_SMALLX", &texlist_cmnx);
-		else LoadPVM("AVA_TITLE_CMNX", &texlist_cmnx);
+		LoadPVM("AVA_TITLE_CMN_SMALLS", &texlist_cmns);
+		LoadPVM("AVA_GTITLE0_ES_640", &texlist_gtitle);
+		if (RipplesOn) LoadPVM("AVA_TITLE_CMN_SMALLX", &texlist_cmnx);
 	}
 	else
 	{
-		if (HorizontalStretch == 1.0f) LoadPVM("AVA_TITLE_CMN_SMALLS", &texlist_cmns);
-		else LoadPVM("AVA_TITLE_CMNS", &texlist_cmns);
+		LoadPVM("AVA_TITLE_CMNS", &texlist_cmns);
+		LoadPVM("AVA_GTITLE0_ES", &texlist_gtitle);
+		if (RipplesOn) LoadPVM("AVA_TITLE_CMNX", &texlist_cmnx);
 	}
 	if (titlebackloaded == false)
 	{
@@ -1430,7 +1464,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	EnableTransition = settings->getBool("Branding", "EnableTransition", true);
 	DisableSA1TitleScreen = settings->getBool("Branding", "DisableSA1TitleScreen", false);
 	DrawOverlay = settings->getBool("Branding", "DrawOverlay", true);
-	RemoveCream = settings->getBool("Branding", "RemoveCream", false);
+	RemoveCream = settings->getBool("Branding", "RemoveCream", true);
 	SA1LogoMode = settings->getInt("Branding", "SA1LogoMode", 0);
 	LogoScaleXT = LogoScaleX;
 	LogoScaleYT = LogoScaleY;
@@ -1990,6 +2024,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Title screen stuff
 	if (DisableSA1TitleScreen == false)
 	{
+		TitleBackOverlayColor.color = 0x99FFFFFF;
 		//Disable native PVMs
 		ResizeTextureList(&ava_title_cmn_TEXLIST, 1);
 		ResizeTextureList(&ava_gtitle0_e_TEXLIST, 1);
@@ -2095,10 +2130,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteData<5>((char*)0x005100EB, 0x90);
 		//Various transition stuff
 		BlackFadeout.color = 0x00000000;
-		WhiteFadeout.argb.r = 255;
-		WhiteFadeout.argb.g = 255;
-		WhiteFadeout.argb.b = 255;
-		WhiteFadeout.argb.a = 0;
 		TitleBGTransparency.argb.r = 255;
 		TitleBGTransparency.argb.g = 255;
 		TitleBGTransparency.argb.b = 255;
@@ -2133,6 +2164,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void Branding_OnFrame()
 {
+	whiteoverlaydrawn = false;
 	//This game is a hardcoded piece of shit
 	if (DLLLoaded_HDGUI  == false)
 	{
