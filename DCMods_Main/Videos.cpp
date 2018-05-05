@@ -318,7 +318,7 @@ void Videos_OnInput()
 	{
 		if (SkipPressed == false && ControllerPointers[0]->PressedButtons & (Buttons_Start | Buttons_A))
 		{
-			PrintDebug("Skip video pressed!\n");
+			//PrintDebug("Skip video pressed!\n");
 			SkipPressed = true;
 		}
 	}
