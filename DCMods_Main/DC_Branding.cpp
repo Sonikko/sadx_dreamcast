@@ -23,16 +23,13 @@ struct TutorialScreenItem
 	__int16 YOffset;
 };
 
-NJS_TEXNAME textures_titleback[11];
-NJS_TEXLIST texlist_titleback = { arrayptrandlength(textures_titleback) };
-
 NJS_TEXNAME textures_cmnx[184];
 NJS_TEXLIST texlist_cmnx = { arrayptrandlength(textures_cmnx) };
 
 NJS_TEXNAME textures_cmns[8];
 NJS_TEXLIST texlist_cmns = { arrayptrandlength(textures_cmns) };
 
-NJS_TEXNAME textures_gtitle[20];
+NJS_TEXNAME textures_gtitle[10];
 NJS_TEXLIST texlist_gtitle = { arrayptrandlength(textures_gtitle) };
 
 FunctionPointer(ObjectMaster*, sub_510390, (int a1), 0x510390);
