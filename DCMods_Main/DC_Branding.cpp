@@ -795,6 +795,30 @@ void BoxBackgroundColor()
 	SetMaterialAndSpriteColor_Float(0.8f, 1.0f, 1.0f, 1.0f);
 }
 
+void FreeGGMenuPVM_FuckThisGame()
+{
+	if (GGMENU_TEXLIST.textures->texaddr)
+	{
+		njReleaseTexture_(&GGMENU_TEXLIST);
+	}
+	njReleaseTexture(&texlist_gtitle);
+	njReleaseTexture(&texlist_cmnx);
+	njReleaseTexture(&texlist_cmns);
+	PrintDebug("Loading title screen textures...\n");
+	if (HorizontalStretch == 1.0f)
+	{
+		LoadPVM("AVA_TITLE_CMN_SMALLS", &texlist_cmns);
+		LoadPVM("AVA_GTITLE0_ES_640", &texlist_gtitle);
+		if (RipplesOn) LoadPVM("AVA_TITLE_CMN_SMALLX", &texlist_cmnx);
+	}
+	else
+	{
+		LoadPVM("AVA_TITLE_CMNS", &texlist_cmns);
+		LoadPVM("AVA_GTITLE0_ES", &texlist_gtitle);
+		if (RipplesOn) LoadPVM("AVA_TITLE_CMNX", &texlist_cmnx);
+	}
+}
+
 void DrawTitleScreen(NJS_TEXLIST *texlist)
 {
 	//Variables for logo/background
@@ -1455,6 +1479,7 @@ void Branding_SetUpVariables()
 
 void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 {
+	WriteJump(FreeGGMenuPVM, FreeGGMenuPVM_FuckThisGame);
 	//Load settings
 	const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
 	RipplesOn = settings->getBool("Branding", "RippleEffect", true);
