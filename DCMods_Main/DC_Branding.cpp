@@ -1479,7 +1479,6 @@ void Branding_SetUpVariables()
 
 void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	WriteJump(FreeGGMenuPVM, FreeGGMenuPVM_FuckThisGame);
 	//Load settings
 	const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
 	RipplesOn = settings->getBool("Branding", "RippleEffect", true);
@@ -2046,6 +2045,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Title screen stuff
 	if (DisableSA1TitleScreen == false)
 	{
+		WriteJump(FreeGGMenuPVM, FreeGGMenuPVM_FuckThisGame);
 		TitleBackOverlayColor.color = 0x99FFFFFF;
 		//Disable native PVMs
 		ResizeTextureList(&ava_title_cmn_TEXLIST, 1);
