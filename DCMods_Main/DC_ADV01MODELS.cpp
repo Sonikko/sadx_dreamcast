@@ -371,7 +371,10 @@ void EggCarrierSea()
 
 void SetECOceanTexlist()
 {
-	if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ocean_sadx++;
+	if (GameState != 16)
+	{
+		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ocean_sadx++;
+	}
 	if (ocean_sadx > 18) ocean_sadx = 4;
 	njSetTexture(&EC_SEA_TEXLIST);
 }
