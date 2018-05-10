@@ -15,6 +15,26 @@
 #include "DLC_SambaGP.h"
 #include "DLC_Y2K.h"
 
+std::string OldModsMessage = "Old/incompatible mods detected!\n \nIt appears that you are running the Dreamcast DLCs mod with older individual DLC mods. The individual mods are outdated and will cause problems if you leave them enabled. These mods are no longer needed because they are built into the Dreamcast DLCs mod, which you are also running.\n \nPlease uninstall the individual DLC mods in the Mod Manager.\n \n";
+
+std::string OldModDLLs[] = {
+	"SONICADV_000",
+	"SONICADV_002",
+	"SONICADV_003",
+	"SONICADV_501",
+	"SONICADV_502",
+	"SONICADV_503",
+	"SONICADV_504",
+	"SONICADV_505",
+	"SONICADV_506",
+	"SONICADV_507",
+	"SONICADV_508",
+	"SONICADV_509",
+	"SONICADV_510",
+	"SONICADV_511",
+};
+
+
 _SYSTEMTIME CurrentTime;
 
 std::string DLCMode;
@@ -85,6 +105,7 @@ DataArray(FieldStartPosition, BigSSStartArray, 0x0090BDF8, 6);
 DataArray(FieldStartPosition, E102SSStartArray, 0x0090BE70, 7);
 
 //Common
+static bool OldModsFound = false;
 static bool EverybodySuperSonicRacing;
 static int CurrentDLC;
 static bool ObjectsLoaded = false;
@@ -10607,6 +10628,22 @@ extern "C"
 		{
 			MessageBoxA(WindowHandle, "Mod Loader out of date. Dreamcast DLCs mod requires API version 6 or newer.",
 				"Dreamcast DLCs mod error: Mod Loader out of date", MB_OK | MB_ICONERROR);
+			return;
+		}
+		//Check old mod DLLs
+		for (int i = 0; i < LengthOfArray(OldModDLLs); i++)
+		{
+			LPCSTR OldModHandle = OldModDLLs[i].c_str();
+			if (GetModuleHandleA(OldModHandle) != nullptr)
+			{
+				OldModsMessage += OldModDLLs[i] + "\n";
+				OldModsFound = true;
+			}
+		}
+		if (OldModsFound == true)
+		{
+			LPCSTR OldModsLPC = OldModsMessage.c_str();
+			MessageBoxA(WindowHandle, OldModsLPC, "Dreamcast DLCs mod error: incompatible mods detected", MB_OK | MB_ICONERROR);
 			return;
 		}
 		//Config stuff
