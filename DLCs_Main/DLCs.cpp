@@ -48,34 +48,8 @@ int AmyTrack;
 int BigTrack;
 int GammaTrack;
 
-int Jan1DLC;
-int Feb1DLC;
-int Mar1DLC;
-int Apr1DLC;
-int May1DLC;
-int Jun1DLC;
-int Jul1DLC;
-int Aug1DLC;
-int Sep1DLC;
-int Oct1DLC;
-int Nov1DLC;
-int Dec1DLC;
-
-int Jan2DLC;
-int Feb2DLC;
-int Mar2DLC;
-int Apr2DLC;
-int May2DLC;
-int Jun2DLC;
-int Jul2DLC;
-int Aug2DLC;
-int Sep2DLC;
-int Oct2DLC;
-int Nov2DLC;
-int Dec2DLC;
-
-int FirstMonthDLCs[] = { -1, Jan1DLC, Feb1DLC, Mar1DLC, Apr1DLC, May1DLC, Jun1DLC, Jul1DLC, Aug1DLC, Sep1DLC, Oct1DLC, Nov1DLC, Dec1DLC };
-int SecondMonthDLCs[] = { -1, Jan2DLC, Feb2DLC, Mar2DLC, Apr2DLC, May2DLC, Jun2DLC, Jul2DLC, Aug2DLC, Sep2DLC, Oct2DLC, Nov2DLC, Dec2DLC };
+// Monthly DLCs.
+static int MonthlyDLCs[12][2];
 
 FunctionPointer(void, sub_412D80, (int a1, int a2), 0x412D80);
 FunctionPointer(void, sub_62E980, (), 0x62E980);
@@ -10674,31 +10648,35 @@ extern "C"
 		AmyTrack = config->getInt("Samba GP settings", "AmyTrack", 4);
 		BigTrack = config->getInt("Samba GP settings", "BigTrack", 5);
 		GammaTrack = config->getInt("Samba GP settings", "GammaTrack", 0);
-		Jan1DLC = config->getInt("Seasonal DLC settings", "Jan1DLC", 9);
-		Jan2DLC = config->getInt("Seasonal DLC settings", "Jan2DLC", 9);
-		Feb1DLC = config->getInt("Seasonal DLC settings", "Feb1DLC", 3);
-		Feb2DLC = config->getInt("Seasonal DLC settings", "Feb2DLC", 3);
-		Mar1DLC = config->getInt("Seasonal DLC settings", "Mar1DLC", 6);
-		Mar2DLC = config->getInt("Seasonal DLC settings", "Mar2DLC", 6);
-		Apr1DLC = config->getInt("Seasonal DLC settings", "Apr1DLC", 0);
-		Apr2DLC = config->getInt("Seasonal DLC settings", "Apr2DLC", 0);
-		May1DLC = config->getInt("Seasonal DLC settings", "May1DLC", 0);
-		May2DLC = config->getInt("Seasonal DLC settings", "May2DLC", 0);
-		Jun1DLC = config->getInt("Seasonal DLC settings", "Jun1DLC", 8);
-		Jun2DLC = config->getInt("Seasonal DLC settings", "Jun2DLC", 8);
-		Jul1DLC = config->getInt("Seasonal DLC settings", "Jul1DLC", 7);
-		Jul2DLC = config->getInt("Seasonal DLC settings", "Jul2DLC", 7);
-		Aug1DLC = config->getInt("Seasonal DLC settings", "Aug1DLC", -1);
-		Aug2DLC = config->getInt("Seasonal DLC settings", "Aug2DLC", -1);
-		Sep1DLC = config->getInt("Seasonal DLC settings", "Sep1DLC", 5);
-		Sep2DLC = config->getInt("Seasonal DLC settings", "Sep2DLC", 5);
-		Oct1DLC = config->getInt("Seasonal DLC settings", "Oct1DLC", 4);
-		Oct2DLC = config->getInt("Seasonal DLC settings", "Oct2DLC", 4);
-		Nov1DLC = config->getInt("Seasonal DLC settings", "Nov1DLC", 8);
-		Nov2DLC = config->getInt("Seasonal DLC settings", "Nov2DLC", 8);
-		Dec1DLC = config->getInt("Seasonal DLC settings", "Dec1DLC", 2);
-		Dec2DLC = config->getInt("Seasonal DLC settings", "Dec2DLC", 1);
+
+		// Monthly DLCs.
+		MonthlyDLCs[0][0]  = config->getInt("Seasonal DLC settings", "Jan1DLC", 9);
+		MonthlyDLCs[0][1]  = config->getInt("Seasonal DLC settings", "Jan2DLC", 9);
+		MonthlyDLCs[1][0]  = config->getInt("Seasonal DLC settings", "Feb1DLC", 3);
+		MonthlyDLCs[1][1]  = config->getInt("Seasonal DLC settings", "Feb2DLC", 3);
+		MonthlyDLCs[2][0]  = config->getInt("Seasonal DLC settings", "Mar1DLC", 6);
+		MonthlyDLCs[2][1]  = config->getInt("Seasonal DLC settings", "Mar2DLC", 6);
+		MonthlyDLCs[3][0]  = config->getInt("Seasonal DLC settings", "Apr1DLC", 0);
+		MonthlyDLCs[3][1]  = config->getInt("Seasonal DLC settings", "Apr2DLC", 0);
+		MonthlyDLCs[4][0]  = config->getInt("Seasonal DLC settings", "May1DLC", 0);
+		MonthlyDLCs[4][1]  = config->getInt("Seasonal DLC settings", "May2DLC", 0);
+		MonthlyDLCs[5][0]  = config->getInt("Seasonal DLC settings", "Jun1DLC", 8);
+		MonthlyDLCs[5][1]  = config->getInt("Seasonal DLC settings", "Jun2DLC", 8);
+		MonthlyDLCs[6][0]  = config->getInt("Seasonal DLC settings", "Jul1DLC", 7);
+		MonthlyDLCs[6][1]  = config->getInt("Seasonal DLC settings", "Jul2DLC", 7);
+		MonthlyDLCs[7][0]  = config->getInt("Seasonal DLC settings", "Aug1DLC", -1);
+		MonthlyDLCs[7][1]  = config->getInt("Seasonal DLC settings", "Aug2DLC", -1);
+		MonthlyDLCs[8][0]  = config->getInt("Seasonal DLC settings", "Sep1DLC", 5);
+		MonthlyDLCs[8][1]  = config->getInt("Seasonal DLC settings", "Sep2DLC", 5);
+		MonthlyDLCs[9][0]  = config->getInt("Seasonal DLC settings", "Oct1DLC", 4);
+		MonthlyDLCs[9][1]  = config->getInt("Seasonal DLC settings", "Oct2DLC", 4);
+		MonthlyDLCs[10][0] = config->getInt("Seasonal DLC settings", "Nov1DLC", 8);
+		MonthlyDLCs[10][1] = config->getInt("Seasonal DLC settings", "Nov2DLC", 8);
+		MonthlyDLCs[11][0] = config->getInt("Seasonal DLC settings", "Dec1DLC", 2);
+		MonthlyDLCs[11][1] = config->getInt("Seasonal DLC settings", "Dec2DLC", 1);
+
 		delete config;
+
 		if (ForceSADXLayout == false)
 		{
 			ReplaceBIN("CAMSS00S", "CAMSS00S_DC");
@@ -10708,35 +10686,27 @@ extern "C"
 			ReplaceBIN("CAMSS04S", "CAMSS04S_DC");
 			ReplaceBIN("CAMSS05S", "CAMSS05S_DC");
 		}
-		FirstMonthDLCs[1] = Jan1DLC;
-		FirstMonthDLCs[2] = Feb1DLC;
-		FirstMonthDLCs[3] = Mar1DLC;
-		FirstMonthDLCs[4] = Apr1DLC;
-		FirstMonthDLCs[5] = May1DLC;
-		FirstMonthDLCs[6] = Jun1DLC;
-		FirstMonthDLCs[7] = Jul1DLC;
-		FirstMonthDLCs[8] = Aug1DLC;
-		FirstMonthDLCs[9] = Sep1DLC;
-		FirstMonthDLCs[10] = Oct1DLC;
-		FirstMonthDLCs[11] = Nov1DLC;
-		FirstMonthDLCs[12] = Dec1DLC;
-		SecondMonthDLCs[1] = Jan2DLC;
-		SecondMonthDLCs[2] = Feb2DLC;
-		SecondMonthDLCs[3] = Mar2DLC;
-		SecondMonthDLCs[4] = Apr2DLC;
-		SecondMonthDLCs[5] = May2DLC;
-		SecondMonthDLCs[6] = Jun2DLC;
-		SecondMonthDLCs[7] = Jul2DLC;
-		SecondMonthDLCs[8] = Aug2DLC;
-		SecondMonthDLCs[9] = Sep2DLC;
-		SecondMonthDLCs[10] = Oct2DLC;
-		SecondMonthDLCs[11] = Nov2DLC;
-		SecondMonthDLCs[12] = Dec2DLC;
-		if (DLCMode == "Random") CurrentDLC = rand() % 10;
-		if (DLCMode == "Seasonal")
+
+		// DLCs.
+		if (DLCMode == "Random")
 		{
-			if (CurrentTime.wDay <= 15) CurrentDLC = FirstMonthDLCs[CurrentTime.wMonth];
-			if (CurrentTime.wDay > 15) CurrentDLC = SecondMonthDLCs[CurrentTime.wMonth];
+			// Randomly select a DLC.
+			CurrentDLC = rand() % 10;
+		}
+		else if (DLCMode == "Seasonal")
+		{
+			// Select a DLC based on the current month.
+			// NOTE: wMonth is 1-12. Subtract 1 for the array index.
+			if (CurrentTime.wDay <= 15)
+			{
+				// First half of the month.
+				CurrentDLC = MonthlyDLCs[CurrentTime.wMonth-1][0];
+			}
+			else
+			{
+				// Second half of the month.
+				CurrentDLC = MonthlyDLCs[CurrentTime.wMonth-1][1];
+			}
 		}
 		WriteCall((void*)0x00415A6D, DLCHook_LoadLevelIncrementAct); //LoadLevel
 		WriteCall((void*)0x004147B6, DLCHook_LoadLevelIncrementAct); //IncrementAct
