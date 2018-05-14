@@ -10715,11 +10715,11 @@ extern "C"
 
 		// Check for old mod DLLs.
 		std::wstring OldModsMessage = L"Old/incompatible mods detected!\n\n"
-			L"It appears that you are running the Dreamcast DLCs"
-			L"mod with older individual DLC mods. The individual"
-			L"mods are outdated and will cause problems if you"
-			L"leave them enabled. These mods are no longer needed"
-			L"because they are built into the Dreamcast DLCs mod,"
+			L"It appears that you are running the Dreamcast DLCs "
+			L"mod with older individual DLC mods. The individual "
+			L"mods are outdated and will cause problems if you "
+			L"leave them enabled. These mods are no longer needed "
+			L"because they are built into the Dreamcast DLCs mod, "
 			L"which you are also running.\n\n"
 			L"Please uninstall the individual DLC mods in the Mod Manager.\n\n";
 

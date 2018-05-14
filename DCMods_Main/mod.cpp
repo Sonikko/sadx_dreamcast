@@ -91,9 +91,9 @@ extern "C"
 
 		// Check for old mod DLLs.
 		std::wstring OldModsMessage = L"Old/incompatible mods detected!\n\n"
-			L"The following mods are outdated and will cause"
-			L"problems if you leave them enabled. These mods are"
-			L"no longer needed because they are built into the"
+			L"The following mods are outdated and will cause "
+			L"problems if you leave them enabled. These mods are "
+			L"no longer needed because they are built into the "
 			L"main Dreamcast Conversion mod.\n\n"
 			L"Please uninstall the following mods in the Mod Manager:\n\n";
 
