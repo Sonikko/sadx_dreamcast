@@ -805,18 +805,47 @@ void ATTObject_Main(ObjectMaster *a1)
 					//Wooden thing
 					if (v1->CharID == 21)
 					{
-						if (v1->CharIndex == 0) sub_4B79C0((char *)(&ATT2_Message0), 120);
-						if (v1->CharIndex == 1) sub_4B79C0((char *)(&ATT2_Message1), 120);
-						if (v1->CharIndex == 2) sub_4B79C0((char *)(&ATT2_Message2), 120);
-						if (v1->CharIndex == 3) sub_4B79C0((char *)(&ATT2_Message3), 120);
-						if (v1->CharIndex == 4) sub_4B79C0((char *)(&ATT2_Message4), 120);
-						if (v1->CharIndex == 9) sub_4B79C0((char *)(&ATT2_Message9), 120);
-						if (v1->CharIndex == 10) sub_4B79C0((char *)(&ATT2_Message10), 120);
-						if (v1->CharIndex == 11) sub_4B79C0((char *)(&ATT2_Message11), 120);
-						if (v1->CharIndex == 12) sub_4B79C0((char *)(&ATT2_Message12), 120);
-						if (v1->CharIndex == 13) sub_4B79C0((char *)(&ATT2_Message13), 120);
-						if (v1->CharIndex == 14) sub_4B79C0((char *)(&ATT2_Message14), 120);
-						if (v1->CharIndex == 15) sub_4B79C0((char *)(&ATT2_Message15), 120);
+						switch (v1->CharIndex)
+						{
+							case 0:
+								sub_4B79C0((char *)(&ATT2_Message0), 120);
+								break;
+							case 1:
+								sub_4B79C0((char *)(&ATT2_Message1), 120);
+								break;
+							case 2:
+								sub_4B79C0((char *)(&ATT2_Message2), 120);
+								break;
+							case 3:
+								sub_4B79C0((char *)(&ATT2_Message3), 120);
+								break;
+							case 4:
+								sub_4B79C0((char *)(&ATT2_Message4), 120);
+								break;
+							case 9:
+								sub_4B79C0((char *)(&ATT2_Message9), 120);
+								break;
+							case 10:
+								sub_4B79C0((char *)(&ATT2_Message10), 120);
+								break;
+							case 11:
+								sub_4B79C0((char *)(&ATT2_Message11), 120);
+								break;
+							case 12:
+								sub_4B79C0((char *)(&ATT2_Message12), 120);
+								break;
+							case 13:
+								sub_4B79C0((char *)(&ATT2_Message13), 120);
+								break;
+							case 14:
+								sub_4B79C0((char *)(&ATT2_Message14), 120);
+								break;
+							case 15:
+								sub_4B79C0((char *)(&ATT2_Message15), 120);
+								break;
+							default:
+								break;
+						}
 						HintTimer = 120;
 					}
 					//Start plate
@@ -1153,14 +1182,35 @@ void Christmas98_Main(ObjectMaster *a1)
 						MusicMode = 3;
 						WriteData<1>((char*)0x0062EEF9, MusicIDs_nights_s);
 					}
-					if (v1->CharIndex == 0) sub_4B79C0((char *)(&Christmas98Message0), 240);
-					if (v1->CharIndex == 1) sub_4B79C0((char *)(&Christmas98Message1), 240);
-					if (v1->CharIndex == 2) sub_4B79C0((char *)(&Christmas98Message2), 240);
-					if (v1->CharIndex == 3) sub_4B79C0((char *)(&Christmas98Message3), 240);
-					if (v1->CharIndex == 4) sub_4B79C0((char *)(&Christmas98Message4), 240);
-					if (v1->CharIndex == 5) sub_4B79C0((char *)(&Christmas98Message5), 240);
-					if (v1->CharIndex == 6) sub_4B79C0((char *)(&Christmas98Message6), 240);
-					if (v1->CharIndex == 7) sub_4B79C0((char *)(&Christmas98Message7), 240);
+					switch (v1->CharIndex)
+					{
+						case 0:
+							sub_4B79C0((char *)(&Christmas98Message0), 240);
+							break;
+						case 1:
+							sub_4B79C0((char *)(&Christmas98Message1), 240);
+							break;
+						case 2:
+							sub_4B79C0((char *)(&Christmas98Message2), 240);
+							break;
+						case 3:
+							sub_4B79C0((char *)(&Christmas98Message3), 240);
+							break;
+						case 4:
+							sub_4B79C0((char *)(&Christmas98Message4), 240);
+							break;
+						case 5:
+							sub_4B79C0((char *)(&Christmas98Message5), 240);
+							break;
+						case 6:
+							sub_4B79C0((char *)(&Christmas98Message6), 240);
+							break;
+						case 7:
+							sub_4B79C0((char *)(&Christmas98Message7), 240);
+							break;
+						default:
+							break;
+					}
 					HintTimer = 240;
 				}
 			}
@@ -3434,10 +3484,23 @@ void Christmas99_Main(ObjectMaster *a1)
 							WriteData<1>((char*)0x0062EEF9, MusicIDs_nights_a);
 						}
 					}
-					if (v1->CharIndex == 0) sub_4B79C0((char *)(&Christmas99Message0), 180);
-					if (v1->CharIndex == 1) sub_4B79C0((char *)(&Christmas99Message1), 180);
-					if (v1->CharIndex == 2) sub_4B79C0((char *)(&Christmas99Message2), 180);
-					if (v1->CharIndex == 3) sub_4B79C0((char *)(&Christmas99Message3), 180);
+					switch (v1->CharIndex)
+					{
+						case 0:
+							sub_4B79C0((char *)(&Christmas99Message0), 180);
+							break;
+						case 1:
+							sub_4B79C0((char *)(&Christmas99Message1), 180);
+							break;
+						case 2:
+							sub_4B79C0((char *)(&Christmas99Message2), 180);
+							break;
+						case 3:
+							sub_4B79C0((char *)(&Christmas99Message3), 180);
+							break;
+						default:
+							break;
+					}
 					HintTimer = 180;
 				}
 			}
@@ -7788,14 +7851,34 @@ void LaunchPosterMain(ObjectMaster *a1)
 		{
 			if (HintTimer <= 0)
 			{
-				if (v1->CharIndex == 0) sub_4B79C0((char *)(&LaunchPartyMessage1), 180);
-				if (v1->CharIndex == 1) sub_4B79C0((char *)(&LaunchPartyMessage2), 180);
-				if (v1->CharIndex == 2) sub_4B79C0((char *)(&LaunchPartyMessage3), 180);
-				if (v1->CharIndex == 3 && LaunchPartyDLCMode == "US") sub_4B79C0((char *)(&LaunchPartyMessage4_US), 180);
-				if (v1->CharIndex == 3 && LaunchPartyDLCMode == "Europe") sub_4B79C0((char *)(&LaunchPartyMessage4_EU), 180);
-				if (v1->CharIndex == 3 && LaunchPartyDLCMode == "Japan") sub_4B79C0((char *)(&LaunchPartyMessage4_JP), 180);
-				if (v1->CharIndex == 4) sub_4B79C0((char *)(&LaunchPartyMessage5), 180);
-				if (v1->CharIndex == 5) sub_4B79C0((char *)(&LaunchPartyMessage6), 180);
+				switch (v1->CharIndex)
+				{
+					case 0:
+						sub_4B79C0((char *)(&LaunchPartyMessage1), 180);
+						break;
+					case 1:
+						sub_4B79C0((char *)(&LaunchPartyMessage2), 180);
+						break;
+					case 2:
+						sub_4B79C0((char *)(&LaunchPartyMessage3), 180);
+						break;
+					case 3:
+						if (LaunchPartyDLCMode == "US")
+							sub_4B79C0((char *)(&LaunchPartyMessage4_US), 180);
+						else if (LaunchPartyDLCMode == "Europe")
+							sub_4B79C0((char *)(&LaunchPartyMessage4_EU), 180);
+						else if (LaunchPartyDLCMode == "Japan")
+							sub_4B79C0((char *)(&LaunchPartyMessage4_JP), 180);
+						break;
+					case 4:
+						sub_4B79C0((char *)(&LaunchPartyMessage5), 180);
+						break;
+					case 5:
+						sub_4B79C0((char *)(&LaunchPartyMessage6), 180);
+						break;
+					default:
+						break;
+				}
 				HintTimer = 120;
 			}
 		}
@@ -9415,9 +9498,20 @@ void SambaPoster_Main(ObjectMaster *a1)
 			if (HintTimer <= 0)
 			{
 				PlaySound(6, 0, 0, 0);
-				if (v1->CharIndex == 0) sub_4B79C0((char *)(&SambaGPMessage1), 180);
-				if (v1->CharIndex == 1) sub_4B79C0((char *)(&SambaGPMessage2), 180);
-				if (v1->CharIndex == 2) sub_4B79C0((char *)(&SambaGPMessage3), 180);
+				switch (v1->CharIndex)
+				{
+					case 0:
+						sub_4B79C0((char *)(&SambaGPMessage1), 180);
+						break;
+					case 1:
+						sub_4B79C0((char *)(&SambaGPMessage2), 180);
+						break;
+					case 2:
+						sub_4B79C0((char *)(&SambaGPMessage3), 180);
+						break;
+					default:
+						break;
+				}
 				HintTimer = 120;
 			}
 		}
@@ -9680,12 +9774,29 @@ void Y2KPoster_Main(ObjectMaster *a1)
 			if (HintTimer <= 0)
 			{
 				PlaySound(6, 0, 0, 0);
-				if (v1->CharIndex == 0) sub_4B79C0((char *)(&Y2KMessage1), 180);
-				if (v1->CharIndex == 1) sub_4B79C0((char *)(&Y2KMessage2), 180);
-				if (v1->CharIndex == 2) sub_4B79C0((char *)(&Y2KMessage3), 180);
-				if (v1->CharIndex == 3) sub_4B79C0((char *)(&Y2KMessage4), 180);
-				if (v1->CharIndex == 4) sub_4B79C0((char *)(&Y2KMessage5), 180);
-				if (v1->CharIndex == 5) sub_4B79C0((char *)(&Y2KMessage6), 180);
+				switch (v1->CharIndex)
+				{
+					case 0:
+						sub_4B79C0((char *)(&Y2KMessage1), 180);
+						break;
+					case 1:
+						sub_4B79C0((char *)(&Y2KMessage2), 180);
+						break;
+					case 2:
+						sub_4B79C0((char *)(&Y2KMessage3), 180);
+						break;
+					case 3:
+						sub_4B79C0((char *)(&Y2KMessage4), 180);
+						break;
+					case 4:
+						sub_4B79C0((char *)(&Y2KMessage5), 180);
+						break;
+					case 5:
+						sub_4B79C0((char *)(&Y2KMessage6), 180);
+						break;
+					default:
+						break;
+				}
 				HintTimer = 120;
 			}
 		}
