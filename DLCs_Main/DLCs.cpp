@@ -15,23 +15,21 @@
 #include "DLC_SambaGP.h"
 #include "DLC_Y2K.h"
 
-std::string OldModsMessage = "Old/incompatible mods detected!\n \nIt appears that you are running the Dreamcast DLCs mod with older individual DLC mods. The individual mods are outdated and will cause problems if you leave them enabled. These mods are no longer needed because they are built into the Dreamcast DLCs mod, which you are also running.\n \nPlease uninstall the individual DLC mods in the Mod Manager.\n \n";
-
-std::string OldModDLLs[] = {
-	"SONICADV_000",
-	"SONICADV_002",
-	"SONICADV_003",
-	"SONICADV_501",
-	"SONICADV_502",
-	"SONICADV_503",
-	"SONICADV_504",
-	"SONICADV_505",
-	"SONICADV_506",
-	"SONICADV_507",
-	"SONICADV_508",
-	"SONICADV_509",
-	"SONICADV_510",
-	"SONICADV_511",
+static const wchar_t *const OldModDLLs[] = {
+	L"SONICADV_000",
+	L"SONICADV_002",
+	L"SONICADV_003",
+	L"SONICADV_501",
+	L"SONICADV_502",
+	L"SONICADV_503",
+	L"SONICADV_504",
+	L"SONICADV_505",
+	L"SONICADV_506",
+	L"SONICADV_507",
+	L"SONICADV_508",
+	L"SONICADV_509",
+	L"SONICADV_510",
+	L"SONICADV_511",
 };
 
 
@@ -104,7 +102,6 @@ DataArray(FieldStartPosition, BigSSStartArray, 0x0090BDF8, 6);
 DataArray(FieldStartPosition, E102SSStartArray, 0x0090BE70, 7);
 
 //Common
-static bool OldModsFound = false;
 static bool EverybodySuperSonicRacing;
 static int CurrentDLC;
 static bool ObjectsLoaded = false;
@@ -10629,22 +10626,37 @@ extern "C"
 				"Dreamcast DLCs mod error: Mod Loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
-		//Check old mod DLLs
+
+		// Check for old mod DLLs.
+		std::wstring OldModsMessage = L"Old/incompatible mods detected!\n\n"
+			L"It appears that you are running the Dreamcast DLCs"
+			L"mod with older individual DLC mods. The individual"
+			L"mods are outdated and will cause problems if you"
+			L"leave them enabled. These mods are no longer needed"
+			L"because they are built into the Dreamcast DLCs mod,"
+			L"which you are also running.\n\n"
+			L"Please uninstall the individual DLC mods in the Mod Manager.\n\n";
+
+		bool OldModsFound = false;
 		for (int i = 0; i < LengthOfArray(OldModDLLs); i++)
 		{
-			LPCSTR OldModHandle = OldModDLLs[i].c_str();
-			if (GetModuleHandleA(OldModHandle) != nullptr)
+			if (GetModuleHandle(OldModDLLs[i]) != nullptr)
 			{
-				OldModsMessage += OldModDLLs[i] + "\n";
+				// Found a known incompatible mod.
+				OldModsMessage += OldModDLLs[i];
+				OldModsMessage += '\n';
 				OldModsFound = true;
 			}
 		}
+
 		if (OldModsFound == true)
 		{
-			LPCSTR OldModsLPC = OldModsMessage.c_str();
-			MessageBoxA(WindowHandle, OldModsLPC, "Dreamcast DLCs mod error: incompatible mods detected", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle, OldModsMessage.c_str(),
+				L"Dreamcast DLCs mod error: incompatible mods detected",
+				MB_OK | MB_ICONERROR);
 			return;
 		}
+
 		//Config stuff
 		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 		MenuVoiceMode = config->getInt("General settings", "MenuVoiceThing", -1);
