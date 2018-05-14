@@ -10735,7 +10735,7 @@ extern "C"
 			}
 		}
 
-		if (OldModsFound == true)
+		if (OldModsFound)
 		{
 			MessageBox(WindowHandle, OldModsMessage.c_str(),
 				L"Dreamcast DLCs mod error: incompatible mods detected",
