@@ -39,14 +39,7 @@ bool ForceWhiteDiffuse3Specular1(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-bool NPCModelsFunction(NJS_MATERIAL* material, Uint32 flags)
-{
-	use_default_diffuse(true);
-	if (get_diffuse() != 2) set_diffuse(2, false);
-	if (get_specular() == 0) set_specular(2, false);
-	if (get_specular() == 1) set_specular(3, false);
-	return true;
-}
+
 
 bool ForceDiffuse2Specular2(NJS_MATERIAL* material, Uint32 flags)
 {
