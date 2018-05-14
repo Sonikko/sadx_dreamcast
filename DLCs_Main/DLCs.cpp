@@ -158,28 +158,28 @@ static bool Gate10 = false;
 
 #define ReplaceBIN(a,b) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" b ".BIN");
 
-PVMEntry TimerTextures = { "CON_REGULAR_E", (TexList *)0x00912DF4 };
-PVMEntry Christmas98Textures = { "SONICADV_000", (TexList *)&texlist_christmas98 };
-PVMEntry QuoTextures = { "SONICADV_002", (TexList *)&texlist_quo };
-PVMEntry FamitsuTextures = { "SONICADV_003", (TexList *)&texlist_famitsu };
-PVMEntry LaunchPartyUSTextures = { "SONICADV_501", (TexList *)&texlist_launch };
-PVMEntry LaunchPartyEUTextures = { "SONICADV_502", (TexList *)&texlist_launch };
-PVMEntry LaunchPartyJPTextures = { "SONICADV_503", (TexList *)&texlist_launch };
-PVMEntry ATT1Textures = { "SONICADV_504", (TexList *)&texlist_att1 };
-PVMEntry HalloweenTextures = { "SONICADV_505", (TexList *)&texlist_halloween };
-PVMEntry ATT2Textures = { "SONICADV_506", (TexList *)&texlist_att2 };
-PVMEntry ReebokTextures = { "SONICADV_507", (TexList *)&texlist_reebok };
-PVMEntry ATT3Textures = { "SONICADV_508", (TexList *)&texlist_att3 };
-PVMEntry Christmas99Textures = { "SONICADV_509", (TexList *)&texlist_christmas99 };
-PVMEntry Y2KTextures = { "SONICADV_510", (TexList *)&texlist_y2k };
-PVMEntry SambaGPTextures = { "SONICADV_511", (TexList *)&texlist_sambagp };
+static const PVMEntry TimerTextures = { "CON_REGULAR_E", (TexList *)0x00912DF4 };
+static const PVMEntry Christmas98Textures = { "SONICADV_000", (TexList *)&texlist_christmas98 };
+static const PVMEntry QuoTextures = { "SONICADV_002", (TexList *)&texlist_quo };
+static const PVMEntry FamitsuTextures = { "SONICADV_003", (TexList *)&texlist_famitsu };
+static const PVMEntry LaunchPartyUSTextures = { "SONICADV_501", (TexList *)&texlist_launch };
+static const PVMEntry LaunchPartyEUTextures = { "SONICADV_502", (TexList *)&texlist_launch };
+static const PVMEntry LaunchPartyJPTextures = { "SONICADV_503", (TexList *)&texlist_launch };
+static const PVMEntry ATT1Textures = { "SONICADV_504", (TexList *)&texlist_att1 };
+static const PVMEntry HalloweenTextures = { "SONICADV_505", (TexList *)&texlist_halloween };
+static const PVMEntry ATT2Textures = { "SONICADV_506", (TexList *)&texlist_att2 };
+static const PVMEntry ReebokTextures = { "SONICADV_507", (TexList *)&texlist_reebok };
+static const PVMEntry ATT3Textures = { "SONICADV_508", (TexList *)&texlist_att3 };
+static const PVMEntry Christmas99Textures = { "SONICADV_509", (TexList *)&texlist_christmas99 };
+static const PVMEntry Y2KTextures = { "SONICADV_510", (TexList *)&texlist_y2k };
+static const PVMEntry SambaGPTextures = { "SONICADV_511", (TexList *)&texlist_sambagp };
 
 static int CharacterVoice = 0;
 static int VoiceLanguage_sel = 1;
 static bool AlternateEggman = false;
 
 // SEGA, Sonic Team
-static int voices[8][2] =
+static const int voices[8][2] =
 {
 	{ 1994, 1995 },	// Sonic
 	{ 1996, 1997 },	// Tails
@@ -10622,8 +10622,9 @@ extern "C"
 		srand(CurrentTime.wSecond);
 		if (helperFunctions.Version < 6)
 		{
-			MessageBoxA(WindowHandle, "Mod Loader out of date. Dreamcast DLCs mod requires API version 6 or newer.",
-				"Dreamcast DLCs mod error: Mod Loader out of date", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle,
+				L"Mod Loader out of date. Dreamcast DLCs mod requires API version 6 or newer.",
+				L"Dreamcast DLCs mod error: Mod Loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
 
