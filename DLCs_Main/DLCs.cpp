@@ -10650,30 +10650,36 @@ extern "C"
 		GammaTrack = config->getInt("Samba GP settings", "GammaTrack", 0);
 
 		// Monthly DLCs.
-		MonthlyDLCs[0][0]  = config->getInt("Seasonal DLC settings", "Jan1DLC", 9);
-		MonthlyDLCs[0][1]  = config->getInt("Seasonal DLC settings", "Jan2DLC", 9);
-		MonthlyDLCs[1][0]  = config->getInt("Seasonal DLC settings", "Feb1DLC", 3);
-		MonthlyDLCs[1][1]  = config->getInt("Seasonal DLC settings", "Feb2DLC", 3);
-		MonthlyDLCs[2][0]  = config->getInt("Seasonal DLC settings", "Mar1DLC", 6);
-		MonthlyDLCs[2][1]  = config->getInt("Seasonal DLC settings", "Mar2DLC", 6);
-		MonthlyDLCs[3][0]  = config->getInt("Seasonal DLC settings", "Apr1DLC", 0);
-		MonthlyDLCs[3][1]  = config->getInt("Seasonal DLC settings", "Apr2DLC", 0);
-		MonthlyDLCs[4][0]  = config->getInt("Seasonal DLC settings", "May1DLC", 0);
-		MonthlyDLCs[4][1]  = config->getInt("Seasonal DLC settings", "May2DLC", 0);
-		MonthlyDLCs[5][0]  = config->getInt("Seasonal DLC settings", "Jun1DLC", 8);
-		MonthlyDLCs[5][1]  = config->getInt("Seasonal DLC settings", "Jun2DLC", 8);
-		MonthlyDLCs[6][0]  = config->getInt("Seasonal DLC settings", "Jul1DLC", 7);
-		MonthlyDLCs[6][1]  = config->getInt("Seasonal DLC settings", "Jul2DLC", 7);
-		MonthlyDLCs[7][0]  = config->getInt("Seasonal DLC settings", "Aug1DLC", -1);
-		MonthlyDLCs[7][1]  = config->getInt("Seasonal DLC settings", "Aug2DLC", -1);
-		MonthlyDLCs[8][0]  = config->getInt("Seasonal DLC settings", "Sep1DLC", 5);
-		MonthlyDLCs[8][1]  = config->getInt("Seasonal DLC settings", "Sep2DLC", 5);
-		MonthlyDLCs[9][0]  = config->getInt("Seasonal DLC settings", "Oct1DLC", 4);
-		MonthlyDLCs[9][1]  = config->getInt("Seasonal DLC settings", "Oct2DLC", 4);
-		MonthlyDLCs[10][0] = config->getInt("Seasonal DLC settings", "Nov1DLC", 8);
-		MonthlyDLCs[10][1] = config->getInt("Seasonal DLC settings", "Nov2DLC", 8);
-		MonthlyDLCs[11][0] = config->getInt("Seasonal DLC settings", "Dec1DLC", 2);
-		MonthlyDLCs[11][1] = config->getInt("Seasonal DLC settings", "Dec2DLC", 1);
+		struct dlcKeyInfo
+		{
+			const char *dlc1name;
+			const char *dlc2name;
+			int dlc1id;
+			int dlc2id;
+		};
+		static const dlcKeyInfo dlcKeyNames[12] =
+		{
+			{"Jan1DLC", "Jan2DLC", 9, 9},
+			{"Feb1DLC", "Feb2DLC", 3, 3},
+			{"Mar1DLC", "Mar2DLC", 6, 6},
+			{"Apr1DLC", "Apr2DLC", 0, 0},
+			{"May1DLC", "May2DLC", 0, 0},
+			{"Jun1DLC", "Jun2DLC", 8, 8},
+			{"Jul1DLC", "Jul2DLC", 7, 7},
+			{"Aug1DLC", "Aug2DLC", -1, -1},
+			{"Sep1DLC", "Sep2DLC", 5, 5},
+			{"Oct1DLC", "Oct2DLC", 4, 4},
+			{"Nov1DLC", "Nov2DLC", 8, 8},
+			{"Dec1DLC", "Dec2DLC", 2, 1},
+		};
+
+		for (unsigned int i = 0; i < 12; i++)
+		{
+			MonthlyDLCs[i][0] = config->getInt("Seasonal DLC settings",
+				dlcKeyNames[i].dlc1name, dlcKeyNames[i].dlc1id);
+			MonthlyDLCs[i][1] = config->getInt("Seasonal DLC settings",
+				dlcKeyNames[i].dlc2name, dlcKeyNames[i].dlc2id);
+		}
 
 		delete config;
 
