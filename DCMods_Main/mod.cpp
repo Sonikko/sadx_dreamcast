@@ -84,8 +84,9 @@ extern "C"
 		//Error messages
 		if (helperFunctions.Version < 7)
 		{
-			MessageBoxA(WindowHandle, "Please update SADX Mod Loader. Dreamcast Conversion requires API version 7 or newer.",
-				"DC Conversion error: Mod loader out of date", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle,
+				L"Please update SADX Mod Loader. Dreamcast Conversion requires API version 7 or newer.",
+				L"DC Conversion error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
 
@@ -152,8 +153,15 @@ extern "C"
 		//Another error message
 		if (EnableEmeraldCoast == true && WaterEffect != nullptr)
 		{
-			MessageBoxA(WindowHandle, "The Enhanced Emerald Coast mod is not compatible with DC Emerald Coast. Please disable Enhanced Emerald Coast for the Dreamcast level to work. To get SADX-like water in DC Emerald Coast, enable SADX Style Water in Dreamcast Conversion's config.",
-				"DC Conversion error: incompatible mod detected", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle,
+				L"The Enhanced Emerald Coast mod is not "
+				L"compatible with DC Emerald Coast. Please "
+				L"disable Enhanced Emerald Coast for the "
+				L"Dreamcast level to work. To get SADX-like "
+				L"water in DC Emerald Coast, enable SADX "
+				L"Style Water in Dreamcast Conversion's config.",
+				L"DC Conversion error: incompatible mod detected",
+				MB_OK | MB_ICONERROR);
 		}
 		//Init functions
 		if (EnableDCBranding == true) Branding_Init(path, helperFunctions);

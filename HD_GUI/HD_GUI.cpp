@@ -143,8 +143,9 @@ extern "C"
 		HMODULE GoalRing = GetModuleHandle(L"GoalRing");
 		if (helperFunctions.Version < 6)
 		{
-			MessageBoxA(WindowHandle, "Mod Loader out of date. HD GUI requires API version 6 or newer.",
-				"HD GUI error: Mod loader out of date", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle,
+				L"Mod Loader out of date. HD GUI requires API version 6 or newer.",
+				L"HD GUI error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
 		//Fix green rectangle in tutorials
