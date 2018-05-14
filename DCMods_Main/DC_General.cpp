@@ -930,23 +930,26 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteData<1>((char*)0x00492CC1, 0x80); //Set speed to 16 if below minimum
 		WriteData((float**)0x00492CB0, &LSDFix); //16 is the minimum speed
 	}
-	//Enable Impress font
-	if (DisableFontSmoothing == true)
+	// Disable font smoothing
+	if (DisableFontSmoothing)
 	{
 		//Probably better than making the whole texture ARGB1555
 		WriteData<1>((char*)0x0040DA0B, 0x00);
 		WriteData<1>((char*)0x0040DA0C, 0x00);
 		WriteData<1>((char*)0x0040DA12, 0x00);
 	}
+
+	// Enable Impress font
 	if (EnableImpressFont == "Impress")
 	{
 		ReplaceBIN("FONTDATA1", "FONTDATA1_I");
 	}
-	//Enable Comic Sans font (experimental)
-	if (EnableImpressFont == "ComicSans")
+	// Enable Comic Sans font (experimental)
+	else if (EnableImpressFont == "ComicSans")
 	{
 		ReplaceBIN("FONTDATA1", "FONTDATA1_C");
 	}
+
 	if (ColorizeFont == true)
 	{
 		//Subtitles (ARGB from 0 to F: CEEF)

@@ -189,12 +189,17 @@ void Videos_Init(const char *path, const HelperFunctions &helperFunctions)
 	ColorizeVideos = settings->getBool("Videos", "ColorizeVideos", true);
 	SA1Intro = settings->getBool("Videos", "EnableSA1Intro", true);
 	//Set Sonic Team logo mode
-	std::string SonicTeamLogo_String = "Animated";
-	SonicTeamLogo_String = settings->getString("Videos", "SonicTeamLogoMode", "Animated");
-	if (SonicTeamLogo_String == "Animated") SonicTeamLogoMode = 0;
-	if (SonicTeamLogo_String == "Static") SonicTeamLogoMode = 1;
-	if (SonicTeamLogo_String == "Off") SonicTeamLogoMode = 2;
+
+	const std::string SonicTeamLogo_String = settings->getString("Videos", "SonicTeamLogoMode", "Animated");
+	if (SonicTeamLogo_String == "Animated")
+		SonicTeamLogoMode = 0;
+	else if (SonicTeamLogo_String == "Static")
+		SonicTeamLogoMode = 1;
+	else if (SonicTeamLogo_String == "Off")
+		SonicTeamLogoMode = 2;
+
 	delete settings;
+
 	//Video stuff
 	InitVideoFrameStuff();
 	WriteCall((void*)0x00513A88, AdjustVideoFrame); //Center video frame vertically if playing Sonic Team logo/SA1 intro

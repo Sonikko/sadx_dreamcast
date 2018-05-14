@@ -143,12 +143,17 @@ extern "C"
 		EnableEggCarrier = config->getBool("Levels", "EnableEggCarrier", true);
 		EnablePast = config->getBool("Levels", "EnablePast", true);
 		DisableAllVideoStuff = config->getBool("Videos", "DisableAllVideoStuff", false);
-		std::string EnableSETFixes_String = "Normal";
-		EnableSETFixes_String = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
-		if (EnableSETFixes_String == "Off") EnableSETFixes = 0;
-		if (EnableSETFixes_String == "Normal") EnableSETFixes = 1;
-		if (EnableSETFixes_String == "Extra") EnableSETFixes = 2;
+
+		const std::string EnableSETFixes_String = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
+		if (EnableSETFixes_String == "Off")
+			EnableSETFixes = 0;
+		else if (EnableSETFixes_String == "Normal")
+			EnableSETFixes = 1;
+		else if (EnableSETFixes_String == "Extra")
+			EnableSETFixes = 2;
+
 		delete config;
+
 		//Set window title
 		if (EnableWindowTitle == true) helperFunctions.SetWindowTitle("Sonic Adventure");
 		//Another error message
