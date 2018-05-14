@@ -4,18 +4,39 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 15.0.27130.2036
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DCMods_Main", "DCMods_Main\DCMods_Main.vcxproj", "{20722887-443C-45BE-AD68-2DCF8962527D}"
+	ProjectSection(ProjectDependencies) = postProject
+		{90CF4AD9-6603-458F-8E3F-E99C0818E43D} = {90CF4AD9-6603-458F-8E3F-E99C0818E43D}
+		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B} = {EC0293F5-4BCF-46B2-8133-18CAEA141C5B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "SoundOverhaul", "..\SoundOverhaul\SoundOverhaul\SoundOverhaul.vcxproj", "{EB53BD35-68E0-4141-BA15-C3C58226B46E}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B} = {EC0293F5-4BCF-46B2-8133-18CAEA141C5B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "TrainDaytime", "..\TrainDaytime\TrainDaytime\TrainDaytime.vcxproj", "{392AE35A-F746-421C-9566-E3ABBA9EECA0}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B} = {EC0293F5-4BCF-46B2-8133-18CAEA141C5B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "WaterEffect", "..\WaterEffect\WaterEffect.vcxproj", "{A9ABF1CE-1C33-4AE0-9812-69DFB47481E5}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B} = {EC0293F5-4BCF-46B2-8133-18CAEA141C5B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HD_GUI", "..\HD_GUI\HD_GUI.vcxproj", "{166D0676-BFF0-4F96-99A6-192FFC5F38CF}"
-EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ModLoaderCommon", "..\mod-loader-common\ModLoaderCommon\ModLoaderCommon.vcxproj", "{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B} = {EC0293F5-4BCF-46B2-8133-18CAEA141C5B}
+	EndProjectSection
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "DLCs_Main", "..\DLCs_Main\DLCs_Main.vcxproj", "{F7B5C701-3FAF-491A-AD56-40D96BCA7972}"
+	ProjectSection(ProjectDependencies) = postProject
+		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B} = {EC0293F5-4BCF-46B2-8133-18CAEA141C5B}
+	EndProjectSection
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "ModLoaderCommon", "..\sadx-mod-loader\mod-loader-common\ModLoaderCommon\ModLoaderCommon.vcxproj", "{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "libmodutils", "..\sadx-mod-loader\libmodutils\libmodutils.vcxproj", "{90CF4AD9-6603-458F-8E3F-E99C0818E43D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -61,12 +82,6 @@ Global
 		{166D0676-BFF0-4F96-99A6-192FFC5F38CF}.Release|x64.Build.0 = Release|x64
 		{166D0676-BFF0-4F96-99A6-192FFC5F38CF}.Release|x86.ActiveCfg = Release|Win32
 		{166D0676-BFF0-4F96-99A6-192FFC5F38CF}.Release|x86.Build.0 = Release|Win32
-		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Debug|x64.ActiveCfg = Debug|Win32
-		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Debug|x86.ActiveCfg = Debug|Win32
-		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Debug|x86.Build.0 = Debug|Win32
-		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Release|x64.ActiveCfg = Release|Win32
-		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Release|x86.ActiveCfg = Release|Win32
-		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Release|x86.Build.0 = Release|Win32
 		{F7B5C701-3FAF-491A-AD56-40D96BCA7972}.Debug|x64.ActiveCfg = Debug|x64
 		{F7B5C701-3FAF-491A-AD56-40D96BCA7972}.Debug|x64.Build.0 = Debug|x64
 		{F7B5C701-3FAF-491A-AD56-40D96BCA7972}.Debug|x86.ActiveCfg = Debug|Win32
@@ -75,6 +90,18 @@ Global
 		{F7B5C701-3FAF-491A-AD56-40D96BCA7972}.Release|x64.Build.0 = Release|x64
 		{F7B5C701-3FAF-491A-AD56-40D96BCA7972}.Release|x86.ActiveCfg = Release|Win32
 		{F7B5C701-3FAF-491A-AD56-40D96BCA7972}.Release|x86.Build.0 = Release|Win32
+		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Debug|x64.ActiveCfg = Debug|Win32
+		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Debug|x86.ActiveCfg = Debug|Win32
+		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Debug|x86.Build.0 = Debug|Win32
+		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Release|x64.ActiveCfg = Release|Win32
+		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Release|x86.ActiveCfg = Release|Win32
+		{EC0293F5-4BCF-46B2-8133-18CAEA141C5B}.Release|x86.Build.0 = Release|Win32
+		{90CF4AD9-6603-458F-8E3F-E99C0818E43D}.Debug|x64.ActiveCfg = Debug|Win32
+		{90CF4AD9-6603-458F-8E3F-E99C0818E43D}.Debug|x86.ActiveCfg = Debug|Win32
+		{90CF4AD9-6603-458F-8E3F-E99C0818E43D}.Debug|x86.Build.0 = Debug|Win32
+		{90CF4AD9-6603-458F-8E3F-E99C0818E43D}.Release|x64.ActiveCfg = Release|Win32
+		{90CF4AD9-6603-458F-8E3F-E99C0818E43D}.Release|x86.ActiveCfg = Release|Win32
+		{90CF4AD9-6603-458F-8E3F-E99C0818E43D}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

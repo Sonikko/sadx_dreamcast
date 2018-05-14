@@ -30,7 +30,6 @@ float PadManuYOffset = 136.0f;
 float PadManuYOffset2 = 105.0f;
 float PadManuYMultiplier = 1.0f;
 
-DataPointer(HWND, WindowHandle, 0x03D0FD30);
 NJS_TEXANIM RandomRingIconPart_TEXANIM = { 32, 32, 16, 16, 0, 0, 255, 255, 95, 0x20 };
 
 void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, float Texture_Z)

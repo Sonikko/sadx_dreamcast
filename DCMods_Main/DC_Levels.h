@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
-DataPointer(HWND, WindowHandle, 0x03D0FD30);
+
 DataPointer(int, FramerateSetting_Config, 0x0089295C);
 
 extern int EnableSETFixes;

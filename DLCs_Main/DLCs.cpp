@@ -91,7 +91,6 @@ FunctionPointer(void, sub_425800, (int a1), 0x425800);
 
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(HWND, WindowHandle, 0x03D0FD30);
 DataArray(ControllerData*, ControllerPointersShit, 0x03B0E77C, 8);
 
 HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
