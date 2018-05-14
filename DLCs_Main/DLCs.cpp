@@ -10713,97 +10713,96 @@ extern "C"
 		WriteCall((void*)0x0062F098, DLCHook_StationSquare); 
 		WriteCall((void*)0x0062F102, DLCHook_StationSquare);
 		WriteCall((void*)0x0052FB82, DLCHook_MysticRuins);
-		if (CurrentDLC == 51)
-		{
-			LaunchPartyDLCMode = "Japan";
-			CurrentDLC = 5;
-		}
-		if (CurrentDLC == 52)
-		{
-			LaunchPartyDLCMode = "Europe";
-			CurrentDLC = 5;
-		}
+
+		// DLC-specific handling.
 		PrintDebug("Current DLC ID: %02X\n", CurrentDLC);
-		//AT&T challenges
-		if (CurrentDLC == 0)
+		switch (CurrentDLC)
 		{
-			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
-			helperFunctions.RegisterCommonObjectPVM(ATT1Textures);
-			helperFunctions.RegisterCommonObjectPVM(ATT2Textures);
-			helperFunctions.RegisterCommonObjectPVM(ATT3Textures);
-			helperFunctions.RegisterCommonObjectPVM(TimerTextures);
+			case 51:
+				LaunchPartyDLCMode = "Japan";
+				CurrentDLC = 5;
+				break;
+			case 52:
+				LaunchPartyDLCMode = "Europe";
+				CurrentDLC = 5;
+				break;
+			case 0:
+				// AT&T challenges
+				WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
+				helperFunctions.RegisterCommonObjectPVM(ATT1Textures);
+				helperFunctions.RegisterCommonObjectPVM(ATT2Textures);
+				helperFunctions.RegisterCommonObjectPVM(ATT3Textures);
+				helperFunctions.RegisterCommonObjectPVM(TimerTextures);
+				break;
+			case 1:
+				// Christmas 98
+				MusicList[68].Name = "Xmas98_1";
+				MusicList[69].Name = "Xmas98_2";
+				MusicList[70].Name = "Xmas98_3";
+				helperFunctions.RegisterCommonObjectPVM(Christmas98Textures);
+				WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Christmas);
+				break;
+			case 2:
+				// Christmas 99
+				helperFunctions.RegisterCommonObjectPVM(Christmas99Textures);
+				WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Christmas);
+				break;
+			case 3:
+				// Famitsu
+				WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
+				helperFunctions.RegisterCommonObjectPVM(FamitsuTextures);
+				helperFunctions.RegisterCommonObjectPVM(TimerTextures);
+				ReplaceBIN("CAMSS00S", "CAMSS00S_F");
+				ReplaceBIN("CAMSS01S", "CAMSS01S_F");
+				ReplaceBIN("CAMSS02S", "CAMSS02S_F");
+				ReplaceBIN("CAMSS03S", "CAMSS03S_F");
+				ReplaceBIN("CAMSS04S", "CAMSS04S_F");
+				ReplaceBIN("CAMSS05S", "CAMSS05S_F");
+				break;
+			case 4:
+				// Halloween
+				helperFunctions.RegisterCommonObjectPVM(HalloweenTextures);
+				break;
+			case 5:
+				// Launch party
+				if (LaunchPartyDLCMode == "US")
+					helperFunctions.RegisterCommonObjectPVM(LaunchPartyUSTextures);
+				else if (LaunchPartyDLCMode == "Europe")
+					helperFunctions.RegisterCommonObjectPVM(LaunchPartyEUTextures);
+				else if (LaunchPartyDLCMode == "Japan")
+					helperFunctions.RegisterCommonObjectPVM(LaunchPartyJPTextures);
+				break;
+			case 6:
+				// QUO challenge
+				ReplaceBIN("CAMSS00S", "CAMSS00S_F");
+				ReplaceBIN("CAMSS01S", "CAMSS01S_F");
+				ReplaceBIN("CAMSS02S", "CAMSS02S_F");
+				ReplaceBIN("CAMSS03S", "CAMSS03S_F");
+				ReplaceBIN("CAMSS04S", "CAMSS04S_F");
+				ReplaceBIN("CAMSS05S", "CAMSS05S_F");
+				WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
+				helperFunctions.RegisterCommonObjectPVM(QuoTextures);
+				helperFunctions.RegisterCommonObjectPVM(TimerTextures);
+				break;
+			case 7:
+				// Reebok challenge
+				helperFunctions.RegisterCommonObjectPVM(ReebokTextures);
+				helperFunctions.RegisterCommonObjectPVM(TimerTextures);
+				break;
+			case 8:
+				// Samba GP
+				helperFunctions.RegisterCommonObjectPVM(SambaGPTextures);
+				WriteCall((void*)0x004DB126, QuitTwinkleCircuit);
+				WriteCall((void*)0x00640684, CallSambaCircuit);
+				break;
+			case 9:
+				// Y2K Rings
+				helperFunctions.RegisterCommonObjectPVM(Y2KTextures);
+				break;
+			default:
+				break;
 		}
-		//Christmas 98
-		if (CurrentDLC == 1)
-		{
-			MusicList[68].Name = "Xmas98_1";
-			MusicList[69].Name = "Xmas98_2";
-			MusicList[70].Name = "Xmas98_3";
-			helperFunctions.RegisterCommonObjectPVM(Christmas98Textures);
-			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Christmas);
-		}
-		//Christmas 99
-		if (CurrentDLC == 2)
-		{
-			helperFunctions.RegisterCommonObjectPVM(Christmas99Textures);
-			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Christmas);
-		}
-		//Famitsu
-		if (CurrentDLC == 3)
-		{
-			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
-			helperFunctions.RegisterCommonObjectPVM(FamitsuTextures);
-			helperFunctions.RegisterCommonObjectPVM(TimerTextures);
-			ReplaceBIN("CAMSS00S", "CAMSS00S_F");
-			ReplaceBIN("CAMSS01S", "CAMSS01S_F");
-			ReplaceBIN("CAMSS02S", "CAMSS02S_F");
-			ReplaceBIN("CAMSS03S", "CAMSS03S_F");
-			ReplaceBIN("CAMSS04S", "CAMSS04S_F");
-			ReplaceBIN("CAMSS05S", "CAMSS05S_F");
-		}
-		//Halloween
-		if (CurrentDLC == 4)
-		{
-			helperFunctions.RegisterCommonObjectPVM(HalloweenTextures);
-		}
-		//Launch party
-		if (CurrentDLC == 5)
-		{
-			if (LaunchPartyDLCMode == "US") helperFunctions.RegisterCommonObjectPVM(LaunchPartyUSTextures);
-			if (LaunchPartyDLCMode == "Europe") helperFunctions.RegisterCommonObjectPVM(LaunchPartyEUTextures);
-			if (LaunchPartyDLCMode == "Japan") helperFunctions.RegisterCommonObjectPVM(LaunchPartyJPTextures);
-		}
-		//QUO challenge
-		if (CurrentDLC == 6)
-		{
-			ReplaceBIN("CAMSS00S", "CAMSS00S_F");
-			ReplaceBIN("CAMSS01S", "CAMSS01S_F");
-			ReplaceBIN("CAMSS02S", "CAMSS02S_F");
-			ReplaceBIN("CAMSS03S", "CAMSS03S_F");
-			ReplaceBIN("CAMSS04S", "CAMSS04S_F");
-			ReplaceBIN("CAMSS05S", "CAMSS05S_F");
-			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
-			helperFunctions.RegisterCommonObjectPVM(QuoTextures);
-			helperFunctions.RegisterCommonObjectPVM(TimerTextures);
-		}
-		//Reebok challenge
-		if (CurrentDLC == 7)
-		{
-			helperFunctions.RegisterCommonObjectPVM(ReebokTextures);
-			helperFunctions.RegisterCommonObjectPVM(TimerTextures);
-		}
-		//Samba GP
-		if (CurrentDLC == 8)
-		{
-			helperFunctions.RegisterCommonObjectPVM(SambaGPTextures);
-			WriteCall((void*)0x004DB126, QuitTwinkleCircuit);
-			WriteCall((void*)0x00640684, CallSambaCircuit);
-		}
-		//Y2K Rings
-		if (CurrentDLC == 9)
-		{
-			helperFunctions.RegisterCommonObjectPVM(Y2KTextures);
-		}
+
 		if (SegaVoiceLanguage != "Off")
 		{
 			std::random_device r;
