@@ -662,7 +662,6 @@ void DrawUnderwaterOverlay(NJS_MATRIX_PTR m)
 
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplacePVR("AL_BARRIA");
 	ReplacePVR("AM_SEA124_8");
 	ReplacePVR("BELT2");

@@ -112,7 +112,6 @@ void AntennaSprite(NJS_ARGB *a1)
 
 void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN("PL_40B", "PL_40X");
 	ReplaceBIN("PL_41B", "PL_41X");
 	ReplaceBIN_DC("CAM0400M");

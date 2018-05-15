@@ -682,7 +682,6 @@ void RenderNeonK(NJS_MODEL_SADX *model, float scale)
 
 void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAM0900K");
 	ReplaceBIN_DC("CAM0900S");
 	ReplaceBIN_DC("CAM0901M");

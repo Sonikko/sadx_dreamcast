@@ -402,7 +402,6 @@ void RenderCatapult(NJS_ACTION *a1, float frame, float scale)
 
 void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAM0300S");
 	ReplaceBIN_DC("CAM0301A");
 	ReplaceBIN_DC("CAM0301B");

@@ -239,7 +239,6 @@ void RenderPoolChair(NJS_MODEL_SADX *a1, int a2, float a3)
 
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SETSS00A");
 	ReplaceBIN_DC("SETSS00B");
 	ReplaceBIN_DC("SETSS00E");

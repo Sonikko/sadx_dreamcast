@@ -606,7 +606,6 @@ void GachaponExplosionFix(NJS_MODEL_SADX *a1)
 
 void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAM1000A");
 	ReplaceBIN_DC("CAM1000S");
 	ReplaceBIN_DC("CAM1001S");

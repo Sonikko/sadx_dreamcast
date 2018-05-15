@@ -606,7 +606,6 @@ void __cdecl Talap0Display_FixedRotation(ObjectMaster *a2)
 
 void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SET0600M");
 	ReplaceBIN_DC("SET0600S");
 	ReplaceBIN_DC("SET0601M");

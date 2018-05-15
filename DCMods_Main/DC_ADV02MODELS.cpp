@@ -213,7 +213,6 @@ void FixMRBase(ObjectMaster *a1)
 
 void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplacePVM("MR_FINALEGG");
 	//MR Base stuff
 	objectADV02_0020454C.evalflags |= NJD_EVAL_HIDE;
@@ -243,7 +242,6 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
 	LandTable **___LANDTABLEMR = (LandTable **)GetProcAddress(handle, "___LANDTABLEMR");
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SETMR00A");
 	ReplaceBIN_DC("SETMR00B");
 	ReplaceBIN_DC("SETMR00E");

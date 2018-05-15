@@ -125,7 +125,6 @@ void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAM0201S");
 	ReplaceBIN_DC("CAM0202M");
 	ReplaceBIN_DC("CAM0202S");
-	char pathbuf[MAX_PATH];
 	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SET0200E");

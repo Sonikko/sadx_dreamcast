@@ -4107,7 +4107,6 @@ void LoadSSGardenObjectPVM(const char *filename, NJS_TEXLIST *texlist)
 
 void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplacePVM("AL_BODY");
 	ReplacePVM("AL_DX_OBJ_CMN");
 	ReplacePVM("AL_RACE01");

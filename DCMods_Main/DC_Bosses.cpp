@@ -853,7 +853,6 @@ void LoadBossECOceanTexlist()
 
 void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplacePVM("CHAOS1");
 	ReplacePVM("CHAOS_BRAINFRAME");
 	ReplacePVM("CHAOS_EFFECT");

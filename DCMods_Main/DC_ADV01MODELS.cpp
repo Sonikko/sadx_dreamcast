@@ -381,7 +381,6 @@ void SetECOceanTexture()
 
 void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SETEC00S");
 	ReplaceBIN_DC("SETEC00M");
 	ReplaceBIN_DC("SETEC00K");

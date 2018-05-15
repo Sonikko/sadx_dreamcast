@@ -440,7 +440,6 @@ void WhaleSplash(NJS_OBJECT *a1)
 
 void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SET0100E");
 	ReplaceBIN_DC("SET0100S");
 	ReplaceBIN_DC("SET0101M");

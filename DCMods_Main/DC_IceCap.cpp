@@ -141,7 +141,6 @@ void __cdecl FixedAvalanche(ObjectMaster *a1)
 
 void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAM0800S");
 	ReplaceBIN_DC("CAM0801S");
 	ReplaceBIN_DC("CAM0802S");
