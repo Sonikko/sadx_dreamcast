@@ -1,7 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <IniFile.hpp>
-#include <lanternapi.h>
 #include "ChaoObjects.h"
 #include "Fountain.h"
 #include "SSGarden.h"
@@ -10,8 +7,6 @@
 #include "ChaoRaceEntry.h"
 #include "ECGarden_DC.h"
 #include "HintMessages.h"
-#include <stdlib.h>  
-#include "DC_Levels.h"
 
 static bool EnableSSGarden = true;
 static bool EnableMRGarden = true;

@@ -1,12 +1,9 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "TwinklePark_objects.h"
 #include "Twinkle1.h"
 #include "Twinkle2.h"
 #include "Twinkle3.h"
 #include "Buyon.h"
-#include "DC_Levels.h"
 
 struct __declspec(align(2)) ObjectThingC
 {

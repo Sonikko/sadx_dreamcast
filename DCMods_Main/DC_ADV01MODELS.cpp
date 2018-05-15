@@ -1,7 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
-#include <string>
 #include "ADV01_0_animlist.h"
 #include "ADV01_0.h"
 #include "ADV01_1.h"
@@ -18,8 +15,6 @@
 #include "ADV01C_05.h"
 #include "EC_Tornado.h"
 #include "EC_Transform.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 FunctionPointer(void, sub_409FB0, (NJS_ACTION *a1, float frameNumber), 0x409FB0);
 FunctionPointer(void, sub_6F4570, (ObjectMaster *a1), 0x6F4570);

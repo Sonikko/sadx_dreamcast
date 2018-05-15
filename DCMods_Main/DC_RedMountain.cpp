@@ -1,12 +1,8 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include "math.h"
-#include <lanternapi.h>
 #include "Mountain1.h"
 #include "Mountain2.h"
 #include "Mountain3.h"
 #include "RM_Objects.h"
-#include "DC_Levels.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);

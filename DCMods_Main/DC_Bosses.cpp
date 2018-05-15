@@ -1,8 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <Trampoline.h>
-#include <lanternapi.h>
-#include <string>
 #include "EggHornet.h"
 #include "EggWalker.h"
 #include "EggViper.h"
@@ -22,9 +18,6 @@
 #include "E101Kai_Model.h"
 #include "LightingArrays.h"
 #include "ERobo.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
-#include <IniFile.hpp>
 
 //Chaos 6 material arrays
 DataArray(NJS_MATERIAL, matlist_00F975B0, 0x013975B0, 3);

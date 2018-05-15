@@ -1,13 +1,9 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "SkyDeck3_Fixes.h"
 #include "SkyDeck1.h"
 #include "SkyDeck2.h"
 #include "SkyDeck3.h"
 #include "SkyDeck_objects.h"
-#include "math.h"
-#include "DC_Levels.h"
 
 static int UVShift1 = 0;
 static int UVShift2 = 0;

@@ -1,8 +1,5 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <IniFile.hpp>
 #include "FileSystem.h"
-#include "DC_Levels.h"
 
 //Ini stuff
 static bool ColorizeVideos = true;

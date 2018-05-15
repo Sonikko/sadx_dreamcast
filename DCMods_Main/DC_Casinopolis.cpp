@@ -1,15 +1,10 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "Casino_objects.h"
 #include "Casino1.h"
 #include "Casino2.h"
 #include "Casino3.h"
 #include "Casino4.h"
-#include "stdlib.h"
 #include "Cowgirl.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 static short CurrentPlayer = -1;
 static float distance_float;

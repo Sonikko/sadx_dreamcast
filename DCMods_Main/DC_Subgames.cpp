@@ -1,12 +1,7 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
 #include "SandHill.h"
-#include <lanternapi.h>
-#include <math.h>
 #include "TwinkleCircuit.h"
 #include "SkyChaseModels.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 DataArray(FogData, FogData_SandHill, 0x0173BB74, 3);
 DataArray(FogData, FogData_HedgehogHammer, 0x027C69C4, 3);

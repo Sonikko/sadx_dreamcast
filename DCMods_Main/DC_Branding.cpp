@@ -1,7 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 struct TutorialScreenData
 {

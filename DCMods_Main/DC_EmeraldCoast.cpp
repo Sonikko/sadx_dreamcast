@@ -1,13 +1,9 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "EmeraldCoast1_PC.h"
 #include "EmeraldCoast1.h"
 #include "EmeraldCoast2.h"
 #include "EmeraldCoast3.h"
 #include "EmeraldCoast_Objects.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 static int anim1 = 82;
 static int anim2 = 67;

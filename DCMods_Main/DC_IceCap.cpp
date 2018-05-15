@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
 #include "textures.h"
 #include "Icicle.h"
 #include "IceCap1.h"
@@ -7,7 +6,6 @@
 #include "IceCap3.h"
 #include "IceCap4_PC.h"
 #include "IceCap4.h"
-#include "DC_Levels.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);

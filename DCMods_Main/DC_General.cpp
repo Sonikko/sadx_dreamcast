@@ -1,8 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include "stdlib.h"
-#include <math.h> 
-#include <lanternapi.h>
 #include "Animals.h"
 #include "EmeraldGlow.h"
 #include "TornadoCrash.h"
@@ -10,8 +6,6 @@
 #include "CharacterEffects.h"
 #include "Ripple.h"
 #include "CommonObjects.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 HMODULE CHRMODELS3 = GetModuleHandle(L"CHRMODELS_orig");
 HMODULE ADV01MODELS2 = GetModuleHandle(L"ADV01MODELS");

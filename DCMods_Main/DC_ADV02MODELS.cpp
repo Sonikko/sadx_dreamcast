@@ -1,6 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include "math.h"
 #include "button.h"
 #include "MasterEmerald.h"
 #include "ADV_MR00(StationArea).h"
@@ -17,10 +15,6 @@
 #include "Grass.h"
 #include "MR_Objects.h"
 #include "MR_Palms.h"
-#include <lanternapi.h>
-#include <string>
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 HMODULE ADV02MODELS = GetModuleHandle(L"ADV02MODELS");
 NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV02MODELS, "___ADV02_TEXLISTS");

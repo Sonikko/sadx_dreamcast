@@ -1,13 +1,8 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "FinalEgg1.h"
 #include "FinalEgg2.h"
 #include "FinalEgg3.h"
 #include "FinalEgg_objects.h"
-#include "stdlib.h"
-#include "math.h"
-#include "DC_Levels.h"
 
 NJS_TEXNAME textures_cylinder[259];
 NJS_TEXLIST texlist_cylinder = { arrayptrandlength(textures_cylinder) };

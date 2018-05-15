@@ -1,7 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include "DC_Levels.h"
-#include <IniFile.hpp>
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 

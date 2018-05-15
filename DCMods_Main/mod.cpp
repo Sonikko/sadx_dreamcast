@@ -1,8 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include "stdlib.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 bool EnableWindowTitle = true;
 bool EnableDCBranding = true;

@@ -1,6 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "textures.h"
 #include "Highway1.h"
 #include "Highway2 Fixes.h"
@@ -14,7 +12,6 @@
 #include "SH_turnasi.h"
 #include "SH_glass.h"
 #include "Highway_objects.h"
-#include "DC_Levels.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 

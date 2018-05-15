@@ -1,6 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "textures.h"
 #include "SS_Objects.h"
 #include "ADVSS00(CityHall).h"
@@ -12,8 +10,6 @@
 #include "ADVSS04(Hotel).h"
 #include "ADVSS05(TwinkleParkEntrance).h"
 #include "NPCMaterials.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 static int anim1 = 46;
 static int anim2 = 183;

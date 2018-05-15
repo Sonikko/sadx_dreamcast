@@ -1,11 +1,8 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "LostWorld1.h"
 #include "LostWorld2.h"
 #include "LostWorld3.h"
 #include "LostWorld_objects.h"
-#include "DC_Levels.h"
 
 DataPointer(float, CurrentDrawDist, 0x03ABDC74);
 
