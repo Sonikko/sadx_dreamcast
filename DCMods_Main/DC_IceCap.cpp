@@ -172,9 +172,9 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("ICECAP03");
 	ReplacePVM("OBJ_ICECAP");
 	ReplacePVM("OBJ_ICECAP2");
-	ReplacePVR("MIW_B001")
-	ReplacePVR("MTX_BOARD0")
-	ReplacePVR("SB_BOARD1")
+	ReplacePVR("MIW_B001");
+	ReplacePVR("MTX_BOARD0");
+	ReplacePVR("SB_BOARD1");
 	WriteData((LandTable**)0x97DB08, &landtable_00014B44);
 	WriteData((LandTable**)0x97DB0C, &landtable_00015714);
 	WriteData((LandTable**)0x97DB10, &landtable_000180B4);
