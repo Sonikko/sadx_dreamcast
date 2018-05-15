@@ -69,6 +69,7 @@
     </ClCompile>
     <Link>
       <AdditionalDependencies>$(ProjectDir)..\bin\ModLoaderCommon.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <SubSystem>Windows</SubSystem>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
