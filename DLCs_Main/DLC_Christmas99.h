@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4838)
+
 NJS_TEXNAME textures_christmas99[6];
 NJS_TEXLIST texlist_christmas99 = { arrayptrandlength(textures_christmas99) };
 
@@ -821,3 +824,5 @@ NJS_MESHSET_SADX meshlist_000007C8[] = {
 NJS_MODEL_SADX attach_00001968 = { vertex_000008A0, normal_00001104, LengthOfArray<Sint32>(vertex_000008A0), meshlist_000007C8, matlist_00000004_1, LengthOfArray<Uint16>(meshlist_000007C8), LengthOfArray<Uint16>(matlist_00000004_1),{ 0.462006f, 49.52271f, -16.72095f }, 94.54309f, NULL };
 
 NJS_OBJECT object_00001990 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00001968, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

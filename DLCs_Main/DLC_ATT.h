@@ -1,3 +1,8 @@
+#pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_TEXNAME textures_att1[7];
 NJS_TEXLIST texlist_att1 = { arrayptrandlength(textures_att1) };
 
@@ -1452,3 +1457,5 @@ NJS_OBJECT poster_att3 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT
 NJS_OBJECT poster_att3_goal = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_att3W, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_OBJECT poster_att3_att = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_att3Y, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

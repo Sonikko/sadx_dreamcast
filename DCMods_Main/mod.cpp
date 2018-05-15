@@ -96,7 +96,7 @@ extern "C"
 			L"Please uninstall the following mods in the Mod Manager:\n\n";
 
 		bool OldModsFound = false;
-		for (int i = 0; i < LengthOfArray(OldModDLLs); i++)
+		for (unsigned int i = 0; i < LengthOfArray(OldModDLLs); i++)
 		{
 			if (GetModuleHandle(OldModDLLs[i]) != nullptr)
 			{

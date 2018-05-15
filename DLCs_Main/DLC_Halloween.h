@@ -1,3 +1,8 @@
+#pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_TEXNAME textures_halloween[5];
 NJS_TEXLIST texlist_halloween = { arrayptrandlength(textures_halloween) };
 
@@ -462,3 +467,5 @@ NJS_OBJECT poster1h = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SC
 NJS_OBJECT poster2h = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_halloweenY, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_OBJECT poster3h = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_halloweenZ, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

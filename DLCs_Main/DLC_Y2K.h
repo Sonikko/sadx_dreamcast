@@ -1,3 +1,7 @@
+#pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
 
 NJS_MATERIAL matlist_00000004_Y[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ENV | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -668,3 +672,5 @@ NJS_OBJECT y2kposter = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK,
 
 NJS_TEXNAME textures_y2k[4];
 NJS_TEXLIST texlist_y2k = { arrayptrandlength(textures_y2k) };
+
+#pragma warning(pop)

@@ -1,3 +1,7 @@
+#pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
 
 NJS_MATERIAL matlist_00000004R_1[] = {
 	{ { 0xFFB2B2B2 },{ 0x00FFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -652,3 +656,5 @@ NJS_OBJECT reebokposter_start = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EV
 NJS_OBJECT reebokposter_goal = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_reebokposterW, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_OBJECT reebokposter_small = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_reebokposterY, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

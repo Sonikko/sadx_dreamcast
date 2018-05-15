@@ -12,8 +12,8 @@ NJS_TEX uv_00CC0530_d[] = {
 	{ 15300, -15045 }
 };
 
-static float float1 = 0.02; //These floats are used to patch repositioning of the high-poly ocean model
-static float float2 = 66.0; //These floats are used to patch repositioning of the high-poly ocean model
+static float float1 = 0.02f; //These floats are used to patch repositioning of the high-poly ocean model
+static float float2 = 66.0f; //These floats are used to patch repositioning of the high-poly ocean model
 static int beachsea_water = 0; //Water animation
 static bool inside_secret_area = false;
 static bool SkyboxHidden = false;
@@ -32,7 +32,7 @@ DataPointer(OceanData, OceanDataA, 0x03D0B8F0);
 DataPointer(OceanData, OceanDataB, 0x03D0B90C);
 
 int round(float r) {
-	return (r > 0.0) ? (r + 0.5) : (r - 0.5);
+	return (int)((r > 0.0) ? (r + 0.5) : (r - 0.5));
 }
 
 void __cdecl sub_4F76C0(ObjectMaster *a1) //Act 2
@@ -147,7 +147,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1) //Act 1
 				{
 					u2_add = int(255 * (v1->Position.x - oldpos.x) / unitsize_u_small) % 255;
 					u2_add = round(1.5f * u2_add);
-					for (int u_step = 0; u_step < LengthOfArray(uv_00CBB000_d); u_step++)
+					for (unsigned int u_step = 0; u_step < LengthOfArray(uv_00CBB000_d); u_step++)
 					{
 						uv_00CBB000_data[u_step].u = uv_00CBB000_data[u_step].u - u2_add;
 						u2_delta = uv_00CBB000_data[u_step].u - uv_00CBB000_d[u_step].u;
@@ -159,7 +159,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1) //Act 1
 				{
 					v2_add = int(255 * (v1->Position.z - oldpos.z) / unitsize_v_small) % 255;
 					v2_add = round(0.5f * v2_add);
-					for (int v_step = 0; v_step < LengthOfArray(uv_00CBB000_d); v_step++)
+					for (unsigned int v_step = 0; v_step < LengthOfArray(uv_00CBB000_d); v_step++)
 					{
 						uv_00CBB000_data[v_step].v = uv_00CBB000_data[v_step].v - v2_add;
 						v2_delta = uv_00CBB000_data[v_step].v - uv_00CBB000_d[v_step].v;
@@ -318,7 +318,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1) //Act 1
 			ResizeTextureList((NJS_TEXLIST*)0x010C0508, 32); //BEACH_SEA texlist
 			DataArray(PVMEntry, BeachTexlists, 0x0102F408, 32);
 			BeachTexlists[1].Name = "BEACH_SEAWX";
-			for (int rq = 0; rq < LengthOfArray(uv_00CBB000_d); rq++)
+			for (unsigned int rq = 0; rq < LengthOfArray(uv_00CBB000_d); rq++)
 			{
 				uv_00CBB000_d[rq].u = round(0.5 * uv_00CBB000_d[rq].u);
 				uv_00CBB000_d[rq].v = round(0.5 * uv_00CBB000_d[rq].v);
@@ -388,7 +388,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1) //Act 1
 				if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
 				{
 					inside_secret_area = 0;
-					for (int r2 = 0; r2 < LengthOfArray(uv_00CBB000_d); r2++)
+					for (unsigned int r2 = 0; r2 < LengthOfArray(uv_00CBB000_d); r2++)
 					{
 						uv_00CBB000_data[r2].u = uv_00CBB000_d[r2].u;
 						uv_00CBB000_data[r2].v = uv_00CBB000_d[r2].v;
