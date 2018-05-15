@@ -5,9 +5,17 @@
 #include <stdio.h>
 #include "TutorialStuff.h"
 
-#define ReplacePVMX(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_HD.PVM");
-#define ReplacePNG(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\pvr\\index.txt", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
-#define ReplacePNG_GoalRing(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\m_goalring\\index.txt", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
+#define ReplacePVMX(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_HD.PVM")
+#define ReplacePNG(a) do { \
+	char pathbuf[MAX_PATH]; \
+	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr\\index.txt", path); \
+	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
+} while (0)
+#define ReplacePNG_GoalRing(a) do { \
+	char pathbuf[MAX_PATH]; \
+	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\m_goalring\\index.txt", path); \
+	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
+} while (0)
 
 static float Options_ArrowScale = 0.0f;
 static float Options_ArrowScaleAmount = 0.1f;
@@ -139,7 +147,6 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
-		char pathbuf[MAX_PATH];
 		HMODULE GoalRing = GetModuleHandle(L"GoalRing");
 		if (helperFunctions.Version < 6)
 		{
@@ -201,7 +208,7 @@ extern "C"
 		ReplacePVMX("AVA_FSDLG_E");
 		ReplacePVMX("AVA_METAL_SONIC");
 		ReplacePVMX("AVA_NEW16NO");
-		ReplacePVMX("AVA_OPTION")
+		ReplacePVMX("AVA_OPTION");
 		ReplacePVMX("AVA_OPTION_E");
 		ReplacePVMX("AVA_SAN");
 		ReplacePVMX("AVA_SNDTEST");
