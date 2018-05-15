@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //Lil Ocean
 
 NJS_MATERIAL matlistSTG01_00CBA58C[] = {
@@ -9226,3 +9230,5 @@ NJS_VECTOR normalSTG01_001A1660[] = {
 NJS_MODEL_SADX attachSTG01_001A1690 = { vertexSTG01_001A1630, normalSTG01_001A1660, LengthOfArray(vertexSTG01_001A1630), meshlistSTG01_001A1618, matlistSTG01_001A15E8, LengthOfArray(meshlistSTG01_001A1618), LengthOfArray(matlistSTG01_001A15E8),{ 0 }, 30.14963f, NULL };
 
 NJS_OBJECT objectSTG01_001A16B8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachSTG01_001A1690, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

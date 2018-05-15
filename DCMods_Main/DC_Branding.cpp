@@ -1,7 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 struct TutorialScreenData
 {
@@ -1497,7 +1494,6 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x00640ACC, DrawBG_CreditsLogo);
 	MainCredits.Count = 449;
 	MainCredits.Entries = (CreditsEntry*)&SA1Credits;
-	char pathbuf[MAX_PATH];
 	f480_Fixed = 1.0f + VerticalResolution;
 	f640_Fixed = 1.0f + HorizontalResolution;
 	//Set PVM names

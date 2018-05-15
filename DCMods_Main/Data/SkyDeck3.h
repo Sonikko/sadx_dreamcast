@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_TEXNAME textures_skydeck3[65];
 NJS_TEXLIST texlist_skydeck3 = { arrayptrandlength(textures_skydeck3) };
 
@@ -40887,3 +40891,5 @@ COL collist_000210B8[] = {
 };
 
 LandTable landtable_00023EB4 = { LengthOfArray(collist_000210B8), 0, 0xC, 2000, collist_000210B8, NULL, "SKYDECK03", (NJS_TEXLIST *)&texlist_skydeck3, 0, 0 };
+
+#pragma warning(pop)

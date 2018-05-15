@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistSTG09_001CF7BC[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 195, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 133, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_V | NJD_FLAG_USE_TEXTURE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -5390,3 +5394,5 @@ NJS_MDATA2 cowgirl_anim_mdat[] = {
 NJS_MOTION cowgirl_anim = { cowgirl_anim_mdat, 30, NJD_MTYPE_POS_0 | NJD_MTYPE_ANG_1, 2 };
 
 NJS_ACTION action_cowgirl_anim = { &objectSTG09_001D98C8, &cowgirl_anim };
+
+#pragma warning(pop)

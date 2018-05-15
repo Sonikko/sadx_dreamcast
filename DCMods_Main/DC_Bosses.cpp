@@ -1,8 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <Trampoline.h>
-#include <lanternapi.h>
-#include <string>
 #include "EggHornet.h"
 #include "EggWalker.h"
 #include "EggViper.h"
@@ -22,9 +18,6 @@
 #include "E101Kai_Model.h"
 #include "LightingArrays.h"
 #include "ERobo.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
-#include <IniFile.hpp>
 
 //Chaos 6 material arrays
 DataArray(NJS_MATERIAL, matlist_00F975B0, 0x013975B0, 3);
@@ -860,7 +853,6 @@ void LoadBossECOceanTexlist()
 
 void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplacePVM("CHAOS1");
 	ReplacePVM("CHAOS_BRAINFRAME");
 	ReplacePVM("CHAOS_EFFECT");
@@ -1270,7 +1262,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		matlist_00F98C98[3].diffuse.color = 0xFFB2B2B2;
 		matlist_00F98C98[4].diffuse.color = 0xFFB2B2B2;
 		matlist_00F98C98[5].diffuse.color = 0xFFB2B2B2;
-		for (int p = 0; p < LengthOfArray(PerfectChaosCars); p++)
+		for (unsigned int p = 0; p < LengthOfArray(PerfectChaosCars); p++)
 		{
 			PerfectChaosCars[p]->diffuse.argb.r = 0xB2;
 			PerfectChaosCars[p]->diffuse.argb.g = 0xB2;

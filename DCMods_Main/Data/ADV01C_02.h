@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistADV01_0005B3BC[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 3, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 15, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -7435,3 +7439,5 @@ NJS_TEXNAME textures_ec32[21];
 NJS_TEXLIST texlist_ec32 = { arrayptrandlength(textures_ec32) };
 
 LandTable landtable_0000E1D0 = { LengthOfArray(collist_0000D7D4), 0, 8, 0, collist_0000D7D4, NULL, "ADV_EC32", (NJS_TEXLIST *)&texlist_ec32, 0, 0 };
+
+#pragma warning(pop)

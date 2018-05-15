@@ -1,3 +1,8 @@
+#pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlist_0000003C[] = {
 	{ { 0xCCB2B2B2 },{ 0xFFFFFFFF }, 11, 2, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 { { 0xCCB2B2B2 },{ 0xFFFFFFFF }, 11, 1, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -801,3 +806,5 @@ NJS_OBJECT launchposter_colli = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EV
 
 NJS_TEXNAME textures_launch[4];
 NJS_TEXLIST texlist_launch = { arrayptrandlength(textures_launch) };
+
+#pragma warning(pop)

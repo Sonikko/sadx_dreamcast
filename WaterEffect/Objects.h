@@ -1,5 +1,8 @@
 //Lil Ocean
+#pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
 
 NJS_MATERIAL matlist_00CBA58C[] = {
 	{ { 0x99B2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
@@ -4006,3 +4009,5 @@ NJS_TEX uv_00CBB000_d[] = {
 	{ 0, 51 },
 	{ 0, 255 }
 };
+
+#pragma warning(pop)

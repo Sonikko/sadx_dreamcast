@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string>
-DataPointer(HWND, WindowHandle, 0x03D0FD30);
+
 DataPointer(int, FramerateSetting_Config, 0x0089295C);
 
 extern int EnableSETFixes;
@@ -101,13 +101,13 @@ bool ForceDiffuse4Specular5(NJS_MATERIAL* material, Uint32 flags);
 
 void DisplayVideoFadeout(int fadeout, int mode);
 
-#define ReplacePVM(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_DC.PVM");
-#define ReplacePVR(a) helperFunctions.ReplaceFile("system\\" a ".PVR", "system\\" a "_DC.PVR");
-#define ReplaceBIN(a,b) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" b ".BIN");
-#define ReplaceBIN_DC(a) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" a "_DC.BIN");
-#define AddSETFix(a) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" a "_S.BIN");
-#define AddSETFix_Extra(a) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" a "_E.BIN");
-#define ReplacePVMX_SADXStyleWater(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "W.PVM");
+#define ReplacePVM(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_DC.PVM")
+#define ReplacePVR(a) helperFunctions.ReplaceFile("system\\" a ".PVR", "system\\" a "_DC.PVR")
+#define ReplaceBIN(a,b) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" b ".BIN")
+#define ReplaceBIN_DC(a) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" a "_DC.BIN")
+#define AddSETFix(a) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" a "_S.BIN")
+#define AddSETFix_Extra(a) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" a "_E.BIN")
+#define ReplacePVMX_SADXStyleWater(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "W.PVM")
 
 struct SubtitleThing
 {

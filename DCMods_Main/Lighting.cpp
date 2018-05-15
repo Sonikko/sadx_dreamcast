@@ -1,6 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 
 bool RemoveMaterialColors(NJS_MATERIAL* material, Uint32 flags)
 {

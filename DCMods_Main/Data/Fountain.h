@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistCHAO_00014484[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 33, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_ONE | NJD_SA_SRC }
 };
@@ -189,3 +193,5 @@ NJS_VECTOR normalCHAO_00014788[] = {
 NJS_MODEL_SADX attachCHAO_00014968 = { vertexCHAO_000145A8, normalCHAO_00014788, LengthOfArray(vertexCHAO_000145A8), meshlistCHAO_00014590, matlistCHAO_00014484, LengthOfArray(meshlistCHAO_00014590), LengthOfArray(matlistCHAO_00014484),{ 0, -2.25f, 0 }, 18.38478f, NULL };
 
 NJS_OBJECT objectCHAO_00014990 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachCHAO_00014968, -150.0f, 7.5f, -104.0f, 0, 0x4B06, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

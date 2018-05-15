@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 Sint16 polyADV03_0002AE14[] = {
 	4, 15, 19, 14, 18,
 	7, 9, 15, 8, 14, 7, 13, 12,
@@ -31159,3 +31163,5 @@ NJS_TEXNAME textures_past0[60];
 NJS_TEXLIST texlist_past0 = { arrayptrandlength(textures_past0) };
 
 LandTable landtable_00000278 = { LengthOfArray(collist_00027AA4), 0, 8, 0, collist_00027AA4, NULL, "PAST00", (NJS_TEXLIST *)&texlist_past0, 0, 0 };
+
+#pragma warning(pop)

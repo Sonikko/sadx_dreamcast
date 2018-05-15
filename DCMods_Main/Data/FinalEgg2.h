@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistSTG10_00084028[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 58, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 20, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ENV | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
@@ -46364,3 +46368,5 @@ NJS_TEXNAME textures_finalegg2[68];
 NJS_TEXLIST texlist_finalegg2 = { arrayptrandlength(textures_finalegg2) };
 
 LandTable landtable_00083CCC = { LengthOfArray(collist_00081980), LengthOfArray(animlist_00083C84), 0xD, 600, collist_00081980, animlist_00083C84, "FINALEGG2", (NJS_TEXLIST *)&texlist_finalegg2, 0, 0 };
+
+#pragma warning(pop)

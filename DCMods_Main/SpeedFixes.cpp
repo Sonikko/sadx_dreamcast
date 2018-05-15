@@ -1,7 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include "DC_Levels.h"
-#include <IniFile.hpp>
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 
@@ -15,8 +12,8 @@ short SpinnerXAnimationSpeedOverride = 288;
 short SpinnerZAnimationSpeedOverride = 416;
 short SpinnerBladesAnimationSpeedOverride = 6144;
 short EmeraldPieceAnimationSpeedOverride = 128;
-float TailsWiggleSpeed_Run = 0.005;
-float TailsWiggleSpeed_RunX2 = 0.01;
+float TailsWiggleSpeed_Run = 0.005f;
+float TailsWiggleSpeed_RunX2 = 0.01f;
 float TailsWiggleSpeed_Rotation = 2048.0f;
 float TailsWiggleSpeed_RotationX2 = 4096.0f;
 short Tails_819 = 819;

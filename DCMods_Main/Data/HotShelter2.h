@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistSTG12_000527A0[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 129, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 129, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -45322,3 +45326,5 @@ NJS_TEXNAME textures_shelter2[156];
 NJS_TEXLIST texlist_hotshelter2 = { arrayptrandlength(textures_shelter2) };
 
 LandTable landtable_0005277C = { LengthOfArray(collist_0004CDDC), LengthOfArray(animlist_000526BC), 0xD, 650, collist_0004CDDC, animlist_000526BC, "HOTSHELTER2", (NJS_TEXLIST *)&texlist_hotshelter2, 0, 0 };
+
+#pragma warning(pop)

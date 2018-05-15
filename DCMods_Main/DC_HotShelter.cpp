@@ -1,11 +1,8 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "HotShelter_Objects.h"
 #include "HotShelter1.h"
 #include "HotShelter2.h"
 #include "HotShelter3.h"
-#include "DC_Levels.h"
 
 FunctionPointer(void, sub_405370, (NJS_OBJECT *a1, NJS_MOTION *a2, float a3, float a4), 0x405370);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
@@ -275,7 +272,6 @@ void PlayMusicHook_DisableE105Fog(MusicIDs song)
 
 void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SET1200A");
 	ReplaceBIN_DC("SET1200B");
 	ReplaceBIN_DC("SET1200S");

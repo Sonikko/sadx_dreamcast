@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //Palm trees
 
 NJS_MATERIAL matlistADV02_001D76E0[] = {
@@ -2870,3 +2874,5 @@ NJS_MODEL_SADX attachADV02_001DCF1C = { vertexADV02_001DCDFC, normalADV02_001DCE
 NJS_OBJECT objectADV02_001DCF44 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attachADV02_001DCF1C, 60.20402f, 17.43167f, 332.6023f, 0, 0, 0, 1, 1, 1, &objectADV02_001DCCB0, &objectADV02_001DC088 };
 
 NJS_OBJECT objectADV02_001DCF78 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0, 1, 1, 1, &objectADV02_001DCF44, NULL };
+
+#pragma warning(pop)

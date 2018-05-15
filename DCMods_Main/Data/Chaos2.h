@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlist_0006AC60[] = {
 	{ { 0x00B2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -4230,3 +4234,5 @@ NJS_TEXNAME textures_chaos2[15];
 NJS_TEXLIST texlist_chaos2 = { arrayptrandlength(textures_chaos2) };
 
 LandTable landtable_0000028C = { LengthOfArray(collist_0006A510), 0, 8, 0, collist_0006A510, NULL, "LM_CHAOS2", (NJS_TEXLIST *)&texlist_chaos2, 0, 0 };
+
+#pragma warning(pop)

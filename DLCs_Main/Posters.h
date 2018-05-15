@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //Poster
 
 NJS_MATERIAL matlist_00116FA0X[] = {
@@ -39,3 +42,4 @@ NJS_MODEL_SADX attach_00117048X = { vertex_00116FE8X, normal_00117018X, LengthOf
 
 NJS_OBJECT poster = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00117048X, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
+#pragma warning(pop)

@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistSTG08_00019B14[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 5, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 8, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -30539,3 +30542,5 @@ NJS_TEXNAME textures_icecap1[34];
 NJS_TEXLIST texlist_icecap1 = { arrayptrandlength(textures_icecap1) };
 
 LandTable landtable_00014B44 = { LengthOfArray(collist_000142F8), 0, 0xC, 900, collist_000142F8, NULL, "ICECAP01", (NJS_TEXLIST *)&texlist_icecap1, 0, 0 };
+
+#pragma warning(pop)

@@ -15,23 +15,21 @@
 #include "DLC_SambaGP.h"
 #include "DLC_Y2K.h"
 
-std::string OldModsMessage = "Old/incompatible mods detected!\n \nIt appears that you are running the Dreamcast DLCs mod with older individual DLC mods. The individual mods are outdated and will cause problems if you leave them enabled. These mods are no longer needed because they are built into the Dreamcast DLCs mod, which you are also running.\n \nPlease uninstall the individual DLC mods in the Mod Manager.\n \n";
-
-std::string OldModDLLs[] = {
-	"SONICADV_000",
-	"SONICADV_002",
-	"SONICADV_003",
-	"SONICADV_501",
-	"SONICADV_502",
-	"SONICADV_503",
-	"SONICADV_504",
-	"SONICADV_505",
-	"SONICADV_506",
-	"SONICADV_507",
-	"SONICADV_508",
-	"SONICADV_509",
-	"SONICADV_510",
-	"SONICADV_511",
+static const wchar_t *const OldModDLLs[] = {
+	L"SONICADV_000",
+	L"SONICADV_002",
+	L"SONICADV_003",
+	L"SONICADV_501",
+	L"SONICADV_502",
+	L"SONICADV_503",
+	L"SONICADV_504",
+	L"SONICADV_505",
+	L"SONICADV_506",
+	L"SONICADV_507",
+	L"SONICADV_508",
+	L"SONICADV_509",
+	L"SONICADV_510",
+	L"SONICADV_511",
 };
 
 
@@ -50,34 +48,8 @@ int AmyTrack;
 int BigTrack;
 int GammaTrack;
 
-int Jan1DLC;
-int Feb1DLC;
-int Mar1DLC;
-int Apr1DLC;
-int May1DLC;
-int Jun1DLC;
-int Jul1DLC;
-int Aug1DLC;
-int Sep1DLC;
-int Oct1DLC;
-int Nov1DLC;
-int Dec1DLC;
-
-int Jan2DLC;
-int Feb2DLC;
-int Mar2DLC;
-int Apr2DLC;
-int May2DLC;
-int Jun2DLC;
-int Jul2DLC;
-int Aug2DLC;
-int Sep2DLC;
-int Oct2DLC;
-int Nov2DLC;
-int Dec2DLC;
-
-int FirstMonthDLCs[] = { -1, Jan1DLC, Feb1DLC, Mar1DLC, Apr1DLC, May1DLC, Jun1DLC, Jul1DLC, Aug1DLC, Sep1DLC, Oct1DLC, Nov1DLC, Dec1DLC };
-int SecondMonthDLCs[] = { -1, Jan2DLC, Feb2DLC, Mar2DLC, Apr2DLC, May2DLC, Jun2DLC, Jul2DLC, Aug2DLC, Sep2DLC, Oct2DLC, Nov2DLC, Dec2DLC };
+// Monthly DLCs.
+static int MonthlyDLCs[12][2];
 
 FunctionPointer(void, sub_412D80, (int a1, int a2), 0x412D80);
 FunctionPointer(void, sub_62E980, (), 0x62E980);
@@ -91,7 +63,6 @@ FunctionPointer(void, sub_425800, (int a1), 0x425800);
 
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(HWND, WindowHandle, 0x03D0FD30);
 DataArray(ControllerData*, ControllerPointersShit, 0x03B0E77C, 8);
 
 HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
@@ -105,7 +76,6 @@ DataArray(FieldStartPosition, BigSSStartArray, 0x0090BDF8, 6);
 DataArray(FieldStartPosition, E102SSStartArray, 0x0090BE70, 7);
 
 //Common
-static bool OldModsFound = false;
 static bool EverybodySuperSonicRacing;
 static int CurrentDLC;
 static bool ObjectsLoaded = false;
@@ -162,28 +132,28 @@ static bool Gate10 = false;
 
 #define ReplaceBIN(a,b) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" b ".BIN");
 
-PVMEntry TimerTextures = { "CON_REGULAR_E", (TexList *)0x00912DF4 };
-PVMEntry Christmas98Textures = { "SONICADV_000", (TexList *)&texlist_christmas98 };
-PVMEntry QuoTextures = { "SONICADV_002", (TexList *)&texlist_quo };
-PVMEntry FamitsuTextures = { "SONICADV_003", (TexList *)&texlist_famitsu };
-PVMEntry LaunchPartyUSTextures = { "SONICADV_501", (TexList *)&texlist_launch };
-PVMEntry LaunchPartyEUTextures = { "SONICADV_502", (TexList *)&texlist_launch };
-PVMEntry LaunchPartyJPTextures = { "SONICADV_503", (TexList *)&texlist_launch };
-PVMEntry ATT1Textures = { "SONICADV_504", (TexList *)&texlist_att1 };
-PVMEntry HalloweenTextures = { "SONICADV_505", (TexList *)&texlist_halloween };
-PVMEntry ATT2Textures = { "SONICADV_506", (TexList *)&texlist_att2 };
-PVMEntry ReebokTextures = { "SONICADV_507", (TexList *)&texlist_reebok };
-PVMEntry ATT3Textures = { "SONICADV_508", (TexList *)&texlist_att3 };
-PVMEntry Christmas99Textures = { "SONICADV_509", (TexList *)&texlist_christmas99 };
-PVMEntry Y2KTextures = { "SONICADV_510", (TexList *)&texlist_y2k };
-PVMEntry SambaGPTextures = { "SONICADV_511", (TexList *)&texlist_sambagp };
+static const PVMEntry TimerTextures = { "CON_REGULAR_E", (TexList *)0x00912DF4 };
+static const PVMEntry Christmas98Textures = { "SONICADV_000", (TexList *)&texlist_christmas98 };
+static const PVMEntry QuoTextures = { "SONICADV_002", (TexList *)&texlist_quo };
+static const PVMEntry FamitsuTextures = { "SONICADV_003", (TexList *)&texlist_famitsu };
+static const PVMEntry LaunchPartyUSTextures = { "SONICADV_501", (TexList *)&texlist_launch };
+static const PVMEntry LaunchPartyEUTextures = { "SONICADV_502", (TexList *)&texlist_launch };
+static const PVMEntry LaunchPartyJPTextures = { "SONICADV_503", (TexList *)&texlist_launch };
+static const PVMEntry ATT1Textures = { "SONICADV_504", (TexList *)&texlist_att1 };
+static const PVMEntry HalloweenTextures = { "SONICADV_505", (TexList *)&texlist_halloween };
+static const PVMEntry ATT2Textures = { "SONICADV_506", (TexList *)&texlist_att2 };
+static const PVMEntry ReebokTextures = { "SONICADV_507", (TexList *)&texlist_reebok };
+static const PVMEntry ATT3Textures = { "SONICADV_508", (TexList *)&texlist_att3 };
+static const PVMEntry Christmas99Textures = { "SONICADV_509", (TexList *)&texlist_christmas99 };
+static const PVMEntry Y2KTextures = { "SONICADV_510", (TexList *)&texlist_y2k };
+static const PVMEntry SambaGPTextures = { "SONICADV_511", (TexList *)&texlist_sambagp };
 
 static int CharacterVoice = 0;
 static int VoiceLanguage_sel = 1;
 static bool AlternateEggman = false;
 
 // SEGA, Sonic Team
-static int voices[8][2] =
+static const int voices[8][2] =
 {
 	{ 1994, 1995 },	// Sonic
 	{ 1996, 1997 },	// Tails
@@ -835,18 +805,47 @@ void ATTObject_Main(ObjectMaster *a1)
 					//Wooden thing
 					if (v1->CharID == 21)
 					{
-						if (v1->CharIndex == 0) sub_4B79C0((char *)(&ATT2_Message0), 120);
-						if (v1->CharIndex == 1) sub_4B79C0((char *)(&ATT2_Message1), 120);
-						if (v1->CharIndex == 2) sub_4B79C0((char *)(&ATT2_Message2), 120);
-						if (v1->CharIndex == 3) sub_4B79C0((char *)(&ATT2_Message3), 120);
-						if (v1->CharIndex == 4) sub_4B79C0((char *)(&ATT2_Message4), 120);
-						if (v1->CharIndex == 9) sub_4B79C0((char *)(&ATT2_Message9), 120);
-						if (v1->CharIndex == 10) sub_4B79C0((char *)(&ATT2_Message10), 120);
-						if (v1->CharIndex == 11) sub_4B79C0((char *)(&ATT2_Message11), 120);
-						if (v1->CharIndex == 12) sub_4B79C0((char *)(&ATT2_Message12), 120);
-						if (v1->CharIndex == 13) sub_4B79C0((char *)(&ATT2_Message13), 120);
-						if (v1->CharIndex == 14) sub_4B79C0((char *)(&ATT2_Message14), 120);
-						if (v1->CharIndex == 15) sub_4B79C0((char *)(&ATT2_Message15), 120);
+						switch (v1->CharIndex)
+						{
+							case 0:
+								sub_4B79C0((char *)(&ATT2_Message0), 120);
+								break;
+							case 1:
+								sub_4B79C0((char *)(&ATT2_Message1), 120);
+								break;
+							case 2:
+								sub_4B79C0((char *)(&ATT2_Message2), 120);
+								break;
+							case 3:
+								sub_4B79C0((char *)(&ATT2_Message3), 120);
+								break;
+							case 4:
+								sub_4B79C0((char *)(&ATT2_Message4), 120);
+								break;
+							case 9:
+								sub_4B79C0((char *)(&ATT2_Message9), 120);
+								break;
+							case 10:
+								sub_4B79C0((char *)(&ATT2_Message10), 120);
+								break;
+							case 11:
+								sub_4B79C0((char *)(&ATT2_Message11), 120);
+								break;
+							case 12:
+								sub_4B79C0((char *)(&ATT2_Message12), 120);
+								break;
+							case 13:
+								sub_4B79C0((char *)(&ATT2_Message13), 120);
+								break;
+							case 14:
+								sub_4B79C0((char *)(&ATT2_Message14), 120);
+								break;
+							case 15:
+								sub_4B79C0((char *)(&ATT2_Message15), 120);
+								break;
+							default:
+								break;
+						}
 						HintTimer = 120;
 					}
 					//Start plate
@@ -1183,14 +1182,35 @@ void Christmas98_Main(ObjectMaster *a1)
 						MusicMode = 3;
 						WriteData<1>((char*)0x0062EEF9, MusicIDs_nights_s);
 					}
-					if (v1->CharIndex == 0) sub_4B79C0((char *)(&Christmas98Message0), 240);
-					if (v1->CharIndex == 1) sub_4B79C0((char *)(&Christmas98Message1), 240);
-					if (v1->CharIndex == 2) sub_4B79C0((char *)(&Christmas98Message2), 240);
-					if (v1->CharIndex == 3) sub_4B79C0((char *)(&Christmas98Message3), 240);
-					if (v1->CharIndex == 4) sub_4B79C0((char *)(&Christmas98Message4), 240);
-					if (v1->CharIndex == 5) sub_4B79C0((char *)(&Christmas98Message5), 240);
-					if (v1->CharIndex == 6) sub_4B79C0((char *)(&Christmas98Message6), 240);
-					if (v1->CharIndex == 7) sub_4B79C0((char *)(&Christmas98Message7), 240);
+					switch (v1->CharIndex)
+					{
+						case 0:
+							sub_4B79C0((char *)(&Christmas98Message0), 240);
+							break;
+						case 1:
+							sub_4B79C0((char *)(&Christmas98Message1), 240);
+							break;
+						case 2:
+							sub_4B79C0((char *)(&Christmas98Message2), 240);
+							break;
+						case 3:
+							sub_4B79C0((char *)(&Christmas98Message3), 240);
+							break;
+						case 4:
+							sub_4B79C0((char *)(&Christmas98Message4), 240);
+							break;
+						case 5:
+							sub_4B79C0((char *)(&Christmas98Message5), 240);
+							break;
+						case 6:
+							sub_4B79C0((char *)(&Christmas98Message6), 240);
+							break;
+						case 7:
+							sub_4B79C0((char *)(&Christmas98Message7), 240);
+							break;
+						default:
+							break;
+					}
 					HintTimer = 240;
 				}
 			}
@@ -3464,10 +3484,23 @@ void Christmas99_Main(ObjectMaster *a1)
 							WriteData<1>((char*)0x0062EEF9, MusicIDs_nights_a);
 						}
 					}
-					if (v1->CharIndex == 0) sub_4B79C0((char *)(&Christmas99Message0), 180);
-					if (v1->CharIndex == 1) sub_4B79C0((char *)(&Christmas99Message1), 180);
-					if (v1->CharIndex == 2) sub_4B79C0((char *)(&Christmas99Message2), 180);
-					if (v1->CharIndex == 3) sub_4B79C0((char *)(&Christmas99Message3), 180);
+					switch (v1->CharIndex)
+					{
+						case 0:
+							sub_4B79C0((char *)(&Christmas99Message0), 180);
+							break;
+						case 1:
+							sub_4B79C0((char *)(&Christmas99Message1), 180);
+							break;
+						case 2:
+							sub_4B79C0((char *)(&Christmas99Message2), 180);
+							break;
+						case 3:
+							sub_4B79C0((char *)(&Christmas99Message3), 180);
+							break;
+						default:
+							break;
+					}
 					HintTimer = 180;
 				}
 			}
@@ -7818,14 +7851,34 @@ void LaunchPosterMain(ObjectMaster *a1)
 		{
 			if (HintTimer <= 0)
 			{
-				if (v1->CharIndex == 0) sub_4B79C0((char *)(&LaunchPartyMessage1), 180);
-				if (v1->CharIndex == 1) sub_4B79C0((char *)(&LaunchPartyMessage2), 180);
-				if (v1->CharIndex == 2) sub_4B79C0((char *)(&LaunchPartyMessage3), 180);
-				if (v1->CharIndex == 3 && LaunchPartyDLCMode == "US") sub_4B79C0((char *)(&LaunchPartyMessage4_US), 180);
-				if (v1->CharIndex == 3 && LaunchPartyDLCMode == "Europe") sub_4B79C0((char *)(&LaunchPartyMessage4_EU), 180);
-				if (v1->CharIndex == 3 && LaunchPartyDLCMode == "Japan") sub_4B79C0((char *)(&LaunchPartyMessage4_JP), 180);
-				if (v1->CharIndex == 4) sub_4B79C0((char *)(&LaunchPartyMessage5), 180);
-				if (v1->CharIndex == 5) sub_4B79C0((char *)(&LaunchPartyMessage6), 180);
+				switch (v1->CharIndex)
+				{
+					case 0:
+						sub_4B79C0((char *)(&LaunchPartyMessage1), 180);
+						break;
+					case 1:
+						sub_4B79C0((char *)(&LaunchPartyMessage2), 180);
+						break;
+					case 2:
+						sub_4B79C0((char *)(&LaunchPartyMessage3), 180);
+						break;
+					case 3:
+						if (LaunchPartyDLCMode == "US")
+							sub_4B79C0((char *)(&LaunchPartyMessage4_US), 180);
+						else if (LaunchPartyDLCMode == "Europe")
+							sub_4B79C0((char *)(&LaunchPartyMessage4_EU), 180);
+						else if (LaunchPartyDLCMode == "Japan")
+							sub_4B79C0((char *)(&LaunchPartyMessage4_JP), 180);
+						break;
+					case 4:
+						sub_4B79C0((char *)(&LaunchPartyMessage5), 180);
+						break;
+					case 5:
+						sub_4B79C0((char *)(&LaunchPartyMessage6), 180);
+						break;
+					default:
+						break;
+				}
 				HintTimer = 120;
 			}
 		}
@@ -9445,9 +9498,20 @@ void SambaPoster_Main(ObjectMaster *a1)
 			if (HintTimer <= 0)
 			{
 				PlaySound(6, 0, 0, 0);
-				if (v1->CharIndex == 0) sub_4B79C0((char *)(&SambaGPMessage1), 180);
-				if (v1->CharIndex == 1) sub_4B79C0((char *)(&SambaGPMessage2), 180);
-				if (v1->CharIndex == 2) sub_4B79C0((char *)(&SambaGPMessage3), 180);
+				switch (v1->CharIndex)
+				{
+					case 0:
+						sub_4B79C0((char *)(&SambaGPMessage1), 180);
+						break;
+					case 1:
+						sub_4B79C0((char *)(&SambaGPMessage2), 180);
+						break;
+					case 2:
+						sub_4B79C0((char *)(&SambaGPMessage3), 180);
+						break;
+					default:
+						break;
+				}
 				HintTimer = 120;
 			}
 		}
@@ -9710,12 +9774,29 @@ void Y2KPoster_Main(ObjectMaster *a1)
 			if (HintTimer <= 0)
 			{
 				PlaySound(6, 0, 0, 0);
-				if (v1->CharIndex == 0) sub_4B79C0((char *)(&Y2KMessage1), 180);
-				if (v1->CharIndex == 1) sub_4B79C0((char *)(&Y2KMessage2), 180);
-				if (v1->CharIndex == 2) sub_4B79C0((char *)(&Y2KMessage3), 180);
-				if (v1->CharIndex == 3) sub_4B79C0((char *)(&Y2KMessage4), 180);
-				if (v1->CharIndex == 4) sub_4B79C0((char *)(&Y2KMessage5), 180);
-				if (v1->CharIndex == 5) sub_4B79C0((char *)(&Y2KMessage6), 180);
+				switch (v1->CharIndex)
+				{
+					case 0:
+						sub_4B79C0((char *)(&Y2KMessage1), 180);
+						break;
+					case 1:
+						sub_4B79C0((char *)(&Y2KMessage2), 180);
+						break;
+					case 2:
+						sub_4B79C0((char *)(&Y2KMessage3), 180);
+						break;
+					case 3:
+						sub_4B79C0((char *)(&Y2KMessage4), 180);
+						break;
+					case 4:
+						sub_4B79C0((char *)(&Y2KMessage5), 180);
+						break;
+					case 5:
+						sub_4B79C0((char *)(&Y2KMessage6), 180);
+						break;
+					default:
+						break;
+				}
 				HintTimer = 120;
 			}
 		}
@@ -10626,26 +10707,42 @@ extern "C"
 		srand(CurrentTime.wSecond);
 		if (helperFunctions.Version < 6)
 		{
-			MessageBoxA(WindowHandle, "Mod Loader out of date. Dreamcast DLCs mod requires API version 6 or newer.",
-				"Dreamcast DLCs mod error: Mod Loader out of date", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle,
+				L"Mod Loader out of date. Dreamcast DLCs mod requires API version 6 or newer.",
+				L"Dreamcast DLCs mod error: Mod Loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
-		//Check old mod DLLs
-		for (int i = 0; i < LengthOfArray(OldModDLLs); i++)
+
+		// Check for old mod DLLs.
+		std::wstring OldModsMessage = L"Old/incompatible mods detected!\n\n"
+			L"It appears that you are running the Dreamcast DLCs "
+			L"mod with older individual DLC mods. The individual "
+			L"mods are outdated and will cause problems if you "
+			L"leave them enabled. These mods are no longer needed "
+			L"because they are built into the Dreamcast DLCs mod, "
+			L"which you are also running.\n\n"
+			L"Please uninstall the individual DLC mods in the Mod Manager.\n\n";
+
+		bool OldModsFound = false;
+		for (unsigned int i = 0; i < LengthOfArray(OldModDLLs); i++)
 		{
-			LPCSTR OldModHandle = OldModDLLs[i].c_str();
-			if (GetModuleHandleA(OldModHandle) != nullptr)
+			if (GetModuleHandle(OldModDLLs[i]) != nullptr)
 			{
-				OldModsMessage += OldModDLLs[i] + "\n";
+				// Found a known incompatible mod.
+				OldModsMessage += OldModDLLs[i];
+				OldModsMessage += '\n';
 				OldModsFound = true;
 			}
 		}
-		if (OldModsFound == true)
+
+		if (OldModsFound)
 		{
-			LPCSTR OldModsLPC = OldModsMessage.c_str();
-			MessageBoxA(WindowHandle, OldModsLPC, "Dreamcast DLCs mod error: incompatible mods detected", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle, OldModsMessage.c_str(),
+				L"Dreamcast DLCs mod error: incompatible mods detected",
+				MB_OK | MB_ICONERROR);
 			return;
 		}
+
 		//Config stuff
 		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 		MenuVoiceMode = config->getInt("General settings", "MenuVoiceThing", -1);
@@ -10662,31 +10759,41 @@ extern "C"
 		AmyTrack = config->getInt("Samba GP settings", "AmyTrack", 4);
 		BigTrack = config->getInt("Samba GP settings", "BigTrack", 5);
 		GammaTrack = config->getInt("Samba GP settings", "GammaTrack", 0);
-		Jan1DLC = config->getInt("Seasonal DLC settings", "Jan1DLC", 9);
-		Jan2DLC = config->getInt("Seasonal DLC settings", "Jan2DLC", 9);
-		Feb1DLC = config->getInt("Seasonal DLC settings", "Feb1DLC", 3);
-		Feb2DLC = config->getInt("Seasonal DLC settings", "Feb2DLC", 3);
-		Mar1DLC = config->getInt("Seasonal DLC settings", "Mar1DLC", 6);
-		Mar2DLC = config->getInt("Seasonal DLC settings", "Mar2DLC", 6);
-		Apr1DLC = config->getInt("Seasonal DLC settings", "Apr1DLC", 0);
-		Apr2DLC = config->getInt("Seasonal DLC settings", "Apr2DLC", 0);
-		May1DLC = config->getInt("Seasonal DLC settings", "May1DLC", 0);
-		May2DLC = config->getInt("Seasonal DLC settings", "May2DLC", 0);
-		Jun1DLC = config->getInt("Seasonal DLC settings", "Jun1DLC", 8);
-		Jun2DLC = config->getInt("Seasonal DLC settings", "Jun2DLC", 8);
-		Jul1DLC = config->getInt("Seasonal DLC settings", "Jul1DLC", 7);
-		Jul2DLC = config->getInt("Seasonal DLC settings", "Jul2DLC", 7);
-		Aug1DLC = config->getInt("Seasonal DLC settings", "Aug1DLC", -1);
-		Aug2DLC = config->getInt("Seasonal DLC settings", "Aug2DLC", -1);
-		Sep1DLC = config->getInt("Seasonal DLC settings", "Sep1DLC", 5);
-		Sep2DLC = config->getInt("Seasonal DLC settings", "Sep2DLC", 5);
-		Oct1DLC = config->getInt("Seasonal DLC settings", "Oct1DLC", 4);
-		Oct2DLC = config->getInt("Seasonal DLC settings", "Oct2DLC", 4);
-		Nov1DLC = config->getInt("Seasonal DLC settings", "Nov1DLC", 8);
-		Nov2DLC = config->getInt("Seasonal DLC settings", "Nov2DLC", 8);
-		Dec1DLC = config->getInt("Seasonal DLC settings", "Dec1DLC", 2);
-		Dec2DLC = config->getInt("Seasonal DLC settings", "Dec2DLC", 1);
+
+		// Monthly DLCs.
+		struct dlcKeyInfo
+		{
+			const char *dlc1name;
+			const char *dlc2name;
+			int dlc1id;
+			int dlc2id;
+		};
+		static const dlcKeyInfo dlcKeyNames[12] =
+		{
+			{"Jan1DLC", "Jan2DLC", 9, 9},
+			{"Feb1DLC", "Feb2DLC", 3, 3},
+			{"Mar1DLC", "Mar2DLC", 6, 6},
+			{"Apr1DLC", "Apr2DLC", 0, 0},
+			{"May1DLC", "May2DLC", 0, 0},
+			{"Jun1DLC", "Jun2DLC", 8, 8},
+			{"Jul1DLC", "Jul2DLC", 7, 7},
+			{"Aug1DLC", "Aug2DLC", -1, -1},
+			{"Sep1DLC", "Sep2DLC", 5, 5},
+			{"Oct1DLC", "Oct2DLC", 4, 4},
+			{"Nov1DLC", "Nov2DLC", 8, 8},
+			{"Dec1DLC", "Dec2DLC", 2, 1},
+		};
+
+		for (unsigned int i = 0; i < 12; i++)
+		{
+			MonthlyDLCs[i][0] = config->getInt("Seasonal DLC settings",
+				dlcKeyNames[i].dlc1name, dlcKeyNames[i].dlc1id);
+			MonthlyDLCs[i][1] = config->getInt("Seasonal DLC settings",
+				dlcKeyNames[i].dlc2name, dlcKeyNames[i].dlc2id);
+		}
+
 		delete config;
+
 		if (ForceSADXLayout == false)
 		{
 			ReplaceBIN("CAMSS00S", "CAMSS00S_DC");
@@ -10696,132 +10803,123 @@ extern "C"
 			ReplaceBIN("CAMSS04S", "CAMSS04S_DC");
 			ReplaceBIN("CAMSS05S", "CAMSS05S_DC");
 		}
-		FirstMonthDLCs[1] = Jan1DLC;
-		FirstMonthDLCs[2] = Feb1DLC;
-		FirstMonthDLCs[3] = Mar1DLC;
-		FirstMonthDLCs[4] = Apr1DLC;
-		FirstMonthDLCs[5] = May1DLC;
-		FirstMonthDLCs[6] = Jun1DLC;
-		FirstMonthDLCs[7] = Jul1DLC;
-		FirstMonthDLCs[8] = Aug1DLC;
-		FirstMonthDLCs[9] = Sep1DLC;
-		FirstMonthDLCs[10] = Oct1DLC;
-		FirstMonthDLCs[11] = Nov1DLC;
-		FirstMonthDLCs[12] = Dec1DLC;
-		SecondMonthDLCs[1] = Jan2DLC;
-		SecondMonthDLCs[2] = Feb2DLC;
-		SecondMonthDLCs[3] = Mar2DLC;
-		SecondMonthDLCs[4] = Apr2DLC;
-		SecondMonthDLCs[5] = May2DLC;
-		SecondMonthDLCs[6] = Jun2DLC;
-		SecondMonthDLCs[7] = Jul2DLC;
-		SecondMonthDLCs[8] = Aug2DLC;
-		SecondMonthDLCs[9] = Sep2DLC;
-		SecondMonthDLCs[10] = Oct2DLC;
-		SecondMonthDLCs[11] = Nov2DLC;
-		SecondMonthDLCs[12] = Dec2DLC;
-		if (DLCMode == "Random") CurrentDLC = rand() % 10;
-		if (DLCMode == "Seasonal")
+
+		// DLCs.
+		if (DLCMode == "Random")
 		{
-			if (CurrentTime.wDay <= 15) CurrentDLC = FirstMonthDLCs[CurrentTime.wMonth];
-			if (CurrentTime.wDay > 15) CurrentDLC = SecondMonthDLCs[CurrentTime.wMonth];
+			// Randomly select a DLC.
+			CurrentDLC = rand() % 10;
+		}
+		else if (DLCMode == "Seasonal")
+		{
+			// Select a DLC based on the current month.
+			// NOTE: wMonth is 1-12. Subtract 1 for the array index.
+			if (CurrentTime.wDay <= 15)
+			{
+				// First half of the month.
+				CurrentDLC = MonthlyDLCs[CurrentTime.wMonth-1][0];
+			}
+			else
+			{
+				// Second half of the month.
+				CurrentDLC = MonthlyDLCs[CurrentTime.wMonth-1][1];
+			}
 		}
 		WriteCall((void*)0x00415A6D, DLCHook_LoadLevelIncrementAct); //LoadLevel
 		WriteCall((void*)0x004147B6, DLCHook_LoadLevelIncrementAct); //IncrementAct
 		WriteCall((void*)0x0062F098, DLCHook_StationSquare); 
 		WriteCall((void*)0x0062F102, DLCHook_StationSquare);
 		WriteCall((void*)0x0052FB82, DLCHook_MysticRuins);
-		if (CurrentDLC == 51)
-		{
-			LaunchPartyDLCMode = "Japan";
-			CurrentDLC = 5;
-		}
-		if (CurrentDLC == 52)
-		{
-			LaunchPartyDLCMode = "Europe";
-			CurrentDLC = 5;
-		}
+
+		// DLC-specific handling.
 		PrintDebug("Current DLC ID: %02X\n", CurrentDLC);
-		//AT&T challenges
-		if (CurrentDLC == 0)
+		switch (CurrentDLC)
 		{
-			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
-			helperFunctions.RegisterCommonObjectPVM(ATT1Textures);
-			helperFunctions.RegisterCommonObjectPVM(ATT2Textures);
-			helperFunctions.RegisterCommonObjectPVM(ATT3Textures);
-			helperFunctions.RegisterCommonObjectPVM(TimerTextures);
+			case 51:
+				LaunchPartyDLCMode = "Japan";
+				CurrentDLC = 5;
+				break;
+			case 52:
+				LaunchPartyDLCMode = "Europe";
+				CurrentDLC = 5;
+				break;
+			case 0:
+				// AT&T challenges
+				WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
+				helperFunctions.RegisterCommonObjectPVM(ATT1Textures);
+				helperFunctions.RegisterCommonObjectPVM(ATT2Textures);
+				helperFunctions.RegisterCommonObjectPVM(ATT3Textures);
+				helperFunctions.RegisterCommonObjectPVM(TimerTextures);
+				break;
+			case 1:
+				// Christmas 98
+				MusicList[68].Name = "Xmas98_1";
+				MusicList[69].Name = "Xmas98_2";
+				MusicList[70].Name = "Xmas98_3";
+				helperFunctions.RegisterCommonObjectPVM(Christmas98Textures);
+				WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Christmas);
+				break;
+			case 2:
+				// Christmas 99
+				helperFunctions.RegisterCommonObjectPVM(Christmas99Textures);
+				WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Christmas);
+				break;
+			case 3:
+				// Famitsu
+				WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
+				helperFunctions.RegisterCommonObjectPVM(FamitsuTextures);
+				helperFunctions.RegisterCommonObjectPVM(TimerTextures);
+				ReplaceBIN("CAMSS00S", "CAMSS00S_F");
+				ReplaceBIN("CAMSS01S", "CAMSS01S_F");
+				ReplaceBIN("CAMSS02S", "CAMSS02S_F");
+				ReplaceBIN("CAMSS03S", "CAMSS03S_F");
+				ReplaceBIN("CAMSS04S", "CAMSS04S_F");
+				ReplaceBIN("CAMSS05S", "CAMSS05S_F");
+				break;
+			case 4:
+				// Halloween
+				helperFunctions.RegisterCommonObjectPVM(HalloweenTextures);
+				break;
+			case 5:
+				// Launch party
+				if (LaunchPartyDLCMode == "US")
+					helperFunctions.RegisterCommonObjectPVM(LaunchPartyUSTextures);
+				else if (LaunchPartyDLCMode == "Europe")
+					helperFunctions.RegisterCommonObjectPVM(LaunchPartyEUTextures);
+				else if (LaunchPartyDLCMode == "Japan")
+					helperFunctions.RegisterCommonObjectPVM(LaunchPartyJPTextures);
+				break;
+			case 6:
+				// QUO challenge
+				ReplaceBIN("CAMSS00S", "CAMSS00S_F");
+				ReplaceBIN("CAMSS01S", "CAMSS01S_F");
+				ReplaceBIN("CAMSS02S", "CAMSS02S_F");
+				ReplaceBIN("CAMSS03S", "CAMSS03S_F");
+				ReplaceBIN("CAMSS04S", "CAMSS04S_F");
+				ReplaceBIN("CAMSS05S", "CAMSS05S_F");
+				WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
+				helperFunctions.RegisterCommonObjectPVM(QuoTextures);
+				helperFunctions.RegisterCommonObjectPVM(TimerTextures);
+				break;
+			case 7:
+				// Reebok challenge
+				helperFunctions.RegisterCommonObjectPVM(ReebokTextures);
+				helperFunctions.RegisterCommonObjectPVM(TimerTextures);
+				break;
+			case 8:
+				// Samba GP
+				helperFunctions.RegisterCommonObjectPVM(SambaGPTextures);
+				WriteCall((void*)0x004DB126, QuitTwinkleCircuit);
+				WriteCall((void*)0x00640684, CallSambaCircuit);
+				break;
+			case 9:
+				// Y2K Rings
+				helperFunctions.RegisterCommonObjectPVM(Y2KTextures);
+				break;
+			default:
+				break;
 		}
-		//Christmas 98
-		if (CurrentDLC == 1)
-		{
-			MusicList[68].Name = "Xmas98_1";
-			MusicList[69].Name = "Xmas98_2";
-			MusicList[70].Name = "Xmas98_3";
-			helperFunctions.RegisterCommonObjectPVM(Christmas98Textures);
-			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Christmas);
-		}
-		//Christmas 99
-		if (CurrentDLC == 2)
-		{
-			helperFunctions.RegisterCommonObjectPVM(Christmas99Textures);
-			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Christmas);
-		}
-		//Famitsu
-		if (CurrentDLC == 3)
-		{
-			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
-			helperFunctions.RegisterCommonObjectPVM(FamitsuTextures);
-			helperFunctions.RegisterCommonObjectPVM(TimerTextures);
-			ReplaceBIN("CAMSS00S", "CAMSS00S_F");
-			ReplaceBIN("CAMSS01S", "CAMSS01S_F");
-			ReplaceBIN("CAMSS02S", "CAMSS02S_F");
-			ReplaceBIN("CAMSS03S", "CAMSS03S_F");
-			ReplaceBIN("CAMSS04S", "CAMSS04S_F");
-			ReplaceBIN("CAMSS05S", "CAMSS05S_F");
-		}
-		//Halloween
-		if (CurrentDLC == 4)
-		{
-			helperFunctions.RegisterCommonObjectPVM(HalloweenTextures);
-		}
-		//Launch party
-		if (CurrentDLC == 5)
-		{
-			if (LaunchPartyDLCMode == "US") helperFunctions.RegisterCommonObjectPVM(LaunchPartyUSTextures);
-			if (LaunchPartyDLCMode == "Europe") helperFunctions.RegisterCommonObjectPVM(LaunchPartyEUTextures);
-			if (LaunchPartyDLCMode == "Japan") helperFunctions.RegisterCommonObjectPVM(LaunchPartyJPTextures);
-		}
-		//QUO challenge
-		if (CurrentDLC == 6)
-		{
-			ReplaceBIN("CAMSS00S", "CAMSS00S_F");
-			ReplaceBIN("CAMSS01S", "CAMSS01S_F");
-			ReplaceBIN("CAMSS02S", "CAMSS02S_F");
-			ReplaceBIN("CAMSS03S", "CAMSS03S_F");
-			ReplaceBIN("CAMSS04S", "CAMSS04S_F");
-			ReplaceBIN("CAMSS05S", "CAMSS05S_F");
-			WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
-			helperFunctions.RegisterCommonObjectPVM(QuoTextures);
-			helperFunctions.RegisterCommonObjectPVM(TimerTextures);
-		}
-		//Reebok challenge
-		if (CurrentDLC == 7)
-		{
-			helperFunctions.RegisterCommonObjectPVM(ReebokTextures);
-			helperFunctions.RegisterCommonObjectPVM(TimerTextures);
-		}
-		//Samba GP
-		if (CurrentDLC == 8)
-		{
-			helperFunctions.RegisterCommonObjectPVM(SambaGPTextures);
-			WriteCall((void*)0x004DB126, QuitTwinkleCircuit);
-			WriteCall((void*)0x00640684, CallSambaCircuit);
-		}
-		//Y2K Rings
-		if (CurrentDLC == 9)
-		{
-			helperFunctions.RegisterCommonObjectPVM(Y2KTextures);
-		}
+
 		if (SegaVoiceLanguage != "Off")
 		{
 			std::random_device r;

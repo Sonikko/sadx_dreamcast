@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_TEXNAME textures_sandhill[50];
 
 NJS_TEXLIST texlist_sandhill = { arrayptrandlength(textures_sandhill) };
@@ -62687,3 +62691,5 @@ NJS_VECTOR normalSBOARD_0006E7A8[] = {
 NJS_MODEL_SADX attachSBOARD_0006EA18 = { vertexSBOARD_0006E538, normalSBOARD_0006E7A8, LengthOfArray<Sint32>(vertexSBOARD_0006E538), meshlistSBOARD_0006E4D8, matlistSBOARD_0006E050, LengthOfArray<Uint16>(meshlistSBOARD_0006E4D8), LengthOfArray<Uint16>(matlistSBOARD_0006E050),{ 0, 20, 0.000008f }, 103.0777f, NULL };
 
 NJS_OBJECT objectSBOARD_0006EA40 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachSBOARD_0006EA18, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

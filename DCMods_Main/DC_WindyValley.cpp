@@ -1,13 +1,8 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <stdlib.h>
-#include <stdio.h> 
-#include <lanternapi.h>
 #include "windy1.h"
 #include "windy2.h"
 #include "windy3.h"
 #include "Objects_Windy.h"
-#include "DC_Levels.h"
 
 DataArray(SkyboxScale, SkyboxScale_Windy1, 0x00AFE924, 3);
 DataArray(FogData, FogData_Windy1, 0x00AFEA20, 3);
@@ -130,7 +125,6 @@ void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAM0201S");
 	ReplaceBIN_DC("CAM0202M");
 	ReplaceBIN_DC("CAM0202S");
-	char pathbuf[MAX_PATH];
 	if (EnableSETFixes == 1)
 	{
 		AddSETFix("SET0200E");

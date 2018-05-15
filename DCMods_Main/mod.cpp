@@ -1,8 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include "stdlib.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 bool EnableWindowTitle = true;
 bool EnableDCBranding = true;
@@ -30,7 +26,6 @@ static bool SADXWater_EggCarrier = false;
 static bool SADXWater_Past = false;
 static bool SADXWater_EggHornet = false;
 static bool SADXWater_ZeroE101R = false;
-static bool OldModsFound = false;
 
 int EnableSETFixes = 1;
 
@@ -41,72 +36,85 @@ bool DLLLoaded_DLCs = false;
 bool DLLLoaded_SADXFE = false;
 bool EnableSpeedFixes = true;
 
-std::string OldModsMessage = "Old/incompatible mods detected!\n \nThe following mods are outdated and will cause problems if you leave them enabled. These mods are no longer needed because they are built into the main Dreamcast Conversion mod.\n \nPlease uninstall the following mods in the Mod Manager:\n \n";
-
-std::string OldModDLLs[] = { 
-	"DC_Bosses",
-	"DC_Branding",
-	"DC_ChaoGardens",
-	"DC_Casinopolis",
-	"DC_ADV00MODELS",
-	"DC_ADV01MODELS",
-	"DC_ADV02MODELS",
-	"DC_ADV03MODELS",
-	"DC_EmeraldCoast",
-	"DC_EnvMaps",
-	"DC_FinalEgg",
-	"DC_General",
-	"DC_HotShelter",
-	"DC_IceCap",
-	"DC_LostWorld",
-	"DC_RedMountain",
-	"DC_SkyDeck",
-	"DC_SpeedHighway",
-	"DC_TwinklePark",
-	"DC_WindyValley",
-	"DC_SubGames",
-	"DC_TornadoModels",
-	"DisableSA1TitleScreen",
-	"KillCream",
-	"RevertECDrawDistance",
-	"SADXStyleWater",
-	"MRFinalEggFix"
+static const wchar_t *const OldModDLLs[] = {
+	L"DC_Bosses",
+	L"DC_Branding",
+	L"DC_ChaoGardens",
+	L"DC_Casinopolis",
+	L"DC_ADV00MODELS",
+	L"DC_ADV01MODELS",
+	L"DC_ADV02MODELS",
+	L"DC_ADV03MODELS",
+	L"DC_EmeraldCoast",
+	L"DC_EnvMaps",
+	L"DC_FinalEgg",
+	L"DC_General",
+	L"DC_HotShelter",
+	L"DC_IceCap",
+	L"DC_LostWorld",
+	L"DC_RedMountain",
+	L"DC_SkyDeck",
+	L"DC_SpeedHighway",
+	L"DC_TwinklePark",
+	L"DC_WindyValley",
+	L"DC_SubGames",
+	L"DC_TornadoModels",
+	L"DisableSA1TitleScreen",
+	L"KillCream",
+	L"RevertECDrawDistance",
+	L"SADXStyleWater",
+	L"MRFinalEggFix"
 };
 
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
-		//Check which DLLs are loaded
-		if (GetModuleHandle(TEXT("HD_GUI.dll")) != nullptr) DLLLoaded_HDGUI = true;
-		if (GetModuleHandle(TEXT("SA1_Chars.dll")) != nullptr) DLLLoaded_SA1Chars = true;
-		if (GetModuleHandle(TEXT("sadx-dc-lighting.dll")) != nullptr) DLLLoaded_Lantern = true;
-		if (GetModuleHandle(TEXT("DLCs_Main.dll")) != nullptr) DLLLoaded_DLCs = true;
-		if (GetModuleHandle(TEXT("sadx-fixed-edition.dll")) != nullptr) DLLLoaded_SADXFE = true;
+		// Check which DLLs are loaded.
+		DLLLoaded_HDGUI    = (GetModuleHandle(L"HD_GUI.dll") != nullptr);
+		DLLLoaded_SA1Chars = (GetModuleHandle(L"SA1_Chars.dll") != nullptr);
+		DLLLoaded_Lantern  = (GetModuleHandle(L"sadx-dc-lighting.dll") != nullptr);
+		DLLLoaded_DLCs     = (GetModuleHandle(L"DLCs_Main.dll") != nullptr);
+		DLLLoaded_SADXFE   = (GetModuleHandle(L"sadx-fixed-edition.dll") != nullptr);
 		HMODULE WaterEffect = GetModuleHandle(L"WaterEffect");
+
 		//Error messages
 		if (helperFunctions.Version < 7)
 		{
-			MessageBoxA(WindowHandle, "Please update SADX Mod Loader. Dreamcast Conversion requires API version 7 or newer.",
-				"DC Conversion error: Mod loader out of date", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle,
+				L"Please update SADX Mod Loader. Dreamcast Conversion requires API version 7 or newer.",
+				L"DC Conversion error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
-		//Check old mod DLLs
-		for (int i = 0; i < LengthOfArray(OldModDLLs); i++)
+
+		// Check for old mod DLLs.
+		std::wstring OldModsMessage = L"Old/incompatible mods detected!\n\n"
+			L"The following mods are outdated and will cause "
+			L"problems if you leave them enabled. These mods are "
+			L"no longer needed because they are built into the "
+			L"main Dreamcast Conversion mod.\n\n"
+			L"Please uninstall the following mods in the Mod Manager:\n\n";
+
+		bool OldModsFound = false;
+		for (unsigned int i = 0; i < LengthOfArray(OldModDLLs); i++)
 		{
-			LPCSTR OldModHandle = OldModDLLs[i].c_str();
-			if (GetModuleHandleA(OldModHandle) != nullptr)
+			if (GetModuleHandle(OldModDLLs[i]) != nullptr)
 			{
-				OldModsMessage += OldModDLLs[i] + "\n";
+				// Found a known incompatible mod.
+				OldModsMessage += OldModDLLs[i];
+				OldModsMessage += '\n';
 				OldModsFound = true;
 			}
 		}
-		if (OldModsFound == true)
+
+		if (OldModsFound)
 		{
-			LPCSTR OldModsLPC = OldModsMessage.c_str();
-			MessageBoxA(WindowHandle, OldModsLPC, "DC Conversion error: incompatible mods detected", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle, OldModsMessage.c_str(),
+				L"DC Conversion error: incompatible mods detected",
+				MB_OK | MB_ICONERROR);
 			return;
 		}
+
 		//If there is no config.ini, make one
 		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
 		//Config stuff
@@ -131,19 +139,31 @@ extern "C"
 		EnableEggCarrier = config->getBool("Levels", "EnableEggCarrier", true);
 		EnablePast = config->getBool("Levels", "EnablePast", true);
 		DisableAllVideoStuff = config->getBool("Videos", "DisableAllVideoStuff", false);
-		std::string EnableSETFixes_String = "Normal";
-		EnableSETFixes_String = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
-		if (EnableSETFixes_String == "Off") EnableSETFixes = 0;
-		if (EnableSETFixes_String == "Normal") EnableSETFixes = 1;
-		if (EnableSETFixes_String == "Extra") EnableSETFixes = 2;
+
+		const std::string EnableSETFixes_String = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
+		if (EnableSETFixes_String == "Off")
+			EnableSETFixes = 0;
+		else if (EnableSETFixes_String == "Normal")
+			EnableSETFixes = 1;
+		else if (EnableSETFixes_String == "Extra")
+			EnableSETFixes = 2;
+
 		delete config;
+
 		//Set window title
 		if (EnableWindowTitle == true) helperFunctions.SetWindowTitle("Sonic Adventure");
 		//Another error message
 		if (EnableEmeraldCoast == true && WaterEffect != nullptr)
 		{
-			MessageBoxA(WindowHandle, "The Enhanced Emerald Coast mod is not compatible with DC Emerald Coast. Please disable Enhanced Emerald Coast for the Dreamcast level to work. To get SADX-like water in DC Emerald Coast, enable SADX Style Water in Dreamcast Conversion's config.",
-				"DC Conversion error: incompatible mod detected", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle,
+				L"The Enhanced Emerald Coast mod is not "
+				L"compatible with DC Emerald Coast. Please "
+				L"disable Enhanced Emerald Coast for the "
+				L"Dreamcast level to work. To get SADX-like "
+				L"water in DC Emerald Coast, enable SADX "
+				L"Style Water in Dreamcast Conversion's config.",
+				L"DC Conversion error: incompatible mod detected",
+				MB_OK | MB_ICONERROR);
 		}
 		//Init functions
 		if (EnableDCBranding == true) Branding_Init(path, helperFunctions);

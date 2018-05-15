@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 Sint16 polySTG01_0008199C[] = {
 	0x8000u | 18, 9, 0, 10, 1, 11, 2, 12, 3, 13, 4, 14, 5, 15, 6, 16, 7, 17, 8
 };
@@ -45277,3 +45281,5 @@ NJS_TEXNAME textures_ecoast2[86];
 NJS_TEXLIST texlist_ecoast2 = { arrayptrandlength(textures_ecoast2) };
 
 LandTable landtable_000DEB60 = { LengthOfArray(collist_000DD600), 0, 0xC, 2000, collist_000DD600, NULL, "BEACH02", (NJS_TEXLIST *)&texlist_ecoast2, 0, 0 };
+
+#pragma warning(pop)

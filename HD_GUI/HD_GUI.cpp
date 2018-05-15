@@ -5,9 +5,17 @@
 #include <stdio.h>
 #include "TutorialStuff.h"
 
-#define ReplacePVMX(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_HD.PVM");
-#define ReplacePNG(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\pvr\\index.txt", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
-#define ReplacePNG_GoalRing(a) _snprintf_s(pathbuf, MAX_PATH, "%s\\textures\\m_goalring\\index.txt", path); helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf);
+#define ReplacePVMX(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_HD.PVM")
+#define ReplacePNG(a) do { \
+	char pathbuf[MAX_PATH]; \
+	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr\\index.txt", path); \
+	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
+} while (0)
+#define ReplacePNG_GoalRing(a) do { \
+	char pathbuf[MAX_PATH]; \
+	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\m_goalring\\index.txt", path); \
+	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
+} while (0)
 
 static float Options_ArrowScale = 0.0f;
 static float Options_ArrowScaleAmount = 0.1f;
@@ -30,7 +38,6 @@ float PadManuYOffset = 136.0f;
 float PadManuYOffset2 = 105.0f;
 float PadManuYMultiplier = 1.0f;
 
-DataPointer(HWND, WindowHandle, 0x03D0FD30);
 NJS_TEXANIM RandomRingIconPart_TEXANIM = { 32, 32, 16, 16, 0, 0, 255, 255, 95, 0x20 };
 
 void FileIcon_Hook(int that_cant_be_right, float Texture_X, float Texture_Y, float Texture_Z)
@@ -140,12 +147,12 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
-		char pathbuf[MAX_PATH];
 		HMODULE GoalRing = GetModuleHandle(L"GoalRing");
 		if (helperFunctions.Version < 6)
 		{
-			MessageBoxA(WindowHandle, "Mod Loader out of date. HD GUI requires API version 6 or newer.",
-				"HD GUI error: Mod loader out of date", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle,
+				L"Mod Loader out of date. HD GUI requires API version 6 or newer.",
+				L"HD GUI error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
 		//Fix green rectangle in tutorials
@@ -201,7 +208,7 @@ extern "C"
 		ReplacePVMX("AVA_FSDLG_E");
 		ReplacePVMX("AVA_METAL_SONIC");
 		ReplacePVMX("AVA_NEW16NO");
-		ReplacePVMX("AVA_OPTION")
+		ReplacePVMX("AVA_OPTION");
 		ReplacePVMX("AVA_OPTION_E");
 		ReplacePVMX("AVA_SAN");
 		ReplacePVMX("AVA_SNDTEST");

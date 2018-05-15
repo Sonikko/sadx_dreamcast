@@ -1,11 +1,8 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "LostWorld1.h"
 #include "LostWorld2.h"
 #include "LostWorld3.h"
 #include "LostWorld_objects.h"
-#include "DC_Levels.h"
 
 DataPointer(float, CurrentDrawDist, 0x03ABDC74);
 
@@ -39,7 +36,6 @@ void RenderLWPlatformLight(NJS_MODEL_SADX *model, QueuedModelFlagsB blend, float
 
 void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAM0700S");
 	ReplaceBIN_DC("CAM0701K");
 	ReplaceBIN_DC("CAM0701S");

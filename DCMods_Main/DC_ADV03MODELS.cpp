@@ -1,15 +1,10 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <Trampoline.h>
 #include "Palm.h"
 #include "ADV03_00_PC.h"
 #include "ADV03_00.h"
 #include "ADV03_01.h"
 #include "ADV03_02.h"
 #include "Past_objects.h"
-#include <lanternapi.h>
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 HMODULE Past = GetModuleHandle(L"ADV03MODELS");
 
@@ -162,7 +157,6 @@ void RenderPalm1(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 
 void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAMPAST00S");
 	ReplaceBIN_DC("CAMPAST01S");
 	ReplaceBIN_DC("CAMPAST02S");

@@ -1,5 +1,7 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
 
 enum OBJ_SSTexName
 {
@@ -20363,3 +20365,5 @@ NJS_VECTOR normalADV00_00010EBC[] = {
 NJS_MODEL_SADX attachADV00_000111E0 = { vertexADV00_00010B98, normalADV00_00010EBC, LengthOfArray<Sint32>(vertexADV00_00010B98), meshlistADV00_00010B08, matlistADV00_00010668, LengthOfArray<Uint16>(meshlistADV00_00010B08), LengthOfArray<Uint16>(matlistADV00_00010668),{ 25.12462f, -19.95688f, 0 }, 64.68936f, NULL };
 
 NJS_OBJECT objectADV00_00011208 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attachADV00_000111E0, 0, 20, 0, 0, 0, 0, 1, 1, 1, &objectADV00_00010634, NULL };
+
+#pragma warning(pop)

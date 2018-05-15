@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistSTG01_000DEFF4[] = {
 	{ { 0x00B2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -30049,3 +30053,5 @@ NJS_TEXNAME textures_ecoast3[94];
 NJS_TEXLIST texlist_ecoast3 = { arrayptrandlength(textures_ecoast3) };
 
 LandTable landtable_0011DD58 = { LengthOfArray(collist_0011C2A0), 0, 0xC, 600, collist_0011C2A0, NULL, "BEACH03", (NJS_TEXLIST *)&texlist_ecoast3, 0, 0 };
+
+#pragma warning(pop)

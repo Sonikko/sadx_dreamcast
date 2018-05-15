@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistADV02_001E8530[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, MROBJTexName_mra_256s_eikaba, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -95,3 +99,5 @@ NJS_VECTOR normalADV02_001E86FC[] = {
 NJS_MODEL_SADX attachADV02_001E87C8 = { vertexADV02_001E8630, normalADV02_001E86FC, LengthOfArray(vertexADV02_001E8630), meshlistADV02_001E8618, matlistADV02_001E8530, LengthOfArray(meshlistADV02_001E8618), LengthOfArray(matlistADV02_001E8530),{ 8.731963f, 29.8864f, 3.174683f }, 203.021f, NULL };
 
 NJS_OBJECT objectADV02_001E87F0 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachADV02_001E87C8, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

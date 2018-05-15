@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 Sint16 polyADV02_0016D724[] = {
 	4, 45, 37, 46, 38,
 	32, 47, 42, 41, 119, 120, 122, 121, 106, 105, 134, 133, 110, 109, 114, 113, 138, 137, 102, 101, 130, 129, 127, 128, 40, 39, 28, 87, 182, 181, 96, 95, 92,
@@ -21152,3 +21156,5 @@ NJS_TEXNAME textures_mr03[104];
 NJS_TEXLIST texlist_mr03 = { arrayptrandlength(textures_mr03) };
 
 LandTable landtable_0000019C = { LengthOfArray(collist_0016BCA0), LengthOfArray(animlist_0016D6C8), 9, 0, collist_0016BCA0, animlist_0016D6C8, "ADV_MR03", (NJS_TEXLIST *)&texlist_mr03, 0, 0 };
+
+#pragma warning(pop)

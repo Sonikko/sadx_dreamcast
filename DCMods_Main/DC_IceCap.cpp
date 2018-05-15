@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
 #include "textures.h"
 #include "Icicle.h"
 #include "IceCap1.h"
@@ -7,7 +6,6 @@
 #include "IceCap3.h"
 #include "IceCap4_PC.h"
 #include "IceCap4.h"
-#include "DC_Levels.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
@@ -143,7 +141,6 @@ void __cdecl FixedAvalanche(ObjectMaster *a1)
 
 void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAM0800S");
 	ReplaceBIN_DC("CAM0801S");
 	ReplaceBIN_DC("CAM0802S");
@@ -175,9 +172,9 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("ICECAP03");
 	ReplacePVM("OBJ_ICECAP");
 	ReplacePVM("OBJ_ICECAP2");
-	ReplacePVR("MIW_B001")
-	ReplacePVR("MTX_BOARD0")
-	ReplacePVR("SB_BOARD1")
+	ReplacePVR("MIW_B001");
+	ReplacePVR("MTX_BOARD0");
+	ReplacePVR("SB_BOARD1");
 	WriteData((LandTable**)0x97DB08, &landtable_00014B44);
 	WriteData((LandTable**)0x97DB0C, &landtable_00015714);
 	WriteData((LandTable**)0x97DB10, &landtable_000180B4);
@@ -213,15 +210,15 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 	LandTable *lt = (LandTable *)0x0E3E024; COL *tmp = new COL[171 + LengthOfArray(collist_000180D8)];
 	memcpy(tmp, lt->Col, sizeof(COL) * lt->COLCount);
 	lt->Col = tmp; lt->COLCount = 171 + LengthOfArray(collist_000180D8);
-	for (int inv = 0; inv < 171; inv++)
+	for (unsigned int inv = 0; inv < 171; inv++)
 	{
 		((LandTable *)0x0E3E024)->Col[inv].Flags &= ~ColFlags_Visible;
 	}
-	for (int c = 171; c < LengthOfArray(collist_000180D8) + 171; c++)
+	for (unsigned int c = 171; c < LengthOfArray(collist_000180D8) + 171; c++)
 	{
 		((LandTable *)0x0E3E024)->Col[c] = collist_000180D8[c - 171];
 	}
-	for (int inv2 = 171; inv2 < 171 + LengthOfArray(collist_000180D8); inv2++)
+	for (unsigned int inv2 = 171; inv2 < 171 + LengthOfArray(collist_000180D8); inv2++)
 	{
 		((LandTable *)0x0E3E024)->Col[inv2].Flags &= ~ColFlags_Solid;
 	}

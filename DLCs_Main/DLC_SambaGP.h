@@ -1,3 +1,8 @@
+#pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_TEXNAME textures_sambagp[10];
 NJS_TEXLIST texlist_sambagp = { arrayptrandlength(textures_sambagp) };
 
@@ -605,3 +610,5 @@ NJS_VECTOR normal_poster1[] = {
 NJS_MODEL_SADX attach_poster1 = { vertex_poster1, normal_poster1, LengthOfArray(vertex_poster1), meshlist_poster1, matlist_poster1, LengthOfArray(meshlist_poster1), LengthOfArray(matlist_poster1),{ 0, 1.5f, 0 }, 11.71537f, NULL };
 
 NJS_OBJECT poster1 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_poster1, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

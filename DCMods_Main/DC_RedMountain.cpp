@@ -1,12 +1,8 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include "math.h"
-#include <lanternapi.h>
 #include "Mountain1.h"
 #include "Mountain2.h"
 #include "Mountain3.h"
 #include "RM_Objects.h"
-#include "DC_Levels.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
@@ -73,7 +69,6 @@ void SetCloudColor(NJS_ARGB *a)
 
 void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAM0500S");
 	ReplaceBIN_DC("CAM0501E");
 	ReplaceBIN_DC("CAM0501S");
@@ -173,7 +168,7 @@ void RedMountain_OnFrame()
 	{
 		UVShift1 = (UVShift1 - 1 * FramerateSetting) % 255;
 		UVShift2 = (UVShift2 - 2 * FramerateSetting) % 255;
-		for (int q = 0; q < LengthOfArray(uvSTG05_0206C9F0); q++)
+		for (unsigned int q = 0; q < LengthOfArray(uvSTG05_0206C9F0); q++)
 		{
 			uvSTG05_0206C9F0[q].u = uvSTG05_0206C9F0_0[q].u + UVShift1;
 			uvSTG05_0206C9F0_2[q].u = uvSTG05_0206C9F0_0[q].u + UVShift2;

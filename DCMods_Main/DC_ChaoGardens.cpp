@@ -1,7 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <IniFile.hpp>
-#include <lanternapi.h>
 #include "ChaoObjects.h"
 #include "Fountain.h"
 #include "SSGarden.h"
@@ -10,8 +7,6 @@
 #include "ChaoRaceEntry.h"
 #include "ECGarden_DC.h"
 #include "HintMessages.h"
-#include <stdlib.h>  
-#include "DC_Levels.h"
 
 static bool EnableSSGarden = true;
 static bool EnableMRGarden = true;
@@ -23,7 +18,7 @@ static int ecgardensand = 64;
 static int ecgardenwater = 54;
 static int mrgardenwater = 36;
 static int vmuframe = 0;
-static int SkipSA1Entry = 0;
+static bool SkipSA1Entry = false;
 static float OpenDoorThing = 0;
 static bool c1 = false;
 static bool h1 = false;
@@ -3980,7 +3975,7 @@ void LoadChaoGardenHintMessages()
 
 void __cdecl LoadRaceEntryX()
 {
-	if (SkipSA1Entry == 1)
+	if (SkipSA1Entry)
 	{
 		LoadPVM("CHAO_ENTRANCE", (NJS_TEXLIST*)0x340E934);
 		SSGardenStartPoint.Position.x = BK_SSGardenStartPoint.Position.x;
@@ -3991,7 +3986,7 @@ void __cdecl LoadRaceEntryX()
 		LoadObject(LoadObj_Data1, 5, ChaoStgEntrance_Main);
 		SetChaoLandTable((LandTable*)0x03423700); //PC
 		PrintDebug("ChaoStgEntrance _prolog end.\n");
-		SkipSA1Entry = 0;
+		SkipSA1Entry = false;
 	}
 	else
 	{
@@ -4010,13 +4005,13 @@ void __cdecl LoadRaceEntryX()
 void LoadSADXEntry()
 {
 	sub_79E400(2, 0, 0); //Play sound
-	SkipSA1Entry = 1;
+	SkipSA1Entry = true;
 	sub_715700(2);
 }
 
 void ExitRaceEntry()
 {
-	SkipSA1Entry = 0;
+	SkipSA1Entry = false;
 	sub_715700(2);
 }
 
@@ -4024,7 +4019,7 @@ void ExitRaceEntry()
 
 void __cdecl LoadChaoRaceX()
 {
-	SkipSA1Entry = 0;
+	SkipSA1Entry = false;
 	PrintDebug("ChaoStgRace _prolog begin.\n");
 	LoadObject(LoadObj_Data1, 2, ChaoStgRace_Init);
 	LoadObjects_Race();
@@ -4112,7 +4107,6 @@ void LoadSSGardenObjectPVM(const char *filename, NJS_TEXLIST *texlist)
 
 void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplacePVM("AL_BODY");
 	ReplacePVM("AL_DX_OBJ_CMN");
 	ReplacePVM("AL_RACE01");
@@ -4390,13 +4384,13 @@ void ChaoGardens_OnFrame()
 		if (ssgardenwater > 9) ssgardenwater = 0;
 		matlistCHAO_00011388[0].attr_texId = ssgardenwater;
 		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ssgardenwater++;
-		for (int q = 0; q < LengthOfArray(uvCHAO_000144F0); q++)
+		for (unsigned int q = 0; q < LengthOfArray(uvCHAO_000144F0); q++)
 		{
 			uvCHAO_000144F0[q].v = uvCHAO_000144F0[q].v - 2;
 		}
 		if (uvCHAO_000144F0[0].v < 0)
 		{
-			for (int q2 = 0; q2 < LengthOfArray(uvCHAO_000144F0); q2++)
+			for (unsigned int q2 = 0; q2 < LengthOfArray(uvCHAO_000144F0); q2++)
 			{
 				uvCHAO_000144F0[q2].v = uvCHAO_000144F0R[q2].v;
 			}
@@ -4421,10 +4415,10 @@ void ChaoGardens_OnFrame()
 	//Mystic Ruins garden
 	if (CurrentChaoStage == 6 && GameState != 16 && EnableMRGarden == true)
 	{
-		for (int q3 = 0; q3 < LengthOfArray(uvCHAO_0000F184); q3++) { uvCHAO_0000F184[q3].v--; }
+		for (unsigned int q3 = 0; q3 < LengthOfArray(uvCHAO_0000F184); q3++) { uvCHAO_0000F184[q3].v--; }
 		if (uvCHAO_0000F184[2].v <= -255)
 		{
-			for (int r5 = 0; r5 < LengthOfArray(uvCHAO_0000F184); r5++)
+			for (unsigned int r5 = 0; r5 < LengthOfArray(uvCHAO_0000F184); r5++)
 			{
 				uvCHAO_0000F184[r5].v = uvCHAO_0000F184_R[r5].v;
 			}
@@ -4449,7 +4443,7 @@ void ChaoGardens_OnFrame()
 	if (CurrentChaoStage == 2 && GameState != 16 && EnableLobby == true)
 	{
 
-		if (SkipSA1Entry == true)
+		if (SkipSA1Entry)
 		{
 			((NJS_MATERIAL*)0x033AEB70)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			((NJS_MATERIAL*)0x033AEB70)->diffuse.color = 0xFFFFFFFF;
@@ -4485,14 +4479,14 @@ void ChaoGardens_OnFrame()
 		auto entity = EntityData1Ptrs[0];
 		if (entity != nullptr)
 		{
-			if (entity->Position.x > 2110 && SkipSA1Entry == 0)
+			if (entity->Position.x > 2110 && !SkipSA1Entry)
 			{
 				sub_715700(4);
 			}
 		}
-		if (SkipSA1Entry == 0 && IsPlayerInsideSphere(&racebutton, 5.0f))
+		if (!SkipSA1Entry && IsPlayerInsideSphere(&racebutton, 5.0f))
 		{
-			SkipSA1Entry = 1;
+			SkipSA1Entry = true;
 			sub_715700(2);
 		}
 		//Door
@@ -4530,13 +4524,13 @@ void ChaoGardens_OnFrame()
 		matlistCHAO_0003EFB0[0].attr_texId = chaoracewater;
 		matlistCHAO_0003F2DC[0].attr_texId = chaoracewater;
 		if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) chaoracewater++;
-		for (int w = 0; w < LengthOfArray(uvCHAO_00045AF4); w++)
+		for (unsigned int w = 0; w < LengthOfArray(uvCHAO_00045AF4); w++)
 		{
 			uvCHAO_00045AF4[w].v = uvCHAO_00045AF4[w].v - 6;
 		}
 		if (uvCHAO_00045AF4[0].v < -253)
 		{
-			for (int w2 = 0; w2 < LengthOfArray(uvCHAO_00045AF4); w2++)
+			for (unsigned int w2 = 0; w2 < LengthOfArray(uvCHAO_00045AF4); w2++)
 			{
 				uvCHAO_00045AF4[w2].v = uvCHAO_00045AF4R[w2].v;
 			}

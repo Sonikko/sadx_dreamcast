@@ -1,4 +1,8 @@
 ﻿#pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //Original messages
 
 __int16 ChaoGardenMessages_Japanese_0_Control[] = {
@@ -561,3 +565,5 @@ HintText_Entry ChaoGardenMessages_English[] = {
 	{ NULL, ChaoGardenMessages_English_6_Text },
 	{ NULL, ChaoGardenMessages_English_7_Text }
 };
+
+#pragma warning(pop)

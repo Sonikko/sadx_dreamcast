@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistADV03_0000739C[] = {
 	{ { 0xFFFFFFFF },{ 0x00000000 }, 0, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -71986,3 +71990,5 @@ COL collist_000FCFD8[] = {
 };
 
 LandTable landtable_000FFC24 = { LengthOfArray(collist_000FCFD8), 0, 0xC, 3000, collist_000FCFD8, NULL, NULL, (NJS_TEXLIST *)0x10007394, 0, 0 };
+
+#pragma warning(pop)

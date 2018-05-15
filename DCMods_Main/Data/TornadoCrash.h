@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum TR2CRASHTexName
 {
 	TR2CRASHTexName_s_t2_bodyd_tit,
@@ -3663,3 +3667,5 @@ NJS_VECTOR normal_0021B504[] = {
 NJS_MODEL_SADX attach_0021BD68 = { vertex_0021ACA0, normal_0021B504, LengthOfArray<Sint32>(vertex_0021ACA0), meshlist_0021AA18, matlist_00219740, LengthOfArray<Uint16>(meshlist_0021AA18), LengthOfArray<Uint16>(matlist_00219740),{ -7.909534f, -0.022591f, -7.021112f }, 25.06179f, NULL };
 
 NJS_OBJECT object_0021BD90 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attach_0021BD68, 0, 0.000001f, 0, 0, 0, 0, 1, 1, 1, &object_0021970C, NULL };
+
+#pragma warning(pop)

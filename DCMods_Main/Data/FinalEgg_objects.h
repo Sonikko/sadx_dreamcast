@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum OBJ_FINALEGGTexName
 {
 	OBJ_FINALEGGTexName_d64arm4f,
@@ -9811,3 +9815,5 @@ NJS_VECTOR normalSTG10_001DCCA4[] = {
 NJS_MODEL_SADX attachSTG10_001DD1C0 = { vertexSTG10_001DC788, normalSTG10_001DCCA4, LengthOfArray<Sint32>(vertexSTG10_001DC788), meshlistSTG10_001DC6F8, matlistSTG10_001DC1C8, LengthOfArray<Uint16>(meshlistSTG10_001DC6F8), LengthOfArray<Uint16>(matlistSTG10_001DC1C8),{ -0.00002f, -0.961377f, 0 }, 27.1529f, NULL };
 
 NJS_OBJECT objectSTG10_001DD1E8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attachSTG10_001DD1C0, 0, 0, 0, 0, 0, 0, 1, 1, 1, &objectSTG10_001DC194, NULL };
+
+#pragma warning(pop)

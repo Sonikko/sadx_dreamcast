@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistADV01_0006A4A8[] = {
 	{ { 0xFFFFFFFF },{ 0xFFFFFFFF }, 11, 23, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_FLIP_U | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -13087,3 +13091,4 @@ GeoAnimData animlist_001ECECC[] = {
 	{ 0, 0.09999999f, 60, &objectADV01_0006D7B8, &action_animation_000709DC, (NJS_TEXLIST *)0 }
 };
 
+#pragma warning(pop)

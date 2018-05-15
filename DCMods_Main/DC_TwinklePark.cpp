@@ -1,12 +1,9 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "TwinklePark_objects.h"
 #include "Twinkle1.h"
 #include "Twinkle2.h"
 #include "Twinkle3.h"
 #include "Buyon.h"
-#include "DC_Levels.h"
 
 struct __declspec(align(2)) ObjectThingC
 {
@@ -405,7 +402,6 @@ void RenderCatapult(NJS_ACTION *a1, float frame, float scale)
 
 void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAM0300S");
 	ReplaceBIN_DC("CAM0301A");
 	ReplaceBIN_DC("CAM0301B");
@@ -454,7 +450,7 @@ void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Cart fixes
 	WriteCall((void*)0x00796F0C, CartFunction);
 	*(NJS_MODEL_SADX*)0x038B907C = attachSTG03_034B907C_2; //Cart (Sonic)
-	for (int c = 0; c < LengthOfArray(CartMaterials); c++)
+	for (unsigned int c = 0; c < LengthOfArray(CartMaterials); c++)
 	{
 		CartMaterials[c]->diffuse.argb.r = 178;
 		CartMaterials[c]->diffuse.argb.g = 178;

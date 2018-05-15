@@ -1,13 +1,9 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "SkyDeck3_Fixes.h"
 #include "SkyDeck1.h"
 #include "SkyDeck2.h"
 #include "SkyDeck3.h"
 #include "SkyDeck_objects.h"
-#include "math.h"
-#include "DC_Levels.h"
 
 static int UVShift1 = 0;
 static int UVShift2 = 0;
@@ -610,7 +606,6 @@ void __cdecl Talap0Display_FixedRotation(ObjectMaster *a2)
 
 void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SET0600M");
 	ReplaceBIN_DC("SET0600S");
 	ReplaceBIN_DC("SET0601M");
@@ -808,7 +803,7 @@ void SkyDeck_OnFrame()
 	{
 		UVShift1 = (UVShift1 - 4 * FramerateSetting) % 255;
 		UVShift2 = (UVShift2 - 2 * FramerateSetting) % 255;
-		for (int q = 0; q < LengthOfArray(uvSTG06_01D4BE68); q++)
+		for (unsigned int q = 0; q < LengthOfArray(uvSTG06_01D4BE68); q++)
 		{
 			uvSTG06_01D4BE68[q].u = uvSTG06_01D4BE68_0[q].u + UVShift2;
 			uvSTG06_01D4E2F4[q].u = uvSTG06_01D4E2F4_0[q].u + UVShift2;

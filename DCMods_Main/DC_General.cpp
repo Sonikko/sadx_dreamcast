@@ -1,8 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include "stdlib.h"
-#include <math.h> 
-#include <lanternapi.h>
 #include "Animals.h"
 #include "EmeraldGlow.h"
 #include "TornadoCrash.h"
@@ -10,8 +6,6 @@
 #include "CharacterEffects.h"
 #include "Ripple.h"
 #include "CommonObjects.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 HMODULE CHRMODELS3 = GetModuleHandle(L"CHRMODELS_orig");
 HMODULE ADV01MODELS2 = GetModuleHandle(L"ADV01MODELS");
@@ -668,7 +662,6 @@ void DrawUnderwaterOverlay(NJS_MATRIX_PTR m)
 
 void General_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplacePVR("AL_BARRIA");
 	ReplacePVR("AM_SEA124_8");
 	ReplacePVR("BELT2");
@@ -930,23 +923,26 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteData<1>((char*)0x00492CC1, 0x80); //Set speed to 16 if below minimum
 		WriteData((float**)0x00492CB0, &LSDFix); //16 is the minimum speed
 	}
-	//Enable Impress font
-	if (DisableFontSmoothing == true)
+	// Disable font smoothing
+	if (DisableFontSmoothing)
 	{
 		//Probably better than making the whole texture ARGB1555
 		WriteData<1>((char*)0x0040DA0B, 0x00);
 		WriteData<1>((char*)0x0040DA0C, 0x00);
 		WriteData<1>((char*)0x0040DA12, 0x00);
 	}
+
+	// Enable Impress font
 	if (EnableImpressFont == "Impress")
 	{
 		ReplaceBIN("FONTDATA1", "FONTDATA1_I");
 	}
-	//Enable Comic Sans font (experimental)
-	if (EnableImpressFont == "ComicSans")
+	// Enable Comic Sans font (experimental)
+	else if (EnableImpressFont == "ComicSans")
 	{
 		ReplaceBIN("FONTDATA1", "FONTDATA1_C");
 	}
+
 	if (ColorizeFont == true)
 	{
 		//Subtitles (ARGB from 0 to F: CEEF)
@@ -1152,7 +1148,7 @@ void General_OnFrame()
 	//Fix broken welds after playing as Metal Sonic
 	if (DLLLoaded_SADXFE == false)
 	{
-		if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
+		if (GameMode == GameModes_CharSel && MetalSonicFlag) MetalSonicFlag = false;
 	}
 	//Alpha rejection
 	if (DLLLoaded_Lantern == true)
@@ -1169,7 +1165,7 @@ void General_OnFrame()
 		}
 	}
 	//Environment maps
-	if (EnvMapMode == 0 && CurrentLevel == 20 && MetalSonicFlag == 0)
+	if (EnvMapMode == 0 && CurrentLevel == 20 && !MetalSonicFlag)
 	{
 		EnvMapMode = 1;
 		EnvMap1 = 2.0f;
@@ -1185,7 +1181,7 @@ void General_OnFrame()
 		EnvMap3 = 0.5f;
 		EnvMap4 = 0.5f;
 	}
-	if (EnvMapMode == 1 && MetalSonicFlag != 0)
+	if (EnvMapMode == 1 && MetalSonicFlag)
 	{
 		EnvMapMode = 0;
 		EnvMap1 = 0.5f;

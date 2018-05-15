@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum OBJ_MOUNTAINTexName
 {
 	OBJ_MOUNTAINTexName_q64wall,
@@ -1854,3 +1858,5 @@ NJS_VECTOR normalSTG05_02081FF0[] = {
 NJS_MODEL_SADX attachSTG05_02082110 = { vertexSTG05_02081ED0, normalSTG05_02081FF0, LengthOfArray<Sint32>(vertexSTG05_02081ED0), meshlistSTG05_02081E98, matlistSTG05_02081D98, LengthOfArray<Uint16>(meshlistSTG05_02081E98), LengthOfArray<Uint16>(matlistSTG05_02081D98),{ 0, 0.125f, 0 }, 2.651985f, NULL };
 
 NJS_OBJECT objectSTG05_0208213C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attachSTG05_02082110, 0, 0, 0, 0, 0, 0, 1, 1, 1, &objectSTG05_02081D64, NULL };
+
+#pragma warning(pop)

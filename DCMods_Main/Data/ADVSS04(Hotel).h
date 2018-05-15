@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //sea vcolor
 
 NJS_COLOR vcolor_001B6370[] = {
@@ -18135,3 +18138,5 @@ COL collist_00134D10[] = {
 };
 
 LandTable landtable_00135A90 = { LengthOfArray(collist_00134D10), 0, 0xC, 1500, collist_00134D10, NULL, "ADVSS04", (NJS_TEXLIST *)&texlist_advss04 , 0, 0 };
+
+#pragma warning(pop)

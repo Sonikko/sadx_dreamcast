@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistR_0000A610[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 68, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_FLIP_V | NJD_FLAG_FLIP_U | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 67, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_V | NJD_FLAG_FLIP_U | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -17274,3 +17278,5 @@ GeoAnimData animlistR_0000A5F8[] = {
 };
 
 LandTable landtable_00000180 = { LengthOfArray(collist_00009FA4), 0, 9, 0, collist_00009FA4, animlistR_0000A5F8, "E101R_TIKEI", (NJS_TEXLIST *)0x16B460C, 0, 0 };
+
+#pragma warning(pop)

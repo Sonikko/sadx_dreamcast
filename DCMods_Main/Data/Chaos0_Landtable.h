@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlist_00005B5C[] = {
 	{ { 0x00B2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -11261,3 +11265,5 @@ NJS_TEXLIST chaos0_object = { arrayptrandlength(chaos0_obj_tex) };
 //Initialize the landtable
 
 LandTable landtable_000001D8 = { LengthOfArray(collist_00005280), 0, 8, 0, collist_00005280, NULL, "LM_CHAOS0", (NJS_TEXLIST *)&texlist_chaos0 , 0, 0 }; //Replace the second NULL with the name of the PVM, replace the addres after (NJS_TEXLIST *) with "&texlist"
+
+#pragma warning(pop)

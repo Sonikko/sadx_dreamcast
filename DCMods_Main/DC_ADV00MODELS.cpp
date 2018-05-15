@@ -1,6 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "textures.h"
 #include "SS_Objects.h"
 #include "ADVSS00(CityHall).h"
@@ -11,8 +9,6 @@
 #include "ADVSS04Collision.h"
 #include "ADVSS04(Hotel).h"
 #include "ADVSS05(TwinkleParkEntrance).h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 static int anim1 = 46;
 static int anim2 = 183;
@@ -855,7 +851,6 @@ void NPCModelsFunction(NJS_MATERIAL* material)
 
 void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SETSS00A");
 	ReplaceBIN_DC("SETSS00B");
 	ReplaceBIN_DC("SETSS00E");

@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistCHAO_000015E8[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 44, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 42, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_FLIP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -8730,3 +8734,5 @@ NJS_TEXNAME textures_ecgarden[84];
 NJS_TEXLIST texlist_ecgarden = { arrayptrandlength(textures_ecgarden) };
 
 LandTable landtable_0000DF3C = { LengthOfArray(collist_0000DC0C), LengthOfArray(animlist_0000DF24), 0xD, 1700, collist_0000DC0C, animlist_0000DF24, "GARDEN01", (NJS_TEXLIST *)&texlist_ecgarden, 0, 0 };
+
+#pragma warning(pop)

@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum EC_TORNADOTexName
 {
 	EC_TORNADOTexName_s_edc_n_bor,
@@ -2570,3 +2573,5 @@ NJS_VECTOR normalADV01_0024F0A8[] = {
 NJS_MODEL_SADX attachADV01_0024FFCC = { vertexADV01_0024E180, normalADV01_0024F0A8, LengthOfArray<Sint32>(vertexADV01_0024E180), meshlistADV01_0024DCB0, matlistADV01_0024BE40, LengthOfArray<Uint16>(meshlistADV01_0024DCB0), LengthOfArray<Uint16>(matlistADV01_0024BE40),{ -0.068624f, 18.30081f, -1.914387f }, 26.51749f, NULL };
 
 NJS_OBJECT objectADV01_0024FFF8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachADV01_0024FFCC, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)
