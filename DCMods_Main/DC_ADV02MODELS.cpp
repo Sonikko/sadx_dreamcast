@@ -497,8 +497,14 @@ void ADV02_OnFrame()
 	if (GameState != 16 && CurrentLevel == 33 && CurrentAct == 0)
 	{
 		if (GameMode == GameModes_Mission && CurrentCharacter == 5) collist_00015E60[LengthOfArray(collist_00015E60) - 1].Flags = 0x00000001; else collist_00015E60[LengthOfArray(collist_00015E60) - 1].Flags = 0x00000000;
-		for (int q = 0; q < LengthOfArray(uvADV02_00075EC0); q++) uvADV02_00075EC0[q].v = uvADV02_00075EC0_0[q].v + uvADV02_anim;
-		for (int q2 = 0; q2 < LengthOfArray(uvADV02_000755A4); q2++)	uvADV02_000755A4[q2].v = uvADV02_000755A4_0[q2].v - uvADV02_anim;
+		for (unsigned int q = 0; q < LengthOfArray(uvADV02_00075EC0); q++)
+		{
+			uvADV02_00075EC0[q].v = uvADV02_00075EC0_0[q].v + uvADV02_anim;
+		}
+		for (unsigned int q2 = 0; q2 < LengthOfArray(uvADV02_000755A4); q2++)
+		{
+			uvADV02_000755A4[q2].v = uvADV02_000755A4_0[q2].v - uvADV02_anim;
+		}
 		if (anim1 > 139) anim1 = 130;
 		if (anim2 > 154) anim2 = 140;
 		if (anim_sadx > 170) anim_sadx = 156;
@@ -574,10 +580,25 @@ void ADV02_OnFrame()
 			}
 		}
 
-		for (int q6 = 0; q6 < LengthOfArray(uvADV02_00162054); q6++) { uvADV02_00162054[q6].v = uvADV02_00162054_0[q6].v + uvADV02_anim; }
-		for (int q7 = 0; q7 < LengthOfArray(uvADV02_001622D8); q7++) { uvADV02_001622D8[q7].v = uvADV02_001622D8_0[q7].v + uvADV02_anim; }
-		for (int q3 = 0; q3 < LengthOfArray(uvADV02_00160D9C); q3++) { uvADV02_00160D9C[q3].v = uvADV02_00160D9C_0[q3].v - uvADV02_anim; }
-		for (int q4 = 0; q4 < LengthOfArray(uvADV02_0016166C); q4++) { uvADV02_0016166C[q4].v = uvADV02_0016166C_0[q4].v + uvADV02_anim; }
-		for (int q5 = 0; q5 < LengthOfArray(uvADV02_00161C18); q5++) { uvADV02_00161C18[q5].v = uvADV02_00161C18_0[q5].v + uvADV02_anim; }
+		for (unsigned int q6 = 0; q6 < LengthOfArray(uvADV02_00162054); q6++)
+		{
+			uvADV02_00162054[q6].v = uvADV02_00162054_0[q6].v + uvADV02_anim;
+		}
+		for (unsigned int q7 = 0; q7 < LengthOfArray(uvADV02_001622D8); q7++)
+		{
+			uvADV02_001622D8[q7].v = uvADV02_001622D8_0[q7].v + uvADV02_anim;
+		}
+		for (unsigned int q3 = 0; q3 < LengthOfArray(uvADV02_00160D9C); q3++)
+		{
+			uvADV02_00160D9C[q3].v = uvADV02_00160D9C_0[q3].v - uvADV02_anim;
+		}
+		for (unsigned int q4 = 0; q4 < LengthOfArray(uvADV02_0016166C); q4++)
+		{
+			uvADV02_0016166C[q4].v = uvADV02_0016166C_0[q4].v + uvADV02_anim;
+		}
+		for (unsigned int q5 = 0; q5 < LengthOfArray(uvADV02_00161C18); q5++)
+		{
+			uvADV02_00161C18[q5].v = uvADV02_00161C18_0[q5].v + uvADV02_anim;
+		}
 	}
 }

@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlist_02FD0F64[] = {
 	{ { 0xFFFFFFFF },{ 0x00000000 }, 0, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -32665,3 +32669,5 @@ GeoAnimData animlist_03005E3C[] = {
 };
 
 LandTable landtable_03005E54 = { LengthOfArray(collist_03005290), LengthOfArray(animlist_03005E3C), 0xD, 5000, collist_03005290, animlist_03005E3C, "garden01ec", (NJS_TEXLIST *)0x33D0F5C, 0, 0 };
+
+#pragma warning(pop)

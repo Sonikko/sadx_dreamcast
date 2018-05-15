@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //Platform for plane
 
 NJS_MATERIAL matlistADV02_001DCFAC[] = {
@@ -7554,3 +7558,5 @@ NJS_VECTOR normalADV02_00068EE8[] = {
 NJS_MODEL_SADX attachADV02_0006908C = { vertexADV02_00068D40, normalADV02_00068EE8, LengthOfArray<Sint32>(vertexADV02_00068D40), meshlistADV02_00068CD0, matlistADV02_00068B10, LengthOfArray<Uint16>(meshlistADV02_00068CD0), LengthOfArray<Uint16>(matlistADV02_00068B10),{ -1.697632f, 14.51185f, -20.99408f }, 74.42575f, NULL };
 
 NJS_OBJECT objectADV02_000690B8 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachADV02_0006908C, 1432.5f, 240, 780, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

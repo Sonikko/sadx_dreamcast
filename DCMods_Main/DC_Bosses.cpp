@@ -1263,7 +1263,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		matlist_00F98C98[3].diffuse.color = 0xFFB2B2B2;
 		matlist_00F98C98[4].diffuse.color = 0xFFB2B2B2;
 		matlist_00F98C98[5].diffuse.color = 0xFFB2B2B2;
-		for (int p = 0; p < LengthOfArray(PerfectChaosCars); p++)
+		for (unsigned int p = 0; p < LengthOfArray(PerfectChaosCars); p++)
 		{
 			PerfectChaosCars[p]->diffuse.argb.r = 0xB2;
 			PerfectChaosCars[p]->diffuse.argb.g = 0xB2;

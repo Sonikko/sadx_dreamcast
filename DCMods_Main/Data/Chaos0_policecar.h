@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum CHAOS0_OBJECTTexName
 {
 	CHAOS0_OBJECTTexName_patlight_a,
@@ -2743,3 +2746,5 @@ NJS_VECTOR normal_01DFDE18[] = {
 NJS_MODEL_SADX attach_01DFDE48 = { vertex_01DFDDE8, normal_01DFDE18, LengthOfArray<Sint32>(vertex_01DFDDE8), meshlist_01DFDDCC, matlist_01DFDD9C, LengthOfArray<Uint16>(meshlist_01DFDDCC), LengthOfArray<Uint16>(matlist_01DFDD9C),{ 0, -0.00001f, 0.000004f }, 5, NULL };
 
 NJS_OBJECT spotlight = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_01DFDE48, 291.83f, 0.1f, 385.525f, 0x4000, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

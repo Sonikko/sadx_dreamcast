@@ -169,7 +169,7 @@ void RedMountain_OnFrame()
 	{
 		UVShift1 = (UVShift1 - 1 * FramerateSetting) % 255;
 		UVShift2 = (UVShift2 - 2 * FramerateSetting) % 255;
-		for (int q = 0; q < LengthOfArray(uvSTG05_0206C9F0); q++)
+		for (unsigned int q = 0; q < LengthOfArray(uvSTG05_0206C9F0); q++)
 		{
 			uvSTG05_0206C9F0[q].u = uvSTG05_0206C9F0_0[q].u + UVShift1;
 			uvSTG05_0206C9F0_2[q].u = uvSTG05_0206C9F0_0[q].u + UVShift2;

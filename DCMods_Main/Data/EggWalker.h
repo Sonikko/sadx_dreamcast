@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlist_00045D38[] = {
 	{ { 0xFFFFFDFF },{ 0xFFFFFFFF }, 11, 12, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFFFFFFF },{ 0xFFFFFFFF }, 11, 12, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -36652,3 +36656,5 @@ NJS_TEXNAME textures_eggwalker[231];
 NJS_TEXLIST texlist_eggwalker = { arrayptrandlength(textures_eggwalker) };
 
 LandTable landtable_0000022C = { LengthOfArray(collist_00043230), 0, 0xC, 10000, collist_00043230, NULL, "EGM2_TIKEI", (NJS_TEXLIST *)&texlist_eggwalker, 0, 0 };
+
+#pragma warning(pop)

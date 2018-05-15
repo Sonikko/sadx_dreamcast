@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 Sint16 polySTG08_000C58F4[] = {
 	4, 3, 40, 2, 41,
 	4, 2, 41, 1, 42,
@@ -67855,3 +67859,4 @@ NJS_TEXLIST texlist_icecap3 = { arrayptrandlength(textures_icecap3) };
 
 LandTable landtable_000180B4 = { LengthOfArray(collist_00015738), 0, 8, 0, collist_00015738, NULL, "ICECAP03", (NJS_TEXLIST *)&texlist_icecap3, 0, 0 };
 
+#pragma warning(pop)

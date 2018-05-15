@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //GOMA
 
 NJS_MATERIAL matlist_001564E8[] = {
@@ -3699,3 +3703,5 @@ NJS_MDATA2 _17725C_mdat[] = {
 NJS_MOTION _17725C = { _17725C_mdat, 17, NJD_MTYPE_POS_0 | NJD_MTYPE_ANG_1, 2 };
 
 NJS_ACTION action__17725C = { &object_0017579C, &_17725C };
+
+#pragma warning(pop)

@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistSTG09_000D87C0[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 69, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 11, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
@@ -28342,3 +28346,5 @@ NJS_TEXNAME textures_casino4[71];
 NJS_TEXLIST texlist_casino4 = { arrayptrandlength(textures_casino4) };
 
 LandTable landtable_000D8440 = { LengthOfArray(collist_000D727C), LengthOfArray(animlist_000D83C8), 9, 1800, collist_000D727C, animlist_000D83C8, "CASINO04", (NJS_TEXLIST *)&texlist_casino4, 0, 0 };
+
+#pragma warning(pop)

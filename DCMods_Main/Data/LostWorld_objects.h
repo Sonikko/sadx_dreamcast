@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum OBJ_RUINTexName
 {
 	OBJ_RUINTexName_ama_lw076,
@@ -8215,3 +8219,5 @@ NJS_VECTOR normalSTG07_00151BE4[] = {
 NJS_MODEL_SADX attachSTG07_00151E30 = { vertexSTG07_00151998, normalSTG07_00151BE4, LengthOfArray<Sint32>(vertexSTG07_00151998), meshlistSTG07_00151920, matlistSTG07_00151660, LengthOfArray<Uint16>(meshlistSTG07_00151920), LengthOfArray<Uint16>(matlistSTG07_00151660),{ 0, 2.159907f, 0 }, 8.544377f, NULL };
 
 NJS_OBJECT objectSTG07_00151E58 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachSTG07_00151E30, 0, 0.6f, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

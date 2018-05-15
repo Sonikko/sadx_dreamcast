@@ -13,8 +13,8 @@ static int anim5 = 50;
 static int anim6 = 65;
 static int anim7 = 57;
 static int anim8 = 80;
-static float float1 = 0.02;
-static float float2 = 66.0;
+static float float1 = 0.02f;
+static float float2 = 66.0f;
 static int SkyboxHidden = 0;
 static int beachsea_water = 0;
 static int animframe = 0;
@@ -195,7 +195,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			{
 				u2_add = int(255 * (v1->Position.x - oldpos.x) / unitsize_u_small) % 255;
 				if (SADXStyleWater == true) u2_add = roundfloat(1.5f * u2_add);
-				for (int u_step = 0; u_step < LengthOfArray(uvSTG01_00CBB000_d); u_step++)
+				for (unsigned int u_step = 0; u_step < LengthOfArray(uvSTG01_00CBB000_d); u_step++)
 				{
 					uvSTG01_00CBB000_data[u_step].u = uvSTG01_00CBB000_data[u_step].u - u2_add;
 					u2_delta = uvSTG01_00CBB000_data[u_step].u - uvSTG01_00CBB000_d[u_step].u;
@@ -207,7 +207,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			{
 				v2_add = int(255 * (v1->Position.z - oldpos.z) / unitsize_v_small) % 255;
 				if (SADXStyleWater == true) v2_add = roundfloat(0.5f * v2_add);
-				for (int v_step = 0; v_step < LengthOfArray(uvSTG01_00CBB000_d); v_step++)
+				for (unsigned int v_step = 0; v_step < LengthOfArray(uvSTG01_00CBB000_d); v_step++)
 				{
 					uvSTG01_00CBB000_data[v_step].v = uvSTG01_00CBB000_data[v_step].v - v2_add;
 					v2_delta = uvSTG01_00CBB000_data[v_step].v - uvSTG01_00CBB000_d[v_step].v;
@@ -527,7 +527,7 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 4].Flags = 0x80000402;
 		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 5].Flags = 0x80000402;
 		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 6].Flags = 0x80000402;
-		for (int rq = 0; rq < LengthOfArray(uvSTG01_00CBB000_d); rq++)
+		for (unsigned int rq = 0; rq < LengthOfArray(uvSTG01_00CBB000_d); rq++)
 		{
 			uvSTG01_00CBB000_d[rq].u = round(0.5 * uvSTG01_00CBB000_d[rq].u);
 			uvSTG01_00CBB000_d[rq].v = round(0.5 * uvSTG01_00CBB000_d[rq].v);
@@ -656,12 +656,12 @@ void EmeraldCoast_OnFrame()
 		//Restore ocean UVs on level exit/restart
 		if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
 		{
-			for (int r = 0; r < LengthOfArray(uvSTG01_00CC0530_d); r++)
+			for (unsigned int r = 0; r < LengthOfArray(uvSTG01_00CC0530_d); r++)
 			{
 				uvSTG01_00CC0530[r].u = uvSTG01_00CC0530_d[r].u;
 				uvSTG01_00CC0530[r].v = uvSTG01_00CC0530_d[r].v;
 			}
-			for (int r2 = 0; r2 < LengthOfArray(uvSTG01_00CBB000_d); r2++)
+			for (unsigned int r2 = 0; r2 < LengthOfArray(uvSTG01_00CBB000_d); r2++)
 			{
 				uvSTG01_00CBB000_data[r2].u = uvSTG01_00CBB000_d[r2].u;
 				uvSTG01_00CBB000_data[r2].v = uvSTG01_00CBB000_d[r2].v;

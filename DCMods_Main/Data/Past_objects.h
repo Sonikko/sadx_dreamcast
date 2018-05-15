@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //OWell
 
 NJS_MATERIAL matlistADV03_00015070[] = {
@@ -982,3 +985,5 @@ NJS_VECTOR normalADV03_000165AC[] = {
 NJS_MODEL_SADX attachADV03_00016C78 = { vertexADV03_00015EE0, normalADV03_000165AC, LengthOfArray<Sint32>(vertexADV03_00015EE0), meshlistADV03_00015E08, matlistADV03_0001521C, LengthOfArray<Uint16>(meshlistADV03_00015E08), LengthOfArray<Uint16>(matlistADV03_0001521C),{ -2, 20.5f, 0 }, 58.30952f, NULL };
 
 NJS_OBJECT objectADV03_00016CA0 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attachADV03_00016C78, 0, 0, 0, 0, 0, 0, 1, 1, 1, &objectADV03_000151E8, NULL };
+
+#pragma warning(pop)

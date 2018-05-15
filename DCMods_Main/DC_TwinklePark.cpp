@@ -451,7 +451,7 @@ void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Cart fixes
 	WriteCall((void*)0x00796F0C, CartFunction);
 	*(NJS_MODEL_SADX*)0x038B907C = attachSTG03_034B907C_2; //Cart (Sonic)
-	for (int c = 0; c < LengthOfArray(CartMaterials); c++)
+	for (unsigned int c = 0; c < LengthOfArray(CartMaterials); c++)
 	{
 		CartMaterials[c]->diffuse.argb.r = 178;
 		CartMaterials[c]->diffuse.argb.g = 178;

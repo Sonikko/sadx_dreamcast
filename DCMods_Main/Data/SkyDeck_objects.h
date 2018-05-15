@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 // Trolley
 
 NJS_MATERIAL matlistSTG06_0014CAE0[] = {
@@ -42147,3 +42150,5 @@ NJS_MODEL_SADX attachSTG06_0011E83C_2 = { vertexSTG06_0011E50C, normalSTG06_0011
 NJS_OBJECT objectSTG06_0011E864_2 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachSTG06_0011E83C, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_OBJECT objectSTG06_0011E864 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attachSTG06_0011E83C, 0, 0, 0, 0, 0, 0, 1, 1, 1, &objectSTG06_0011E864_2, NULL };
+
+#pragma warning(pop)

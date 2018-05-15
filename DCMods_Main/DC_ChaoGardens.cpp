@@ -4385,13 +4385,13 @@ void ChaoGardens_OnFrame()
 		if (ssgardenwater > 9) ssgardenwater = 0;
 		matlistCHAO_00011388[0].attr_texId = ssgardenwater;
 		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ssgardenwater++;
-		for (int q = 0; q < LengthOfArray(uvCHAO_000144F0); q++)
+		for (unsigned int q = 0; q < LengthOfArray(uvCHAO_000144F0); q++)
 		{
 			uvCHAO_000144F0[q].v = uvCHAO_000144F0[q].v - 2;
 		}
 		if (uvCHAO_000144F0[0].v < 0)
 		{
-			for (int q2 = 0; q2 < LengthOfArray(uvCHAO_000144F0); q2++)
+			for (unsigned int q2 = 0; q2 < LengthOfArray(uvCHAO_000144F0); q2++)
 			{
 				uvCHAO_000144F0[q2].v = uvCHAO_000144F0R[q2].v;
 			}
@@ -4416,10 +4416,10 @@ void ChaoGardens_OnFrame()
 	//Mystic Ruins garden
 	if (CurrentChaoStage == 6 && GameState != 16 && EnableMRGarden == true)
 	{
-		for (int q3 = 0; q3 < LengthOfArray(uvCHAO_0000F184); q3++) { uvCHAO_0000F184[q3].v--; }
+		for (unsigned int q3 = 0; q3 < LengthOfArray(uvCHAO_0000F184); q3++) { uvCHAO_0000F184[q3].v--; }
 		if (uvCHAO_0000F184[2].v <= -255)
 		{
-			for (int r5 = 0; r5 < LengthOfArray(uvCHAO_0000F184); r5++)
+			for (unsigned int r5 = 0; r5 < LengthOfArray(uvCHAO_0000F184); r5++)
 			{
 				uvCHAO_0000F184[r5].v = uvCHAO_0000F184_R[r5].v;
 			}
@@ -4525,13 +4525,13 @@ void ChaoGardens_OnFrame()
 		matlistCHAO_0003EFB0[0].attr_texId = chaoracewater;
 		matlistCHAO_0003F2DC[0].attr_texId = chaoracewater;
 		if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) chaoracewater++;
-		for (int w = 0; w < LengthOfArray(uvCHAO_00045AF4); w++)
+		for (unsigned int w = 0; w < LengthOfArray(uvCHAO_00045AF4); w++)
 		{
 			uvCHAO_00045AF4[w].v = uvCHAO_00045AF4[w].v - 6;
 		}
 		if (uvCHAO_00045AF4[0].v < -253)
 		{
-			for (int w2 = 0; w2 < LengthOfArray(uvCHAO_00045AF4); w2++)
+			for (unsigned int w2 = 0; w2 < LengthOfArray(uvCHAO_00045AF4); w2++)
 			{
 				uvCHAO_00045AF4[w2].v = uvCHAO_00045AF4R[w2].v;
 			}

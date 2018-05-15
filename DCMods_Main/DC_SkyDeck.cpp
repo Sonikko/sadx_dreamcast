@@ -804,7 +804,7 @@ void SkyDeck_OnFrame()
 	{
 		UVShift1 = (UVShift1 - 4 * FramerateSetting) % 255;
 		UVShift2 = (UVShift2 - 2 * FramerateSetting) % 255;
-		for (int q = 0; q < LengthOfArray(uvSTG06_01D4BE68); q++)
+		for (unsigned int q = 0; q < LengthOfArray(uvSTG06_01D4BE68); q++)
 		{
 			uvSTG06_01D4BE68[q].u = uvSTG06_01D4BE68_0[q].u + UVShift2;
 			uvSTG06_01D4E2F4[q].u = uvSTG06_01D4E2F4_0[q].u + UVShift2;

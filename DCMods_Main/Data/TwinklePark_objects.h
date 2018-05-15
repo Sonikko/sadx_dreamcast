@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum OBJ_SHAREOBJTexName
 {
 	OBJ_SHAREOBJTexName_eisei01,
@@ -14795,3 +14799,5 @@ NJS_VECTOR normalSTG03_034C2290[] = {
 NJS_MODEL_SADX attachSTG03_034C2320 = { vertexSTG03_034C2200, normalSTG03_034C2290, LengthOfArray<Sint32>(vertexSTG03_034C2200), meshlistSTG03_034C21E4, matlistSTG03_034C2180, LengthOfArray<Uint16>(meshlistSTG03_034C21E4), LengthOfArray<Uint16>(matlistSTG03_034C2180), { 0.000002f, 120.3172f, 0 }, 121.7221f, NULL };
 
 NJS_OBJECT objectSTG03_034C234C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachSTG03_034C2320, 0, 44.15f, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

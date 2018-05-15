@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4838)
+
 NJS_TEXNAME textures_famitsu[3];
 NJS_TEXLIST texlist_famitsu = { arrayptrandlength(textures_famitsu) };
 
@@ -184,3 +187,4 @@ NJS_OBJECT balloon_start = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UN
 
 NJS_OBJECT balloon_finish = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00000494_2, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
+#pragma warning(pop)

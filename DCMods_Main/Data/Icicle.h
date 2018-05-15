@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //Crystal 1
 
 NJS_MATERIAL matlistSTG08_00A758EC[] = {
@@ -2127,3 +2131,5 @@ NJS_VECTOR normalSTG08_00A6F138[] = {
 NJS_MODEL_SADX attachSTG08_00A6F264 = { vertexSTG08_00A6F008, normalSTG08_00A6F138, LengthOfArray<Sint32>(vertexSTG08_00A6F008), meshlistSTG08_00A6EFE8, matlistSTG08_00A6EE60, LengthOfArray<Uint16>(meshlistSTG08_00A6EFE8), LengthOfArray<Uint16>(matlistSTG08_00A6EE60),{ 0, -74.66666f, 0.000015f }, 181.3601f, NULL };
 
 NJS_OBJECT objectSTG08_00A6F290 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attachSTG08_00A6F264, 0, 0, 0, 0, 0, 0, 1, 1, 1, &objectSTG08_00A6EE2C, NULL };
+
+#pragma warning(pop)

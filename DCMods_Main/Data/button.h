@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum MROBJTexName
 {
 	MROBJTexName_mr_032n_hac,
@@ -1070,3 +1073,5 @@ NJS_VECTOR normalADV02_00115198[] = {
 NJS_MODEL_SADX attachADV02_00115270 = { vertexADV02_001150C0, normalADV02_00115198, LengthOfArray(vertexADV02_001150C0), meshlistADV02_001150A0, matlistADV02_00114FA8, LengthOfArray(meshlistADV02_001150A0), LengthOfArray(matlistADV02_00114FA8),{ 0.000153f, 81.75136f, -127.2933f }, 362.7187f, NULL };
 
 NJS_OBJECT objectADV02_0011529C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachADV02_00115270, 99.90008f, -57.9514f, -33.35566f, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

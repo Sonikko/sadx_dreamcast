@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //Maximum Heat aura
 
 NJS_MATERIAL matlist_003288AC[] = {
@@ -289,3 +292,5 @@ NJS_VECTOR normal_00328EE0[] = {
 NJS_MODEL_SADX attach_00329198 = { vertex_00328C28, normal_00328EE0, LengthOfArray<Sint32>(vertex_00328C28), meshlist_00328C08, matlist_003288AC, LengthOfArray<Uint16>(meshlist_00328C08), LengthOfArray<Uint16>(matlist_003288AC),{ 0 }, 9.572806f, NULL };
 
 NJS_OBJECT object_003291C4 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00329198, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

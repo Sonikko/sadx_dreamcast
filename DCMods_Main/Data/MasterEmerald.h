@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //Complete
 
 NJS_MATERIAL matlistADV02_001C6A18[] = {
@@ -490,3 +494,5 @@ NJS_VECTOR normalADV02_0007C360[] = {
 };
 
 NJS_MODEL_SADX attachADV02_0007C3B8 = { vertexADV02_0007C388, normalADV02_0007C360, LengthOfArray<Sint32>(vertexADV02_0007C388), meshlistADV02_0007C36C, matlistADV02_0007C334, LengthOfArray<Uint16>(meshlistADV02_0007C36C), LengthOfArray<Uint16>(matlistADV02_0007C334),{ 0 }, 14.14214f, NULL };
+
+#pragma warning(pop)

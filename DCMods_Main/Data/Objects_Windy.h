@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //Branch (O TreeM)
 
 NJS_MATERIAL matlist_00824370[] = {
@@ -7396,3 +7400,5 @@ NJS_VECTOR normalSTG02_00830A68[] = {
 NJS_MODEL_SADX attachSTG02_00830C18 = { vertexSTG02_008308B8, normalSTG02_00830A68, LengthOfArray<Sint32>(vertexSTG02_008308B8), meshlistSTG02_00830880, matlistSTG02_008305D8, LengthOfArray<Uint16>(meshlistSTG02_00830880), LengthOfArray<Uint16>(matlistSTG02_008305D8),{ 0.000001f, -0.23f, -0.00009f }, 10.76965f, NULL };
 
 NJS_OBJECT objectSTG02_00830C44 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachSTG02_00830C18, 0, 12.1f, 24, 0, 0x10000, 0, 1, 1, 1, NULL, &objectSTG02_008305A4 };
+
+#pragma warning(pop)

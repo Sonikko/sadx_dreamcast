@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_TEXNAME textures_advss05[33];
 NJS_TEXLIST texlist_advss05 = { arrayptrandlength(textures_advss05) };
 
@@ -4067,3 +4071,5 @@ NJS_VECTOR normalADV00_001BB0E0[] = {
 NJS_MODEL_SADX attachADV00_001BB32C = { vertexADV00_001BAE90, normalADV00_001BB0E0, LengthOfArray(vertexADV00_001BAE90), meshlistADV00_001BAE70, matlistADV00_001BA9E4, LengthOfArray(meshlistADV00_001BAE70), LengthOfArray(matlistADV00_001BA9E4),{ -1205, 0, 1066.5f }, 3551.003f, NULL };
 
 NJS_OBJECT objectADV00_001BB358 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachADV00_001BB32C, 567.5f, -13, 1812, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

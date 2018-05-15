@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum CHAOS0TexName
 {
 	CHAOS0TexName_c2tx_brain,
@@ -9201,3 +9204,5 @@ NJS_OBJECT object_02866B44 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_
 NJS_OBJECT object_02866B78 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0x148, 1, 1, 1, &object_02866B44, NULL };
 
 NJS_OBJECT object_02866BAC = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0, 1, 1, 1, &object_02866B78, NULL };
+
+#pragma warning(pop)

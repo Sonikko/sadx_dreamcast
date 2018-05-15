@@ -43,7 +43,7 @@ FunctionPointer(void, sub_407870, (NJS_MODEL_SADX *model, char blend, float radi
 FunctionPointer(void, sub_405490, (NJS_ACTION *a1, float a2, int a3, int a4), 0x405490);
 FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 NJS_VECTOR Cowgirl1{ 457.6972f, 45.06788f, 390 };
-NJS_VECTOR Cowgirl2{ 340.3949, 51.20071, 480 };
+NJS_VECTOR Cowgirl2{ 340.3949f, 51.20071f, 480 };
 DataArray(CollisionData, stru_1E763B8, 0x1E763B8, 3);
 DataArray(NJS_TEX, uvSTG09_01A4BD38, 0x01E4BD38, LengthOfArray(uvSTG09_001C8C9C));
 DataArray(NJS_TEX, uvSTG09_01A4BD98, 0x01E4BD98, LengthOfArray(uvSTG09_001C8CFC));
@@ -831,27 +831,27 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Bumper1 fixes
 	((NJS_MODEL_SADX*)0x01D98CE8)->mats[0].attrflags |= NJD_FLAG_FLIP_U;
 	((NJS_MODEL_SADX*)0x01D99790)->mats[0].attrflags |= NJD_FLAG_FLIP_U;
-	for (int uvSTG09_bill1 = 0; uvSTG09_bill1 < LengthOfArray(uvSTG09_001E9ABC); uvSTG09_bill1++)
+	for (unsigned int uvSTG09_bill1 = 0; uvSTG09_bill1 < LengthOfArray(uvSTG09_001E9ABC); uvSTG09_bill1++)
 	{
 		bill1[uvSTG09_bill1].u = uvSTG09_001E9ABC[uvSTG09_bill1].u;
 		bill1[uvSTG09_bill1].v = uvSTG09_001E9ABC[uvSTG09_bill1].v;
 	}
-	for (int uvSTG09_bill2 = 0; uvSTG09_bill2 < LengthOfArray(uvSTG09_001E9BF4); uvSTG09_bill2++)
+	for (unsigned int uvSTG09_bill2 = 0; uvSTG09_bill2 < LengthOfArray(uvSTG09_001E9BF4); uvSTG09_bill2++)
 	{
 		bill2[uvSTG09_bill2].u = uvSTG09_001E9BF4[uvSTG09_bill2].u;
 		bill2[uvSTG09_bill2].v = uvSTG09_001E9BF4[uvSTG09_bill2].v;
 	}
-	for (int uvSTG09_bump = 0; uvSTG09_bump < LengthOfArray(uvSTG09_01998418); uvSTG09_bump++)
+	for (unsigned int uvSTG09_bump = 0; uvSTG09_bump < LengthOfArray(uvSTG09_01998418); uvSTG09_bump++)
 	{
 		bumpertex[uvSTG09_bump].u = uvSTG09_01998418[uvSTG09_bump].u;
 		bumpertex[uvSTG09_bump].v = uvSTG09_01998418[uvSTG09_bump].v;
 	}
-	for (int uvSTG09_bump = 0; uvSTG09_bump < LengthOfArray(uvSTG09_01998418); uvSTG09_bump++)
+	for (unsigned int uvSTG09_bump = 0; uvSTG09_bump < LengthOfArray(uvSTG09_01998418); uvSTG09_bump++)
 	{
 		bumpertex[uvSTG09_bump].u = uvSTG09_01998418[uvSTG09_bump].u;
 		bumpertex[uvSTG09_bump].v = uvSTG09_01998418[uvSTG09_bump].v;
 	}
-	for (int uvSTG09_bump2 = 0; uvSTG09_bump2 < LengthOfArray(uvSTG09_0011B8B4); uvSTG09_bump2++)
+	for (unsigned int uvSTG09_bump2 = 0; uvSTG09_bump2 < LengthOfArray(uvSTG09_0011B8B4); uvSTG09_bump2++)
 	{
 		bumpertex2[uvSTG09_bump2].u = uvSTG09_01998418[uvSTG09_bump2].u;
 		bumpertex2[uvSTG09_bump2].v = uvSTG09_01998418[uvSTG09_bump2].v;
@@ -938,59 +938,59 @@ void Casinopolis_OnFrame()
 			cowgirl_shift1 = (cowgirl_shift1 + 65) % 255;
 			cowgirl_shift2 = (cowgirl_shift2 + 100) % 510;
 
-			for (int slot_cow1 = 0; slot_cow1 < LengthOfArray(uvSTG09_001CF84C); slot_cow1++)
+			for (unsigned int slot_cow1 = 0; slot_cow1 < LengthOfArray(uvSTG09_001CF84C); slot_cow1++)
 			{
 				uvSTG09_001CF84C[slot_cow1].u = uvSTG09_001CF84C_0[slot_cow1].u + cowgirl_shift1;
 			}
-			for (int slot_cow2 = 0; slot_cow2 < LengthOfArray(uvSTG09_001D6728); slot_cow2++)
+			for (unsigned int slot_cow2 = 0; slot_cow2 < LengthOfArray(uvSTG09_001D6728); slot_cow2++)
 			{
 				uvSTG09_001D6728[slot_cow2].u = uvSTG09_001D6728_0[slot_cow2].u + cowgirl_shift2;
 			}
-			for (int slot_cow3 = 0; slot_cow3 < LengthOfArray(uvSTG09_001D6040); slot_cow3++)
+			for (unsigned int slot_cow3 = 0; slot_cow3 < LengthOfArray(uvSTG09_001D6040); slot_cow3++)
 			{
 				uvSTG09_001D6040[slot_cow3].u = uvSTG09_001D6040_0[slot_cow3].u + cowgirl_shift2;
 			}
-			for (int slot_cow4 = 0; slot_cow4 < LengthOfArray(uvSTG09_001D6794); slot_cow4++)
+			for (unsigned int slot_cow4 = 0; slot_cow4 < LengthOfArray(uvSTG09_001D6794); slot_cow4++)
 			{
 				uvSTG09_001D6794[slot_cow4].u = uvSTG09_001D6794_0[slot_cow4].u + cowgirl_shift2;
 			}
-			for (int slot_cow5 = 0; slot_cow5 < LengthOfArray(uvSTG09_001D67BC); slot_cow5++)
+			for (unsigned int slot_cow5 = 0; slot_cow5 < LengthOfArray(uvSTG09_001D67BC); slot_cow5++)
 			{
 				uvSTG09_001D67BC[slot_cow5].u = uvSTG09_001D67BC_0[slot_cow5].u + cowgirl_shift2;
 			}
-			for (int slot_cow6 = 0; slot_cow6 < LengthOfArray(uvSTG09_001D2F74); slot_cow6++)
+			for (unsigned int slot_cow6 = 0; slot_cow6 < LengthOfArray(uvSTG09_001D2F74); slot_cow6++)
 			{
 				uvSTG09_001D2F74[slot_cow6].u = uvSTG09_001D2F74_0[slot_cow6].u + cowgirl_shift2;
 			}
-			for (int slot_cow7 = 0; slot_cow7 < LengthOfArray(uvSTG09_001D308C); slot_cow7++)
+			for (unsigned int slot_cow7 = 0; slot_cow7 < LengthOfArray(uvSTG09_001D308C); slot_cow7++)
 			{
 				uvSTG09_001D308C[slot_cow7].u = uvSTG09_001D308C_0[slot_cow7].u + cowgirl_shift2;
 			}
-			for (int slot_cow8 = 0; slot_cow8 < LengthOfArray(uvSTG09_001D333C); slot_cow8++)
+			for (unsigned int slot_cow8 = 0; slot_cow8 < LengthOfArray(uvSTG09_001D333C); slot_cow8++)
 			{
 				uvSTG09_001D333C[slot_cow8].u = uvSTG09_001D333C_0[slot_cow8].u + cowgirl_shift2;
 			}
-			for (int slot_cow9 = 0; slot_cow9 < LengthOfArray(uvSTG09_001D4868); slot_cow9++)
+			for (unsigned int slot_cow9 = 0; slot_cow9 < LengthOfArray(uvSTG09_001D4868); slot_cow9++)
 			{
 				uvSTG09_001D4868[slot_cow9].u = uvSTG09_001D4868_0[slot_cow9].u + cowgirl_shift2;
 			}
-			for (int slot_cow10 = 0; slot_cow10 < LengthOfArray(uvSTG09_001D16E4); slot_cow10++)
+			for (unsigned int slot_cow10 = 0; slot_cow10 < LengthOfArray(uvSTG09_001D16E4); slot_cow10++)
 			{
 				uvSTG09_001D16E4[slot_cow10].u = uvSTG09_001D16E4_0[slot_cow10].u + cowgirl_shift2;
 			}
-			for (int slot_cow11 = 0; slot_cow11 < LengthOfArray(uvSTG09_001D02D0); slot_cow11++)
+			for (unsigned int slot_cow11 = 0; slot_cow11 < LengthOfArray(uvSTG09_001D02D0); slot_cow11++)
 			{
 				uvSTG09_001D02D0[slot_cow11].u = uvSTG09_001D02D0_0[slot_cow11].u + cowgirl_shift2;
 			}
-			for (int slot_cow12 = 0; slot_cow12 < LengthOfArray(uvSTG09_001D043C); slot_cow12++)
+			for (unsigned int slot_cow12 = 0; slot_cow12 < LengthOfArray(uvSTG09_001D043C); slot_cow12++)
 			{
 				uvSTG09_001D043C[slot_cow12].u = uvSTG09_001D043C_0[slot_cow12].u + cowgirl_shift2;
 			}
-			for (int slot_cow13 = 0; slot_cow13 < LengthOfArray(uvSTG09_001D1F60); slot_cow13++)
+			for (unsigned int slot_cow13 = 0; slot_cow13 < LengthOfArray(uvSTG09_001D1F60); slot_cow13++)
 			{
 				uvSTG09_001D1F60[slot_cow13].u = uvSTG09_001D1F60_0[slot_cow13].u + cowgirl_shift2;
 			}
-			for (int slot_cow14 = 0; slot_cow14 < LengthOfArray(uvSTG09_001D1F78); slot_cow14++)
+			for (unsigned int slot_cow14 = 0; slot_cow14 < LengthOfArray(uvSTG09_001D1F78); slot_cow14++)
 			{
 				uvSTG09_001D1F78[slot_cow14].u = uvSTG09_001D1F78_0[slot_cow14].u + cowgirl_shift2;
 			}
@@ -1053,68 +1053,68 @@ void Casinopolis_OnFrame()
 		{
 			shift3 = (shift3 + 127) % 255;
 		}
-		for (int xz2 = 0; xz2 < LengthOfArray(uv_lion); xz2++)
+		for (unsigned int xz2 = 0; xz2 < LengthOfArray(uv_lion); xz2++)
 		{
 			uv_lion[xz2].u = (uv_lion_0[xz2].u - shift3);
 		}
 		if (FrameCounter % 12 == 0)
 		{
 			shift1 = (shift1 + 65) % 255;
-			for (int slot_uv1 = 0; slot_uv1 < LengthOfArray(uvSTG09_001C7570); slot_uv1++)
+			for (unsigned int slot_uv1 = 0; slot_uv1 < LengthOfArray(uvSTG09_001C7570); slot_uv1++)
 			{
 				uvSTG09_001C7570[slot_uv1].u = uvSTG09_001C7570_0[slot_uv1].u + shift1;
 			}
-			for (int slot_uv2 = 0; slot_uv2 < LengthOfArray(uvSTG09_001C75E0); slot_uv2++)
+			for (unsigned int slot_uv2 = 0; slot_uv2 < LengthOfArray(uvSTG09_001C75E0); slot_uv2++)
 			{
 				uvSTG09_001C75E0[slot_uv2].u = uvSTG09_001C75E0_0[slot_uv2].u + shift1;
 			}
-			for (int slot_uv3 = 0; slot_uv3 < LengthOfArray(uvSTG09_001C7748); slot_uv3++)
+			for (unsigned int slot_uv3 = 0; slot_uv3 < LengthOfArray(uvSTG09_001C7748); slot_uv3++)
 			{
 				uvSTG09_001C7748[slot_uv3].u = uvSTG09_001C7748_0[slot_uv3].u + shift1;
 			}
-			for (int slotmachine1 = 0; slotmachine1 < LengthOfArray(uvSTG09_001767D8); slotmachine1++)
+			for (unsigned int slotmachine1 = 0; slotmachine1 < LengthOfArray(uvSTG09_001767D8); slotmachine1++)
 			{
 				uvSTG09_001767D8[slotmachine1].u = uvSTG09_001767D8_0[slotmachine1].u + shift1;
 			}
-			for (int slotmachine2 = 0; slotmachine2 < LengthOfArray(uvSTG09_00175494); slotmachine2++)
+			for (unsigned int slotmachine2 = 0; slotmachine2 < LengthOfArray(uvSTG09_00175494); slotmachine2++)
 			{
 				uvSTG09_00175494[slotmachine2].u = uvSTG09_00175494_0[slotmachine2].u + shift1;
 			}
 
-			for (int card_uv1 = 0; card_uv1 < LengthOfArray(uvSTG09_001C6200); card_uv1++)
+			for (unsigned int card_uv1 = 0; card_uv1 < LengthOfArray(uvSTG09_001C6200); card_uv1++)
 			{
 				uvSTG09_001C6200[card_uv1].u = uvSTG09_001C6200_0[card_uv1].u + shift1;
 			}
-			for (int card_uv1 = 0; card_uv1 < LengthOfArray(uvSTG09_001C6200); card_uv1++)
+			for (unsigned int card_uv1 = 0; card_uv1 < LengthOfArray(uvSTG09_001C6200); card_uv1++)
 			{
 				uvSTG09_001C6200[card_uv1].u = uvSTG09_001C6200_0[card_uv1].u + shift1;
 			}
-			for (int card_uv2 = 0; card_uv2 < LengthOfArray(uvSTG09_001C63EC); card_uv2++)
+			for (unsigned int card_uv2 = 0; card_uv2 < LengthOfArray(uvSTG09_001C63EC); card_uv2++)
 			{
 				uvSTG09_001C63EC[card_uv2].u = uvSTG09_001C63EC_0[card_uv2].u + shift1;
 			}
-			for (int card_uv3 = 0; card_uv3 < LengthOfArray(uvSTG09_001C646C); card_uv3++)
+			for (unsigned int card_uv3 = 0; card_uv3 < LengthOfArray(uvSTG09_001C646C); card_uv3++)
 			{
 				uvSTG09_001C646C[card_uv3].u = uvSTG09_001C646C_0[card_uv3].u + shift1;
 			}
-			for (int xz = 0; xz < LengthOfArray(uvSTG09_01A48AD8); xz++)
+			for (unsigned int xz = 0; xz < LengthOfArray(uvSTG09_01A48AD8); xz++)
 			{
 				uvSTG09_01A48AD8[xz].u = (uvSTG09_01A48AD8_0[xz].u + shift1);
 			}
 		}
 		//Waterfalls
 		shift2 = (shift2 - 10) % 255;
-		for (int q = 0; q < LengthOfArray(uvSTG09_01A47B78); q++)
+		for (unsigned int q = 0; q < LengthOfArray(uvSTG09_01A47B78); q++)
 		{
 			uvSTG09_01A47B78[q].v = uvSTG09_01A47B78_0[q].v + shift2;
 		}
 
-		for (int q2 = 0; q2 < LengthOfArray(uvSTG09_01A47468); q2++)
+		for (unsigned int q2 = 0; q2 < LengthOfArray(uvSTG09_01A47468); q2++)
 		{
 			uvSTG09_01A47468[q2].v = uvSTG09_01A47468_0[q2].v + shift2;
 		}
 
-		for (int q3 = 0; q3 < LengthOfArray(uvSTG09_01A474F8); q3++)
+		for (unsigned int q3 = 0; q3 < LengthOfArray(uvSTG09_01A474F8); q3++)
 		{
 			uvSTG09_01A474F8[q3].v = uvSTG09_01A474F8_0[q3].v + shift2;
 		}
@@ -1144,7 +1144,7 @@ void Casinopolis_OnFrame()
 	if (CurrentLevel == 9 && CurrentAct == 3 && GameState != 16)
 	{
 		carduvSTG09_reala = (carduvSTG09_reala + 4) % 255;
-		for (int rl = 0; rl < LengthOfArray(uvSTG09_00160A9C); rl++)
+		for (unsigned int rl = 0; rl < LengthOfArray(uvSTG09_00160A9C); rl++)
 		{
 			uvSTG09_00160A9C[rl].v = uvSTG09_00160A9C_0[rl].v + carduvSTG09_reala;
 		}

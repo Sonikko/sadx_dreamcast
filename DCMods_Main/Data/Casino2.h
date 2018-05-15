@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 Sint16 polySTG09_0006C3AC[] = {
 	4, 6, 7, 43, 44,
 	4, 7, 8, 44, 45,
@@ -33163,7 +33167,7 @@ NJS_VECTOR normalSTG09_01A4F3A8[] = {
 
 NJS_MODEL_SADX attachSTG09_01A4FD68 = { vertexSTG09_01A4E9E8, normalSTG09_01A4F3A8, LengthOfArray(vertexSTG09_01A4E9E8), meshlistSTG09_01A4E9B0, matlistSTG09_01A4E424, LengthOfArray(meshlistSTG09_01A4E9B0), LengthOfArray(matlistSTG09_01A4E424),{ 0, 75, 0 }, 75.0216f, NULL };
 
-NJS_OBJECT objectSTG09_01A4FD94 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachSTG09_01A4FD68, -1566, -2187.9, 1790, 0, 0, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT objectSTG09_01A4FD94 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachSTG09_01A4FD68, -1566, -2187.9f, 1790, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 COL collist_0006A230[] = {
 	{ { -45, -1838, 2870 }, 161.5549f, 0, 0, &objectSTG09_00091598, 0, 0x80040000 },
@@ -33396,3 +33400,5 @@ NJS_TEXNAME textures_casino2[58];
 NJS_TEXLIST texlist_casino2 = { arrayptrandlength(textures_casino2) };
 
 LandTable landtable_0006C0B4 = { LengthOfArray(collist_0006A230), 0, 0xC, 1500, collist_0006A230, NULL, "CASINO02", (NJS_TEXLIST *)&texlist_casino2, 0, 0 };
+
+#pragma warning(pop)

@@ -211,15 +211,15 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 	LandTable *lt = (LandTable *)0x0E3E024; COL *tmp = new COL[171 + LengthOfArray(collist_000180D8)];
 	memcpy(tmp, lt->Col, sizeof(COL) * lt->COLCount);
 	lt->Col = tmp; lt->COLCount = 171 + LengthOfArray(collist_000180D8);
-	for (int inv = 0; inv < 171; inv++)
+	for (unsigned int inv = 0; inv < 171; inv++)
 	{
 		((LandTable *)0x0E3E024)->Col[inv].Flags &= ~ColFlags_Visible;
 	}
-	for (int c = 171; c < LengthOfArray(collist_000180D8) + 171; c++)
+	for (unsigned int c = 171; c < LengthOfArray(collist_000180D8) + 171; c++)
 	{
 		((LandTable *)0x0E3E024)->Col[c] = collist_000180D8[c - 171];
 	}
-	for (int inv2 = 171; inv2 < 171 + LengthOfArray(collist_000180D8); inv2++)
+	for (unsigned int inv2 = 171; inv2 < 171 + LengthOfArray(collist_000180D8); inv2++)
 	{
 		((LandTable *)0x0E3E024)->Col[inv2].Flags &= ~ColFlags_Solid;
 	}

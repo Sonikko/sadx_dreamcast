@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //OAntena
 
 NJS_MATERIAL matlistSTG04_02291138[] = {
@@ -4863,3 +4867,5 @@ NJS_MODEL_SADX attachSTG04_02287258_2 = { normalSTG04_02286F28, normalSTG04_0228
 NJS_OBJECT objectSTG04_02287284_2 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_BREAK | NJD_EVAL_UNIT_SCL, &attachSTG04_02287258_2, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_OBJECT objectSTG04_02287284 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attachSTG04_02287258, 0, 0, 0, 0, 0, 0, 1, 1, 1, &objectSTG04_02287284_2, NULL };
+
+#pragma warning(pop)

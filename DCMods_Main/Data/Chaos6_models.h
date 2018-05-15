@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum CHAOS6TexName
 {
 	CHAOS6TexName_c2tx_eye1,
@@ -7603,3 +7606,5 @@ NJS_OBJECT object_0001EF6C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_
 NJS_OBJECT object_0001EFA0 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0x406A, 1, 1, 1, &object_0001EF6C, NULL };
 
 NJS_OBJECT object_0001EFD4 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0.000001f, 0, 0, 0, 0x3FFF, 0, 1, 1, 1, &object_0001EFA0, NULL };
+
+#pragma warning(pop)

@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
 
 NJS_MATERIAL* NPCMaterials[] = {
@@ -605,3 +609,5 @@ NJS_MATERIAL* NPCMaterials[] = {
 	(NJS_MATERIAL*)((size_t)ADV00MODELS+0x0022B6D4),
 	(NJS_MATERIAL*)((size_t)ADV00MODELS+0x0022B660),
 };
+
+#pragma warning(pop)

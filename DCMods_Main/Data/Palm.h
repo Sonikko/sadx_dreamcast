@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum OBJ_PASTTexName
 {
 	OBJ_PASTTexName_m128_sea001,
@@ -1867,3 +1871,5 @@ NJS_MESHSET_SADX meshlist_00124848[] = {
 NJS_MODEL_SADX attach_001251C4 = { vertex_001248D8X, normal_00124D50X, LengthOfArray<Sint32>(vertex_001248D8X), meshlist_00124848, matlist_001243AC, LengthOfArray<Uint16>(meshlist_00124848), LengthOfArray<Uint16>(matlist_001243AC),{ -11.95951f, 41.51215f, 8.017927f }, 104.7341f, NULL };
 
 NJS_OBJECT object_00125250 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_001251C4, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0012521C };
+
+#pragma warning(pop)

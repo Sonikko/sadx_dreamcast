@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //Switch
 
 NJS_MATERIAL matlist_0019CC0C[] = {
@@ -4504,3 +4507,5 @@ NJS_VECTOR normal_0019F3D4[] = {
 NJS_MODEL_SADX attach_0019F5CC = { vertex_0019F1DC, normal_0019F3D4, LengthOfArray<Sint32>(vertex_0019F1DC), meshlist_0019F194, matlist_0019EDB8, LengthOfArray<Uint16>(meshlist_0019F194), LengthOfArray<Uint16>(matlist_0019EDB8),{ 0, 17.64921f, 0 }, 25.14868f, NULL };
 
 NJS_OBJECT object_0019F5F4 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attach_0019F5CC, 0, 25.86032f, 0, 0, 0, 0, 1, 1, 1, &object_0019ED84, NULL };
+
+#pragma warning(pop)
