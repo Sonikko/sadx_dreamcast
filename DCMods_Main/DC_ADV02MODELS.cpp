@@ -45,7 +45,7 @@ static int anim2 = 140;
 static int anim3 = 76;
 static int anim_sadx = 156;
 static int uvADV02_anim = 1;
-static int SADXStyleWater = false;
+static bool SADXStyleWater = false;
 NJS_TEXNAME textures_mrtrain[31];
 NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
 
@@ -315,10 +315,12 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("MR_EGG");
 	ReplacePVM("MR_PYRAMID");
 	ReplacePVM("MR_TORNADO2");
+
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
 	delete config;
-	if (SADXStyleWater == true)
+
+	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("ADV_MR00");
 	}
@@ -326,6 +328,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		ReplacePVM("ADV_MR00");
 	}
+
 	WriteData<1>((char*)0x006F4DA0, 0x04); //Emerald shard (cutscene) glow blending mode
 	WriteData<1>((char*)0x006F4BF1, 0x04); //Emerald shard (cutscene) glow blending mode	
 	//Cutscene after Lost World
@@ -348,7 +351,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0x110CF34 = object2_00229334; //TANKEN 2
 	*(NJS_OBJECT*)0x11112CC = object_0022DDA4; //TANKEN 3
 	WriteCall((void*)0x0053CD37, SetColor); //Master Emerald glow
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		WriteCall((void*)0x00532551, DisableSADXWaterFog);
 		WriteCall((void*)0x005325C9, SetWaterTexture);
@@ -506,7 +509,8 @@ void ADV02_OnFrame()
 		if (anim1 > 139) anim1 = 130;
 		if (anim2 > 154) anim2 = 140;
 		if (anim_sadx > 170) anim_sadx = 156;
-		if (SADXStyleWater == true) WriteData((int*)0x00532611, anim_sadx);
+		if (SADXStyleWater)
+			WriteData((int*)0x00532611, anim_sadx);
 		matlistADV02_0007523C[0].attr_texId = anim1;
 		matlistADV02_00057F04[0].attr_texId = anim1;
 		matlistADV02_00053510[0].attr_texId = anim2;

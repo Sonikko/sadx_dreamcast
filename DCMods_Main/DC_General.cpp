@@ -1148,7 +1148,7 @@ void General_OnFrame()
 	//Fix broken welds after playing as Metal Sonic
 	if (DLLLoaded_SADXFE == false)
 	{
-		if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
+		if (GameMode == GameModes_CharSel && MetalSonicFlag) MetalSonicFlag = false;
 	}
 	//Alpha rejection
 	if (DLLLoaded_Lantern == true)
@@ -1165,7 +1165,7 @@ void General_OnFrame()
 		}
 	}
 	//Environment maps
-	if (EnvMapMode == 0 && CurrentLevel == 20 && MetalSonicFlag == 0)
+	if (EnvMapMode == 0 && CurrentLevel == 20 && !MetalSonicFlag)
 	{
 		EnvMapMode = 1;
 		EnvMap1 = 2.0f;
@@ -1181,7 +1181,7 @@ void General_OnFrame()
 		EnvMap3 = 0.5f;
 		EnvMap4 = 0.5f;
 	}
-	if (EnvMapMode == 1 && MetalSonicFlag != 0)
+	if (EnvMapMode == 1 && MetalSonicFlag)
 	{
 		EnvMapMode = 0;
 		EnvMap1 = 0.5f;

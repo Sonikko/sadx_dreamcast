@@ -26,7 +26,7 @@ DataArray(PVMEntry, stru_10F34A8, 0x10F34A8, 6);
 DataArray(PVMEntry, stru_1101360, 0x1101360, 2);
 static int ocean_dc = 4;
 static int ocean_sadx = 4;
-static int SADXStyleWater = false;
+static bool SADXStyleWater = false;
 DataArray(DrawDistance, EggCarrierOutsideDrawDist1, 0x010F2264, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist2, 0x010F227C, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist3, 0x010F2294, 3);
@@ -495,7 +495,7 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
 	SADXStyleWater = config->getBool("SADX Style Water", "EggCarrier", false);
 	delete config;
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("EC_SEA");
 		ResizeTextureList(&EC_SEA_TEXLIST, 21);

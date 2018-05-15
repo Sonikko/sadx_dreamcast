@@ -18,7 +18,7 @@ static int ecgardensand = 64;
 static int ecgardenwater = 54;
 static int mrgardenwater = 36;
 static int vmuframe = 0;
-static int SkipSA1Entry = 0;
+static bool SkipSA1Entry = false;
 static float OpenDoorThing = 0;
 static bool c1 = false;
 static bool h1 = false;
@@ -3975,7 +3975,7 @@ void LoadChaoGardenHintMessages()
 
 void __cdecl LoadRaceEntryX()
 {
-	if (SkipSA1Entry == 1)
+	if (SkipSA1Entry)
 	{
 		LoadPVM("CHAO_ENTRANCE", (NJS_TEXLIST*)0x340E934);
 		SSGardenStartPoint.Position.x = BK_SSGardenStartPoint.Position.x;
@@ -3986,7 +3986,7 @@ void __cdecl LoadRaceEntryX()
 		LoadObject(LoadObj_Data1, 5, ChaoStgEntrance_Main);
 		SetChaoLandTable((LandTable*)0x03423700); //PC
 		PrintDebug("ChaoStgEntrance _prolog end.\n");
-		SkipSA1Entry = 0;
+		SkipSA1Entry = false;
 	}
 	else
 	{
@@ -4005,13 +4005,13 @@ void __cdecl LoadRaceEntryX()
 void LoadSADXEntry()
 {
 	sub_79E400(2, 0, 0); //Play sound
-	SkipSA1Entry = 1;
+	SkipSA1Entry = true;
 	sub_715700(2);
 }
 
 void ExitRaceEntry()
 {
-	SkipSA1Entry = 0;
+	SkipSA1Entry = false;
 	sub_715700(2);
 }
 
@@ -4019,7 +4019,7 @@ void ExitRaceEntry()
 
 void __cdecl LoadChaoRaceX()
 {
-	SkipSA1Entry = 0;
+	SkipSA1Entry = false;
 	PrintDebug("ChaoStgRace _prolog begin.\n");
 	LoadObject(LoadObj_Data1, 2, ChaoStgRace_Init);
 	LoadObjects_Race();
@@ -4443,7 +4443,7 @@ void ChaoGardens_OnFrame()
 	if (CurrentChaoStage == 2 && GameState != 16 && EnableLobby == true)
 	{
 
-		if (SkipSA1Entry == true)
+		if (SkipSA1Entry)
 		{
 			((NJS_MATERIAL*)0x033AEB70)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			((NJS_MATERIAL*)0x033AEB70)->diffuse.color = 0xFFFFFFFF;
@@ -4479,14 +4479,14 @@ void ChaoGardens_OnFrame()
 		auto entity = EntityData1Ptrs[0];
 		if (entity != nullptr)
 		{
-			if (entity->Position.x > 2110 && SkipSA1Entry == 0)
+			if (entity->Position.x > 2110 && !SkipSA1Entry)
 			{
 				sub_715700(4);
 			}
 		}
-		if (SkipSA1Entry == 0 && IsPlayerInsideSphere(&racebutton, 5.0f))
+		if (!SkipSA1Entry && IsPlayerInsideSphere(&racebutton, 5.0f))
 		{
-			SkipSA1Entry = 1;
+			SkipSA1Entry = true;
 			sub_715700(2);
 		}
 		//Door
