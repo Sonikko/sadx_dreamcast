@@ -1,11 +1,5 @@
-#include <SADXModLoader.h>
-#include <IniFile.hpp>
-#include <cstdio>
+#include "stdafx.h"
 #include <random>
-#include "Timer.h"
-#include "Posters.h"
-#include "Balloon.h"
-#include "Messages.h"
 
 #include "Data/DLC_ATT.h"
 #include "Data/DLC_Christmas98.h"
