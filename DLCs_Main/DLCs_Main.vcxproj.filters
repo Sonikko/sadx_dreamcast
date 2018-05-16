@@ -51,6 +51,9 @@
     <ClCompile Include="LaunchParty.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Reebok.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Balloon.h">
@@ -111,6 +114,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="LaunchParty.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Reebok.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

@@ -26,6 +26,13 @@ extern SETObjData setdata_dlc;
 extern bool ChallengeOver;
 extern bool ChallengeAction;
 
+// Famitsu and Reebok stuff
+extern bool Collected1;
+extern bool Collected2;
+extern bool Collected3;
+extern bool Collected4;
+extern bool Collected5;
+
 // AT&T stuff
 extern bool HighwayGoal;
 
