@@ -181,8 +181,16 @@ void Christmas99_LoadStuff()
 		{
 			ent = obj->Data1;
 			ent->Position.x = 265;
-			if (ForceSADXLayout == false) ent->Position.y = 1; else ent->Position.y = -1;
-			if (ForceSADXLayout == false) ent->Position.z = 668; else ent->Position.z = 712;
+			if (!ForceSADXLayout)
+			{
+				ent->Position.y = 1;
+				ent->Position.z = 668;
+			}
+			else
+			{
+				ent->Position.y = -1;
+				ent->Position.z = 712;
+			}
 			ent->Index = 70;
 			ent->Rotation.x = 0;
 			ent->Rotation.y = 0;
