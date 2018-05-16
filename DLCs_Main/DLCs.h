@@ -1,5 +1,10 @@
 #pragma once
 #include <SADXModLoader.h>
+#include <string>
+
+extern std::string DLCMode;
+extern std::string LaunchPartyDLCMode;
+extern std::string SegaVoiceLanguage;
 
 // Common
 extern bool EverybodySuperSonicRacing;

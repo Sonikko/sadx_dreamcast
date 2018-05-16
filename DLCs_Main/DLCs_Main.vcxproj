@@ -81,6 +81,7 @@
     <ClCompile Include="Balloon.cpp" />
     <ClCompile Include="DLCs.cpp" />
     <ClCompile Include="Halloween.cpp" />
+    <ClCompile Include="LaunchParty.cpp" />
     <ClCompile Include="Messages.cpp" />
     <ClCompile Include="Posters.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -104,6 +105,7 @@
     <ClInclude Include="Data\DLC_Y2K.h" />
     <ClInclude Include="DLCs.h" />
     <ClInclude Include="Halloween.h" />
+    <ClInclude Include="LaunchParty.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="Posters.h" />
     <ClInclude Include="stdafx.h" />
