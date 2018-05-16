@@ -152,9 +152,9 @@ extern "C"
 			EnableSETFixes = SETFixes_Extra;
 
 		//Set window title
-		if (EnableWindowTitle == true) helperFunctions.SetWindowTitle("Sonic Adventure");
+		if (EnableWindowTitle) helperFunctions.SetWindowTitle("Sonic Adventure");
 		//Another error message
-		if (EnableEmeraldCoast == true && WaterEffect != nullptr)
+		if (EnableEmeraldCoast && WaterEffect != nullptr)
 		{
 			MessageBox(WindowHandle,
 				L"The Enhanced Emerald Coast mod is not "
