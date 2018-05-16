@@ -604,7 +604,7 @@ void GachaponExplosionFix(NJS_MODEL_SADX *a1)
 	DrawQueueDepthBias = 0;
 }
 
-void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
+void FinalEgg_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM1000A");
 	ReplaceBIN_DC("CAM1000S");

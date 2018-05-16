@@ -110,7 +110,7 @@ void AntennaSprite(NJS_ARGB *a1)
 	SetMaterialAndSpriteColor(&q1);
 }
 
-void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions)
+void SpeedHighway_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN("PL_40B", "PL_40X");
 	ReplaceBIN("PL_41B", "PL_41X");

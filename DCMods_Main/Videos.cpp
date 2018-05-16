@@ -179,14 +179,14 @@ void DrawVideoWithSpecular(int width, int height)
 	if (VideoFadeMode == 2 && VideoFadeValue >= 254 && SkipPressed == true) VideoPlayMode = 3;
 }
 
-void Videos_Init(const char *path, const HelperFunctions &helperFunctions)
+void Videos_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	//Set up settings
-	const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
+	const IniFile *settings = new IniFile(config_ini_path);
 	ColorizeVideos = settings->getBool("Videos", "ColorizeVideos", true);
 	SA1Intro = settings->getBool("Videos", "EnableSA1Intro", true);
-	//Set Sonic Team logo mode
 
+	//Set Sonic Team logo mode
 	const std::string SonicTeamLogo_String = settings->getString("Videos", "SonicTeamLogoMode", "Animated");
 	if (SonicTeamLogo_String == "Animated")
 		SonicTeamLogoMode = 0;

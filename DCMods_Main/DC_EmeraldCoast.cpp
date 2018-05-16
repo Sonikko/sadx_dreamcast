@@ -438,7 +438,7 @@ void WhaleSplash(NJS_OBJECT *a1)
 	ProcessModelNode(a1, (QueuedModelFlagsB)0, 1.0f);
 }
 
-void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
+void EmeraldCoast_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SET0100E");
 	ReplaceBIN_DC("SET0100S");
@@ -463,10 +463,12 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("BEACH03");
 	ReplacePVM("BG_BEACH");
 	ReplacePVM("OBJ_BEACH");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	const IniFile *config = new IniFile(config_ini_path);
 	SADXStyleWater = config->getBool("SADX Style Water", "EmeraldCoast", false);
 	IamStupidAndIWantFuckedUpOcean = config->getBool("Miscellaneous", "RevertEmeraldCoastDrawDistance", false);
 	delete config;
+
 	//Landtables
 	WriteData((LandTable**)0x97DA28, &landtable_00081554); //Act 1
 	WriteData((LandTable**)0x97DA2C, &landtable_000DEB60); //Act 2
@@ -593,7 +595,7 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 		EmeraldCoast3Fog[i].Distance = -3000.0f;
 		EmeraldCoast3Fog[i].Color = 0xFFFFFFFF;
 	}
-	if (IamStupidAndIWantFuckedUpOcean == false)
+	if (!IamStupidAndIWantFuckedUpOcean)
 	{
 		for (int i = 0; i < 3; i++)
 		{
@@ -633,7 +635,7 @@ void EmeraldCoast_OnFrame()
 {
 	DataArray(NJS_TEX, uvSTG01_00CC0530, 0x10C0530, 4);
 	//Hide skybox bottom in Act 3
-	if (IamStupidAndIWantFuckedUpOcean == false)
+	if (IamStupidAndIWantFuckedUpOcean)
 	{
 		if (CurrentLevel == 1 && CurrentAct == 2 && Camera_Data1 != nullptr)
 		{

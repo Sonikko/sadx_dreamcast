@@ -194,7 +194,7 @@ void RenderEmeraldWithGlow(NJS_OBJECT *a1, int scale)
 	ProcessModelNode_D_Wrapper(a1, scale);
 	if (EmeraldGlowAlpha >= 255) EmeraldGlowDirection = false;
 	if (EmeraldGlowAlpha <= 128) EmeraldGlowDirection = true;
-	if (EmeraldGlowDirection == true) EmeraldGlowAlpha = EmeraldGlowAlpha + 2; else EmeraldGlowAlpha = EmeraldGlowAlpha - 2;
+	if (EmeraldGlowDirection) EmeraldGlowAlpha = EmeraldGlowAlpha + 2; else EmeraldGlowAlpha = EmeraldGlowAlpha - 2;
 	if (CurrentLevel == 2) EmeraldGlowTexanim.texid = 3;
 	if (CurrentLevel == 9) EmeraldGlowTexanim.texid = 4;
 	if (CurrentLevel == 8) EmeraldGlowTexanim.texid = 5;
@@ -660,7 +660,7 @@ void DrawUnderwaterOverlay(NJS_MATRIX_PTR m)
 	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 }
 
-void General_Init(const char *path, const HelperFunctions &helperFunctions)
+void General_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplacePVR("AL_BARRIA");
 	ReplacePVR("AM_SEA124_8");
@@ -899,8 +899,9 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_MODEL_SADX*)0x008C6624 = attach_001A7820; //Spring H
 	*(NJS_MODEL_SADX*)0x008BFEC8 = attach_001A127C; //Rocket platform
 	*(NJS_MODEL_SADX*)0x008BE168 = attach_0019F5CC; //Balloon
+
 	//Config stuff
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+	const IniFile *config = new IniFile(config_ini_path);
 	EnableDCRipple = config->getBool("General", "EnableDreamcastWaterRipple", true);
 	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
 	EnableImpressFont = config->getString("General", "EnableImpressFont", "Impress");
@@ -909,6 +910,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	DisableFontSmoothing = config->getBool("General", "DisableFontSmoothing", true);
 	EnableLSDFix = config->getBool("Miscellaneous", "EnableLSDFix", false);
 	delete config;
+
 	//Cancel cutscenes with C button
 	if (CutsceneSkipMode != 3)
 	{
@@ -916,7 +918,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 		if (CutsceneSkipMode != 2) WriteCall((void*)0x4314F9, InputHookForCutscenes);
 	}
 	//Light Speed Dash distance fix
-	if (EnableLSDFix == true)
+	if (EnableLSDFix)
 	{
 		WriteData<1>((char*)0x0049306C, 0x80); //Initial speed 16 instead of 8
 		WriteData<1>((char*)0x00492FED, 0x80); //Initial speed 16 instead of 8
@@ -943,7 +945,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplaceBIN("FONTDATA1", "FONTDATA1_C");
 	}
 
-	if (ColorizeFont == true)
+	if (ColorizeFont)
 	{
 		//Subtitles (ARGB from 0 to F: CEEF)
 		WriteData<1>((char*)0x0040E28D, 0xEF);
@@ -957,13 +959,13 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteCall((void*)0x006428AD, ColorizeRecapText);
 	}
 	//Fix for cutscene transitions
-	if (EnableCutsceneFix == true)
+	if (EnableCutsceneFix)
 	{
 		WriteData<5>((void*)0x43131D, 0x90u);
 		WriteData<5>((void*)0x4311E3, 0x90u);
 	}
 	//Ripples
-	if (EnableDCRipple == true)
+	if (EnableDCRipple)
 	{
 		*(NJS_OBJECT*)0x8B22F4 = object_00193A44;
 		WriteJump((void*)0x4B9290, FixedRipple_Normal);
@@ -1092,7 +1094,7 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 void General_OnFrame()
 {
 	//Cutscene skip
-	if (CutsceneSkipMode <= 1 && SkipPressed_Cutscene == true)
+	if (CutsceneSkipMode <= 1 && SkipPressed_Cutscene)
 	{
 		if (CutsceneSkipMode == 0)
 		{
@@ -1197,7 +1199,7 @@ void General_OnFrame()
 void General_OnInput()
 {
 	//Input hook for cutscenes
-	if (CutsceneSkipMode < 2 && SkipPressed_Cutscene == false && !DemoPlaying)
+	if (CutsceneSkipMode < 2 && !SkipPressed_Cutscene && !DemoPlaying)
 		if (EV_MainThread_ptr != 0 && ControllerPointers[0]->PressedButtons & Buttons_Start)
 		{
 			PrintDebug("Cutscene skip pressed!\n");

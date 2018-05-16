@@ -270,7 +270,7 @@ void PlayMusicHook_DisableE105Fog(MusicIDs song)
 	ReduceHotShelterFog = true;
 }
 
-void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
+void HotShelter_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SET1200A");
 	ReplaceBIN_DC("SET1200B");

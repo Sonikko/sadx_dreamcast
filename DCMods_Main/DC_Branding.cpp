@@ -1474,10 +1474,10 @@ void Branding_SetUpVariables()
 	ResolutionDeltaY = (VerticalResolution_float - ResolutionScaleY * 480.0f) / 2.0f;
 }
 
-void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
+void Branding_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	//Load settings
-	const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
+	const IniFile *settings = new IniFile(config_ini_path);
 	RipplesOn = settings->getBool("Branding", "RippleEffect", true);
 	EnableTransition = settings->getBool("Branding", "EnableTransition", true);
 	DisableSA1TitleScreen = settings->getBool("Branding", "DisableSA1TitleScreen", false);
@@ -1487,6 +1487,7 @@ void Branding_Init(const char *path, const HelperFunctions &helperFunctions)
 	LogoScaleXT = LogoScaleX;
 	LogoScaleYT = LogoScaleY;
 	delete settings;
+
 	Branding_SetUpVariables();
 	//Credits
 	WriteData((float*)0x006415DA, 1.5f); //EngBG X scale

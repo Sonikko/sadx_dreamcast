@@ -379,7 +379,7 @@ void SetECOceanTexture()
 	njSetTextureNum(ocean_sadx);
 }
 
-void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
+void ADV01_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SETEC00S");
 	ReplaceBIN_DC("SETEC00M");
@@ -492,9 +492,11 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("ADV_EC00");
 	ReplacePVM("ADV_EC01");
 	ReplacePVM("ADV_EC02");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	const IniFile *config = new IniFile(config_ini_path);
 	SADXStyleWater = config->getBool("SADX Style Water", "EggCarrier", false);
 	delete config;
+
 	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("EC_SEA");

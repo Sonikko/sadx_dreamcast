@@ -400,7 +400,7 @@ void RenderCatapult(NJS_ACTION *a1, float frame, float scale)
 	DrawQueueDepthBias = 0.0f;
 }
 
-void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
+void TwinklePark_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0300S");
 	ReplaceBIN_DC("CAM0301A");

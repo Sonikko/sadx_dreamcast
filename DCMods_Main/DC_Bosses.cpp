@@ -851,7 +851,7 @@ void LoadBossECOceanTexlist()
 	njSetTexture(&EC_SEA_TEXLIST);
 }
 
-void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
+void Bosses_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplacePVM("CHAOS1");
 	ReplacePVM("CHAOS_BRAINFRAME");
@@ -875,7 +875,8 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	NJS_ACTION **___BOSSCHAOS0_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___BOSSCHAOS0_ACTIONS");
 	NJS_OBJECT **___BOSSCHAOS0_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___BOSSCHAOS0_OBJECTS");
 	NJS_TEXLIST **___BOSSCHAOS0_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___BOSSCHAOS0_TEXLISTS");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	const IniFile *config = new IniFile(config_ini_path);
 	//SADX water
 	SADXStyleWater_EggHornet = config->getBool("SADX Style Water", "MysticRuins", false);
 	SADXStyleWater_ZeroE101R = config->getBool("SADX Style Water", "EggCarrier", false);
@@ -891,6 +892,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	EnableE101 = config->getBool("Bosses", "EnableE101", true);
 	EnableZeroE101R = config->getBool("Bosses", "EnableZeroE101R", true);
 	delete config;
+
 	if (EnableChaos0 == true)
 	{
 		ReplaceBIN("PL_G0B", "PL_G0X");

@@ -849,7 +849,7 @@ void NPCModelsFunction(NJS_MATERIAL* material)
 	material->diffuse.argb.b = 178;
 }
 
-void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
+void ADV00_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SETSS00A");
 	ReplaceBIN_DC("SETSS00B");
@@ -978,9 +978,11 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVR("SS_NIGHTSKY");
 	ReplacePVR("SS_NIGHTSKYB");
 	ReplacePVR("SS_YUSKAY_MINI");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	const IniFile *config = new IniFile(config_ini_path);
 	SADXStyleWater = config->getBool("SADX Style Water", "StationSquare", false);
 	delete config;
+
 	if (SADXStyleWater == true)
 	{
 		ReplacePVMX_SADXStyleWater("ADVSS02");

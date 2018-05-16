@@ -67,7 +67,7 @@ void SetCloudColor(NJS_ARGB *a)
 	SetMaterialAndSpriteColor_Float(0.2f + a->a, 0.2f + a->r, 0.2f + a->g, 0.2f + a->b);
 }
 
-void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions)
+void RedMountain_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0500S");
 	ReplaceBIN_DC("CAM0501E");

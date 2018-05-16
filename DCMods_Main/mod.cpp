@@ -116,9 +116,12 @@ extern "C"
 		}
 
 		//If there is no config.ini, make one
-		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
+		const std::string s_path(path);
+		const std::string s_config_ini(s_path + "\\config.ini");
+		CopyFileA((s_path + "\\default.ini").c_str(), s_config_ini.c_str(), true);
+
 		//Config stuff
-		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+		const IniFile *config = new IniFile(s_config_ini);
 		//Read config stuff for levels and branding
 		EnableDCBranding = config->getBool("General", "EnableDreamcastBranding", true);
 		EnableSpeedFixes = config->getBool("General", "EnableSpeedFixes", true);
@@ -166,59 +169,59 @@ extern "C"
 				MB_OK | MB_ICONERROR);
 		}
 		//Init functions
-		if (EnableDCBranding == true) Branding_Init(path, helperFunctions);
-		if (EnableStationSquare == true) ADV00_Init(path, helperFunctions);
-		if (EnableEggCarrier == true) ADV01_Init(path, helperFunctions);
-		FixMRBase_Apply(path, helperFunctions);
-		if (EnableMysticRuins == true) ADV02_Init(path, helperFunctions);
-		if (EnablePast == true) ADV03_Init(path, helperFunctions);
-		Bosses_Init(path, helperFunctions);
-		if (WaterEffect == nullptr && EnableEmeraldCoast == true) EmeraldCoast_Init(path, helperFunctions);
-		if (EnableWindyValley == true) WindyValley_Init(path, helperFunctions);
-		if (EnableTwinklePark == true) TwinklePark_Init(path, helperFunctions);
-		if (EnableSpeedHighway == true) SpeedHighway_Init(path, helperFunctions);
-		if (EnableRedMountain == true) RedMountain_Init(path, helperFunctions);
-		if (EnableSkyDeck == true) SkyDeck_Init(path, helperFunctions);
-		if (EnableLostWorld == true) LostWorld_Init(path, helperFunctions);
-		if (EnableIceCap == true) IceCap_Init(path, helperFunctions);
-		if (EnableCasinopolis == true) Casinopolis_Init(path, helperFunctions);
-		if (EnableFinalEgg == true) FinalEgg_Init(path, helperFunctions);
-		if (EnableHotShelter == true) HotShelter_Init(path, helperFunctions);
+		if (EnableDCBranding) Branding_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableStationSquare) ADV00_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableEggCarrier) ADV01_Init(s_config_ini.c_str(), helperFunctions);
+		FixMRBase_Apply(s_config_ini.c_str(), helperFunctions);
+		if (EnableMysticRuins) ADV02_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnablePast) ADV03_Init(s_config_ini.c_str(), helperFunctions);
+		Bosses_Init(s_config_ini.c_str(), helperFunctions);
+		if (!WaterEffect && EnableEmeraldCoast) EmeraldCoast_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableWindyValley) WindyValley_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableTwinklePark) TwinklePark_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableSpeedHighway) SpeedHighway_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableRedMountain) RedMountain_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableSkyDeck) SkyDeck_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableLostWorld) LostWorld_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableIceCap) IceCap_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableCasinopolis) Casinopolis_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableFinalEgg) FinalEgg_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableHotShelter) HotShelter_Init(s_config_ini.c_str(), helperFunctions);
 		SkyChaseFix_Init();
-		Subgames_Init(path, helperFunctions);
-		ChaoGardens_Init(path, helperFunctions);
-		General_Init(path, helperFunctions);
-		if (DisableAllVideoStuff == false) Videos_Init(path, helperFunctions);
-		if (EnableSpeedFixes == true) SpeedFixes_Init();
+		Subgames_Init(s_config_ini.c_str(), helperFunctions);
+		ChaoGardens_Init(s_config_ini.c_str(), helperFunctions);
+		General_Init(s_config_ini.c_str(), helperFunctions);
+		if (!DisableAllVideoStuff) Videos_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableSpeedFixes) SpeedFixes_Init();
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		if (EnableDCBranding == true) Branding_OnFrame();
-		if (EnableStationSquare == true) ADV00_OnFrame();
-		if (EnableEggCarrier == true) ADV01_OnFrame();
-		if (EnableMysticRuins == true) ADV02_OnFrame();
-		//if (EnablePast == true) ADV03_OnFrame();
+		if (EnableDCBranding) Branding_OnFrame();
+		if (EnableStationSquare) ADV00_OnFrame();
+		if (EnableEggCarrier) ADV01_OnFrame();
+		if (EnableMysticRuins) ADV02_OnFrame();
+		//if (EnablePast) ADV03_OnFrame();
 		Bosses_OnFrame();
-		if (EnableEmeraldCoast == true) EmeraldCoast_OnFrame();
-		if (EnableWindyValley == true) WindyValley_OnFrame();
-		if (EnableTwinklePark == true) TwinklePark_OnFrame();
-		if (EnableSpeedHighway == true) SpeedHighway_OnFrame();
-		if (EnableRedMountain == true) RedMountain_OnFrame();
-		if (EnableSkyDeck == true) SkyDeck_OnFrame();
-		if (EnableLostWorld == true) LostWorld_OnFrame();
-		if (EnableIceCap == true) IceCap_OnFrame();
-		if (EnableCasinopolis == true) Casinopolis_OnFrame();
-		if (EnableFinalEgg == true) FinalEgg_OnFrame();
-		if (EnableHotShelter == true) HotShelter_OnFrame();
+		if (EnableEmeraldCoast) EmeraldCoast_OnFrame();
+		if (EnableWindyValley) WindyValley_OnFrame();
+		if (EnableTwinklePark) TwinklePark_OnFrame();
+		if (EnableSpeedHighway) SpeedHighway_OnFrame();
+		if (EnableRedMountain) RedMountain_OnFrame();
+		if (EnableSkyDeck) SkyDeck_OnFrame();
+		if (EnableLostWorld) LostWorld_OnFrame();
+		if (EnableIceCap) IceCap_OnFrame();
+		if (EnableCasinopolis) Casinopolis_OnFrame();
+		if (EnableFinalEgg) FinalEgg_OnFrame();
+		if (EnableHotShelter) HotShelter_OnFrame();
 		//Subgames_OnFrame();
 		ChaoGardens_OnFrame();
 		General_OnFrame();
-		if (DisableAllVideoStuff == false) Videos_OnFrame();
-		if (EnableSpeedFixes == true) SpeedFixes_OnFrame();
+		if (!DisableAllVideoStuff) Videos_OnFrame();
+		if (EnableSpeedFixes) SpeedFixes_OnFrame();
 	}
 	__declspec(dllexport) void __cdecl OnInput()
 	{
-		if (DisableAllVideoStuff == false) Videos_OnInput();
+		if (!DisableAllVideoStuff) Videos_OnInput();
 		if (CutsceneSkipMode != 3) General_OnInput();
 	}
 	_declspec(dllexport) void __cdecl OnRenderDeviceReset()

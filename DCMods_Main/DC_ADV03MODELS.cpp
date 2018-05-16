@@ -134,7 +134,7 @@ static void __cdecl Past_OceanDraw_r(OceanData *a1)
 			ProcessModelNode(&objectADV03_000C7BE4, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 			DrawQueueDepthBias = 0;
 		}
-		if (SADXStyleWater == true) original(a1);
+		if (SADXStyleWater) original(a1);
 	}
 	else original(a1);
 }
@@ -155,7 +155,7 @@ void RenderPalm1(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 	DrawQueueDepthBias = 0.0f;
 }
 
-void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
+void ADV03_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAMPAST00S");
 	ReplaceBIN_DC("CAMPAST01S");
@@ -169,10 +169,12 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("OBJ_PAST");
 	ReplacePVM("PAST00");
 	ReplacePVM("PAST_KN_FAM");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	const IniFile *config = new IniFile(config_ini_path);
 	SADXStyleWater = config->getBool("SADX Style Water", "Past", false);
 	delete config;
-	if (SADXStyleWater == true)
+
+	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("PAST01");
 		ReplacePVMX_SADXStyleWater("PAST02");
@@ -203,7 +205,7 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 		material_register(FirstCharacterSpecular, LengthOfArray(FirstCharacterSpecular), &ForceDiffuse2Specular2);
 		material_register(Past_ObjectSpecular, LengthOfArray(Past_ObjectSpecular), &ForceDiffuse0Specular1);
 	}
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		ResizeTextureList(&texlist_past01, 100);
 		ResizeTextureList(&texlist_past02, 102);

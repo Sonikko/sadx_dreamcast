@@ -113,7 +113,7 @@ void FixBranch(NJS_ACTION *a1, float a2, int a3, float a4)
 	sub_408350(&action_OTREEM_Action, a2, a3, a4);
 }
 
-void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
+void WindyValley_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SET0200S");
 	ReplaceBIN_DC("SET0200E");

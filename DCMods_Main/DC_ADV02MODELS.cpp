@@ -211,7 +211,7 @@ void FixMRBase(ObjectMaster *a1)
 	Direct3D_SetNearFarPlanes(LevelDrawDistance.Minimum, LevelDrawDistance.Maximum);
 }
 
-void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions)
+void FixMRBase_Apply(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplacePVM("MR_FINALEGG");
 	//MR Base stuff
@@ -233,7 +233,7 @@ void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions)
 	}
 }
 
-void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
+void ADV02_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
@@ -316,7 +316,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("MR_PYRAMID");
 	ReplacePVM("MR_TORNADO2");
 
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+	const IniFile *config = new IniFile(config_ini_path);
 	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
 	delete config;
 

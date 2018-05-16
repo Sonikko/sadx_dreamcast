@@ -34,7 +34,7 @@ void RenderLWPlatformLight(NJS_MODEL_SADX *model, QueuedModelFlagsB blend, float
 	DrawQueueDepthBias = 0.0f;
 }
 
-void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
+void LostWorld_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0700S");
 	ReplaceBIN_DC("CAM0701K");

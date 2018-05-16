@@ -139,7 +139,7 @@ void __cdecl FixedAvalanche(ObjectMaster *a1)
 	}
 }
 
-void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
+void IceCap_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0800S");
 	ReplaceBIN_DC("CAM0801S");
