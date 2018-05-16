@@ -6,14 +6,15 @@
 #include "Posters.h"
 #include "Balloon.h"
 #include "Messages.h"
-#include "DLC_ATT.h"
-#include "DLC_Christmas98.h"
-#include "DLC_Christmas99.h"
-#include "DLC_Halloween.h"
-#include "DLC_LaunchParty.h"
-#include "DLC_Reebok.h"
-#include "DLC_SambaGP.h"
-#include "DLC_Y2K.h"
+
+#include "Data/DLC_ATT.h"
+#include "Data/DLC_Christmas98.h"
+#include "Data/DLC_Christmas99.h"
+#include "Data/DLC_Halloween.h"
+#include "Data/DLC_LaunchParty.h"
+#include "Data/DLC_Reebok.h"
+#include "Data/DLC_SambaGP.h"
+#include "Data/DLC_Y2K.h"
 
 static const wchar_t *const OldModDLLs[] = {
 	L"SONICADV_000",

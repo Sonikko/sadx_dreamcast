@@ -77,14 +77,14 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Balloon.h" />
-    <ClInclude Include="DLC_ATT.h" />
-    <ClInclude Include="DLC_Christmas98.h" />
-    <ClInclude Include="DLC_Christmas99.h" />
-    <ClInclude Include="DLC_Halloween.h" />
-    <ClInclude Include="DLC_LaunchParty.h" />
-    <ClInclude Include="DLC_Reebok.h" />
-    <ClInclude Include="DLC_SambaGP.h" />
-    <ClInclude Include="DLC_Y2K.h" />
+    <ClInclude Include="Data\DLC_ATT.h" />
+    <ClInclude Include="Data\DLC_Christmas98.h" />
+    <ClInclude Include="Data\DLC_Christmas99.h" />
+    <ClInclude Include="Data\DLC_Halloween.h" />
+    <ClInclude Include="Data\DLC_LaunchParty.h" />
+    <ClInclude Include="Data\DLC_Reebok.h" />
+    <ClInclude Include="Data\DLC_SambaGP.h" />
+    <ClInclude Include="Data\DLC_Y2K.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="Posters.h" />
     <ClInclude Include="Timer.h" />

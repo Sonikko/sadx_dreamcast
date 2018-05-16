@@ -13,6 +13,9 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\Data">
+      <UniqueIdentifier>{8b8b9e90-0467-416e-995d-b1965d32feb6}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="DLCs.cpp">
@@ -23,30 +26,6 @@
     <ClInclude Include="Balloon.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="DLC_ATT.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DLC_Christmas98.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DLC_Christmas99.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DLC_Halloween.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DLC_LaunchParty.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DLC_Reebok.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DLC_SambaGP.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DLC_Y2K.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
     <ClInclude Include="Messages.h">
       <Filter>Header Files</Filter>
     </ClInclude>
@@ -55,6 +34,30 @@
     </ClInclude>
     <ClInclude Include="Timer.h">
       <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\DLC_ATT.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\DLC_Christmas98.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\DLC_Christmas99.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\DLC_Halloween.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\DLC_LaunchParty.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\DLC_Reebok.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\DLC_SambaGP.h">
+      <Filter>Header Files\Data</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\DLC_Y2K.h">
+      <Filter>Header Files\Data</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
