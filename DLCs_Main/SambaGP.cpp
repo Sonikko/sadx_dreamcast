@@ -17,13 +17,34 @@ void CallSambaCircuit(void)
 	int CircuitID = 0;
 	if (CurrentAct == 3)
 	{
-		if (CurrentCharacter == 0 || EverybodySuperSonicRacing == true) WriteData<1>((char*)0x004DAB4E, 0x57); else WriteData<1>((char*)0x004DAB4E, 0x19);
-		if (CurrentCharacter == 0) CircuitID = SonicTrack;
-		if (CurrentCharacter == 2) CircuitID = TailsTrack;
-		if (CurrentCharacter == 3) CircuitID = KnucklesTrack;
-		if (CurrentCharacter == 5) CircuitID = AmyTrack;
-		if (CurrentCharacter == 6) CircuitID = GammaTrack;
-		if (CurrentCharacter == 7) CircuitID = BigTrack;
+		if (CurrentCharacter == Characters_Sonic || EverybodySuperSonicRacing)
+			WriteData<1>((char*)0x004DAB4E, 0x57);
+		else
+			WriteData<1>((char*)0x004DAB4E, 0x19);
+
+		switch (CurrentCharacter)
+		{
+			case Characters_Sonic:
+			default:
+				CircuitID = SonicTrack;
+				break;
+			case Characters_Tails:
+				CircuitID = TailsTrack;
+				break;
+			case Characters_Knuckles:
+				CircuitID = KnucklesTrack;
+				break;
+			case Characters_Amy:
+				CircuitID = AmyTrack;
+				break;
+			case Characters_Gamma:
+				CircuitID = GammaTrack;
+				break;
+			case Characters_Big:
+				CircuitID = BigTrack;
+				break;
+		}
+
 		SonicSSStartArray[11].Position.x = 635;
 		SonicSSStartArray[11].Position.y = 1.4f;
 		SonicSSStartArray[11].Position.z = 1570;
