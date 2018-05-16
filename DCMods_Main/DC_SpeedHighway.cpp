@@ -110,7 +110,7 @@ void AntennaSprite(NJS_ARGB *a1)
 	SetMaterialAndSpriteColor(&q1);
 }
 
-void SpeedHighway_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN("PL_40B", "PL_40X");
 	ReplaceBIN("PL_41B", "PL_41X");
@@ -169,7 +169,7 @@ void SpeedHighway_Init(const char *config_ini_path, const HelperFunctions &helpe
 	WriteCall((void*)0x00615DB5, AntennaSprite);
 	WriteCall((void*)0x00616649, AntennaSprite); //This works for GCLight too
 	WriteCall((void*)0x00614122, RocketSprite);
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(WhiteDiffuse_Highway, LengthOfArray(WhiteDiffuse_Highway), &ForceWhiteDiffuse1);
 	}
@@ -296,10 +296,11 @@ void SpeedHighway_Init(const char *config_ini_path, const HelperFunctions &helpe
 	*(NJS_OBJECT*)0x0267ADD0 = objectSTG04_001496F4;
 	*(NJS_OBJECT*)0x0267AF14 = objectSTG04_001497F8;
 	//*(NJS_OBJECT*)0x0267B06C =*/
+
 	DataArray(FogData, SpeedHighway1Fog, 0x024CA4E4, 3);
 	DataArray(FogData, SpeedHighway2Fog, 0x024CA514, 3);
 	DataArray(FogData, SpeedHighway3Fog, 0x024CA544, 3);
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		SpeedHighway1Fog[i].Layer = 2000.0f;
 		SpeedHighway1Fog[i].Distance = 5200.0f;

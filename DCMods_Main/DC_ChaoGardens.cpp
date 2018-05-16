@@ -4105,7 +4105,7 @@ void LoadSSGardenObjectPVM(const char *filename, NJS_TEXLIST *texlist)
 	LoadPVM("GARDEN00SSOBJ", &Garden00SSObj_TEXLIST);
 }
 
-void ChaoGardens_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVM("AL_BODY");
 	ReplacePVM("AL_DX_OBJ_CMN");
@@ -4123,13 +4123,11 @@ void ChaoGardens_Init(const char *config_ini_path, const HelperFunctions &helper
 	ReplacePVM("OBJ_AL_RACE_E");
 	LoadChaoGardenHintMessages();
 
-	//Config stuff
-	const IniFile *config = new IniFile(config_ini_path);
+	// Load configuration settings.
 	EnableSSGarden = config->getBool("Chao Gardens", "EnableStationSquareGarden", true);
 	EnableMRGarden = config->getBool("Chao Gardens", "EnableMysticRuinsGarden", true);
 	EnableECGarden = config->getBool("Chao Gardens", "EnableEggCarrierGarden", true);
 	EnableLobby = config->getBool("Chao Gardens", "EnableChaoRaceLobby", true);
-	delete config;
 
 	//Garden transporters stuff
 	*(NJS_OBJECT*)0x036065B4 = objectCHAO_00134808; //EC garden to EC transporter

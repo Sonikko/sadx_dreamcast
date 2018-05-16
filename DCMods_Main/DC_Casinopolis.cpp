@@ -680,7 +680,7 @@ void RenderNeonK(NJS_MODEL_SADX *model, float scale)
 	DrawQueueDepthBias = 0;
 }
 
-void Casinopolis_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0900K");
 	ReplaceBIN_DC("CAM0900S");
@@ -727,7 +727,7 @@ void Casinopolis_Init(const char *config_ini_path, const HelperFunctions &helper
 	WriteData((LandTable**)0x97DB34, &landtable_000D8440);
 	//Lantern stuff
 	ReplaceBIN("PL_90B", "PL_90X");
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(LevelSpecular_Casino, LengthOfArray(LevelSpecular_Casino), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_Casino, LengthOfArray(ObjectSpecular_Casino), &ForceDiffuse0Specular1);
@@ -766,11 +766,9 @@ void Casinopolis_Init(const char *config_ini_path, const HelperFunctions &helper
 	WriteJump((void*)0x5D44A0, TutuB_Display); //OTutuB display
 	WriteJump((void*)0x5D4550, TutuC_Display); //OTutuC display
 	WriteData((int*)0x1E77E58, 128); //Gear rotation speed
-									 //Config stuff
 
-	const IniFile *config = new IniFile(config_ini_path);
+	// Load configuration settings.
 	CowgirlOn = config->getBool("Miscellaneous", "EnableCasinopolisCowgirl", true);
-	delete config;
 
 	if (CowgirlOn)
 	{
@@ -870,7 +868,8 @@ void Casinopolis_Init(const char *config_ini_path, const HelperFunctions &helper
 	*(NJS_MODEL_SADX*)0x01E74A68 = attachSTG09_01A74A68; //NeonK
 	WriteCall((void*)0x5CAB34, RenderNeonK);
 	*(NJS_MODEL_SADX*)0x01E46F30 = attachSTG09_001C4DCC; //OCfa rotating thing
-	for (int i = 0; i < 3; i++)
+
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		Casino1Fog[i].Color = 0xFF000000;
 		Casino1Fog[i].Layer = 600.0f;
@@ -885,7 +884,7 @@ void Casinopolis_Init(const char *config_ini_path, const HelperFunctions &helper
 }
 void Casinopolis_OnFrame()
 {
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		//Failsafe stuff for palette blending
 		if (WhiteSonic && (InsideMachine == 0 || CurrentLevel != 9 || CurrentAct != 0 || GameMode == GameModes_Menu || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21))

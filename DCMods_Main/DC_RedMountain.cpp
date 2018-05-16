@@ -67,7 +67,7 @@ void SetCloudColor(NJS_ARGB *a)
 	SetMaterialAndSpriteColor_Float(0.2f + a->a, 0.2f + a->r, 0.2f + a->g, 0.2f + a->b);
 }
 
-void RedMountain_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void RedMountain_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0500S");
 	ReplaceBIN_DC("CAM0501E");
@@ -107,7 +107,7 @@ void RedMountain_Init(const char *config_ini_path, const HelperFunctions &helper
 	WriteData((double**)0x600C8F, &cloudcoloroffset);
 	WriteCall((void*)0x006011D8, RenderRMSky1);
 	WriteCall((void*)0x0060121C, RenderRMSky2);
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(LevelSpecular_Mountain, LengthOfArray(LevelSpecular_Mountain), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_Mountain, LengthOfArray(ObjectSpecular_Mountain), &ForceDiffuse0Specular1);
@@ -141,7 +141,8 @@ void RedMountain_Init(const char *config_ini_path, const HelperFunctions &helper
 	DataArray(DrawDistance, DrawDist_RedMountain1, 0x022406B8, 3);
 	DataArray(DrawDistance, DrawDist_RedMountain2, 0x022406D0, 3);
 	DataArray(DrawDistance, DrawDist_RedMountain3, 0x022406E8, 3);
-	for (int i = 0; i < 3; i++)
+
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		RedMountain1Fog[i].Color = 0xFFFFFFFF;
 		RedMountain1Fog[i].Layer = 2000.0f;

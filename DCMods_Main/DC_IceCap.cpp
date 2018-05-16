@@ -139,7 +139,7 @@ void __cdecl FixedAvalanche(ObjectMaster *a1)
 	}
 }
 
-void IceCap_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0800S");
 	ReplaceBIN_DC("CAM0801S");
@@ -226,7 +226,8 @@ void IceCap_Init(const char *config_ini_path, const HelperFunctions &helperFunct
 	*(NJS_OBJECT*)0xE6E0E0 = objectSTG08_0017BD64; //MizuIwa B
 	*(NJS_OBJECT*)0xE6E694 = objectSTG08_0017C308; //MizuIwa C
 	*(NJS_OBJECT*)0xE52FCC = objectSTG08_00161838; //OIceJmp
-	for (int i = 0; i < 3; i++)
+
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		IceCap1Fog[i].Color = 0xFFFFFFFF;
 		IceCap1Fog[i].Layer = 1500.0f;

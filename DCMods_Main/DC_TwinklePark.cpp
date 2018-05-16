@@ -400,7 +400,7 @@ void RenderCatapult(NJS_ACTION *a1, float frame, float scale)
 	DrawQueueDepthBias = 0.0f;
 }
 
-void TwinklePark_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void TwinklePark_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0300S");
 	ReplaceBIN_DC("CAM0301A");
@@ -468,7 +468,7 @@ void TwinklePark_Init(const char *config_ini_path, const HelperFunctions &helper
 		___AMY_OBJECTS[1]->child->child->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 	}
 	((NJS_OBJECT*)0x008BF3A0)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //shadow blob
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(LevelSpecular_Twinkle, LengthOfArray(LevelSpecular_Twinkle), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_Twinkle, LengthOfArray(ObjectSpecular_Twinkle), &ForceDiffuse0Specular1);
@@ -540,11 +540,12 @@ void TwinklePark_Init(const char *config_ini_path, const HelperFunctions &helper
 	*(NJS_OBJECT*)0x027B972C = objectSTG03_000B5EE8; // pink flower pot
 	*(NJS_OBJECT*)0x027BAC54 = objectSTG03_000B6CF8; // yellow flower bed
 	*(NJS_OBJECT*)0x027BC1C4 = objectSTG03_000B6CF8_2; // pink flower bed
+
 	DataArray(FogData, TwinklePark1Fog, 0x026B339C, 3);
 	DataArray(FogData, TwinklePark2Fog, 0x026B33CC, 3);
 	DataArray(FogData, TwinklePark3Fog, 0x026B33FC, 3);
 	DataArray(FogData, TwinklePark4Fog, 0x026B342C, 3);
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		TwinklePark1Fog[i].Layer = 1500.0f;
 		TwinklePark2Fog[i].Layer = -1400.0f;

@@ -660,7 +660,7 @@ void DrawUnderwaterOverlay(NJS_MATRIX_PTR m)
 	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 }
 
-void General_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVR("AL_BARRIA");
 	ReplacePVR("AM_SEA124_8");
@@ -900,8 +900,7 @@ void General_Init(const char *config_ini_path, const HelperFunctions &helperFunc
 	*(NJS_MODEL_SADX*)0x008BFEC8 = attach_001A127C; //Rocket platform
 	*(NJS_MODEL_SADX*)0x008BE168 = attach_0019F5CC; //Balloon
 
-	//Config stuff
-	const IniFile *config = new IniFile(config_ini_path);
+	// Load configuration settings.
 	EnableDCRipple = config->getBool("General", "EnableDreamcastWaterRipple", true);
 	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
 	EnableImpressFont = config->getString("General", "EnableImpressFont", "Impress");
@@ -909,7 +908,6 @@ void General_Init(const char *config_ini_path, const HelperFunctions &helperFunc
 	ColorizeFont = config->getBool("General", "ColorizeFont", true);
 	DisableFontSmoothing = config->getBool("General", "DisableFontSmoothing", true);
 	EnableLSDFix = config->getBool("Miscellaneous", "EnableLSDFix", false);
-	delete config;
 
 	//Cancel cutscenes with C button
 	if (CutsceneSkipMode != 3)
@@ -1043,7 +1041,7 @@ void General_Init(const char *config_ini_path, const HelperFunctions &helperFunc
 	//Casino
 	WriteCall((void*)0x005DCFB0, RenderEmeraldWithGlow);
 	WriteCall((void*)0x005DCF7D, RotateEmerald);
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		allow_landtable_specular(true);
 		material_register(FirstCharacterSpecular_General, LengthOfArray(FirstCharacterSpecular_General), &ForceDiffuse2Specular2);
@@ -1148,12 +1146,12 @@ void General_OnFrame()
 		}
 	}
 	//Fix broken welds after playing as Metal Sonic
-	if (DLLLoaded_SADXFE == false)
+	if (!DLLLoaded_SADXFE)
 	{
 		if (GameMode == GameModes_CharSel && MetalSonicFlag) MetalSonicFlag = false;
 	}
 	//Alpha rejection
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		if (AlphaRejectionMode == 0 && CurrentLevel != 25 && GameMode != GameModes_CharSel && GameMode != GameModes_Menu && CurrentChaoStage != 2)
 		{

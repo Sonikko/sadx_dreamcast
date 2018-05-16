@@ -211,7 +211,7 @@ void FixMRBase(ObjectMaster *a1)
 	Direct3D_SetNearFarPlanes(LevelDrawDistance.Minimum, LevelDrawDistance.Maximum);
 }
 
-void FixMRBase_Apply(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void FixMRBase_Apply(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVM("MR_FINALEGG");
 	//MR Base stuff
@@ -227,13 +227,13 @@ void FixMRBase_Apply(const char *config_ini_path, const HelperFunctions &helperF
 	___ADV02_ACTIONS[0]->object = &objectADV02_0020C3B0; //OFinalEgg
 	___ADV02_ACTIONS[0]->motion = &animation_000862E8; //OFinalEgg animation
 	___ADV02_ACTIONS[30]->object = &objectADV02_0020DC78; //OFinalWay
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		MR3DrawDist[i].Maximum = -32000.0f;
 	}
 }
 
-void ADV02_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
@@ -316,10 +316,8 @@ void ADV02_Init(const char *config_ini_path, const HelperFunctions &helperFuncti
 	ReplacePVM("MR_PYRAMID");
 	ReplacePVM("MR_TORNADO2");
 
-	const IniFile *config = new IniFile(config_ini_path);
+	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
-	delete config;
-
 	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("ADV_MR00");
@@ -341,7 +339,7 @@ void ADV02_Init(const char *config_ini_path, const HelperFunctions &helperFuncti
 	ReplaceBIN("SL_X0B", "SL_X0X");
 	ReplaceBIN("SL_X1B", "SL_X1X");
 	ReplaceBIN("SL_X2B", "SL_X2X");
-	if (handle != nullptr && DLLLoaded_Lantern == true)
+	if (handle != nullptr && DLLLoaded_Lantern)
 	{
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceDiffuse0Specular1);
 		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceDiffuse0Specular0);

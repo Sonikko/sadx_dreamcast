@@ -155,7 +155,7 @@ void RenderPalm1(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 	DrawQueueDepthBias = 0.0f;
 }
 
-void ADV03_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void ADV03_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAMPAST00S");
 	ReplaceBIN_DC("CAMPAST01S");
@@ -170,10 +170,8 @@ void ADV03_Init(const char *config_ini_path, const HelperFunctions &helperFuncti
 	ReplacePVM("PAST00");
 	ReplacePVM("PAST_KN_FAM");
 
-	const IniFile *config = new IniFile(config_ini_path);
+	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "Past", false);
-	delete config;
-
 	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("PAST01");
@@ -184,6 +182,7 @@ void ADV03_Init(const char *config_ini_path, const HelperFunctions &helperFuncti
 		ReplacePVM("PAST01");
 		ReplacePVM("PAST02");
 	}
+
 	//Palm fixes
 	ADV03_ACTIONS[10]->object->model = &attach_00122F04;
 	WriteCall((void*)0x545C1A, RenderPalm1);
@@ -199,7 +198,7 @@ void ADV03_Init(const char *config_ini_path, const HelperFunctions &helperFuncti
 	WriteData((float*)0x0068BA8F, 86.0f); //Ripple 3 Y
 	WriteData((float*)0x0068BA8A, 52.42f); //Ripple 3 Z
 	HMODULE handle = GetModuleHandle(L"ADV03MODELS");
-	if (handle != nullptr && DLLLoaded_Lantern == true)
+	if (handle != nullptr && DLLLoaded_Lantern)
 	{
 		material_register(SecondCharacterSpecular, LengthOfArray(SecondCharacterSpecular), &ForceDiffuse2Specular3);
 		material_register(FirstCharacterSpecular, LengthOfArray(FirstCharacterSpecular), &ForceDiffuse2Specular2);
@@ -221,7 +220,8 @@ void ADV03_Init(const char *config_ini_path, const HelperFunctions &helperFuncti
 		collist_0006735C[0].Flags = 0x80000020;
 		collist_000976C0[0].Flags = 0x80000020;
 	}
-	for (int i = 0; i < 3; i++)
+
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		FogData_Past1[i].Layer = -12000.0f;
 		FogData_Past1[i].Distance = -12000.0f;

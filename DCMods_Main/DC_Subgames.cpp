@@ -692,17 +692,16 @@ void FixSkybox(NJS_OBJECT *a1, float scale)
 	}
 }
 
-void Subgames_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SET0000A");
 	ReplaceBIN_DC("SET0000S");
 	ReplaceBIN_DC("SET0001S");
 
-	const IniFile *config = new IniFile(config_ini_path);
+	// Load configuration settings.
 	EnableTwinkleCircuit = config->getBool("Miscellaneous", "EnableTwinkleCircuit", true);
 	// FIXME: Typo in the config entry name...
 	EnableSandHill = config->getBool("Miscellaneous", "EnableSandHil", true);
-	delete config;
 
 	if (EnableSandHill)
 	{ 

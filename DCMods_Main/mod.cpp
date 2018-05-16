@@ -121,7 +121,7 @@ extern "C"
 		CopyFileA((s_path + "\\default.ini").c_str(), s_config_ini.c_str(), true);
 
 		//Config stuff
-		const IniFile *config = new IniFile(s_config_ini);
+		const IniFile *const config = new IniFile(s_config_ini);
 		//Read config stuff for levels and branding
 		EnableDCBranding = config->getBool("General", "EnableDreamcastBranding", true);
 		EnableSpeedFixes = config->getBool("General", "EnableSpeedFixes", true);
@@ -151,8 +151,6 @@ extern "C"
 		else if (EnableSETFixes_String == "Extra")
 			EnableSETFixes = 2;
 
-		delete config;
-
 		//Set window title
 		if (EnableWindowTitle == true) helperFunctions.SetWindowTitle("Sonic Adventure");
 		//Another error message
@@ -169,30 +167,32 @@ extern "C"
 				MB_OK | MB_ICONERROR);
 		}
 		//Init functions
-		if (EnableDCBranding) Branding_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnableStationSquare) ADV00_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnableEggCarrier) ADV01_Init(s_config_ini.c_str(), helperFunctions);
-		FixMRBase_Apply(s_config_ini.c_str(), helperFunctions);
-		if (EnableMysticRuins) ADV02_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnablePast) ADV03_Init(s_config_ini.c_str(), helperFunctions);
-		Bosses_Init(s_config_ini.c_str(), helperFunctions);
-		if (!WaterEffect && EnableEmeraldCoast) EmeraldCoast_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnableWindyValley) WindyValley_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnableTwinklePark) TwinklePark_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnableSpeedHighway) SpeedHighway_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnableRedMountain) RedMountain_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnableSkyDeck) SkyDeck_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnableLostWorld) LostWorld_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnableIceCap) IceCap_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnableCasinopolis) Casinopolis_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnableFinalEgg) FinalEgg_Init(s_config_ini.c_str(), helperFunctions);
-		if (EnableHotShelter) HotShelter_Init(s_config_ini.c_str(), helperFunctions);
+		if (EnableDCBranding) Branding_Init(config, helperFunctions);
+		if (EnableStationSquare) ADV00_Init(config, helperFunctions);
+		if (EnableEggCarrier) ADV01_Init(config, helperFunctions);
+		FixMRBase_Apply(config, helperFunctions);
+		if (EnableMysticRuins) ADV02_Init(config, helperFunctions);
+		if (EnablePast) ADV03_Init(config, helperFunctions);
+		Bosses_Init(config, helperFunctions);
+		if (!WaterEffect && EnableEmeraldCoast) EmeraldCoast_Init(config, helperFunctions);
+		if (EnableWindyValley) WindyValley_Init(config, helperFunctions);
+		if (EnableTwinklePark) TwinklePark_Init(config, helperFunctions);
+		if (EnableSpeedHighway) SpeedHighway_Init(config, helperFunctions);
+		if (EnableRedMountain) RedMountain_Init(config, helperFunctions);
+		if (EnableSkyDeck) SkyDeck_Init(config, helperFunctions);
+		if (EnableLostWorld) LostWorld_Init(config, helperFunctions);
+		if (EnableIceCap) IceCap_Init(config, helperFunctions);
+		if (EnableCasinopolis) Casinopolis_Init(config, helperFunctions);
+		if (EnableFinalEgg) FinalEgg_Init(config, helperFunctions);
+		if (EnableHotShelter) HotShelter_Init(config, helperFunctions);
 		SkyChaseFix_Init();
-		Subgames_Init(s_config_ini.c_str(), helperFunctions);
-		ChaoGardens_Init(s_config_ini.c_str(), helperFunctions);
-		General_Init(s_config_ini.c_str(), helperFunctions);
-		if (!DisableAllVideoStuff) Videos_Init(s_config_ini.c_str(), helperFunctions);
+		Subgames_Init(config, helperFunctions);
+		ChaoGardens_Init(config, helperFunctions);
+		General_Init(config, helperFunctions);
+		if (!DisableAllVideoStuff) Videos_Init(config, helperFunctions);
 		if (EnableSpeedFixes) SpeedFixes_Init();
+
+		delete config;
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{

@@ -849,7 +849,7 @@ void NPCModelsFunction(NJS_MATERIAL* material)
 	material->diffuse.argb.b = 178;
 }
 
-void ADV00_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SETSS00A");
 	ReplaceBIN_DC("SETSS00B");
@@ -979,11 +979,9 @@ void ADV00_Init(const char *config_ini_path, const HelperFunctions &helperFuncti
 	ReplacePVR("SS_NIGHTSKYB");
 	ReplacePVR("SS_YUSKAY_MINI");
 
-	const IniFile *config = new IniFile(config_ini_path);
+	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "StationSquare", false);
-	delete config;
-
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("ADVSS02");
 		ReplacePVMX_SADXStyleWater("ADVSS03");
@@ -1012,11 +1010,12 @@ void ADV00_Init(const char *config_ini_path, const HelperFunctions &helperFuncti
 	WriteData((float*)0x006532B6, -89.4f); //Y2
 	WriteData((float*)0x006532B1, 812.3f); //Z2
 	//Fix NPC materials
-	for (int i = 0; i < LengthOfArray(NPCMaterials); i++)
+	for (unsigned int i = 0; i < LengthOfArray(NPCMaterials); i++)
 	{
 		NPCModelsFunction(NPCMaterials[i]);
 	}
-	if (DLLLoaded_Lantern == true)
+
+	if (DLLLoaded_Lantern)
 	{
 		material_register(CharacterStuff, LengthOfArray(CharacterStuff), &ForceDiffuse2Specular2);
 		material_register(LevelSpecularADV00, LengthOfArray(LevelSpecularADV00), &ForceDiffuse0Specular0);
@@ -1024,7 +1023,8 @@ void ADV00_Init(const char *config_ini_path, const HelperFunctions &helperFuncti
 		material_register(WhiteDiffuseADV00, LengthOfArray(WhiteDiffuseADV00), &ForceWhiteDiffuse1);
 		material_register(WhiteDiffuseADV00_Night, LengthOfArray(WhiteDiffuseADV00_Night), &ForceWhiteDiffuse3_Night);
 	}
-	if (SADXStyleWater == true)
+
+	if (SADXStyleWater)
 	{
 		WriteCall((void*)0x006312BB, WaterTexture);
 		matlistADV00_00123C24[0].attrflags |= NJD_FLAG_USE_ALPHA;
@@ -1067,6 +1067,7 @@ void ADV00_Init(const char *config_ini_path, const HelperFunctions &helperFuncti
 		matlistADV00_001566E4[0].diffuse.argb.a = 0xB2;
 		objectADV00_00151F24.pos[1] = -13;
 	}
+
 	WriteData<4>((void*)0x00630AE0, 0x90); //Hotel door fix
 	WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting
 	ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31); //SS_TRAIN
@@ -1112,8 +1113,9 @@ void ADV00_Init(const char *config_ini_path, const HelperFunctions &helperFuncti
 	___ADV00_TEXLISTS[3] = &texlist_advss03;
 	___ADV00_TEXLISTS[4] = &texlist_advss04;
 	___ADV00_TEXLISTS[5] = &texlist_advss05;
+
 	//Fog data
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		StationSquare1Fog[i].Toggle = 1;
 		StationSquare2Fog[i].Toggle = 1;

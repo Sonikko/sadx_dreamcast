@@ -270,7 +270,7 @@ void PlayMusicHook_DisableE105Fog(MusicIDs song)
 	ReduceHotShelterFog = true;
 }
 
-void HotShelter_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void HotShelter_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SET1200A");
 	ReplaceBIN_DC("SET1200B");
@@ -321,7 +321,7 @@ void HotShelter_Init(const char *config_ini_path, const HelperFunctions &helperF
 	ResizeTextureList((NJS_TEXLIST*)0x180DFF4, textures_shelter1);
 	ResizeTextureList((NJS_TEXLIST*)0x17F56F4, textures_shelter2);
 	ResizeTextureList((NJS_TEXLIST*)0x17F4F74, textures_shelter3);
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(LevelSpecular_HotShelter, LengthOfArray(LevelSpecular_HotShelter), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_HotShelter, LengthOfArray(ObjectSpecular_HotShelter), &ForceDiffuse0Specular1);
@@ -359,8 +359,9 @@ void HotShelter_Init(const char *config_ini_path, const HelperFunctions &helperF
 	((NJS_MATERIAL*)0x018136E0)->diffuse.color = 0xFFB2B2B2; //OUkijima material colors
 	((NJS_MATERIAL*)0x018136F4)->diffuse.color = 0xFFB2B2B2; //OUkijima material colors
 	((NJS_MATERIAL*)0x01813708)->diffuse.color = 0xFFB2B2B2; //OUkijima material colors
+
 	//Fog/draw distance data
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		DrawDist_HotShelter1[i].Maximum = -3000.0;
 		DrawDist_HotShelter2[i].Maximum = -3000.0;

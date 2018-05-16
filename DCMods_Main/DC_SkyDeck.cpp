@@ -604,7 +604,7 @@ void __cdecl Talap0Display_FixedRotation(ObjectMaster *a2)
 	}
 }
 
-void SkyDeck_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void SkyDeck_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SET0600M");
 	ReplaceBIN_DC("SET0600S");
@@ -671,7 +671,7 @@ void SkyDeck_Init(const char *config_ini_path, const HelperFunctions &helperFunc
 	WriteJump((void*)0x5FAD60, Connect0Display_FixedRotation);
 	WriteJump((void*)0x5FB4C0, Talap0Display_FixedRotation);
 	//Lantern stuff
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(WhiteDiffuse_SkyDeck, LengthOfArray(WhiteDiffuse_SkyDeck), &ForceWhiteDiffuse1);
 		material_register(ObjectSpecular_SkyDeck, LengthOfArray(ObjectSpecular_SkyDeck), &ForceDiffuse0Specular1);
@@ -756,6 +756,7 @@ void SkyDeck_Init(const char *config_ini_path, const HelperFunctions &helperFunc
 	ResizeTextureList((NJS_TEXLIST*)0x20E0BB0, textures_skydeck1);
 	ResizeTextureList((NJS_TEXLIST*)0x20AA63C, textures_skydeck2);
 	ResizeTextureList((NJS_TEXLIST*)0x203ACE0, textures_skydeck3);
+
 	DataArray(FogData, SkyDeck1Fog, 0x0203A094, 3);
 	DataArray(FogData, SkyDeck2Fog, 0x0203A0C4, 3);
 	DataArray(FogData, SkyDeck3Fog, 0x0203A0F4, 3);
@@ -763,7 +764,7 @@ void SkyDeck_Init(const char *config_ini_path, const HelperFunctions &helperFunc
 	DataArray(DrawDistance, SkyDeck1DrawDist, 0x0203A04C, 3);
 	DataArray(DrawDistance, SkyDeck2DrawDist, 0x0203A064, 3);
 	DataArray(DrawDistance, SkyDeck3DrawDist, 0x0203A07C, 3);
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		SkyDeck1Fog[i].Layer = 4000.0f;
 		SkyDeck1Fog[i].Distance = 12000.0f;

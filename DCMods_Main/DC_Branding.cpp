@@ -1474,19 +1474,17 @@ void Branding_SetUpVariables()
 	ResolutionDeltaY = (VerticalResolution_float - ResolutionScaleY * 480.0f) / 2.0f;
 }
 
-void Branding_Init(const char *config_ini_path, const HelperFunctions &helperFunctions)
+void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	//Load settings
-	const IniFile *settings = new IniFile(config_ini_path);
-	RipplesOn = settings->getBool("Branding", "RippleEffect", true);
-	EnableTransition = settings->getBool("Branding", "EnableTransition", true);
-	DisableSA1TitleScreen = settings->getBool("Branding", "DisableSA1TitleScreen", false);
-	DrawOverlay = settings->getBool("Branding", "DrawOverlay", true);
-	RemoveCream = settings->getBool("Branding", "RemoveCream", true);
-	SA1LogoMode = settings->getInt("Branding", "SA1LogoMode", 0);
+	// Load configuration settings.
+	RipplesOn = config->getBool("Branding", "RippleEffect", true);
+	EnableTransition = config->getBool("Branding", "EnableTransition", true);
+	DisableSA1TitleScreen = config->getBool("Branding", "DisableSA1TitleScreen", false);
+	DrawOverlay = config->getBool("Branding", "DrawOverlay", true);
+	RemoveCream = config->getBool("Branding", "RemoveCream", true);
+	SA1LogoMode = config->getInt("Branding", "SA1LogoMode", 0);
 	LogoScaleXT = LogoScaleX;
 	LogoScaleYT = LogoScaleY;
-	delete settings;
 
 	Branding_SetUpVariables();
 	//Credits
