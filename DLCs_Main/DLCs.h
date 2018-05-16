@@ -6,6 +6,14 @@ extern std::string DLCMode;
 extern std::string LaunchPartyDLCMode;
 extern std::string SegaVoiceLanguage;
 
+// Twinkle Circuit track IDs.
+extern int SonicTrack;
+extern int TailsTrack;
+extern int KnucklesTrack;
+extern int AmyTrack;
+extern int BigTrack;
+extern int GammaTrack;
+
 // Common
 extern bool EverybodySuperSonicRacing;
 extern int CurrentDLC;
