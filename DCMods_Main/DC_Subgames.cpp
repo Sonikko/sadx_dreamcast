@@ -735,7 +735,7 @@ void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions
 
 		switch (EnableSETFixes)
 		{
-			case 1:
+			case SETFixes_Normal:
 				AddSETFix("SETMCART00S");
 				AddSETFix("SETMCART01S");
 				ReplaceBIN_DC("SETMCART02S");
@@ -743,7 +743,7 @@ void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions
 				ReplaceBIN_DC("SETMCART04S");
 				ReplaceBIN_DC("SETMCART05S");
 				break;
-			case 2:
+			case SETFixes_Extra:
 				AddSETFix_Extra("SETMCART00S");
 				AddSETFix_Extra("SETMCART01S");
 				ReplaceBIN_DC("SETMCART02S");

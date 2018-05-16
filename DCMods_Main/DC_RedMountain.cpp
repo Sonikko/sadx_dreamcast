@@ -80,13 +80,13 @@ void RedMountain_Init(const IniFile *config, const HelperFunctions &helperFuncti
 
 	switch (EnableSETFixes)
 	{
-		case 1:
+		case SETFixes_Normal:
 			AddSETFix("SET0500S");
 			AddSETFix("SET0501E");
 			AddSETFix("SET0501S");
 			AddSETFix("SET0502K");
 			break;
-		case 2:
+		case SETFixes_Extra:
 			AddSETFix_Extra("SET0500S");
 			AddSETFix_Extra("SET0501E");
 			AddSETFix_Extra("SET0501S");

@@ -8,7 +8,14 @@ class IniFile;
 
 DataPointer(int, FramerateSetting_Config, 0x0089295C);
 
-extern int EnableSETFixes;
+typedef enum
+{
+	SETFixes_Off	= 0,
+	SETFixes_Normal	= 1,
+	SETFixes_Extra	= 2,
+} SETFixes_e;
+extern SETFixes_e EnableSETFixes;
+
 extern int CutsceneSkipMode;
 extern bool EnableSpeedFixes;
 extern bool DLLLoaded_DLCs;

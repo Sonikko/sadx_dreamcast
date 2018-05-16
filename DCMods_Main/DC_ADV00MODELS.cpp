@@ -885,7 +885,7 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 
 	switch (EnableSETFixes)
 	{
-		case 1:
+		case SETFixes_Normal:
 			AddSETFix("SETSS00A");
 			AddSETFix("SETSS00B");
 			AddSETFix("SETSS00E");
@@ -917,7 +917,7 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 			AddSETFix("SETSS04S");
 			AddSETFix("SETSS05S");
 			break;
-		case 2:
+		case SETFixes_Extra:
 			AddSETFix_Extra("SETSS00A");
 			AddSETFix_Extra("SETSS00B");
 			AddSETFix_Extra("SETSS00E");

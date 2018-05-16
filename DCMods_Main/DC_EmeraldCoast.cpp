@@ -449,12 +449,12 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 
 	switch (EnableSETFixes)
 	{
-		case 1:
+		case SETFixes_Normal:
 			AddSETFix("SET0100S");
 			AddSETFix("SET0100E");
 			AddSETFix("SET0101S");
 			break;
-		case 2:
+		case SETFixes_Extra:
 			AddSETFix_Extra("SET0100S");
 			AddSETFix_Extra("SET0100E");
 			AddSETFix_Extra("SET0101S");

@@ -128,14 +128,14 @@ void WindyValley_Init(const IniFile *config, const HelperFunctions &helperFuncti
 
 	switch (EnableSETFixes)
 	{
-		case 1:
+		case SETFixes_Normal:
 			AddSETFix("SET0200E");
 			AddSETFix("SET0200S");
 			AddSETFix("SET0201S");
 			AddSETFix("SET0202M");
 			AddSETFix("SET0202S");
 			break;
-		case 2:
+		case SETFixes_Extra:
 			AddSETFix_Extra("SET0200E");
 			AddSETFix_Extra("SET0200S");
 			AddSETFix_Extra("SET0201S");

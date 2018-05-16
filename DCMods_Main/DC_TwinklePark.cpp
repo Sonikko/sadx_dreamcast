@@ -417,13 +417,13 @@ void TwinklePark_Init(const IniFile *config, const HelperFunctions &helperFuncti
 
 	switch (EnableSETFixes)
 	{
-		case 1:
+		case SETFixes_Normal:
 			AddSETFix("SET0301A");
 			AddSETFix("SET0301B");
 			AddSETFix("SET0301S");
 			AddSETFix("SET0302A");
 			break;
-		case 2:
+		case SETFixes_Extra:
 			AddSETFix_Extra("SET0301A");
 			AddSETFix_Extra("SET0301B");
 			AddSETFix_Extra("SET0301S");

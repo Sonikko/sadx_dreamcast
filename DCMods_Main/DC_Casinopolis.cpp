@@ -698,7 +698,7 @@ void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFuncti
 
 	switch (EnableSETFixes)
 	{
-		case 1:
+		case SETFixes_Normal:
 			AddSETFix("SET0900K");
 			AddSETFix("SET0900S");
 			AddSETFix("SET0901M");
@@ -706,7 +706,7 @@ void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFuncti
 			AddSETFix("SET0902S");
 			AddSETFix("SET0903S");
 			break;
-		case 2:
+		case SETFixes_Extra:
 			AddSETFix_Extra("SET0900K");
 			AddSETFix_Extra("SET0900S");
 			AddSETFix_Extra("SET0901M");

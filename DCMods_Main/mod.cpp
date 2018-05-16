@@ -27,11 +27,7 @@ static bool SADXWater_Past = false;
 static bool SADXWater_EggHornet = false;
 static bool SADXWater_ZeroE101R = false;
 
-// TODO: Make this an enum?
-// - 0 == off
-// - 1 == normal
-// - 2 == extra
-int EnableSETFixes = 1;
+SETFixes_e EnableSETFixes = SETFixes_Normal;
 
 bool DLLLoaded_SA1Chars = false;
 bool DLLLoaded_Lantern = false;
@@ -149,11 +145,11 @@ extern "C"
 
 		const std::string EnableSETFixes_String = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
 		if (EnableSETFixes_String == "Off")
-			EnableSETFixes = 0;
+			EnableSETFixes = SETFixes_Off;
 		else if (EnableSETFixes_String == "Normal")
-			EnableSETFixes = 1;
+			EnableSETFixes = SETFixes_Normal;
 		else if (EnableSETFixes_String == "Extra")
-			EnableSETFixes = 2;
+			EnableSETFixes = SETFixes_Extra;
 
 		//Set window title
 		if (EnableWindowTitle == true) helperFunctions.SetWindowTitle("Sonic Adventure");

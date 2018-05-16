@@ -291,13 +291,13 @@ void HotShelter_Init(const IniFile *config, const HelperFunctions &helperFunctio
 
 	switch (EnableSETFixes)
 	{
-		case 1:
+		case SETFixes_Normal:
 			AddSETFix("SET1200A");
 			AddSETFix("SET1200B");
 			AddSETFix("SET1201A");
 			AddSETFix("SET1202E");
 			break;
-		case 2:
+		case SETFixes_Extra:
 			AddSETFix_Extra("SET1200A");
 			AddSETFix_Extra("SET1200B");
 			AddSETFix_Extra("SET1201A");

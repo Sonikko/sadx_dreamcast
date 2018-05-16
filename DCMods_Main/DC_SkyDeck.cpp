@@ -621,14 +621,14 @@ void SkyDeck_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 
 	switch (EnableSETFixes)
 	{
-		case 1:
+		case SETFixes_Normal:
 			AddSETFix("SET0600M");
 			AddSETFix("SET0600S");
 			AddSETFix("SET0601S");
 			AddSETFix("SET0602K");
 			AddSETFix("SET0602S");
 			break;
-		case 2:
+		case SETFixes_Extra:
 			AddSETFix_Extra("SET0600M");
 			AddSETFix_Extra("SET0600S");
 			AddSETFix_Extra("SET0601S");

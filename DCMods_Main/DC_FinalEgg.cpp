@@ -621,7 +621,7 @@ void FinalEgg_Init(const IniFile *config, const HelperFunctions &helperFunctions
 
 	switch (EnableSETFixes)
 	{
-		case 1:
+		case SETFixes_Normal:
 			AddSETFix("SET1000A");
 			AddSETFix("SET1000S");
 			AddSETFix("SET1001S");
@@ -629,7 +629,7 @@ void FinalEgg_Init(const IniFile *config, const HelperFunctions &helperFunctions
 			AddSETFix("SET1002S");
 			AddSETFix("SET1003S");
 			break;
-		case 2:
+		case SETFixes_Extra:
 			AddSETFix_Extra("SET1000A");
 			AddSETFix_Extra("SET1000S");
 			AddSETFix_Extra("SET1001S");

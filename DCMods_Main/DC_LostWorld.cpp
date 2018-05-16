@@ -47,13 +47,13 @@ void LostWorld_Init(const IniFile *config, const HelperFunctions &helperFunction
 
 	switch (EnableSETFixes)
 	{
-		case 1:
+		case SETFixes_Normal:
 			AddSETFix("SET0700S");
 			AddSETFix("SET0701K");
 			AddSETFix("SET0701S");
 			AddSETFix("SET0702S");
 			break;
-		case 2:
+		case SETFixes_Extra:
 			AddSETFix_Extra("SET0700S");
 			AddSETFix_Extra("SET0701K");
 			AddSETFix_Extra("SET0701S");

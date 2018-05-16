@@ -127,14 +127,14 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 
 	switch (EnableSETFixes)
 	{
-		case 1:
+		case SETFixes_Normal:
 			AddSETFix("SET0400M");
 			AddSETFix("SET0400S");
 			AddSETFix("SET0401S");
 			AddSETFix("SET0402K");
 			AddSETFix("SET0402S");
 			break;
-		case 2:
+		case SETFixes_Extra:
 			AddSETFix_Extra("SET0400M");
 			AddSETFix_Extra("SET0400S");
 			AddSETFix_Extra("SET0401S");

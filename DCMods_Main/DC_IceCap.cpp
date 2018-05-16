@@ -153,14 +153,14 @@ void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 
 	switch (EnableSETFixes)
 	{
-		case 1:
+		case SETFixes_Normal:
 			AddSETFix("SET0800S");
 			AddSETFix("SET0801S");
 			AddSETFix("SET0802M");
 			AddSETFix("SET0802S");
 			AddSETFix("SET0803B");
 			break;
-		case 2:
+		case SETFixes_Extra:
 			AddSETFix_Extra("SET0800S");
 			AddSETFix_Extra("SET0801S");
 			AddSETFix_Extra("SET0802M");
