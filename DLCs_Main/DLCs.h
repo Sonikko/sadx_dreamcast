@@ -1,4 +1,5 @@
 #pragma once
+#include <SADXModLoader.h>
 
 // Common
 extern bool EverybodySuperSonicRacing;
@@ -15,6 +16,7 @@ extern int HintTimer;
 extern int ChallengeTimer;
 extern int CollectedAll;
 extern int MusicMode;
+extern SETObjData setdata_dlc;
 
 extern bool ChallengeOver;
 extern bool ChallengeAction;
