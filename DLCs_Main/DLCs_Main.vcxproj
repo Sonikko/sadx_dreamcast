@@ -75,6 +75,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ATT.cpp" />
     <ClCompile Include="Balloon.cpp" />
     <ClCompile Include="DLCs.cpp" />
     <ClCompile Include="Messages.cpp" />
@@ -86,6 +87,7 @@
     <ClCompile Include="Timer.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="ATT.h" />
     <ClInclude Include="Balloon.h" />
     <ClInclude Include="Data\DLC_ATT.h" />
     <ClInclude Include="Data\DLC_Christmas98.h" />
@@ -95,6 +97,7 @@
     <ClInclude Include="Data\DLC_Reebok.h" />
     <ClInclude Include="Data\DLC_SambaGP.h" />
     <ClInclude Include="Data\DLC_Y2K.h" />
+    <ClInclude Include="DLCs.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="Posters.h" />
     <ClInclude Include="stdafx.h" />

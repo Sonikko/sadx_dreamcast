@@ -17,6 +17,7 @@
 #include "IniFile.hpp"
 
 // DLCs
+#include "DLCs.h"
 #include "Timer.h"
 #include "Posters.h"
 #include "Balloon.h"
