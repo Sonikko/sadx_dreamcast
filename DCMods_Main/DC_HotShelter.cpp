@@ -288,20 +288,25 @@ void HotShelter_Init(const IniFile *config, const HelperFunctions &helperFunctio
 	ReplaceBIN_DC("CAM1202E");
 	ReplaceBIN_DC("CAM1202S");
 	ReplaceBIN_DC("CAM1203S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET1200A");
-		AddSETFix("SET1200B");
-		AddSETFix("SET1201A");
-		AddSETFix("SET1202E");
+		case 1:
+			AddSETFix("SET1200A");
+			AddSETFix("SET1200B");
+			AddSETFix("SET1201A");
+			AddSETFix("SET1202E");
+			break;
+		case 2:
+			AddSETFix_Extra("SET1200A");
+			AddSETFix_Extra("SET1200B");
+			AddSETFix_Extra("SET1201A");
+			AddSETFix_Extra("SET1202E");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET1200A");
-		AddSETFix_Extra("SET1200B");
-		AddSETFix_Extra("SET1201A");
-		AddSETFix_Extra("SET1202E");
-	}
+
 	ReplacePVM("HOTSHELTER0");
 	ReplacePVM("HOTSHELTER1");
 	ReplacePVM("HOTSHELTER2");

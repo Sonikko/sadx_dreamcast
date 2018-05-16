@@ -618,22 +618,27 @@ void SkyDeck_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAM0601S");
 	ReplaceBIN_DC("CAM0602K");
 	ReplaceBIN_DC("CAM0602S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0600M");
-		AddSETFix("SET0600S");
-		AddSETFix("SET0601S");
-		AddSETFix("SET0602K");
-		AddSETFix("SET0602S");
+		case 1:
+			AddSETFix("SET0600M");
+			AddSETFix("SET0600S");
+			AddSETFix("SET0601S");
+			AddSETFix("SET0602K");
+			AddSETFix("SET0602S");
+			break;
+		case 2:
+			AddSETFix_Extra("SET0600M");
+			AddSETFix_Extra("SET0600S");
+			AddSETFix_Extra("SET0601S");
+			AddSETFix_Extra("SET0602K");
+			AddSETFix_Extra("SET0602S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0600M");
-		AddSETFix_Extra("SET0600S");
-		AddSETFix_Extra("SET0601S");
-		AddSETFix_Extra("SET0602K");
-		AddSETFix_Extra("SET0602S");
-	}
+
 	ReplacePVM("E_AIRCRAFT");
 	ReplacePVM("OBJ_SKYDECK");
 	ReplacePVM("SKYDECK01");

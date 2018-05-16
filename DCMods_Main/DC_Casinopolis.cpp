@@ -695,24 +695,29 @@ void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ReplaceBIN_DC("SET0902S");
 	ReplaceBIN_DC("SET0903S");
 	ReplaceBIN_DC("SETMI0900K");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0900K");
-		AddSETFix("SET0900S");
-		AddSETFix("SET0901M");
-		AddSETFix("SET0901S");
-		AddSETFix("SET0902S");
-		AddSETFix("SET0903S");
+		case 1:
+			AddSETFix("SET0900K");
+			AddSETFix("SET0900S");
+			AddSETFix("SET0901M");
+			AddSETFix("SET0901S");
+			AddSETFix("SET0902S");
+			AddSETFix("SET0903S");
+			break;
+		case 2:
+			AddSETFix_Extra("SET0900K");
+			AddSETFix_Extra("SET0900S");
+			AddSETFix_Extra("SET0901M");
+			AddSETFix_Extra("SET0901S");
+			AddSETFix_Extra("SET0902S");
+			AddSETFix_Extra("SET0903S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0900K");
-		AddSETFix_Extra("SET0900S");
-		AddSETFix_Extra("SET0901M");
-		AddSETFix_Extra("SET0901S");
-		AddSETFix_Extra("SET0902S");
-		AddSETFix_Extra("SET0903S");
-	}
+
 	ReplacePVM("CASINO01");
 	ReplacePVM("CASINO02");
 	ReplacePVM("CASINO03");

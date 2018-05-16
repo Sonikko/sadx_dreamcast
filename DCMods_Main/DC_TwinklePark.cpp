@@ -414,20 +414,25 @@ void TwinklePark_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ReplaceBIN_DC("SET0301S");
 	ReplaceBIN_DC("SET0302A");
 	ReplaceBIN_DC("SET0302S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0301A");
-		AddSETFix("SET0301B");
-		AddSETFix("SET0301S");
-		AddSETFix("SET0302A");
+		case 1:
+			AddSETFix("SET0301A");
+			AddSETFix("SET0301B");
+			AddSETFix("SET0301S");
+			AddSETFix("SET0302A");
+			break;
+		case 2:
+			AddSETFix_Extra("SET0301A");
+			AddSETFix_Extra("SET0301B");
+			AddSETFix_Extra("SET0301S");
+			AddSETFix_Extra("SET0302A");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0301A");
-		AddSETFix_Extra("SET0301B");
-		AddSETFix_Extra("SET0301S");
-		AddSETFix_Extra("SET0302A");
-	}
+
 	ReplacePVM("BG_SHAREOBJ");
 	ReplacePVM("OBJ_SHAREOBJ");
 	ReplacePVM("OBJ_TWINKLE");

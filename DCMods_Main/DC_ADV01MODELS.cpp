@@ -428,36 +428,41 @@ void ADV01_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAMEC33S");
 	ReplaceBIN_DC("CAMEC34S");
 	ReplaceBIN_DC("CAMEC35S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SETEC00S");
-		AddSETFix("SETEC01S");
-		AddSETFix("SETEC02S");
-		AddSETFix("SETEC03S");
-		AddSETFix("SETEC04S");
-		AddSETFix("SETEC05S");
-		AddSETFix("SETEC30S");
-		AddSETFix("SETEC31S");
-		AddSETFix("SETEC32S");
-		AddSETFix("SETEC33S");
-		AddSETFix("SETEC34S");
-		AddSETFix("SETEC35S");
+		case 1:
+			AddSETFix("SETEC00S");
+			AddSETFix("SETEC01S");
+			AddSETFix("SETEC02S");
+			AddSETFix("SETEC03S");
+			AddSETFix("SETEC04S");
+			AddSETFix("SETEC05S");
+			AddSETFix("SETEC30S");
+			AddSETFix("SETEC31S");
+			AddSETFix("SETEC32S");
+			AddSETFix("SETEC33S");
+			AddSETFix("SETEC34S");
+			AddSETFix("SETEC35S");
+			break;
+		case 2:
+			AddSETFix_Extra("SETEC00S");
+			AddSETFix_Extra("SETEC01S");
+			AddSETFix_Extra("SETEC02S");
+			AddSETFix_Extra("SETEC03S");
+			AddSETFix_Extra("SETEC04S");
+			AddSETFix_Extra("SETEC05S");
+			AddSETFix_Extra("SETEC30S");
+			AddSETFix_Extra("SETEC31S");
+			AddSETFix_Extra("SETEC32S");
+			AddSETFix_Extra("SETEC33S");
+			AddSETFix_Extra("SETEC34S");
+			AddSETFix_Extra("SETEC35S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SETEC00S");
-		AddSETFix_Extra("SETEC01S");
-		AddSETFix_Extra("SETEC02S");
-		AddSETFix_Extra("SETEC03S");
-		AddSETFix_Extra("SETEC04S");
-		AddSETFix_Extra("SETEC05S");
-		AddSETFix_Extra("SETEC30S");
-		AddSETFix_Extra("SETEC31S");
-		AddSETFix_Extra("SETEC32S");
-		AddSETFix_Extra("SETEC33S");
-		AddSETFix_Extra("SETEC34S");
-		AddSETFix_Extra("SETEC35S");
-	}
+
 	ReplacePVM("ADV_EC03");
 	ReplacePVM("ADV_EC04");
 	ReplacePVM("ADV_EC05");

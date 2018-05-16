@@ -44,20 +44,25 @@ void LostWorld_Init(const IniFile *config, const HelperFunctions &helperFunction
 	ReplaceBIN_DC("SET0701K");
 	ReplaceBIN_DC("SET0701S");
 	ReplaceBIN_DC("SET0702S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0700S");
-		AddSETFix("SET0701K");
-		AddSETFix("SET0701S");
-		AddSETFix("SET0702S");
+		case 1:
+			AddSETFix("SET0700S");
+			AddSETFix("SET0701K");
+			AddSETFix("SET0701S");
+			AddSETFix("SET0702S");
+			break;
+		case 2:
+			AddSETFix_Extra("SET0700S");
+			AddSETFix_Extra("SET0701K");
+			AddSETFix_Extra("SET0701S");
+			AddSETFix_Extra("SET0702S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0700S");
-		AddSETFix_Extra("SET0701K");
-		AddSETFix_Extra("SET0701S");
-		AddSETFix_Extra("SET0702S");
-	}
+
 	ReplacePVM("BG_RUIN");
 	ReplacePVM("RUIN01");
 	ReplacePVM("RUIN02");

@@ -27,6 +27,10 @@ static bool SADXWater_Past = false;
 static bool SADXWater_EggHornet = false;
 static bool SADXWater_ZeroE101R = false;
 
+// TODO: Make this an enum?
+// - 0 == off
+// - 1 == normal
+// - 2 == extra
 int EnableSETFixes = 1;
 
 bool DLLLoaded_SA1Chars = false;

@@ -77,20 +77,25 @@ void RedMountain_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ReplaceBIN_DC("SET0501E");
 	ReplaceBIN_DC("SET0501S");
 	ReplaceBIN_DC("SET0502K");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0500S");
-		AddSETFix("SET0501E");
-		AddSETFix("SET0501S");
-		AddSETFix("SET0502K");
+		case 1:
+			AddSETFix("SET0500S");
+			AddSETFix("SET0501E");
+			AddSETFix("SET0501S");
+			AddSETFix("SET0502K");
+			break;
+		case 2:
+			AddSETFix_Extra("SET0500S");
+			AddSETFix_Extra("SET0501E");
+			AddSETFix_Extra("SET0501S");
+			AddSETFix_Extra("SET0502K");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0500S");
-		AddSETFix_Extra("SET0501E");
-		AddSETFix_Extra("SET0501S");
-		AddSETFix_Extra("SET0502K");
-	}
+
 	ReplacePVM("MOUNTAIN01");
 	ReplacePVM("MOUNTAIN02");
 	ReplacePVM("MOUNTAIN03");

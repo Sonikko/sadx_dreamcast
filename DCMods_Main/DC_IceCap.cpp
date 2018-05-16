@@ -150,22 +150,27 @@ void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0802M");
 	ReplaceBIN_DC("SET0802S");
 	ReplaceBIN_DC("SET0803B");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0800S");
-		AddSETFix("SET0801S");
-		AddSETFix("SET0802M");
-		AddSETFix("SET0802S");
-		AddSETFix("SET0803B");
+		case 1:
+			AddSETFix("SET0800S");
+			AddSETFix("SET0801S");
+			AddSETFix("SET0802M");
+			AddSETFix("SET0802S");
+			AddSETFix("SET0803B");
+			break;
+		case 2:
+			AddSETFix_Extra("SET0800S");
+			AddSETFix_Extra("SET0801S");
+			AddSETFix_Extra("SET0802M");
+			AddSETFix_Extra("SET0802S");
+			AddSETFix_Extra("SET0803B");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0800S");
-		AddSETFix_Extra("SET0801S");
-		AddSETFix_Extra("SET0802M");
-		AddSETFix_Extra("SET0802S");
-		AddSETFix_Extra("SET0803B");
-	}
+
 	ReplacePVM("BG_ICECAP");
 	ReplacePVM("ICECAP01");
 	ReplacePVM("ICECAP02");

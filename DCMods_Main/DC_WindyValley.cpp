@@ -125,22 +125,27 @@ void WindyValley_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ReplaceBIN_DC("CAM0201S");
 	ReplaceBIN_DC("CAM0202M");
 	ReplaceBIN_DC("CAM0202S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0200E");
-		AddSETFix("SET0200S");
-		AddSETFix("SET0201S");
-		AddSETFix("SET0202M");
-		AddSETFix("SET0202S");
+		case 1:
+			AddSETFix("SET0200E");
+			AddSETFix("SET0200S");
+			AddSETFix("SET0201S");
+			AddSETFix("SET0202M");
+			AddSETFix("SET0202S");
+			break;
+		case 2:
+			AddSETFix_Extra("SET0200E");
+			AddSETFix_Extra("SET0200S");
+			AddSETFix_Extra("SET0201S");
+			AddSETFix_Extra("SET0202M");
+			AddSETFix_Extra("SET0202S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0200E");
-		AddSETFix_Extra("SET0200S");
-		AddSETFix_Extra("SET0201S");
-		AddSETFix_Extra("SET0202M");
-		AddSETFix_Extra("SET0202S");
-	}
+
 	ReplacePVM("OBJ_WINDY");
 	ReplacePVM("WINDY01");
 	ReplacePVM("WINDY02");

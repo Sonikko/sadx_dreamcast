@@ -618,24 +618,29 @@ void FinalEgg_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	ReplaceBIN_DC("SET1002E");
 	ReplaceBIN_DC("SET1002S");
 	ReplaceBIN_DC("SET1003S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET1000A");
-		AddSETFix("SET1000S");
-		AddSETFix("SET1001S");
-		AddSETFix("SET1002E");
-		AddSETFix("SET1002S");
-		AddSETFix("SET1003S");
+		case 1:
+			AddSETFix("SET1000A");
+			AddSETFix("SET1000S");
+			AddSETFix("SET1001S");
+			AddSETFix("SET1002E");
+			AddSETFix("SET1002S");
+			AddSETFix("SET1003S");
+			break;
+		case 2:
+			AddSETFix_Extra("SET1000A");
+			AddSETFix_Extra("SET1000S");
+			AddSETFix_Extra("SET1001S");
+			AddSETFix_Extra("SET1002E");
+			AddSETFix_Extra("SET1002S");
+			AddSETFix_Extra("SET1003S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET1000A");
-		AddSETFix_Extra("SET1000S");
-		AddSETFix_Extra("SET1001S");
-		AddSETFix_Extra("SET1002E");
-		AddSETFix_Extra("SET1002S");
-		AddSETFix_Extra("SET1003S");
-	}
+
 	ReplacePVM("EFF_FINALEGG_POM");
 	ReplacePVM("FINALEGG1");
 	ReplacePVM("FINALEGG2");

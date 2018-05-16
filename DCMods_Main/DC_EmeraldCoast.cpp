@@ -446,18 +446,23 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 	ReplaceBIN_DC("SET0101S");
 	ReplaceBIN_DC("SET0102B");
 	ReplaceBIN_DC("SET0102S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0100S");
-		AddSETFix("SET0100E");
-		AddSETFix("SET0101S");
+		case 1:
+			AddSETFix("SET0100S");
+			AddSETFix("SET0100E");
+			AddSETFix("SET0101S");
+			break;
+		case 2:
+			AddSETFix_Extra("SET0100S");
+			AddSETFix_Extra("SET0100E");
+			AddSETFix_Extra("SET0101S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0100S");
-		AddSETFix_Extra("SET0100E");
-		AddSETFix_Extra("SET0101S");
-	}
+
 	ReplacePVM("BEACH01");
 	ReplacePVM("BEACH02");
 	ReplacePVM("BEACH03");

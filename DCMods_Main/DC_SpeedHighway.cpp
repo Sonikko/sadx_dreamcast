@@ -124,22 +124,27 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 	ReplaceBIN_DC("SET0401S");
 	ReplaceBIN_DC("SET0402K");
 	ReplaceBIN_DC("SET0402S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0400M");
-		AddSETFix("SET0400S");
-		AddSETFix("SET0401S");
-		AddSETFix("SET0402K");
-		AddSETFix("SET0402S");
+		case 1:
+			AddSETFix("SET0400M");
+			AddSETFix("SET0400S");
+			AddSETFix("SET0401S");
+			AddSETFix("SET0402K");
+			AddSETFix("SET0402S");
+			break;
+		case 2:
+			AddSETFix_Extra("SET0400M");
+			AddSETFix_Extra("SET0400S");
+			AddSETFix_Extra("SET0401S");
+			AddSETFix_Extra("SET0402K");
+			AddSETFix_Extra("SET0402S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0400M");
-		AddSETFix_Extra("SET0400S");
-		AddSETFix_Extra("SET0401S");
-		AddSETFix_Extra("SET0402K");
-		AddSETFix_Extra("SET0402S");
-	}
+
 	ReplacePVM("BG_HIGHWAY");
 	ReplacePVM("BG_HIGHWAY01");
 	ReplacePVM("BG_HIGHWAY02");
