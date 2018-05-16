@@ -45,6 +45,9 @@
     <ClCompile Include="Christmas99.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Halloween.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Balloon.h">
@@ -99,6 +102,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Christmas99.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Halloween.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

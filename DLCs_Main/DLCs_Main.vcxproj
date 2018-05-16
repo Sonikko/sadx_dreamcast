@@ -80,6 +80,7 @@
     <ClCompile Include="Christmas99.cpp" />
     <ClCompile Include="Balloon.cpp" />
     <ClCompile Include="DLCs.cpp" />
+    <ClCompile Include="Halloween.cpp" />
     <ClCompile Include="Messages.cpp" />
     <ClCompile Include="Posters.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -102,6 +103,7 @@
     <ClInclude Include="Data\DLC_SambaGP.h" />
     <ClInclude Include="Data\DLC_Y2K.h" />
     <ClInclude Include="DLCs.h" />
+    <ClInclude Include="Halloween.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="Posters.h" />
     <ClInclude Include="stdafx.h" />
