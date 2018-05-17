@@ -61,35 +61,35 @@ static void FamitsuPoster_Main(ObjectMaster *a1)
 					{
 						Collected1 = true;
 						PlaySound(28, 0, 0, 0);
-						if (Collected1 == true && Collected2 == true && Collected3 == true && Collected4 == true && Collected5 == true) sub_4B79C0((char *)(&FamitsuMessage1), 180); else sub_4B79C0((char *)(&FamitsuMessage5), 180);
+						if (Collected1 == true && Collected2 == true && Collected3 == true && Collected4 == true && Collected5 == true) DisplayHintText(FamitsuMessage1, 180); else DisplayHintText(FamitsuMessage5, 180);
 						HintTimer = 60;
 					}
 					if (v1->CharIndex == 5)
 					{
 						Collected2 = true;
 						PlaySound(28, 0, 0, 0);
-						if (Collected1 == true && Collected2 == true && Collected3 == true && Collected4 == true && Collected5 == true) sub_4B79C0((char *)(&FamitsuMessage1), 180); else sub_4B79C0((char *)(&FamitsuMessage6), 180);
+						if (Collected1 == true && Collected2 == true && Collected3 == true && Collected4 == true && Collected5 == true) DisplayHintText(FamitsuMessage1, 180); else DisplayHintText(FamitsuMessage6, 180);
 						HintTimer = 60;
 					}
 					if (v1->CharIndex == 6)
 					{
 						Collected3 = true;
 						PlaySound(28, 0, 0, 0);
-						if (Collected1 == true && Collected2 == true && Collected3 == true && Collected4 == true && Collected5 == true) sub_4B79C0((char *)(&FamitsuMessage1), 180); else sub_4B79C0((char *)(&FamitsuMessage7), 180);
+						if (Collected1 == true && Collected2 == true && Collected3 == true && Collected4 == true && Collected5 == true) DisplayHintText(FamitsuMessage1, 180); else DisplayHintText(FamitsuMessage7, 180);
 						HintTimer = 60;
 					}
 					if (v1->CharIndex == 7)
 					{
 						Collected4 = true;
 						PlaySound(28, 0, 0, 0);
-						if (Collected1 == true && Collected2 == true && Collected3 == true && Collected4 == true && Collected5 == true) sub_4B79C0((char *)(&FamitsuMessage1), 180); else sub_4B79C0((char *)(&FamitsuMessage8), 140);
+						if (Collected1 == true && Collected2 == true && Collected3 == true && Collected4 == true && Collected5 == true) DisplayHintText(FamitsuMessage1, 180); else DisplayHintText(FamitsuMessage8, 180);
 						HintTimer = 60;
 					}
 					if (v1->CharIndex == 8)
 					{
 						Collected5 = true;
 						PlaySound(28, 0, 0, 0);
-						if (Collected1 == true && Collected2 == true && Collected3 == true && Collected4 == true && Collected5 == true) sub_4B79C0((char *)(&FamitsuMessage1), 180); else sub_4B79C0((char *)(&FamitsuMessage9), 180);
+						if (Collected1 == true && Collected2 == true && Collected3 == true && Collected4 == true && Collected5 == true) DisplayHintText(FamitsuMessage1, 180); else DisplayHintText(FamitsuMessage9, 180);
 						HintTimer = 60;
 					}
 				}
@@ -194,7 +194,7 @@ static void FamitsuBalloons_Main(ObjectMaster *a1)
 				if (HintTimer <= 0)
 				{
 					PlaySound(12, 0, 0, 0);
-					sub_4B79C0((char *)(&FamitsuMessage4), 180);
+					DisplayHintText(FamitsuMessage4, 180);
 					Collected1 = false;
 					Collected2 = false;
 					Collected3 = false;
@@ -249,7 +249,7 @@ static void FamitsuBalloons_Main(ObjectMaster *a1)
 							TimerTenMinutesTexanim.texid, TimerMinutesTexanim.texid,
 							TimerTenSecondsTexanim.texid, TimerSecondsTexanim.texid,
 							TimerMTenSecondsTexanim.texid, TimerMSecondsTexanim.texid);
-						sub_4B79C0((char *)(&FamitsuMessage10), 180);
+						DisplayHintText(FamitsuMessage10, 180);
 						Collected1 = false;
 						Collected2 = false;
 						Collected3 = false;
@@ -266,7 +266,7 @@ static void FamitsuBalloons_Main(ObjectMaster *a1)
 					if (HintTimer <= 0)
 					{
 						PlaySound(6, 0, 0, 0);
-						sub_4B79C0((char *)(&FamitsuMessage2), 180);
+						DisplayHintText(FamitsuMessage2, 180);
 						HintTimer = 120;
 					}
 				}
@@ -362,7 +362,7 @@ static void TimerFamitsu_Main(ObjectMaster *a1)
 	{
 		ChallengeAction = false;
 		ChallengeTimer = 0;
-		sub_4B79C0((char *)(&FamitsuMessage3), 180);
+		DisplayHintText(FamitsuMessage3, 180);
 	}
 }
 

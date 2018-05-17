@@ -36,22 +36,22 @@ static void Y2KPoster_Main(ObjectMaster *a1)
 				switch (v1->CharIndex)
 				{
 				case 0:
-					sub_4B79C0((char *)(&Y2KMessage1), 180);
+					DisplayHintText(Y2KMessage1, 180);
 					break;
 				case 1:
-					sub_4B79C0((char *)(&Y2KMessage2), 180);
+					DisplayHintText(Y2KMessage2, 180);
 					break;
 				case 2:
-					sub_4B79C0((char *)(&Y2KMessage3), 180);
+					DisplayHintText(Y2KMessage3, 180);
 					break;
 				case 3:
-					sub_4B79C0((char *)(&Y2KMessage4), 180);
+					DisplayHintText(Y2KMessage4, 180);
 					break;
 				case 4:
-					sub_4B79C0((char *)(&Y2KMessage5), 180);
+					DisplayHintText(Y2KMessage5, 180);
 					break;
 				case 5:
-					sub_4B79C0((char *)(&Y2KMessage6), 180);
+					DisplayHintText(Y2KMessage6, 180);
 					break;
 				default:
 					break;
@@ -112,7 +112,7 @@ static void Y2KRing_Main(ObjectMaster *a1)
 		if (HintTimer <= 0)
 		{
 			PlaySound(6, 0, 0, 0);
-			if (CurrentLevel == 26) sub_4B79C0((char *)(&Y2KMessage1), 180); else sub_4B79C0((char *)(&Y2KMessage2), 180);
+			if (CurrentLevel == 26) DisplayHintText(Y2KMessage1, 180); else DisplayHintText(Y2KMessage2, 180);
 			if (MusicMode == 0)
 			{
 				StopMusic();
@@ -133,7 +133,7 @@ static void Y2KRing_Load(ObjectMaster *a1)
 	v1 = a1->Data1;
 	if (v1->CharID == 1) //Only add collision for rings that are horizontal
 	{
-		v5 = sub_49D6C0(&object_00001514, a1, (ColFlags)0x20001001);
+		v5 = DynamicCOL_AddFromEntity(&object_00001514, a1, (ColFlags)0x20001001);
 		v5->scl[0] = 1.0f;
 		v5->scl[1] = 1.0f;
 		v5->scl[2] = 1.0f;

@@ -237,7 +237,7 @@ static void ATTTimer_Main(ObjectMaster *a1)
 		if ((((ChallengeTimer / 3600) % 60) % 10) >= 3 && ChallengeOver == false)
 		{
 			ChallengeOver = true;
-			sub_4B79C0((char *)(&ATT3_Message2), 120);
+			DisplayHintText(ATT3_Message2, 120);
 		}
 		if (ChallengeAction == true && ChallengeTimer % 3600 == 0)
 		{
@@ -438,7 +438,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 				if (v1->CharIndex == 7 && ChallengeAction == true)
 				{
 					PlaySound(12, 0, 0, 0);
-					sub_4B79C0((char *)(&ATT1_Message4), 180);
+					DisplayHintText(ATT1_Message4, 180);
 					HighwayGoal = true;
 					v1->Action = 1;
 					sub_412D80(LevelIDs_StationSquare, 3);
@@ -448,7 +448,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 				if (v1->CharIndex == 3 && ChallengeAction == false)
 				{
 					PlaySound(12, 0, 0, 0);
-					sub_4B79C0((char *)(&ATT1_Message5), 180);
+					DisplayHintText(ATT1_Message5, 180);
 					HighwayGoal = false;
 					ChallengeTimer = 0;
 					ChallengeAction = true;
@@ -467,7 +467,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 						TimerTenMinutesTexanim.texid, TimerMinutesTexanim.texid,
 						TimerTenSecondsTexanim.texid, TimerSecondsTexanim.texid,
 						TimerMTenSecondsTexanim.texid, TimerMSecondsTexanim.texid);
-					sub_4B79C0((char *)(&ATT1_Message7), 180);
+					DisplayHintText(ATT1_Message7, 180);
 					ChallengeAction = false;
 					ChallengeOver = false;
 					ChallengeTimer = 0;
@@ -478,7 +478,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 				{
 					v1->Action = 1;
 					PlaySound(12, 0, 0, 0);
-					sub_4B79C0((char *)(&ATT1_Message3), 180);
+					DisplayHintText(ATT1_Message3, 180);
 					ChallengeAction = false;
 					ChallengeOver = false;
 					ChallengeTimer = 0;
@@ -488,21 +488,21 @@ static void ATTObject_Main(ObjectMaster *a1)
 				if (v1->CharIndex == 6 && CurrentLevel == 26)
 				{
 					PlaySound(23, 0, 0, 0);
-					sub_4B79C0((char *)(&ATT1_Message2), 180);
+					DisplayHintText(ATT1_Message2, 180);
 					HintTimer = 60;
 				}
 				//Poster 2
 				if (v1->CharIndex == 5 && CurrentLevel == 26)
 				{
 					PlaySound(23, 0, 0, 0);
-					sub_4B79C0((char *)(&ATT1_Message1), 180);
+					DisplayHintText(ATT1_Message1, 180);
 					HintTimer = 60;
 				}
 				//You can't continue from here
 				if (v1->CharIndex == 10)
 				{
 					PlaySound(23, 0, 0, 0);
-					sub_4B79C0((char *)(&ATT1_Message6), 180);
+					DisplayHintText(ATT1_Message6, 180);
 					HintTimer = 60;
 				}
 			}
@@ -545,25 +545,25 @@ static void ATTObject_Main(ObjectMaster *a1)
 						if (v1->CharIndex == 5 && Treasure1 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (Treasure2 == true && Treasure3 == true && Treasure4 == true) sub_4B79C0((char *)(&ATT2_Message0), 120); else sub_4B79C0((char *)(&ATT2_Message5), 120);
+							if (Treasure2 == true && Treasure3 == true && Treasure4 == true) DisplayHintText(ATT2_Message0, 120); else DisplayHintText(ATT2_Message5, 120);
 							Treasure1 = true;
 						}
 						if (v1->CharIndex == 6 && Treasure2 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (Treasure1 == true && Treasure3 == true && Treasure4 == true) sub_4B79C0((char *)(&ATT2_Message0), 120); else sub_4B79C0((char *)(&ATT2_Message6), 120);
+							if (Treasure1 == true && Treasure3 == true && Treasure4 == true) DisplayHintText(ATT2_Message0, 120); else DisplayHintText(ATT2_Message6, 120);
 							Treasure2 = true;
 						}
 						if (v1->CharIndex == 7 && Treasure3 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (Treasure1 == true && Treasure2 == true && Treasure4 == true) sub_4B79C0((char *)(&ATT2_Message0), 120); else sub_4B79C0((char *)(&ATT2_Message7), 120);
+							if (Treasure1 == true && Treasure2 == true && Treasure4 == true) DisplayHintText(ATT2_Message0, 120); else DisplayHintText(ATT2_Message7, 120);
 							Treasure3 = true;
 						}
 						if (v1->CharIndex == 8 && Treasure4 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (Treasure1 == true && Treasure2 == true && Treasure3 == true) sub_4B79C0((char *)(&ATT2_Message0), 120); else sub_4B79C0((char *)(&ATT2_Message8), 120);
+							if (Treasure1 == true && Treasure2 == true && Treasure3 == true) DisplayHintText(ATT2_Message0, 120); else DisplayHintText(ATT2_Message8, 120);
 							Treasure4 = true;
 						}
 						HintTimer = 120;
@@ -574,40 +574,40 @@ static void ATTObject_Main(ObjectMaster *a1)
 						switch (v1->CharIndex)
 						{
 						case 0:
-							sub_4B79C0((char *)(&ATT2_Message0), 120);
+							DisplayHintText(ATT2_Message0, 120);
 							break;
 						case 1:
-							sub_4B79C0((char *)(&ATT2_Message1), 120);
+							DisplayHintText(ATT2_Message1, 120);
 							break;
 						case 2:
-							sub_4B79C0((char *)(&ATT2_Message2), 120);
+							DisplayHintText(ATT2_Message2, 120);
 							break;
 						case 3:
-							sub_4B79C0((char *)(&ATT2_Message3), 120);
+							DisplayHintText(ATT2_Message3, 120);
 							break;
 						case 4:
-							sub_4B79C0((char *)(&ATT2_Message4), 120);
+							DisplayHintText(ATT2_Message4, 120);
 							break;
 						case 9:
-							sub_4B79C0((char *)(&ATT2_Message9), 120);
+							DisplayHintText(ATT2_Message9, 120);
 							break;
 						case 10:
-							sub_4B79C0((char *)(&ATT2_Message10), 120);
+							DisplayHintText(ATT2_Message10, 120);
 							break;
 						case 11:
-							sub_4B79C0((char *)(&ATT2_Message11), 120);
+							DisplayHintText(ATT2_Message11, 120);
 							break;
 						case 12:
-							sub_4B79C0((char *)(&ATT2_Message12), 120);
+							DisplayHintText(ATT2_Message12, 120);
 							break;
 						case 13:
-							sub_4B79C0((char *)(&ATT2_Message13), 120);
+							DisplayHintText(ATT2_Message13, 120);
 							break;
 						case 14:
-							sub_4B79C0((char *)(&ATT2_Message14), 120);
+							DisplayHintText(ATT2_Message14, 120);
 							break;
 						case 15:
-							sub_4B79C0((char *)(&ATT2_Message15), 120);
+							DisplayHintText(ATT2_Message15, 120);
 							break;
 						default:
 							break;
@@ -619,7 +619,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 					{
 						PlaySound(5, 0, 0, 0);
 						ChallengeAction = true;
-						sub_4B79C0((char *)(&ATT2_Message3), 120);
+						DisplayHintText(ATT2_Message3, 120);
 						HintTimer = 120;
 					}
 					//Goal plate (not all treasures collected)
@@ -627,7 +627,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 					{
 						v1->Action = 1;
 						PlaySound(23, 0, 0, 0);
-						sub_4B79C0((char *)(&ATT2_Message16), 180);
+						DisplayHintText(ATT2_Message16, 180);
 						HintTimer = 360;
 					}
 					//Goal plate (all treasures collected)
@@ -640,7 +640,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 							TimerTenMinutesTexanim.texid, TimerMinutesTexanim.texid,
 							TimerTenSecondsTexanim.texid, TimerSecondsTexanim.texid,
 							TimerMTenSecondsTexanim.texid, TimerMSecondsTexanim.texid);
-						sub_4B79C0((char *)(&ATT2_Message4), 180);
+						DisplayHintText(ATT2_Message4, 180);
 						Treasure1 = false;
 						Treasure2 = false;
 						Treasure3 = false;
@@ -656,7 +656,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 					{
 						v1->Action = 1;
 						PlaySound(5, 0, 0, 0);
-						sub_4B79C0((char *)(&ATT2_Message2), 180);
+						DisplayHintText(ATT2_Message2, 180);
 						Treasure1 = false;
 						Treasure2 = false;
 						Treasure3 = false;
@@ -692,70 +692,70 @@ static void ATTObject_Main(ObjectMaster *a1)
 						if (v1->CharIndex == 6 && Gate1 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (CollectedAll >= 9) sub_4B79C0((char *)(&ATT3_Message0), 120); else sub_4B79C0((char *)(&ATT3_Message6), 120);
+							if (CollectedAll >= 9) DisplayHintText(ATT3_Message0, 120); else DisplayHintText(ATT3_Message6, 120);
 							Gate1 = true;
 							v1->Action = 1;
 						}
 						if (v1->CharIndex == 7 && Gate2 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (CollectedAll >= 9) sub_4B79C0((char *)(&ATT3_Message0), 120); else sub_4B79C0((char *)(&ATT3_Message7), 120);
+							if (CollectedAll >= 9) DisplayHintText(ATT3_Message0, 120); else DisplayHintText(ATT3_Message7, 120);
 							Gate2 = true;
 							v1->Action = 1;
 						}
 						if (v1->CharIndex == 8 && Gate3 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (CollectedAll >= 9) sub_4B79C0((char *)(&ATT3_Message0), 120); else sub_4B79C0((char *)(&ATT3_Message8), 120);
+							if (CollectedAll >= 9) DisplayHintText(ATT3_Message0, 120); else DisplayHintText(ATT3_Message8, 120);
 							Gate3 = true;
 							v1->Action = 1;
 						}
 						if (v1->CharIndex == 9 && Gate4 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (CollectedAll >= 9) sub_4B79C0((char *)(&ATT3_Message0), 120); else sub_4B79C0((char *)(&ATT3_Message9), 120);
+							if (CollectedAll >= 9) DisplayHintText(ATT3_Message0, 120); else DisplayHintText(ATT3_Message9, 120);
 							Gate4 = true;
 							v1->Action = 1;
 						}
 						if (v1->CharIndex == 10 && Gate5 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (CollectedAll >= 9) sub_4B79C0((char *)(&ATT3_Message0), 120); else sub_4B79C0((char *)(&ATT3_Message10), 120);
+							if (CollectedAll >= 9) DisplayHintText(ATT3_Message0, 120); else DisplayHintText(ATT3_Message10, 120);
 							Gate5 = true;
 							v1->Action = 1;
 						}
 						if (v1->CharIndex == 11 && Gate6 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (CollectedAll >= 9) sub_4B79C0((char *)(&ATT3_Message0), 120); else sub_4B79C0((char *)(&ATT3_Message11), 120);
+							if (CollectedAll >= 9) DisplayHintText(ATT3_Message0, 120); else DisplayHintText(ATT3_Message11, 120);
 							Gate6 = true;
 							v1->Action = 1;
 						}
 						if (v1->CharIndex == 12 && Gate7 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (CollectedAll >= 9) sub_4B79C0((char *)(&ATT3_Message0), 120); else sub_4B79C0((char *)(&ATT3_Message12), 120);
+							if (CollectedAll >= 9) DisplayHintText(ATT3_Message0, 120); else DisplayHintText(ATT3_Message12, 120);
 							Gate7 = true;
 							v1->Action = 1;
 						}
 						if (v1->CharIndex == 13 && Gate8 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (CollectedAll >= 9) sub_4B79C0((char *)(&ATT3_Message0), 120); else sub_4B79C0((char *)(&ATT3_Message13), 120);
+							if (CollectedAll >= 9) DisplayHintText(ATT3_Message0, 120); else DisplayHintText(ATT3_Message13, 120);
 							Gate8 = true;
 							v1->Action = 1;
 						}
 						if (v1->CharIndex == 14 && Gate9 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (CollectedAll >= 9) sub_4B79C0((char *)(&ATT3_Message0), 120); else sub_4B79C0((char *)(&ATT3_Message14), 120);
+							if (CollectedAll >= 9) DisplayHintText(ATT3_Message0, 120); else DisplayHintText(ATT3_Message14, 120);
 							Gate9 = true;
 							v1->Action = 1;
 						}
 						if (v1->CharIndex == 15 && Gate10 == false)
 						{
 							PlaySound(11, 0, 0, 0);
-							if (CollectedAll >= 9) sub_4B79C0((char *)(&ATT3_Message0), 120); else sub_4B79C0((char *)(&ATT3_Message15), 120);
+							if (CollectedAll >= 9) DisplayHintText(ATT3_Message0, 120); else DisplayHintText(ATT3_Message15, 120);
 							Gate10 = true;
 							v1->Action = 1;
 						}
@@ -764,7 +764,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 					//Poster
 					if (v1->CharID == 31 && CurrentLevel == 26 && IsPlayerInsideSphere(&v1->Position, 15))
 					{
-						sub_4B79C0((char *)(&ATT3_Message5), 180);
+						DisplayHintText(ATT3_Message5, 180);
 						HintTimer = 180;
 					}
 					//Start plate
@@ -773,7 +773,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 						v1->Action = 1;
 						PlaySound(5, 0, 0, 0);
 						ChallengeAction = true;
-						sub_4B79C0((char *)(&ATT3_Message3), 120);
+						DisplayHintText(ATT3_Message3, 120);
 						HintTimer = 60;
 					}
 					//Goal plate (not all Gates passed)
@@ -781,7 +781,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 					{
 						v1->Action = 1;
 						PlaySound(5, 0, 0, 0);
-						sub_4B79C0((char *)(&ATT3_Message16), 180);
+						DisplayHintText(ATT3_Message16, 180);
 						Gate1 = false;
 						Gate2 = false;
 						Gate3 = false;
@@ -808,7 +808,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 							TimerTenMinutesTexanim.texid, TimerMinutesTexanim.texid,
 							TimerTenSecondsTexanim.texid, TimerSecondsTexanim.texid,
 							TimerMTenSecondsTexanim.texid, TimerMSecondsTexanim.texid);
-						sub_4B79C0((char *)(&ATT3_Message4), 600);
+						DisplayHintText(ATT3_Message4, 600);
 						ChallengeAction = false;
 						ChallengeOver = false;
 						HintTimer = 300;
@@ -818,7 +818,7 @@ static void ATTObject_Main(ObjectMaster *a1)
 					{
 						v1->Action = 1;
 						PlaySound(5, 0, 0, 0);
-						sub_4B79C0((char *)(&ATT3_Message2), 180);
+						DisplayHintText(ATT3_Message2, 180);
 						Gate1 = false;
 						Gate2 = false;
 						Gate3 = false;
@@ -854,7 +854,7 @@ void ATTObject_Load(ObjectMaster *a1)
 		//Rotating platform
 		if (v1->CharID == 12)
 		{
-			v5 = sub_49D6C0(&object_00000CE4, a1, (ColFlags)0x10001001);
+			v5 = DynamicCOL_AddFromEntity(&object_00000CE4, a1, (ColFlags)0x10001001);
 			v5->scl[0] = 1.0f;
 			v5->scl[1] = 1.0f;
 			v5->scl[2] = 1.0f;
@@ -862,7 +862,7 @@ void ATTObject_Load(ObjectMaster *a1)
 		//Billboard
 		if (v1->CharID == 10 && v1->CharIndex != 7)
 		{
-			v5 = sub_49D6C0(&poster_att1_big, a1, (ColFlags)0x20001001);
+			v5 = DynamicCOL_AddFromEntity(&poster_att1_big, a1, (ColFlags)0x20001001);
 			v5->scl[0] = v1->Scale.x;
 			v5->scl[1] = v1->Scale.y;
 			v5->scl[2] = v1->Scale.z;

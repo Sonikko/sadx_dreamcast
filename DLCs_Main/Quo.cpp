@@ -65,42 +65,42 @@ static void QUOPoster_Main(ObjectMaster *a1)
 					{
 						CollectedSS1 = true;
 						PlaySound(30, 0, 0, 0);
-						if (CollectedSS1 == true && CollectedSS2 == true && CollectedSS3 == true && CollectedMR1 == true && CollectedMR2 == true && CollectedMR3 == true) sub_4B79C0((char *)(&QuoMessage1), 180); else sub_4B79C0((char *)(&QuoMessage5), 180);
+						if (CollectedSS1 == true && CollectedSS2 == true && CollectedSS3 == true && CollectedMR1 == true && CollectedMR2 == true && CollectedMR3 == true) DisplayHintText(QuoMessage1, 180); else DisplayHintText(QuoMessage5, 180);
 						HintTimer = 60;
 					}
 					if (v1->Index == 1)
 					{
 						CollectedSS2 = true;
 						PlaySound(30, 0, 0, 0);
-						if (CollectedSS1 == true && CollectedSS2 == true && CollectedSS3 == true && CollectedMR1 == true && CollectedMR2 == true && CollectedMR3 == true) sub_4B79C0((char *)(&QuoMessage1), 180); else sub_4B79C0((char *)(&QuoMessage6), 180);
+						if (CollectedSS1 == true && CollectedSS2 == true && CollectedSS3 == true && CollectedMR1 == true && CollectedMR2 == true && CollectedMR3 == true) DisplayHintText(QuoMessage1, 180); else DisplayHintText(QuoMessage6, 180);
 						HintTimer = 60;
 					}
 					if (v1->Index == 2)
 					{
 						CollectedSS3 = true;
 						PlaySound(30, 0, 0, 0);
-						if (CollectedSS1 == true && CollectedSS2 == true && CollectedSS3 == true && CollectedMR1 == true && CollectedMR2 == true && CollectedMR3 == true) sub_4B79C0((char *)(&QuoMessage1), 180); else sub_4B79C0((char *)(&QuoMessage7), 180);
+						if (CollectedSS1 == true && CollectedSS2 == true && CollectedSS3 == true && CollectedMR1 == true && CollectedMR2 == true && CollectedMR3 == true) DisplayHintText(QuoMessage1, 180); else DisplayHintText(QuoMessage7, 180);
 						HintTimer = 60;
 					}
 					if (v1->Index == 3)
 					{
 						CollectedMR1 = true;
 						PlaySound(30, 0, 0, 0);
-						if (CollectedSS1 == true && CollectedSS2 == true && CollectedSS3 == true && CollectedMR1 == true && CollectedMR2 == true && CollectedMR3 == true) sub_4B79C0((char *)(&QuoMessage1), 180); else sub_4B79C0((char *)(&QuoMessage10), 180);
+						if (CollectedSS1 == true && CollectedSS2 == true && CollectedSS3 == true && CollectedMR1 == true && CollectedMR2 == true && CollectedMR3 == true) DisplayHintText(QuoMessage1, 180); else DisplayHintText(QuoMessage10, 180);
 						HintTimer = 60;
 					}
 					if (v1->Index == 4)
 					{
 						CollectedMR2 = true;
 						PlaySound(30, 0, 0, 0);
-						if (CollectedSS1 == true && CollectedSS2 == true && CollectedSS3 == true && CollectedMR1 == true && CollectedMR2 == true && CollectedMR3 == true) sub_4B79C0((char *)(&QuoMessage1), 180); else sub_4B79C0((char *)(&QuoMessage8), 180);
+						if (CollectedSS1 == true && CollectedSS2 == true && CollectedSS3 == true && CollectedMR1 == true && CollectedMR2 == true && CollectedMR3 == true) DisplayHintText(QuoMessage1, 180); else DisplayHintText(QuoMessage8, 180);
 						HintTimer = 60;
 					}
 					if (v1->Index == 5)
 					{
 						CollectedMR3 = true;
 						PlaySound(30, 0, 0, 0);
-						if (CollectedSS1 == true && CollectedSS2 == true && CollectedSS3 == true && CollectedMR1 == true && CollectedMR2 == true && CollectedMR3 == true) sub_4B79C0((char *)(&QuoMessage1), 180); else sub_4B79C0((char *)(&QuoMessage9), 180);
+						if (CollectedSS1 == true && CollectedSS2 == true && CollectedSS3 == true && CollectedMR1 == true && CollectedMR2 == true && CollectedMR3 == true) DisplayHintText(QuoMessage1, 180); else DisplayHintText(QuoMessage9, 180);
 						HintTimer = 60;
 					}
 				}
@@ -209,7 +209,7 @@ static void QUOBalloons_Main(ObjectMaster *a1)
 				if (HintTimer <= 0)
 				{
 					PlaySound(12, 0, 0, 0);
-					sub_4B79C0((char *)(&QuoMessage4), 180);
+					DisplayHintText(QuoMessage4, 180);
 					CollectedSS1 = false;
 					CollectedSS2 = false;
 					CollectedSS3 = false;
@@ -265,7 +265,7 @@ static void QUOBalloons_Main(ObjectMaster *a1)
 							TimerTenMinutesTexanim.texid, TimerMinutesTexanim.texid,
 							TimerTenSecondsTexanim.texid, TimerSecondsTexanim.texid,
 							TimerMTenSecondsTexanim.texid, TimerMSecondsTexanim.texid);
-						sub_4B79C0((char *)(&QuoMessage11), 180);
+						DisplayHintText(QuoMessage11, 180);
 						CollectedSS1 = false;
 						CollectedSS2 = false;
 						CollectedSS3 = false;
@@ -283,7 +283,7 @@ static void QUOBalloons_Main(ObjectMaster *a1)
 					if (HintTimer <= 0)
 					{
 						PlaySound(6, 0, 0, 0);
-						sub_4B79C0((char *)(&QuoMessage2), 180);
+						DisplayHintText(QuoMessage2, 180);
 						HintTimer = 120;
 					}
 				}
@@ -372,7 +372,7 @@ static void QUOTimer_Main(ObjectMaster *a1)
 	{
 		ChallengeAction = false;
 		ChallengeTimer = 0;
-		sub_4B79C0((char *)(&QuoMessage3), 180);
+		DisplayHintText(QuoMessage3, 180);
 	}
 }
 

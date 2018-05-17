@@ -59,28 +59,28 @@ static void Christmas98_Main(ObjectMaster *a1)
 					switch (v1->CharIndex)
 					{
 					case 0:
-						sub_4B79C0((char *)(&Christmas98Message0), 240);
+						DisplayHintText(Christmas98Message0, 240);
 						break;
 					case 1:
-						sub_4B79C0((char *)(&Christmas98Message1), 240);
+						DisplayHintText(Christmas98Message1, 240);
 						break;
 					case 2:
-						sub_4B79C0((char *)(&Christmas98Message2), 240);
+						DisplayHintText(Christmas98Message2, 240);
 						break;
 					case 3:
-						sub_4B79C0((char *)(&Christmas98Message3), 240);
+						DisplayHintText(Christmas98Message3, 240);
 						break;
 					case 4:
-						sub_4B79C0((char *)(&Christmas98Message4), 240);
+						DisplayHintText(Christmas98Message4, 240);
 						break;
 					case 5:
-						sub_4B79C0((char *)(&Christmas98Message5), 240);
+						DisplayHintText(Christmas98Message5, 240);
 						break;
 					case 6:
-						sub_4B79C0((char *)(&Christmas98Message6), 240);
+						DisplayHintText(Christmas98Message6, 240);
 						break;
 					case 7:
-						sub_4B79C0((char *)(&Christmas98Message7), 240);
+						DisplayHintText(Christmas98Message7, 240);
 						break;
 					default:
 						break;
@@ -98,7 +98,7 @@ void Christmas98_Load(ObjectMaster *a1)
 	EntityData1 *v1; // edi@1
 	NJS_OBJECT *v2; // eax@2
 	v1 = a1->Data1;
-	v2 = sub_49D6C0(&object_00000F9C, a1, (ColFlags)0x20001001);
+	v2 = DynamicCOL_AddFromEntity(&object_00000F9C, a1, (ColFlags)0x20001001);
 	v2->scl[0] = v1->Scale.x;
 	v2->scl[1] = v1->Scale.y;
 	v2->scl[2] = v1->Scale.z;

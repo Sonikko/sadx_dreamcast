@@ -161,7 +161,7 @@ static void SambaGate_Main(ObjectMaster *a1)
 		if (HintTimer <= 0 && IsPlayerInsideSphere(&WarpPosition, 25))
 		{
 			HintTimer = 120;
-			sub_4B79C0((char *)(&SambaGPMessage0), 180);
+			DisplayHintText(SambaGPMessage0, 180);
 		}
 		if (IsPlayerInsideSphere(&WarpPosition, 25))
 		{
@@ -176,7 +176,7 @@ static void LoadSambaGate(ObjectMaster *a1)
 	ObjectMaster *v1; // esi@1
 	EntityData1 *v3; // edi@1
 	NJS_OBJECT *v4; // eax@2
-	v4 = sub_49D6C0(&object_00000EF8, a1, (ColFlags)0x20001001);
+	v4 = DynamicCOL_AddFromEntity(&object_00000EF8, a1, (ColFlags)0x20001001);
 	v4->scl[0] = 1.0f;
 	v4->scl[1] = 1.0f;
 	v4->scl[2] = 1.0f;
@@ -217,13 +217,13 @@ static void SambaPoster_Main(ObjectMaster *a1)
 				switch (v1->CharIndex)
 				{
 				case 0:
-					sub_4B79C0((char *)(&SambaGPMessage1), 180);
+					DisplayHintText(SambaGPMessage1, 180);
 					break;
 				case 1:
-					sub_4B79C0((char *)(&SambaGPMessage2), 180);
+					DisplayHintText(SambaGPMessage2, 180);
 					break;
 				case 2:
-					sub_4B79C0((char *)(&SambaGPMessage3), 180);
+					DisplayHintText(SambaGPMessage3, 180);
 					break;
 				default:
 					break;

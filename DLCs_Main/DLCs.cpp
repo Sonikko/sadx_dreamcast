@@ -652,7 +652,7 @@ extern "C"
 						}
 						if (CurrentLevel == 33 && CollectedAll == 10 && ChallengeOver == false && Camera_Data1 != nullptr)
 						{
-							sub_4B79C0((char *)(&ATT3_Message4), 360);
+							DisplayHintText(ATT3_Message4, 360);
 							Gate1 = false;
 							Gate2 = false;
 							Gate3 = false;

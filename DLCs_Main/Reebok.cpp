@@ -102,25 +102,25 @@ static void ReebokPoster_Main(ObjectMaster *a1)
 				if (v1->CharIndex == 9)
 				{
 					PlaySound(23, 0, 0, 0);
-					sub_4B79C0((char *)(&ReebokMessage1), 180);
+					DisplayHintText(ReebokMessage1, 180);
 					HintTimer = 180;
 				}
 				if (v1->CharIndex == 8)
 				{
 					PlaySound(23, 0, 0, 0);
-					sub_4B79C0((char *)(&ReebokMessage6), 180);
+					DisplayHintText(ReebokMessage6, 180);
 					HintTimer = 180;
 				}
 				if (v1->CharIndex == 7)
 				{
 					PlaySound(23, 0, 0, 0);
-					sub_4B79C0((char *)(&ReebokMessage8), 180);
+					DisplayHintText(ReebokMessage8, 180);
 					HintTimer = 180;
 				}
 				if (v1->CharIndex == 3)
 				{
 					PlaySound(12, 0, 0, 0);
-					sub_4B79C0((char *)(&ReebokMessage7), 180);
+					DisplayHintText(ReebokMessage7, 180);
 					Collected1 = false;
 					Collected2 = false;
 					Collected3 = false;
@@ -145,7 +145,7 @@ static void ReebokPoster_Main(ObjectMaster *a1)
 							TimerTenMinutesTexanim.texid, TimerMinutesTexanim.texid,
 							TimerTenSecondsTexanim.texid, TimerSecondsTexanim.texid,
 							TimerMTenSecondsTexanim.texid, TimerMSecondsTexanim.texid);
-						sub_4B79C0((char *)(&ReebokMessage9), 180);
+						DisplayHintText(ReebokMessage9, 180);
 						ChallengeAction = false;
 						ChallengeOver = true;
 						ChallengeTimer = 0;
@@ -154,7 +154,7 @@ static void ReebokPoster_Main(ObjectMaster *a1)
 					else
 					{
 						PlaySound(23, 0, 0, 0);
-						sub_4B79C0((char *)(&ReebokMessage2), 180);
+						DisplayHintText(ReebokMessage2, 180);
 						HintTimer = 180;
 					}
 				}
@@ -173,7 +173,7 @@ static void ReebokPoster_Load(ObjectMaster *a1)
 	if (v1->CharID == 8)
 	{
 		Wha = v1->Rotation.y + 0xC000;
-		v5 = sub_49D6C0(&reebokposter, a1, (ColFlags)0x20001001);
+		v5 = DynamicCOL_AddFromEntity(&reebokposter, a1, (ColFlags)0x20001001);
 		v5->ang[1] = Wha;
 		v5->scl[0] = 1.0f;
 		v5->scl[1] = 1.5f;
@@ -287,8 +287,8 @@ static void Shoes_Main(ObjectMaster *a1)
 				if (HintTimer <= 0)
 				{
 					sub_425800(MusicIDs_bossevnt);
-					if (Collected1 == true && Collected2 == true && Collected3 == true && Collected4 == true && Collected5 == true) sub_4B79C0((char *)(&ReebokMessage5), 180);
-					else sub_4B79C0((char *)(&ReebokMessage4), 180);
+					if (Collected1 == true && Collected2 == true && Collected3 == true && Collected4 == true && Collected5 == true) DisplayHintText(ReebokMessage5, 180);
+					else DisplayHintText(ReebokMessage4, 180);
 					HintTimer = 60;
 				}
 			}
@@ -378,7 +378,7 @@ static void ReebokTimer_Main(ObjectMaster *a1)
 		ChallengeOver = true;
 		ChallengeTimer = 0;
 		sub_425800(MusicIDs_EmeraldCoastAzureBlueWorld);
-		sub_4B79C0((char *)(&ReebokMessage3), 180);
+		DisplayHintText(ReebokMessage3, 180);
 	}
 }
 

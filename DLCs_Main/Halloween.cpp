@@ -44,13 +44,13 @@ static void Halloween_Main(ObjectMaster *a1)
 					if (v1->CharID == 4)
 					{
 						PlaySound(6, 0, 0, 0);
-						sub_4B79C0((char *)(&HalloweenMessage0), 180);
+						DisplayHintText(HalloweenMessage0, 180);
 						HintTimer = 180;
 					}
 					if (v1->CharID == 1)
 					{
 						PlaySound(6, 0, 0, 0);
-						sub_4B79C0((char *)(&HalloweenMessage1), 180);
+						DisplayHintText(HalloweenMessage1, 180);
 						HintTimer = 180;
 					}
 				}
@@ -67,7 +67,7 @@ void Halloween_Load(ObjectMaster *a1)
 	v1 = a1->Data1;
 	if (v1->CharID == 1)
 	{
-		v2 = sub_49D6C0(&object_00000CC4, a1, (ColFlags)0x20001001);
+		v2 = DynamicCOL_AddFromEntity(&object_00000CC4, a1, (ColFlags)0x20001001);
 		v2->scl[0] = 1.0f;
 		v2->scl[1] = 1.0f;
 		v2->scl[2] = 1.0f;

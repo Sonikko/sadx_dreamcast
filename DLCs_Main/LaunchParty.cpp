@@ -42,27 +42,27 @@ static void LaunchPosterMain(ObjectMaster *a1)
 				switch (v1->CharIndex)
 				{
 				case 0:
-					sub_4B79C0((char *)(&LaunchPartyMessage1), 180);
+					DisplayHintText(LaunchPartyMessage1, 180);
 					break;
 				case 1:
-					sub_4B79C0((char *)(&LaunchPartyMessage2), 180);
+					DisplayHintText(LaunchPartyMessage2, 180);
 					break;
 				case 2:
-					sub_4B79C0((char *)(&LaunchPartyMessage3), 180);
+					DisplayHintText(LaunchPartyMessage3, 180);
 					break;
 				case 3:
 					if (LaunchPartyDLCMode == "US")
-						sub_4B79C0((char *)(&LaunchPartyMessage4_US), 180);
+						DisplayHintText(LaunchPartyMessage4_US, 180);
 					else if (LaunchPartyDLCMode == "Europe")
-						sub_4B79C0((char *)(&LaunchPartyMessage4_EU), 180);
+						DisplayHintText(LaunchPartyMessage4_EU, 180);
 					else if (LaunchPartyDLCMode == "Japan")
-						sub_4B79C0((char *)(&LaunchPartyMessage4_JP), 180);
+						DisplayHintText(LaunchPartyMessage4_JP, 180);
 					break;
 				case 4:
-					sub_4B79C0((char *)(&LaunchPartyMessage5), 180);
+					DisplayHintText(LaunchPartyMessage5, 180);
 					break;
 				case 5:
-					sub_4B79C0((char *)(&LaunchPartyMessage6), 180);
+					DisplayHintText(LaunchPartyMessage6, 180);
 					break;
 				default:
 					break;
@@ -91,7 +91,7 @@ static void LaunchPosterColli_Load(ObjectMaster *a1)
 	{
 		Wha = v1->Rotation.y + 0xC000;
 		v1->Rotation.y = Wha;
-		v5 = sub_49D6C0(&launchposter_colli, a1, (ColFlags)0x20001001);
+		v5 = DynamicCOL_AddFromEntity(&launchposter_colli, a1, (ColFlags)0x20001001);
 		v5->scl[0] = 1.0f;
 		v5->scl[1] = 1.0f;
 		v5->scl[2] = 1.0f;
@@ -154,7 +154,7 @@ static void PartyBalloons_Main(ObjectMaster *a1)
 			if (HintTimer <= 0)
 			{
 				PlaySound(23, 0, 0, 0);
-				sub_4B79C0((char *)(&LaunchPartyMessage1), 180);
+				DisplayHintText(LaunchPartyMessage1, 180);
 				HintTimer = 180;
 			}
 		}

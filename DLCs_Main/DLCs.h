@@ -74,14 +74,15 @@ extern bool Gate10;
 FunctionPointer(void, sub_412D80, (int a1, int a2), 0x412D80);
 FunctionPointer(void, sub_62E980, (), 0x62E980);
 FunctionPointer(void, sub_52F240, (), 0x52F240);
-FunctionPointer(void, sub_4B79C0, (char *a1, int a2), 0x4B79C0);
 FunctionPointer(signed int, sub_4570B0, (), 0x4570B0);
 FunctionPointer(signed int, sub_49E170, (ObjectMaster *a1), 0x49E170);
 FunctionPointer(signed int, sub_49CD60, (ObjectMaster *a1), 0x49CD60);
-FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColFlags surfaceFlags), 0x49D6C0);
 FunctionPointer(void, sub_425800, (int a1), 0x425800);
 
 // Common data pointers.
-DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataArray(ControllerData*, ControllerPointersShit, 0x03B0E77C, 8);
+// NOTE: These were previously defined as DataPointer() here,
+// but SADXVariables.h defines them as well but with a different name,
+// so we're just using a macro to rename them.
+#define DroppedFrames MissedFrames
+#define FramerateSetting DeltaTimeMultiplier
+#define ControllerPointersShit ControllerPointers
