@@ -85,6 +85,7 @@
     <ClCompile Include="LaunchParty.cpp" />
     <ClCompile Include="Messages.cpp" />
     <ClCompile Include="Posters.cpp" />
+    <ClCompile Include="Quo.cpp" />
     <ClCompile Include="Reebok.cpp" />
     <ClCompile Include="SambaGP.cpp" />
     <ClCompile Include="stdafx.cpp">
@@ -113,6 +114,7 @@
     <ClInclude Include="LaunchParty.h" />
     <ClInclude Include="Messages.h" />
     <ClInclude Include="Posters.h" />
+    <ClInclude Include="Quo.h" />
     <ClInclude Include="Reebok.h" />
     <ClInclude Include="SambaGP.h" />
     <ClInclude Include="stdafx.h" />

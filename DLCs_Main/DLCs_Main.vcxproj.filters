@@ -63,6 +63,9 @@
     <ClCompile Include="Famitsu.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Quo.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Balloon.h">
@@ -135,6 +138,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Famitsu.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Quo.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

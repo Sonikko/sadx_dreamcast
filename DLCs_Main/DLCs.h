@@ -44,6 +44,14 @@ extern bool Collected5;
 // AT&T stuff
 extern bool HighwayGoal;
 
+// QUO stuff
+extern bool CollectedSS1;
+extern bool CollectedSS2;
+extern bool CollectedSS3;
+extern bool CollectedMR1;
+extern bool CollectedMR2;
+extern bool CollectedMR3;
+
 // MR challenge stuff
 extern bool Treasure1;
 extern bool Treasure2;
