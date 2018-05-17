@@ -60,6 +60,9 @@
     <ClCompile Include="Y2K.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Famitsu.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Balloon.h">
@@ -129,6 +132,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Y2K.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Famitsu.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

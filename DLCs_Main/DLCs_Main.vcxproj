@@ -80,6 +80,7 @@
     <ClCompile Include="Christmas99.cpp" />
     <ClCompile Include="Balloon.cpp" />
     <ClCompile Include="DLCs.cpp" />
+    <ClCompile Include="Famitsu.cpp" />
     <ClCompile Include="Halloween.cpp" />
     <ClCompile Include="LaunchParty.cpp" />
     <ClCompile Include="Messages.cpp" />
@@ -107,6 +108,7 @@
     <ClInclude Include="Data\DLC_SambaGP.h" />
     <ClInclude Include="Data\DLC_Y2K.h" />
     <ClInclude Include="DLCs.h" />
+    <ClInclude Include="Famitsu.h" />
     <ClInclude Include="Halloween.h" />
     <ClInclude Include="LaunchParty.h" />
     <ClInclude Include="Messages.h" />
