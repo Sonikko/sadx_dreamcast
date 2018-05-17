@@ -462,16 +462,11 @@ static void ATTObject_Main(ObjectMaster *a1)
 				{
 					v1->Action = 1;
 					PlaySound(12, 0, 0, 0);
-					snprintf(ResultText, 100, "Your result is:         .");
-					snprintf(ResultText + 16, 100 - 16, "%d", TimerTenMinutesTexanim.texid);
-					snprintf(ResultText + 17, 100 - 17, "%d", TimerMinutesTexanim.texid);
-					snprintf(ResultText + 18, 100 - 18, ":");
-					snprintf(ResultText + 19, 100 - 19, "%d", TimerTenSecondsTexanim.texid);
-					snprintf(ResultText + 20, 100 - 20, "%d", TimerSecondsTexanim.texid);
-					snprintf(ResultText + 21, 100 - 21, ":");
-					snprintf(ResultText + 22, 100 - 22, "%d", TimerMTenSecondsTexanim.texid);
-					snprintf(ResultText + 23, 100 - 23, "%d", TimerMSecondsTexanim.texid);
-					snprintf(ResultText + 24, 100 - 24, ".");
+					snprintf(ResultText, LengthOfArray(ResultText),
+						"Your result is: %d%d:%d%d:%d%d.",
+						TimerTenMinutesTexanim.texid, TimerMinutesTexanim.texid,
+						TimerTenSecondsTexanim.texid, TimerSecondsTexanim.texid,
+						TimerMTenSecondsTexanim.texid, TimerMSecondsTexanim.texid);
 					sub_4B79C0((char *)(&ATT1_Message7), 180);
 					ChallengeAction = false;
 					ChallengeOver = false;
@@ -640,16 +635,11 @@ static void ATTObject_Main(ObjectMaster *a1)
 					{
 						v1->Action = 1;
 						PlaySound(5, 0, 0, 0);
-						snprintf(ResultText, 100, "Your result is:         .");
-						snprintf(ResultText + 16, 100 - 16, "%d", TimerTenMinutesTexanim.texid);
-						snprintf(ResultText + 17, 100 - 17, "%d", TimerMinutesTexanim.texid);
-						snprintf(ResultText + 18, 100 - 18, ":");
-						snprintf(ResultText + 19, 100 - 19, "%d", TimerTenSecondsTexanim.texid);
-						snprintf(ResultText + 20, 100 - 20, "%d", TimerSecondsTexanim.texid);
-						snprintf(ResultText + 21, 100 - 21, ":");
-						snprintf(ResultText + 22, 100 - 22, "%d", TimerMTenSecondsTexanim.texid);
-						snprintf(ResultText + 23, 100 - 23, "%d", TimerMSecondsTexanim.texid);
-						snprintf(ResultText + 24, 100 - 24, ".");
+						snprintf(ResultText, LengthOfArray(ResultText),
+							"Your result is: %d%d:%d%d:%d%d.",
+							TimerTenMinutesTexanim.texid, TimerMinutesTexanim.texid,
+							TimerTenSecondsTexanim.texid, TimerSecondsTexanim.texid,
+							TimerMTenSecondsTexanim.texid, TimerMSecondsTexanim.texid);
 						sub_4B79C0((char *)(&ATT2_Message4), 180);
 						Treasure1 = false;
 						Treasure2 = false;
@@ -813,16 +803,11 @@ static void ATTObject_Main(ObjectMaster *a1)
 					{
 						v1->Action = 1;
 						PlaySound(5, 0, 0, 0);
-						snprintf(ResultText, 100, "Goal! Your result is:         .");
-						snprintf(ResultText + 22, 100 - 22, "%d", TimerTenMinutesTexanim.texid);
-						snprintf(ResultText + 23, 100 - 23, "%d", TimerMinutesTexanim.texid);
-						snprintf(ResultText + 24, 100 - 24, ":");
-						snprintf(ResultText + 25, 100 - 25, "%d", TimerTenSecondsTexanim.texid);
-						snprintf(ResultText + 26, 100 - 26, "%d", TimerSecondsTexanim.texid);
-						snprintf(ResultText + 27, 100 - 27, ":");
-						snprintf(ResultText + 28, 100 - 28, "%d", TimerMTenSecondsTexanim.texid);
-						snprintf(ResultText + 29, 100 - 29, "%d", TimerMSecondsTexanim.texid);
-						snprintf(ResultText + 30, 100 - 30, ".");
+						snprintf(ResultText, LengthOfArray(ResultText),
+							"Goal! Your result is: %d%d:%d%d:%d%d.",
+							TimerTenMinutesTexanim.texid, TimerMinutesTexanim.texid,
+							TimerTenSecondsTexanim.texid, TimerSecondsTexanim.texid,
+							TimerMTenSecondsTexanim.texid, TimerMSecondsTexanim.texid);
 						sub_4B79C0((char *)(&ATT3_Message4), 600);
 						ChallengeAction = false;
 						ChallengeOver = false;

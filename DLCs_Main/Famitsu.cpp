@@ -244,16 +244,11 @@ static void FamitsuBalloons_Main(ObjectMaster *a1)
 					if (HintTimer <= 0)
 					{
 						PlaySound(12, 0, 0, 0);
-						snprintf(ResultText, 100, "Your result is:         .");
-						snprintf(ResultText + 16, 100 - 16, "%d", TimerTenMinutesTexanim.texid);
-						snprintf(ResultText + 17, 100 - 17, "%d", TimerMinutesTexanim.texid);
-						snprintf(ResultText + 18, 100 - 18, ":");
-						snprintf(ResultText + 19, 100 - 19, "%d", TimerTenSecondsTexanim.texid);
-						snprintf(ResultText + 20, 100 - 20, "%d", TimerSecondsTexanim.texid);
-						snprintf(ResultText + 21, 100 - 21, ":");
-						snprintf(ResultText + 22, 100 - 22, "%d", TimerMTenSecondsTexanim.texid);
-						snprintf(ResultText + 23, 100 - 23, "%d", TimerMSecondsTexanim.texid);
-						snprintf(ResultText + 24, 100 - 24, ".");
+						snprintf(ResultText, LengthOfArray(ResultText),
+							"Your result is: %d%d:%d%d:%d%d.",
+							TimerTenMinutesTexanim.texid, TimerMinutesTexanim.texid,
+							TimerTenSecondsTexanim.texid, TimerSecondsTexanim.texid,
+							TimerMTenSecondsTexanim.texid, TimerMSecondsTexanim.texid);
 						sub_4B79C0((char *)(&FamitsuMessage10), 180);
 						Collected1 = false;
 						Collected2 = false;
