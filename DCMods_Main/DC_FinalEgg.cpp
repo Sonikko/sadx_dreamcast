@@ -3,6 +3,7 @@
 #include "FinalEgg2.h"
 #include "FinalEgg3.h"
 #include "FinalEgg_objects.h"
+#include "OStandLight.h"
 
 NJS_TEXNAME textures_cylinder[259];
 NJS_TEXLIST texlist_cylinder = { arrayptrandlength(textures_cylinder) };
@@ -162,70 +163,81 @@ njPopMatrix(1u);
 }
 }
 */
-void __cdecl OStandLight_DisplayFixed(ObjectMaster *a1)
+
+void __cdecl OStandLight_Display_F(ObjectMaster *a1)
 {
-	EntityData1 *v1; // esi@1
+	//There are two light beams in the model.
+	//At the moment I don't know how the game selects the one to use (if it uses both).
+	//So I just disable the vertices for the other beam.
+	//Entity Rotation X is beam X rotation 
+	//Entity Rotation Y is object Y rotation
+	//Entity Rotation Z is ???
+	//Entity Scale X is light+beam model Y rotation (in degrees)
+	//Entity Scale Y is beam length 
+	//Entity Scale Z is beam width
 	int v2; // eax@2
-	NJS_OBJECT* v3; // eax@4
-	NJS_OBJECT* v4; // eax@4
+	EntityData1 *v1; // esi@1
 	v1 = a1->Data1;
-	float lighttype;
-	int light_angle;
-	int cam_angle;
+	//Stretch beam vertices
+	attach_01828538_2.points[19].z = (float)v1->Scale.y; //Beam length
+	attach_01828538_2.points[20].z = (float)v1->Scale.y; //Beam length
+	attach_01828538_2.points[19].x = (float)(-1.0f*v1->Scale.z); //Beam width
+	attach_01828538_2.points[20].x = (float)v1->Scale.z; //Beam width
+	//Disable the other beam
+	attach_01828538_2.points[23].x = 0;
+	attach_01828538_2.points[23].y = 0;
+	attach_01828538_2.points[23].z = 0;
+	attach_01828538_2.points[24].x = 0;
+	attach_01828538_2.points[24].y = 0;
+	attach_01828538_2.points[24].z = 0;
 	if (!DroppedFrames)
 	{
-		cam_angle = NJM_ANG_DEG(Camera_Data1->Rotation.y);
-		cam_angle = cam_angle % 360;
-		if (cam_angle < 0) cam_angle = cam_angle + 360;
-		light_angle = NJM_ANG_DEG(16384 + (Camera_Data1->Rotation.y) * 4);
-		light_angle = light_angle % 360;
-		if (light_angle < 0) light_angle = light_angle + 360;
 		SetTextureToLevelObj();
 		njPushMatrix(0);
 		njTranslateV(0, &v1->Position);
+		//Rotate the main object
 		v2 = v1->Rotation.y;
 		if (v2)
 		{
 			njRotateY(0, (unsigned __int16)v2);
 		}
-		sub_407A00(((NJS_MODEL_SADX*)0x1C28C4C), 1.0);
-		v3 = ((NJS_OBJECT*)0x1C28C78)->child;
-		njTranslate(0, ((NJS_OBJECT*)0x1C28C78)->child->pos[0], ((NJS_OBJECT*)0x1C28C78)->child->pos[1], ((NJS_OBJECT*)0x1C28C78)->child->pos[2]);
-		if (v1->Scale.z != 11) njRotateXYZ(0, v3->ang[0] + *(int*)&v1->CharIndex, v3->ang[1], v3->ang[2]);
-		if (cam_angle >= 160 && cam_angle <= 200 && v1->Scale.z == 11) njRotateXYZ(0, v3->ang[0] + *(int*)&v1->CharIndex, v3->ang[1], NJM_DEG_ANG(light_angle));
-		if (cam_angle < 160 && v1->Scale.z == 11) njRotateXYZ(0, v3->ang[0] + *(int*)&v1->CharIndex, v3->ang[1], NJM_DEG_ANG(0));
-		if (cam_angle > 200 && v1->Scale.z == 11) njRotateXYZ(0, v3->ang[0] + *(int*)&v1->CharIndex, v3->ang[1], NJM_DEG_ANG(180));
-		sub_4094D0((NJS_MODEL_SADX*)v3->model, 4, 1.0f);
-		if (v1->Scale.x != -10 && v1->Scale.x != -0.9f)
-		{
-			//((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[23].x = (v1->Scale.x);
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[23].y = v1->Scale.z;
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[23].z = v1->Scale.y;
-			//((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[24].x = (v1->Scale.x);
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[24].y = -1.0f*(v1->Scale.z);
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[24].z = v1->Scale.y;
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[19].x = 0;
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[19].y = 0;
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[19].z = 0;
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[20].x = 0;
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[20].y = 0;
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[20].z = 0;
-		}
-		if (v1->Scale.x == -10 || v1->Scale.x == -0.9f)
-		{
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[19].x = (v1->Scale.x);
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[20].x = -1 * (v1->Scale.x);
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[19].z = (v1->Scale.y);
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[20].z = (v1->Scale.y);
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[23].x = 0;
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[23].y = 0;
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[23].z = 0;
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[24].x = 0;
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[24].y = 0;
-			((NJS_OBJECT*)0x1C28C78)->child->basicdxmodel->points[24].z = 0;
-		}
+		//Render the main object model
+		sub_407A00(&attach_01828C4C, 1.0f);
+		//Render the light part without the beam
+		njTranslate(0, object_01828564.pos[0], object_01828564.pos[1], object_01828564.pos[2]);
+		njRotateXYZ(0, object_01828564.ang[0] + *(Sint32 *)&v1->CharIndex, object_01828564.ang[1], object_01828564.ang[2]);
+		sub_4094D0(&attach_01828538, 4, 1.0f);
+		//Rotate and render the beam
+		njRotateX(0, v1->Rotation.x);
+		auto BaseRotation = atan2(Camera_Data1->Position.x - v1->Position.x, Camera_Data1->Position.y - v1->Position.y);
+		//This is hardcoded for now until I figure out how to rotate it properly
+		if (CurrentAct == 0 && CurrentCharacter != 5) njRotateZ(0, NJM_RAD_ANG(BaseRotation));
+		if (CurrentAct == 1) njRotateZ(0, NJM_RAD_ANG(-BaseRotation));
+		if (CurrentAct == 2 || CurrentCharacter == 5) njRotateZ(0, 16384);
+		sub_4094D0(&attach_01828538_2, 4, 1.0f);
 		njPopMatrix(1u);
 	}
+}
+
+void __cdecl OStandLight_Main_F(ObjectMaster *obj)
+{
+	EntityData1 *v1; // esi
+
+	v1 = obj->Data1;
+	AddToCollisionList(v1);
+	if (!ClipSetObject(obj))
+	{
+		OStandLight_Display_F(obj);
+	}
+}
+
+void __cdecl OStandLight_F(ObjectMaster *a1)
+{
+	*(Sint32 *)&a1->Data1->CharIndex = (Sint32)(a1->Data1->Scale.x * 65536.0f* 0.002777777777777778f);
+	Collision_Init(a1, (CollisionData*)0x1AC4664, 1, 4u);
+	a1->MainSub = OStandLight_Main_F;
+	a1->DisplaySub = OStandLight_Display_F;
+	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))CheckThingButThenDeleteObject;
 }
 
 //O Texture
@@ -703,11 +715,12 @@ void FinalEgg_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	((NJS_OBJECT*)0x1A462EC)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Barrier
 	*(NJS_OBJECT*)0x19FEFE4 = objectSTG10_001AEDFC;  // Light
 	*(NJS_MODEL_SADX*)0x19D8BC0 = attachSTG10_015D8BC0;  // Laser
-	*(NJS_OBJECT*)0x01C28C78 = objectSTG10_01828C78; // O Stand Light
 	ObjList_FEgg[59].UseDistance = 1; // O Suikomi 
 	ObjList_FEgg[59].Distance = 1600000.0f; // O Suikomi
 	WriteJump((void*)0x5AE330, sub_5AE330); //O Texture function
-	WriteJump(OStandLight_Display, OStandLight_DisplayFixed); //O Stand Light function
+	WriteJump(OStandLight, OStandLight_F);
+	WriteJump(OStandLight_Main, OStandLight_Main_F);
+	WriteJump(OStandLight_Display, OStandLight_Display_F); //O Stand Light function
 	WriteJump((void*)0x005B4690, sub_5B4690); //Cylinder function
 	ResizeTextureList((NJS_TEXLIST*)0x1B98518, textures_finalegg1);
 	ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);

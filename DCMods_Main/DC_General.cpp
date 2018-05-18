@@ -43,6 +43,7 @@ static std::string EnableImpressFont = "Off";
 static bool ColorizeFont = true;
 static bool DisableFontSmoothing = true;
 static bool EnableLSDFix = false;
+static bool FPSLock = false;
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
 static int EmeraldGlowAlpha = 255;
@@ -660,6 +661,12 @@ void DrawUnderwaterOverlay(NJS_MATRIX_PTR m)
 	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 }
 
+void FPSLockHook(int a1)
+{
+	if (a1 == 1 && CurrentLevel != 35) a1 = 2;
+	DeltaTime_Multiplier(a1);
+}
+
 void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVR("AL_BARRIA");
@@ -901,6 +908,7 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	*(NJS_MODEL_SADX*)0x008BE168 = attach_0019F5CC; //Balloon
 
 	// Load configuration settings.
+	FPSLock = config->getBool("General", "FPSLock", false);
 	EnableDCRipple = config->getBool("General", "EnableDreamcastWaterRipple", true);
 	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
 	EnableImpressFont = config->getString("General", "EnableImpressFont", "Impress");
@@ -908,6 +916,9 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ColorizeFont = config->getBool("General", "ColorizeFont", true);
 	DisableFontSmoothing = config->getBool("General", "DisableFontSmoothing", true);
 	EnableLSDFix = config->getBool("Miscellaneous", "EnableLSDFix", false);
+
+	//FPS lock
+	if (FPSLock == true) WriteCall((void*)0x411E79, FPSLockHook);
 
 	//Cancel cutscenes with C button
 	if (CutsceneSkipMode != 3)
