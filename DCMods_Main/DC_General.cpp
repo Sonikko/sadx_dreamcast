@@ -663,7 +663,7 @@ void DrawUnderwaterOverlay(NJS_MATRIX_PTR m)
 
 void FPSLockHook(int a1)
 {
-	if (a1 == 1 && CurrentLevel != 35) a1 = 2;
+	if (a1 == 1 && CurrentLevel != LevelIDs_TwinkleCircuit) a1 = 2;
 	DeltaTime_Multiplier(a1);
 }
 
@@ -918,7 +918,7 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	EnableLSDFix = config->getBool("Miscellaneous", "EnableLSDFix", false);
 
 	//FPS lock
-	if (FPSLock == true) WriteCall((void*)0x411E79, FPSLockHook);
+	if (FPSLock) WriteCall((void*)0x411E79, FPSLockHook);
 
 	//Cancel cutscenes with C button
 	if (CutsceneSkipMode != 3)
