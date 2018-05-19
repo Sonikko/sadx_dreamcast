@@ -692,6 +692,9 @@ void FinalEgg_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	WriteCall((void*)0x005B3744, sub_5B36E0X);
 	//OTexture lighting
 	((NJS_MATERIAL*)0x01A45548)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
+	//OPinLight material fixes
+	((NJS_OBJECT*)0x1C2A588)->basicdxmodel->mats[1].diffuse.color = 0xFFB2B2B2;
+	((NJS_OBJECT*)0x1C29D4C)->basicdxmodel->mats[0].diffuse.color = 0xFFB2B2B2;
 	//0LightCamera lighting
 	((NJS_MATERIAL*)0x019FD098)->attrflags |= NJD_FLAG_IGNORE_SPECULAR;
 	((NJS_MATERIAL*)0x019FD0AC)->attrflags |= NJD_FLAG_IGNORE_SPECULAR;
@@ -723,8 +726,8 @@ void FinalEgg_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	((NJS_OBJECT*)0x1C26F74)->basicdxmodel->mats[0].diffuse.argb.r = 152; //Egg Kanban stuff
 	((NJS_OBJECT*)0x1C26F74)->basicdxmodel->mats[0].diffuse.argb.b = 152; //Egg Kanban stuff
 	((NJS_OBJECT*)0x1A462EC)->basicdxmodel->mats[4].attrflags |= NJD_FLAG_IGNORE_LIGHT; //Barrier
-	*(NJS_OBJECT*)0x19FEFE4 = objectSTG10_001AEDFC;  // Light
-	*(NJS_MODEL_SADX*)0x19D8BC0 = attachSTG10_015D8BC0;  // Laser
+	*(NJS_OBJECT*)0x19FEFE4 = objectSTG10_001AEDFC; // Light
+	*(NJS_MODEL_SADX*)0x19D8BC0 = attachSTG10_015D8BC0; // Laser
 	ObjList_FEgg[59].UseDistance = 1; // O Suikomi 
 	ObjList_FEgg[59].Distance = 1600000.0f; // O Suikomi
 	WriteJump((void*)0x5AE330, sub_5AE330); //O Texture function
