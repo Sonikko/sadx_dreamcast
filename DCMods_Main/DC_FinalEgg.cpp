@@ -214,6 +214,16 @@ void __cdecl OStandLight_Display_F(ObjectMaster *a1)
 		if (CurrentAct == 0 && CurrentCharacter != 5) njRotateZ(0, NJM_RAD_ANG(BaseRotation));
 		if (CurrentAct == 1) njRotateZ(0, NJM_RAD_ANG(-BaseRotation));
 		if (CurrentAct == 2 || CurrentCharacter == 5) njRotateZ(0, 16384);
+		/* WIP stuff
+		float deltax = Camera_Data1->Position.x - v1->Position.x;
+		float deltaz = Camera_Data1->Position.z - v1->Position.z;
+		float cosine = cos((NJM_ANG_DEG(v1->Rotation.y)*3.14159265 / 180.0f));
+		auto BaseRotation = atan2(deltax, deltaz);
+		PrintDebug("Cosine: %f\n", v1->Position.x*cosine);
+		PrintDebug("DeltaX: %f\n", deltax);
+		PrintDebug("DeltaZ: %f\n", deltaz);
+		if (CurrentAct == 0) njRotateZ(0, NJM_RAD_ANG(BaseRotation));
+		else njRotateZ(0, NJM_RAD_ANG(-BaseRotation));*/
 		sub_4094D0(&attach_01828538_2, 4, 1.0f);
 		njPopMatrix(1u);
 	}

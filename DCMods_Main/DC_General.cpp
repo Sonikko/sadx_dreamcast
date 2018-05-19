@@ -27,6 +27,7 @@ DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
+DataPointer(NJS_MATRIX, nj_unit_matrix_, 0x389D650);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
 FunctionPointer(EntityData1*, sub_4B9430, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4B9430);
@@ -667,6 +668,71 @@ void FPSLockHook(int a1)
 	DeltaTime_Multiplier(a1);
 }
 
+void __cdecl sub_4B9CE0(EntityData1 *a1, EntityData1 *a2)
+{
+	EntityData1 *v2; // edi
+	float v3; // eax
+	Angle v4; // eax
+	Angle v5; // eax
+	NJS_VECTOR a2a; // [esp+4h] [ebp-Ch]
+	v2 = a1;
+	v3 = a2->Scale.x;
+	a2a.z = 0.0;
+	a2a.y = 0.0;
+	a2a.x = 0.0;
+	v2->Scale.x = v3;
+	v2->Scale.y = GetCharObj2(0)->PhysicsData.CollisionSize * v2->Scale.x * 0.60000002;
+	njPushMatrix(nj_unit_matrix_);
+	njTranslateV(0, &a2->Position);
+	v4 = a2->Rotation.z;
+	if (v4)
+	{
+		njRotateZ(0, (unsigned __int16)v4);
+	}
+	v5 = a2->Rotation.x;
+	if (v5)
+	{
+		njRotateX(0, (unsigned __int16)v5);
+	}
+	njTranslate(0, 0.0f, v2->Scale.y, 0.0f);
+	njCalcPoint(0, &a2a, &v2->Position);
+	njPopMatrix(1u);
+}
+
+FunctionPointer(void, BarrierChild, (ObjectMaster *a1), 0x4BA1E0);
+
+void __cdecl Barrier_MainX(ObjectMaster *a1)
+{
+	EntityData1 *v1; // edi
+	EntityData1 *v2; // esi
+	ObjectMaster *v3; // eax
+	ObjectMaster *v4; // esi
+	EntityData1 *v5; // edi
+	v1 = a1->Data1;
+	v2 = EntityData1Ptrs[*(Uint8 *)&v1->CharIndex];
+	if (v2 && GetCharObj2(0)->Powerups & Powerups_Barrier)
+	{
+		sub_4B9CE0(v1, v2);
+		if ((FramerateSetting == 1 && FrameCounter % 8 == 0) || (FramerateSetting > 1 && FrameCounter % 6 == 0))
+		{
+			v3 = LoadChildObject(LoadObj_Data1, BarrierChild, a1);
+			v4 = v3;
+			if (v3)
+			{
+				v5 = v3->Data1;
+				v5->Rotation.x = (unsigned __int64)((double)rand() * 0.000030517578f * 65536.0f);
+				v5->Rotation.y = (unsigned __int64)((double)rand() * 0.000030517578f * 65536.0f);
+				v4->DisplaySub = Barrier_Display;
+			}
+		}
+		RunObjectChildren(a1);
+	}
+	else
+	{
+		CheckThingButThenDeleteObject(a1);
+	}
+}
+
 void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVR("AL_BARRIA");
@@ -1052,7 +1118,9 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	//Casino
 	WriteCall((void*)0x005DCFB0, RenderEmeraldWithGlow);
 	WriteCall((void*)0x005DCF7D, RotateEmerald);
-	if (DLLLoaded_Lantern)
+	//Shield
+	WriteJump(Barrier_Main, Barrier_MainX);
+	if (DLLLoaded_Lantern == true)
 	{
 		allow_landtable_specular(true);
 		material_register(FirstCharacterSpecular_General, LengthOfArray(FirstCharacterSpecular_General), &ForceDiffuse2Specular2);
