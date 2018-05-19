@@ -3721,7 +3721,7 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 	}
 	if (CurrentChaoStage == 5)
 	{
-		if (EnableECGarden == true)
+		if (EnableECGarden)
 		{
 			ent->Position.x = 131.67f;
 			ent->Position.y = 2.6f;
@@ -4105,7 +4105,7 @@ void LoadSSGardenObjectPVM(const char *filename, NJS_TEXLIST *texlist)
 	LoadPVM("GARDEN00SSOBJ", &Garden00SSObj_TEXLIST);
 }
 
-void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
+void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVM("AL_BODY");
 	ReplacePVM("AL_DX_OBJ_CMN");
@@ -4122,13 +4122,13 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("OBJ_AL_RACE");
 	ReplacePVM("OBJ_AL_RACE_E");
 	LoadChaoGardenHintMessages();
-	//Config stuff
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	// Load configuration settings.
 	EnableSSGarden = config->getBool("Chao Gardens", "EnableStationSquareGarden", true);
 	EnableMRGarden = config->getBool("Chao Gardens", "EnableMysticRuinsGarden", true);
 	EnableECGarden = config->getBool("Chao Gardens", "EnableEggCarrierGarden", true);
 	EnableLobby = config->getBool("Chao Gardens", "EnableChaoRaceLobby", true);
-	delete config;
+
 	//Garden transporters stuff
 	*(NJS_OBJECT*)0x036065B4 = objectCHAO_00134808; //EC garden to EC transporter
 	*(NJS_OBJECT*)0x03604540 = objectCHAO_00180454; //All other transporters
@@ -4172,7 +4172,7 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 		stru_33D0B50[i].scale.z = 0;
 	}
 	//Chao Race Entry
-	if (EnableLobby == true)
+	if (EnableLobby)
 	{
 		WriteCall((void*)0x0071C0CF, BowChaoThing);
 		BK_SSGardenStartPoint.Position.x = SSGardenStartPoint.Position.x;
@@ -4193,7 +4193,7 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SETAL_RACE00S");
 	ReplaceBIN_DC("SETAL_RACE01S");
 	//Station Square garden stuff
-	if (EnableSSGarden == true)
+	if (EnableSSGarden)
 	{
 		ReplaceBIN_DC("SETMI3900M");
 		WriteCall((void*)0x00719597, LoadSSGardenObjectPVM);
@@ -4263,7 +4263,7 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteData((float*)0x00719496, -1000.0f); //Kill hintbox
 	}
 	//Mystic Ruins garden stuff
-	if (EnableMRGarden == true)
+	if (EnableMRGarden)
 	{
 		WriteData<5>((void*)0x00718E20, 0x90); //Don't load SADX button prompts in MR garden
 		WriteJump((void*)0x00718E90, LoadMRGardenX);
@@ -4308,7 +4308,7 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 		ChaoTreeSpawns[2].e.z = -47.53315f;  //Palm tree 5
 	}
 	//Egg Carrier garden stuff
-	if (EnableECGarden == true)
+	if (EnableECGarden)
 	{
 		WriteData<5>((void*)0x00719181, 0x90); //Don't load SADX button prompts in EC garden
 		WriteCall((void*)0x00729289, NameMachineTexlist);
@@ -4371,7 +4371,7 @@ void ChaoGardens_OnFrame()
 		}
 	}
 	//Station Square garden
-	if (CurrentChaoStage == 4 && GameState != 16 && EnableSSGarden == true)
+	if (CurrentChaoStage == 4 && GameState != 16 && EnableSSGarden)
 	{
 		auto entity = EntityData1Ptrs[0];
 		if (entity != nullptr)
@@ -4398,7 +4398,7 @@ void ChaoGardens_OnFrame()
 
 	}
 	//Egg Carrier garden
-	if (CurrentChaoStage == 5 && GameState != 16 && EnableECGarden == true)
+	if (CurrentChaoStage == 5 && GameState != 16 && EnableECGarden)
 	{
 		if (ecgardenwater > 63) ecgardenwater = 54;
 		if (ecgardensand > 78) ecgardensand = 64;
@@ -4413,7 +4413,7 @@ void ChaoGardens_OnFrame()
 		}
 	}
 	//Mystic Ruins garden
-	if (CurrentChaoStage == 6 && GameState != 16 && EnableMRGarden == true)
+	if (CurrentChaoStage == 6 && GameState != 16 && EnableMRGarden)
 	{
 		for (unsigned int q3 = 0; q3 < LengthOfArray(uvCHAO_0000F184); q3++) { uvCHAO_0000F184[q3].v--; }
 		if (uvCHAO_0000F184[2].v <= -255)
@@ -4440,7 +4440,7 @@ void ChaoGardens_OnFrame()
 		}
 	}
 	//Chao Race Entry
-	if (CurrentChaoStage == 2 && GameState != 16 && EnableLobby == true)
+	if (CurrentChaoStage == 2 && GameState != 16 && EnableLobby)
 	{
 
 		if (SkipSA1Entry)

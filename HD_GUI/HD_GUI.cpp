@@ -7,12 +7,10 @@
 
 #define ReplacePVMX(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_HD.PVM")
 #define ReplacePNG(a) do { \
-	char pathbuf[MAX_PATH]; \
 	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\pvr\\index.txt", path); \
 	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
 } while (0)
 #define ReplacePNG_GoalRing(a) do { \
-	char pathbuf[MAX_PATH]; \
 	_snprintf_s(pathbuf, LengthOfArray(pathbuf), "%s\\textures\\m_goalring\\index.txt", path); \
 	helperFunctions.ReplaceFile("system\\" a ".PVR", pathbuf); \
 } while (0)
@@ -147,6 +145,8 @@ extern "C"
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
+		char pathbuf[MAX_PATH];
+
 		HMODULE GoalRing = GetModuleHandle(L"GoalRing");
 		if (helperFunctions.Version < 6)
 		{
@@ -155,6 +155,7 @@ extern "C"
 				L"HD GUI error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
+
 		//Fix green rectangle in tutorials
 		WriteCall((void*)0x64393E, GreenRect_Wrapper);
 		//Fix random ring icon

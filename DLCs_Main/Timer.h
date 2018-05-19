@@ -1,51 +1,50 @@
 #pragma once
+#include <SADXModLoader.h>
 
-char ResultText[100];
+extern NJS_TEXANIM HedgehogCountTexanim;
+extern NJS_SPRITE HedgehogCount;
 
-NJS_TEXANIM HedgehogCountTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE HedgehogCount = { { HorizontalStretch * 540, VerticalStretch * 455, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &HedgehogCountTexanim };
+extern NJS_TEXANIM HedgehogCountSlashTexanim;
+extern NJS_SPRITE HedgehogCountSlash;
 
-NJS_TEXANIM HedgehogCountSlashTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE HedgehogCountSlash = { { HorizontalStretch * 556, VerticalStretch * 455, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &HedgehogCountSlashTexanim };
+extern NJS_TEXANIM HedgehogCountTotalTexanim;
+extern NJS_SPRITE HedgehogCountTotal;
 
-NJS_TEXANIM HedgehogCountTotalTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE HedgehogCountTotal = { { HorizontalStretch * 572, VerticalStretch * 455, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &HedgehogCountTotalTexanim };
+extern NJS_TEXANIM CardTenCountTexanim;
+extern NJS_SPRITE CardTenCount;
 
-NJS_TEXANIM CardTenCountTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE CardTenCount = { { HorizontalStretch * 524, VerticalStretch * 455, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &CardTenCountTexanim };
+extern NJS_TEXANIM CardCountTexanim;
+extern NJS_SPRITE CardCount;
 
-NJS_TEXANIM CardCountTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE CardCount = { { HorizontalStretch * 540, VerticalStretch * 455, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &CardCountTexanim };
+extern NJS_TEXANIM CardCountSlashTexanim;
+extern NJS_SPRITE CardCountSlash;
 
-NJS_TEXANIM CardCountSlashTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE CardCountSlash = { { HorizontalStretch * 556, VerticalStretch * 455, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &CardCountSlashTexanim };
+extern NJS_TEXANIM CardCountTotalTexanim;
+extern NJS_SPRITE CardCountTotal;
 
-NJS_TEXANIM CardCountTotalTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE CardCountTotal = { { HorizontalStretch * 572, VerticalStretch * 455, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &CardCountTotalTexanim };
+extern NJS_TEXANIM CardCountTotal2Texanim;
+extern NJS_SPRITE CardCountTotal2;
 
-NJS_TEXANIM CardCountTotal2Texanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE CardCountTotal2 = { { HorizontalStretch * 588, VerticalStretch * 455, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &CardCountTotal2Texanim };
+extern NJS_TEXANIM TimerTenMinutesTexanim;
+extern NJS_SPRITE TimerTenMinutes;
 
-NJS_TEXANIM TimerTenMinutesTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE TimerTenMinutes = { { HorizontalStretch * 500, VerticalStretch * 436, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &TimerTenMinutesTexanim };
+extern NJS_TEXANIM TimerMinutesTexanim;
+extern NJS_SPRITE TimerMinutes;
 
-NJS_TEXANIM TimerMinutesTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE TimerMinutes = { { HorizontalStretch * 516, VerticalStretch * 436, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &TimerMinutesTexanim };
+extern NJS_TEXANIM TimerColon1Texanim;
+extern NJS_SPRITE TimerColon1;
 
-NJS_TEXANIM TimerColon1Texanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE TimerColon1 = { { HorizontalStretch * 532, VerticalStretch * 436, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &TimerColon1Texanim };
+extern NJS_TEXANIM TimerTenSecondsTexanim;
+extern NJS_SPRITE TimerTenSeconds;
 
-NJS_TEXANIM TimerTenSecondsTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE TimerTenSeconds = { { HorizontalStretch * 548, VerticalStretch * 436, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &TimerTenSecondsTexanim };
+extern NJS_TEXANIM TimerSecondsTexanim;
+extern NJS_SPRITE TimerSeconds;
 
-NJS_TEXANIM TimerSecondsTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE TimerSeconds = { { HorizontalStretch * 564, VerticalStretch * 436, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &TimerSecondsTexanim };
+extern NJS_TEXANIM TimerColon2Texanim;
+extern NJS_SPRITE TimerColon2;
 
-NJS_TEXANIM TimerColon2Texanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE TimerColon2 = { { HorizontalStretch * 580, VerticalStretch * 436, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &TimerColon2Texanim };
+extern NJS_TEXANIM TimerMTenSecondsTexanim;
+extern NJS_SPRITE TimerMTenSeconds;
 
-NJS_TEXANIM TimerMTenSecondsTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE TimerMTenSeconds = { { HorizontalStretch * 596, VerticalStretch * 436, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &TimerMTenSecondsTexanim };
-
-NJS_TEXANIM TimerMSecondsTexanim = { 16, 16, 0, 0, 0, 0, 0xFF, 0xFF, 0, 0 };
-NJS_SPRITE TimerMSeconds = { { HorizontalStretch * 612, VerticalStretch * 436, 0.0f }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x00912DF4, &TimerMSecondsTexanim };
+extern NJS_TEXANIM TimerMSecondsTexanim;
+extern NJS_SPRITE TimerMSeconds;

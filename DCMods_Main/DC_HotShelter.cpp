@@ -270,7 +270,7 @@ void PlayMusicHook_DisableE105Fog(MusicIDs song)
 	ReduceHotShelterFog = true;
 }
 
-void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
+void HotShelter_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SET1200A");
 	ReplaceBIN_DC("SET1200B");
@@ -288,20 +288,25 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAM1202E");
 	ReplaceBIN_DC("CAM1202S");
 	ReplaceBIN_DC("CAM1203S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET1200A");
-		AddSETFix("SET1200B");
-		AddSETFix("SET1201A");
-		AddSETFix("SET1202E");
+		case SETFixes_Normal:
+			AddSETFix("SET1200A");
+			AddSETFix("SET1200B");
+			AddSETFix("SET1201A");
+			AddSETFix("SET1202E");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SET1200A");
+			AddSETFix_Extra("SET1200B");
+			AddSETFix_Extra("SET1201A");
+			AddSETFix_Extra("SET1202E");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET1200A");
-		AddSETFix_Extra("SET1200B");
-		AddSETFix_Extra("SET1201A");
-		AddSETFix_Extra("SET1202E");
-	}
+
 	ReplacePVM("HOTSHELTER0");
 	ReplacePVM("HOTSHELTER1");
 	ReplacePVM("HOTSHELTER2");
@@ -321,7 +326,7 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 	ResizeTextureList((NJS_TEXLIST*)0x180DFF4, textures_shelter1);
 	ResizeTextureList((NJS_TEXLIST*)0x17F56F4, textures_shelter2);
 	ResizeTextureList((NJS_TEXLIST*)0x17F4F74, textures_shelter3);
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(LevelSpecular_HotShelter, LengthOfArray(LevelSpecular_HotShelter), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_HotShelter, LengthOfArray(ObjectSpecular_HotShelter), &ForceDiffuse0Specular1);
@@ -359,8 +364,9 @@ void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions)
 	((NJS_MATERIAL*)0x018136E0)->diffuse.color = 0xFFB2B2B2; //OUkijima material colors
 	((NJS_MATERIAL*)0x018136F4)->diffuse.color = 0xFFB2B2B2; //OUkijima material colors
 	((NJS_MATERIAL*)0x01813708)->diffuse.color = 0xFFB2B2B2; //OUkijima material colors
+
 	//Fog/draw distance data
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		DrawDist_HotShelter1[i].Maximum = -3000.0;
 		DrawDist_HotShelter2[i].Maximum = -3000.0;

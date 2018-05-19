@@ -113,7 +113,7 @@ void FixBranch(NJS_ACTION *a1, float a2, int a3, float a4)
 	sub_408350(&action_OTREEM_Action, a2, a3, a4);
 }
 
-void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
+void WindyValley_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SET0200S");
 	ReplaceBIN_DC("SET0200E");
@@ -125,22 +125,27 @@ void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAM0201S");
 	ReplaceBIN_DC("CAM0202M");
 	ReplaceBIN_DC("CAM0202S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0200E");
-		AddSETFix("SET0200S");
-		AddSETFix("SET0201S");
-		AddSETFix("SET0202M");
-		AddSETFix("SET0202S");
+		case SETFixes_Normal:
+			AddSETFix("SET0200E");
+			AddSETFix("SET0200S");
+			AddSETFix("SET0201S");
+			AddSETFix("SET0202M");
+			AddSETFix("SET0202S");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SET0200E");
+			AddSETFix_Extra("SET0200S");
+			AddSETFix_Extra("SET0201S");
+			AddSETFix_Extra("SET0202M");
+			AddSETFix_Extra("SET0202S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0200E");
-		AddSETFix_Extra("SET0200S");
-		AddSETFix_Extra("SET0201S");
-		AddSETFix_Extra("SET0202M");
-		AddSETFix_Extra("SET0202S");
-	}
+
 	ReplacePVM("OBJ_WINDY");
 	ReplacePVM("WINDY01");
 	ReplacePVM("WINDY02");
@@ -162,7 +167,7 @@ void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Material fixes
 	((NJS_MATERIAL*)0x00C1C468)->attr_texId &= ~NJD_FLAG_IGNORE_SPECULAR;
 	((NJS_MATERIAL*)0x00C1C47C)->attr_texId &= ~NJD_FLAG_IGNORE_SPECULAR;
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(LevelSpecular_Windy, LengthOfArray(LevelSpecular_Windy), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_Windy, LengthOfArray(ObjectSpecular_Windy), &ForceDiffuse0Specular1);
@@ -194,8 +199,9 @@ void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions)
 	//OTreeM fixes
 	*(NJS_OBJECT*)0xC2663C = object_000CB98C; //OTreeM DC model
 	WriteCall((void*)0x4E2BA1, FixBranch);
+
 	//Skybox/fog data stuff
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		SkyboxScale_Windy1->Far.x = 1.0f;
 		SkyboxScale_Windy1->Far.y = 1.0f;
