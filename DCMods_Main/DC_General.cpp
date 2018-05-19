@@ -733,6 +733,11 @@ void __cdecl Barrier_MainX(ObjectMaster *a1)
 	}
 }
 
+void EmeraldShardLighting(NJD_FLAG lol1, NJD_FLAG lol2)
+{
+	AddConstantAttr(0, NJD_FLAG_IGNORE_LIGHT);
+}
+
 void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVR("AL_BARRIA");
@@ -1044,6 +1049,15 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	}
 	//Water splash particle
 	WriteCall((void*)0x0049F1C0, FixWaterSplash);
+	//Emerald shard, hopefully someday
+	/*((NJS_MATERIAL*)0x8BA30C)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+	((NJS_MATERIAL*)0x8BA30C)->diffuse.color = 0xCC000000;
+	WriteData((float*)0x004A2CFA, 0.1f);
+	WriteData((float*)0x004A2CFF, 0.1f);
+	WriteData((float*)0x004A2D04, 0.1f);
+	WriteData((float*)0x004A2D09, 0.25f);
+	WriteCall((void*)0x4A2CDE, EmeraldShardLighting);
+	WriteData<1>((char*)0x004A2D9A, 0x87); //IGNORE_LIGHT*/
 	//Underwater overlay
 	WriteCall((void*)0x43708D, DrawUnderwaterOverlay);
 	//Gamma's chest patch lol
