@@ -680,7 +680,7 @@ void RenderNeonK(NJS_MODEL_SADX *model, float scale)
 	DrawQueueDepthBias = 0;
 }
 
-void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
+void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0900K");
 	ReplaceBIN_DC("CAM0900S");
@@ -695,24 +695,29 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0902S");
 	ReplaceBIN_DC("SET0903S");
 	ReplaceBIN_DC("SETMI0900K");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0900K");
-		AddSETFix("SET0900S");
-		AddSETFix("SET0901M");
-		AddSETFix("SET0901S");
-		AddSETFix("SET0902S");
-		AddSETFix("SET0903S");
+		case SETFixes_Normal:
+			AddSETFix("SET0900K");
+			AddSETFix("SET0900S");
+			AddSETFix("SET0901M");
+			AddSETFix("SET0901S");
+			AddSETFix("SET0902S");
+			AddSETFix("SET0903S");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SET0900K");
+			AddSETFix_Extra("SET0900S");
+			AddSETFix_Extra("SET0901M");
+			AddSETFix_Extra("SET0901S");
+			AddSETFix_Extra("SET0902S");
+			AddSETFix_Extra("SET0903S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0900K");
-		AddSETFix_Extra("SET0900S");
-		AddSETFix_Extra("SET0901M");
-		AddSETFix_Extra("SET0901S");
-		AddSETFix_Extra("SET0902S");
-		AddSETFix_Extra("SET0903S");
-	}
+
 	ReplacePVM("CASINO01");
 	ReplacePVM("CASINO02");
 	ReplacePVM("CASINO03");
@@ -727,7 +732,7 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((LandTable**)0x97DB34, &landtable_000D8440);
 	//Lantern stuff
 	ReplaceBIN("PL_90B", "PL_90X");
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(LevelSpecular_Casino, LengthOfArray(LevelSpecular_Casino), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_Casino, LengthOfArray(ObjectSpecular_Casino), &ForceDiffuse0Specular1);
@@ -766,11 +771,11 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteJump((void*)0x5D44A0, TutuB_Display); //OTutuB display
 	WriteJump((void*)0x5D4550, TutuC_Display); //OTutuC display
 	WriteData((int*)0x1E77E58, 128); //Gear rotation speed
-									 //Config stuff
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	// Load configuration settings.
 	CowgirlOn = config->getBool("Miscellaneous", "EnableCasinopolisCowgirl", true);
-	delete config;
-	if (CowgirlOn == true)
+
+	if (CowgirlOn)
 	{
 		stru_1E763B8[0].scale.y = stru_1E763B8[0].scale.y * 4;
 		stru_1E763B8[1].scale.y = stru_1E763B8[1].scale.y * 4;
@@ -868,7 +873,8 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_MODEL_SADX*)0x01E74A68 = attachSTG09_01A74A68; //NeonK
 	WriteCall((void*)0x5CAB34, RenderNeonK);
 	*(NJS_MODEL_SADX*)0x01E46F30 = attachSTG09_001C4DCC; //OCfa rotating thing
-	for (int i = 0; i < 3; i++)
+
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		Casino1Fog[i].Color = 0xFF000000;
 		Casino1Fog[i].Layer = 600.0f;
@@ -883,10 +889,10 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void Casinopolis_OnFrame()
 {
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		//Failsafe stuff for palette blending
-		if (WhiteSonic == true && (InsideMachine == 0 || CurrentLevel != 9 || CurrentAct != 0 || GameMode == GameModes_Menu || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21))
+		if (WhiteSonic && (InsideMachine == 0 || CurrentLevel != 9 || CurrentAct != 0 || GameMode == GameModes_Menu || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21))
 		{
 			WhiteSonic = false;
 			set_blend_factor(0.0f);
@@ -898,7 +904,7 @@ void Casinopolis_OnFrame()
 		if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
 		{
 			//Make Sonic white
-			if (WhiteSonic == false && InsideMachine != 0)
+			if (!WhiteSonic && InsideMachine != 0)
 			{
 				WhiteSonic = true;
 				set_shader_flags(ShaderFlags_Blend, true);
@@ -906,7 +912,7 @@ void Casinopolis_OnFrame()
 				set_specular_blend(3, 4);
 			}
 			//Make Sonic normal
-			if (WhiteSonic == true && SonicWhiteness <= 0.75f)
+			if (WhiteSonic && SonicWhiteness <= 0.75f)
 			{
 				set_blend_factor(SonicWhiteness);
 				SonicWhiteness += (0.01f * FramerateSetting);
@@ -927,7 +933,7 @@ void Casinopolis_OnFrame()
 		RotationAngle2 = (RotationAngle2 - 128) % 65536;
 	}
 	//Cowgirl
-	if (CurrentLevel == 9 && CurrentCharacter == 3 && CowgirlOn == true && GameState != 16)
+	if (CurrentLevel == 9 && CurrentCharacter == 3 && CowgirlOn && GameState != 16)
 	{
 		if (cowgirlframe > 30) cowgirlframe = 0;
 		cowgirlframe = cowgirlframe + 0.08f;

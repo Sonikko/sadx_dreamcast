@@ -849,7 +849,7 @@ void NPCModelsFunction(NJS_MATERIAL* material)
 	material->diffuse.argb.b = 178;
 }
 
-void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
+void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SETSS00A");
 	ReplaceBIN_DC("SETSS00B");
@@ -882,73 +882,78 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SETSS04M");
 	ReplaceBIN_DC("SETSS04S");
 	ReplaceBIN_DC("SETSS05S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SETSS00A");
-		AddSETFix("SETSS00B");
-		AddSETFix("SETSS00E");
-		AddSETFix("SETSS00K");
-		AddSETFix("SETSS00L");
-		AddSETFix("SETSS00M");
-		AddSETFix("SETSS00S");
-		AddSETFix("SETSS01A");
-		AddSETFix("SETSS01B");
-		AddSETFix("SETSS01E");
-		AddSETFix("SETSS01K");
-		AddSETFix("SETSS01L");
-		AddSETFix("SETSS01M");
-		AddSETFix("SETSS01S");
-		AddSETFix("SETSS02S");
-		AddSETFix("SETSS03A");
-		AddSETFix("SETSS03B");
-		AddSETFix("SETSS03E");
-		AddSETFix("SETSS03K");
-		AddSETFix("SETSS03L");
-		AddSETFix("SETSS03M");
-		AddSETFix("SETSS03S");
-		AddSETFix("SETSS04A");
-		AddSETFix("SETSS04B");
-		AddSETFix("SETSS04E");
-		AddSETFix("SETSS04K");
-		AddSETFix("SETSS04L");
-		AddSETFix("SETSS04M");
-		AddSETFix("SETSS04S");
-		AddSETFix("SETSS05S");
+		case SETFixes_Normal:
+			AddSETFix("SETSS00A");
+			AddSETFix("SETSS00B");
+			AddSETFix("SETSS00E");
+			AddSETFix("SETSS00K");
+			AddSETFix("SETSS00L");
+			AddSETFix("SETSS00M");
+			AddSETFix("SETSS00S");
+			AddSETFix("SETSS01A");
+			AddSETFix("SETSS01B");
+			AddSETFix("SETSS01E");
+			AddSETFix("SETSS01K");
+			AddSETFix("SETSS01L");
+			AddSETFix("SETSS01M");
+			AddSETFix("SETSS01S");
+			AddSETFix("SETSS02S");
+			AddSETFix("SETSS03A");
+			AddSETFix("SETSS03B");
+			AddSETFix("SETSS03E");
+			AddSETFix("SETSS03K");
+			AddSETFix("SETSS03L");
+			AddSETFix("SETSS03M");
+			AddSETFix("SETSS03S");
+			AddSETFix("SETSS04A");
+			AddSETFix("SETSS04B");
+			AddSETFix("SETSS04E");
+			AddSETFix("SETSS04K");
+			AddSETFix("SETSS04L");
+			AddSETFix("SETSS04M");
+			AddSETFix("SETSS04S");
+			AddSETFix("SETSS05S");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SETSS00A");
+			AddSETFix_Extra("SETSS00B");
+			AddSETFix_Extra("SETSS00E");
+			AddSETFix_Extra("SETSS00K");
+			AddSETFix_Extra("SETSS00L");
+			AddSETFix_Extra("SETSS00M");
+			AddSETFix_Extra("SETSS00S");
+			AddSETFix_Extra("SETSS01A");
+			AddSETFix_Extra("SETSS01B");
+			AddSETFix_Extra("SETSS01E");
+			AddSETFix_Extra("SETSS01K");
+			AddSETFix_Extra("SETSS01L");
+			AddSETFix_Extra("SETSS01M");
+			AddSETFix_Extra("SETSS01S");
+			AddSETFix_Extra("SETSS02S");
+			AddSETFix_Extra("SETSS03A");
+			AddSETFix_Extra("SETSS03B");
+			AddSETFix_Extra("SETSS03E");
+			AddSETFix_Extra("SETSS03K");
+			AddSETFix_Extra("SETSS03L");
+			AddSETFix_Extra("SETSS03M");
+			AddSETFix_Extra("SETSS03S");
+			AddSETFix_Extra("SETSS04A");
+			AddSETFix_Extra("SETSS04B");
+			AddSETFix_Extra("SETSS04E");
+			AddSETFix_Extra("SETSS04K");
+			AddSETFix_Extra("SETSS04L");
+			AddSETFix_Extra("SETSS04M");
+			AddSETFix_Extra("SETSS04S");
+			AddSETFix_Extra("SETSS05S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SETSS00A");
-		AddSETFix_Extra("SETSS00B");
-		AddSETFix_Extra("SETSS00E");
-		AddSETFix_Extra("SETSS00K");
-		AddSETFix_Extra("SETSS00L");
-		AddSETFix_Extra("SETSS00M");
-		AddSETFix_Extra("SETSS00S");
-		AddSETFix_Extra("SETSS01A");
-		AddSETFix_Extra("SETSS01B");
-		AddSETFix_Extra("SETSS01E");
-		AddSETFix_Extra("SETSS01K");
-		AddSETFix_Extra("SETSS01L");
-		AddSETFix_Extra("SETSS01M");
-		AddSETFix_Extra("SETSS01S");
-		AddSETFix_Extra("SETSS02S");
-		AddSETFix_Extra("SETSS03A");
-		AddSETFix_Extra("SETSS03B");
-		AddSETFix_Extra("SETSS03E");
-		AddSETFix_Extra("SETSS03K");
-		AddSETFix_Extra("SETSS03L");
-		AddSETFix_Extra("SETSS03M");
-		AddSETFix_Extra("SETSS03S");
-		AddSETFix_Extra("SETSS04A");
-		AddSETFix_Extra("SETSS04B");
-		AddSETFix_Extra("SETSS04E");
-		AddSETFix_Extra("SETSS04K");
-		AddSETFix_Extra("SETSS04L");
-		AddSETFix_Extra("SETSS04M");
-		AddSETFix_Extra("SETSS04S");
-		AddSETFix_Extra("SETSS05S");
-	}
-	if (DLLLoaded_DLCs == false)
+
+	if (!DLLLoaded_DLCs)
 	{
 		ReplaceBIN_DC("CAMSS00S");
 		ReplaceBIN_DC("CAMSS01S");
@@ -957,6 +962,7 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplaceBIN_DC("CAMSS04S");
 		ReplaceBIN_DC("CAMSS05S");
 	}
+
 	ReplacePVM("ADVSS00");
 	ReplacePVM("ADVSS01");
 	ReplacePVM("ADVSS05");
@@ -978,10 +984,10 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVR("SS_NIGHTSKY");
 	ReplacePVR("SS_NIGHTSKYB");
 	ReplacePVR("SS_YUSKAY_MINI");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "StationSquare", false);
-	delete config;
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("ADVSS02");
 		ReplacePVMX_SADXStyleWater("ADVSS03");
@@ -1010,11 +1016,12 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x006532B6, -89.4f); //Y2
 	WriteData((float*)0x006532B1, 812.3f); //Z2
 	//Fix NPC materials
-	for (int i = 0; i < LengthOfArray(NPCMaterials); i++)
+	for (unsigned int i = 0; i < LengthOfArray(NPCMaterials); i++)
 	{
 		NPCModelsFunction(NPCMaterials[i]);
 	}
-	if (DLLLoaded_Lantern == true)
+
+	if (DLLLoaded_Lantern)
 	{
 		material_register(CharacterStuff, LengthOfArray(CharacterStuff), &ForceDiffuse2Specular2);
 		material_register(LevelSpecularADV00, LengthOfArray(LevelSpecularADV00), &ForceDiffuse0Specular0);
@@ -1022,7 +1029,8 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		material_register(WhiteDiffuseADV00, LengthOfArray(WhiteDiffuseADV00), &ForceWhiteDiffuse1);
 		material_register(WhiteDiffuseADV00_Night, LengthOfArray(WhiteDiffuseADV00_Night), &ForceWhiteDiffuse3_Night);
 	}
-	if (SADXStyleWater == true)
+
+	if (SADXStyleWater)
 	{
 		WriteCall((void*)0x006312BB, WaterTexture);
 		matlistADV00_00123C24[0].attrflags |= NJD_FLAG_USE_ALPHA;
@@ -1065,6 +1073,7 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 		matlistADV00_001566E4[0].diffuse.argb.a = 0xB2;
 		objectADV00_00151F24.pos[1] = -13;
 	}
+
 	WriteData<4>((void*)0x00630AE0, 0x90); //Hotel door fix
 	WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting
 	ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31); //SS_TRAIN
@@ -1110,8 +1119,9 @@ void ADV00_Init(const char *path, const HelperFunctions &helperFunctions)
 	___ADV00_TEXLISTS[3] = &texlist_advss03;
 	___ADV00_TEXLISTS[4] = &texlist_advss04;
 	___ADV00_TEXLISTS[5] = &texlist_advss05;
+
 	//Fog data
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		StationSquare1Fog[i].Toggle = 1;
 		StationSquare2Fog[i].Toggle = 1;

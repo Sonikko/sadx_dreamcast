@@ -692,16 +692,16 @@ void FixSkybox(NJS_OBJECT *a1, float scale)
 	}
 }
 
-void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
+void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SET0000A");
 	ReplaceBIN_DC("SET0000S");
 	ReplaceBIN_DC("SET0001S");
 
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+	// Load configuration settings.
 	EnableTwinkleCircuit = config->getBool("Miscellaneous", "EnableTwinkleCircuit", true);
+	// FIXME: Typo in the config entry name...
 	EnableSandHill = config->getBool("Miscellaneous", "EnableSandHil", true);
-	delete config;
 
 	if (EnableSandHill)
 	{ 
@@ -732,24 +732,28 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplaceBIN_DC("CAMMCART03S");
 		ReplaceBIN_DC("CAMMCART04S");
 		ReplaceBIN_DC("CAMMCART05S");
-		if (EnableSETFixes == 1)
+
+		switch (EnableSETFixes)
 		{
-			AddSETFix("SETMCART00S");
-			AddSETFix("SETMCART01S");
-			ReplaceBIN_DC("SETMCART02S");
-			ReplaceBIN_DC("SETMCART03S");
-			ReplaceBIN_DC("SETMCART04S");
-			ReplaceBIN_DC("SETMCART05S");
+			case SETFixes_Normal:
+				AddSETFix("SETMCART00S");
+				AddSETFix("SETMCART01S");
+				ReplaceBIN_DC("SETMCART02S");
+				ReplaceBIN_DC("SETMCART03S");
+				ReplaceBIN_DC("SETMCART04S");
+				ReplaceBIN_DC("SETMCART05S");
+				break;
+			case SETFixes_Extra:
+				AddSETFix_Extra("SETMCART00S");
+				AddSETFix_Extra("SETMCART01S");
+				ReplaceBIN_DC("SETMCART02S");
+				ReplaceBIN_DC("SETMCART03S");
+				ReplaceBIN_DC("SETMCART04S");
+				ReplaceBIN_DC("SETMCART05S");
+			default:
+				break;
 		}
-		if (EnableSETFixes == 2)
-		{
-			AddSETFix_Extra("SETMCART00S");
-			AddSETFix_Extra("SETMCART01S");
-			ReplaceBIN_DC("SETMCART02S");
-			ReplaceBIN_DC("SETMCART03S");
-			ReplaceBIN_DC("SETMCART04S");
-			ReplaceBIN_DC("SETMCART05S");
-		}
+
 		ReplacePVM("MINI_CART01");
 		ReplacePVM("MINI_CART02");
 		ReplacePVM("MINI_CART03");

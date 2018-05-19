@@ -134,7 +134,7 @@ static void __cdecl Past_OceanDraw_r(OceanData *a1)
 			ProcessModelNode(&objectADV03_000C7BE4, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 			DrawQueueDepthBias = 0;
 		}
-		if (SADXStyleWater == true) original(a1);
+		if (SADXStyleWater) original(a1);
 	}
 	else original(a1);
 }
@@ -155,7 +155,7 @@ void RenderPalm1(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 	DrawQueueDepthBias = 0.0f;
 }
 
-void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
+void ADV03_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAMPAST00S");
 	ReplaceBIN_DC("CAMPAST01S");
@@ -169,10 +169,10 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("OBJ_PAST");
 	ReplacePVM("PAST00");
 	ReplacePVM("PAST_KN_FAM");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "Past", false);
-	delete config;
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("PAST01");
 		ReplacePVMX_SADXStyleWater("PAST02");
@@ -182,6 +182,7 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("PAST01");
 		ReplacePVM("PAST02");
 	}
+
 	//Palm fixes
 	ADV03_ACTIONS[10]->object->model = &attach_00122F04;
 	WriteCall((void*)0x545C1A, RenderPalm1);
@@ -197,13 +198,13 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x0068BA8F, 86.0f); //Ripple 3 Y
 	WriteData((float*)0x0068BA8A, 52.42f); //Ripple 3 Z
 	HMODULE handle = GetModuleHandle(L"ADV03MODELS");
-	if (handle != nullptr && DLLLoaded_Lantern == true)
+	if (handle != nullptr && DLLLoaded_Lantern)
 	{
 		material_register(SecondCharacterSpecular, LengthOfArray(SecondCharacterSpecular), &ForceDiffuse2Specular3);
 		material_register(FirstCharacterSpecular, LengthOfArray(FirstCharacterSpecular), &ForceDiffuse2Specular2);
 		material_register(Past_ObjectSpecular, LengthOfArray(Past_ObjectSpecular), &ForceDiffuse0Specular1);
 	}
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		ResizeTextureList(&texlist_past01, 100);
 		ResizeTextureList(&texlist_past02, 102);
@@ -219,7 +220,8 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 		collist_0006735C[0].Flags = 0x80000020;
 		collist_000976C0[0].Flags = 0x80000020;
 	}
-	for (int i = 0; i < 3; i++)
+
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		FogData_Past1[i].Layer = -12000.0f;
 		FogData_Past1[i].Distance = -12000.0f;

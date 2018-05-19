@@ -211,7 +211,7 @@ void FixMRBase(ObjectMaster *a1)
 	Direct3D_SetNearFarPlanes(LevelDrawDistance.Minimum, LevelDrawDistance.Maximum);
 }
 
-void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions)
+void FixMRBase_Apply(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVM("MR_FINALEGG");
 	//MR Base stuff
@@ -227,13 +227,13 @@ void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions)
 	___ADV02_ACTIONS[0]->object = &objectADV02_0020C3B0; //OFinalEgg
 	___ADV02_ACTIONS[0]->motion = &animation_000862E8; //OFinalEgg animation
 	___ADV02_ACTIONS[30]->object = &objectADV02_0020DC78; //OFinalWay
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		MR3DrawDist[i].Maximum = -32000.0f;
 	}
 }
 
-void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
+void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
@@ -262,44 +262,49 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAMMR01S");
 	ReplaceBIN_DC("CAMMR02S");
 	ReplaceBIN_DC("CAMMR03S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SETMR00A");
-		AddSETFix("SETMR00B");
-		AddSETFix("SETMR00E");
-		AddSETFix("SETMR00K");
-		AddSETFix("SETMR00L");
-		AddSETFix("SETMR00M");
-		AddSETFix("SETMR00S");
-		AddSETFix("SETMR01A");
-		AddSETFix("SETMR01B");
-		AddSETFix("SETMR01E");
-		AddSETFix("SETMR01K");
-		AddSETFix("SETMR01L");
-		AddSETFix("SETMR01M");
-		AddSETFix("SETMR01S");
-		AddSETFix("SETMR02S");
-		AddSETFix("SETMR03S");
+		case SETFixes_Normal:
+			AddSETFix("SETMR00A");
+			AddSETFix("SETMR00B");
+			AddSETFix("SETMR00E");
+			AddSETFix("SETMR00K");
+			AddSETFix("SETMR00L");
+			AddSETFix("SETMR00M");
+			AddSETFix("SETMR00S");
+			AddSETFix("SETMR01A");
+			AddSETFix("SETMR01B");
+			AddSETFix("SETMR01E");
+			AddSETFix("SETMR01K");
+			AddSETFix("SETMR01L");
+			AddSETFix("SETMR01M");
+			AddSETFix("SETMR01S");
+			AddSETFix("SETMR02S");
+			AddSETFix("SETMR03S");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SETMR00A");
+			AddSETFix_Extra("SETMR00B");
+			AddSETFix_Extra("SETMR00E");
+			AddSETFix_Extra("SETMR00K");
+			AddSETFix_Extra("SETMR00L");
+			AddSETFix_Extra("SETMR00M");
+			AddSETFix_Extra("SETMR00S");
+			AddSETFix_Extra("SETMR01A");
+			AddSETFix_Extra("SETMR01B");
+			AddSETFix_Extra("SETMR01E");
+			AddSETFix_Extra("SETMR01K");
+			AddSETFix_Extra("SETMR01L");
+			AddSETFix_Extra("SETMR01M");
+			AddSETFix_Extra("SETMR01S");
+			AddSETFix_Extra("SETMR02S");
+			AddSETFix_Extra("SETMR03S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SETMR00A");
-		AddSETFix_Extra("SETMR00B");
-		AddSETFix_Extra("SETMR00E");
-		AddSETFix_Extra("SETMR00K");
-		AddSETFix_Extra("SETMR00L");
-		AddSETFix_Extra("SETMR00M");
-		AddSETFix_Extra("SETMR00S");
-		AddSETFix_Extra("SETMR01A");
-		AddSETFix_Extra("SETMR01B");
-		AddSETFix_Extra("SETMR01E");
-		AddSETFix_Extra("SETMR01K");
-		AddSETFix_Extra("SETMR01L");
-		AddSETFix_Extra("SETMR01M");
-		AddSETFix_Extra("SETMR01S");
-		AddSETFix_Extra("SETMR02S");
-		AddSETFix_Extra("SETMR03S");
-	}
+
 	ReplacePVM("ADV_MR01");
 	ReplacePVM("ADV_MR02");
 	ReplacePVM("ADV_MR03");
@@ -316,10 +321,8 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("MR_PYRAMID");
 	ReplacePVM("MR_TORNADO2");
 
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
-	delete config;
-
 	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("ADV_MR00");
@@ -341,7 +344,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN("SL_X0B", "SL_X0X");
 	ReplaceBIN("SL_X1B", "SL_X1X");
 	ReplaceBIN("SL_X2B", "SL_X2X");
-	if (handle != nullptr && DLLLoaded_Lantern == true)
+	if (handle != nullptr && DLLLoaded_Lantern)
 	{
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceDiffuse0Specular1);
 		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceDiffuse0Specular0);

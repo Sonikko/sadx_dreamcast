@@ -626,7 +626,7 @@ void GachaponExplosionFix(NJS_MODEL_SADX *a1)
 	DrawQueueDepthBias = 0;
 }
 
-void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
+void FinalEgg_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM1000A");
 	ReplaceBIN_DC("CAM1000S");
@@ -640,24 +640,29 @@ void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET1002E");
 	ReplaceBIN_DC("SET1002S");
 	ReplaceBIN_DC("SET1003S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET1000A");
-		AddSETFix("SET1000S");
-		AddSETFix("SET1001S");
-		AddSETFix("SET1002E");
-		AddSETFix("SET1002S");
-		AddSETFix("SET1003S");
+		case SETFixes_Normal:
+			AddSETFix("SET1000A");
+			AddSETFix("SET1000S");
+			AddSETFix("SET1001S");
+			AddSETFix("SET1002E");
+			AddSETFix("SET1002S");
+			AddSETFix("SET1003S");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SET1000A");
+			AddSETFix_Extra("SET1000S");
+			AddSETFix_Extra("SET1001S");
+			AddSETFix_Extra("SET1002E");
+			AddSETFix_Extra("SET1002S");
+			AddSETFix_Extra("SET1003S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET1000A");
-		AddSETFix_Extra("SET1000S");
-		AddSETFix_Extra("SET1001S");
-		AddSETFix_Extra("SET1002E");
-		AddSETFix_Extra("SET1002S");
-		AddSETFix_Extra("SET1003S");
-	}
+
 	ReplacePVM("EFF_FINALEGG_POM");
 	ReplacePVM("FINALEGG1");
 	ReplacePVM("FINALEGG2");
@@ -675,7 +680,7 @@ void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x005AE060, FinalEggHook);
 	WriteData<1>((void*)0x005ADC40, 0xC3u); //Kill the SetClip function
 	WriteData((float**)0x005B7530, &OFunAnimationSpeedOverride);//Floating Fan Animation Speed Tweaks
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(LevelSpecular_FinalEgg, LengthOfArray(LevelSpecular_FinalEgg), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_FinalEgg, LengthOfArray(ObjectSpecular_FinalEgg), &ForceDiffuse0Specular1);
@@ -730,7 +735,8 @@ void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions)
 	ResizeTextureList((NJS_TEXLIST*)0x1B98518, textures_finalegg1);
 	ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);
 	ResizeTextureList((NJS_TEXLIST*)0x1AC5780, textures_finalegg3);
-	for (int i = 0; i < 3; i++)
+
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		FinalEgg1Fog[i].Color = 0xFF000000;
 		FinalEgg1Fog[i].Layer = 1200.0f;

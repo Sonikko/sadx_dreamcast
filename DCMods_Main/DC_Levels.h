@@ -4,9 +4,18 @@
 #include <stdio.h>
 #include <string>
 
+class IniFile;
+
 DataPointer(int, FramerateSetting_Config, 0x0089295C);
 
-extern int EnableSETFixes;
+typedef enum
+{
+	SETFixes_Off	= 0,
+	SETFixes_Normal	= 1,
+	SETFixes_Extra	= 2,
+} SETFixes_e;
+extern SETFixes_e EnableSETFixes;
+
 extern int CutsceneSkipMode;
 extern bool EnableSpeedFixes;
 extern bool DLLLoaded_DLCs;
@@ -32,50 +41,50 @@ extern bool EnableEggCarrier;
 extern bool EnablePast;
 extern bool DisableAllVideoStuff;
 
-void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions);
+void FixMRBase_Apply(const IniFile *config, const HelperFunctions &helperFunctions);
 void DisableSADXWaterFog();
-void Branding_Init(const char *path, const HelperFunctions &helperFunctions);
+void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void Branding_OnFrame();
-void ADV00_Init(const char *path, const HelperFunctions &helperFunctions);
+void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void ADV00_OnFrame();
-void ADV01_Init(const char *path, const HelperFunctions &helperFunctions);
+void ADV01_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void ADV01_OnFrame();
-void ADV02_Init(const char *path, const HelperFunctions &helperFunctions);
+void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void ADV02_OnFrame();
-void ADV03_Init(const char *path, const HelperFunctions &helperFunctions);
+void ADV03_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void ADV03_OnFrame();
-void Bosses_Init(const char *path, const HelperFunctions &helperFunctions);
+void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void Bosses_OnFrame();
-void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions);
+void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void EmeraldCoast_OnFrame();
-void WindyValley_Init(const char *path, const HelperFunctions &helperFunctions);
+void WindyValley_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void WindyValley_OnFrame();
-void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions);
+void TwinklePark_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void TwinklePark_OnFrame();
-void SpeedHighway_Init(const char *path, const HelperFunctions &helperFunctions);
+void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void SpeedHighway_OnFrame();
-void RedMountain_Init(const char *path, const HelperFunctions &helperFunctions);
+void RedMountain_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void RedMountain_OnFrame();
-void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions);
+void SkyDeck_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void SkyDeck_OnFrame();
-void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions);
+void LostWorld_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void LostWorld_OnFrame();
-void IceCap_Init(const char *path, const HelperFunctions &helperFunctions);
+void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void IceCap_OnFrame();
-void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions);
+void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void Casinopolis_OnFrame();
-void FinalEgg_Init(const char *path, const HelperFunctions &helperFunctions);
+void FinalEgg_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void FinalEgg_OnFrame();
-void HotShelter_Init(const char *path, const HelperFunctions &helperFunctions);
+void HotShelter_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void HotShelter_OnFrame();
-void Subgames_Init(const char *path, const HelperFunctions &helperFunctions);
+void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 //void Subgames_OnFrame();
-void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions);
+void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void ChaoGardens_OnFrame();
-void General_Init(const char *path, const HelperFunctions &helperFunctions);
+void General_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void General_OnFrame();
 void General_OnInput();
-void Videos_Init(const char *path, const HelperFunctions &helperFunctions);
+void Videos_Init(const IniFile *config, const HelperFunctions &helperFunctions);
 void Videos_OnFrame();
 void Videos_OnInput();
 void SkyChaseFix_Init();

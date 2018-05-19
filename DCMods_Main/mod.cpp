@@ -27,7 +27,7 @@ static bool SADXWater_Past = false;
 static bool SADXWater_EggHornet = false;
 static bool SADXWater_ZeroE101R = false;
 
-int EnableSETFixes = 1;
+SETFixes_e EnableSETFixes = SETFixes_Normal;
 
 bool DLLLoaded_SA1Chars = false;
 bool DLLLoaded_Lantern = false;
@@ -116,9 +116,12 @@ extern "C"
 		}
 
 		//If there is no config.ini, make one
-		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
+		const std::string s_path(path);
+		const std::string s_config_ini(s_path + "\\config.ini");
+		CopyFileA((s_path + "\\default.ini").c_str(), s_config_ini.c_str(), true);
+
 		//Config stuff
-		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+		const IniFile *const config = new IniFile(s_config_ini);
 		//Read config stuff for levels and branding
 		EnableDCBranding = config->getBool("General", "EnableDreamcastBranding", true);
 		EnableSpeedFixes = config->getBool("General", "EnableSpeedFixes", true);
@@ -142,18 +145,16 @@ extern "C"
 
 		const std::string EnableSETFixes_String = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
 		if (EnableSETFixes_String == "Off")
-			EnableSETFixes = 0;
+			EnableSETFixes = SETFixes_Off;
 		else if (EnableSETFixes_String == "Normal")
-			EnableSETFixes = 1;
+			EnableSETFixes = SETFixes_Normal;
 		else if (EnableSETFixes_String == "Extra")
-			EnableSETFixes = 2;
-
-		delete config;
+			EnableSETFixes = SETFixes_Extra;
 
 		//Set window title
-		if (EnableWindowTitle == true) helperFunctions.SetWindowTitle("Sonic Adventure");
+		if (EnableWindowTitle) helperFunctions.SetWindowTitle("Sonic Adventure");
 		//Another error message
-		if (EnableEmeraldCoast == true && WaterEffect != nullptr)
+		if (EnableEmeraldCoast && WaterEffect != nullptr)
 		{
 			MessageBox(WindowHandle,
 				L"The Enhanced Emerald Coast mod is not "
@@ -166,59 +167,61 @@ extern "C"
 				MB_OK | MB_ICONERROR);
 		}
 		//Init functions
-		if (EnableDCBranding == true) Branding_Init(path, helperFunctions);
-		if (EnableStationSquare == true) ADV00_Init(path, helperFunctions);
-		if (EnableEggCarrier == true) ADV01_Init(path, helperFunctions);
-		FixMRBase_Apply(path, helperFunctions);
-		if (EnableMysticRuins == true) ADV02_Init(path, helperFunctions);
-		if (EnablePast == true) ADV03_Init(path, helperFunctions);
-		Bosses_Init(path, helperFunctions);
-		if (WaterEffect == nullptr && EnableEmeraldCoast == true) EmeraldCoast_Init(path, helperFunctions);
-		if (EnableWindyValley == true) WindyValley_Init(path, helperFunctions);
-		if (EnableTwinklePark == true) TwinklePark_Init(path, helperFunctions);
-		if (EnableSpeedHighway == true) SpeedHighway_Init(path, helperFunctions);
-		if (EnableRedMountain == true) RedMountain_Init(path, helperFunctions);
-		if (EnableSkyDeck == true) SkyDeck_Init(path, helperFunctions);
-		if (EnableLostWorld == true) LostWorld_Init(path, helperFunctions);
-		if (EnableIceCap == true) IceCap_Init(path, helperFunctions);
-		if (EnableCasinopolis == true) Casinopolis_Init(path, helperFunctions);
-		if (EnableFinalEgg == true) FinalEgg_Init(path, helperFunctions);
-		if (EnableHotShelter == true) HotShelter_Init(path, helperFunctions);
+		if (EnableDCBranding) Branding_Init(config, helperFunctions);
+		if (EnableStationSquare) ADV00_Init(config, helperFunctions);
+		if (EnableEggCarrier) ADV01_Init(config, helperFunctions);
+		FixMRBase_Apply(config, helperFunctions);
+		if (EnableMysticRuins) ADV02_Init(config, helperFunctions);
+		if (EnablePast) ADV03_Init(config, helperFunctions);
+		Bosses_Init(config, helperFunctions);
+		if (!WaterEffect && EnableEmeraldCoast) EmeraldCoast_Init(config, helperFunctions);
+		if (EnableWindyValley) WindyValley_Init(config, helperFunctions);
+		if (EnableTwinklePark) TwinklePark_Init(config, helperFunctions);
+		if (EnableSpeedHighway) SpeedHighway_Init(config, helperFunctions);
+		if (EnableRedMountain) RedMountain_Init(config, helperFunctions);
+		if (EnableSkyDeck) SkyDeck_Init(config, helperFunctions);
+		if (EnableLostWorld) LostWorld_Init(config, helperFunctions);
+		if (EnableIceCap) IceCap_Init(config, helperFunctions);
+		if (EnableCasinopolis) Casinopolis_Init(config, helperFunctions);
+		if (EnableFinalEgg) FinalEgg_Init(config, helperFunctions);
+		if (EnableHotShelter) HotShelter_Init(config, helperFunctions);
 		SkyChaseFix_Init();
-		Subgames_Init(path, helperFunctions);
-		ChaoGardens_Init(path, helperFunctions);
-		General_Init(path, helperFunctions);
-		if (DisableAllVideoStuff == false) Videos_Init(path, helperFunctions);
-		if (EnableSpeedFixes == true) SpeedFixes_Init();
+		Subgames_Init(config, helperFunctions);
+		ChaoGardens_Init(config, helperFunctions);
+		General_Init(config, helperFunctions);
+		if (!DisableAllVideoStuff) Videos_Init(config, helperFunctions);
+		if (EnableSpeedFixes) SpeedFixes_Init();
+
+		delete config;
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		if (EnableDCBranding == true) Branding_OnFrame();
-		if (EnableStationSquare == true) ADV00_OnFrame();
-		if (EnableEggCarrier == true) ADV01_OnFrame();
-		if (EnableMysticRuins == true) ADV02_OnFrame();
-		//if (EnablePast == true) ADV03_OnFrame();
+		if (EnableDCBranding) Branding_OnFrame();
+		if (EnableStationSquare) ADV00_OnFrame();
+		if (EnableEggCarrier) ADV01_OnFrame();
+		if (EnableMysticRuins) ADV02_OnFrame();
+		//if (EnablePast) ADV03_OnFrame();
 		Bosses_OnFrame();
-		if (EnableEmeraldCoast == true) EmeraldCoast_OnFrame();
-		if (EnableWindyValley == true) WindyValley_OnFrame();
-		if (EnableTwinklePark == true) TwinklePark_OnFrame();
-		if (EnableSpeedHighway == true) SpeedHighway_OnFrame();
-		if (EnableRedMountain == true) RedMountain_OnFrame();
-		if (EnableSkyDeck == true) SkyDeck_OnFrame();
-		if (EnableLostWorld == true) LostWorld_OnFrame();
-		if (EnableIceCap == true) IceCap_OnFrame();
-		if (EnableCasinopolis == true) Casinopolis_OnFrame();
-		if (EnableFinalEgg == true) FinalEgg_OnFrame();
-		if (EnableHotShelter == true) HotShelter_OnFrame();
+		if (EnableEmeraldCoast) EmeraldCoast_OnFrame();
+		if (EnableWindyValley) WindyValley_OnFrame();
+		if (EnableTwinklePark) TwinklePark_OnFrame();
+		if (EnableSpeedHighway) SpeedHighway_OnFrame();
+		if (EnableRedMountain) RedMountain_OnFrame();
+		if (EnableSkyDeck) SkyDeck_OnFrame();
+		if (EnableLostWorld) LostWorld_OnFrame();
+		if (EnableIceCap) IceCap_OnFrame();
+		if (EnableCasinopolis) Casinopolis_OnFrame();
+		if (EnableFinalEgg) FinalEgg_OnFrame();
+		if (EnableHotShelter) HotShelter_OnFrame();
 		//Subgames_OnFrame();
 		ChaoGardens_OnFrame();
 		General_OnFrame();
-		if (DisableAllVideoStuff == false) Videos_OnFrame();
-		if (EnableSpeedFixes == true) SpeedFixes_OnFrame();
+		if (!DisableAllVideoStuff) Videos_OnFrame();
+		if (EnableSpeedFixes) SpeedFixes_OnFrame();
 	}
 	__declspec(dllexport) void __cdecl OnInput()
 	{
-		if (DisableAllVideoStuff == false) Videos_OnInput();
+		if (!DisableAllVideoStuff) Videos_OnInput();
 		if (CutsceneSkipMode != 3) General_OnInput();
 	}
 	_declspec(dllexport) void __cdecl OnRenderDeviceReset()

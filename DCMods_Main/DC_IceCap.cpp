@@ -139,7 +139,7 @@ void __cdecl FixedAvalanche(ObjectMaster *a1)
 	}
 }
 
-void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
+void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0800S");
 	ReplaceBIN_DC("CAM0801S");
@@ -150,22 +150,27 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0802M");
 	ReplaceBIN_DC("SET0802S");
 	ReplaceBIN_DC("SET0803B");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0800S");
-		AddSETFix("SET0801S");
-		AddSETFix("SET0802M");
-		AddSETFix("SET0802S");
-		AddSETFix("SET0803B");
+		case SETFixes_Normal:
+			AddSETFix("SET0800S");
+			AddSETFix("SET0801S");
+			AddSETFix("SET0802M");
+			AddSETFix("SET0802S");
+			AddSETFix("SET0803B");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SET0800S");
+			AddSETFix_Extra("SET0801S");
+			AddSETFix_Extra("SET0802M");
+			AddSETFix_Extra("SET0802S");
+			AddSETFix_Extra("SET0803B");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0800S");
-		AddSETFix_Extra("SET0801S");
-		AddSETFix_Extra("SET0802M");
-		AddSETFix_Extra("SET0802S");
-		AddSETFix_Extra("SET0803B");
-	}
+
 	ReplacePVM("BG_ICECAP");
 	ReplacePVM("ICECAP01");
 	ReplacePVM("ICECAP02");
@@ -226,7 +231,8 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0xE6E0E0 = objectSTG08_0017BD64; //MizuIwa B
 	*(NJS_OBJECT*)0xE6E694 = objectSTG08_0017C308; //MizuIwa C
 	*(NJS_OBJECT*)0xE52FCC = objectSTG08_00161838; //OIceJmp
-	for (int i = 0; i < 3; i++)
+
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		IceCap1Fog[i].Color = 0xFFFFFFFF;
 		IceCap1Fog[i].Layer = 1500.0f;
