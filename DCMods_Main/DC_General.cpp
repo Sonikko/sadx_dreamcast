@@ -972,8 +972,7 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	*(NJS_MODEL_SADX*)0x008C6624 = attach_001A7820; //Spring H
 	*(NJS_MODEL_SADX*)0x008BFEC8 = attach_001A127C; //Rocket platform
 	*(NJS_MODEL_SADX*)0x008BE168 = attach_0019F5CC; //Balloon
-
-	// Load configuration settings.
+	// Load configuration settings
 	FPSLock = config->getBool("General", "FPSLock", false);
 	EnableDCRipple = config->getBool("General", "EnableDreamcastWaterRipple", true);
 	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
@@ -982,10 +981,8 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ColorizeFont = config->getBool("General", "ColorizeFont", true);
 	DisableFontSmoothing = config->getBool("General", "DisableFontSmoothing", true);
 	EnableLSDFix = config->getBool("Miscellaneous", "EnableLSDFix", false);
-
 	//FPS lock
 	if (FPSLock) WriteCall((void*)0x411E79, FPSLockHook);
-
 	//Cancel cutscenes with C button
 	if (CutsceneSkipMode != 3)
 	{
@@ -1008,7 +1005,6 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		WriteData<1>((char*)0x0040DA0C, 0x00);
 		WriteData<1>((char*)0x0040DA12, 0x00);
 	}
-
 	// Enable Impress font
 	if (EnableImpressFont == "Impress")
 	{
@@ -1019,7 +1015,6 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	{
 		ReplaceBIN("FONTDATA1", "FONTDATA1_C");
 	}
-
 	if (ColorizeFont)
 	{
 		//Subtitles (ARGB from 0 to F: CEEF)
