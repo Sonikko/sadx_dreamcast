@@ -40,7 +40,7 @@ static const wchar_t *const OldModDLLs[] = {
 _SYSTEMTIME CurrentTime;
 
 std::string DLCMode;
-std::string LaunchPartyDLCMode = "US";
+int LaunchPartyDLCMode = 0;
 std::string SegaVoiceLanguage = "English";
 
 int MenuVoiceMode;
@@ -458,14 +458,6 @@ extern "C"
 		PrintDebug("Current DLC ID: %02X\n", CurrentDLC);
 		switch (CurrentDLC)
 		{
-			case 51:
-				LaunchPartyDLCMode = "Japan";
-				CurrentDLC = 5;
-				break;
-			case 52:
-				LaunchPartyDLCMode = "Europe";
-				CurrentDLC = 5;
-				break;
 			case 0:
 				// AT&T challenges
 				WriteCall((void*)0x004B793E, StopVoicesButMaybeNot_Challenge);
@@ -505,12 +497,7 @@ extern "C"
 				break;
 			case 5:
 				// Launch party
-				if (LaunchPartyDLCMode == "US")
-					helperFunctions.RegisterCommonObjectPVM(LaunchPartyUSTextures);
-				else if (LaunchPartyDLCMode == "Europe")
-					helperFunctions.RegisterCommonObjectPVM(LaunchPartyEUTextures);
-				else if (LaunchPartyDLCMode == "Japan")
-					helperFunctions.RegisterCommonObjectPVM(LaunchPartyJPTextures);
+				helperFunctions.RegisterCommonObjectPVM(LaunchPartyUSTextures);
 				break;
 			case 6:
 				// QUO challenge
@@ -538,6 +525,18 @@ extern "C"
 			case 9:
 				// Y2K Rings
 				helperFunctions.RegisterCommonObjectPVM(Y2KTextures);
+				break;
+			case 51:
+				// Launch party JP
+				helperFunctions.RegisterCommonObjectPVM(LaunchPartyJPTextures);
+				LaunchPartyDLCMode = 2;
+				CurrentDLC = 5;
+				break;
+			case 52:
+				// Launch party EU
+				helperFunctions.RegisterCommonObjectPVM(LaunchPartyEUTextures);
+				LaunchPartyDLCMode = 1;
+				CurrentDLC = 5;
 				break;
 			default:
 				break;

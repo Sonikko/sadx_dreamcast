@@ -51,11 +51,11 @@ static void LaunchPosterMain(ObjectMaster *a1)
 					DisplayHintText(LaunchPartyMessage3, 180);
 					break;
 				case 3:
-					if (LaunchPartyDLCMode == "US")
+					if (LaunchPartyDLCMode == 0)
 						DisplayHintText(LaunchPartyMessage4_US, 180);
-					else if (LaunchPartyDLCMode == "Europe")
+					if (LaunchPartyDLCMode == 1)
 						DisplayHintText(LaunchPartyMessage4_EU, 180);
-					else if (LaunchPartyDLCMode == "Japan")
+					if (LaunchPartyDLCMode == 2)
 						DisplayHintText(LaunchPartyMessage4_JP, 180);
 					break;
 				case 4:

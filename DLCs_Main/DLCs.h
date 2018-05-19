@@ -3,7 +3,7 @@
 #include <string>
 
 extern std::string DLCMode;
-extern std::string LaunchPartyDLCMode;
+extern int LaunchPartyDLCMode;
 extern std::string SegaVoiceLanguage;
 
 // Twinkle Circuit track IDs.
