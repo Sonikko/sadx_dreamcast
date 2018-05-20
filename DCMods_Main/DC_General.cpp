@@ -713,7 +713,7 @@ void __cdecl Barrier_MainX(ObjectMaster *a1)
 	if (v2 && GetCharObj2(0)->Powerups & Powerups_Barrier)
 	{
 		sub_4B9CE0(v1, v2);
-		if ((FramerateSetting == 1 && FrameCounter % 8 == 0) || (FramerateSetting > 1 && FrameCounter % 6 == 0))
+		if ((double)rand() * 0.000030517578f > 0.85f)
 		{
 			v3 = LoadChildObject(LoadObj_Data1, BarrierChild, a1);
 			v4 = v3;
@@ -1128,7 +1128,8 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x005DCFB0, RenderEmeraldWithGlow);
 	WriteCall((void*)0x005DCF7D, RotateEmerald);
 	//Shield
-	WriteJump(Barrier_Main, Barrier_MainX);
+	WriteJump(Barrier_Main, Barrier_MainX); //Barrier
+	WriteData<1>((char*)0x004B9DA9, 0x08); //Magnetic barrier blending mode
 	if (DLLLoaded_Lantern == true)
 	{
 		allow_landtable_specular(true);
