@@ -5,7 +5,7 @@
 #include "FinalEgg_objects.h"
 #include "OStandLight.h"
 
-NJS_TEXNAME textures_cylinder[259];
+NJS_TEXNAME textures_cylinder[257];
 NJS_TEXLIST texlist_cylinder = { arrayptrandlength(textures_cylinder) };
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, DroppedFrames, 0x03B1117C);
@@ -85,7 +85,6 @@ void __cdecl sub_5B4690(ObjectMaster *a1)
 		njPushMatrix(0);
 		njTranslate(0, 0.0, 4.0, 0.0);
 		njScale(0, 1.0, v1->Scale.y, 1.0);
-		((NJS_OBJECT*)0x01A4425C)->basicdxmodel->mats->attr_texId = 258;
 		sub_408530((NJS_OBJECT*)0x01A4425C);
 		if (v1->Scale.y >= 1.0)
 		{
@@ -735,6 +734,8 @@ void FinalEgg_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	WriteJump(OStandLight_Main, OStandLight_Main_F);
 	WriteJump(OStandLight_Display, OStandLight_Display_F); //O Stand Light function
 	WriteJump((void*)0x005B4690, sub_5B4690); //Cylinder function
+	((NJS_OBJECT*)0x01A4425C)->basicdxmodel->mats->attr_texId = 256; //Cylinder pivot
+	((NJS_OBJECT*)0x01A4583C)->basicdxmodel->mats->diffuse.color = 0xFFFFFFFF; //Cylinder texture
 	ResizeTextureList((NJS_TEXLIST*)0x1B98518, textures_finalegg1);
 	ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);
 	ResizeTextureList((NJS_TEXLIST*)0x1AC5780, textures_finalegg3);
@@ -789,7 +790,7 @@ void FinalEgg_OnFrame()
 			}
 		}
 		if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2) cylinderframe++;
-		if (cylinderframe >= 257) cylinderframe = 0;
+		if (cylinderframe > 255) cylinderframe = 0;
 		((NJS_OBJECT*)0x1A4583C)->basicdxmodel->mats[0].attr_texId = cylinderframe;
 		((NJS_OBJECT*)0x1A45620)->basicdxmodel->mats->attr_texId = cylinderframe;
 	}
