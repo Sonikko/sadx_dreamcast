@@ -3,6 +3,7 @@ image: Visual Studio 2017
 configuration: Release
 platform: x86
 build:
+  project: DCMods_Main.sln
   verbosity: minimal
 install:
   - cmd: git submodule -q update --init
