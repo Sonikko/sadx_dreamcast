@@ -23,6 +23,7 @@ init:
 - cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N --reject htm,html,tmp "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/textures/"
 
 install:
+- cmd: cd C:\projects\sadx_dreamcast
 - cmd: git submodule update --init --recursive
 
 build:
