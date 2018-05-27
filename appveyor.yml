@@ -35,6 +35,6 @@ build:
   
 after_build:
 - cmd: copy C:\projects\sadx-dreamcast\Release\DCMods_Main.dll C:\DreamcastConversion\DCMods_Main.dll
-- ps: $MyProcess = Start-Process "C:\mod-manifest-gen.exe C:\DreamcastConversion" -PassThru
+- ps: $MyProcess = Start-Process "C:\mod-manifest-gen.exe" -PassThru -ArgumentList "C:\DreamcastConversion"
 - cmd: cd C:\DreamcastConversion
 - cmd: dir
