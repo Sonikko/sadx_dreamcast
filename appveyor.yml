@@ -2,10 +2,16 @@ version: 0.{build}
 
 pull_requests:
   do_not_increment_build_number: true
- 
+branches:
+  only:
+  - master
+
+skip_tags: true
+
 image: Visual Studio 2017
 platform: x86
 configuration: Release
+clone_depth: 1
 
 cache:
 - C:\DreamcastConversion\system
@@ -32,6 +38,3 @@ after_build:
 - ps: $MyProcess = Start-Process "C:\mod-manifest-gen.exe C:\DreamcastConversion" -PassThru
 - cmd: cd C:\DreamcastConversion
 - cmd: dir
-
-on_finish:
-- ps: Stop-Process -Id $MyProcess.Id
