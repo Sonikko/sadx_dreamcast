@@ -23,6 +23,7 @@ init:
 - cmd: cinst wget
 - cmd: cd \
 - cmd: cd C:\projects
+- cmd: git init
 
 before_build:
 - cmd: git submodule update --init --recursive
