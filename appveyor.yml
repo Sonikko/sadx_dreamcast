@@ -23,8 +23,7 @@ init:
 - cmd: cinst wget
 - cmd: cd \
 - cmd: wget -np --no-parent -nH --cut-dirs 4 -N -c "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Various/mod-manifest-gen.exe"
-- cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N -c --reject htm,html,tmp "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/system/"
-- cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N -c --reject htm,html,tmp "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/textures/"
+- cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N -c --reject htm,html,tmp,dll "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/"
 - cmd: cd C:\projects\sadx-dreamcast
 
 before_build:
@@ -35,6 +34,6 @@ build:
   
 after_build:
 - cmd: copy C:\projects\sadx-dreamcast\Release\DCMods_Main.dll C:\DreamcastConversion\DCMods_Main.dll
-- ps: $MyProcess = Start-Process "C:\mod-manifest-gen.exe" -PassThru -ArgumentList "C:\DreamcastConversion"
+- ps: $MyProcess = Start-Process "C:\mod-manifest-gen.exe" -Wait -PassThru -ArgumentList "C:\DreamcastConversion"
 - cmd: cd C:\DreamcastConversion
 - cmd: dir
