@@ -1,14 +1,17 @@
-# Dreamcast Conversion by PkR
+# SADX Dreamcast Conversion mod by PkR
 
-This is the source code repo for Dreamcast Conversion, a mod for Sonic Adventure DX PC that brings back Dreamcast levels, textures, object models, special effects and branding.
-
-Useful links:
+Dreamcast Conversion is a mod for Sonic Adventure DX PC that brings back Dreamcast levels, textures, object models, special effects and branding.
 
 Homepage: http://www.moddb.com/mods/sadx-dreamcast-conversion
 
-Developer's Twitter: https://twitter.com/pkr_sadx
+To install Dreamcast Conversion you can use SADX Mod Installer that sets up SADX Mod Loader and downloads the latest versions of mods automatically. The installer can also convert the Steam version of SADX to the 2004 version, which supports the Mod Loader. 
 
-Download (installer): http://www.moddb.com/mods/sadx-dreamcast-conversion/news/new-mod-installer-now-available1
+SADX Mod Installer: http://www.moddb.com/mods/sadx-dreamcast-conversion/news/new-mod-installer-now-available1
+
+Alternatively you could download Dreamcast Conversion for manual install from the ModDB homepage or get the latest AppVeyor development build from the link below.
+
+Latest development build: https://ci.appveyor.com/api/projects/PiKeyAr/sadx-dreamcast/artifacts/Release/DreamcastConversion.7z
 
 Changelog: https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Changelog.txt
 
+Developer's Twitter: https://twitter.com/pkr_sadx
