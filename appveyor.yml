@@ -1,0 +1,21 @@
+version: 0.{build}
+
+pull_requests:
+  do_not_increment_build_number: true
+ 
+image: Visual Studio 2017
+configuration: Release
+
+clone:
+- ps: mkdir DreamcastConversion
+- ps: Set-Content -Value "Name=Dreamcast Conversion`r`nDescription=Brings back levels, textures, object models, special effects, branding etc. from the Dreamcast version of SA1.  Fixes various SADX bugs.`r`nAuthor=PkR`r`nVersion=$env:APPVEYOR_BUILD_VERSION`r`nDLLFile=DCMods_Main.dll`r`nUpdateUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/`r`nChangelogUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Changelog.txt" -Path DreamcastConversion\mod.ini
+- cmd: cinst wget
+- cmd: wget -np --no-parent -nH --cut-dirs 4 -N "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Various/mod-manifest-gen.exe"
+- cmd: git submodule update --init --recursive
+
+install:
+
+build:
+  project: DCMods_Main.sln
+  
+after_build:
