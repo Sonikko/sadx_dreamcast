@@ -15,3 +15,13 @@ Latest development build: https://ci.appveyor.com/api/projects/PiKeyAr/sadx-drea
 Changelog: https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Changelog.txt
 
 Developer's Twitter: https://twitter.com/pkr_sadx
+
+Related mods:
+
+Dreamcast DLCs: https://github.com/PiKeyAr/sadx-dreamcast-dlc
+
+HD GUI 2: https://github.com/PiKeyAr/sadx-hd-gui
+
+Sound Overhaul 2: https://github.com/PiKeyAr/sadx-sound-overhaul
+
+Time of Day: https://github.com/PiKeyAr/sadx-timeofday-mod
