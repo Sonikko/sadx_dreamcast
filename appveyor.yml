@@ -40,4 +40,4 @@ after_build:
 - cmd: 7z a DreamcastConversion.7z *
 
 artifacts:
-- path: \DreamcastConversion\DreamcastConversion.7z
+- path: ..\DreamcastConversion\DreamcastConversion.7z
