@@ -6,12 +6,17 @@ pull_requests:
 image: Visual Studio 2017
 configuration: Release
 
+cache:
+- DreamcastConversion\system
+- DreamcastConversion\textures
+
 init:
 - ps: mkdir DreamcastConversion
 - ps: Set-Content -Value "Name=Dreamcast Conversion`r`nDescription=Brings back levels, textures, object models, special effects, branding etc. from the Dreamcast version of SA1.  Fixes various SADX bugs.`r`nAuthor=PkR`r`nVersion=$env:APPVEYOR_BUILD_VERSION`r`nDLLFile=DCMods_Main.dll`r`nUpdateUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/`r`nChangelogUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Changelog.txt" -Path DreamcastConversion\mod.ini
 - cmd: cinst wget
 - cmd: wget -np --no-parent -nH --cut-dirs 4 -N "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Various/mod-manifest-gen.exe"
-- cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N --reject htm,html,tmp "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/"
+- cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N --reject htm,html,tmp "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/system/"
+- cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N --reject htm,html,tmp "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/textures/"
 
 install:
 - cmd: git submodule update --init --recursive
@@ -21,5 +26,9 @@ build:
   
 after_build:
 - cmd: copy Release\DCMods_Main.dll DreamcastConversion\DCMods_Main.dll
-- cmd: cd Release
+- ps: $MyProcess = Start-Process "mod-manifest-gen.exe DreamcastConversion" -PassThru
+- cmd: cd DreamcastConversion
 - cmd: dir
+
+on_finish:
+- ps: Stop-Process -Id $MyProcess.Id
