@@ -16,10 +16,9 @@ init:
 - ps: Set-Content -Value "Name=Dreamcast Conversion`r`nDescription=Brings back levels, textures, object models, special effects, branding etc. from the Dreamcast version of SA1.  Fixes various SADX bugs.`r`nAuthor=PkR`r`nVersion=$env:APPVEYOR_BUILD_VERSION`r`nDLLFile=DCMods_Main.dll`r`nUpdateUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/`r`nChangelogUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Changelog.txt" -Path C:\DreamcastConversion\mod.ini
 - cmd: cinst wget
 - cmd: cd \
-- cmd: wget -np --no-parent -nH --cut-dirs 4 -N "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Various/mod-manifest-gen.exe"
-- cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N --reject htm,html,tmp "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/system/"
-- cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N --reject htm,html,tmp "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/textures/"
-- cmd: mkdir C:\projects\sadx-dreamcast
+- cmd: wget -np --no-parent -nH --cut-dirs 4 -N -c "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Various/mod-manifest-gen.exe"
+- cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N -c --reject htm,html,tmp "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/system/"
+- cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N -c --reject htm,html,tmp "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/textures/"
 - cmd: git clone -q --branch=master https://github.com/PiKeyAr/sadx_dreamcast.git C:\projects\sadx-dreamcast
 - cmd: git submodule update --init --recursive
 
