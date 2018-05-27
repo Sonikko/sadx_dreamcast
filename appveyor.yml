@@ -20,6 +20,7 @@ init:
 - cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N -c --reject htm,html,tmp "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/system/"
 - cmd: wget -r -np --no-parent -nH --cut-dirs 4 -N -c --reject htm,html,tmp "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/textures/"
 - cmd: git clone -q --branch=master https://github.com/PiKeyAr/sadx_dreamcast.git C:\projects\sadx-dreamcast
+- cmd: cd C:\projects\sadx-dreamcast
 - cmd: git submodule update --init --recursive
 
 build:
