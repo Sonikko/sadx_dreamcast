@@ -1,6 +1,6 @@
-# Dreamcast Conversion mod for Sonic Adventure DX PC
+# Dreamcast Conversion by PkR
 
-This is a source code repo for Dreamcast Conversion, Sound Overhaul 2, HD GUI 2 and a few other SADX mods made by PkR.
+This is the source code repo for Dreamcast Conversion, a mod for Sonic Adventure DX PC that brings back Dreamcast levels, textures, object models, special effects and branding.
 
 Useful links:
 
