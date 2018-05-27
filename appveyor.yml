@@ -20,7 +20,7 @@ cache:
 
 init:
 - ps: mkdir C:\DreamcastConversion
-- ps: Set-Content -Value "Name=Dreamcast Conversion`r`nDescription=Brings back levels, textures, object models, special effects, branding etc. from the Dreamcast version of SA1.  Fixes various SADX bugs.`r`nAuthor=PkR`r`nVersion=$env:APPVEYOR_BUILD_VERSION`r`nDLLFile=DCMods_Main.dll`r`nUpdateUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/`r`nChangelogUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Changelog.txt" -Path C:\DreamcastConversion\mod.ini
+- ps: Set-Content -Value "Name=Dreamcast Conversion`r`nDescription=Brings back levels, textures, object models, special effects, branding etc. from the Dreamcast version of SA1. Fixes various SADX bugs.`r`nAuthor=PkR`r`nVersion=$env:APPVEYOR_BUILD_VERSION`r`nDLLFile=DCMods_Main.dll`r`nUpdateUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/`r`nChangelogUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Changelog.txt" -Path C:\DreamcastConversion\mod.ini
 - cmd: cinst wget
 - cmd: cd \
 - cmd: wget -np --no-parent -nH --cut-dirs 4 -nc "https://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Various/mod-manifest-gen.exe"
@@ -37,8 +37,8 @@ after_build:
 - cmd: copy C:\projects\sadx-dreamcast\Release\DCMods_Main.dll C:\DreamcastConversion\DCMods_Main.dll
 - ps: $MyProcess = Start-Process "C:\mod-manifest-gen.exe" -Wait -PassThru -ArgumentList "C:\DreamcastConversion"
 - cmd: cd C:\DreamcastConversion
-- cmd: 7z a DreamcastConversion.7z *
-- cmd: move DreamcastConversion.7z C:\projects\sadx-dreamcast\Release\DreamcastConversion.7z
+- cmd: 7z a DreamcastConversion.zip *
+- cmd: move DreamcastConversion.zip C:\projects\sadx-dreamcast\Release\DreamcastConversion.zip
 
 artifacts:
-- path: Release\DreamcastConversion.7z
+- path: Release\DreamcastConversion.zip
