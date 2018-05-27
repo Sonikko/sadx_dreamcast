@@ -22,7 +22,6 @@ init:
 - ps: Set-Content -Value "Name=Dreamcast Conversion`r`nDescription=Brings back levels, textures, object models, special effects, branding etc. from the Dreamcast version of SA1.  Fixes various SADX bugs.`r`nAuthor=PkR`r`nVersion=$env:APPVEYOR_BUILD_VERSION`r`nDLLFile=DCMods_Main.dll`r`nUpdateUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/`r`nChangelogUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Changelog.txt" -Path C:\DreamcastConversion\mod.ini
 - cmd: cd \
 - cmd: cd C:\projects\sadx-dreamcast
-- cmd: git init
 
 before_build:
 - cmd: git submodule update --init --recursive
