@@ -8,8 +8,8 @@ platform: x86
 configuration: Release
 
 cache:
-- DreamcastConversion\system
-- DreamcastConversion\textures
+- C:\DreamcastConversion\system
+- C:\DreamcastConversion\textures
 
 clone_folder: c:\projects\sadx_dreamcast
 
