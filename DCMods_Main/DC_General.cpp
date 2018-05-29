@@ -713,7 +713,7 @@ void __cdecl Barrier_MainX(ObjectMaster *a1)
 	if (v2 && GetCharObj2(0)->Powerups & Powerups_Barrier)
 	{
 		sub_4B9CE0(v1, v2);
-		if ((double)rand() * 0.000030517578f > 0.85f)
+		if ((double)rand() * 0.000030517578f > 0.84f)
 		{
 			v3 = LoadChildObject(LoadObj_Data1, BarrierChild, a1);
 			v4 = v3;
