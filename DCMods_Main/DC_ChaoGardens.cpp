@@ -35,8 +35,9 @@ static bool cheerchaoanim = false;
 static SecondaryEntrance BK_SSGardenStartPoint;
 
 NJS_VECTOR racebutton{ 2020, 0, -0.68f };
-NJS_VECTOR exitdoor{ 2099.42f, 13.49f, -0.8400002f };
 
+FunctionPointer(char, sub_436210, (int(__cdecl *a1)(int), char a2, char a3), 0x436210);
+FunctionPointer(int, sub_72A6C0, (int a1), 0x72A6C0);
 FunctionPointer(void, SetChaoLandTableX, (LandTable *geo), 0x43A4C0);
 FunctionPointer(void, sub_408530, (NJS_OBJECT *a1), 0x408530);
 FunctionPointer(void, sub_715700, (int a1), 0x715700);
@@ -116,6 +117,217 @@ ObjectFunc(EC_OF6, 0x004D4700); // SPHERE
 ObjectFunc(EC_OF17, 0x004D4850); // WALL  
 
 //Entry
+
+void ChaoCheerHologram_Main(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	SetTextureToLevelObj();
+	njPushMatrix(0);
+	njTranslateV(0, &v1->Position);
+	njRotateY(0, v1->Rotation.y);
+	njScale(0, 1.0f, 1.0f, 1.0f);
+	DrawQueueDepthBias = 2000.0f;
+	ProcessModelNode(&cheer_hologram, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+	njPopMatrix(1u);
+	DrawQueueDepthBias = 0;
+}
+
+void ChaoCheerHologram_Load(ObjectMaster *a1)
+{
+	a1->MainSub = (void(__cdecl *)(ObjectMaster *))ChaoCheerHologram_Main;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))ChaoCheerHologram_Main;
+	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))CheckThingButThenDeleteObject;
+}
+
+void ChaoLetters_Main(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	SetTextureToLevelObj();
+	njPushMatrix(0);
+	njTranslateV(0, &v1->Position);
+	njRotateY(0, v1->Rotation.y);
+	njScale(0, 1.0f, 1.0f, 1.0f);
+	DrawQueueDepthBias = 2000.0f;
+	ProcessModelNode(&chao_letters, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+	njPopMatrix(1u);
+	DrawQueueDepthBias = 0;
+}
+
+void ChaoLetters_Load(ObjectMaster *a1)
+{
+	a1->MainSub = (void(__cdecl *)(ObjectMaster *))ChaoLetters_Main;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))ChaoLetters_Main;
+	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))CheckThingButThenDeleteObject;
+}
+
+void ChaoSlidingDoors_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	float CharIndexShit;
+	CharIndexShit = *(float *)&v1->CharIndex;
+	SetTextureToLevelObj();
+	DrawQueueDepthBias = 1000.0f;
+	//Gate 1
+	njPushMatrix(0);
+	njTranslate(0, 2099.9f, 0, -1 * CharIndexShit);
+	njScale(0, 1.0f, 1.0f, 1.0f);
+	ProcessModelNode(&objectCHAO_00049AF0, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	njPopMatrix(1u);
+	//Gate 2
+	njPushMatrix(0);
+	njTranslate(0, 2099.9f, 0, CharIndexShit);
+	njScale(0, 1.0f, 1.0f, 1.0f);
+	ProcessModelNode(&objectCHAO_00049BF4, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	njPopMatrix(1u);
+	DrawQueueDepthBias = 0;
+}
+
+void ChaoSlidingDoors_Main(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	float CharIndexShit;
+	NJS_VECTOR exitdoor = { 2099.42f, 13.49f, -0.8400002f };
+	v1 = a1->Data1;
+	CharIndexShit = *(float *)&v1->CharIndex;
+	if (IsPlayerInsideSphere(&exitdoor, 30.0f))
+	{
+		if (bowchaoanim != 2) bowchaoanim = 1;
+		if (CharIndexShit < 25.0f) CharIndexShit += 0.8f;
+		if (CharIndexShit > 25.0f) CharIndexShit = 25.0f;
+	}
+	else
+	{
+		if (bowchaoanim == 2) bowchaoanim = 0;
+		if (CharIndexShit > 0.0f) CharIndexShit -= 0.8f;
+		if (CharIndexShit < 0) CharIndexShit = 0;
+	}
+	*(float *)&v1->CharIndex = CharIndexShit;
+	ChaoSlidingDoors_Display(a1);
+}
+
+void ChaoSlidingDoors_Load(ObjectMaster *a1)
+{
+	a1->Data1->CharIndex = 0;
+	a1->MainSub = (void(__cdecl *)(ObjectMaster *))ChaoSlidingDoors_Main;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))ChaoSlidingDoors_Display;
+	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))CheckThingButThenDeleteObject;
+}
+
+void ChaoNumbers_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	int ObjectIndex;
+	ObjectIndex = v1->CharIndex;
+	SetTextureToLevelObj();
+	njPushMatrix(0);
+	njTranslateV(0, &v1->Position);
+	njRotateY(0, v1->Rotation.y);
+	njScale(0, 1.0f, 1.0f, 1.0f);
+	DrawQueueDepthBias = 1000.0f;
+	switch (ObjectIndex)
+	{
+		case 0:
+			ProcessModelNode(&objectCHAO_0004E7BC, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			break;
+		case 1:
+			ProcessModelNode(&objectCHAO_0004E8C0, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			break;
+		case 2:
+			ProcessModelNode(&objectCHAO_0004E9C4, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			break;
+		case 3:
+			ProcessModelNode(&objectCHAO_0004EAC8, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			break;
+		case 4:
+			ProcessModelNode(&objectCHAO_0004EBCC, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			break;
+		case 5:
+			ProcessModelNode(&objectCHAO_0004ECD0, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			break;
+		case 6:
+			ProcessModelNode(&objectCHAO_0004EDD4, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			break;
+		case 7:
+			ProcessModelNode(&objectCHAO_0004EED8, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			break;
+	}
+	njPopMatrix(1u);
+	DrawQueueDepthBias = 0;
+}
+
+void ChaoNumbers_Main(ObjectMaster *a1)
+{
+	ChaoNumbers_Display(a1);
+	
+}
+
+void ChaoRaceNumbers_Load(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	NJS_OBJECT *v2;
+	a1->MainSub = (void(__cdecl *)(ObjectMaster *))ChaoNumbers_Main;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))ChaoNumbers_Display;
+	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))DeleteObject_DynamicCOL;
+	v1 = a1->Data1;
+	int ObjectIndex;
+	ObjectIndex = v1->CharIndex;
+	switch (ObjectIndex)
+	{
+	case 0:
+		v2 = DynamicCOL_AddFromEntity(&objectCHAO_0004E7BC, a1, (ColFlags)0x80000001);
+		v2->scl[0] = 1.0f;
+		v2->scl[1] = 1.0f;
+		v2->scl[2] = 1.0f;
+		break;
+	case 1:
+		v2 = DynamicCOL_AddFromEntity(&objectCHAO_0004E8C0, a1, (ColFlags)0x80000001);
+		v2->scl[0] = 1.0f;
+		v2->scl[1] = 1.0f;
+		v2->scl[2] = 1.0f;
+		break;
+	case 2:
+		v2 = DynamicCOL_AddFromEntity(&objectCHAO_0004E9C4, a1, (ColFlags)0x80000001);
+		v2->scl[0] = 1.0f;
+		v2->scl[1] = 1.0f;
+		v2->scl[2] = 1.0f;
+		break;
+	case 3:
+		v2 = DynamicCOL_AddFromEntity(&objectCHAO_0004EAC8, a1, (ColFlags)0x80000001);
+		v2->scl[0] = 1.0f;
+		v2->scl[1] = 1.0f;
+		v2->scl[2] = 1.0f;
+		break;
+	case 4:
+		v2 = DynamicCOL_AddFromEntity(&objectCHAO_0004EBCC, a1, (ColFlags)0x80000001);
+		v2->scl[0] = 1.0f;
+		v2->scl[1] = 1.0f;
+		v2->scl[2] = 1.0f;
+		break;
+	case 5:
+		v2 = DynamicCOL_AddFromEntity(&objectCHAO_0004ECD0, a1, (ColFlags)0x80000001);
+		v2->scl[0] = 1.0f;
+		v2->scl[1] = 1.0f;
+		v2->scl[2] = 1.0f;
+		break;
+	case 6:
+		v2 = DynamicCOL_AddFromEntity(&objectCHAO_0004EDD4, a1, (ColFlags)0x80000001);
+		v2->scl[0] = 1.0f;
+		v2->scl[1] = 1.0f;
+		v2->scl[2] = 1.0f;
+		break;
+	case 7:
+		v2 = DynamicCOL_AddFromEntity(&objectCHAO_0004EED8, a1, (ColFlags)0x80000001);
+		v2->scl[0] = 1.0f;
+		v2->scl[1] = 1.0f;
+		v2->scl[2] = 1.0f;
+		break;
+	}
+}
+
 ObjectFunc(OF_E0, 0x450370); // RING   
 ObjectFunc(OF_E1, 0x71D230); // ENTRY BUTTON
 ObjectFunc(OF_E2, 0x71CE60); // ZONE
@@ -135,6 +347,10 @@ ObjectFunc(OF_E15, 0x71C180); // CHEER CHAO
 ObjectFunc(OF_E16, 0x71BFF0); // BOW CHAO
 ObjectFunc(OF_E17, 0x71BEA0); // CRACKER
 ObjectFunc(OF_E18, 0x71BBB0); // BUTTERFLY
+ObjectFunc(OF_E19, ChaoRaceNumbers_Load); // 123 stuff
+ObjectFunc(OF_E20, ChaoCheerHologram_Load); // Chao cheer hologram
+ObjectFunc(OF_E21, ChaoSlidingDoors_Load); // Sliding doors
+ObjectFunc(OF_E22, ChaoLetters_Load); // Chao Race letters
 
 //Race
 ObjectFunc(OF0, 0x450370); // RING   
@@ -1056,6 +1272,227 @@ void LoadObjects_RaceEntry()
 {
 	ObjectMaster *obj;
 	EntityData1 *ent;
+	//Chao Race numbers
+	//1
+	obj = LoadObject((LoadObj)2, 3, OF_E19);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 1987.428f;
+		ent->Position.y = 0;
+		ent->Position.z = 57.67402f;
+		ent->Rotation.y = 0;
+		ent->CharIndex = 0;
+	}
+	//2
+	obj = LoadObject((LoadObj)2, 3, OF_E19);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 1965.328f;
+		ent->Position.y = 0;
+		ent->Position.z = 48.47403f;
+		ent->Rotation.y = 0;
+		ent->CharIndex = 1;
+	}
+	//3
+	obj = LoadObject((LoadObj)2, 3, OF_E19);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 1950.028f;
+		ent->Position.y = 0;
+		ent->Position.z = 31.97404f;
+		ent->Rotation.y = 0;
+		ent->CharIndex = 2;
+	}
+	//4
+	obj = LoadObject((LoadObj)2, 3, OF_E19);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 1941.903f;
+		ent->Position.y = 0;
+		ent->Position.z = 11.00009f;
+		ent->Rotation.y = 0;
+		ent->CharIndex = 3;
+	}
+	//5
+	obj = LoadObject((LoadObj)2, 3, OF_E19);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 1942.128f;
+		ent->Position.y = 0;
+		ent->Position.z = -12.12596f;
+		ent->Rotation.y = 0;
+		ent->CharIndex = 4;
+	}
+	//6
+	obj = LoadObject((LoadObj)2, 3, OF_E19);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 1951.628f;
+		ent->Position.y = 0;
+		ent->Position.z = -34.02596f;
+		ent->Rotation.y = 0;
+		ent->CharIndex = 5;
+	}
+	//7
+	obj = LoadObject((LoadObj)2, 3, OF_E19);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 1968.428f;
+		ent->Position.y = 0;
+		ent->Position.z = -50.02595f;
+		ent->Rotation.y = 0;
+		ent->CharIndex = 6;
+	}
+	//8
+	obj = LoadObject((LoadObj)2, 3, OF_E19);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 1989.828f;
+		ent->Position.y = 0;
+		ent->Position.z = -57.52594f;
+		ent->Rotation.y = 0;
+		ent->CharIndex = 7;
+	}
+	//Doors
+	obj = LoadObject((LoadObj)2, 3, OF_E21);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 0;
+		ent->Position.y = 0;
+		ent->Position.z = 0;
+		ent->Rotation.y = 0;
+	}
+	//Letters
+	obj = LoadObject((LoadObj)2, 3, OF_E22);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 2000;
+		ent->Position.y = 35.81644f;
+		ent->Position.z = 0;
+		ent->Rotation.y = 0x8000;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF_E22);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 2004;
+		ent->Position.y = 35.81644f;
+		ent->Position.z = 0;
+		ent->Rotation.y = 0x8000;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF_E22);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 2008;
+		ent->Position.y = 35.81644f;
+		ent->Position.z = 0;
+		ent->Rotation.y = 0x8000;
+	}
+	//Cheer holograms
+	obj = LoadObject((LoadObj)2, 3, OF_E20);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 2091.0f;
+		ent->Position.y = 15.5f;
+		ent->Position.z = 30.5f;
+		ent->Rotation.y = 0xA000;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF_E20);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 2044.66f;
+		ent->Position.y = 15.5f;
+		ent->Position.z = 55.5f;
+		ent->Rotation.y = 0;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF_E20);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 2069.42822f;
+		ent->Position.y = 15.5f;
+		ent->Position.z = 46.24f;
+		ent->Rotation.y = 0x9A00;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF_E20);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 2015.28f;
+		ent->Position.y = 15.5f;
+		ent->Position.z = 55.0f;
+		ent->Rotation.y = 0;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF_E20);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 2091.0f;
+		ent->Position.y = 15.5f;
+		ent->Position.z = -30.5f;
+		ent->Rotation.y = 0xDA00;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF_E20);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 2069.42822f;
+		ent->Position.y = 15.5f;
+		ent->Position.z = -46.24f;
+		ent->Rotation.y = 0xE300;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF_E20);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 2044.66f;
+		ent->Position.y = 15.5f;
+		ent->Position.z = -55.5f;
+		ent->Rotation.y = 0;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF_E20);
+	obj->SETData.SETData = &setdata_e;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 2015.28f;
+		ent->Position.y = 15.5f;
+		ent->Position.z = -55.5f;
+		ent->Rotation.y = 0;
+	}
+	//Other stuff
 	obj = LoadObject((LoadObj)2, 3, OF_E16); // BOW CHAO
 	obj->SETData.SETData = &setdata_e;
 	if (obj)
@@ -4180,7 +4617,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 		BK_SSGardenStartPoint.Position.z = SSGardenStartPoint.Position.z;
 		BK_SSGardenStartPoint.YRot = SSGardenStartPoint.YRot;
 		WriteJump((void*)0x007199B0, LoadRaceEntryX);
-		ResizeTextureList((NJS_TEXLIST *)0x340E934, 49); //Race Entry texlist
+		ResizeTextureList((NJS_TEXLIST *)0x340E934, 23); //Race Entry texlist
 		WriteCall((void*)0x0072C618, ExitRaceEntry);
 		WriteCall((void*)0x0071D17A, LoadSADXEntry);
 		WriteData<5>((void*)0x0071D158, 0x90); //Don't move Sanic
@@ -4442,7 +4879,6 @@ void ChaoGardens_OnFrame()
 	//Chao Race Entry
 	if (CurrentChaoStage == 2 && GameState != 16 && EnableLobby)
 	{
-
 		if (SkipSA1Entry)
 		{
 			((NJS_MATERIAL*)0x033AEB70)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -4453,9 +4889,9 @@ void ChaoGardens_OnFrame()
 			((NJS_MATERIAL*)0x033AEB70)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 			((NJS_MATERIAL*)0x033AEB70)->diffuse.color = 0xFFB2B2B2;
 		}
-		//Cheer Chao
+		//Cheer Chao hologram
 		if (FrameCounter % (35 / FramerateSetting) == 0) cheerchaoanim = !cheerchaoanim;
-		if (cheerchaoanim == true)matlistCHAO_03270F10[0].attr_texId = 48; else matlistCHAO_03270F10[0].attr_texId = 39;
+		if (cheerchaoanim == true) matlistCHAO_03270F10[0].attr_texId = 34; else matlistCHAO_03270F10[0].attr_texId = 35;
 		//Letters
 		c1 = letteranims[letterframe][0];
 		h1 = letteranims[letterframe][1];
@@ -4465,14 +4901,14 @@ void ChaoGardens_OnFrame()
 		a2 = letteranims[letterframe][5];
 		c2 = letteranims[letterframe][6];
 		e2 = letteranims[letterframe][7];
-		if (c1 == true) matlistCHAO_00047DEC[0].attr_texId = 31; else matlistCHAO_00047DEC[0].attr_texId = 40;
-		if (h1 == true) matlistCHAO_00047DEC[1].attr_texId = 32; else matlistCHAO_00047DEC[1].attr_texId = 41;
-		if (a1 == true) matlistCHAO_00047DEC[2].attr_texId = 33; else matlistCHAO_00047DEC[2].attr_texId = 42;
-		if (o1 == true) matlistCHAO_00047DEC[3].attr_texId = 34; else matlistCHAO_00047DEC[3].attr_texId = 43;
-		if (r2 == true) matlistCHAO_00047DEC[6].attr_texId = 35; else matlistCHAO_00047DEC[6].attr_texId = 44;
-		if (a2 == true) matlistCHAO_00047DEC[7].attr_texId = 36; else matlistCHAO_00047DEC[7].attr_texId = 45;
-		if (c2 == true) matlistCHAO_00047DEC[5].attr_texId = 37; else matlistCHAO_00047DEC[5].attr_texId = 46;
-		if (e2 == true) matlistCHAO_00047DEC[4].attr_texId = 38; else matlistCHAO_00047DEC[4].attr_texId = 47;
+		if (c1 == true) matlistCHAO_00047DEC[0].attr_texId = 19; else matlistCHAO_00047DEC[0].attr_texId = 20;
+		if (h1 == true) matlistCHAO_00047DEC[1].attr_texId = 21; else matlistCHAO_00047DEC[1].attr_texId = 18;
+		if (a1 == true) matlistCHAO_00047DEC[2].attr_texId = 22; else matlistCHAO_00047DEC[2].attr_texId = 23;
+		if (o1 == true) matlistCHAO_00047DEC[3].attr_texId = 24; else matlistCHAO_00047DEC[3].attr_texId = 25;
+		if (r2 == true) matlistCHAO_00047DEC[6].attr_texId = 26; else matlistCHAO_00047DEC[6].attr_texId = 27;
+		if (a2 == true) matlistCHAO_00047DEC[7].attr_texId = 28; else matlistCHAO_00047DEC[7].attr_texId = 29;
+		if (c2 == true) matlistCHAO_00047DEC[5].attr_texId = 30; else matlistCHAO_00047DEC[5].attr_texId = 31;
+		if (e2 == true) matlistCHAO_00047DEC[4].attr_texId = 32; else matlistCHAO_00047DEC[4].attr_texId = 33;
 		if (FrameCounter % (10 / FramerateSetting) == 0) letterframe++;
 		if (letterframe > LengthOfArray(letteranims)) letterframe = 0;
 		//Exit
@@ -4489,21 +4925,6 @@ void ChaoGardens_OnFrame()
 			SkipSA1Entry = true;
 			sub_715700(2);
 		}
-		//Door
-		collist_000000E4[LengthOfArray(collist_000000E4) - 1].Model->pos[2] = OpenDoorThing;
-		collist_000000E4[LengthOfArray(collist_000000E4) - 2].Model->pos[2] = -1 * OpenDoorThing;
-		if (IsPlayerInsideSphere(&exitdoor, 30.0f))
-		{
-			if (bowchaoanim != 2) bowchaoanim = 1;
-			if (OpenDoorThing < 25.0f) OpenDoorThing = OpenDoorThing + 0.8f;
-			if (OpenDoorThing > 25.0f) OpenDoorThing = 25.0f;
-		}
-		else
-		{
-			if (bowchaoanim == 2) bowchaoanim = 0;
-			if (OpenDoorThing > 0.0f) OpenDoorThing = OpenDoorThing - 0.8f;
-			if (OpenDoorThing < 0) OpenDoorThing = 0;
-		}
 		//Chao bowing when player leaves the room
 		if (bowchaoanim == 1)
 		{
@@ -4514,7 +4935,6 @@ void ChaoGardens_OnFrame()
 			bowchaoanim = 2;
 			bowchaoframe = 0;
 		}
-
 	}
 	//Chao Race
 	if (CurrentChaoStage == 1 && GameState != 16)
