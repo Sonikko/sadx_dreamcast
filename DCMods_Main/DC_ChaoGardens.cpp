@@ -359,7 +359,7 @@ void ChaoRaceWaterfall_Display(ObjectMaster *a1)
 	v1 = a1->Data1;
 	int ObjectIndex;
 	ObjectIndex = v1->CharIndex;
-	SetTextureToLevelObj();
+	njSetTexture(&OBJ_AL_RACE_TEXLIST);
 	njPushMatrix(0);
 	njTranslateV(0, &v1->Position);
 	njRotateY(0, v1->Rotation.y);
@@ -419,14 +419,13 @@ void ChaoRaceSkybox_Load(ObjectMaster *a1)
 	a1->MainSub = (void(__cdecl *)(ObjectMaster *))ChaoRaceSkybox_Main;
 	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))ChaoRaceSkybox_Display;
 	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))CheckThingButThenDeleteObject;
-	a1->Data1->CharIndex = 0;
 }
 
 void ChaoRaceCracker_Display(ObjectMaster *a1)
 {
 	EntityData1 *v1;
 	v1 = a1->Data1;
-	SetTextureToLevelObj();
+	njSetTexture(&OBJ_AL_RACE_TEXLIST);
 	njPushMatrix(0);
 	njTranslateV(0, &v1->Position);
 	njRotateXYZ(0, v1->Rotation.x, v1->Rotation.y, v1->Rotation.z);
@@ -5112,10 +5111,10 @@ void ChaoGardens_OnFrame()
 	//Chao Race
 	if (CurrentChaoStage == 1 && GameState != 16)
 	{
+		if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) chaoracewater++;
 		if (chaoracewater > 68) chaoracewater = 55;
 		matlistCHAO_0002A548[0].attr_texId = chaoracewater;
 		matlistCHAO_0003EFB0[0].attr_texId = chaoracewater;
 		matlistCHAO_0003F2DC[0].attr_texId = chaoracewater;
-		if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) chaoracewater++;
 	}
 }
