@@ -262,7 +262,6 @@ void ChaoNumbers_Display(ObjectMaster *a1)
 void ChaoNumbers_Main(ObjectMaster *a1)
 {
 	ChaoNumbers_Display(a1);
-	
 }
 
 void ChaoRaceNumbers_Load(ObjectMaster *a1)
@@ -353,6 +352,104 @@ ObjectFunc(OF_E21, ChaoSlidingDoors_Load); // Sliding doors
 ObjectFunc(OF_E22, ChaoLetters_Load); // Chao Race letters
 
 //Race
+
+void ChaoRaceWaterfall_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	int ObjectIndex;
+	ObjectIndex = v1->CharIndex;
+	SetTextureToLevelObj();
+	njPushMatrix(0);
+	njTranslateV(0, &v1->Position);
+	njRotateY(0, v1->Rotation.y);
+	njScale(0, 1.0f, 1.0f, 1.0f);
+	DrawQueueDepthBias = 2000.0f;
+	ProcessModelNode(&object_00045EB4, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	njPopMatrix(1u);
+	DrawQueueDepthBias = 0;
+}
+
+void ChaoRaceWaterfall_Main(ObjectMaster *a1)
+{
+	int UVShift;
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	UVShift = v1->CharIndex;
+	for (unsigned int w = 0; w < LengthOfArray(uv_00045AF4); w++)
+	{
+		uv_00045AF4[w].v = uv_00045AF4_r[w].v + UVShift;
+	}
+	ChaoRaceWaterfall_Display(a1);
+	UVShift = (UVShift - 6) % 255;
+	a1->Data1->CharIndex = UVShift;
+}
+
+void ChaoRaceWaterfall_Load(ObjectMaster *a1)
+{
+	a1->MainSub = (void(__cdecl *)(ObjectMaster *))ChaoRaceWaterfall_Main;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))ChaoRaceWaterfall_Display;
+	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))CheckThingButThenDeleteObject;
+	a1->Data1->CharIndex = 0;
+}
+
+void ChaoRaceSkybox_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	njSetTexture(&texlist_chaoracebg);
+	njPushMatrix(0);
+	njTranslateV(0, &v1->Position);
+	njRotateY(0, v1->Rotation.y);
+	njScale(0, 1.0f, 1.0f, 1.0f);
+	DrawQueueDepthBias = -47000;
+	ProcessModelNode(&objectCHAO_0002A888, QueuedModelFlagsB_EnableZWrite, 1.0f); //Bottom thing
+	ProcessModelNode(&object_0001C628, QueuedModelFlagsB_EnableZWrite, 1.0f); //Sky
+	njPopMatrix(1u);
+	DrawQueueDepthBias = 0;
+}
+
+void ChaoRaceSkybox_Main(ObjectMaster *a1)
+{
+	ChaoRaceSkybox_Display(a1);
+}
+
+void ChaoRaceSkybox_Load(ObjectMaster *a1)
+{
+	a1->MainSub = (void(__cdecl *)(ObjectMaster *))ChaoRaceSkybox_Main;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))ChaoRaceSkybox_Display;
+	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))CheckThingButThenDeleteObject;
+	a1->Data1->CharIndex = 0;
+}
+
+void ChaoRaceCracker_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	SetTextureToLevelObj();
+	njPushMatrix(0);
+	njTranslateV(0, &v1->Position);
+	njRotateXYZ(0, v1->Rotation.x, v1->Rotation.y, v1->Rotation.z);
+	njScale(0, 1.0f, 1.0f, 1.0f);
+	DrawQueueDepthBias = -37000;
+	ProcessModelNode(&cracker_sadx, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	njPopMatrix(1u);
+	DrawQueueDepthBias = 0;
+}
+
+void ChaoRaceCracker_Main(ObjectMaster *a1)
+{
+	ChaoRaceCracker_Display(a1);
+}
+
+void ChaoRaceCracker_Load(ObjectMaster *a1)
+{
+	a1->MainSub = (void(__cdecl *)(ObjectMaster *))ChaoRaceCracker_Main;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))ChaoRaceCracker_Display;
+	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))CheckThingButThenDeleteObject;
+	a1->Data1->CharIndex = 0;
+}
+
 ObjectFunc(OF0, 0x450370); // RING   
 ObjectFunc(OF1, 0x71D230); // ENTRY BUTTON
 ObjectFunc(OF2, 0x71CE60); // ZONE
@@ -372,6 +469,9 @@ ObjectFunc(OF15, 0x71C180); // CHEER CHAO
 ObjectFunc(OF16, 0x71BFF0); // BOW CHAO
 ObjectFunc(OF17, 0x71BEA0); // CRACKER
 ObjectFunc(OF18, 0x71BBB0); // BUTTERFLY
+ObjectFunc(OF19, ChaoRaceWaterfall_Load);
+ObjectFunc(OF20, ChaoRaceSkybox_Load);
+ObjectFunc(OF21, ChaoRaceCracker_Load);
 
 SETObjData setdata_ssg = {}; //SS
 SETObjData setdata = {}; //MR
@@ -1595,6 +1695,77 @@ void LoadObjects_Race()
 	ObjectMaster *obj;
 	EntityData1 *ent;
 	setdata_race.Distance = 612800.0f;
+	//Crackers
+	obj = LoadObject((LoadObj)2, 3, OF21);
+	obj->SETData.SETData = &setdata_race;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -65.59506f;
+		ent->Position.y = 9.999999f;
+		ent->Position.z = 335.2233f;
+		ent->Rotation.x = 0x1555;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0x11C7;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF21);
+	obj->SETData.SETData = &setdata_race;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -54.14839f;
+		ent->Position.y = 9.999999f;
+		ent->Position.z = 386.5659f;
+		ent->Rotation.x = 0xFFFFEAAB;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0x11C7;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF21);
+	obj->SETData.SETData = &setdata_race;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -84.39774f;
+		ent->Position.y = 9.999999f;
+		ent->Position.z = 393.2881f;
+		ent->Rotation.x = 0xFFFFEAAB;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0xFFFFF8E4;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF21);
+	obj->SETData.SETData = &setdata_race;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -94.60615f;
+		ent->Position.y = 9.999999f;
+		ent->Position.z = 342.6531f;
+		ent->Rotation.x = 0xAAA;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0xFFFFEAAB;
+	}
+	//Skybox
+	obj = LoadObject((LoadObj)2, 3, OF20);
+	obj->SETData.SETData = &setdata_race;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 0;
+		ent->Position.y = 0;
+		ent->Position.z = 0;
+		ent->Rotation.y = 0;
+	}
+	//Waterfall
+	obj = LoadObject((LoadObj)2, 3, OF19);
+	obj->SETData.SETData = &setdata_race;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 0;
+		ent->Position.y = 0;
+		ent->Position.z = 0;
+		ent->Rotation.y = 0;
+	}
 	obj = LoadObject((LoadObj)2, 3, OF10); // BUGLE
 	obj->SETData.SETData = &setdata_race;
 	if (obj)
@@ -4459,6 +4630,7 @@ void __cdecl LoadChaoRaceX()
 	SkipSA1Entry = false;
 	PrintDebug("ChaoStgRace _prolog begin.\n");
 	LoadObject(LoadObj_Data1, 2, ChaoStgRace_Init);
+	LoadPVM("BG_AL_RACE02", &texlist_chaoracebg);
 	LoadObjects_Race();
 	SetChaoLandTableX(&landtable_00000E64);
 	PrintDebug("ChaoStgRace _prolog end.\n");
@@ -4548,6 +4720,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ReplacePVM("AL_DX_OBJ_CMN");
 	ReplacePVM("AL_RACE01");
 	ReplacePVM("AL_RACE02");
+	ReplacePVM("BG_AL_RACE02");
 	ReplacePVM("CHAO");
 	ReplacePVM("CHAO_OBJECT");
 	ReplacePVM("EC_ALIFE");
@@ -4944,17 +5117,5 @@ void ChaoGardens_OnFrame()
 		matlistCHAO_0003EFB0[0].attr_texId = chaoracewater;
 		matlistCHAO_0003F2DC[0].attr_texId = chaoracewater;
 		if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) chaoracewater++;
-		for (unsigned int w = 0; w < LengthOfArray(uvCHAO_00045AF4); w++)
-		{
-			uvCHAO_00045AF4[w].v = uvCHAO_00045AF4[w].v - 6;
-		}
-		if (uvCHAO_00045AF4[0].v < -253)
-		{
-			for (unsigned int w2 = 0; w2 < LengthOfArray(uvCHAO_00045AF4); w2++)
-			{
-				uvCHAO_00045AF4[w2].v = uvCHAO_00045AF4R[w2].v;
-			}
-		}
-
 	}
 }
