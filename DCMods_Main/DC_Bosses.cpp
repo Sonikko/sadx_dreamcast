@@ -79,7 +79,6 @@ FunctionPointer(void, sub_407BB0, (NJS_MODEL_SADX *a1, QueuedModelFlagsB queueFl
 FunctionPointer(void, sub_56FC30, (int a1, int a2, float a3), 0x56FC30);
 FunctionPointer(void, sub_568EC0, (EntityData1 *a1), 0x568EC0);
 FunctionPointer(void, sub_4CACF0, (NJS_VECTOR *a1, float a2), 0x4CACF0);
-FunctionPointer(void, sub_4CC540, (NJS_VECTOR *a1, int a2, int a3, int a4), 0x4CC540);
 FunctionPointer(void, sub_77E940, (FVFStruct_H_B *a1, signed int count, int a3), 0x77E940);
 
 static bool SADXStyleWater_EggHornet = false;
@@ -103,6 +102,7 @@ static int egghornetwater_sadx = 143;
 static int E101REffectMode = 1;
 static float e101rframe = 0;
 static NJS_VECTOR E101R_ParticleVector = { 0,0,0 };
+static int E101R_ParticleO = 0;
 static int E101R_ParticleA = 0;
 static int E101R_ParticleB = 0;
 static int E101R_ParticleC = 0;
@@ -580,8 +580,8 @@ void PerfectChaosWaterfallHook(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 
 void E101RRenderAfterEffect(float a, float r, float g, float b)
 {
-	if (E101REffectMode == 0) SetMaterialAndSpriteColor_Float(min(1.0f, a + 0.2f), min(1.0f, a + 0.2f), a, a);
-	else SetMaterialAndSpriteColor_Float(min(1.0f, a + 0.2f), a, a, min(1.0f, a + 0.2f));
+	if (E101REffectMode == 0) SetMaterialAndSpriteColor_Float(1.0f, a*1.5f, a*0.75f, a*0.5f);
+	else SetMaterialAndSpriteColor_Float(1.0f, a*0.75f, a*0.5f, a*1.5f);
 }
 
 void E101REffect_Orange(int a1, int a2)
@@ -604,11 +604,19 @@ void E101REffect_Blue(int a1, int a2)
 	E101REffectMode = 1;
 }
 
+void E101R_FVFShit(FVFStruct_H_B *a1, signed int count, int a3)
+{
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+	Direct3D_DrawFVF_H(a1, count);
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+}
 
 void E101R_AfterImageConstantAttr(Uint32 and_attr, Uint32 or_attr)
 {
 	//njSetConstantAttr(0x9999999u, 0x24100000u);
-	AddConstantAttr(0, NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ALPHA | NJD_FLAG_IGNORE_LIGHT);
+	AddConstantAttr(0, NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ALPHA | NJD_FLAG_IGNORE_LIGHT | NJD_FLAG_USE_TEXTURE);
 	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
 	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 }
@@ -663,26 +671,10 @@ void E101R_RenderParticle(FVFStruct_H_B *a1, signed int count, int a3)//(NJS_VEC
 	Direct3D_EnableZWrite(1);
 }
 
-void E101R_SwapParticleOrder(int a1, int a2, float a3)
-{
-	sub_56FC30(a1, a2, a3);
-	sub_4CC540(&E101R_ParticleVector, E101R_ParticleA, E101R_ParticleB, E101R_ParticleC);
-}
-
-void E101R_RetrieveParticleStuff(NJS_VECTOR *a1, int a2, int a3, int a4)
-{
-	E101R_ParticleVector.x = a1->x;
-	E101R_ParticleVector.y = a1->y;
-	E101R_ParticleVector.z = a1->z;
-	E101R_ParticleA = a2;
-	E101R_ParticleB = a3;
-	E101R_ParticleC = a4;
-}
-
 void E101R_AfterImageArmConstantAttr(Uint32 and_attr, Uint32 or_attr)
 {
 	njSetConstantAttr(0x9999999u, 0x24100000u);
-	AddConstantAttr(0, NJD_FLAG_IGNORE_LIGHT);
+	AddConstantAttr(0, NJD_FLAG_IGNORE_LIGHT | NJD_FLAG_USE_TEXTURE);
 }
 
 void Spotlight_Display(ObjectMaster *a1)
@@ -1198,10 +1190,8 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		WriteCall((void*)0x569078, LoadBossECOceanPVM);
 		WriteCall((void*)0x585448, LoadBossECOceanPVM);
 		ShadowBlob_Model.basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		WriteCall((void*)0x0056FF4A, E101R_RetrieveParticleStuff);
-		WriteCall((void*)0x0056FF61, E101R_SwapParticleOrder);
 		WriteCall((void*)0x004CC82E, E101R_RenderParticle);
-		WriteCall((void*)0x0056FD59, E101R_RenderParticle);
+		WriteCall((void*)0x0056FD59, E101R_FVFShit);
 		WriteCall((void*)0x00568F59, E101R_DrawSkybox);
 		WriteCall((void*)0x00571581, E101R_DrawExplosion);
 		WriteCall((void*)0x005715AE, E101R_DrawExplosion);
