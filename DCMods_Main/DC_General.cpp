@@ -5,6 +5,7 @@
 #include "EggmobileNPC.h"
 #include "CharacterEffects.h"
 #include "Ripple.h"
+#include "Frogs.h"
 #include "CommonObjects.h"
 
 HMODULE CHRMODELS3 = GetModuleHandle(L"CHRMODELS_orig");
@@ -870,6 +871,7 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("M_EM_SKY");
 	ReplacePVM("M_EM_WHITE");
 	ReplacePVM("M_EM_YELLOW");
+	ReplacePVM("M_TR_S");
 	ReplacePVM("NEW_BB");
 	ReplacePVM("NISEPAT");
 	ReplacePVM("OL_10000");
@@ -892,7 +894,6 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("TOGEBALL_TOGEBALL");
 	ReplacePVM("TR2CRASH");
 	ReplacePVM("TUBA");
-	ReplacePVM("TX_CHNAM_E");
 	ReplacePVM("UNAGI");
 	ReplacePVM("UNI_A_UNIBODY");
 	ReplacePVM("UNI_C_UNIBODY");
@@ -908,6 +909,10 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("WING_P");
 	ReplacePVM("WING_T");
 	ReplacePVM("ZOU");
+	//Fix frogs lol
+	*(NJS_OBJECT*)0x030CB4F8 = object_02CCB4F8;
+	*(NJS_OBJECT*)0x030CDB28 = object_02CCDB28;
+	*(NJS_OBJECT*)0x030D0160 = object_02CD0160;
 	//Fix for badniks not spawning
 	WriteCall((void*)0x007AA9F9, AmenboFix);
 	WriteCall((void*)0x0049EFE7, EggKeeperFix);
@@ -959,6 +964,10 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	if (DLLLoaded_HDGUI == false)
 	{
 		ReplacePVM("OBJ_REGULAR");
+		ReplacePVM("CHAOS_LIFEGAUGE");
+		ReplacePVM("E102TIME");
+		ReplacePVM("EXTRA");
+		ReplacePVM("FISHING");
 		ReplacePVR("ST_064S_LOCKA");
 		ReplacePVR("ST_064S_LOCKB");
 		ReplacePVR("ST_064S_LOCKC");
@@ -1130,6 +1139,11 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	//Shield
 	WriteJump(Barrier_Main, Barrier_MainX); //Barrier
 	WriteData<1>((char*)0x004B9DA9, 0x08); //Magnetic barrier blending mode
+	//Material fixes
+	for (unsigned int i = 0; i < LengthOfArray(FirstCharacterSpecular_General); i++)
+	{
+		RemoveMaterialColors(FirstCharacterSpecular_General[i]);
+	}
 	if (DLLLoaded_Lantern == true)
 	{
 		allow_landtable_specular(true);

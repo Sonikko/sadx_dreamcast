@@ -977,7 +977,8 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVR("SS_NIGHTSKY");
 	ReplacePVR("SS_NIGHTSKYB");
 	ReplacePVR("SS_YUSKAY_MINI");
-
+	ResizeTextureList((NJS_TEXLIST*)0x2AEE920, 22); //SSCAR 
+	WriteData<1>((char*)0x02BBE9EC, 0x0B); //Texture ID for extra car type
 	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "StationSquare", false);
 	if (SADXStyleWater)

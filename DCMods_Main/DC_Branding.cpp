@@ -151,6 +151,10 @@ float PadManuXOffset_J = 200.0f;
 float PadManuYOffset = 136.0f;
 float PadManuYOffset2 = 105.0f;
 float PadManuYMultiplier = 1.0f;
+//PVM accuracy stuff
+float sphe_cursol_scale = 1.0f;
+float wins_scaleXmultiplier = 3.96900012f;
+float wins_scaleYmultiplier = 1.0f;
 
 CreditsEntry SA1Credits[] = {
 	{ 1, 0, 0, 0, "SONIC ADVENTURE STAFF" },
@@ -1129,6 +1133,19 @@ void DrawShadow_Hook(int texnum, float x, float y, float z, float scaleX, float 
 	njTextureShadingMode(2);
 }
 
+void DrawMainMenuShadow_Hook(int texnum, float x, float y, float z, float scaleX, float scaleY)
+{
+	if (DLLLoaded_HDGUI == false)
+	{
+		//This is for original shadow texture
+		scaleX = scaleX * 4.0f;
+		scaleY = scaleY * 4.0f;
+	}
+	njTextureShadingMode(1);
+	DrawBG(texnum, x, y, z, scaleX, scaleY);
+	njTextureShadingMode(2);
+}
+
 void DrawTexture_Hook(int that_cant_be_right, float x, float y, float z)
 {
 	njTextureShadingMode(1);
@@ -1510,9 +1527,55 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	ReplacePVM("TUTOBG_KNUCKLES");
 	ReplacePVM("TUTOBG_SONIC");
 	ReplacePVM("TUTOBG_TAILS");
-	ReplacePVM("AVA_FSCMN_E");
 	if (DLLLoaded_HDGUI == false)
 	{
+		WriteData((float**)0x00431B46, &sphe_cursol_scale); //AVA_CSR
+		WriteData((float**)0x00431B57, &sphe_cursol_scale); //AVA_CSR
+		//AVA_NEW16NO fixes
+		WriteData((float*)0x005079F7, 1.125f); //sub_5079E0
+		WriteData((float*)0x005079FC, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507A1F, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507A24, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507A4A, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507A4F, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507A82, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507A87, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507AE2, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507AE7, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507897, 1.125f); //sub_507880
+		WriteData((float*)0x0050789C, 1.125f); //sub_507880
+		WriteData((float*)0x005078BF, 1.125f); //sub_507880
+		WriteData((float*)0x005078C4, 1.125f); //sub_507880
+		WriteData((float*)0x005078EA, 1.125f); //sub_507880
+		WriteData((float*)0x005078EF, 1.125f); //sub_507880
+		WriteData((float*)0x00507935, 1.125f); //sub_507880
+		WriteData((float*)0x0050793A, 1.125f); //sub_507880
+		WriteData((float*)0x00507989, 1.125f); //sub_507880
+		WriteData((float*)0x0050798E, 1.125f); //sub_507880
+		WriteData((float*)0x0050AEA1, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AEA6, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AEE0, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AEE5, 1.125f); //sub_50AE30
+		WriteData((float*)0x00510DE9, 1.75f); //Sound test
+		WriteData((float*)0x00510DEE, 1.375f); //Sound test
+		WriteData((float*)0x00510E0B, 1.75f); //Sound test
+		WriteData((float*)0x00510E10, 1.375f); //Sound test
+		WriteData((float*)0x00510E32, 1.75f); //Sound test
+		WriteData((float*)0x00510E37, 1.375f); //Sound test
+		WriteData((float*)0x00510E5C, 1.75f); //Sound test
+		WriteData((float*)0x00510E61, 1.375f); //Sound test
+		WriteData((float*)0x00510E79, 1.75f); //Sound test
+		WriteData((float*)0x00510E7E, 1.375f); //Sound test
+		WriteData((float*)0x0050A058, 1.125f); //sub_50A010
+		WriteData((float*)0x0050A06A, 1.125f); //sub_50A010
+		WriteData((float*)0x0050AE0A, 1.125f); //sub_50ADE0
+		WriteData((float*)0x0050AE0F, 1.125f); //sub_50ADE0
+		WriteData((float*)0x0050AEA1, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AEA6, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AEE0, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AEE5, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AF5A, 1.125f); //sub_50AF30
+		WriteData((float*)0x0050AF5F, 1.125f); //sub_50AF30
 		WriteCall((void*)0x64393E, GreenRect_Wrapper); //Fix alpha rejection on green rectangle in tutorials
 		//Tutorial stuff
 		//PVMs
@@ -1863,26 +1926,55 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		ReplacePVM("CON_REGULAR_E");
 		ReplacePVM("PRESSSTART");
 		ReplacePVM("AVA_BACK");
+		ReplacePVM("AVA_CHSEL");
 		ReplacePVM("AVA_CHSEL_E");
 		ReplacePVM("AVA_CSR");
 		ReplacePVM("AVA_DLG_E");
+		ReplacePVM("AVA_EMBLEM");
+		ReplacePVM("AVA_EMBLEMVIEW");
 		ReplacePVM("AVA_EMBLEMVIEW_E");
+		ReplacePVM("AVA_FILESEL");
 		ReplacePVM("AVA_FILESEL_E");
+		ReplacePVM("AVA_FSCMN");
+		ReplacePVM("AVA_FSCMN_E");
+		ReplacePVM("AVA_FSDLG");
 		ReplacePVM("AVA_FSDLG_E");
+		ReplacePVM("AVA_OPTION");
 		ReplacePVM("AVA_OPTION_E");
 		ReplacePVM("AVA_SAN");
 		ReplacePVM("ADV_WINDOW");
+		ReplacePVM("AVA_SNDTEST");
 		ReplacePVM("AVA_SNDTEST_E");
 		ReplacePVM("AVA_SQUARE");
+		ReplacePVM("AVA_STNAM");
 		ReplacePVM("AVA_STNAM_E");
 		ReplacePVM("AVA_SUUJI");
+		ReplacePVM("AVA_TITLE");
 		ReplacePVM("AVA_TITLE_E");
+		ReplacePVM("AVA_TRIALACTSEL");
 		ReplacePVM("AVA_TRIALACTSEL_E");
+		ReplacePVM("GAMEOVER");
 		ReplacePVM("GAMEOVER_E");
+		ReplacePVM("BOARD_SCORE");
+		ReplacePVM("B_CHNAM");
 		ReplacePVM("B_CHNAM_E");
 		ReplacePVM("M_CHNAM");
 		ReplacePVM("PRESSSTART");
 		ReplacePVM("SEGALOGO_E");
+		ReplacePVM("SCORE_ACT");
+		ReplacePVM("SCORE_ACT_E");
+		ReplacePVM("SCORE_BOARD");
+		ReplacePVM("SCORE_BOARD_E");
+		ReplacePVM("SCORE_BOSS");
+		ReplacePVM("SCORE_BOSS_E");
+		ReplacePVM("SCORE_CART");
+		ReplacePVM("SCORE_CART_E");
+		ReplacePVM("SCORE_MOLE");
+		ReplacePVM("SCORE_MOLE_E");
+		ReplacePVM("SCORE_RESULT");
+		ReplacePVM("SCORE_RESULT_E");
+		ReplacePVM("SCORE_SHOOT");
+		ReplacePVM("SCORE_SHOOT_E");
 		ReplacePVM("SMRYBG_AMY");
 		ReplacePVM("SMRYBG_BIG");
 		ReplacePVM("SMRYBG_E102");
@@ -1890,6 +1982,8 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		ReplacePVM("SMRYBG_SONIC");
 		ReplacePVM("SMRYBG_SUPERSONIC");
 		ReplacePVM("SMRYBG_TAILS");
+		ReplacePVM("TX_CHNAM");
+		ReplacePVM("TX_CHNAM_E");
 		ReplacePVR("ABC_TXT");
 		ReplacePVR("A_STAGE01_E");
 		ReplacePVR("A_STAGE02_E");
@@ -1909,6 +2003,7 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		ReplacePVR("K_STAGE03_E");
 		ReplacePVR("K_STAGE04_E");
 		ReplacePVR("K_STAGE05_E");
+		ReplacePVR("MILESRACE");
 		ReplacePVR("MISSION_A_BALRING_E");
 		ReplacePVR("MISSION_A_BALZERO_E");
 		ReplacePVR("MISSION_A_FIN_E");
@@ -2022,11 +2117,11 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		WriteData<5>((void*)0x00511C18, 0x90); //Disable ZFunc stuff to prevent character model overlap issues
 		//Shadow blending fixes
 		WriteCall((void*)0x00457F2F, DrawSprite_Hook);
-		WriteCall((void*)0x0050B584, DrawShadow_Hook);
 		WriteCall((void*)0x00431D37, DrawShadow_Hook);
 		WriteCall((void*)0x00506EFF, DrawShadow_Hook);
 		WriteCall((void*)0x0050D8B3, DrawShadow_Hook);
-		WriteCall((void*)0x0050B61A, DrawShadow_Hook); //Main menu (trial) shadow
+		WriteCall((void*)0x0050B584, DrawMainMenuShadow_Hook);  //Main menu shadow
+		WriteCall((void*)0x0050B61A, DrawMainMenuShadow_Hook); //Main menu (trial) shadow
 		WriteCall((void*)0x00508FFD, DrawTexture_Hook); //Sound test icon
 		WriteCall((void*)0x00509130, DrawTexture_Hook); //Sonic icon background
 		WriteCall((void*)0x00509191, DrawTexture_Hook); //Sonic icon

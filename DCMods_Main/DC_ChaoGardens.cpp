@@ -5,7 +5,7 @@
 #include "MRGarden.h"
 #include "ChaoRace.h"
 #include "ChaoRaceEntry.h"
-#include "ECGarden_DC.h"
+#include "ECGarden.h"
 #include "HintMessages.h"
 
 static bool EnableSSGarden = true;
@@ -103,13 +103,45 @@ ObjectFunc(OF_SS20, 0x004D4850); // WALL
 ObjectFunc(OF_SS21, 0x007A9C60); // HINT BOX
 
 //MR
+
+void MRGardenSkybox_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1;
+	v1 = a1->Data1;
+	DisableFog();
+	njSetTexture(&texlist_mrgardensky);
+	njPushMatrix(0);
+	njTranslate(0, Camera_Data1->Position.x, 0, Camera_Data1->Position.z);
+	njScale(0, 1.0f, 1.0f, 1.0f);
+	DrawQueueDepthBias = -47000;
+	if (GetTimeOfDay() == 0) ProcessModelNode(&object_00013A78, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	else ProcessModelNode(&object_0001BC88, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	njPopMatrix(1u);
+	DrawQueueDepthBias = 0;
+	ToggleStageFog();
+}
+
+void MRGardenSkybox_Main(ObjectMaster *a1)
+{
+	MRGardenSkybox_Display(a1);
+}
+
+void MRGardenSkybox_Load(ObjectMaster *a1)
+{
+	a1->MainSub = (void(__cdecl *)(ObjectMaster *))MRGardenSkybox_Main;
+	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))MRGardenSkybox_Display;
+	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))CheckThingButThenDeleteObject;
+}
+
 ObjectFunc(OF_MR0, 0x00450370); // RING   
 ObjectFunc(OF_MR4, 0x004D4770); // CYLINDER
 ObjectFunc(OF_MR5, 0x004D47E0); // CUBE    
 ObjectFunc(OF_MR6, 0x004D47E0); // CUBE    
 ObjectFunc(OF_MR18, 0x004D4850); // WALL  
+ObjectFunc(OF_MR19, MRGardenSkybox_Load);
 
 //EC
+
 ObjectFunc(EC_OF0, 0x00450370); // RING   
 ObjectFunc(EC_OF4, 0x004D4770); // CYLINDER
 ObjectFunc(EC_OF5, 0x004D47E0); // CUBE    
@@ -842,6 +874,16 @@ void LoadObjects_MR()
 	ObjectMaster *obj;
 	EntityData1 *ent;
 	setdata.Distance = 900000.0f;
+	//Skybox
+	obj = LoadObject((LoadObj)2, 3, OF_MR19);
+	obj->SETData.SETData = &setdata;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 0;
+		ent->Position.y = 0;
+		ent->Position.z = 0;
+	}
 	obj = LoadObject((LoadObj)2, 3, OF_MR0); // RING   
 	obj->SETData.SETData = &setdata;
 	if (obj)
@@ -886,19 +928,6 @@ void LoadObjects_EC()
 	ObjectMaster *obj;
 	EntityData1 *ent;
 	setdata_ec.Distance = 900000.0f;
-	/*
-	obj = LoadObject((LoadObj)2, 5, EC_OF0); // RING
-	obj->SETData.SETData = &setdata_ec;
-	if (obj)
-	{
-	ent = obj->Data1;
-	ent->Position.x = -166.84f;
-	ent->Position.y = -102.76f;
-	ent->Position.z = -727.39f;
-	ent->Rotation.y = 0xDFE5;
-	ent->Rotation.z = 0x14FD;
-	}
-	*/
 	obj = LoadObject((LoadObj)2, 2, EC_OF17); // WALL  
 	obj->SETData.SETData = &setdata_ec;
 	if (obj)
@@ -4108,9 +4137,6 @@ void __cdecl sub_72A790()
 	dword_3CA6E8C = (int)GetProcAddress(handle, "stg_garden02_mr_objects");
 	texlist_garden02mr_daytime = (NJS_TEXLIST *)&texlist_mrgarden;
 	objLandTableGarden02_Daytime = (LandTable *)&landtable_0000FD3C;
-	collist_0000F778[0].Flags = 0x80000001;
-	collist_0000F778[1].Flags = 0x00000000;
-	collist_0000F778[2].Flags = 0x00000000;
 	sub_745A20((NJS_TEX*)&uvCHAO_0000EC54, 48);
 }
 
@@ -4124,9 +4150,6 @@ void __cdecl sub_72A820()
 	dword_3CA6E8C = (int)GetProcAddress(handle, "stg_garden02_mr_objects");
 	texlist_garden02mr_evening = (NJS_TEXLIST *)&texlist_mrgarden;
 	objLandTableGarden02_Evening = (LandTable *)&landtable_0000FD3C;
-	collist_0000F778[0].Flags = 0x00000000;
-	collist_0000F778[1].Flags = 0x00000000;
-	collist_0000F778[2].Flags = 0x80000001;
 	sub_745A20((NJS_TEX*)&uvCHAO_0000EC54, 48);
 }
 
@@ -4140,9 +4163,6 @@ void __cdecl sub_72A8B0()
 	dword_3CA6E8C = (int)GetProcAddress(handle, "stg_garden02_mr_objects");
 	texlist_garden02mr_night = (NJS_TEXLIST *)&texlist_mrgarden;
 	objLandTableGarden02_Night = (LandTable *)&landtable_0000FD3C;
-	collist_0000F778[0].Flags = 0x00000000;
-	collist_0000F778[1].Flags = 0x80000001;
-	collist_0000F778[2].Flags = 0x00000000;
 	sub_745A20((NJS_TEX*)&uvCHAO_0000EC54, 48);
 }
 
@@ -4165,6 +4185,15 @@ void __cdecl ECGardenWater_Display(ObjectMaster *a1)
 {
 	if (!DroppedFrames)
 	{
+		//Skybox
+		DisableFog();
+		njSetTexture(&texlist_ecgardensky);
+		njPushMatrix(0);
+		njTranslate(0, 0, -420, 0);
+		njScale(0, 1.0f, 1.0f, 1.0f);
+		ProcessModelNode_AB_Wrapper(&objectCHAO_000105E4, 1.0f);
+		njPopMatrix(1u);
+		//Water
 		njSetTexture((NJS_TEXLIST*)&texlist_ecgarden);
 		njPushMatrix(0);
 		njTranslate(0, 0, -4415.8f, 0);
@@ -4174,6 +4203,7 @@ void __cdecl ECGardenWater_Display(ObjectMaster *a1)
 		njTranslate(0, 0, -415.8f, 0);
 		ProcessModelNode_A_Wrapper((NJS_OBJECT*)&objectCHAO_0000F01C, QueuedModelFlagsB_3, 1.0f); //Water
 		njPopMatrix(1u);
+		ToggleStageFog();
 	}
 }
 
@@ -4197,6 +4227,7 @@ void __cdecl ECGardenWater_Load(ObjectMaster *a1)
 void __cdecl LoadECGardenX()
 {
 	PrintDebug("ChaoStgGarden01EC Prolog begin\n");
+	LoadPVM("GARDEN01_SKY", &texlist_ecgardensky);
 	LoadObject(LoadObj_Data1, 2, ChaoStgGarden01EC_Load);
 	LoadObject(LoadObj_Data1, 2, ECGardenWater_Load);
 	LoadObjects_EC();
@@ -4219,6 +4250,7 @@ void __cdecl LoadMRGardenX()
 		v1 = v0 - 1;
 		if (!v1)
 		{
+			LoadPVM("GARDEN_MR_SKY_YUU", &texlist_mrgardensky);
 			LoadGameDLL("ChaoStgGarden02MR_Evening", 2);
 			ChaoGardenMR_SetLandTable_Evening();
 			ModuleDestructors[1] = Print_ChaoStgGarden02MR_Evening_epilog;
@@ -4227,6 +4259,7 @@ void __cdecl LoadMRGardenX()
 		}
 		if (v1 == 1)
 		{
+			LoadPVM("GARDEN_MR_SKY_YORU", &texlist_mrgardensky);
 			LoadGameDLL("ChaoStgGarden02MR_Night", 2);
 			ChaoGardenMR_SetLandTable_Night();
 			ModuleDestructors[1] = Print_ChaoStgGarden02MR_Night_epilog;
@@ -4234,6 +4267,7 @@ void __cdecl LoadMRGardenX()
 			return;
 		}
 	}
+	LoadPVM("GARDEN_MR_SKY_HIRU", &texlist_mrgardensky);
 	LoadGameDLL("ChaoStgGarden02MR_Daytime", 2);
 	ChaoGardenMR_SetLandTable_Day();
 	ModuleDestructors[1] = Print_ChaoStgGarden02MR_Daytime_epilog;
@@ -4717,19 +4751,9 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 {
 	ReplacePVM("AL_BODY");
 	ReplacePVM("AL_DX_OBJ_CMN");
-	ReplacePVM("AL_RACE01");
-	ReplacePVM("AL_RACE02");
-	ReplacePVM("BG_AL_RACE02");
 	ReplacePVM("CHAO");
 	ReplacePVM("CHAO_OBJECT");
 	ReplacePVM("EC_ALIFE");
-	ReplacePVM("GARDEN00");
-	ReplacePVM("GARDEN00SSOBJ");
-	ReplacePVM("GARDEN00_OBJECT");
-	ReplacePVM("GARDEN01");
-	ReplacePVM("GARDEN02");
-	ReplacePVM("OBJ_AL_RACE");
-	ReplacePVM("OBJ_AL_RACE_E");
 	LoadChaoGardenHintMessages();
 
 	// Load configuration settings.
@@ -4783,6 +4807,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	//Chao Race Entry
 	if (EnableLobby)
 	{
+		ReplacePVM("AL_RACE01");
 		WriteCall((void*)0x0071C0CF, BowChaoThing);
 		BK_SSGardenStartPoint.Position.x = SSGardenStartPoint.Position.x;
 		BK_SSGardenStartPoint.Position.y = SSGardenStartPoint.Position.y;
@@ -4799,12 +4824,19 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	//Chao Race stuff
 	WriteJump((void*)0x00719DB0, LoadChaoRaceX);
 	WriteData((float*)0x00719D74, -16000.0f); //Draw distance
+	ReplacePVM("AL_RACE02");
+	ReplacePVM("BG_AL_RACE02");
+	ReplacePVM("OBJ_AL_RACE");
+	ReplacePVM("OBJ_AL_RACE_E");
 	ReplaceBIN_DC("SETAL_RACE00S");
 	ReplaceBIN_DC("SETAL_RACE01S");
 	//Station Square garden stuff
 	if (EnableSSGarden)
 	{
+		ReplacePVM("GARDEN00");
 		ReplaceBIN_DC("SETMI3900M");
+		ReplacePVM("GARDEN00SSOBJ");
+		ReplacePVM("GARDEN00_OBJECT");
 		WriteCall((void*)0x00719597, LoadSSGardenObjectPVM);
 		WriteData<5>((void*)0x007195AE, 0x90); //Don't load SADX button prompts in SS garden
 		WriteData<5>((void*)0x0071957E, 0x90); //Disable the Sonic Team homepage prompt
@@ -4874,6 +4906,11 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	//Mystic Ruins garden stuff
 	if (EnableMRGarden)
 	{
+		ReplacePVM("GARDEN_MR_SKY_HIRU");
+		ReplacePVM("GARDEN_MR_SKY_YORU");
+		ReplacePVM("GARDEN_MR_SKY_YUU");
+		ReplacePVM("GARDEN02");
+		ReplacePVM("GARDEN02_OBJECT");
 		WriteData<5>((void*)0x00718E20, 0x90); //Don't load SADX button prompts in MR garden
 		WriteJump((void*)0x00718E90, LoadMRGardenX);
 		WriteJump((void*)0x0072A790, sub_72A790); //Mystic Ruins garden function 1
@@ -4919,6 +4956,8 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	//Egg Carrier garden stuff
 	if (EnableECGarden)
 	{
+		ReplacePVM("GARDEN01");
+		ReplacePVM("GARDEN01_SKY");
 		WriteData<5>((void*)0x00719181, 0x90); //Don't load SADX button prompts in EC garden
 		WriteCall((void*)0x00729289, NameMachineTexlist);
 		WriteJump((void*)0x007191D0, LoadECGardenX);
@@ -4993,18 +5032,7 @@ void ChaoGardens_OnFrame()
 		if (ssgardenwater > 9) ssgardenwater = 0;
 		matlistCHAO_00011388[0].attr_texId = ssgardenwater;
 		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ssgardenwater++;
-		for (unsigned int q = 0; q < LengthOfArray(uvCHAO_000144F0); q++)
-		{
-			uvCHAO_000144F0[q].v = uvCHAO_000144F0[q].v - 2;
-		}
-		if (uvCHAO_000144F0[0].v < 0)
-		{
-			for (unsigned int q2 = 0; q2 < LengthOfArray(uvCHAO_000144F0); q2++)
-			{
-				uvCHAO_000144F0[q2].v = uvCHAO_000144F0R[q2].v;
-			}
-		}
-
+		
 	}
 	//Egg Carrier garden
 	if (CurrentChaoStage == 5 && GameState != 16 && EnableECGarden)
@@ -5035,18 +5063,6 @@ void ChaoGardens_OnFrame()
 		if (mrgardenwater > 45) mrgardenwater = 36;
 		matlistCHAO_00002FF4[0].attr_texId = mrgardenwater;
 		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) mrgardenwater++;
-		if (Camera_Data1 != nullptr)
-		{
-			objectCHAO_00013A78.pos[0] = Camera_Data1->Position.x;
-			objectCHAO_00013A78.pos[1] = 0;
-			objectCHAO_00013A78.pos[2] = Camera_Data1->Position.z;
-			objectCHAO_0001AD38.pos[0] = Camera_Data1->Position.x;
-			objectCHAO_0001AD38.pos[1] = 0;
-			objectCHAO_0001AD38.pos[2] = Camera_Data1->Position.z;
-			objectCHAO_00018AF4.pos[0] = Camera_Data1->Position.x;
-			objectCHAO_00018AF4.pos[1] = 0;
-			objectCHAO_00018AF4.pos[2] = Camera_Data1->Position.z;
-		}
 	}
 	//Chao Race Entry
 	if (CurrentChaoStage == 2 && GameState != 16 && EnableLobby)

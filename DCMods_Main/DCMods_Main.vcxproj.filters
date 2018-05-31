@@ -365,12 +365,6 @@
     <ClInclude Include="Data\EggCarrier_Objects.h">
       <Filter>Header Files\Levels\ADV01MODELS</Filter>
     </ClInclude>
-    <ClInclude Include="Data\ECGarden.h">
-      <Filter>Header Files\Levels\Chao</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ECGarden_DC.h">
-      <Filter>Header Files\Levels\Chao</Filter>
-    </ClInclude>
     <ClInclude Include="Data\EggHornet.h">
       <Filter>Header Files\Levels\Bosses</Filter>
     </ClInclude>
@@ -640,6 +634,12 @@
     </ClInclude>
     <ClInclude Include="OStandLight.h">
       <Filter>Header Files\Levels\FinalEgg</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ECGarden.h">
+      <Filter>Header Files\Levels\Chao</Filter>
+    </ClInclude>
+    <ClInclude Include="Frogs.h">
+      <Filter>Header Files\Levels\General</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

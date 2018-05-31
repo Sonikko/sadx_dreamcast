@@ -127,22 +127,22 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 
 	switch (EnableSETFixes)
 	{
-		case SETFixes_Normal:
-			AddSETFix("SET0400M");
-			AddSETFix("SET0400S");
-			AddSETFix("SET0401S");
-			AddSETFix("SET0402K");
-			AddSETFix("SET0402S");
-			break;
-		case SETFixes_Extra:
-			AddSETFix_Extra("SET0400M");
-			AddSETFix_Extra("SET0400S");
-			AddSETFix_Extra("SET0401S");
-			AddSETFix_Extra("SET0402K");
-			AddSETFix_Extra("SET0402S");
-			break;
-		default:
-			break;
+	case SETFixes_Normal:
+		AddSETFix("SET0400M");
+		AddSETFix("SET0400S");
+		AddSETFix("SET0401S");
+		AddSETFix("SET0402K");
+		AddSETFix("SET0402S");
+		break;
+	case SETFixes_Extra:
+		AddSETFix_Extra("SET0400M");
+		AddSETFix_Extra("SET0400S");
+		AddSETFix_Extra("SET0401S");
+		AddSETFix_Extra("SET0402K");
+		AddSETFix_Extra("SET0402S");
+		break;
+	default:
+		break;
 	}
 
 	ReplacePVM("BG_HIGHWAY");
@@ -155,6 +155,7 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 	ReplacePVM("HIGHWAY_CAR");
 	ReplacePVM("OBJ_HIGHWAY");
 	ReplacePVM("OBJ_HIGHWAY2");
+	ResizeTextureList(&HIGHWAY_CAR_TEXLIST, 16);
 	WriteData((LandTable**)0x97DA88, &landtable_0001853C);
 	WriteData((LandTable**)0x97DA8C, &landtable_00019178);
 	WriteData((LandTable**)0x97DA90, &landtable_0001B08C);
@@ -317,7 +318,7 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 		SpeedHighway2Fog[i].Distance = 4800.0f;
 		SpeedHighway2Fog[i].Color = 0xFF300020;
 	}
-	}
+}
 
 void SpeedHighway_OnFrame()
 {

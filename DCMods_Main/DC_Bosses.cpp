@@ -880,6 +880,7 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("EV_E105_FUN");
 	ReplacePVM("ICM0001_3");
 	ReplacePVM("ICM0001_5");
+	ICM0001_3_TEXLISTS[0].Name = "ICM0001_5"; //Higher quality background in Sonic story
 	HMODULE handle = GetModuleHandle(L"BOSSCHAOS0MODELS");
 	LandTable **___LANDTABLEBOSSCHAOS0 = (LandTable **)GetProcAddress(handle, "___LANDTABLEBOSSCHAOS0");
 	NJS_ACTION **___BOSSCHAOS0_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___BOSSCHAOS0_ACTIONS");
@@ -1035,6 +1036,7 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		ReplacePVM("CHAOS4_SHIBUKI");
 		ReplacePVM("CHAOS4_TIKEI");
 		ReplacePVM("CHAOS4_WAVE");
+		ResizeTextureList(&CHAOS4_OBJECT_TEXLIST, 6);
 		*(NJS_OBJECT*)0x11C4B90 = object_000425F8; // Chaos4 swamp water
 		WriteData<1>((char*)0x00555B3F, 0x08); //Chaos 4 bubble blending mode SA_SRC instead of SA_ONE
 		ResizeTextureList((NJS_TEXLIST*)0x118FF08, textures_chaos4dc);
