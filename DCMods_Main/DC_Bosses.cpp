@@ -101,11 +101,6 @@ static int EggHornet_RotationDirection = 1;
 static int egghornetwater_sadx = 143;
 static int E101REffectMode = 1;
 static float e101rframe = 0;
-static NJS_VECTOR E101R_ParticleVector = { 0,0,0 };
-static int E101R_ParticleO = 0;
-static int E101R_ParticleA = 0;
-static int E101R_ParticleB = 0;
-static int E101R_ParticleC = 0;
 static int e101rsea_dc = 4;
 static int e101rsea_sadx = 4;
 static bool EnableChaos0 = true;
@@ -613,9 +608,18 @@ void E101R_FVFShit(FVFStruct_H_B *a1, signed int count, int a3)
 	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 }
 
+void Zero_FVFShit(FVFStruct_H_B *a1, signed int count, int a3)
+{
+	SetOceanAlphaModeAndFVF(a3);
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+	Direct3D_DrawFVF_H(a1, count);
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+}
+
 void E101R_AfterImageConstantAttr(Uint32 and_attr, Uint32 or_attr)
 {
-	//njSetConstantAttr(0x9999999u, 0x24100000u);
 	AddConstantAttr(0, NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ALPHA | NJD_FLAG_IGNORE_LIGHT | NJD_FLAG_USE_TEXTURE);
 	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
 	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
@@ -841,6 +845,20 @@ void LoadBossECOceanPVM(const char *filename, NJS_TEXLIST *texlist)
 void LoadBossECOceanTexlist()
 {
 	njSetTexture(&EC_SEA_TEXLIST);
+}
+
+void E101R_AfterImageQueue(NJS_ACTION *anim, float a2, int a3)
+{
+	DrawQueueDepthBias = 2000.0f;
+	njAction_Queue(anim, a2, (QueuedModelFlagsB)a3);
+	DrawQueueDepthBias = 0;
+}
+
+void E101R_ArmsHook(NJS_OBJECT *a1, QueuedModelFlagsB a2)
+{
+	DrawQueueDepthBias = 2000.0f;
+	ProcessModelNode(a1, a2, GlobalModelNodeScale);
+	DrawQueueDepthBias = 0;
 }
 
 void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
@@ -1176,9 +1194,12 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		ReplaceBIN_DC("SETE101RE");
 		ReplaceBIN_DC("SETZEROA");
 		ReplaceBIN_DC("SETZEROS");
-		ReplacePVM("E101R");
+		ReplacePVM("E101R"); 
+		ReplacePVM("EROBO");
 		ReplacePVM("E101R_BG");
 		ReplacePVM("E101R_TIKEI");
+		ReplaceGeneric("EROBO_GC.NB", "EROBO_DC.NB");
+		WriteData((float*)0x58752C, 0.8f); //Zero constant material alpha
 		*(NJS_OBJECT*)0x00991268 = object_00591268; //Zero main and cutscene model
 		*(NJS_OBJECT *)0x02DA8664 = object_029A8664; //E101R model in cutscenes
 		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 76); //Zero/E101R texlist
@@ -1190,6 +1211,7 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		WriteCall((void*)0x569078, LoadBossECOceanPVM);
 		WriteCall((void*)0x585448, LoadBossECOceanPVM);
 		ShadowBlob_Model.basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		WriteCall((void*)0x0058BC56, Zero_FVFShit);
 		WriteCall((void*)0x004CC82E, E101R_RenderParticle);
 		WriteCall((void*)0x0056FD59, E101R_FVFShit);
 		WriteCall((void*)0x00568F59, E101R_DrawSkybox);
@@ -1197,9 +1219,11 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		WriteCall((void*)0x005715AE, E101R_DrawExplosion);
 		WriteCall((void*)0x0056909F, E101R_SkyboxHook);
 		WriteCall((void*)0x00569008, E101R_SkyboxHook);
+		WriteCall((void*)0x005709CA, E101R_ArmsHook);
 		WriteData<1>((char*)0x00568D20, 0xC3u); //E101R clip function
 		WriteCall((void*)0x0057069D, E101R_AfterImageMaterial); //E10R afterimage
 		WriteCall((void*)0x00570784, E101R_AfterImageConstantAttr); //E10R afterimage
+		WriteCall((void*)0x0057072A, E101R_AfterImageQueue);
 		WriteCall((void*)0x0056B07D, E101REffect_Orange); //Set arm effect to orange and render
 		WriteCall((void*)0x0056B096, E101REffect_Blue); //Set arm effect to blue and render
 		WriteCall((void*)0x0057098A, E101RRenderAfterEffect); //After effect on E101R's arms
