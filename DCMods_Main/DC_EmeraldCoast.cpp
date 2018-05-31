@@ -552,7 +552,11 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 		WriteData<1>((void*)0x004F790A, 0x0F); //15 animation frames for water in Act 3
 		WriteCall((void*)0x004F8B23, EC1WaterAnimation_SADX); //Sea animation in Acts 1/2
 	}
-	else ReplacePVM("BEACH_SEA");
+	else 
+	{
+		ReplacePVM("BEACH_SEA");
+		ResizeTextureList((NJS_TEXLIST*)0x010C0508, 10); //BEACH_SEA
+	}
 	ResizeTextureList((NJS_TEXLIST*)0xF812AC, textures_ecoast1);
 	ResizeTextureList((NJS_TEXLIST*)0xEF553C, textures_ecoast2);
 	ResizeTextureList((NJS_TEXLIST*)0xE9A4CC, textures_ecoast3);
@@ -677,7 +681,7 @@ void EmeraldCoast_OnFrame()
 			}
 		}
 		animframe++;
-		if (SADXStyleWater == false && beachsea_water > 9)beachsea_water = 0;
+		if (SADXStyleWater == false && beachsea_water > 9) beachsea_water = 0;
 		if (beachsea_water > 14) beachsea_water = 0;
 		if (SADXStyleWater == true)
 		{
