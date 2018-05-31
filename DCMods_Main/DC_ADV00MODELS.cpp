@@ -842,13 +842,6 @@ void RenderPoolChair(NJS_MODEL_SADX *a1, int a2, float a3)
 	DrawQueueDepthBias = 0.0f;
 }
 
-void NPCModelsFunction(NJS_MATERIAL* material)
-{
-	material->diffuse.argb.r = 178;
-	material->diffuse.argb.g = 178;
-	material->diffuse.argb.b = 178;
-}
-
 void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SETSS00A");
@@ -1018,9 +1011,8 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	//Fix NPC materials
 	for (unsigned int i = 0; i < LengthOfArray(NPCMaterials); i++)
 	{
-		NPCModelsFunction(NPCMaterials[i]);
+		RemoveMaterialColors(NPCMaterials[i]);
 	}
-
 	if (DLLLoaded_Lantern)
 	{
 		material_register(CharacterStuff, LengthOfArray(CharacterStuff), &ForceDiffuse2Specular2);

@@ -99,7 +99,7 @@ bool ForceWhiteDiffuse3_Night(NJS_MATERIAL* material, Uint32 flags);
 bool ForceWhiteDiffuse3Specular1(NJS_MATERIAL* material, Uint32 flags);
 bool ChaosPuddleFunc(NJS_MATERIAL* material, Uint32 flags);
 bool Chaos2Function(NJS_MATERIAL* material, Uint32 flags);
-bool RemoveMaterialColors(NJS_MATERIAL* material, Uint32 flags);
+void RemoveMaterialColors(NJS_MATERIAL* material);
 
 bool ForceDiffuse0Specular0(NJS_MATERIAL* material, Uint32 flags);
 bool ForceDiffuse0Specular1(NJS_MATERIAL* material, Uint32 flags);
@@ -112,6 +112,7 @@ void DisplayVideoFadeout(int fadeout, int mode);
 
 #define ReplacePVM(a) helperFunctions.ReplaceFile("system\\" a ".PVM", "system\\" a "_DC.PVM")
 #define ReplacePVR(a) helperFunctions.ReplaceFile("system\\" a ".PVR", "system\\" a "_DC.PVR")
+#define ReplaceGeneric(a,b) helperFunctions.ReplaceFile("system\\" a, "system\\" b)
 #define ReplaceBIN(a,b) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" b ".BIN")
 #define ReplaceBIN_DC(a) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" a "_DC.BIN")
 #define AddSETFix(a) helperFunctions.ReplaceFile("system\\" a ".BIN", "system\\" a "_S.BIN")
