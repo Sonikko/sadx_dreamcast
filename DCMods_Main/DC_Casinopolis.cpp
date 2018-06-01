@@ -870,6 +870,7 @@ void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ResizeTextureList((NJS_TEXLIST*)0x1CBD1C4, textures_casino2);
 	ResizeTextureList((NJS_TEXLIST*)0x1C8AF04, textures_casino3);
 	ResizeTextureList((NJS_TEXLIST*)0x1C47004, textures_casino4);
+	ResizeTextureList(&OBJ_CASINO9_TEXLIST, 203);
 	*(NJS_MODEL_SADX*)0x01E74A68 = attachSTG09_01A74A68; //NeonK
 	WriteCall((void*)0x5CAB34, RenderNeonK);
 	*(NJS_MODEL_SADX*)0x01E46F30 = attachSTG09_001C4DCC; //OCfa rotating thing

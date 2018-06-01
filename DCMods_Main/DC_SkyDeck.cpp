@@ -761,7 +761,7 @@ void SkyDeck_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ResizeTextureList((NJS_TEXLIST*)0x20E0BB0, textures_skydeck1);
 	ResizeTextureList((NJS_TEXLIST*)0x20AA63C, textures_skydeck2);
 	ResizeTextureList((NJS_TEXLIST*)0x203ACE0, textures_skydeck3);
-
+	ResizeTextureList(&OBJ_SKYDECK_TEXLIST, 213);
 	DataArray(FogData, SkyDeck1Fog, 0x0203A094, 3);
 	DataArray(FogData, SkyDeck2Fog, 0x0203A0C4, 3);
 	DataArray(FogData, SkyDeck3Fog, 0x0203A0F4, 3);

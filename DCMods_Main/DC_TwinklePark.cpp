@@ -439,6 +439,7 @@ void TwinklePark_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ReplacePVM("TWINKLE01");
 	ReplacePVM("TWINKLE02");
 	ReplacePVM("TWINKLE03");
+	ResizeTextureList(&OBJ_TWINKLE_TEXLIST, 96);
 	WriteData((LandTable**)0x97DA68, &landtable_0001788C);
 	WriteData((LandTable**)0x97DA6C, &landtable_00019344);
 	WriteData((LandTable**)0x97DA70, &landtable_00019F5C);

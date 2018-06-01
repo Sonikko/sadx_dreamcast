@@ -242,9 +242,15 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 	WriteData<1>((void*)0x0061A8EA, 0); //blending mode for glass
 	WriteData<1>((void*)0x0061A8EA, 0); //blending mode for glass 2
 	WriteData<1>((void*)0x0061A951, 0); //blending mode for glass 3
+	((NJS_TEXLIST*)0x26B2B90)->textures = (NJS_TEXNAME*)0x26705CC; //Texlists for posters
+	((NJS_TEXLIST*)0x26B2B98)->textures = (NJS_TEXNAME*)0x26705F0; //Texlists for posters
+	((NJS_TEXLIST*)0x26B2BA0)->textures = (NJS_TEXNAME*)0x2670614; //Texlists for posters
+	((NJS_TEXLIST*)0x26B2BA8)->textures = (NJS_TEXNAME*)0x2670638; //Texlists for posters
+	((NJS_TEXLIST*)0x26B2BB0)->textures = (NJS_TEXNAME*)0x267065C; //Texlists for posters
 	ResizeTextureList((NJS_TEXLIST*)0x2592E8C, textures_highway1);
 	ResizeTextureList((NJS_TEXLIST*)0x2581310, textures_highway2);
 	ResizeTextureList((NJS_TEXLIST*)0x24CAC94, textures_highway3);
+	ResizeTextureList(&OBJ_HIGHWAY_TEXLIST, 118);
 	((NJS_OBJECT *)0x02671A20)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA; //O Crane platform alpha fix
 	((NJS_OBJECT *)0x02671A20)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //O Crane platform specular
 	memcpy((void*)0x267DC14, &objectSTG04_0227DC14, sizeof(objectSTG04_0227DC14)); // Turnasi part 1

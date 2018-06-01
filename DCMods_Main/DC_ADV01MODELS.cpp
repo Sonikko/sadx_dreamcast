@@ -497,7 +497,7 @@ void ADV01_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("ADV_EC00");
 	ReplacePVM("ADV_EC01");
 	ReplacePVM("ADV_EC02");
-
+	ResizeTextureList(&OBJ_EC00_TEXLIST, 206);
 	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "EggCarrier", false);
 	if (SADXStyleWater)

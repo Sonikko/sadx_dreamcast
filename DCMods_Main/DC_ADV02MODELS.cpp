@@ -242,6 +242,7 @@ void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
 	LandTable **___LANDTABLEMR = (LandTable **)GetProcAddress(handle, "___LANDTABLEMR");
+	
 	ReplaceBIN_DC("SETMR00A");
 	ReplaceBIN_DC("SETMR00B");
 	ReplaceBIN_DC("SETMR00E");
@@ -396,6 +397,8 @@ void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		MR2DrawDist[i].Maximum = -10000.0f;
 		MR4DrawDist[i].Maximum = -4000.0f;
 	}
+	MROBJ_TEXLISTS[0].TexList = &texlist_mrobj; //MROBJ
+	___ADV02_TEXLISTS[21] = &texlist_mrobj; //MROBJ
 	___ADV02_TEXLISTS[4] = &texlist_mrtrain;
 	___ADV02_TEXLISTS[38] = &texlist_mr00;
 	___ADV02_TEXLISTS[39] = &texlist_mr01;

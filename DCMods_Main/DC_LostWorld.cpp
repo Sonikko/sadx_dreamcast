@@ -135,7 +135,7 @@ void LostWorld_Init(const IniFile *config, const HelperFunctions &helperFunction
 	ResizeTextureList((NJS_TEXLIST*)0x1F6F02C, textures_lw1);
 	ResizeTextureList((NJS_TEXLIST*)0x1E9B9AC, textures_lw2);
 	ResizeTextureList((NJS_TEXLIST*)0x1E79D80, textures_lw3);
-
+	ResizeTextureList(&OBJ_RUIN_TEXLIST, 127);
 	DataArray(FogData, LostWorld1Fog, 0x01E79AAC, 3);
 	DataArray(FogData, LostWorld2Fog, 0x01E79ADC, 3);
 	DataArray(FogData, LostWorld3Fog, 0x01E79B0C, 3);

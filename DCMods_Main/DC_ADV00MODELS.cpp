@@ -1112,7 +1112,7 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	___ADV00_TEXLISTS[3] = &texlist_advss03;
 	___ADV00_TEXLISTS[4] = &texlist_advss04;
 	___ADV00_TEXLISTS[5] = &texlist_advss05;
-
+	ResizeTextureList(&OBJ_SS_TEXLIST, 177);
 	//Fog data
 	for (unsigned int i = 0; i < 3; i++)
 	{
