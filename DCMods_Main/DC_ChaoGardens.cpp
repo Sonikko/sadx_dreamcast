@@ -4753,6 +4753,11 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ReplacePVM("AL_DX_OBJ_CMN");
 	ReplacePVM("CHAO");
 	ReplacePVM("CHAO_OBJECT");
+	ReplacePVM("CHAO_HYOUJI");
+	ReplacePVM("CHAO_HYOUJI_E");
+	ReplacePVM("CHAO_HYOUJI_F");
+	ReplacePVM("CHAO_HYOUJI_G");
+	ReplacePVM("CHAO_HYOUJI_S");
 	ReplacePVM("EC_ALIFE");
 	LoadChaoGardenHintMessages();
 
