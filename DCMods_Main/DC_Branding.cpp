@@ -1929,7 +1929,9 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		ReplacePVM("AVA_CHSEL");
 		ReplacePVM("AVA_CHSEL_E");
 		ReplacePVM("AVA_CSR");
+		ReplacePVM("AVA_DLG");
 		ReplacePVM("AVA_DLG_E");
+		ResizeTextureList(&ava_dlg_e_TEXLIST, 10);
 		ReplacePVM("AVA_EMBLEM");
 		ReplacePVM("AVA_EMBLEMVIEW");
 		ReplacePVM("AVA_EMBLEMVIEW_E");
