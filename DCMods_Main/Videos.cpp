@@ -188,7 +188,15 @@ void Videos_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	//Set Sonic Team logo mode
 	const std::string SonicTeamLogo_String = config->getString("Videos", "SonicTeamLogoMode", "Animated");
 	if (SonicTeamLogo_String == "Animated")
+	{
 		SonicTeamLogoMode = 0;
+		//Use original DC PVM if possible
+		if (!DLLLoaded_HDGUI)
+		{
+			ReplacePVM("SEGALOGO_E");
+			ResizeTextureList(&SEGALOGO_E_TEXLIST, 6);
+		}
+	}
 	else if (SonicTeamLogo_String == "Static")
 		SonicTeamLogoMode = 1;
 	else if (SonicTeamLogo_String == "Off")

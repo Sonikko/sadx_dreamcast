@@ -1960,7 +1960,6 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		ReplacePVM("B_CHNAM_E");
 		ReplacePVM("M_CHNAM");
 		ReplacePVM("PRESSSTART");
-		ReplacePVM("SEGALOGO_E");
 		ReplacePVM("SCORE_ACT");
 		ReplacePVM("SCORE_ACT_E");
 		ReplacePVM("SCORE_BOARD");
