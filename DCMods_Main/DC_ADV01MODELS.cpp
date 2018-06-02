@@ -483,14 +483,11 @@ void ADV01_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("EC_IKADA");
 	ReplacePVM("EC_LIGHT");
 	ReplacePVM("EC_SKY");
-	ReplacePVM("EC_STATION");
 	ReplacePVM("EC_TARAI");
 	ReplacePVM("EC_TORNADO");
 	ReplacePVM("EC_TRANSFORM");
 	ReplacePVM("EC_WATER");
 	ReplacePVM("EV_ECCLOUD");
-	ReplacePVM("MONORAIL");
-	ReplacePVM("MONOSTATION");
 	ReplacePVM("OBJ_EC00");
 	ReplacePVM("OBJ_EC30");
 	ReplacePVM("PVME101FACTORY");
