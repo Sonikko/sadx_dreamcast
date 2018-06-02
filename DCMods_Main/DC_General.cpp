@@ -1161,37 +1161,23 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	WriteData<1>((char*)0x004D7712, 0x02u); //Animal bubble blending mode
 	*(NJS_OBJECT*)0x02F67B78 = object_0021BD90; //Tornado 2 crashed
 	ResizeTextureList((NJS_TEXLIST*)0x0092ACE4, 5); //GOMA texlist
-	((NJS_OBJECT*)0x929E1C)->model = &attach_001568D8; //Goma left whisker
-	((NJS_OBJECT*)0x929FD8)->model = &attach_00156758; //Goma right whisker
-	((NJS_OBJECT*)0x929760)->model = &attach_00157668; //Goma body
-	((NJS_OBJECT*)0x929AA4)->model = &attach_00156CA8; //Goma left front
-	((NJS_OBJECT*)0x9298B4)->model = &attach_00156E90; //Goma right front
-	((NJS_OBJECT*)0x92A1CC)->model = &attach_001565D8; //Goma left back
-	((NJS_OBJECT*)0x929C94)->model = &attach_00156AC0; //Goma right back
-	((NJS_OBJECT*)0x948ACC)->model = &attach_0017BE24; //Rako head
-	((NJS_OBJECT*)0x949068)->model = &attach_0017CCE8; //Rako body
-	((NJS_OBJECT*)0x9483B4)->model = &attach_0017C980; //Rako tail
-	((NJS_OBJECT*)0x948CE4)->model = &attach_0017B6C4; //Rako ear left
-	((NJS_OBJECT*)0x948BD8)->model = &attach_0017BAC8; //Rako ear right
-	((NJS_OBJECT*)0x948508)->model = &attach_0017B7A8; //Rako whisker left
-	((NJS_OBJECT*)0x9486C4)->model = &attach_0017B928; //Rako whisker right
-	((NJS_OBJECT*)0x947C78)->model = &attach_0017C2A4; //Rako hand left
-	((NJS_OBJECT*)0x947A58)->model = &attach_0017C064; //Rako hand right
-	((NJS_OBJECT*)0x947D98)->model = &attach_0017C388; //Rako clam shell
-	((NJS_OBJECT*)0x9481A8)->model = &attach_0017C7B0; //Rako foot left
-	((NJS_OBJECT*)0x947FB8)->model = &attach_0017C59C; //Rako foot right
-	((NJS_OBJECT*)0x942428)->model = &attach_00174864; //Lion face
-	((NJS_OBJECT*)0x9427A4)->model = &attach_001744CC; //Lion mane
-	((NJS_OBJECT*)0x942EF4)->model = &attach_001756A4; //Lion body
-	((NJS_OBJECT*)0x942B78)->model = &attach_00175178; //Lion tail part 1
-	((NJS_OBJECT*)0x942A34)->model = &attach_001752C8; //Lion tail part 2
-	((NJS_OBJECT*)0x941D08)->model = &attach_00174FD4; //Lion left front
-	((NJS_OBJECT*)0x941AF0)->model = &attach_00174DF8; //Lion right front
-	((NJS_OBJECT*)0x94190C)->model = &attach_00174C1C; //Lion left back
-	((NJS_OBJECT*)0x941728)->model = &attach_00174A40; //Lion right back
-	((NJS_OBJECT*)0x942024)->model = &attach_0017427C; //Lion left ear
-	((NJS_OBJECT*)0x941EB0)->model = &attach_001740DC; //Lion right ear
+	*(NJS_OBJECT*)0x944FD4 = object_00544FD4; //Gori
+	*(NJS_OBJECT*)0x934AE0 = object_00534AE0; //Koar
+	*(NJS_OBJECT*)0x92C40C = object_0052C40C; //Pen
+	*(NJS_OBJECT*)0x92A2D0 = object_0052A2D0; //Goma
+	*(NJS_OBJECT*)0x949104 = object_00549104; //Rako
+	*(NJS_OBJECT*)0x9308DC = object_005308DC; //Kuja
+	*(NJS_OBJECT*)0x92EA0C = object_0052EA0C; //Tuba
+	*(NJS_OBJECT*)0x932ADC = object_00532ADC; //Oum
+	*(NJS_OBJECT*)0x939B2C = object_00539B2C; //Banb
+	*(NJS_OBJECT*)0x93BFE4 = object_0053BFE4; //Usa
+	*(NJS_OBJECT*)0x93723C = object_0053723C; //Wara
+	*(NJS_OBJECT*)0x942F90 = object_00542F90; //Lion
+	*(NJS_OBJECT*)0x94043C = object_0054043C; //Zou
+	*(NJS_OBJECT*)0x93E2B8 = object_0053E2B8; //Mogu
+	*(NJS_OBJECT*)0x946D4C = object_00546D4C; //Suka blyat
 }
+
 void General_OnFrame()
 {
 	//Cutscene skip
