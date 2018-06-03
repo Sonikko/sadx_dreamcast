@@ -36,6 +36,9 @@ static SecondaryEntrance BK_SSGardenStartPoint;
 
 NJS_VECTOR racebutton{ 2020, 0, -0.68f };
 
+NJS_TEXNAME textures_garden00object[15];
+NJS_TEXLIST texlist_garden00object = { arrayptrandlength(textures_garden00object) };
+
 FunctionPointer(char, sub_436210, (int(__cdecl *a1)(int), char a2, char a3), 0x436210);
 FunctionPointer(int, sub_72A6C0, (int a1), 0x72A6C0);
 FunctionPointer(void, SetChaoLandTableX, (LandTable *geo), 0x43A4C0);
@@ -4171,6 +4174,7 @@ void __cdecl LoadSSGardenX()
 {
 	PrintDebug("ChaoStgGarden00SS Prolog begin\n");
 	LoadPVM("OBJ_SS", (NJS_TEXLIST*)0x02AA4BF8);
+	LoadPVM("GARDEN00_OBJECT", &texlist_garden00object);
 	SSGardenStartPoint.Position.x = BK_SSGardenStartPoint.Position.x;
 	SSGardenStartPoint.Position.y = BK_SSGardenStartPoint.Position.y;
 	SSGardenStartPoint.Position.z = BK_SSGardenStartPoint.Position.z;
@@ -4742,11 +4746,6 @@ bool letteranims[][8] = {
 	{ false, false, false, false, false, false, false, false },
 };
 
-void LoadSSGardenObjectPVM(const char *filename, NJS_TEXLIST *texlist)
-{
-	LoadPVM("GARDEN00SSOBJ", &Garden00SSObj_TEXLIST);
-}
-
 void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVM("AL_BODY");
@@ -4795,7 +4794,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	MRGardenReturnPoint.Position.y = 15.45f; //Same for MR garden
 	MRGardenReturnPoint.Position.z = -48.5f; //Same for MR garden
 	*(NJS_OBJECT*)0x33CFC70 = objectCHAO_001834CC; //Name Machine
-	*(NJS_OBJECT*)0x33CB04C = objectCHAO_001826E8; //Name machine button
+	*(NJS_OBJECT*)0x33CB04C = objectCHAO_001826E8; //Name Machine button
 	WriteCall((void*)0x00729EEF, ChaoNameMachineCollision);
 	WriteCall((void*)0x00729DE9, NameMachineTexlist);
 	WriteData<5>((void*)0x00729EBB, 0x90);
@@ -4840,24 +4839,22 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	{
 		ReplacePVM("GARDEN00");
 		ReplaceBIN_DC("SETMI3900M");
-		ReplacePVM("GARDEN00SSOBJ");
 		ReplacePVM("GARDEN00_OBJECT");
-		WriteCall((void*)0x00719597, LoadSSGardenObjectPVM);
 		WriteData<5>((void*)0x007195AE, 0x90); //Don't load SADX button prompts in SS garden
 		WriteData<5>((void*)0x0071957E, 0x90); //Disable the Sonic Team homepage prompt
 		WriteJump((void*)0x4145D0, sub_4145D0); //Elevator function
 		WriteJump((void*)0x0072AB80, LoadChaoRaceDoorX);
+		WriteData((NJS_TEXLIST**)0x0072A963, &texlist_garden00object); //Chao Race door texlist
 		WriteCall((void*)0x00638DD7, SetElevatorTexlist);
-		WriteData<5>((void*)0x007195A3, 0x90);
-		ResizeTextureList((NJS_TEXLIST*)0x03406088, 32); //GARDEN00SSOBJ
+		WriteData<5>((void*)0x007195A3, 0x90); //SADX SS Garden Exit
 		*(NJS_OBJECT*)0x0340C5A4 = objectCHAO_00012A2C; //race door wall part
 		*(NJS_MOTION*)0x0340D978 = _12ADC; //race door animation
-		((NJS_OBJECT*)0x0340B97C)->basicdxmodel->mats[0].attr_texId = 18; //race door left
-		((NJS_OBJECT*)0x0340B97C)->basicdxmodel->mats[1].attr_texId = 18; //race door left
-		((NJS_OBJECT*)0x0340B97C)->basicdxmodel->mats[2].attr_texId = 28; //race door left
-		((NJS_OBJECT*)0x0340B1B4)->basicdxmodel->mats[0].attr_texId = 18; //race door right
-		((NJS_OBJECT*)0x0340B1B4)->basicdxmodel->mats[1].attr_texId = 18; //race door right
-		((NJS_OBJECT*)0x0340B1B4)->basicdxmodel->mats[2].attr_texId = 28; //race door right
+		((NJS_OBJECT*)0x0340B97C)->basicdxmodel->mats[0].attr_texId = 2; //race door left
+		((NJS_OBJECT*)0x0340B97C)->basicdxmodel->mats[1].attr_texId = 2; //race door left
+		((NJS_OBJECT*)0x0340B97C)->basicdxmodel->mats[2].attr_texId = 12; //race door left
+		((NJS_OBJECT*)0x0340B1B4)->basicdxmodel->mats[0].attr_texId = 2; //race door right
+		((NJS_OBJECT*)0x0340B1B4)->basicdxmodel->mats[1].attr_texId = 2; //race door right
+		((NJS_OBJECT*)0x0340B1B4)->basicdxmodel->mats[2].attr_texId = 12; //race door right
 		WriteData<1>((void*)0x00719265, 0x7D); //Exit 1
 		WriteData<1>((void*)0x00719264, 0xF2); //Exit 2
 		WriteData<1>((void*)0x00719263, 0xF0); //Exit 2
