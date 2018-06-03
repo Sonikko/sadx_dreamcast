@@ -745,23 +745,16 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVR("AM_SEA124_8");
 	ReplacePVR("BELT2");
 	ReplacePVR("CAPTUREBEAM");
-	ReplacePVR("MRASC_016S_HIRUUMI");
-	ReplacePVR("MRASC_256S_HIRUSORAA");
-	ReplacePVR("SEA");
-	ReplacePVR("SKY_H_BAL01");
-	ReplacePVR("SONIC_EMBLM01");
-	ReplacePVR("SONIC_EMBLM03");
-	ReplacePVR("SONIC_EMBLM04");
-	ReplacePVR("SONIC_EMBLM05");
 	ReplacePVR("SORA60");
 	ReplacePVR("SSTX_BODY");
-	ReplacePVR("STG_S_LOCKMK");
-	ReplacePVR("STX_ICE0");
-	ReplacePVR("ST_016S_HPBAR");
 	ReplacePVR("SW_NBG2");
 	ReplacePVR("S_WT28");
 	ReplacePVR("S_WT32");
 	ReplacePVR("TM32KURAGE");
+	ReplacePVR("SEA");
+	ReplacePVR("SKY_H_BAL01");
+	ReplacePVR("MRASC_016S_HIRUUMI");
+	ReplacePVR("MRASC_256S_HIRUSORAA");
 	ReplacePVR("WATERCOLUMN01");
 	ReplacePVR("WINDSEA001");
 	ReplacePVR("WINDY2_NBG1");
@@ -887,7 +880,6 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("SEA_BASS");
 	ReplacePVM("SHAPE_FROG");
 	ReplacePVM("SHAPE_FROG_2");
-	ReplacePVM("SS_DENTOU");
 	ReplacePVM("SUKA");
 	ReplacePVM("SUPI_SUPI");
 	ReplacePVM("TAI");
@@ -964,13 +956,6 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	if (DLLLoaded_HDGUI == false)
 	{
 		ReplacePVM("OBJ_REGULAR");
-		ReplacePVM("CHAOS_LIFEGAUGE");
-		ReplacePVM("E102TIME");
-		ReplacePVM("EXTRA");
-		ReplacePVM("FISHING");
-		ReplacePVR("ST_064S_LOCKA");
-		ReplacePVR("ST_064S_LOCKB");
-		ReplacePVR("ST_064S_LOCKC");
 		ResizeTextureList(&OBJ_REGULAR_TEXLIST, 100); //Added DC ripple texture
 	}
 	WriteJump(ItemBox_Display_Destroyed, ItemBox_Display_Destroyed_Rotate);
