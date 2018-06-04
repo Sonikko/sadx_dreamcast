@@ -581,6 +581,7 @@ void ADV01_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	___ADV01C_OBJECTS[8] = &objectADV01_000D243C; //tarai
 	___ADV01_ACTIONS[2]->object = &objectADV01_0019795C; //OEggChair
 	___ADV01_ACTIONS[2]->motion = &_197dbc; //OEggChair
+	___ADV01_ACTIONS[6]->object = &object_0016991C; //OSkyDeck
 	___ADV01_MODELS[13]->mats[1].diffuse.color = 0xFFFFFFFF; //Slot machine
 	___ADV01_OBJECTS[21] = &objectADV01_001972E4;
 	___ADV01_OBJECTS[22] = &objectADV01_0018C098;
