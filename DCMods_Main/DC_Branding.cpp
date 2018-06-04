@@ -1479,6 +1479,12 @@ void GreenRect_Wrapper(float x, float y, float z, float width, float height)
 	njTextureShadingMode(2);
 }
 
+void BossHUDHack(int that_cant_be_right, float x, float y, float z)
+{
+	if (!DLLLoaded_HDGUI) DrawBG(that_cant_be_right, x, y, z, 2.0f, 2.0f);
+	else DisplayScreenTexture(that_cant_be_right, x, y, z);
+}
+
 void Branding_SetUpVariables()
 {
 	//Set up variables
@@ -1576,6 +1582,7 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		WriteData((float*)0x0050AEE5, 1.125f); //sub_50AE30
 		WriteData((float*)0x0050AF5A, 1.125f); //sub_50AF30
 		WriteData((float*)0x0050AF5F, 1.125f); //sub_50AF30
+		WriteCall((void*)0x4B6302, BossHUDHack);
 		WriteCall((void*)0x64393E, GreenRect_Wrapper); //Fix alpha rejection on green rectangle in tutorials
 		//Tutorial stuff
 		//PVMs

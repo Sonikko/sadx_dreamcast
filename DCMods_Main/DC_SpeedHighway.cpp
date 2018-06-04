@@ -12,6 +12,7 @@
 #include "SH_turnasi.h"
 #include "SH_glass.h"
 #include "Highway_objects.h"
+#include "HW_Jammer.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 
@@ -165,6 +166,9 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 	WriteCall((void*)0x0061BB31, FountainPart3);
 	WriteData((NJS_OBJECT**)0x0061BC4C, &objectSTG04_00134B34); //Fountain bottom
 	WriteData((NJS_OBJECT**)0x026B3150, &objectSTG04_001350C8); //Fountain side
+	*(NJS_OBJECT*)0x0266403C = object_00136320; //OJamer
+	WriteData((NJS_TEXNAME**)0x26B2968, (NJS_TEXNAME*)0x2670590); //OJamer texture list 1
+	WriteData((NJS_TEXNAME**)0x26B2960, (NJS_TEXNAME*)0x2670554); //OJamer texture list 2
 	*(NJS_OBJECT*)0x026919C0 = objectSTG04_022919C0; //Antenna model
 	WriteCall((void*)0x00615D60, AntennaModel);
 	//Fix light sprites in various objects
