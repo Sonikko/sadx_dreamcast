@@ -1481,7 +1481,7 @@ void GreenRect_Wrapper(float x, float y, float z, float width, float height)
 
 void BossHUDHack(int that_cant_be_right, float x, float y, float z)
 {
-	if (!DLLLoaded_HDGUI) DrawBG(that_cant_be_right, x, y, z, 2.0f, 2.0f);
+	if (!DLLLoaded_HDGUI) DrawBG(that_cant_be_right, x, y, z, 2.25f, 2.25f);
 	else DisplayScreenTexture(that_cant_be_right, x, y, z);
 }
 
