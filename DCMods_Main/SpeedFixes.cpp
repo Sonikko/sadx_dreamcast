@@ -25,6 +25,7 @@ short Tails_1536 = 1536;
 short HintMonitorAnimationSpeedOverride = 364;
 char LeonTimer1 = 20;
 char LeonTimer2 = 60;
+
 //Emerald Coast
 char TakiSpeed = 8;
 
@@ -58,8 +59,57 @@ char OTPanelTimer = 120;
 char LostWorldDoorFix = 34;
 char LostWorldDoorFix1 = 6;
 
+//Animals
+float BubbleMovementSpeed = 0.0049999999f; //0.0099999998 at 60
+float BubbleMovementSpeed2 = 0.0249999985f; //0.049999997 at 60
+float BubbleMovementSpeed3 = 0.039999999f; //0.079999998 at 60
+float BubbleRotationSpeed = 91.022225f; //182.04445 at 60
+float AnimalMultiplier2 = 0.44999999f; //0.89999998 at 60
+float AnimalGravity = 0.140475005f; //0.28095001 at 60
+float AnimalPositionMultiplier = 0.125f; //0.25 at 60
+
 void SpeedFixes_Init()
 {
+	//Animals
+	//sub_4D72B0
+	WriteData((float**)0x004D73FB, &BubbleMovementSpeed);
+	WriteData((float**)0x004D7405, &BubbleMovementSpeed);
+	WriteData((float**)0x004D740F, &BubbleMovementSpeed);
+	WriteData((float**)0x004D73C5, &BubbleMovementSpeed2);
+	WriteData((float**)0x004D73CE, &BubbleMovementSpeed2);
+	WriteData((float**)0x004D73D8, &BubbleMovementSpeed2);
+	WriteData((float**)0x004D7393, &BubbleMovementSpeed3);
+	WriteData((float**)0x004D72F3, &BubbleRotationSpeed);
+	//sub_4D7A40
+	WriteData((float**)0x004D7ACB, &BubbleRotationSpeed);
+	WriteData((float**)0x004D7B61, &AnimalGravity);
+	WriteData((float**)0x004D7B44, &AnimalPositionMultiplier);
+	WriteData((float**)0x004D7B54, &AnimalPositionMultiplier);
+	//sub_4D7C30
+	WriteData((float**)0x004D7C56, &BubbleMovementSpeed);
+	WriteData((float**)0x004D7C69, &BubbleMovementSpeed);
+	WriteData((float**)0x004D7C78, &AnimalGravity);
+	//sub_4D7B70
+	WriteData((float**)0x004D7BB2, &BubbleRotationSpeed);
+	//sub_4D7C90
+	WriteData((float**)0x004D7D69, &AnimalMultiplier2);
+	WriteData((float**)0x004D7D75, &AnimalMultiplier2);
+	WriteData((float**)0x004D7D81, &AnimalMultiplier2);
+	//sub_4D7D90 (hopping)
+	WriteData((float**)0x004D7DBC, &AnimalGravity);
+	WriteData((float**)0x004D7E56, &BubbleMovementSpeed);
+	WriteData((float**)0x004D7EF6, &AnimalMultiplier2);
+	WriteData((float**)0x004D7F02, &AnimalMultiplier2);
+	WriteData((float**)0x004D7F0E, &AnimalMultiplier2);
+	//sub_4D72B0
+	WriteData((float**)0x004D72F3, &BubbleRotationSpeed);
+	WriteData((float**)0x004D7395, &BubbleMovementSpeed3);
+	WriteData((float**)0x004D73FB, &BubbleMovementSpeed);
+	WriteData((float**)0x004D7405, &BubbleMovementSpeed);
+	WriteData((float**)0x004D740F, &BubbleMovementSpeed);
+	WriteData((float**)0x004D73C4, &BubbleMovementSpeed2);
+	WriteData((float**)0x004D73CE, &BubbleMovementSpeed2);
+	WriteData((float**)0x004D73D8, &BubbleMovementSpeed2);
 	//General
 	WriteData((float**)0x007A441B, &DashPanelAnimationSpeedOverride);
 	WriteData((short*)0x4AFB90, SpinnerYAnimationSpeedOverride);
@@ -143,6 +193,14 @@ void SpeedFixes_OnFrame()
 		//Original values for 30 FPS
 		if (FramerateSetting >= 2)
 		{
+			//Animals
+			BubbleMovementSpeed = 0.0099999998f;
+			BubbleMovementSpeed2 = 0.04999999f;
+			BubbleMovementSpeed3 = 0.079999998f;
+			BubbleRotationSpeed = 182.04445f;
+			AnimalMultiplier2 = 0.89999998f;
+			AnimalGravity = 0.28095001f;
+			AnimalPositionMultiplier = 0.25f;
 			//General
 			DashPanelAnimationSpeedOverride = 1.0f;
 			SpinnerYAnimationSpeedOverride = 768;
@@ -192,6 +250,14 @@ void SpeedFixes_OnFrame()
 		//60 FPS values
 		else
 		{
+			//Animals
+			BubbleMovementSpeed = 0.0049999999f;
+			BubbleMovementSpeed2 = 0.0249999985f;
+			BubbleMovementSpeed3 = 0.039999999f;
+			BubbleRotationSpeed = 91.022225f;
+			AnimalMultiplier2 = 0.44999999f;
+			AnimalGravity = 0.140475005f;
+			AnimalPositionMultiplier = 0.125f;
 			//General
 			DashPanelAnimationSpeedOverride = 0.25f;
 			SpinnerYAnimationSpeedOverride = 384;

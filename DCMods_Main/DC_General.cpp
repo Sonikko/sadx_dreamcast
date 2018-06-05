@@ -1161,6 +1161,9 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0x94043C = object_0054043C; //Zou
 	*(NJS_OBJECT*)0x93E2B8 = object_0053E2B8; //Mogu
 	*(NJS_OBJECT*)0x946D4C = object_00546D4C; //Suka blyat
+	*(NJS_ACTION*)0x94A00C = action__16EA18; //Usa animation in levels
+	*(NJS_ACTION*)0x949FFC = action__169078; //Wara animation in levels
+	*(NJS_ACTION*)0x949FF4 = action__165C70; //Koar animation in levels
 }
 
 void General_OnFrame()

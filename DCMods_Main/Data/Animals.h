@@ -9426,3 +9426,3904 @@ NJS_OBJECT object_00546CE4 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_
 NJS_OBJECT object_00546D18 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, -0.001494f, -0.000495f, 0, 0x4000, 0, 1, 1, 1, &object_00546CE4, NULL };
 
 NJS_OBJECT object_00546D4C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0, 1, 1, 1, &object_00546D18, NULL };
+
+//USA SA1
+enum USATexName
+{
+	USATexName_usa_karada,
+	USATexName_usa_kao,
+	USATexName_usa_mimi,
+	USATexName_usa_parts
+};
+
+NJS_MATERIAL matlist_0016BCA8[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, USATexName_usa_parts, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016BCBC[] = {
+	3, 1, 2, 0,
+	5, 4, 6, 3, 5, 4,
+	3, 5, 6, 4
+};
+
+NJS_TEX uv_0016BCD8[] = {
+	{ 226, 102 },
+{ 173, 74 },
+{ 173, 129 },
+{ 173, 129 },
+{ 173, 74 },
+{ 48, 102 },
+{ 4, 102 },
+{ 173, 129 },
+{ 70, 35 },
+{ 169, 10 },
+{ 169, 61 }
+};
+
+NJS_MESHSET_SADX meshlist_0016BD04[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 3, poly_0016BCBC, NULL, NULL, NULL, uv_0016BCD8, NULL }
+};
+
+NJS_VECTOR vertex_0016BD1C[] = {
+	{ 0.998575f, 0.145812f, -0.098624f },
+{ 1.353265f, 0.04252f, 0.081586f },
+{ 0.998575f, 0.145812f, 0.261795f },
+{ -0.024255f, 0.005101f, 0.081585f },
+{ 0.998575f, 0.145813f, -0.098624f },
+{ -0.046751f, 0.444593f, 0.081585f },
+{ 0.998575f, 0.145813f, 0.261795f }
+};
+
+NJS_VECTOR normal_0016BD70[] = {
+	{ -0.279605f, -0.960115f, 0 },
+{ -0.279605f, -0.960115f, 0 },
+{ -0.279605f, -0.960115f, 0 },
+{ -0.783807f, -0.621004f, 0 },
+{ 0.7812589f, -0.055808f, -0.621707f },
+{ -0.755687f, 0.654933f, 0 },
+{ 0.7812589f, -0.055808f, 0.621707f }
+};
+
+NJS_MODEL_SADX attach_0016BDC4 = { vertex_0016BD1C, normal_0016BD70, LengthOfArray<Sint32>(vertex_0016BD1C), meshlist_0016BD04, matlist_0016BCA8, LengthOfArray<Uint16>(meshlist_0016BD04), LengthOfArray<Uint16>(matlist_0016BCA8),{ 0.653257f, 0.224847f, 0.081585f }, 0.732914f, NULL };
+
+NJS_OBJECT object_0016BDEC = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016BDC4, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_0016BE20 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 1.340819f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0016BDEC };
+
+NJS_OBJECT object_0016BE54 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0xFFFF8B58, 1, 1, 1, &object_0016BE20, NULL };
+
+NJS_OBJECT object_0016BE88 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0.407586f, -0.451861f, -0.348012f, 0, 0, 0xFFFFBFD6, 1, 1, 1, &object_0016BE54, NULL };
+
+NJS_MATERIAL matlist_0016BEBC[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, USATexName_usa_parts, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016BED0[] = {
+	3, 0, 2, 1,
+	0x8000u | 5, 4, 6, 3, 5, 4,
+	3, 4, 6, 5
+};
+
+NJS_TEX uv_0016BEEC[] = {
+	{ 173, 72 },
+{ 173, 135 },
+{ 227, 103 },
+{ 173, 72 },
+{ 173, 135 },
+{ 35, 104 },
+{ 4, 104 },
+{ 173, 72 },
+{ 166, 11 },
+{ 166, 58 },
+{ 84, 35 }
+};
+
+NJS_MESHSET_SADX meshlist_0016BF18[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 3, poly_0016BED0, NULL, NULL, NULL, uv_0016BEEC, NULL }
+};
+
+NJS_VECTOR vertex_0016BF30[] = {
+	{ 0.998576f, 0.145812f, 0.098624f },
+{ 1.353265f, 0.04252f, -0.081586f },
+{ 0.998576f, 0.145812f, -0.261795f },
+{ -0.024255f, 0.005101f, -0.081585f },
+{ 0.998575f, 0.145813f, 0.098624f },
+{ -0.046751f, 0.444593f, -0.081585f },
+{ 0.998575f, 0.145813f, -0.261795f }
+};
+
+NJS_VECTOR normal_0016BF84[] = {
+	{ -0.279605f, -0.960115f, 0 },
+{ -0.279605f, -0.960115f, 0 },
+{ -0.279605f, -0.960115f, 0 },
+{ -0.783807f, -0.621004f, 0 },
+{ 0.7812589f, -0.055808f, 0.621707f },
+{ -0.755687f, 0.654933f, 0 },
+{ 0.7812589f, -0.055808f, -0.621707f }
+};
+
+NJS_MODEL_SADX attach_0016BFD8 = { vertex_0016BF30, normal_0016BF84, LengthOfArray<Sint32>(vertex_0016BF30), meshlist_0016BF18, matlist_0016BEBC, LengthOfArray<Uint16>(meshlist_0016BF18), LengthOfArray<Uint16>(matlist_0016BEBC),{ 0.653257f, 0.224847f, -0.081585f }, 0.732914f, NULL };
+
+NJS_OBJECT object_0016C000 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016BFD8, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_0016C034 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 1.340819f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0016C000 };
+
+NJS_OBJECT object_0016C068 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0xFFFF8B58, 1, 1, 1, &object_0016C034, NULL };
+
+NJS_OBJECT object_0016C09C = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0.407586f, -0.451861f, 0.348012f, 0, 0, 0xFFFFBFD6, 1, 1, 1, &object_0016C068, &object_0016BE88 };
+
+NJS_MATERIAL matlist_0016C0D0[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, USATexName_usa_karada, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016C0E4[] = {
+	0x8000u | 5, 1, 2, 0, 3, 1,
+	3, 2, 3, 1
+};
+
+NJS_TEX uv_0016C0F8[] = {
+	{ 27, 170 },
+{ 49, 184 },
+{ 96, 72 },
+{ 75, 205 },
+{ 150, 238 },
+{ 75, 205 },
+{ 93, 251 },
+{ 150, 238 }
+};
+
+NJS_MESHSET_SADX meshlist_0016C118[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_0016C0E4, NULL, NULL, NULL, uv_0016C0F8, NULL }
+};
+
+NJS_VECTOR vertex_0016C130[] = {
+	{ -0.251791f, 0.018114f, -0.012326f },
+{ 0.801762f, 0.02197f, -0.12439f },
+{ 0.91537f, 0.175098f, 0.162441f },
+{ 0.9047059f, -0.172582f, 0.279734f }
+};
+
+NJS_VECTOR normal_0016C160[] = {
+	{ -0.995353f, 0.007929999f, -0.09596799f },
+{ 0.354178f, -0.021433f, -0.9349329f },
+{ 0.613463f, 0.7379079f, 0.281345f },
+{ 0.499654f, -0.638101f, 0.5858099f }
+};
+
+NJS_MODEL_SADX attach_0016C190 = { vertex_0016C130, normal_0016C160, LengthOfArray<Sint32>(vertex_0016C130), meshlist_0016C118, matlist_0016C0D0, LengthOfArray<Uint16>(meshlist_0016C118), LengthOfArray<Uint16>(matlist_0016C0D0),{ 0.331789f, 0.001258f, 0.077672f }, 0.6092179f, NULL };
+
+NJS_OBJECT object_0016C1B8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016C190, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_0016C1EC = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 1.114478f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0016C1B8 };
+
+NJS_OBJECT object_0016C220 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0x535, 0xFFFF9F7B, 1, 1, 1, &object_0016C1EC, NULL };
+
+NJS_OBJECT object_0016C254 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 1.147217f, 0.199955f, -0.32754f, 0, 0, 0xFFFFBFD6, 1, 1, 1, &object_0016C220, &object_0016C09C };
+
+NJS_MATERIAL matlist_0016C288[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, USATexName_usa_karada, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016C29C[] = {
+	0x8000u | 5, 1, 3, 0, 2, 1,
+	3, 1, 3, 2
+};
+
+NJS_TEX uv_0016C2B0[] = {
+	{ 150, 238 },
+{ 75, 205 },
+{ 97, 72 },
+{ 49, 185 },
+{ 27, 170 },
+{ 150, 238 },
+{ 93, 251 },
+{ 75, 205 }
+};
+
+NJS_MESHSET_SADX meshlist_0016C2D0[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_0016C29C, NULL, NULL, NULL, uv_0016C2B0, NULL }
+};
+
+NJS_VECTOR vertex_0016C2E8[] = {
+	{ -0.251791f, 0.018114f, 0.012326f },
+{ 0.801762f, 0.02197f, 0.12439f },
+{ 0.91537f, 0.175098f, -0.162441f },
+{ 0.904705f, -0.172582f, -0.279734f }
+};
+
+NJS_VECTOR normal_0016C318[] = {
+	{ -0.995353f, 0.007928999f, 0.09596799f },
+{ 0.354178f, -0.021433f, 0.9349329f },
+{ 0.613463f, 0.7379079f, -0.281345f },
+{ 0.499654f, -0.638101f, -0.5858099f }
+};
+
+NJS_MODEL_SADX attach_0016C348 = { vertex_0016C2E8, normal_0016C318, LengthOfArray<Sint32>(vertex_0016C2E8), meshlist_0016C2D0, matlist_0016C288, LengthOfArray<Uint16>(meshlist_0016C2D0), LengthOfArray<Uint16>(matlist_0016C288),{ 0.331789f, 0.001258f, -0.077672f }, 0.6092179f, NULL };
+
+NJS_OBJECT object_0016C370 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016C348, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_0016C3A4 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 1.114478f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0016C370 };
+
+NJS_OBJECT object_0016C3D8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0xFFFFFACB, 0xFFFF9F7B, 1, 1, 1, &object_0016C3A4, NULL };
+
+NJS_OBJECT object_0016C40C = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 1.147217f, 0.199955f, 0.327541f, 0, 0, 0xFFFFBFD6, 1, 1, 1, &object_0016C3D8, &object_0016C254 };
+
+NJS_MATERIAL matlist_0016C440[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, USATexName_usa_karada, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016C454[] = {
+	3, 0, 1, 4,
+	5, 4, 3, 0, 2, 1
+};
+
+NJS_TEX uv_0016C468[] = {
+	{ 161, 253 },
+{ 116, 202 },
+{ 127, 238 },
+{ 127, 238 },
+{ 116, 202 },
+{ 161, 253 },
+{ 163, 194 },
+{ 116, 202 }
+};
+
+NJS_MESHSET_SADX meshlist_0016C488[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_0016C454, NULL, NULL, NULL, uv_0016C468, NULL }
+};
+
+NJS_VECTOR vertex_0016C4A0[] = {
+	{ 0.801218f, -0.014854f, 0 },
+{ 0.293641f, 0.02243f, 0.138029f },
+{ 0.323807f, 0.199413f, 0 },
+{ 0.293641f, 0.02243f, -0.138029f },
+{ 0.150219f, -0.154334f, 0 }
+};
+
+NJS_VECTOR normal_0016C4DC[] = {
+	{ 0.995472f, -0.095055f, 0 },
+{ 0.241915f, -0.211972f, 0.946861f },
+{ 0.409462f, 0.912327f, 0 },
+{ 0.241915f, -0.211972f, -0.946861f },
+{ 0.2095f, -0.977809f, 0 }
+};
+
+NJS_MODEL_SADX attach_0016C518 = { vertex_0016C4A0, normal_0016C4DC, LengthOfArray<Sint32>(vertex_0016C4A0), meshlist_0016C488, matlist_0016C440, LengthOfArray<Uint16>(meshlist_0016C488), LengthOfArray<Uint16>(matlist_0016C440),{ 0.475719f, 0.02254f, 0 }, 0.37053f, NULL };
+
+NJS_OBJECT object_0016C540 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016C518, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_0016C574 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 1.131999f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0016C540 };
+
+NJS_OBJECT object_0016C5A8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0x8E9, 1, 1, 1, &object_0016C574, NULL };
+
+NJS_OBJECT object_0016C5DC = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0.324866f, -0.656159f, 0, 0, 0, 0xFFFFBFD6, 1, 1, 1, &object_0016C5A8, &object_0016C40C };
+
+NJS_MATERIAL matlist_0016C610[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, USATexName_usa_mimi, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016C624[] = {
+	3, 3, 2, 1,
+	5, 1, 4, 3, 0, 2
+};
+
+NJS_TEX uv_0016C638[] = {
+	{ 133, 133 },
+{ 139, 48 },
+{ 230, 149 },
+{ 230, 149 },
+{ 123, 204 },
+{ 133, 133 },
+{ 4, 153 },
+{ 139, 48 }
+};
+
+NJS_MESHSET_SADX meshlist_0016C658[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_0016C624, NULL, NULL, NULL, uv_0016C638, NULL }
+};
+
+NJS_VECTOR vertex_0016C670[] = {
+	{ -0.307926f, -0.085892f, -0.09858099f },
+{ 2.710888f, 0.038803f, 0.154438f },
+{ 1.263075f, 1.262545f, -0.102928f },
+{ 1.199759f, 0.281513f, 0.323801f },
+{ 1.18816f, -0.610793f, 0.333829f }
+};
+
+NJS_VECTOR normal_0016C6AC[] = {
+	{ 0.310017f, -0.204874f, -0.928394f },
+{ -0.141707f, -0.206754f, -0.968076f },
+{ 0.080281f, -0.401943f, -0.912139f },
+{ 0.089204f, -0.229296f, -0.969261f },
+{ 0.08967099f, -0.012357f, -0.995895f }
+};
+
+NJS_MODEL_SADX attach_0016C6E8 = { vertex_0016C670, normal_0016C6AC, LengthOfArray<Sint32>(vertex_0016C670), meshlist_0016C658, matlist_0016C610, LengthOfArray<Uint16>(meshlist_0016C658), LengthOfArray<Uint16>(matlist_0016C610),{ 1.201481f, 0.325876f, 0.115451f }, 1.78153f, NULL };
+
+NJS_OBJECT object_0016C710 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016C6E8, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_0016C744 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 2.746457f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0016C710 };
+
+NJS_OBJECT object_0016C778 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0xFFFF8001, 0x8665, 0xFFFFA345, 1, 1, 1, &object_0016C744, NULL };
+
+NJS_OBJECT object_0016C7AC = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, -0.04553f, -0.981567f, -0.18417f, 0xFFFFC0ED, 0x4000, 0x3F13, 1, 1, 1, &object_0016C778, NULL };
+
+NJS_MATERIAL matlist_0016C7E0[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, USATexName_usa_mimi, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016C7F4[] = {
+	3, 1, 2, 3,
+	0x8000u | 5, 1, 4, 3, 0, 2
+};
+
+NJS_TEX uv_0016C808[] = {
+	{ 228, 145 },
+{ 134, 56 },
+{ 129, 132 },
+{ 228, 145 },
+{ 133, 207 },
+{ 129, 132 },
+{ 8, 150 },
+{ 134, 56 }
+};
+
+NJS_MESHSET_SADX meshlist_0016C828[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_0016C7F4, NULL, NULL, NULL, uv_0016C808, NULL }
+};
+
+NJS_VECTOR vertex_0016C840[] = {
+	{ -0.307926f, -0.085892f, 0.09858099f },
+{ 2.710888f, 0.038802f, -0.154437f },
+{ 1.263075f, 1.262545f, 0.102928f },
+{ 1.199759f, 0.281513f, -0.323801f },
+{ 1.18816f, -0.610793f, -0.333829f }
+};
+
+NJS_VECTOR normal_0016C87C[] = {
+	{ 0.310017f, -0.204874f, 0.928394f },
+{ -0.141708f, -0.206754f, 0.968076f },
+{ 0.080281f, -0.401943f, 0.912139f },
+{ 0.089204f, -0.229296f, 0.969261f },
+{ 0.08967099f, -0.012357f, 0.995895f }
+};
+
+NJS_MODEL_SADX attach_0016C8B8 = { vertex_0016C840, normal_0016C87C, LengthOfArray<Sint32>(vertex_0016C840), meshlist_0016C828, matlist_0016C7E0, LengthOfArray<Uint16>(meshlist_0016C828), LengthOfArray<Uint16>(matlist_0016C7E0),{ 1.201481f, 0.325876f, -0.11545f }, 1.78153f, NULL };
+
+NJS_OBJECT object_0016C8E0 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016C8B8, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_0016C914 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 2.746457f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0016C8E0 };
+
+NJS_OBJECT object_0016C948 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0x665, 0x2344, 1, 1, 1, &object_0016C914, NULL };
+
+NJS_OBJECT object_0016C97C = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, -0.04553f, -0.981567f, 0.18417f, 0x3F13, 0xFFFFC000, 0x3F13, 1, 1, 1, &object_0016C948, &object_0016C7AC };
+
+NJS_MATERIAL matlist_0016C9B0[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, USATexName_usa_kao, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016C9C4[] = {
+	8, 2, 7, 5, 20, 0, 11, 8, 6,
+	5, 8, 21, 0, 2, 5,
+	0x8000u | 9, 13, 10, 3, 4, 7, 9, 2, 14, 21,
+	4, 3, 6, 7, 20,
+	3, 6, 11, 20,
+	6, 15, 19, 18, 1, 9, 10,
+	0x8000u | 8, 13, 3, 17, 6, 12, 8, 16, 21,
+	3, 13, 12, 17,
+	3, 10, 4, 9,
+	3, 16, 15, 21,
+	3, 21, 15, 14,
+	4, 9, 14, 18, 15,
+	7, 15, 16, 19, 12, 1, 13, 10
+};
+
+NJS_TEX uv_0016CA64[] = {
+	{ 155, 192 },
+{ 169, 135 },
+{ 150, 167 },
+{ 101, 152 },
+{ 101, 199 },
+{ 150, 167 },
+{ 155, 192 },
+{ 169, 135 },
+{ 155, 192 },
+{ 100, 238 },
+{ 100, 199 },
+{ 155, 192 },
+{ 150, 167 },
+{ 49, 11 },
+{ 146, 11 },
+{ 100, 65 },
+{ 176, 56 },
+{ 169, 135 },
+{ 238, 109 },
+{ 155, 192 },
+{ 210, 186 },
+{ 100, 238 },
+{ 100, 65 },
+{ 34, 135 },
+{ 169, 135 },
+{ 101, 152 },
+{ 169, 135 },
+{ 150, 167 },
+{ 101, 152 },
+{ 105, 78 },
+{ 72, 56 },
+{ 138, 56 },
+{ 105, 20 },
+{ 190, 42 },
+{ 138, 9 },
+{ 146, 11 },
+{ 100, 65 },
+{ 176, 56 },
+{ 169, 135 },
+{ 238, 109 },
+{ 155, 192 },
+{ 210, 186 },
+{ 100, 238 },
+{ 146, 11 },
+{ 238, 109 },
+{ 198, 41 },
+{ 146, 11 },
+{ 198, 41 },
+{ 238, 109 },
+{ 223, 214 },
+{ 100, 251 },
+{ 100, 237 },
+{ 100, 251 },
+{ 100, 237 },
+{ 223, 214 },
+{ 190, 42 },
+{ 184, 62 },
+{ 138, 56 },
+{ 105, 78 },
+{ 105, 78 },
+{ 27, 62 },
+{ 72, 56 },
+{ 21, 42 },
+{ 105, 20 },
+{ 73, 9 },
+{ 138, 9 }
+};
+
+NJS_MESHSET_SADX meshlist_0016CB6C[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 13, poly_0016C9C4, NULL, NULL, NULL, uv_0016CA64, NULL }
+};
+
+NJS_VECTOR vertex_0016CB84[] = {
+	{ 1.062474f, 0.238846f, 0.000001f },
+{ -0.469875f, -0.8123069f, -0.00001f },
+{ 0.7736019f, 0.254999f, 0.49846f },
+{ 0.755156f, -0.8671089f, 0 },
+{ 0.638725f, -0.773067f, 0.5030479f },
+{ 1.084484f, -0.007147f, 0.33773f },
+{ 0.903316f, -0.200806f, -0.517208f },
+{ 0.903316f, -0.200807f, 0.517207f },
+{ 0.7736019f, 0.254999f, -0.498459f },
+{ 0.096691f, -0.395827f, 0.797013f },
+{ 0.119893f, -1.041105f, 0.309686f },
+{ 1.084484f, -0.007147f, -0.33773f },
+{ 0.096691f, -0.395826f, -0.797014f },
+{ 0.119894f, -1.041105f, -0.309688f },
+{ 0.036553f, 0.156328f, 0.740584f },
+{ -0.324982f, 0.360543f, 0 },
+{ 0.036553f, 0.156329f, -0.740584f },
+{ 0.638725f, -0.773067f, -0.503049f },
+{ -0.5802529f, -0.09073199f, 0.311617f },
+{ -0.5802529f, -0.09073099f, -0.311617f },
+{ 1.125216f, -0.112344f, 0 },
+{ 0.366902f, 0.429119f, 0 }
+};
+
+NJS_VECTOR normal_0016CC8C[] = {
+	{ 0.730257f, 0.683172f, 0.000001f },
+{ -0.78629f, -0.617858f, 0 },
+{ 0.374577f, 0.669407f, 0.641551f },
+{ 0.716552f, -0.697533f, 0 },
+{ 0.499617f, -0.595935f, 0.628684f },
+{ 0.891039f, 0.054219f, 0.450677f },
+{ 0.6964639f, -0.186887f, -0.692828f },
+{ 0.6964639f, -0.186889f, 0.692828f },
+{ 0.374577f, 0.669408f, -0.6415499f },
+{ -0.17183f, -0.234622f, 0.9567789f },
+{ -0.136185f, -0.893061f, 0.428831f },
+{ 0.891039f, 0.054219f, -0.450677f },
+{ -0.17183f, -0.234621f, -0.95678f },
+{ -0.136185f, -0.89306f, -0.428832f },
+{ -0.198671f, 0.5320939f, 0.823047f },
+{ -0.50747f, 0.8616689f, 0 },
+{ -0.198671f, 0.532095f, -0.823046f },
+{ 0.499618f, -0.595935f, -0.628685f },
+{ -0.884013f, 0.144172f, 0.444674f },
+{ -0.884013f, 0.144173f, -0.444674f },
+{ 0.882171f, -0.47093f, 0 },
+{ 0.035064f, 0.999385f, 0 }
+};
+
+NJS_MODEL_SADX attach_0016CD94 = { vertex_0016CB84, normal_0016CC8C, LengthOfArray<Sint32>(vertex_0016CB84), meshlist_0016CB6C, matlist_0016C9B0, LengthOfArray<Uint16>(meshlist_0016CB6C), LengthOfArray<Uint16>(matlist_0016C9B0),{ 0.272481f, -0.305993f, 0 }, 1.125482f, NULL };
+
+NJS_OBJECT object_0016CDBC = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016CD94, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0016C97C };
+
+NJS_OBJECT object_0016CDF0 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 1.802638f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0016CDBC };
+
+NJS_OBJECT object_0016CE24 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0xFFFF81DA, 1, 1, 1, &object_0016CDF0, NULL };
+
+NJS_OBJECT object_0016CE58 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 1.883343f, -0.007684f, 0, 0, 0, 0xFFFFBFD6, 1, 1, 1, &object_0016CE24, &object_0016C5DC };
+
+NJS_MATERIAL matlist_0016CE8C[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, USATexName_usa_karada, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016CEA0[] = {
+	0x8000u | 6, 7, 11, 12, 8, 6, 5,
+	0x8000u | 16, 2, 4, 3, 15, 13, 14, 7, 0, 11, 10, 8, 4, 5, 2, 6, 1,
+	6, 3, 2, 9, 1, 7, 12,
+	4, 3, 9, 13, 7,
+	5, 14, 0, 15, 10, 4
+};
+
+NJS_TEX uv_0016CEF4[] = {
+	{ 122, 248 },
+{ 174, 190 },
+{ 59, 186 },
+{ 117, 77 },
+{ 19, 98 },
+{ 82, 39 },
+{ 117, 77 },
+{ 187, 7 },
+{ 197, 59 },
+{ 218, 73 },
+{ 210, 188 },
+{ 234, 221 },
+{ 122, 248 },
+{ 210, 188 },
+{ 174, 190 },
+{ 197, 59 },
+{ 117, 77 },
+{ 187, 7 },
+{ 82, 39 },
+{ 117, 77 },
+{ 19, 98 },
+{ 59, 186 },
+{ 197, 59 },
+{ 117, 77 },
+{ 174, 190 },
+{ 59, 186 },
+{ 122, 248 },
+{ 13, 222 },
+{ 197, 59 },
+{ 174, 190 },
+{ 210, 188 },
+{ 122, 248 },
+{ 234, 221 },
+{ 210, 188 },
+{ 218, 73 },
+{ 197, 59 },
+{ 187, 7 }
+};
+
+NJS_MESHSET_SADX meshlist_0016CF88[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 5, poly_0016CEA0, NULL, NULL, NULL, uv_0016CEF4, NULL }
+};
+
+NJS_VECTOR vertex_0016CFA0[] = {
+	{ 0.067029f, 0.084115f, -0.6126029f },
+{ 1.843031f, 0.350649f, 0.195576f },
+{ 1.11878f, -0.542958f, 0.646531f },
+{ 0.481801f, -0.572695f, 0.793779f },
+{ 0.531463f, -1.115009f, 0 },
+{ 1.286472f, -0.876445f, 0 },
+{ 2.018334f, 0.002026f, 0 },
+{ 0.588921f, 0.555016f, 0 },
+{ 1.11878f, -0.542958f, -0.646531f },
+{ 0.682136f, 0.277259f, 0.646531f },
+{ 0.481801f, -0.572695f, -0.7937779f },
+{ 0.682135f, 0.27726f, -0.646531f },
+{ 1.843031f, 0.350649f, -0.195576f },
+{ 0.067029f, 0.084115f, 0.6126029f },
+{ 0.117348f, -0.06891999f, 0 },
+{ 0.055207f, -0.81463f, 0 }
+};
+
+NJS_VECTOR normal_0016D060[] = {
+	{ -0.76113f, 0.369418f, -0.533115f },
+{ 0.456979f, 0.613131f, 0.644392f },
+{ 0.417043f, -0.392665f, 0.819689f },
+{ -0.217645f, -0.406315f, 0.8874339f },
+{ -0.119727f, -0.992807f, 0 },
+{ 0.549045f, -0.835793f, 0 },
+{ 0.928004f, -0.372571f, 0 },
+{ -0.268269f, 0.963344f, 0 },
+{ 0.417042f, -0.392665f, -0.819689f },
+{ 0.024431f, 0.609669f, 0.7922789f },
+{ -0.217645f, -0.406315f, -0.8874339f },
+{ 0.024431f, 0.609669f, -0.7922789f },
+{ 0.456979f, 0.613131f, -0.644392f },
+{ -0.76113f, 0.369418f, 0.533115f },
+{ -0.94654f, 0.322588f, 0 },
+{ -0.8354779f, -0.5495239f, 0 }
+};
+
+NJS_MODEL_SADX attach_0016D120 = { vertex_0016CFA0, normal_0016D060, LengthOfArray<Sint32>(vertex_0016CFA0), meshlist_0016CF88, matlist_0016CE8C, LengthOfArray<Uint16>(meshlist_0016CF88), LengthOfArray<Uint16>(matlist_0016CE8C),{ 1.03677f, -0.279997f, 0 }, 1.288687f, NULL };
+
+NJS_OBJECT object_0016D148 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016D120, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0016CE58 };
+
+NJS_OBJECT object_0016D17C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 5.015508f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0016D148 };
+
+NJS_OBJECT object_0016D1B0 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0x402A, 1, 1, 1, &object_0016D17C, NULL };
+
+NJS_OBJECT object_0016D1E4 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0.017423f, 0.0008949999f, 0, 0x4000, 0, 1, 1, 1, &object_0016D1B0, NULL };
+
+NJS_OBJECT object_0016D218 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0, 1, 1, 1, &object_0016D1E4, NULL };
+
+NJS_MKEY_F _16EA18_0_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_0_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_1_pos[] = {
+	{ 0, 0, 0.01359f, 0.0005819999f },
+{ 1, 0, 0.01359f, 0.017732f },
+{ 2, 0, 0.01359f, 0.063821f },
+{ 3, 0, 0.01359f, 0.130808f },
+{ 4, 0, 0.01359f, 0.210651f },
+{ 5, 0, 0.01359f, 0.29531f },
+{ 6, 0, 0.01359f, 0.376742f },
+{ 7, 0, 0.01359f, 0.446907f },
+{ 8, 0, 0.01359f, 0.497763f },
+{ 9, 0, 0.01359f, 0.521269f },
+{ 10, 0, 0.01359f, 0.50126f },
+{ 11, 0, 0.01359f, 0.430533f },
+{ 12, 0, 0.01359f, 0.328396f },
+{ 13, 0, 0.01359f, 0.21459f },
+{ 14, 0, 0.01359f, 0.108858f },
+{ 15, 0, 0.01359f, 0.030941f },
+{ 16, 0, 0.01359f, 0.0005819999f }
+};
+
+NJS_MKEY_A _16EA18_1_rot[] = {
+	{ 0, 0, 0x3FFF, 0 },
+{ 16, 0, 0x3FFF, 0 }
+};
+
+NJS_MKEY_F _16EA18_2_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_2_rot[] = {
+	{ 0, 0, 0, 0x4E6C },
+{ 1, 0, 0, 0x4DC9 },
+{ 2, 0, 0, 0x4C1F },
+{ 3, 0, 0, 0x49CC },
+{ 4, 0, 0, 0x4732 },
+{ 5, 0, 0, 0x44AD },
+{ 6, 0, 0, 0x429F },
+{ 7, 0, 0, 0x4167 },
+{ 8, 0, 0, 0x4163 },
+{ 9, 0, 0, 0x427D },
+{ 10, 0, 0, 0x4439 },
+{ 11, 0, 0, 0x4658 },
+{ 12, 0, 0, 0x489E },
+{ 13, 0, 0, 0x4ACC },
+{ 14, 0, 0, 0x4CA7 },
+{ 15, 0, 0, 0x4DF1 },
+{ 16, 0, 0, 0x4E6C }
+};
+
+NJS_MKEY_F _16EA18_3_pos[] = {
+	{ 0, 5.015508f, 0, 0 },
+{ 16, 5.015508f, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_3_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_4_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_4_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_5_pos[] = {
+	{ 0, 1.904356f, -0.07632799f, 0 },
+{ 1, 1.861878f, -0.076541f, 0 },
+{ 2, 1.83481f, -0.077102f, 0 },
+{ 3, 1.836125f, -0.077896f, 0 },
+{ 4, 1.855307f, -0.078806f, 0 },
+{ 5, 1.892664f, -0.079716f, 0 },
+{ 6, 1.941308f, -0.08051f, 0 },
+{ 7, 1.994352f, -0.081072f, 0 },
+{ 8, 2.044909f, -0.081285f, 0 },
+{ 9, 2.086089f, -0.081072f, 0 },
+{ 10, 2.111006f, -0.08051f, 0 },
+{ 11, 2.112972f, -0.079716f, 0 },
+{ 12, 2.091363f, -0.078806f, 0 },
+{ 13, 2.052489f, -0.077896f, 0 },
+{ 14, 2.003032f, -0.077102f, 0 },
+{ 15, 1.949678f, -0.076541f, 0 },
+{ 16, 1.899107f, -0.07632799f, 0 }
+};
+
+NJS_MKEY_A _16EA18_5_rot[] = {
+	{ 0, 0, 0, 0xFFFFBFD6 },
+{ 16, 0, 0, 0xFFFFBFD6 }
+};
+
+NJS_MKEY_F _16EA18_6_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_6_rot[] = {
+	{ 0, 0, 0, 0xFFFF79B5 },
+{ 1, 0, 0, 0xFFFF7996 },
+{ 2, 0, 0, 0xFFFF7943 },
+{ 3, 0, 0, 0xFFFF78CE },
+{ 4, 0, 0, 0xFFFF7848 },
+{ 5, 0, 0, 0xFFFF77C2 },
+{ 6, 0, 0, 0xFFFF774D },
+{ 7, 0, 0, 0xFFFF76FA },
+{ 8, 0, 0, 0xFFFF76DB },
+{ 9, 0, 0, 0xFFFF76FA },
+{ 10, 0, 0, 0xFFFF774D },
+{ 11, 0, 0, 0xFFFF77C2 },
+{ 12, 0, 0, 0xFFFF7848 },
+{ 13, 0, 0, 0xFFFF78CE },
+{ 14, 0, 0, 0xFFFF7943 },
+{ 15, 0, 0, 0xFFFF7996 },
+{ 16, 0, 0, 0xFFFF79B5 }
+};
+
+NJS_MKEY_F _16EA18_7_pos[] = {
+	{ 0, 1.802638f, 0, 0 },
+{ 16, 1.802638f, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_7_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_8_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_8_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_9_pos[] = {
+	{ 0, -0.04553f, -0.981567f, 0.18417f },
+{ 16, -0.04553f, -0.981567f, 0.18417f }
+};
+
+NJS_MKEY_A _16EA18_9_rot[] = {
+	{ 0, 0x3F12, 0xFFFFC001, 0x3F12 },
+{ 16, 0x3F12, 0xFFFFC001, 0x3F12 }
+};
+
+NJS_MKEY_F _16EA18_10_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_10_rot[] = {
+	{ 0, 0xFFFFFA84, 0xFFFFF3A4, 0x2D15 },
+{ 1, 0xFFFFFA6B, 0xFFFFEF5D, 0x2F07 },
+{ 2, 0xFFFFFA6E, 0xFFFFECF0, 0x2EC9 },
+{ 3, 0xFFFFFA8C, 0xFFFFED10, 0x2C74 },
+{ 4, 0xFFFFFABC, 0xFFFFEFAF, 0x28A3 },
+{ 5, 0xFFFFFAF7, 0xFFFFF419, 0x23F5 },
+{ 6, 0xFFFFFB35, 0xFFFFF992, 0x1F08 },
+{ 7, 0xFFFFFB6E, 0xFFFFFF60, 0x1A7A },
+{ 8, 0xFFFFFB9B, 0x4C7, 0x16EC },
+{ 9, 0xFFFFFBB3, 0x90F, 0x14FA },
+{ 10, 0xFFFFFBB0, 0xB7B, 0x1538 },
+{ 11, 0xFFFFFB93, 0xB5B, 0x178D },
+{ 12, 0xFFFFFB63, 0x8BC, 0x1B5E },
+{ 13, 0xFFFFFB28, 0x453, 0x200D },
+{ 14, 0xFFFFFAEA, 0xFFFFFEDB, 0x24FA },
+{ 15, 0xFFFFFAB1, 0xFFFFF90D, 0x2987 },
+{ 16, 0xFFFFFA84, 0xFFFFF3A4, 0x2D15 }
+};
+
+NJS_MKEY_F _16EA18_11_pos[] = {
+	{ 0, 2.746457f, 0, 0 },
+{ 16, 2.746457f, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_11_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_12_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_12_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_13_pos[] = {
+	{ 0, -0.04553f, -0.981567f, -0.18417f },
+{ 16, -0.04553f, -0.981567f, -0.18417f }
+};
+
+NJS_MKEY_A _16EA18_13_rot[] = {
+	{ 0, 0xFFFFC0EE, 0x3FFF, 0x3F12 },
+{ 16, 0xFFFFC0EE, 0x3FFF, 0x3F12 }
+};
+
+NJS_MKEY_F _16EA18_14_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_14_rot[] = {
+	{ 0, 0xFFFF859D, 0x7355, 0xFFFFAD25 },
+{ 1, 0xFFFF85B8, 0x6F00, 0xFFFFAF18 },
+{ 2, 0xFFFF85B5, 0x6C8C, 0xFFFFAEDA },
+{ 3, 0xFFFF8594, 0x6CAC, 0xFFFFAC83 },
+{ 4, 0xFFFF855F, 0x6F54, 0xFFFFA8B0 },
+{ 5, 0xFFFF851E, 0x73CB, 0xFFFFA3FF },
+{ 6, 0xFFFF84DA, 0x7956, 0xFFFF9F0F },
+{ 7, 0xFFFF849B, 0x7F36, 0xFFFF9A7F },
+{ 8, 0xFFFF8469, 0x84B0, 0xFFFF96EE },
+{ 9, 0xFFFF844E, 0x8905, 0xFFFF94FC },
+{ 10, 0xFFFF8452, 0x8B79, 0xFFFF953A },
+{ 11, 0xFFFF8472, 0x8B59, 0xFFFF9790 },
+{ 12, 0xFFFF84A7, 0x88B2, 0xFFFF9B64 },
+{ 13, 0xFFFF84E8, 0x843A, 0xFFFFA015 },
+{ 14, 0xFFFF852C, 0x7EB0, 0xFFFFA505 },
+{ 15, 0xFFFF856C, 0x78CF, 0xFFFFA995 },
+{ 16, 0xFFFF859D, 0x7355, 0xFFFFAD25 }
+};
+
+NJS_MKEY_F _16EA18_15_pos[] = {
+	{ 0, 2.746457f, 0, 0 },
+{ 16, 2.746457f, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_15_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_16_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_16_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_17_pos[] = {
+	{ 0, 0.324866f, -0.656159f, 0 },
+{ 16, 0.324866f, -0.656159f, 0 }
+};
+
+NJS_MKEY_A _16EA18_17_rot[] = {
+	{ 0, 0, 0, 0xFFFFBFD6 },
+{ 16, 0, 0, 0xFFFFBFD6 }
+};
+
+NJS_MKEY_F _16EA18_18_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_18_rot[] = {
+	{ 0, 0, 0, 0x66A },
+{ 1, 0, 0, 0x5E6 },
+{ 2, 0, 0, 0x489 },
+{ 3, 0, 0, 0x29C },
+{ 4, 0, 0, 0x67 },
+{ 5, 0, 0, 0xFFFFFE32 },
+{ 6, 0, 0, 0xFFFFFC45 },
+{ 7, 0, 0, 0xFFFFFAE9 },
+{ 8, 0, 0, 0xFFFFFA64 },
+{ 9, 0, 0, 0xFFFFFAE9 },
+{ 10, 0, 0, 0xFFFFFC45 },
+{ 11, 0, 0, 0xFFFFFE32 },
+{ 12, 0, 0, 0x67 },
+{ 13, 0, 0, 0x29C },
+{ 14, 0, 0, 0x489 },
+{ 15, 0, 0, 0x5E6 },
+{ 16, 0, 0, 0x66A }
+};
+
+NJS_MKEY_F _16EA18_19_pos[] = {
+	{ 0, 1.131999f, 0, 0 },
+{ 16, 1.131999f, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_19_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_20_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_20_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_21_pos[] = {
+	{ 0, 1.422487f, 0.230237f, 0.327541f },
+{ 1, 1.410659f, 0.228935f, 0.327541f },
+{ 2, 1.379476f, 0.225505f, 0.327541f },
+{ 3, 1.33539f, 0.220655f, 0.327541f },
+{ 4, 1.284852f, 0.215096f, 0.327541f },
+{ 5, 1.234314f, 0.209536f, 0.327541f },
+{ 6, 1.190228f, 0.204686f, 0.327541f },
+{ 7, 1.159045f, 0.201256f, 0.327541f },
+{ 8, 1.147217f, 0.199955f, 0.327541f },
+{ 9, 1.159045f, 0.201256f, 0.327541f },
+{ 10, 1.190228f, 0.204686f, 0.327541f },
+{ 11, 1.234314f, 0.209536f, 0.327541f },
+{ 12, 1.284852f, 0.215096f, 0.327541f },
+{ 13, 1.33539f, 0.220655f, 0.327541f },
+{ 14, 1.379476f, 0.225505f, 0.327541f },
+{ 15, 1.410659f, 0.228935f, 0.327541f },
+{ 16, 1.422487f, 0.230237f, 0.327541f }
+};
+
+NJS_MKEY_A _16EA18_21_rot[] = {
+	{ 0, 0, 0, 0xFFFFBFD6 },
+{ 16, 0, 0, 0xFFFFBFD6 }
+};
+
+NJS_MKEY_F _16EA18_22_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_22_rot[] = {
+	{ 0, 0x8B, 0xFFFFFACB, 0xFFFF8E29 },
+{ 1, 0x4E, 0xFFFFFACE, 0xFFFF8FB1 },
+{ 2, 0xFFFFFFAE, 0xFFFFFAD3, 0xFFFF93B8 },
+{ 3, 0xFFFFFECA, 0xFFFFFADC, 0xFFFF996B },
+{ 4, 0xFFFFFDC5, 0xFFFFFAE5, 0xFFFF9FF3 },
+{ 5, 0xFFFFFCC0, 0xFFFFFAEF, 0xFFFFA67B },
+{ 6, 0xFFFFFBDD, 0xFFFFFAF7, 0xFFFFAC2D },
+{ 7, 0xFFFFFB3C, 0xFFFFFAFD, 0xFFFFB035 },
+{ 8, 0xFFFFFAFF, 0xFFFFFAFF, 0xFFFFB1BC },
+{ 9, 0xFFFFFB3C, 0xFFFFFAFD, 0xFFFFB035 },
+{ 10, 0xFFFFFBDD, 0xFFFFFAF7, 0xFFFFAC2D },
+{ 11, 0xFFFFFCC0, 0xFFFFFAEF, 0xFFFFA67B },
+{ 12, 0xFFFFFDC5, 0xFFFFFAE5, 0xFFFF9FF3 },
+{ 13, 0xFFFFFECA, 0xFFFFFADC, 0xFFFF996B },
+{ 14, 0xFFFFFFAE, 0xFFFFFAD3, 0xFFFF93B8 },
+{ 15, 0x4E, 0xFFFFFACE, 0xFFFF8FB1 },
+{ 16, 0x8B, 0xFFFFFACB, 0xFFFF8E29 }
+};
+
+NJS_MKEY_F _16EA18_23_pos[] = {
+	{ 0, 1.114478f, 0, 0 },
+{ 16, 1.114478f, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_23_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_24_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_24_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_25_pos[] = {
+	{ 0, 1.422486f, 0.230237f, -0.32754f },
+{ 1, 1.410658f, 0.228936f, -0.32754f },
+{ 2, 1.379476f, 0.225505f, -0.32754f },
+{ 3, 1.335389f, 0.220656f, -0.32754f },
+{ 4, 1.284852f, 0.215096f, -0.32754f },
+{ 5, 1.234314f, 0.209536f, -0.32754f },
+{ 6, 1.190228f, 0.204687f, -0.32754f },
+{ 7, 1.159045f, 0.201256f, -0.32754f },
+{ 8, 1.147217f, 0.199955f, -0.32754f },
+{ 9, 1.159045f, 0.201256f, -0.32754f },
+{ 10, 1.190228f, 0.204687f, -0.32754f },
+{ 11, 1.234314f, 0.209536f, -0.32754f },
+{ 12, 1.284852f, 0.215096f, -0.32754f },
+{ 13, 1.335389f, 0.220656f, -0.32754f },
+{ 14, 1.379476f, 0.225505f, -0.32754f },
+{ 15, 1.410658f, 0.228936f, -0.32754f },
+{ 16, 1.422486f, 0.230237f, -0.32754f }
+};
+
+NJS_MKEY_A _16EA18_25_rot[] = {
+	{ 0, 0, 0, 0xFFFFBFD6 },
+{ 16, 0, 0, 0xFFFFBFD6 }
+};
+
+NJS_MKEY_F _16EA18_26_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_26_rot[] = {
+	{ 0, 0xFFFFFF75, 0x535, 0xFFFF8E29 },
+{ 1, 0xFFFFFFB2, 0x532, 0xFFFF8FB1 },
+{ 2, 0x52, 0x52D, 0xFFFF93B8 },
+{ 3, 0x136, 0x524, 0xFFFF996B },
+{ 4, 0x23B, 0x51B, 0xFFFF9FF3 },
+{ 5, 0x340, 0x511, 0xFFFFA67B },
+{ 6, 0x423, 0x509, 0xFFFFAC2D },
+{ 7, 0x4C4, 0x503, 0xFFFFB035 },
+{ 8, 0x501, 0x501, 0xFFFFB1BC },
+{ 9, 0x4C4, 0x503, 0xFFFFB035 },
+{ 10, 0x423, 0x509, 0xFFFFAC2D },
+{ 11, 0x340, 0x511, 0xFFFFA67B },
+{ 12, 0x23B, 0x51B, 0xFFFF9FF3 },
+{ 13, 0x136, 0x524, 0xFFFF996B },
+{ 14, 0x52, 0x52D, 0xFFFF93B8 },
+{ 15, 0xFFFFFFB2, 0x532, 0xFFFF8FB1 },
+{ 16, 0xFFFFFF75, 0x535, 0xFFFF8E29 }
+};
+
+NJS_MKEY_F _16EA18_27_pos[] = {
+	{ 0, 1.114478f, 0, 0 },
+{ 16, 1.114478f, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_27_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_28_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_28_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_29_pos[] = {
+	{ 0, 0.407586f, -0.451861f, 0.348012f },
+{ 16, 0.407586f, -0.451861f, 0.348012f }
+};
+
+NJS_MKEY_A _16EA18_29_rot[] = {
+	{ 0, 0, 0, 0xFFFFBFD6 },
+{ 16, 0, 0, 0xFFFFBFD6 }
+};
+
+NJS_MKEY_F _16EA18_30_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_30_rot[] = {
+	{ 0, 0, 0, 0xFFFF82C4 },
+{ 1, 0, 0, 0xFFFF8C81 },
+{ 2, 0, 0, 0xFFFF9FBF },
+{ 3, 0, 0, 0xFFFFAD8C },
+{ 4, 0, 0, 0xFFFFB29B },
+{ 5, 0, 0, 0xFFFFB5A3 },
+{ 6, 0, 0, 0xFFFFB6BF },
+{ 7, 0, 0, 0xFFFFB606 },
+{ 8, 0, 0, 0xFFFFB391 },
+{ 9, 0, 0, 0xFFFFAEF4 },
+{ 10, 0, 0, 0xFFFFA83E },
+{ 11, 0, 0, 0xFFFFA045 },
+{ 12, 0, 0, 0xFFFF97E0 },
+{ 13, 0, 0, 0xFFFF8FE5 },
+{ 14, 0, 0, 0xFFFF8928 },
+{ 15, 0, 0, 0xFFFF8481 },
+{ 16, 0, 0, 0xFFFF82C4 }
+};
+
+NJS_MKEY_F _16EA18_31_pos[] = {
+	{ 0, 1.340819f, 0, 0 },
+{ 16, 1.340819f, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_31_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_32_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_32_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_33_pos[] = {
+	{ 0, 0.407586f, -0.451861f, -0.348012f },
+{ 16, 0.407586f, -0.451861f, -0.348012f }
+};
+
+NJS_MKEY_A _16EA18_33_rot[] = {
+	{ 0, 0, 0, 0xFFFFBFD6 },
+{ 16, 0, 0, 0xFFFFBFD6 }
+};
+
+NJS_MKEY_F _16EA18_34_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_34_rot[] = {
+	{ 0, 0, 0, 0xFFFF82C4 },
+{ 1, 0, 0, 0xFFFF8C81 },
+{ 2, 0, 0, 0xFFFF9FBF },
+{ 3, 0, 0, 0xFFFFAD8C },
+{ 4, 0, 0, 0xFFFFB29B },
+{ 5, 0, 0, 0xFFFFB5A3 },
+{ 6, 0, 0, 0xFFFFB6BF },
+{ 7, 0, 0, 0xFFFFB606 },
+{ 8, 0, 0, 0xFFFFB391 },
+{ 9, 0, 0, 0xFFFFAEF4 },
+{ 10, 0, 0, 0xFFFFA83E },
+{ 11, 0, 0, 0xFFFFA045 },
+{ 12, 0, 0, 0xFFFF97E0 },
+{ 13, 0, 0, 0xFFFF8FE5 },
+{ 14, 0, 0, 0xFFFF8928 },
+{ 15, 0, 0, 0xFFFF8481 },
+{ 16, 0, 0, 0xFFFF82C4 }
+};
+
+NJS_MKEY_F _16EA18_35_pos[] = {
+	{ 0, 1.340819f, 0, 0 },
+{ 16, 1.340819f, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_35_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _16EA18_36_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _16EA18_36_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MDATA2 _16EA18_mdat[] = {
+	{ _16EA18_0_pos, _16EA18_0_rot, LengthOfArray<Uint32>(_16EA18_0_pos), LengthOfArray<Uint32>(_16EA18_0_rot) },
+{ _16EA18_1_pos, _16EA18_1_rot, LengthOfArray<Uint32>(_16EA18_1_pos), LengthOfArray<Uint32>(_16EA18_1_rot) },
+{ _16EA18_2_pos, _16EA18_2_rot, LengthOfArray<Uint32>(_16EA18_2_pos), LengthOfArray<Uint32>(_16EA18_2_rot) },
+{ _16EA18_3_pos, _16EA18_3_rot, LengthOfArray<Uint32>(_16EA18_3_pos), LengthOfArray<Uint32>(_16EA18_3_rot) },
+{ _16EA18_4_pos, _16EA18_4_rot, LengthOfArray<Uint32>(_16EA18_4_pos), LengthOfArray<Uint32>(_16EA18_4_rot) },
+{ _16EA18_5_pos, _16EA18_5_rot, LengthOfArray<Uint32>(_16EA18_5_pos), LengthOfArray<Uint32>(_16EA18_5_rot) },
+{ _16EA18_6_pos, _16EA18_6_rot, LengthOfArray<Uint32>(_16EA18_6_pos), LengthOfArray<Uint32>(_16EA18_6_rot) },
+{ _16EA18_7_pos, _16EA18_7_rot, LengthOfArray<Uint32>(_16EA18_7_pos), LengthOfArray<Uint32>(_16EA18_7_rot) },
+{ _16EA18_8_pos, _16EA18_8_rot, LengthOfArray<Uint32>(_16EA18_8_pos), LengthOfArray<Uint32>(_16EA18_8_rot) },
+{ _16EA18_9_pos, _16EA18_9_rot, LengthOfArray<Uint32>(_16EA18_9_pos), LengthOfArray<Uint32>(_16EA18_9_rot) },
+{ _16EA18_10_pos, _16EA18_10_rot, LengthOfArray<Uint32>(_16EA18_10_pos), LengthOfArray<Uint32>(_16EA18_10_rot) },
+{ _16EA18_11_pos, _16EA18_11_rot, LengthOfArray<Uint32>(_16EA18_11_pos), LengthOfArray<Uint32>(_16EA18_11_rot) },
+{ _16EA18_12_pos, _16EA18_12_rot, LengthOfArray<Uint32>(_16EA18_12_pos), LengthOfArray<Uint32>(_16EA18_12_rot) },
+{ _16EA18_13_pos, _16EA18_13_rot, LengthOfArray<Uint32>(_16EA18_13_pos), LengthOfArray<Uint32>(_16EA18_13_rot) },
+{ _16EA18_14_pos, _16EA18_14_rot, LengthOfArray<Uint32>(_16EA18_14_pos), LengthOfArray<Uint32>(_16EA18_14_rot) },
+{ _16EA18_15_pos, _16EA18_15_rot, LengthOfArray<Uint32>(_16EA18_15_pos), LengthOfArray<Uint32>(_16EA18_15_rot) },
+{ _16EA18_16_pos, _16EA18_16_rot, LengthOfArray<Uint32>(_16EA18_16_pos), LengthOfArray<Uint32>(_16EA18_16_rot) },
+{ _16EA18_17_pos, _16EA18_17_rot, LengthOfArray<Uint32>(_16EA18_17_pos), LengthOfArray<Uint32>(_16EA18_17_rot) },
+{ _16EA18_18_pos, _16EA18_18_rot, LengthOfArray<Uint32>(_16EA18_18_pos), LengthOfArray<Uint32>(_16EA18_18_rot) },
+{ _16EA18_19_pos, _16EA18_19_rot, LengthOfArray<Uint32>(_16EA18_19_pos), LengthOfArray<Uint32>(_16EA18_19_rot) },
+{ _16EA18_20_pos, _16EA18_20_rot, LengthOfArray<Uint32>(_16EA18_20_pos), LengthOfArray<Uint32>(_16EA18_20_rot) },
+{ _16EA18_21_pos, _16EA18_21_rot, LengthOfArray<Uint32>(_16EA18_21_pos), LengthOfArray<Uint32>(_16EA18_21_rot) },
+{ _16EA18_22_pos, _16EA18_22_rot, LengthOfArray<Uint32>(_16EA18_22_pos), LengthOfArray<Uint32>(_16EA18_22_rot) },
+{ _16EA18_23_pos, _16EA18_23_rot, LengthOfArray<Uint32>(_16EA18_23_pos), LengthOfArray<Uint32>(_16EA18_23_rot) },
+{ _16EA18_24_pos, _16EA18_24_rot, LengthOfArray<Uint32>(_16EA18_24_pos), LengthOfArray<Uint32>(_16EA18_24_rot) },
+{ _16EA18_25_pos, _16EA18_25_rot, LengthOfArray<Uint32>(_16EA18_25_pos), LengthOfArray<Uint32>(_16EA18_25_rot) },
+{ _16EA18_26_pos, _16EA18_26_rot, LengthOfArray<Uint32>(_16EA18_26_pos), LengthOfArray<Uint32>(_16EA18_26_rot) },
+{ _16EA18_27_pos, _16EA18_27_rot, LengthOfArray<Uint32>(_16EA18_27_pos), LengthOfArray<Uint32>(_16EA18_27_rot) },
+{ _16EA18_28_pos, _16EA18_28_rot, LengthOfArray<Uint32>(_16EA18_28_pos), LengthOfArray<Uint32>(_16EA18_28_rot) },
+{ _16EA18_29_pos, _16EA18_29_rot, LengthOfArray<Uint32>(_16EA18_29_pos), LengthOfArray<Uint32>(_16EA18_29_rot) },
+{ _16EA18_30_pos, _16EA18_30_rot, LengthOfArray<Uint32>(_16EA18_30_pos), LengthOfArray<Uint32>(_16EA18_30_rot) },
+{ _16EA18_31_pos, _16EA18_31_rot, LengthOfArray<Uint32>(_16EA18_31_pos), LengthOfArray<Uint32>(_16EA18_31_rot) },
+{ _16EA18_32_pos, _16EA18_32_rot, LengthOfArray<Uint32>(_16EA18_32_pos), LengthOfArray<Uint32>(_16EA18_32_rot) },
+{ _16EA18_33_pos, _16EA18_33_rot, LengthOfArray<Uint32>(_16EA18_33_pos), LengthOfArray<Uint32>(_16EA18_33_rot) },
+{ _16EA18_34_pos, _16EA18_34_rot, LengthOfArray<Uint32>(_16EA18_34_pos), LengthOfArray<Uint32>(_16EA18_34_rot) },
+{ _16EA18_35_pos, _16EA18_35_rot, LengthOfArray<Uint32>(_16EA18_35_pos), LengthOfArray<Uint32>(_16EA18_35_rot) },
+{ _16EA18_36_pos, _16EA18_36_rot, LengthOfArray<Uint32>(_16EA18_36_pos), LengthOfArray<Uint32>(_16EA18_36_rot) }
+};
+
+NJS_MOTION _16EA18 = { _16EA18_mdat, 17, NJD_MTYPE_POS_0 | NJD_MTYPE_ANG_1, 2 };
+
+NJS_ACTION action__16EA18 = { &object_0016D218, &_16EA18 };
+
+//WARA
+
+NJS_MATERIAL matlist_00165CB0[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00165CC4[] = {
+	0x8000u | 7, 5, 2, 1, 0, 4, 2, 5,
+	0x8000u | 5, 5, 1, 3, 4, 5
+};
+
+NJS_TEX uv_00165CE0[] = {
+	{ 21, 234 },
+{ 14, 168 },
+{ 94, 244 },
+{ 6, 116 },
+{ 123, 130 },
+{ 192, 3 },
+{ 251, 60 },
+{ 131, 252 },
+{ 94, 244 },
+{ 205, 238 },
+{ 123, 130 },
+{ 251, 60 }
+};
+
+NJS_MESHSET_SADX meshlist_00165D10[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_00165CC4, NULL, NULL, NULL, uv_00165CE0, NULL }
+};
+
+NJS_VECTOR vertex_00165D28[] = {
+	{ 1.329846f, 0.030771f, -0.013391f },
+{ 0.770092f, -0.73928f, 0.25758f },
+{ 0.456207f, 0.628868f, 0.082913f },
+{ 0.186738f, -0.714896f, -0.116409f },
+{ 0.623029f, -0.114171f, -0.19906f },
+{ -0.117291f, 0.07415f, 0.076616f }
+};
+
+NJS_VECTOR normal_00165D70[] = {
+	{ 0.982559f, 0.172263f, -0.070024f },
+{ 0.40118f, -0.806416f, 0.43445f },
+{ -0.115624f, 0.987959f, 0.1028f },
+{ -0.505926f, -0.785792f, -0.355766f },
+{ 0.088351f, -0.026626f, -0.995733f },
+{ -0.949489f, 0.296937f, 0.101488f }
+};
+
+NJS_MODEL_SADX attach_00165DB8 = { vertex_00165D28, normal_00165D70, LengthOfArray<Sint32>(vertex_00165D28), meshlist_00165D10, matlist_00165CB0, LengthOfArray<Uint16>(meshlist_00165D10), LengthOfArray<Uint16>(matlist_00165CB0),{ 0.6062779f, -0.055206f, 0.02926f }, 0.846851f, NULL };
+
+NJS_OBJECT object_00165DE0 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00165DB8, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_MATERIAL matlist_00165E14[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 3, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00165E28[] = {
+	3, 0, 1, 3,
+	3, 0, 2, 1,
+	3, 0, 3, 2,
+	3, 2, 3, 1
+};
+
+NJS_TEX uv_00165E48[] = {
+	{ 222, 198 },
+{ 11, 167 },
+{ 11, 229 },
+{ 202, 107 },
+{ 17, 79 },
+{ 17, 107 },
+{ 202, 54 },
+{ 202, 107 },
+{ 16, 79 },
+{ 16, 80 },
+{ 202, 53 },
+{ 16, 53 }
+};
+
+NJS_MESHSET_SADX meshlist_00165E78[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 4, poly_00165E28, NULL, NULL, NULL, uv_00165E48, NULL }
+};
+
+NJS_VECTOR vertex_00165E90[] = {
+	{ 1.223294f, 0.093705f, -0.228969f },
+{ -0.38352f, 0.274676f, -0.013875f },
+{ -0.22886f, -0.102465f, -0.013391f },
+{ 1.223294f, 0.093705f, 0.226406f }
+};
+
+NJS_VECTOR normal_00165EC0[] = {
+	{ 0.795987f, 0.008460999f, -0.605254f },
+{ -0.88587f, 0.463893f, -0.006105f },
+{ -0.684966f, -0.728544f, -0.006804f },
+{ 0.7902589f, 0.008371999f, 0.612716f }
+};
+
+NJS_MODEL_SADX attach_00165EF0 = { vertex_00165E90, normal_00165EC0, LengthOfArray<Sint32>(vertex_00165E90), meshlist_00165E78, matlist_00165E14, LengthOfArray<Uint16>(meshlist_00165E78), LengthOfArray<Uint16>(matlist_00165E14),{ 0.419887f, 0.086105f, -0.001281f }, 0.6873749f, NULL };
+
+NJS_OBJECT object_00165F18 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00165EF0, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_00165F4C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 2.036819f, -0.00001f, 0, 0, 0, 0, 1, 1, 1, NULL, &object_00165F18 };
+
+NJS_OBJECT object_00165F80 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 1.265373f, 0, 0, 0, 0, 0xFFFFCB83, 1, 1, 1, &object_00165F4C, &object_00165DE0 };
+
+NJS_OBJECT object_00165FB4 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0xFFFFB910, 1, 1, 1, &object_00165F80, NULL };
+
+NJS_OBJECT object_00165FE8 = { NJD_EVAL_HIDE, NULL, 1.258567f, 0.017047f, -0.727211f, 0, 0, 0xFFFFBFDC, 0.8502f, 0.8502f, 0.8502f, &object_00165FB4, NULL };
+
+NJS_MATERIAL matlist_0016601C[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00166030[] = {
+	6, 1, 3, 0, 2, 1, 3
+};
+
+NJS_TEX uv_00166040[] = {
+	{ 193, 146 },
+{ 109, 240 },
+{ 20, 23 },
+{ 48, 216 },
+{ 18, 248 },
+{ 109, 239 }
+};
+
+NJS_MESHSET_SADX meshlist_00166058[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_00166030, NULL, NULL, NULL, uv_00166040, NULL }
+};
+
+NJS_VECTOR vertex_00166070[] = {
+	{ 0.021149f, -0.02741f, 0.000484f },
+{ 0.996923f, 0.265662f, -0.190818f },
+{ 1.199897f, -0.043555f, 0.248718f },
+{ 1.354834f, 0.006412f, -0.216982f }
+};
+
+NJS_VECTOR normal_001660A0[] = {
+	{ -0.993827f, -0.100665f, 0.046634f },
+{ 0.014773f, 0.883483f, -0.468229f },
+{ 0.467353f, -0.261621f, 0.844474f },
+{ 0.845768f, -0.184925f, -0.500479f }
+};
+
+NJS_MODEL_SADX attach_001660D0 = { vertex_00166070, normal_001660A0, LengthOfArray<Sint32>(vertex_00166070), meshlist_00166058, matlist_0016601C, LengthOfArray<Uint16>(meshlist_00166058), LengthOfArray<Uint16>(matlist_0016601C),{ 0.687991f, 0.111053f, 0.015868f }, 0.5821019f, NULL };
+
+NJS_OBJECT object_001660F8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_001660D0, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_0016612C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 1.467504f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_001660F8 };
+
+NJS_OBJECT object_00166160 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0xFFFFB1F5, 1, 1, 1, &object_0016612C, NULL };
+
+NJS_OBJECT object_00166194 = { NJD_EVAL_HIDE, NULL, 1.636536f, 0.516733f, -0.33572f, 0, 0, 0xFFFFBFDC, 0.8502f, 0.8502f, 0.8502f, &object_00166160, &object_00165FE8 };
+
+NJS_MATERIAL matlist_001661C8[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_001661DC[] = {
+	3, 6, 3, 5,
+	3, 6, 2, 3,
+	3, 2, 6, 1,
+	3, 4, 1, 0,
+	4, 4, 0, 3, 5,
+	3, 1, 4, 2
+};
+
+NJS_TEX uv_00166210[] = {
+	{ 15, 182 },
+{ 106, 237 },
+{ 28, 243 },
+{ 15, 182 },
+{ 106, 237 },
+{ 32, 158 },
+{ 22, 130 },
+{ 143, 248 },
+{ 118, 120 },
+{ 215, 107 },
+{ 90, 23 },
+{ 56, 47 },
+{ 207, 101 },
+{ 118, 120 },
+{ 143, 248 },
+{ 22, 130 },
+{ 207, 101 },
+{ 118, 120 },
+{ 143, 248 }
+};
+
+NJS_MESHSET_SADX meshlist_0016625C[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 6, poly_001661DC, NULL, NULL, NULL, uv_00166210, NULL }
+};
+
+NJS_VECTOR vertex_00166274[] = {
+	{ -0.698277f, 0.06738199f, 0.172633f },
+{ -0.698277f, 0.06738199f, -0.172633f },
+{ 1.178454f, -0.014902f, -0.333756f },
+{ 1.178454f, -0.014902f, 0.333757f },
+{ 1.165211f, 0.416273f, 0.000001f },
+{ -0.19499f, -0.360206f, 0.358692f },
+{ -0.19499f, -0.360206f, -0.358692f }
+};
+
+NJS_VECTOR normal_001662C8[] = {
+	{ -0.158733f, 0.895028f, 0.416808f },
+{ -0.158733f, 0.895028f, -0.416807f },
+{ 0.194988f, -0.347485f, -0.917188f },
+{ 0.194987f, -0.347485f, 0.917188f },
+{ -0.078439f, 0.996919f, 0 },
+{ 0.10748f, -0.360594f, 0.92651f },
+{ 0.10748f, -0.360594f, -0.92651f }
+};
+
+NJS_MODEL_SADX attach_0016631C = { vertex_00166274, normal_001662C8, LengthOfArray<Sint32>(vertex_00166274), meshlist_0016625C, matlist_001661C8, LengthOfArray<Uint16>(meshlist_0016625C), LengthOfArray<Uint16>(matlist_001661C8),{ 0.240088f, 0.028033f, 0 }, 0.862497f, NULL };
+
+NJS_OBJECT object_00166344 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016631C, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_MATERIAL matlist_00166378[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016638C[] = {
+	3, 2, 0, 3,
+	3, 1, 0, 2,
+	3, 3, 0, 1
+};
+
+NJS_TEX uv_001663A4[] = {
+	{ 67, 182 },
+{ 237, 241 },
+{ 93, 111 },
+{ 14, 191 },
+{ 214, 254 },
+{ 10, 248 },
+{ 237, 241 },
+{ 93, 111 },
+{ 67, 182 }
+};
+
+NJS_MESHSET_SADX meshlist_001663C8[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 3, poly_0016638C, NULL, NULL, NULL, uv_001663A4, NULL }
+};
+
+NJS_VECTOR vertex_001663E0[] = {
+	{ 2.686975f, -0.024301f, 0 },
+{ 0.009494999f, -0.042177f, -0.333756f },
+{ 0.009494999f, -0.042177f, 0.333756f },
+{ 0.038821f, 0.394338f, 0 }
+};
+
+NJS_VECTOR normal_00166410[] = {
+	{ 0.99885f, -0.047949f, -0.00004f },
+{ 0.113288f, -0.452397f, -0.884592f },
+{ 0.113287f, -0.452397f, 0.884592f },
+{ 0.156148f, 0.987734f, 0 }
+};
+
+NJS_MODEL_SADX attach_00166440 = { vertex_001663E0, normal_00166410, LengthOfArray<Sint32>(vertex_001663E0), meshlist_001663C8, matlist_00166378, LengthOfArray<Uint16>(meshlist_001663C8), LengthOfArray<Uint16>(matlist_00166378),{ 1.348235f, 0.17608f, 0 }, 1.202244f, NULL };
+
+NJS_OBJECT object_00166468 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00166440, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_0016649C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 2.64228f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_00166468 };
+
+NJS_OBJECT object_001664D0 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 1.139308f, 0, 0, 0, 0, 0x2BAA, 1, 1, 1, &object_0016649C, &object_00166344 };
+
+NJS_OBJECT object_00166504 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0xFFFFD2E3, 1, 1, 1, &object_001664D0, NULL };
+
+NJS_OBJECT object_00166538 = { NJD_EVAL_HIDE, NULL, 0.960358f, -0.495836f, 0, 0, 0, 0xFFFFBFDC, 0.8502f, 0.8502f, 0.8502f, &object_00166504, &object_00166194 };
+
+NJS_MATERIAL matlist_0016656C[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00166580[] = {
+	0x8000u | 5, 5, 4, 3, 1, 5,
+	7, 5, 2, 1, 0, 4, 2, 5
+};
+
+NJS_TEX uv_0016659C[] = {
+	{ 251, 60 },
+{ 123, 130 },
+{ 205, 238 },
+{ 94, 244 },
+{ 131, 252 },
+{ 21, 234 },
+{ 14, 168 },
+{ 94, 244 },
+{ 6, 116 },
+{ 123, 130 },
+{ 192, 3 },
+{ 251, 60 }
+};
+
+NJS_MESHSET_SADX meshlist_001665CC[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_00166580, NULL, NULL, NULL, uv_0016659C, NULL }
+};
+
+NJS_VECTOR vertex_001665E4[] = {
+	{ 1.329846f, 0.030771f, 0.013391f },
+{ 0.770092f, -0.73928f, -0.25758f },
+{ 0.456207f, 0.628868f, -0.082913f },
+{ 0.186738f, -0.714896f, 0.116409f },
+{ 0.623029f, -0.114171f, 0.19906f },
+{ -0.117291f, 0.07415f, -0.076616f }
+};
+
+NJS_VECTOR normal_0016662C[] = {
+	{ 0.982559f, 0.172263f, 0.070024f },
+{ 0.40118f, -0.806416f, -0.43445f },
+{ -0.115624f, 0.987959f, -0.1028f },
+{ -0.505926f, -0.785792f, 0.355766f },
+{ 0.088351f, -0.026626f, 0.995733f },
+{ -0.949489f, 0.296937f, -0.101488f }
+};
+
+NJS_MODEL_SADX attach_00166674 = { vertex_001665E4, normal_0016662C, LengthOfArray<Sint32>(vertex_001665E4), meshlist_001665CC, matlist_0016656C, LengthOfArray<Uint16>(meshlist_001665CC), LengthOfArray<Uint16>(matlist_0016656C),{ 0.6062779f, -0.055206f, -0.02926f }, 0.846851f, NULL };
+
+NJS_OBJECT object_0016669C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00166674, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_MATERIAL matlist_001666D0[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 3, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_001666E4[] = {
+	3, 3, 1, 0,
+	3, 1, 2, 0,
+	4, 1, 3, 2, 0
+};
+
+NJS_TEX uv_00166700[] = {
+	{ 7, 229 },
+{ 11, 167 },
+{ 222, 198 },
+{ 9, 85 },
+{ 10, 121 },
+{ 192, 108 },
+{ 9, 47 },
+{ 192, 54 },
+{ 10, 85 },
+{ 192, 108 }
+};
+
+NJS_MESHSET_SADX meshlist_00166728[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 3, poly_001666E4, NULL, NULL, NULL, uv_00166700, NULL }
+};
+
+NJS_VECTOR vertex_00166740[] = {
+	{ 1.175868f, 0.099404f, 0.211285f },
+{ -0.402204f, 0.27678f, 0.022095f },
+{ -0.22886f, -0.102465f, 0.013391f },
+{ 1.193908f, 0.09737299f, -0.218902f }
+};
+
+NJS_VECTOR normal_00166770[] = {
+	{ 0.789252f, 0.014324f, 0.613902f },
+{ -0.89253f, 0.450567f, 0.019483f },
+{ -0.668801f, -0.743434f, -0.003213f },
+{ 0.800499f, 0.008268f, -0.5992759f }
+};
+
+NJS_MODEL_SADX attach_001667A0 = { vertex_00166740, normal_00166770, LengthOfArray<Sint32>(vertex_00166740), meshlist_00166728, matlist_001666D0, LengthOfArray<Uint16>(meshlist_00166728), LengthOfArray<Uint16>(matlist_001666D0),{ 0.395852f, 0.08715799f, -0.003808f }, 0.68278f, NULL };
+
+NJS_OBJECT object_001667C8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_001667A0, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_001667FC = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 2.036819f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_001667C8 };
+
+NJS_OBJECT object_00166830 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 1.265373f, 0, 0, 0, 0, 0xFFFFCB83, 1, 1, 1, &object_001667FC, &object_0016669C };
+
+NJS_OBJECT object_00166864 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0xFFFFB910, 1, 1, 1, &object_00166830, NULL };
+
+NJS_OBJECT object_00166898 = { NJD_EVAL_HIDE, NULL, 1.258567f, 0.017047f, 0.727211f, 0, 0, 0xFFFFBFDC, 0.8502f, 0.8502f, 0.8502f, &object_00166864, &object_00166538 };
+
+NJS_MATERIAL matlist_001668CC[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_001668E0[] = {
+	0x8000u | 6, 3, 1, 2, 0, 3, 1
+};
+
+NJS_TEX uv_001668F0[] = {
+	{ 109, 239 },
+{ 18, 247 },
+{ 48, 216 },
+{ 20, 23 },
+{ 109, 240 },
+{ 193, 146 }
+};
+
+NJS_MESHSET_SADX meshlist_00166908[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_001668E0, NULL, NULL, NULL, uv_001668F0, NULL }
+};
+
+NJS_VECTOR vertex_00166920[] = {
+	{ 0.021149f, -0.02741f, -0.000484f },
+{ 0.996923f, 0.265662f, 0.190818f },
+{ 1.199897f, -0.043555f, -0.248718f },
+{ 1.354834f, 0.006412f, 0.216982f }
+};
+
+NJS_VECTOR normal_00166950[] = {
+	{ -0.993827f, -0.100665f, -0.046634f },
+{ 0.014773f, 0.883483f, 0.468229f },
+{ 0.467353f, -0.261621f, -0.844474f },
+{ 0.845768f, -0.184925f, 0.500479f }
+};
+
+NJS_MODEL_SADX attach_00166980 = { vertex_00166920, normal_00166950, LengthOfArray<Sint32>(vertex_00166920), meshlist_00166908, matlist_001668CC, LengthOfArray<Uint16>(meshlist_00166908), LengthOfArray<Uint16>(matlist_001668CC),{ 0.687991f, 0.111053f, -0.015868f }, 0.5821019f, NULL };
+
+NJS_OBJECT object_001669A8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00166980, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_001669DC = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 1.467504f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_001669A8 };
+
+NJS_OBJECT object_00166A10 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0xFFFFB1F5, 1, 1, 1, &object_001669DC, NULL };
+
+NJS_OBJECT object_00166A44 = { NJD_EVAL_HIDE, NULL, 1.636536f, 0.516733f, 0.33572f, 0, 0, 0xFFFFBFDC, 0.8502f, 0.8502f, 0.8502f, &object_00166A10, &object_00166898 };
+
+NJS_MATERIAL matlist_00166A78[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 2, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00166A8C[] = {
+	3, 3, 4, 0,
+	5, 0, 2, 3, 1, 4
+};
+
+NJS_TEX uv_00166AA0[] = {
+	{ 105, 108 },
+{ 135, 230 },
+{ 8, 95 },
+{ 8, 95 },
+{ 140, 34 },
+{ 105, 108 },
+{ 233, 109 },
+{ 135, 230 }
+};
+
+NJS_MESHSET_SADX meshlist_00166AC0[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_00166A8C, NULL, NULL, NULL, uv_00166AA0, NULL }
+};
+
+NJS_VECTOR vertex_00166AD8[] = {
+	{ -0.220501f, 0.007382f, -0.051952f },
+{ 1.549968f, -0.048411f, 0.002969f },
+{ 0.803257f, 0.15526f, -0.042566f },
+{ 0.824869f, -0.067503f, 0.253885f },
+{ 0.797869f, -0.419145f, 0.071819f }
+};
+
+NJS_VECTOR normal_00166B14[] = {
+	{ 0.259623f, -0.217998f, -0.940783f },
+{ -0.314273f, -0.215394f, -0.924575f },
+{ -0.018011f, -0.7999499f, -0.599797f },
+{ -0.035021f, -0.183582f, -0.98238f },
+{ 0.014084f, 0.458888f, -0.888383f }
+};
+
+NJS_MODEL_SADX attach_00166B50 = { vertex_00166AD8, normal_00166B14, LengthOfArray<Sint32>(vertex_00166AD8), meshlist_00166AC0, matlist_00166A78, LengthOfArray<Uint16>(meshlist_00166AC0), LengthOfArray<Uint16>(matlist_00166A78),{ 0.6647339f, -0.131942f, 0.100967f }, 0.792736f, NULL };
+
+NJS_OBJECT object_00166B78 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00166B50, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_00166BAC = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 1.5646f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_00166B78 };
+
+NJS_OBJECT object_00166BE0 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0xFFFF8001, 0x8000, 0xFFFFB3ED, 1, 1, 1, &object_00166BAC, NULL };
+
+NJS_OBJECT object_00166C14 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0.327026f, -1.087904f, -0.373945f, 0xFFFFC41D, 0x4000, 0x3BE3, 1, 1, 1, &object_00166BE0, NULL };
+
+NJS_MATERIAL matlist_00166C48[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 2, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00166C5C[] = {
+	3, 0, 4, 3,
+	0x8000u | 5, 0, 2, 3, 1, 4
+};
+
+NJS_TEX uv_00166C70[] = {
+	{ 7, 97 },
+{ 133, 239 },
+{ 121, 112 },
+{ 7, 97 },
+{ 141, 38 },
+{ 121, 112 },
+{ 228, 100 },
+{ 133, 239 }
+};
+
+NJS_MESHSET_SADX meshlist_00166C90[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_00166C5C, NULL, NULL, NULL, uv_00166C70, NULL }
+};
+
+NJS_VECTOR vertex_00166CA8[] = {
+	{ -0.220501f, 0.007382f, 0.051952f },
+{ 1.549968f, -0.048411f, -0.002969f },
+{ 0.803256f, 0.15526f, 0.042565f },
+{ 0.824869f, -0.067503f, -0.253885f },
+{ 0.797869f, -0.419145f, -0.071819f }
+};
+
+NJS_VECTOR normal_00166CE4[] = {
+	{ 0.259623f, -0.217998f, 0.940783f },
+{ -0.314272f, -0.215394f, 0.924575f },
+{ -0.018011f, -0.7999499f, 0.599796f },
+{ -0.035021f, -0.183582f, 0.98238f },
+{ 0.014084f, 0.458888f, 0.888383f }
+};
+
+NJS_MODEL_SADX attach_00166D20 = { vertex_00166CA8, normal_00166CE4, LengthOfArray<Sint32>(vertex_00166CA8), meshlist_00166C90, matlist_00166C48, LengthOfArray<Uint16>(meshlist_00166C90), LengthOfArray<Uint16>(matlist_00166C48),{ 0.664733f, -0.131942f, -0.100967f }, 0.792736f, NULL };
+
+NJS_OBJECT object_00166D48 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00166D20, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_00166D7C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 1.5646f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_00166D48 };
+
+NJS_OBJECT object_00166DB0 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0x33EC, 1, 1, 1, &object_00166D7C, NULL };
+
+NJS_OBJECT object_00166DE4 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0.327026f, -1.087904f, 0.373945f, 0x3BE3, 0xFFFFC000, 0x3BE3, 1, 1, 1, &object_00166DB0, &object_00166C14 };
+
+NJS_MATERIAL matlist_00166E18[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 1, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00166E2C[] = {
+	0x8000u | 5, 1, 0, 10, 2, 6,
+	4, 11, 3, 8, 12,
+	3, 12, 5, 8,
+	0x8000u | 6, 13, 12, 9, 5, 7, 8,
+	0x8000u | 16, 2, 13, 6, 9, 10, 7, 1, 8, 0, 11, 2, 3, 13, 4, 12, 3
+};
+
+NJS_TEX uv_00166E7C[] = {
+	{ 223, 15 },
+{ 194, 37 },
+{ 246, 145 },
+{ 249, 205 },
+{ 174, 254 },
+{ 161, 67 },
+{ 68, 186 },
+{ 40, 7 },
+{ 9, 186 },
+{ 68, 186 },
+{ 161, 67 },
+{ 40, 7 },
+{ 39, 252 },
+{ 68, 186 },
+{ 249, 205 },
+{ 161, 67 },
+{ 194, 37 },
+{ 40, 7 },
+{ 249, 205 },
+{ 39, 252 },
+{ 174, 254 },
+{ 249, 205 },
+{ 246, 145 },
+{ 194, 37 },
+{ 223, 15 },
+{ 40, 7 },
+{ 194, 37 },
+{ 161, 67 },
+{ 249, 205 },
+{ 68, 186 },
+{ 39, 252 },
+{ 38, 207 },
+{ 68, 186 },
+{ 9, 186 }
+};
+
+NJS_MESHSET_SADX meshlist_00166F04[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 5, poly_00166E2C, NULL, NULL, NULL, uv_00166E7C, NULL }
+};
+
+NJS_VECTOR vertex_00166F1C[] = {
+	{ 0.154055f, -0.997823f, -0.589735f },
+{ 0.026515f, -1.165f, 0 },
+{ 0.260294f, -0.229002f, -0.813235f },
+{ 1.603769f, -0.144929f, -0.315827f },
+{ 1.617575f, 0.054325f, 0 },
+{ 0.726603f, -0.896857f, 0.5747949f },
+{ 0.393248f, 0.304549f, -0.00001f },
+{ 0.154055f, -0.997822f, 0.589735f },
+{ 0.9320019f, -1.133357f, 0 },
+{ 0.260294f, -0.229001f, 0.813236f },
+{ -0.292944f, -0.209696f, 0 },
+{ 0.726603f, -0.896858f, -0.5747949f },
+{ 1.603769f, -0.144929f, 0.315826f },
+{ 1.303772f, 0.223779f, 0 }
+};
+
+NJS_VECTOR normal_00166FC4[] = {
+	{ -0.414454f, -0.609117f, -0.676169f },
+{ -0.574048f, -0.818822f, 0.000001f },
+{ -0.280491f, 0.324049f, -0.9035029f },
+{ 0.801084f, 0.08455899f, -0.592548f },
+{ 0.802045f, 0.597264f, 0 },
+{ 0.347884f, -0.5555339f, 0.7552209f },
+{ -0.220389f, 0.975412f, -0.00001f },
+{ -0.414454f, -0.609117f, 0.676169f },
+{ 0.482432f, -0.875933f, 0.000001f },
+{ -0.280491f, 0.32405f, 0.903502f },
+{ -0.950183f, 0.311692f, 0 },
+{ 0.347884f, -0.5555339f, -0.7552209f },
+{ 0.801085f, 0.08455899f, 0.592548f },
+{ 0.272788f, 0.962074f, -0.00001f }
+};
+
+NJS_MODEL_SADX attach_0016706C = { vertex_00166F1C, normal_00166FC4, LengthOfArray<Sint32>(vertex_00166F1C), meshlist_00166F04, matlist_00166E18, LengthOfArray<Uint16>(meshlist_00166F04), LengthOfArray<Uint16>(matlist_00166E18),{ 0.662316f, -0.430226f, 0 }, 1.024601f, NULL };
+
+NJS_OBJECT object_00167094 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016706C, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_00166DE4 };
+
+NJS_OBJECT object_001670C8 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 2.408009f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_00167094 };
+
+NJS_OBJECT object_001670FC = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0xFFFF883A, 1, 1, 1, &object_001670C8, NULL };
+
+NJS_OBJECT object_00167130 = { NJD_EVAL_HIDE, NULL, 2.023038f, 0.196349f, 0, 0, 0, 0xFFFFBFDC, 0.8502f, 0.8502f, 0.8502f, &object_001670FC, &object_00166A44 };
+
+NJS_MATERIAL matlist_00167164[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00167178[] = {
+	7, 11, 8, 10, 5, 4, 3, 13,
+	0x8000u | 5, 2, 9, 1, 7, 12,
+	3, 2, 6, 1,
+	4, 11, 10, 0, 4,
+	13, 0, 7, 11, 12, 8, 6, 5, 2, 3, 9, 13, 7, 0,
+	3, 4, 13, 0
+};
+
+NJS_TEX uv_001671CC[] = {
+	{ 79, 209 },
+{ 135, 75 },
+{ 48, 43 },
+{ 141, 10 },
+{ 9, 11 },
+{ 48, 43 },
+{ 26, 178 },
+{ 135, 75 },
+{ 79, 209 },
+{ 228, 221 },
+{ 67, 250 },
+{ 228, 221 },
+{ 135, 75 },
+{ 245, 164 },
+{ 228, 221 },
+{ 79, 209 },
+{ 48, 43 },
+{ 26, 178 },
+{ 9, 11 },
+{ 26, 178 },
+{ 67, 250 },
+{ 79, 209 },
+{ 228, 221 },
+{ 135, 75 },
+{ 245, 164 },
+{ 141, 10 },
+{ 135, 75 },
+{ 48, 43 },
+{ 79, 209 },
+{ 26, 178 },
+{ 67, 250 },
+{ 2, 177 },
+{ 9, 11 },
+{ 26, 178 },
+{ 2, 177 }
+};
+
+NJS_MESHSET_SADX meshlist_00167258[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 6, poly_00167178, NULL, NULL, NULL, uv_001671CC, NULL }
+};
+
+NJS_VECTOR vertex_00167270[] = {
+	{ 0.487779f, 0.408629f, -0.520835f },
+{ 1.997603f, 0.6361189f, 0.166279f },
+{ 1.382289f, -0.123985f, 0.5496809f },
+{ 0.810379f, -0.31334f, 0.654624f },
+{ 0.538158f, -0.498373f, 0 },
+{ 1.425728f, -0.495998f, 0 },
+{ 2.146818f, 0.339807f, 0 },
+{ 0.931256f, 0.809248f, 0 },
+{ 1.382289f, -0.123985f, -0.5496809f },
+{ 1.010646f, 0.573146f, 0.5496809f },
+{ 0.810379f, -0.31334f, -0.654624f },
+{ 1.010646f, 0.573146f, -0.5496809f },
+{ 1.997603f, 0.6361189f, -0.166279f },
+{ 0.487779f, 0.408628f, 0.520835f }
+};
+
+NJS_VECTOR normal_00167318[] = {
+	{ -0.732585f, 0.353757f, -0.581529f },
+{ 0.45662f, 0.613398f, 0.644392f },
+{ 0.453448f, -0.333338f, 0.826602f },
+{ -0.239152f, -0.528797f, 0.8143589f },
+{ -0.658687f, -0.752417f, 0 },
+{ 0.458584f, -0.888651f, 0 },
+{ 0.925769f, -0.37809f, 0 },
+{ -0.224079f, 0.974571f, 0 },
+{ 0.453447f, -0.333338f, -0.826602f },
+{ 0.017785f, 0.5978529f, 0.801408f },
+{ -0.239152f, -0.528797f, -0.8143589f },
+{ 0.017784f, 0.597854f, -0.801408f },
+{ 0.45662f, 0.613398f, -0.644392f },
+{ -0.732584f, 0.353757f, 0.581529f }
+};
+
+NJS_MODEL_SADX attach_001673C0 = { vertex_00167270, normal_00167318, LengthOfArray<Sint32>(vertex_00167270), meshlist_00167258, matlist_00167164, LengthOfArray<Uint16>(meshlist_00167258), LengthOfArray<Uint16>(matlist_00167164),{ 1.317299f, 0.155438f, 0 }, 1.05671f, NULL };
+
+NJS_OBJECT object_001673E8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_001673C0, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_00167130 };
+
+NJS_OBJECT object_0016741C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 6.018938f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_001673E8 };
+
+NJS_OBJECT object_00167450 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0x4024, 1, 1, 1, &object_0016741C, NULL };
+
+NJS_OBJECT object_00167484 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0x4000, 0, 1, 1, 1, &object_00167450, NULL };
+
+NJS_OBJECT object_001674B8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0, 1, 1, 1, &object_00167484, NULL };
+
+NJS_MKEY_F _169078_0_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_0_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_1_pos[] = {
+	{ 0, -0.032994f, 0.111753f, 0.049712f },
+{ 16, -0.032994f, 0.111753f, 0.049712f }
+};
+
+NJS_MKEY_A _169078_1_rot[] = {
+	{ 0, 0, 0x3FFF, 0 },
+{ 16, 0, 0x3FFF, 0 }
+};
+
+NJS_MKEY_F _169078_2_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_2_rot[] = {
+	{ 0, 0, 0, 0x4024 },
+{ 1, 0, 0, 0x3FFC },
+{ 2, 0, 0, 0x3F94 },
+{ 3, 0, 0, 0x3F01 },
+{ 4, 0, 0, 0x3E58 },
+{ 5, 0, 0, 0x3DAF },
+{ 6, 0, 0, 0x3D1C },
+{ 7, 0, 0, 0x3CB5 },
+{ 8, 0, 0, 0x3C8F },
+{ 9, 0, 0, 0x3CB7 },
+{ 10, 0, 0, 0x3D20 },
+{ 11, 0, 0, 0x3DB3 },
+{ 12, 0, 0, 0x3E5B },
+{ 13, 0, 0, 0x3F03 },
+{ 14, 0, 0, 0x3F95 },
+{ 15, 0, 0, 0x3FFC },
+{ 16, 0, 0, 0x4024 }
+};
+
+NJS_MKEY_F _169078_3_pos[] = {
+	{ 0, 6.018938f, 0, 0 },
+{ 16, 6.018938f, 0, 0 }
+};
+
+NJS_MKEY_A _169078_3_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_4_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_4_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_5_pos[] = {
+	{ 0, 2.025012f, 0.179868f, -0.019222f },
+{ 1, 2.029662f, 0.184403f, -0.019222f },
+{ 2, 2.042163f, 0.196558f, -0.019222f },
+{ 3, 2.060346f, 0.214154f, -0.019222f },
+{ 4, 2.08204f, 0.235016f, -0.019222f },
+{ 5, 2.105075f, 0.256967f, -0.019222f },
+{ 6, 2.12728f, 0.277829f, -0.019222f },
+{ 7, 2.146485f, 0.295425f, -0.019222f },
+{ 8, 2.16052f, 0.30758f, -0.019222f },
+{ 9, 2.167215f, 0.312115f, -0.019222f },
+{ 10, 2.162441f, 0.304789f, -0.019222f },
+{ 11, 2.143464f, 0.285897f, -0.019222f },
+{ 12, 2.115551f, 0.260064f, -0.019222f },
+{ 13, 2.084226f, 0.231919f, -0.019222f },
+{ 14, 2.055012f, 0.206086f, -0.019222f },
+{ 15, 2.033433f, 0.187194f, -0.019222f },
+{ 16, 2.025012f, 0.179868f, -0.019222f }
+};
+
+NJS_MKEY_A _169078_5_rot[] = {
+	{ 0, 0, 0, 0xFFFFBFDC },
+{ 16, 0, 0, 0xFFFFBFDC }
+};
+
+NJS_MKEY_F _169078_6_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_6_rot[] = {
+	{ 0, 0, 0, 0xFFFF961B },
+{ 1, 0, 0, 0xFFFF953C },
+{ 2, 0, 0, 0xFFFF92E5 },
+{ 3, 0, 0, 0xFFFF8F7B },
+{ 4, 0, 0, 0xFFFF8B64 },
+{ 5, 0, 0, 0xFFFF8706 },
+{ 6, 0, 0, 0xFFFF82C8 },
+{ 7, 0, 0, 0xFFFF7F10 },
+{ 8, 0, 0, 0xFFFF7C44 },
+{ 9, 0, 0, 0xFFFF7ACA },
+{ 10, 0, 0, 0xFFFF7B56 },
+{ 11, 0, 0, 0xFFFF7EC9 },
+{ 12, 0, 0, 0xFFFF8427 },
+{ 13, 0, 0, 0xFFFF8A4E },
+{ 14, 0, 0, 0xFFFF901B },
+{ 15, 0, 0, 0xFFFF946A },
+{ 16, 0, 0, 0xFFFF961B }
+};
+
+NJS_MKEY_F _169078_7_pos[] = {
+	{ 0, 2.408009f, 0, 0 },
+{ 16, 2.408009f, 0, 0 }
+};
+
+NJS_MKEY_A _169078_7_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_8_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_8_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_9_pos[] = {
+	{ 0, 0.327026f, -1.087904f, 0.373945f },
+{ 16, 0.327026f, -1.087904f, 0.373945f }
+};
+
+NJS_MKEY_A _169078_9_rot[] = {
+	{ 0, 0x3BE3, 0xFFFFC001, 0x3BE3 },
+{ 16, 0x3BE3, 0xFFFFC001, 0x3BE3 }
+};
+
+NJS_MKEY_F _169078_10_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_10_rot[] = {
+	{ 0, 0, 0xFFFFEE7C, 0x4030 },
+{ 1, 0xFFFFFF9F, 0xFFFFEFF8, 0x3EFB },
+{ 2, 0xFFFFFE9E, 0xFFFFF3E5, 0x3BCB },
+{ 3, 0xFFFFFD33, 0xFFFFF971, 0x374A },
+{ 4, 0xFFFFFB92, 0xFFFFFFCD, 0x3220 },
+{ 5, 0xFFFFF9F2, 0x627, 0x2CF5 },
+{ 6, 0xFFFFF887, 0xBB3, 0x2872 },
+{ 7, 0xFFFFF786, 0xFA0, 0x253E },
+{ 8, 0xFFFFF724, 0x111D, 0x2404 },
+{ 9, 0xFFFFF786, 0xFA0, 0x2535 },
+{ 10, 0xFFFFF887, 0xBB3, 0x2863 },
+{ 11, 0xFFFFF9F2, 0x627, 0x2CE6 },
+{ 12, 0xFFFFFB92, 0xFFFFFFCD, 0x3213 },
+{ 13, 0xFFFFFD33, 0xFFFFF971, 0x3741 },
+{ 14, 0xFFFFFE9E, 0xFFFFF3E5, 0x3BC6 },
+{ 15, 0xFFFFFF9F, 0xFFFFEFF8, 0x3EF9 },
+{ 16, 0, 0xFFFFEE7C, 0x4030 }
+};
+
+NJS_MKEY_F _169078_11_pos[] = {
+	{ 0, 1.5646f, 0, 0 },
+{ 16, 1.5646f, 0, 0 }
+};
+
+NJS_MKEY_A _169078_11_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_12_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_12_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_13_pos[] = {
+	{ 0, 0.327026f, -1.087904f, -0.373945f },
+{ 16, 0.327026f, -1.087904f, -0.373945f }
+};
+
+NJS_MKEY_A _169078_13_rot[] = {
+	{ 0, 0xFFFFC41D, 0x3FFF, 0x3BE3 },
+{ 16, 0xFFFFC41D, 0x3FFF, 0x3BE3 }
+};
+
+NJS_MKEY_F _169078_14_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_14_rot[] = {
+	{ 0, 0xFFFF8001, 0x6E7A, 0xFFFFC031 },
+{ 1, 0xFFFF8062, 0x6FF2, 0xFFFFBEEF },
+{ 2, 0xFFFF8162, 0x73D2, 0xFFFFBB9C },
+{ 3, 0xFFFF82CC, 0x794B, 0xFFFFB6EC },
+{ 4, 0xFFFF846A, 0x7F92, 0xFFFFB18E },
+{ 5, 0xFFFF8609, 0x85D9, 0xFFFFAC33 },
+{ 6, 0xFFFF8772, 0x8B53, 0xFFFFA78D },
+{ 7, 0xFFFF8872, 0x8F32, 0xFFFFA44B },
+{ 8, 0xFFFF88D3, 0x90AA, 0xFFFFA321 },
+{ 9, 0xFFFF8872, 0x8F32, 0xFFFFA474 },
+{ 10, 0xFFFF8772, 0x8B53, 0xFFFFA7C9 },
+{ 11, 0xFFFF8609, 0x85D9, 0xFFFFAC72 },
+{ 12, 0xFFFF846A, 0x7F92, 0xFFFFB1C3 },
+{ 13, 0xFFFF82CC, 0x794B, 0xFFFFB712 },
+{ 14, 0xFFFF8162, 0x73D2, 0xFFFFBBB1 },
+{ 15, 0xFFFF8062, 0x6FF2, 0xFFFFBEF4 },
+{ 16, 0xFFFF8001, 0x6E7A, 0xFFFFC031 }
+};
+
+NJS_MKEY_F _169078_15_pos[] = {
+	{ 0, 1.5646f, 0, 0 },
+{ 16, 1.5646f, 0, 0 }
+};
+
+NJS_MKEY_A _169078_15_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_16_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_16_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_17_pos[] = {
+	{ 0, 1.719506f, 0.349333f, 0.250452f },
+{ 1, 1.708756f, 0.355355f, 0.255619f },
+{ 2, 1.680416f, 0.371229f, 0.269241f },
+{ 3, 1.640348f, 0.393672f, 0.288505f },
+{ 4, 1.594418f, 0.419399f, 0.310598f },
+{ 5, 1.548487f, 0.445126f, 0.332703f },
+{ 6, 1.50842f, 0.467569f, 0.352008f },
+{ 7, 1.480079f, 0.483443f, 0.365698f },
+{ 8, 1.469329f, 0.489465f, 0.370958f },
+{ 9, 1.480079f, 0.483443f, 0.365864f },
+{ 10, 1.50842f, 0.467569f, 0.352251f },
+{ 11, 1.548487f, 0.445126f, 0.332957f },
+{ 12, 1.594418f, 0.419399f, 0.310814f },
+{ 13, 1.640348f, 0.393672f, 0.288658f },
+{ 14, 1.680416f, 0.371229f, 0.269322f },
+{ 15, 1.708756f, 0.355355f, 0.255642f },
+{ 16, 1.719506f, 0.349333f, 0.250452f }
+};
+
+NJS_MKEY_A _169078_17_rot[] = {
+	{ 0, 0, 0, 0xFFFFBFDC },
+{ 16, 0, 0, 0xFFFFBFDC }
+};
+
+NJS_MKEY_F _169078_18_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_18_rot[] = {
+	{ 0, 0, 0, 0xFFFF949F },
+{ 1, 0, 0xFFFFFF76, 0xFFFF9CB4 },
+{ 2, 0, 0xFFFFFE08, 0xFFFFA4DA },
+{ 3, 0, 0xFFFFFC04, 0xFFFFAC70 },
+{ 4, 0, 0xFFFFF9B4, 0xFFFFB2D1 },
+{ 5, 0, 0xFFFFF764, 0xFFFFB75C },
+{ 6, 0, 0xFFFFF561, 0xFFFFB96D },
+{ 7, 0, 0xFFFFF3F6, 0xFFFFB861 },
+{ 8, 0, 0xFFFFF36F, 0xFFFFB396 },
+{ 9, 0, 0xFFFFF3FD, 0xFFFFACFD },
+{ 10, 0, 0xFFFFF56B, 0xFFFFA702 },
+{ 11, 0, 0xFFFFF76E, 0xFFFFA1BA },
+{ 12, 0, 0xFFFFF9BC, 0xFFFF9D39 },
+{ 13, 0, 0xFFFFFC0A, 0xFFFF9995 },
+{ 14, 0, 0xFFFFFE0B, 0xFFFF96E1 },
+{ 15, 0, 0xFFFFFF77, 0xFFFF9533 },
+{ 16, 0, 0, 0xFFFF949F }
+};
+
+NJS_MKEY_F _169078_19_pos[] = {
+	{ 0, 1.467504f, 0, 0 },
+{ 16, 1.467504f, 0, 0 }
+};
+
+NJS_MKEY_A _169078_19_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_20_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_20_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_21_pos[] = {
+	{ 0, 1.258567f, 0.017047f, 0.727211f },
+{ 16, 1.258567f, 0.017047f, 0.727211f }
+};
+
+NJS_MKEY_A _169078_21_rot[] = {
+	{ 0, 0, 0, 0xFFFFBFDC },
+{ 16, 0, 0, 0xFFFFBFDC }
+};
+
+NJS_MKEY_F _169078_22_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_22_rot[] = {
+	{ 0, 0, 0, 0xFFFFB910 },
+{ 1, 0, 0, 0xFFFFAFC2 },
+{ 2, 0, 0, 0xFFFFB98E },
+{ 3, 0, 0, 0xFFFFC6B7 },
+{ 4, 0, 0, 0xFFFFCE8A },
+{ 5, 0, 0, 0xFFFFD360 },
+{ 6, 0, 0, 0xFFFFD60E },
+{ 7, 0, 0, 0xFFFFD769 },
+{ 8, 0, 0, 0xFFFFD845 },
+{ 9, 0, 0, 0xFFFFD95D },
+{ 10, 0, 0, 0xFFFFDA66 },
+{ 11, 0, 0, 0xFFFFDAB1 },
+{ 12, 0, 0, 0xFFFFD98F },
+{ 13, 0, 0, 0xFFFFD650 },
+{ 14, 0, 0, 0xFFFFD045 },
+{ 15, 0, 0, 0xFFFFC6C0 },
+{ 16, 0, 0, 0xFFFFB910 }
+};
+
+NJS_MKEY_F _169078_23_pos[] = {
+	{ 0, 1.265373f, 0, 0 },
+{ 16, 1.265373f, 0, 0 }
+};
+
+NJS_MKEY_A _169078_23_rot[] = {
+	{ 0, 0, 0, 0xFFFFCB83 },
+{ 1, 0, 0, 0xFFFFD652 },
+{ 2, 0, 0, 0xFFFFEAFB },
+{ 3, 0, 0, 0xFFFFF7D8 },
+{ 4, 0, 0, 0xFFFFF892 },
+{ 5, 0, 0, 0xFFFFF945 },
+{ 6, 0, 0, 0xFFFFF960 },
+{ 7, 0, 0, 0xFFFFF82F },
+{ 8, 0, 0, 0xFFFFF4FB },
+{ 9, 0, 0, 0xFFFFEFCB },
+{ 10, 0, 0, 0xFFFFE97F },
+{ 11, 0, 0, 0xFFFFE2A6 },
+{ 12, 0, 0, 0xFFFFDBCC },
+{ 13, 0, 0, 0xFFFFD581 },
+{ 14, 0, 0, 0xFFFFD053 },
+{ 15, 0, 0, 0xFFFFCCCF },
+{ 16, 0, 0, 0xFFFFCB83 }
+};
+
+NJS_MKEY_F _169078_24_pos[] = {
+	{ 0, 2.036819f, 0, 0 },
+{ 16, 2.036819f, 0, 0 }
+};
+
+NJS_MKEY_A _169078_24_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_25_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_25_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_26_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_26_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_27_pos[] = {
+	{ 0, 0.960358f, -0.495836f, 0 },
+{ 16, 0.960358f, -0.495836f, 0 }
+};
+
+NJS_MKEY_A _169078_27_rot[] = {
+	{ 0, 0, 0, 0xFFFFBFDC },
+{ 16, 0, 0, 0xFFFFBFDC }
+};
+
+NJS_MKEY_F _169078_28_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_28_rot[] = {
+	{ 0, 0, 0, 0xFFFFD7EE },
+{ 1, 0, 0, 0xFFFFD4DC },
+{ 2, 0, 0, 0xFFFFD34A },
+{ 3, 0, 0, 0xFFFFD236 },
+{ 4, 0, 0, 0xFFFFD1CF },
+{ 5, 0, 0, 0xFFFFD242 },
+{ 6, 0, 0, 0xFFFFD3BD },
+{ 7, 0, 0, 0xFFFFD670 },
+{ 8, 0, 0, 0xFFFFDA87 },
+{ 9, 0, 0, 0xFFFFE1CA },
+{ 10, 0, 0, 0xFFFFEC96 },
+{ 11, 0, 0, 0xFFFFF5FE },
+{ 12, 0, 0, 0xFFFFF8FC },
+{ 13, 0, 0, 0xFFFFF335 },
+{ 14, 0, 0, 0xFFFFE9E8 },
+{ 15, 0, 0, 0xFFFFDFEE },
+{ 16, 0, 0, 0xFFFFD7EE }
+};
+
+NJS_MKEY_F _169078_29_pos[] = {
+	{ 0, 1.139308f, 0, 0 },
+{ 16, 1.139308f, 0, 0 }
+};
+
+NJS_MKEY_A _169078_29_rot[] = {
+	{ 0, 0, 0, 0x2D8A },
+{ 1, 0, 0, 0x2BF2 },
+{ 2, 0, 0, 0x2913 },
+{ 3, 0, 0, 0x221A },
+{ 4, 0, 0, 0x1960 },
+{ 5, 0, 0, 0x1188 },
+{ 6, 0, 0, 0xD33 },
+{ 7, 0, 0, 0xEE2 },
+{ 8, 0, 0, 0x1365 },
+{ 9, 0, 0, 0x1831 },
+{ 10, 0, 0, 0x1D09 },
+{ 11, 0, 0, 0x21AF },
+{ 12, 0, 0, 0x25E5 },
+{ 13, 0, 0, 0x296D },
+{ 14, 0, 0, 0x2C0A },
+{ 15, 0, 0, 0x2D7E },
+{ 16, 0, 0, 0x2D8A }
+};
+
+NJS_MKEY_F _169078_30_pos[] = {
+	{ 0, 2.64228f, 0, 0 },
+{ 16, 2.64228f, 0, 0 }
+};
+
+NJS_MKEY_A _169078_30_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_31_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_31_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_32_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_32_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_33_pos[] = {
+	{ 0, 1.719506f, 0.349333f, -0.250452f },
+{ 1, 1.708756f, 0.355354f, -0.25467f },
+{ 2, 1.680416f, 0.371228f, -0.265807f },
+{ 3, 1.640348f, 0.393671f, -0.281588f },
+{ 4, 1.594418f, 0.419397f, -0.299737f },
+{ 5, 1.548487f, 0.445124f, -0.317979f },
+{ 6, 1.50842f, 0.467566f, -0.334039f },
+{ 7, 1.480079f, 0.48344f, -0.345641f },
+{ 8, 1.469329f, 0.489461f, -0.350509f },
+{ 9, 1.480079f, 0.48344f, -0.346814f },
+{ 10, 1.50842f, 0.467566f, -0.335763f },
+{ 11, 1.548487f, 0.445124f, -0.319776f },
+{ 12, 1.594418f, 0.419397f, -0.301271f },
+{ 13, 1.640348f, 0.393671f, -0.282666f },
+{ 14, 1.680416f, 0.371228f, -0.266382f },
+{ 15, 1.708756f, 0.355354f, -0.254838f },
+{ 16, 1.719506f, 0.349333f, -0.250452f }
+};
+
+NJS_MKEY_A _169078_33_rot[] = {
+	{ 0, 0, 0, 0xFFFFBFDC },
+{ 16, 0, 0, 0xFFFFBFDC }
+};
+
+NJS_MKEY_F _169078_34_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_34_rot[] = {
+	{ 0, 0, 0, 0xFFFF949F },
+{ 1, 0, 0x90, 0xFFFF9CB9 },
+{ 2, 0, 0x20C, 0xFFFFA4E2 },
+{ 3, 0, 0x423, 0xFFFFAC78 },
+{ 4, 0, 0x684, 0xFFFFB2D8 },
+{ 5, 0, 0x8E1, 0xFFFFB761 },
+{ 6, 0, 0xAE7, 0xFFFFB96F },
+{ 7, 0, 0xC48, 0xFFFFB862 },
+{ 8, 0, 0xCB3, 0xFFFFB396 },
+{ 9, 0, 0xC09, 0xFFFFACFD },
+{ 10, 0, 0xA8B, 0xFFFFA702 },
+{ 11, 0, 0x880, 0xFFFFA1BA },
+{ 12, 0, 0x632, 0xFFFF9D3A },
+{ 13, 0, 0x3E9, 0xFFFF9995 },
+{ 14, 0, 0x1ED, 0xFFFF96E1 },
+{ 15, 0, 0x87, 0xFFFF9533 },
+{ 16, 0, 0, 0xFFFF949F }
+};
+
+NJS_MKEY_F _169078_35_pos[] = {
+	{ 0, 1.467504f, 0, 0 },
+{ 16, 1.467504f, 0, 0 }
+};
+
+NJS_MKEY_A _169078_35_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_36_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_36_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_37_pos[] = {
+	{ 0, 1.258567f, 0.017047f, -0.727211f },
+{ 16, 1.258567f, 0.017047f, -0.727211f }
+};
+
+NJS_MKEY_A _169078_37_rot[] = {
+	{ 0, 0, 0, 0xFFFFBFDC },
+{ 16, 0, 0, 0xFFFFBFDC }
+};
+
+NJS_MKEY_F _169078_38_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_38_rot[] = {
+	{ 0, 0, 0, 0xFFFFB910 },
+{ 1, 0, 0, 0xFFFFAFC3 },
+{ 2, 0, 0, 0xFFFFB98F },
+{ 3, 0, 0, 0xFFFFC6B7 },
+{ 4, 0, 0, 0xFFFFCE8F },
+{ 5, 0, 0, 0xFFFFD372 },
+{ 6, 0, 0, 0xFFFFD62F },
+{ 7, 0, 0, 0xFFFFD795 },
+{ 8, 0, 0, 0xFFFFD874 },
+{ 9, 0, 0, 0xFFFFD985 },
+{ 10, 0, 0, 0xFFFFDA8A },
+{ 11, 0, 0, 0xFFFFDAD2 },
+{ 12, 0, 0, 0xFFFFD9AD },
+{ 13, 0, 0, 0xFFFFD66B },
+{ 14, 0, 0, 0xFFFFD05B },
+{ 15, 0, 0, 0xFFFFC6CD },
+{ 16, 0, 0, 0xFFFFB910 }
+};
+
+NJS_MKEY_F _169078_39_pos[] = {
+	{ 0, 1.265373f, 0, 0 },
+{ 16, 1.265373f, 0, 0 }
+};
+
+NJS_MKEY_A _169078_39_rot[] = {
+	{ 0, 0, 0, 0xFFFFCB83 },
+{ 1, 0, 0, 0xFFFFD69C },
+{ 2, 0, 0, 0xFFFFEB96 },
+{ 3, 0, 0, 0xFFFFF7F5 },
+{ 4, 0, 0, 0xFFFFF87A },
+{ 5, 0, 0, 0xFFFFF8DC },
+{ 6, 0, 0, 0xFFFFF8B3 },
+{ 7, 0, 0, 0xFFFFF78E },
+{ 8, 0, 0, 0xFFFFF4FB },
+{ 9, 0, 0, 0xFFFFF091 },
+{ 10, 0, 0, 0xFFFFEAA2 },
+{ 11, 0, 0, 0xFFFFE3D4 },
+{ 12, 0, 0, 0xFFFFDCCF },
+{ 13, 0, 0, 0xFFFFD637 },
+{ 14, 0, 0, 0xFFFFD0B4 },
+{ 15, 0, 0, 0xFFFFCCEB },
+{ 16, 0, 0, 0xFFFFCB83 }
+};
+
+NJS_MKEY_F _169078_40_pos[] = {
+	{ 0, 2.036819f, -0.00001f, 0 },
+{ 16, 2.036819f, -0.00001f, 0 }
+};
+
+NJS_MKEY_A _169078_40_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_41_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_41_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _169078_42_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _169078_42_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MDATA2 _169078_mdat[] = {
+	{ _169078_0_pos, _169078_0_rot, LengthOfArray<Uint32>(_169078_0_pos), LengthOfArray<Uint32>(_169078_0_rot) },
+{ _169078_1_pos, _169078_1_rot, LengthOfArray<Uint32>(_169078_1_pos), LengthOfArray<Uint32>(_169078_1_rot) },
+{ _169078_2_pos, _169078_2_rot, LengthOfArray<Uint32>(_169078_2_pos), LengthOfArray<Uint32>(_169078_2_rot) },
+{ _169078_3_pos, _169078_3_rot, LengthOfArray<Uint32>(_169078_3_pos), LengthOfArray<Uint32>(_169078_3_rot) },
+{ _169078_4_pos, _169078_4_rot, LengthOfArray<Uint32>(_169078_4_pos), LengthOfArray<Uint32>(_169078_4_rot) },
+{ _169078_5_pos, _169078_5_rot, LengthOfArray<Uint32>(_169078_5_pos), LengthOfArray<Uint32>(_169078_5_rot) },
+{ _169078_6_pos, _169078_6_rot, LengthOfArray<Uint32>(_169078_6_pos), LengthOfArray<Uint32>(_169078_6_rot) },
+{ _169078_7_pos, _169078_7_rot, LengthOfArray<Uint32>(_169078_7_pos), LengthOfArray<Uint32>(_169078_7_rot) },
+{ _169078_8_pos, _169078_8_rot, LengthOfArray<Uint32>(_169078_8_pos), LengthOfArray<Uint32>(_169078_8_rot) },
+{ _169078_9_pos, _169078_9_rot, LengthOfArray<Uint32>(_169078_9_pos), LengthOfArray<Uint32>(_169078_9_rot) },
+{ _169078_10_pos, _169078_10_rot, LengthOfArray<Uint32>(_169078_10_pos), LengthOfArray<Uint32>(_169078_10_rot) },
+{ _169078_11_pos, _169078_11_rot, LengthOfArray<Uint32>(_169078_11_pos), LengthOfArray<Uint32>(_169078_11_rot) },
+{ _169078_12_pos, _169078_12_rot, LengthOfArray<Uint32>(_169078_12_pos), LengthOfArray<Uint32>(_169078_12_rot) },
+{ _169078_13_pos, _169078_13_rot, LengthOfArray<Uint32>(_169078_13_pos), LengthOfArray<Uint32>(_169078_13_rot) },
+{ _169078_14_pos, _169078_14_rot, LengthOfArray<Uint32>(_169078_14_pos), LengthOfArray<Uint32>(_169078_14_rot) },
+{ _169078_15_pos, _169078_15_rot, LengthOfArray<Uint32>(_169078_15_pos), LengthOfArray<Uint32>(_169078_15_rot) },
+{ _169078_16_pos, _169078_16_rot, LengthOfArray<Uint32>(_169078_16_pos), LengthOfArray<Uint32>(_169078_16_rot) },
+{ _169078_17_pos, _169078_17_rot, LengthOfArray<Uint32>(_169078_17_pos), LengthOfArray<Uint32>(_169078_17_rot) },
+{ _169078_18_pos, _169078_18_rot, LengthOfArray<Uint32>(_169078_18_pos), LengthOfArray<Uint32>(_169078_18_rot) },
+{ _169078_19_pos, _169078_19_rot, LengthOfArray<Uint32>(_169078_19_pos), LengthOfArray<Uint32>(_169078_19_rot) },
+{ _169078_20_pos, _169078_20_rot, LengthOfArray<Uint32>(_169078_20_pos), LengthOfArray<Uint32>(_169078_20_rot) },
+{ _169078_21_pos, _169078_21_rot, LengthOfArray<Uint32>(_169078_21_pos), LengthOfArray<Uint32>(_169078_21_rot) },
+{ _169078_22_pos, _169078_22_rot, LengthOfArray<Uint32>(_169078_22_pos), LengthOfArray<Uint32>(_169078_22_rot) },
+{ _169078_23_pos, _169078_23_rot, LengthOfArray<Uint32>(_169078_23_pos), LengthOfArray<Uint32>(_169078_23_rot) },
+{ _169078_24_pos, _169078_24_rot, LengthOfArray<Uint32>(_169078_24_pos), LengthOfArray<Uint32>(_169078_24_rot) },
+{ _169078_25_pos, _169078_25_rot, LengthOfArray<Uint32>(_169078_25_pos), LengthOfArray<Uint32>(_169078_25_rot) },
+{ _169078_26_pos, _169078_26_rot, LengthOfArray<Uint32>(_169078_26_pos), LengthOfArray<Uint32>(_169078_26_rot) },
+{ _169078_27_pos, _169078_27_rot, LengthOfArray<Uint32>(_169078_27_pos), LengthOfArray<Uint32>(_169078_27_rot) },
+{ _169078_28_pos, _169078_28_rot, LengthOfArray<Uint32>(_169078_28_pos), LengthOfArray<Uint32>(_169078_28_rot) },
+{ _169078_29_pos, _169078_29_rot, LengthOfArray<Uint32>(_169078_29_pos), LengthOfArray<Uint32>(_169078_29_rot) },
+{ _169078_30_pos, _169078_30_rot, LengthOfArray<Uint32>(_169078_30_pos), LengthOfArray<Uint32>(_169078_30_rot) },
+{ _169078_31_pos, _169078_31_rot, LengthOfArray<Uint32>(_169078_31_pos), LengthOfArray<Uint32>(_169078_31_rot) },
+{ _169078_32_pos, _169078_32_rot, LengthOfArray<Uint32>(_169078_32_pos), LengthOfArray<Uint32>(_169078_32_rot) },
+{ _169078_33_pos, _169078_33_rot, LengthOfArray<Uint32>(_169078_33_pos), LengthOfArray<Uint32>(_169078_33_rot) },
+{ _169078_34_pos, _169078_34_rot, LengthOfArray<Uint32>(_169078_34_pos), LengthOfArray<Uint32>(_169078_34_rot) },
+{ _169078_35_pos, _169078_35_rot, LengthOfArray<Uint32>(_169078_35_pos), LengthOfArray<Uint32>(_169078_35_rot) },
+{ _169078_36_pos, _169078_36_rot, LengthOfArray<Uint32>(_169078_36_pos), LengthOfArray<Uint32>(_169078_36_rot) },
+{ _169078_37_pos, _169078_37_rot, LengthOfArray<Uint32>(_169078_37_pos), LengthOfArray<Uint32>(_169078_37_rot) },
+{ _169078_38_pos, _169078_38_rot, LengthOfArray<Uint32>(_169078_38_pos), LengthOfArray<Uint32>(_169078_38_rot) },
+{ _169078_39_pos, _169078_39_rot, LengthOfArray<Uint32>(_169078_39_pos), LengthOfArray<Uint32>(_169078_39_rot) },
+{ _169078_40_pos, _169078_40_rot, LengthOfArray<Uint32>(_169078_40_pos), LengthOfArray<Uint32>(_169078_40_rot) },
+{ _169078_41_pos, _169078_41_rot, LengthOfArray<Uint32>(_169078_41_pos), LengthOfArray<Uint32>(_169078_41_rot) },
+{ _169078_42_pos, _169078_42_rot, LengthOfArray<Uint32>(_169078_42_pos), LengthOfArray<Uint32>(_169078_42_rot) }
+};
+
+NJS_MOTION _169078 = { _169078_mdat, 17, NJD_MTYPE_POS_0 | NJD_MTYPE_ANG_1, 2 };
+
+NJS_ACTION action__169078 = { &object_001674B8, &_169078 };
+
+//KOAR
+
+
+NJS_MATERIAL matlist_00162F08[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 3, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00162F1C[] = {
+	12, 7, 5, 1, 3, 8, 4, 2, 11, 10, 7, 0, 1,
+	3, 6, 10, 0,
+	3, 2, 10, 6,
+	0x8000u | 5, 4, 11, 9, 7, 5,
+	3, 3, 5, 9,
+	0x8000u | 5, 2, 8, 6, 1, 0
+};
+
+NJS_TEX uv_00162F68[] = {
+	{ 206, 62 },
+{ 107, 30 },
+{ 141, 96 },
+{ 71, 55 },
+{ 78, 125 },
+{ 7, 42 },
+{ 14, 216 },
+{ 78, 125 },
+{ 103, 189 },
+{ 141, 96 },
+{ 174, 189 },
+{ 206, 62 },
+{ 103, 189 },
+{ 90, 250 },
+{ 174, 189 },
+{ 14, 216 },
+{ 103, 189 },
+{ 90, 250 },
+{ 7, 42 },
+{ 78, 125 },
+{ 71, 55 },
+{ 141, 96 },
+{ 107, 30 },
+{ 71, 55 },
+{ 107, 30 },
+{ 33, 14 },
+{ 14, 216 },
+{ 78, 125 },
+{ 103, 189 },
+{ 141, 96 },
+{ 174, 189 }
+};
+
+NJS_MESHSET_SADX meshlist_00162FE4[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 6, poly_00162F1C, NULL, NULL, NULL, uv_00162F68, NULL }
+};
+
+NJS_VECTOR vertex_00162FFC[] = {
+	{ 0.010731f, -0.634109f, 0 },
+{ 0.391229f, -1.256141f, 0.590266f },
+{ 0.79304f, 0.5742429f, 0 },
+{ 2.180487f, -0.252639f, 0.292772f },
+{ 2.901658f, 0.06621099f, 0 },
+{ 1.19972f, -1.244382f, 0 },
+{ 0.176208f, 0.191115f, 0.590266f },
+{ 0.391229f, -1.256141f, -0.590266f },
+{ 1.279134f, 0.093075f, 0.806937f },
+{ 2.180487f, -0.252639f, -0.292772f },
+{ 0.176208f, 0.191115f, -0.590266f },
+{ 1.279134f, 0.093075f, -0.806936f }
+};
+
+NJS_VECTOR normal_0016308C[] = {
+	{ -0.985721f, -0.168389f, 0 },
+{ -0.348785f, -0.6955799f, 0.628106f },
+{ -0.073162f, 0.99732f, 0 },
+{ 0.560507f, -0.440593f, 0.70122f },
+{ 0.603905f, 0.797056f, 0 },
+{ 0.466083f, -0.8847409f, 0 },
+{ -0.641814f, 0.47578f, 0.601422f },
+{ -0.348785f, -0.6955799f, -0.628107f },
+{ 0.199434f, 0.353368f, 0.913979f },
+{ 0.560507f, -0.440593f, -0.70122f },
+{ -0.641814f, 0.47578f, -0.601422f },
+{ 0.199434f, 0.353368f, -0.913979f }
+};
+
+NJS_MODEL_SADX attach_0016311C = { vertex_00162FFC, normal_0016308C, LengthOfArray<Sint32>(vertex_00162FFC), meshlist_00162FE4, matlist_00162F08, LengthOfArray<Uint16>(meshlist_00162FE4), LengthOfArray<Uint16>(matlist_00162F08),{ 1.456194f, -0.340949f, 0 }, 1.71083f, NULL };
+
+NJS_OBJECT object_00163144 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0016311C, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_MATERIAL matlist_00163178[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 3, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016318C[] = {
+	3, 0, 4, 5,
+	0x8000u | 6, 5, 0, 6, 2, 1, 3,
+	7, 6, 5, 1, 4, 3, 0, 2
+};
+
+NJS_TEX uv_001631B4[] = {
+	{ 149, 113 },
+{ 78, 163 },
+{ 129, 247 },
+{ 81, 145 },
+{ 172, 151 },
+{ 117, 248 },
+{ 107, 131 },
+{ 61, 180 },
+{ 17, 93 },
+{ 31, 223 },
+{ 129, 247 },
+{ 12, 152 },
+{ 78, 164 },
+{ 17, 93 },
+{ 149, 113 },
+{ 124, 15 }
+};
+
+NJS_MESHSET_SADX meshlist_001631F4[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 3, poly_0016318C, NULL, NULL, NULL, uv_001631B4, NULL }
+};
+
+NJS_VECTOR vertex_0016320C[] = {
+	{ -0.176633f, -0.156418f, 0.266588f },
+{ -0.123057f, 0.389871f, -0.31914f },
+{ -0.14589f, 0.45752f, 0.151018f },
+{ -0.449347f, -0.026045f, -0.020033f },
+{ -0.186071f, -0.504869f, -0.020033f },
+{ 0.361707f, -0.604426f, -0.08540799f },
+{ 0.70899f, 0.194404f, -0.085407f }
+};
+
+NJS_VECTOR normal_00163260[] = {
+	{ -0.246758f, -0.201072f, 0.947987f },
+{ -0.262351f, 0.575166f, -0.7748269f },
+{ -0.254916f, 0.796255f, 0.548632f },
+{ -0.993019f, -0.063338f, -0.09950799f },
+{ -0.501022f, -0.8576519f, -0.115803f },
+{ 0.503299f, -0.855464f, -0.121947f },
+{ 0.958003f, 0.282055f, -0.051717f }
+};
+
+NJS_MODEL_SADX attach_001632B4 = { vertex_0016320C, normal_00163260, LengthOfArray<Sint32>(vertex_0016320C), meshlist_001631F4, matlist_00163178, LengthOfArray<Uint16>(meshlist_001631F4), LengthOfArray<Uint16>(matlist_00163178),{ 0.129821f, -0.07345299f, -0.026276f }, 0.785728f, NULL };
+
+NJS_OBJECT object_001632DC = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_001632B4, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_MATERIAL matlist_00163310[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 2, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00163324[] = {
+	3, 3, 1, 0,
+	0x8000u | 5, 3, 1, 2, 0, 3
+};
+
+NJS_TEX uv_00163338[] = {
+	{ 117, 134 },
+{ 244, 126 },
+{ 191, 252 },
+{ 137, 65 },
+{ 135, 206 },
+{ 62, 108 },
+{ 66, 253 },
+{ 3, 204 }
+};
+
+NJS_MESHSET_SADX meshlist_00163358[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_00163324, NULL, NULL, NULL, uv_00163338, NULL }
+};
+
+NJS_VECTOR vertex_00163370[] = {
+	{ 0.666511f, 0.011385f, -0.218275f },
+{ 0.256352f, 0.121289f, 0.194828f },
+{ 0.052132f, -0.260295f, -0.08248799f },
+{ -0.201495f, 0.198118f, -0.28676f }
+};
+
+NJS_VECTOR normal_001633A0[] = {
+	{ 0.951511f, -0.001827f, -0.307609f },
+{ 0.138781f, 0.359827f, 0.92264f },
+{ -0.366368f, -0.929347f, 0.045703f },
+{ -0.790475f, 0.431579f, -0.434614f }
+};
+
+NJS_MODEL_SADX attach_001633D0 = { vertex_00163370, normal_001633A0, LengthOfArray<Sint32>(vertex_00163370), meshlist_00163358, matlist_00163310, LengthOfArray<Uint16>(meshlist_00163358), LengthOfArray<Uint16>(matlist_00163310),{ 0.232508f, -0.031089f, -0.045966f }, 0.504831f, NULL };
+
+NJS_OBJECT object_001633F8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_001633D0, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_0016342C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 0.758907f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_001633F8 };
+
+NJS_OBJECT object_00163460 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0.592818f, 0, 0, 0, 0, 0xFFFFC148, 1, 1, 1, &object_0016342C, &object_001632DC };
+
+NJS_OBJECT object_00163494 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0xFFFFC754, 1, 1, 1, &object_00163460, NULL };
+
+NJS_OBJECT object_001634C8 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0.748964f, -0.424104f, 0.914323f, 0, 0, 0xFFFFC000, 1, 1, 1, &object_00163494, &object_00163144 };
+
+NJS_MATERIAL matlist_001634FC[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 3, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00163510[] = {
+	3, 5, 4, 0,
+	0x8000u | 7, 6, 5, 1, 4, 3, 0, 2,
+	6, 3, 1, 2, 6, 0, 5
+};
+
+NJS_TEX uv_00163538[] = {
+	{ 129, 247 },
+{ 78, 163 },
+{ 149, 113 },
+{ 31, 223 },
+{ 129, 247 },
+{ 12, 152 },
+{ 78, 164 },
+{ 17, 93 },
+{ 149, 113 },
+{ 124, 15 },
+{ 17, 93 },
+{ 61, 180 },
+{ 107, 132 },
+{ 117, 248 },
+{ 172, 151 },
+{ 81, 145 }
+};
+
+NJS_MESHSET_SADX meshlist_00163578[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 3, poly_00163510, NULL, NULL, NULL, uv_00163538, NULL }
+};
+
+NJS_VECTOR vertex_00163590[] = {
+	{ -0.176633f, -0.156418f, -0.266589f },
+{ -0.123057f, 0.389871f, 0.31914f },
+{ -0.14589f, 0.45752f, -0.151018f },
+{ -0.449347f, -0.026045f, 0.020033f },
+{ -0.186071f, -0.504869f, 0.020033f },
+{ 0.361707f, -0.604426f, 0.08540799f },
+{ 0.70899f, 0.194404f, 0.085407f }
+};
+
+NJS_VECTOR normal_001635E4[] = {
+	{ -0.246758f, -0.201072f, -0.947987f },
+{ -0.262351f, 0.575166f, 0.774826f },
+{ -0.254916f, 0.796255f, -0.548632f },
+{ -0.993019f, -0.063338f, 0.09950799f },
+{ -0.501022f, -0.8576519f, 0.115803f },
+{ 0.503299f, -0.855464f, 0.121947f },
+{ 0.958003f, 0.282055f, 0.051717f }
+};
+
+NJS_MODEL_SADX attach_00163638 = { vertex_00163590, normal_001635E4, LengthOfArray<Sint32>(vertex_00163590), meshlist_00163578, matlist_001634FC, LengthOfArray<Uint16>(meshlist_00163578), LengthOfArray<Uint16>(matlist_001634FC),{ 0.129821f, -0.07345299f, 0.026276f }, 0.785728f, NULL };
+
+NJS_OBJECT object_00163660 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00163638, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_MATERIAL matlist_00163694[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 2, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_001636A8[] = {
+	3, 0, 1, 3,
+	0x8000u | 5, 3, 0, 2, 1, 3
+};
+
+NJS_TEX uv_001636BC[] = {
+	{ 191, 252 },
+{ 244, 126 },
+{ 117, 134 },
+{ 3, 204 },
+{ 66, 253 },
+{ 62, 108 },
+{ 135, 206 },
+{ 137, 65 }
+};
+
+NJS_MESHSET_SADX meshlist_001636DC[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 2, poly_001636A8, NULL, NULL, NULL, uv_001636BC, NULL }
+};
+
+NJS_VECTOR vertex_001636F4[] = {
+	{ 0.666511f, 0.011385f, 0.218274f },
+{ 0.256352f, 0.121289f, -0.194828f },
+{ 0.052132f, -0.260296f, 0.08248799f },
+{ -0.201495f, 0.198118f, 0.28676f }
+};
+
+NJS_VECTOR normal_00163724[] = {
+	{ 0.951511f, -0.001827f, 0.307609f },
+{ 0.138781f, 0.359827f, -0.92264f },
+{ -0.366368f, -0.929347f, -0.045704f },
+{ -0.790475f, 0.431579f, 0.434614f }
+};
+
+NJS_MODEL_SADX attach_00163754 = { vertex_001636F4, normal_00163724, LengthOfArray<Sint32>(vertex_001636F4), meshlist_001636DC, matlist_00163694, LengthOfArray<Uint16>(meshlist_001636DC), LengthOfArray<Uint16>(matlist_00163694),{ 0.232508f, -0.031089f, 0.045966f }, 0.504831f, NULL };
+
+NJS_OBJECT object_0016377C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00163754, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_001637B0 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 0.758907f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_0016377C };
+
+NJS_OBJECT object_001637E4 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0.592818f, 0, 0, 0, 0, 0xFFFFC148, 1, 1, 1, &object_001637B0, &object_00163660 };
+
+NJS_OBJECT object_00163818 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0xFFFFC754, 1, 1, 1, &object_001637E4, NULL };
+
+NJS_OBJECT object_0016384C = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0.748964f, -0.424104f, -0.914323f, 0, 0, 0xFFFFC000, 1, 1, 1, &object_00163818, &object_001634C8 };
+
+NJS_MATERIAL matlist_00163880[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 2, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00163894[] = {
+	0x8000u | 5, 0, 1, 5, 4, 6,
+	3, 3, 2, 1,
+	0x8000u | 7, 1, 0, 2, 6, 3, 4, 1,
+	3, 0, 6, 5
+};
+
+NJS_TEX uv_001638C0[] = {
+	{ 192, 252 },
+{ 244, 224 },
+{ 190, 161 },
+{ 193, 8 },
+{ 139, 227 },
+{ 64, 133 },
+{ 65, 213 },
+{ 118, 224 },
+{ 118, 224 },
+{ 67, 252 },
+{ 65, 212 },
+{ 13, 226 },
+{ 64, 133 },
+{ 67, 9 },
+{ 118, 224 },
+{ 192, 252 },
+{ 138, 226 },
+{ 190, 161 }
+};
+
+NJS_MESHSET_SADX meshlist_00163908[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 4, poly_00163894, NULL, NULL, NULL, uv_001638C0, NULL }
+};
+
+NJS_VECTOR vertex_00163920[] = {
+	{ 1.566971f, -0.055092f, -0.073364f },
+{ 1.40642f, 0.384521f, -0.18738f },
+{ 1.508909f, 0.162062f, 0.224497f },
+{ 0.787734f, 0.266291f, 0.252128f },
+{ -0.134192f, -0.03082f, 0.002992f },
+{ 0.854678f, -0.035323f, -0.163863f },
+{ 1.328552f, -0.278334f, 0.280692f }
+};
+
+NJS_VECTOR normal_00163974[] = {
+	{ 0.783016f, -0.417537f, -0.46103f },
+{ 0.402497f, 0.724683f, -0.559313f },
+{ 0.6697209f, 0.374255f, 0.64141f },
+{ -0.24699f, 0.669338f, 0.700702f },
+{ -0.993778f, -0.096116f, -0.056276f },
+{ -0.092217f, -0.468084f, -0.878859f },
+{ 0.276976f, -0.805613f, 0.523709f }
+};
+
+NJS_MODEL_SADX attach_001639C8 = { vertex_00163920, normal_00163974, LengthOfArray<Sint32>(vertex_00163920), meshlist_00163908, matlist_00163880, LengthOfArray<Uint16>(meshlist_00163908), LengthOfArray<Uint16>(matlist_00163880),{ 0.71639f, 0.053094f, 0.046656f }, 0.9128709f, NULL };
+
+NJS_OBJECT object_001639F0 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_001639C8, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_00163A24 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 1.611037f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_001639F0 };
+
+NJS_OBJECT object_00163A58 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0xFFFFF24D, 0xFFFFC682, 1, 1, 1, &object_00163A24, NULL };
+
+NJS_OBJECT object_00163A8C = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 1.492692f, 0.039768f, 0.38085f, 0xFFFFE000, 0xFFFFC000, 0xFFFFE000, 1, 1, 1, &object_00163A58, &object_0016384C };
+
+NJS_MATERIAL matlist_00163AC0[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 2, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00163AD4[] = {
+	5, 0, 1, 5, 4, 6,
+	3, 1, 2, 3,
+	7, 1, 0, 2, 6, 3, 4, 1,
+	3, 5, 6, 0
+};
+
+NJS_TEX uv_00163B00[] = {
+	{ 192, 252 },
+{ 244, 224 },
+{ 190, 161 },
+{ 193, 8 },
+{ 139, 227 },
+{ 118, 224 },
+{ 65, 213 },
+{ 64, 133 },
+{ 118, 224 },
+{ 67, 252 },
+{ 65, 212 },
+{ 13, 226 },
+{ 64, 133 },
+{ 67, 9 },
+{ 118, 224 },
+{ 190, 161 },
+{ 138, 226 },
+{ 192, 252 }
+};
+
+NJS_MESHSET_SADX meshlist_00163B48[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 4, poly_00163AD4, NULL, NULL, NULL, uv_00163B00, NULL }
+};
+
+NJS_VECTOR vertex_00163B60[] = {
+	{ 1.56697f, -0.055092f, 0.073364f },
+{ 1.406419f, 0.384521f, 0.18738f },
+{ 1.508909f, 0.162062f, -0.224497f },
+{ 0.787733f, 0.266291f, -0.252128f },
+{ -0.134192f, -0.03082f, -0.002992f },
+{ 0.854677f, -0.035323f, 0.163863f },
+{ 1.328552f, -0.278334f, -0.280693f }
+};
+
+NJS_VECTOR normal_00163BB4[] = {
+	{ 0.783016f, -0.417537f, 0.46103f },
+{ 0.402497f, 0.724683f, 0.559313f },
+{ 0.6697209f, 0.374256f, -0.64141f },
+{ -0.24699f, 0.669338f, -0.700701f },
+{ -0.993778f, -0.09611399f, 0.056274f },
+{ -0.092217f, -0.468084f, 0.878859f },
+{ 0.276975f, -0.805613f, -0.52371f }
+};
+
+NJS_MODEL_SADX attach_00163C08 = { vertex_00163B60, normal_00163BB4, LengthOfArray<Sint32>(vertex_00163B60), meshlist_00163B48, matlist_00163AC0, LengthOfArray<Uint16>(meshlist_00163B48), LengthOfArray<Uint16>(matlist_00163AC0),{ 0.7163889f, 0.053094f, -0.046656f }, 0.9128709f, NULL };
+
+NJS_OBJECT object_00163C30 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00163C08, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_00163C64 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 1.611037f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_00163C30 };
+
+NJS_OBJECT object_00163C98 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0x7FFF, 0xFFFF724D, 0x4681, 1, 1, 1, &object_00163C64, NULL };
+
+NJS_OBJECT object_00163CCC = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 1.492692f, 0.039768f, -0.38085f, 0x2000, 0x4000, 0xFFFFE000, 1, 1, 1, &object_00163C98, &object_00163A8C };
+
+NJS_MATERIAL matlist_00163D00[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 1, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_00163D14[] = {
+	0x8000u | 15, 8, 2, 6, 3, 7, 15, 1, 5, 13, 12, 9, 4, 8, 0, 2,
+	0x8000u | 6, 1, 13, 7, 9, 6, 8,
+	5, 12, 4, 14, 0, 10,
+	7, 0, 2, 10, 3, 11, 15, 5,
+	5, 10, 11, 14, 5, 12
+};
+
+NJS_TEX uv_00163D6C[] = {
+	{ 187, 10 },
+{ 180, 28 },
+{ 35, 7 },
+{ 140, 60 },
+{ 1, 82 },
+{ 51, 196 },
+{ 1, 195 },
+{ 1, 237 },
+{ 51, 196 },
+{ 149, 226 },
+{ 140, 60 },
+{ 205, 126 },
+{ 180, 28 },
+{ 242, 118 },
+{ 187, 10 },
+{ 1, 195 },
+{ 51, 196 },
+{ 1, 82 },
+{ 140, 60 },
+{ 35, 7 },
+{ 180, 28 },
+{ 149, 226 },
+{ 205, 126 },
+{ 212, 237 },
+{ 242, 118 },
+{ 205, 126 },
+{ 242, 118 },
+{ 180, 28 },
+{ 205, 126 },
+{ 140, 60 },
+{ 149, 226 },
+{ 51, 196 },
+{ 1, 237 },
+{ 205, 126 },
+{ 149, 226 },
+{ 212, 237 },
+{ 1, 237 },
+{ 149, 226 }
+};
+
+NJS_MESHSET_SADX meshlist_00163E04[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 5, poly_00163D14, NULL, NULL, NULL, uv_00163D6C, NULL }
+};
+
+NJS_VECTOR vertex_00163E1C[] = {
+	{ -0.985104f, -0.940661f, 0 },
+{ 1.837427f, -0.020581f, 0 },
+{ -0.326317f, -2.123556f, 0.634654f },
+{ 0.834875f, -1.405676f, 1.186109f },
+{ -0.469543f, -0.872875f, -1.247297f },
+{ 1.042976f, 0.440472f, 0 },
+{ 1.100578f, -2.106529f, 0 },
+{ 1.776144f, -1.108152f, 0 },
+{ -0.326317f, -2.123556f, -0.634654f },
+{ 0.834875f, -1.405676f, -1.186109f },
+{ -0.469543f, -0.872875f, 1.247298f },
+{ 0.303469f, -0.003971f, 1.195967f },
+{ 0.303469f, -0.00397f, -1.195966f },
+{ 1.381115f, 0.013391f, -0.781984f },
+{ -0.565891f, 0.045834f, 0 },
+{ 1.381115f, 0.013391f, 0.781984f }
+};
+
+NJS_VECTOR normal_00163EDC[] = {
+	{ -1, -0.000326f, 0 },
+{ 0.913517f, 0.406801f, 0 },
+{ -0.426888f, -0.7908289f, 0.438583f },
+{ 0.38391f, -0.383423f, 0.84f },
+{ -0.5821159f, 0.031466f, -0.812497f },
+{ 0.152117f, 0.988362f, 0 },
+{ 0.533241f, -0.8459629f, 0 },
+{ 0.954133f, -0.299384f, 0 },
+{ -0.426888f, -0.7908289f, -0.438584f },
+{ 0.38391f, -0.383422f, -0.84f },
+{ -0.5821159f, 0.031466f, 0.812497f },
+{ -0.106651f, 0.61455f, 0.781635f },
+{ -0.106651f, 0.6145509f, -0.781635f },
+{ 0.589668f, 0.473758f, -0.654099f },
+{ -0.673986f, 0.738744f, 0 },
+{ 0.589668f, 0.473757f, 0.654099f }
+};
+
+NJS_MODEL_SADX attach_00163F9C = { vertex_00163E1C, normal_00163EDC, LengthOfArray<Sint32>(vertex_00163E1C), meshlist_00163E04, matlist_00163D00, LengthOfArray<Uint16>(meshlist_00163E04), LengthOfArray<Uint16>(matlist_00163D00),{ 0.426161f, -0.8415419f, 0 }, 1.906628f, NULL };
+
+NJS_OBJECT object_00163FC4 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00163F9C, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_MATERIAL matlist_00163FF8[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_0016400C[] = {
+	4, 2, 3, 0, 1
+};
+
+NJS_TEX uv_00164018[] = {
+	{ 235, 61 },
+{ 62, 20 },
+{ 191, 239 },
+{ 20, 196 }
+};
+
+NJS_MESHSET_SADX meshlist_00164028[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_0016400C, NULL, NULL, NULL, uv_00164018, NULL }
+};
+
+NJS_VECTOR vertex_00164040[] = {
+	{ 1.033357f, -2.017724f, -0.14704f },
+{ -0.923328f, -0.224907f, 0.066754f },
+{ 2.812366f, -0.012577f, 0.496185f },
+{ 0.821027f, 1.717969f, -0.147039f }
+};
+
+NJS_VECTOR normal_00164070[] = {
+	{ -0.11101f, -0.00631f, 0.993799f },
+{ 0.114505f, 0.006508f, 0.993401f },
+{ -0.321675f, -0.018283f, 0.946674f },
+{ -0.110909f, -0.006304f, 0.993811f }
+};
+
+NJS_MODEL_SADX attach_001640A0 = { vertex_00164040, normal_00164070, LengthOfArray<Sint32>(vertex_00164040), meshlist_00164028, matlist_00163FF8, LengthOfArray<Uint16>(meshlist_00164028), LengthOfArray<Uint16>(matlist_00163FF8),{ 0.94452f, -0.149877f, 0.174573f }, 2.64103f, NULL };
+
+NJS_OBJECT object_001640C8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_001640A0, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_001640FC = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 2.948229f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_001640C8 };
+
+NJS_OBJECT object_00164130 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0x14B0, 1, 1, 1, &object_001640FC, NULL };
+
+NJS_OBJECT object_00164164 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0.04506f, -1.057515f, 0.9895239f, 0x3F6F, 0xFFFFC000, 0x3F6F, 1, 1, 1, &object_00164130, &object_00163FC4 };
+
+NJS_MATERIAL matlist_00164198[] = {
+	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC }
+};
+
+Sint16 poly_001641AC[] = {
+	4, 2, 0, 3, 1
+};
+
+NJS_TEX uv_001641B8[] = {
+	{ 235, 61 },
+{ 191, 239 },
+{ 62, 20 },
+{ 19, 194 }
+};
+
+NJS_MESHSET_SADX meshlist_001641C8[] = {
+	{ NJD_MESHSET_TRIMESH | 0, 1, poly_001641AC, NULL, NULL, NULL, uv_001641B8, NULL }
+};
+
+NJS_VECTOR vertex_001641E0[] = {
+	{ 1.033356f, -2.017724f, 0.147039f },
+{ -0.923328f, -0.224906f, -0.066754f },
+{ 2.812366f, -0.012577f, -0.496184f },
+{ 0.821027f, 1.717969f, 0.14704f }
+};
+
+NJS_VECTOR normal_00164210[] = {
+	{ -0.111009f, -0.006309f, -0.993799f },
+{ 0.114506f, 0.006509f, -0.993401f },
+{ -0.321674f, -0.018283f, -0.946674f },
+{ -0.110909f, -0.006304f, -0.993811f }
+};
+
+NJS_MODEL_SADX attach_00164240 = { vertex_001641E0, normal_00164210, LengthOfArray<Sint32>(vertex_001641E0), meshlist_001641C8, matlist_00164198, LengthOfArray<Uint16>(meshlist_001641C8), LengthOfArray<Uint16>(matlist_00164198),{ 0.944519f, -0.149877f, -0.174572f }, 2.64103f, NULL };
+
+NJS_OBJECT object_00164268 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00164240, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+NJS_OBJECT object_0016429C = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 2.948229f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_00164268 };
+
+NJS_OBJECT object_001642D0 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, -0.00001f, 0, 0, 0, 0x14B0, 1, 1, 1, &object_0016429C, NULL };
+
+NJS_OBJECT object_00164304 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0.04506f, -1.057515f, -0.9895239f, 0xFFFFC091, 0x4000, 0x3F6F, 1, 1, 1, &object_001642D0, &object_00164164 };
+
+NJS_OBJECT object_00164338 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 2.68724f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_00164304 };
+
+NJS_OBJECT object_0016436C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0xFFFF8121, 1, 1, 1, &object_00164338, NULL };
+
+NJS_OBJECT object_001643A0 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 1.981771f, -0.145836f, 0, 0, 0, 0xFFFFC000, 1, 1, 1, &object_0016436C, &object_00163CCC };
+
+NJS_OBJECT object_001643D4 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE | NJD_EVAL_BREAK, NULL, 4.851692f, 0, 0, 0, 0, 0, 1, 1, 1, NULL, &object_001643A0 };
+
+NJS_OBJECT object_00164408 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0x4000, 1, 1, 1, &object_001643D4, NULL };
+
+NJS_OBJECT object_0016443C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0x4000, 0, 1, 1, 1, &object_00164408, NULL };
+
+NJS_OBJECT object_00164470 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_HIDE, NULL, 0, 0, 0, 0, 0, 0, 1, 1, 1, &object_0016443C, NULL };
+
+
+NJS_MKEY_F _165C70_0_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_0_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_1_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 1, 0, 0.02784f, -0.010545f },
+{ 2, 0, 0.101237f, -0.033746f },
+{ 3, 0, 0.205004f, -0.056946f },
+{ 4, 0, 0.323957f, -0.06749099f },
+{ 5, 0, 0.44291f, -0.052727f },
+{ 6, 0, 0.546677f, 0 },
+{ 7, 0, 0.620074f, 0.322692f },
+{ 8, 0, 0.647914f, 0.607419f },
+{ 9, 0, 0.620074f, 0.581319f },
+{ 10, 0, 0.546677f, 0.5125099f },
+{ 11, 0, 0.44291f, 0.415228f },
+{ 12, 0, 0.323957f, 0.30371f },
+{ 13, 0, 0.205004f, 0.192191f },
+{ 14, 0, 0.101237f, 0.094909f },
+{ 15, 0, 0.02784f, 0.0261f },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_1_rot[] = {
+	{ 0, 0, 0x3FFF, 0 },
+{ 16, 0, 0x3FFF, 0 }
+};
+
+NJS_MKEY_F _165C70_2_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_2_rot[] = {
+	{ 0, 0, 0, 0x3FFF },
+{ 1, 0, 0, 0x4345 },
+{ 2, 0, 0, 0x4AA9 },
+{ 3, 0, 0, 0x5286 },
+{ 4, 0, 0, 0x5738 },
+{ 5, 0, 0, 0x59EC },
+{ 6, 0, 0, 0x5DA1 },
+{ 7, 0, 0, 0x6173 },
+{ 8, 0, 0, 0x647B },
+{ 9, 0, 0, 0x65D4 },
+{ 10, 0, 0, 0x6496 },
+{ 11, 0, 0, 0x5FDE },
+{ 12, 0, 0, 0x56C3 },
+{ 13, 0, 0, 0x4CB0 },
+{ 14, 0, 0, 0x4596 },
+{ 15, 0, 0, 0x4161 },
+{ 16, 0, 0, 0x3FFF }
+};
+
+NJS_MKEY_F _165C70_3_pos[] = {
+	{ 0, 4.851692f, 0, 0 },
+{ 16, 4.851692f, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_3_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_4_pos[] = {
+	{ 0, 1.981771f, -0.145836f, 0 },
+{ 16, 1.981771f, -0.145836f, 0 }
+};
+
+NJS_MKEY_A _165C70_4_rot[] = {
+	{ 0, 0, 0, 0xFFFFC001 },
+{ 16, 0, 0, 0xFFFFC001 }
+};
+
+NJS_MKEY_F _165C70_5_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_5_rot[] = {
+	{ 0, 0, 0, 0xFFFF8121 },
+{ 1, 0, 0, 0xFFFF7DBF },
+{ 2, 0, 0, 0xFFFF7622 },
+{ 3, 0, 0, 0xFFFF6E16 },
+{ 4, 0, 0, 0xFFFF696B },
+{ 5, 0, 0, 0xFFFF6720 },
+{ 6, 0, 0, 0xFFFF641C },
+{ 7, 0, 0, 0xFFFF60E4 },
+{ 8, 0, 0, 0xFFFF5E02 },
+{ 9, 0, 0, 0xFFFF5D10 },
+{ 10, 0, 0, 0xFFFF5EDB },
+{ 11, 0, 0, 0xFFFF6338 },
+{ 12, 0, 0, 0xFFFF69F9 },
+{ 13, 0, 0, 0xFFFF7213 },
+{ 14, 0, 0, 0xFFFF7989 },
+{ 15, 0, 0, 0xFFFF7F01 },
+{ 16, 0, 0, 0xFFFF8121 }
+};
+
+NJS_MKEY_F _165C70_6_pos[] = {
+	{ 0, 2.68724f, 0, 0 },
+{ 16, 2.68724f, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_6_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_7_pos[] = {
+	{ 0, 0.04506f, -1.057515f, -0.9895239f },
+{ 16, 0.04506f, -1.057515f, -0.9895239f }
+};
+
+NJS_MKEY_A _165C70_7_rot[] = {
+	{ 0, 0xFFFFC091, 0x3FFF, 0x3F6F },
+{ 16, 0xFFFFC091, 0x3FFF, 0x3F6F }
+};
+
+NJS_MKEY_F _165C70_8_pos[] = {
+	{ 0, 0, -0.00001f, 0 },
+{ 16, 0, -0.00001f, 0 }
+};
+
+NJS_MKEY_A _165C70_8_rot[] = {
+	{ 0, 0, 0xA97, 0x185B },
+{ 1, 0, 0x974, 0x1807 },
+{ 2, 0, 0x674, 0x172B },
+{ 3, 0, 0x236, 0x15F3 },
+{ 4, 0, 0xFFFFFD5B, 0x148C },
+{ 5, 0, 0xFFFFF87E, 0x1323 },
+{ 6, 0, 0xFFFFF440, 0x11E5 },
+{ 7, 0, 0xFFFFF140, 0x10FF },
+{ 8, 0, 0xFFFFF01D, 0x109F },
+{ 9, 0, 0xFFFFF140, 0x10E8 },
+{ 10, 0, 0xFFFFF440, 0x11C2 },
+{ 11, 0, 0xFFFFF87E, 0x12FF },
+{ 12, 0, 0xFFFFFD5B, 0x146D },
+{ 13, 0, 0x236, 0x15DD },
+{ 14, 0, 0x674, 0x1720 },
+{ 15, 0, 0x974, 0x1804 },
+{ 16, 0, 0xA97, 0x185B }
+};
+
+NJS_MKEY_F _165C70_9_pos[] = {
+	{ 0, 2.948229f, 0, 0 },
+{ 16, 2.948229f, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_9_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_10_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_10_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_11_pos[] = {
+	{ 0, 0.04506f, -1.057515f, 0.9895239f },
+{ 16, 0.04506f, -1.057515f, 0.9895239f }
+};
+
+NJS_MKEY_A _165C70_11_rot[] = {
+	{ 0, 0x3F6F, 0xFFFFC001, 0x3F6F },
+{ 16, 0x3F6F, 0xFFFFC001, 0x3F6F }
+};
+
+NJS_MKEY_F _165C70_12_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_12_rot[] = {
+	{ 0, 0, 0xFFFFF569, 0x185B },
+{ 1, 0, 0xFFFFF68C, 0x1807 },
+{ 2, 0, 0xFFFFF98C, 0x1728 },
+{ 3, 0, 0xFFFFFDCA, 0x15ED },
+{ 4, 0, 0x2A5, 0x1483 },
+{ 5, 0, 0x782, 0x1318 },
+{ 6, 0, 0xBC0, 0x11DB },
+{ 7, 0, 0xEC0, 0x10F8 },
+{ 8, 0, 0xFE3, 0x109E },
+{ 9, 0, 0xEC0, 0x10EE },
+{ 10, 0, 0xBC0, 0x11CC },
+{ 11, 0, 0x782, 0x1309 },
+{ 12, 0, 0x2A5, 0x1476 },
+{ 13, 0, 0xFFFFFDCA, 0x15E4 },
+{ 14, 0, 0xFFFFF98C, 0x1723 },
+{ 15, 0, 0xFFFFF68C, 0x1805 },
+{ 16, 0, 0xFFFFF569, 0x185B }
+};
+
+NJS_MKEY_F _165C70_13_pos[] = {
+	{ 0, 2.948229f, 0, 0 },
+{ 16, 2.948229f, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_13_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_14_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_14_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_15_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_15_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_16_pos[] = {
+	{ 0, 1.492692f, 0.039768f, -0.38085f },
+{ 16, 1.492692f, 0.039768f, -0.38085f }
+};
+
+NJS_MKEY_A _165C70_16_rot[] = {
+	{ 0, 0x1FFF, 0x3FFF, 0xFFFFE001 },
+{ 16, 0x1FFF, 0x3FFF, 0xFFFFE001 }
+};
+
+NJS_MKEY_F _165C70_17_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_17_rot[] = {
+	{ 0, 0x7FFF, 0xFFFF5627, 0x4681 },
+{ 1, 0x7FFF, 0xFFFF56BA, 0x4681 },
+{ 2, 0x7FFF, 0xFFFF579C, 0x4681 },
+{ 3, 0x7FFF, 0xFFFF58BA, 0x4681 },
+{ 4, 0x7FFF, 0xFFFF59FF, 0x4681 },
+{ 5, 0x7FFF, 0xFFFF5B5A, 0x4681 },
+{ 6, 0x7FFF, 0xFFFF5CB5, 0x4681 },
+{ 7, 0x7FFF, 0xFFFF5DFF, 0x4681 },
+{ 8, 0x7FFF, 0xFFFF5F22, 0x4681 },
+{ 9, 0x7FFF, 0xFFFF600D, 0x4681 },
+{ 10, 0x7FFF, 0xFFFF60AA, 0x4681 },
+{ 11, 0x7FFF, 0xFFFF60E8, 0x4681 },
+{ 12, 0x7FFF, 0xFFFF5F62, 0x4681 },
+{ 13, 0x7FFF, 0xFFFF5BAF, 0x4681 },
+{ 14, 0x7FFF, 0xFFFF57DD, 0x4681 },
+{ 15, 0x7FFF, 0xFFFF55F8, 0x4681 },
+{ 16, 0x7FFF, 0xFFFF5627, 0x4681 }
+};
+
+NJS_MKEY_F _165C70_18_pos[] = {
+	{ 0, 1.611037f, 0, 0 },
+{ 16, 1.611037f, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_18_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_19_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_19_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_20_pos[] = {
+	{ 0, 1.492692f, 0.039768f, 0.38085f },
+{ 16, 1.492692f, 0.039768f, 0.38085f }
+};
+
+NJS_MKEY_A _165C70_20_rot[] = {
+	{ 0, 0xFFFFE001, 0xFFFFC001, 0xFFFFE001 },
+{ 16, 0xFFFFE001, 0xFFFFC001, 0xFFFFE001 }
+};
+
+NJS_MKEY_F _165C70_21_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_21_rot[] = {
+	{ 0, 0, 0xFFFFCEBE, 0xFFFFC682 },
+{ 1, 0, 0xFFFFCE02, 0xFFFFC682 },
+{ 2, 0, 0xFFFFCCC8, 0xFFFFC682 },
+{ 3, 0, 0xFFFFCC89, 0xFFFFC682 },
+{ 4, 0, 0xFFFFCEBE, 0xFFFFC682 },
+{ 5, 0, 0xFFFFD28B, 0xFFFFC682 },
+{ 6, 0, 0xFFFFD632, 0xFFFFC682 },
+{ 7, 0, 0xFFFFD9D9, 0xFFFFC682 },
+{ 8, 0, 0xFFFFDDA5, 0xFFFFC682 },
+{ 9, 0, 0xFFFFE096, 0xFFFFC682 },
+{ 10, 0, 0xFFFFE191, 0xFFFFC682 },
+{ 11, 0, 0xFFFFE096, 0xFFFFC682 },
+{ 12, 0, 0xFFFFDDA5, 0xFFFFC682 },
+{ 13, 0, 0xFFFFD91D, 0xFFFFC682 },
+{ 14, 0, 0xFFFFD43C, 0xFFFFC682 },
+{ 15, 0, 0xFFFFD056, 0xFFFFC682 },
+{ 16, 0, 0xFFFFCEBE, 0xFFFFC682 }
+};
+
+NJS_MKEY_F _165C70_22_pos[] = {
+	{ 0, 1.611037f, 0, 0 },
+{ 16, 1.611037f, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_22_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_23_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_23_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_24_pos[] = {
+	{ 0, 0.748964f, -0.424104f, -0.914323f },
+{ 1, 0.724456f, -0.432508f, -0.914323f },
+{ 2, 0.66149f, -0.454097f, -0.914323f },
+{ 3, 0.575901f, -0.483444f, -0.914323f },
+{ 4, 0.483524f, -0.515119f, -0.914323f },
+{ 5, 0.400194f, -0.543691f, -0.914323f },
+{ 6, 0.341745f, -0.563732f, -0.914323f },
+{ 7, 0.311204f, -0.574204f, -0.914323f },
+{ 8, 0.301038f, -0.577689f, -0.914323f },
+{ 9, 0.311244f, -0.57419f, -0.914323f },
+{ 10, 0.34182f, -0.563706f, -0.914323f },
+{ 11, 0.400309f, -0.543651f, -0.914323f },
+{ 12, 0.483639f, -0.515079f, -0.914323f },
+{ 13, 0.5759889f, -0.483414f, -0.914323f },
+{ 14, 0.661539f, -0.45408f, -0.914323f },
+{ 15, 0.724471f, -0.432503f, -0.914323f },
+{ 16, 0.748964f, -0.424104f, -0.914323f }
+};
+
+NJS_MKEY_A _165C70_24_rot[] = {
+	{ 0, 0, 0, 0xFFFFC001 },
+{ 16, 0, 0, 0xFFFFC001 }
+};
+
+NJS_MKEY_F _165C70_25_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_25_rot[] = {
+	{ 0, 0, 0, 0xFFFFC754 },
+{ 1, 0, 0, 0xFFFFC639 },
+{ 2, 0, 0, 0xFFFFC375 },
+{ 3, 0, 0, 0xFFFFBFDD },
+{ 4, 0, 0, 0xFFFFBC44 },
+{ 5, 0, 0, 0xFFFFB980 },
+{ 6, 0, 0, 0xFFFFB865 },
+{ 7, 0, 0, 0xFFFFB8D0 },
+{ 8, 0, 0, 0xFFFFB9F3 },
+{ 9, 0, 0, 0xFFFFBB9F },
+{ 10, 0, 0, 0xFFFFBDA7 },
+{ 11, 0, 0, 0xFFFFBFDD },
+{ 12, 0, 0, 0xFFFFC212 },
+{ 13, 0, 0, 0xFFFFC41A },
+{ 14, 0, 0, 0xFFFFC5C6 },
+{ 15, 0, 0, 0xFFFFC6E9 },
+{ 16, 0, 0, 0xFFFFC754 }
+};
+
+NJS_MKEY_F _165C70_26_pos[] = {
+	{ 0, 0.592818f, 0, 0 },
+{ 16, 0.592818f, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_26_rot[] = {
+	{ 0, 0, 0, 0xFFFFC148 },
+{ 1, 0, 0, 0xFFFFC228 },
+{ 2, 0, 0, 0xFFFFC4A8 },
+{ 3, 0, 0, 0xFFFFC89C },
+{ 4, 0, 0, 0xFFFFCDD8 },
+{ 5, 0, 0, 0xFFFFD42D },
+{ 6, 0, 0, 0xFFFFDB70 },
+{ 7, 0, 0, 0xFFFFEF98 },
+{ 8, 0, 0, 0xFFFFFE9C },
+{ 9, 0, 0, 0xFFFFF9F9 },
+{ 10, 0, 0, 0xFFFFF216 },
+{ 11, 0, 0, 0xFFFFE824 },
+{ 12, 0, 0, 0xFFFFDD54 },
+{ 13, 0, 0, 0xFFFFD2D9 },
+{ 14, 0, 0, 0xFFFFC9E2 },
+{ 15, 0, 0, 0xFFFFC3A1 },
+{ 16, 0, 0, 0xFFFFC148 }
+};
+
+NJS_MKEY_F _165C70_27_pos[] = {
+	{ 0, 0.758907f, 0, 0 },
+{ 16, 0.758907f, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_27_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_28_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_28_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_29_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_29_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_30_pos[] = {
+	{ 0, 0.748964f, -0.424104f, 0.914323f },
+{ 1, 0.724456f, -0.432508f, 0.914323f },
+{ 2, 0.66149f, -0.454097f, 0.914323f },
+{ 3, 0.575901f, -0.483444f, 0.914323f },
+{ 4, 0.483524f, -0.515119f, 0.914323f },
+{ 5, 0.400194f, -0.543691f, 0.914323f },
+{ 6, 0.341745f, -0.563732f, 0.914323f },
+{ 7, 0.311204f, -0.574204f, 0.914323f },
+{ 8, 0.301038f, -0.577689f, 0.914323f },
+{ 9, 0.311244f, -0.57419f, 0.914323f },
+{ 10, 0.34182f, -0.563706f, 0.914323f },
+{ 11, 0.400309f, -0.543651f, 0.914323f },
+{ 12, 0.483639f, -0.515079f, 0.914323f },
+{ 13, 0.5759889f, -0.483414f, 0.914323f },
+{ 14, 0.661539f, -0.45408f, 0.914323f },
+{ 15, 0.724471f, -0.432502f, 0.914323f },
+{ 16, 0.748964f, -0.424104f, 0.914323f }
+};
+
+NJS_MKEY_A _165C70_30_rot[] = {
+	{ 0, 0, 0, 0xFFFFC001 },
+{ 16, 0, 0, 0xFFFFC001 }
+};
+
+NJS_MKEY_F _165C70_31_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_31_rot[] = {
+	{ 0, 0, 0, 0xFFFFC754 },
+{ 1, 0, 0, 0xFFFFC639 },
+{ 2, 0, 0, 0xFFFFC375 },
+{ 3, 0, 0, 0xFFFFBFDD },
+{ 4, 0, 0, 0xFFFFBC44 },
+{ 5, 0, 0, 0xFFFFB980 },
+{ 6, 0, 0, 0xFFFFB865 },
+{ 7, 0, 0, 0xFFFFB8D0 },
+{ 8, 0, 0, 0xFFFFB9F3 },
+{ 9, 0, 0, 0xFFFFBB9F },
+{ 10, 0, 0, 0xFFFFBDA7 },
+{ 11, 0, 0, 0xFFFFBFDD },
+{ 12, 0, 0, 0xFFFFC212 },
+{ 13, 0, 0, 0xFFFFC41A },
+{ 14, 0, 0, 0xFFFFC5C6 },
+{ 15, 0, 0, 0xFFFFC6E9 },
+{ 16, 0, 0, 0xFFFFC754 }
+};
+
+NJS_MKEY_F _165C70_32_pos[] = {
+	{ 0, 0.592818f, 0, 0 },
+{ 16, 0.592818f, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_32_rot[] = {
+	{ 0, 0, 0, 0xFFFFC148 },
+{ 1, 0, 0, 0xFFFFC228 },
+{ 2, 0, 0, 0xFFFFC4A8 },
+{ 3, 0, 0, 0xFFFFC89C },
+{ 4, 0, 0, 0xFFFFCDD8 },
+{ 5, 0, 0, 0xFFFFD42D },
+{ 6, 0, 0, 0xFFFFDB70 },
+{ 7, 0, 0, 0xFFFFEF98 },
+{ 8, 0, 0, 0xFFFFFE9C },
+{ 9, 0, 0, 0xFFFFF9F9 },
+{ 10, 0, 0, 0xFFFFF216 },
+{ 11, 0, 0, 0xFFFFE824 },
+{ 12, 0, 0, 0xFFFFDD54 },
+{ 13, 0, 0, 0xFFFFD2D9 },
+{ 14, 0, 0, 0xFFFFC9E2 },
+{ 15, 0, 0, 0xFFFFC3A1 },
+{ 16, 0, 0, 0xFFFFC148 }
+};
+
+NJS_MKEY_F _165C70_33_pos[] = {
+	{ 0, 0.758907f, 0, 0 },
+{ 16, 0.758907f, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_33_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_34_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_34_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_35_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_35_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_F _165C70_36_pos[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MKEY_A _165C70_36_rot[] = {
+	{ 0, 0, 0, 0 },
+{ 16, 0, 0, 0 }
+};
+
+NJS_MDATA2 _165C70_mdat[] = {
+	{ _165C70_0_pos, _165C70_0_rot, LengthOfArray<Uint32>(_165C70_0_pos), LengthOfArray<Uint32>(_165C70_0_rot) },
+{ _165C70_1_pos, _165C70_1_rot, LengthOfArray<Uint32>(_165C70_1_pos), LengthOfArray<Uint32>(_165C70_1_rot) },
+{ _165C70_2_pos, _165C70_2_rot, LengthOfArray<Uint32>(_165C70_2_pos), LengthOfArray<Uint32>(_165C70_2_rot) },
+{ _165C70_3_pos, _165C70_3_rot, LengthOfArray<Uint32>(_165C70_3_pos), LengthOfArray<Uint32>(_165C70_3_rot) },
+{ _165C70_4_pos, _165C70_4_rot, LengthOfArray<Uint32>(_165C70_4_pos), LengthOfArray<Uint32>(_165C70_4_rot) },
+{ _165C70_5_pos, _165C70_5_rot, LengthOfArray<Uint32>(_165C70_5_pos), LengthOfArray<Uint32>(_165C70_5_rot) },
+{ _165C70_6_pos, _165C70_6_rot, LengthOfArray<Uint32>(_165C70_6_pos), LengthOfArray<Uint32>(_165C70_6_rot) },
+{ _165C70_7_pos, _165C70_7_rot, LengthOfArray<Uint32>(_165C70_7_pos), LengthOfArray<Uint32>(_165C70_7_rot) },
+{ _165C70_8_pos, _165C70_8_rot, LengthOfArray<Uint32>(_165C70_8_pos), LengthOfArray<Uint32>(_165C70_8_rot) },
+{ _165C70_9_pos, _165C70_9_rot, LengthOfArray<Uint32>(_165C70_9_pos), LengthOfArray<Uint32>(_165C70_9_rot) },
+{ _165C70_10_pos, _165C70_10_rot, LengthOfArray<Uint32>(_165C70_10_pos), LengthOfArray<Uint32>(_165C70_10_rot) },
+{ _165C70_11_pos, _165C70_11_rot, LengthOfArray<Uint32>(_165C70_11_pos), LengthOfArray<Uint32>(_165C70_11_rot) },
+{ _165C70_12_pos, _165C70_12_rot, LengthOfArray<Uint32>(_165C70_12_pos), LengthOfArray<Uint32>(_165C70_12_rot) },
+{ _165C70_13_pos, _165C70_13_rot, LengthOfArray<Uint32>(_165C70_13_pos), LengthOfArray<Uint32>(_165C70_13_rot) },
+{ _165C70_14_pos, _165C70_14_rot, LengthOfArray<Uint32>(_165C70_14_pos), LengthOfArray<Uint32>(_165C70_14_rot) },
+{ _165C70_15_pos, _165C70_15_rot, LengthOfArray<Uint32>(_165C70_15_pos), LengthOfArray<Uint32>(_165C70_15_rot) },
+{ _165C70_16_pos, _165C70_16_rot, LengthOfArray<Uint32>(_165C70_16_pos), LengthOfArray<Uint32>(_165C70_16_rot) },
+{ _165C70_17_pos, _165C70_17_rot, LengthOfArray<Uint32>(_165C70_17_pos), LengthOfArray<Uint32>(_165C70_17_rot) },
+{ _165C70_18_pos, _165C70_18_rot, LengthOfArray<Uint32>(_165C70_18_pos), LengthOfArray<Uint32>(_165C70_18_rot) },
+{ _165C70_19_pos, _165C70_19_rot, LengthOfArray<Uint32>(_165C70_19_pos), LengthOfArray<Uint32>(_165C70_19_rot) },
+{ _165C70_20_pos, _165C70_20_rot, LengthOfArray<Uint32>(_165C70_20_pos), LengthOfArray<Uint32>(_165C70_20_rot) },
+{ _165C70_21_pos, _165C70_21_rot, LengthOfArray<Uint32>(_165C70_21_pos), LengthOfArray<Uint32>(_165C70_21_rot) },
+{ _165C70_22_pos, _165C70_22_rot, LengthOfArray<Uint32>(_165C70_22_pos), LengthOfArray<Uint32>(_165C70_22_rot) },
+{ _165C70_23_pos, _165C70_23_rot, LengthOfArray<Uint32>(_165C70_23_pos), LengthOfArray<Uint32>(_165C70_23_rot) },
+{ _165C70_24_pos, _165C70_24_rot, LengthOfArray<Uint32>(_165C70_24_pos), LengthOfArray<Uint32>(_165C70_24_rot) },
+{ _165C70_25_pos, _165C70_25_rot, LengthOfArray<Uint32>(_165C70_25_pos), LengthOfArray<Uint32>(_165C70_25_rot) },
+{ _165C70_26_pos, _165C70_26_rot, LengthOfArray<Uint32>(_165C70_26_pos), LengthOfArray<Uint32>(_165C70_26_rot) },
+{ _165C70_27_pos, _165C70_27_rot, LengthOfArray<Uint32>(_165C70_27_pos), LengthOfArray<Uint32>(_165C70_27_rot) },
+{ _165C70_28_pos, _165C70_28_rot, LengthOfArray<Uint32>(_165C70_28_pos), LengthOfArray<Uint32>(_165C70_28_rot) },
+{ _165C70_29_pos, _165C70_29_rot, LengthOfArray<Uint32>(_165C70_29_pos), LengthOfArray<Uint32>(_165C70_29_rot) },
+{ _165C70_30_pos, _165C70_30_rot, LengthOfArray<Uint32>(_165C70_30_pos), LengthOfArray<Uint32>(_165C70_30_rot) },
+{ _165C70_31_pos, _165C70_31_rot, LengthOfArray<Uint32>(_165C70_31_pos), LengthOfArray<Uint32>(_165C70_31_rot) },
+{ _165C70_32_pos, _165C70_32_rot, LengthOfArray<Uint32>(_165C70_32_pos), LengthOfArray<Uint32>(_165C70_32_rot) },
+{ _165C70_33_pos, _165C70_33_rot, LengthOfArray<Uint32>(_165C70_33_pos), LengthOfArray<Uint32>(_165C70_33_rot) },
+{ _165C70_34_pos, _165C70_34_rot, LengthOfArray<Uint32>(_165C70_34_pos), LengthOfArray<Uint32>(_165C70_34_rot) },
+{ _165C70_35_pos, _165C70_35_rot, LengthOfArray<Uint32>(_165C70_35_pos), LengthOfArray<Uint32>(_165C70_35_rot) },
+{ _165C70_36_pos, _165C70_36_rot, LengthOfArray<Uint32>(_165C70_36_pos), LengthOfArray<Uint32>(_165C70_36_rot) }
+};
+
+NJS_MOTION _165C70 = { _165C70_mdat, 17, NJD_MTYPE_POS_0 | NJD_MTYPE_ANG_1, 2 };
+
+NJS_ACTION action__165C70 = { &object_00164470, &_165C70 };
