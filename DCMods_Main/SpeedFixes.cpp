@@ -68,6 +68,14 @@ float AnimalMultiplier2 = 0.44999999f; //0.89999998 at 60
 float AnimalGravity = 0.140475005f; //0.28095001 at 60
 float AnimalPositionMultiplier = 0.125f; //0.25 at 60
 
+static void __cdecl AmyHammerEffect_r(ObjectMaster *a1);
+static Trampoline AmyHammerEffect_t(0x4C5BC0, 0x4C5BC9, AmyHammerEffect_r);
+static void __cdecl AmyHammerEffect_r(ObjectMaster *a1)
+{
+	auto original = reinterpret_cast<decltype(AmyHammerEffect_r)*>(AmyHammerEffect_t.Target());
+	if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1);
+}
+
 void SpeedFixes_Init()
 {
 	//Animals
