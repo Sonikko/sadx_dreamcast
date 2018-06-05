@@ -629,9 +629,6 @@
     <ClInclude Include="Data\TornadoCrash.h">
       <Filter>Header Files\Levels\ADV02MODELS</Filter>
     </ClInclude>
-    <ClInclude Include="Data\ChaoFruitModels.h">
-      <Filter>Header Files\Levels\Chao</Filter>
-    </ClInclude>
     <ClInclude Include="OStandLight.h">
       <Filter>Header Files\Levels\FinalEgg</Filter>
     </ClInclude>
@@ -640,6 +637,9 @@
     </ClInclude>
     <ClInclude Include="Frogs.h">
       <Filter>Header Files\Levels\General</Filter>
+    </ClInclude>
+    <ClInclude Include="ChaoFruits.h">
+      <Filter>Header Files\Levels\Chao</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -6,7 +6,18 @@
 #include "ChaoRace.h"
 #include "ChaoRaceEntry.h"
 #include "ECGarden.h"
+#include "ChaoFruits.h"
 #include "HintMessages.h"
+
+DataPointer(NJS_CNK_OBJECT, Fruit_Strong, 0x33B9064);
+DataPointer(NJS_CNK_OBJECT, Fruit_Tasty, 0x33B9A44);
+DataPointer(NJS_CNK_OBJECT, Fruit_Hero, 0x33B9E5C);
+DataPointer(NJS_CNK_OBJECT, Fruit_Dark, 0x33BA304);
+DataPointer(NJS_CNK_OBJECT, Fruit_Round, 0x33BAC54);
+DataPointer(NJS_CNK_OBJECT, Fruit_Triangular, 0x33BB514);
+DataPointer(NJS_CNK_OBJECT, Fruit_Square, 0x33BBFF4);
+DataPointer(NJS_CNK_OBJECT, Fruit_Heart, 0x33BC574);
+DataPointer(NJS_CNK_OBJECT, Fruit_Chao, 0x33BCBC4);
 
 static bool EnableSSGarden = true;
 static bool EnableMRGarden = true;
@@ -34,10 +45,22 @@ static int bowchaoanim = 0;
 static bool cheerchaoanim = false;
 static SecondaryEntrance BK_SSGardenStartPoint;
 
-NJS_VECTOR racebutton{ 2020, 0, -0.68f };
+struct ChaoTreeEntityData1
+{
+	EntityData1 entity;
+	char gap40[4];
+	float field_44;
+	int field_48;
+	char gap4C[156];
+	Rotation3 rotation2;
+	char gapF4[8];
+	void *somechaosavepointerthing;
+	NJS_TEXLIST *texlist;
+	char gap104[11];
+	Uint8 wonjis;
+};
 
-NJS_TEXNAME textures_garden00object[15];
-NJS_TEXLIST texlist_garden00object = { arrayptrandlength(textures_garden00object) };
+NJS_VECTOR racebutton{ 2020, 0, -0.68f };
 
 FunctionPointer(char, sub_436210, (int(__cdecl *a1)(int), char a2, char a3), 0x436210);
 FunctionPointer(int, sub_72A6C0, (int a1), 0x72A6C0);
@@ -80,6 +103,19 @@ DataPointer(SecondaryEntrance, SSGardenStartPoint, 0x0339F888);
 DataPointer(int, dword_3CDC6B4, 0x3CDC6B4);
 DataPointer(NJS_OBJECT, stru_366C124, 0x366C124);
 DataPointer(CollisionData, stru_33D0B50, 0x33D0B50);
+DataPointer(NJS_TEXLIST*, texlist_garden02mr_daytime, 0x03CA6E84);
+DataPointer(LandTable*, objLandTableGarden02_Daytime, 0x03CA6E88);
+DataPointer(int, dword_3CA6E8C, 0x3CA6E8C);
+DataPointer(NJS_TEXLIST*, texlist_garden02mr_evening, 0x03CA6E84);
+DataPointer(LandTable*, objLandTableGarden02_Evening, 0x03CA6E88);
+DataPointer(NJS_TEXLIST*, texlist_garden02mr_night, 0x03CA6E84);
+DataPointer(LandTable*, objLandTableGarden02_Night, 0x03CA6E88);
+DataArray(int, off_389D780, 0x389D780, 4);
+DataArray(int, off_389D7B8, 0x389D7B8, 4);
+DataArray(int, dword_389D7B8, 0x389D7B8, 6);
+DataPointer(D3DMATRIX, stru_389D7E8, 0x0389D7E8);
+DataArray(int, dword_389D828, 0x389D828, 13);
+DataPointer(int, dword_3CA6EB8, 0x3CA6EB8);
 
 //SS garden
 ObjectFunc(OF_SS0, 0x00450370); // RING   
@@ -1726,6 +1762,19 @@ void LoadObjects_Race()
 	ObjectMaster *obj;
 	EntityData1 *ent;
 	setdata_race.Distance = 612800.0f;
+	//Start Mark
+	obj = LoadObject((LoadObj)2, 3, OF8);
+	obj->SETData.SETData = &setdata_race;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = 181.6474f;
+		ent->Position.y = 59.8748f;
+		ent->Position.z = -38.82487f;
+		ent->Rotation.x = 0;
+		ent->Rotation.y = 0;
+		ent->Rotation.z = 0;
+	}
 	//Crackers
 	obj = LoadObject((LoadObj)2, 3, OF21);
 	obj->SETData.SETData = &setdata_race;
@@ -4132,9 +4181,6 @@ void __cdecl ChaoNameMachineCollision(ObjectMaster *a1)
 //MR Garden DLL functions
 void __cdecl sub_72A790()
 {
-	DataPointer(NJS_TEXLIST*, texlist_garden02mr_daytime, 0x03CA6E84);
-	DataPointer(LandTable*, objLandTableGarden02_Daytime, 0x03CA6E88);
-	DataPointer(int, dword_3CA6E8C, 0x3CA6E8C);
 	HMODULE handle = GetModuleHandle(L"CHAOSTGGARDEN02MR_DAYTIME");
 	PrintDebug("547369736F626C7961646920736F736E6F6F6C6579\n");
 	dword_3CA6E8C = (int)GetProcAddress(handle, "stg_garden02_mr_objects");
@@ -4146,9 +4192,6 @@ void __cdecl sub_72A790()
 void __cdecl sub_72A820()
 {
 	HMODULE handle = GetModuleHandle(L"CHAOSTGGARDEN02MR_EVENING");
-	DataPointer(NJS_TEXLIST*, texlist_garden02mr_evening, 0x03CA6E84);
-	DataPointer(LandTable*, objLandTableGarden02_Evening, 0x03CA6E88);
-	DataPointer(int, dword_3CA6E8C, 0x3CA6E8C);
 	PrintDebug("ChaoStgGarden02MR_Evening _prolog\n");
 	dword_3CA6E8C = (int)GetProcAddress(handle, "stg_garden02_mr_objects");
 	texlist_garden02mr_evening = (NJS_TEXLIST *)&texlist_mrgarden;
@@ -4159,9 +4202,6 @@ void __cdecl sub_72A820()
 void __cdecl sub_72A8B0()
 {
 	HMODULE handle = GetModuleHandle(L"CHAOSTGGARDEN02MR_NIGHT");
-	DataPointer(NJS_TEXLIST*, texlist_garden02mr_night, 0x03CA6E84);
-	DataPointer(LandTable*, objLandTableGarden02_Night, 0x03CA6E88);
-	DataPointer(int, dword_3CA6E8C, 0x3CA6E8C);
 	PrintDebug("ChaoStgGarden02MR_Night _prolog\n");
 	dword_3CA6E8C = (int)GetProcAddress(handle, "stg_garden02_mr_objects");
 	texlist_garden02mr_night = (NJS_TEXLIST *)&texlist_mrgarden;
@@ -4169,12 +4209,33 @@ void __cdecl sub_72A8B0()
 	sub_745A20((NJS_TEX*)&uvCHAO_0000EC54, 48);
 }
 
+void RenderSA1ChaoFruits_Object(NJS_CNK_OBJECT *a1)
+{
+	njSetTexture(&CHAO_OBJECT_TEXLIST);
+	njScale(0, 0.7f, 0.7f, 0.7f);
+	if (a1 == &Fruit_Chao) sub_408530(&object_0017D068); //Chaonut
+	else if (a1 == &Fruit_Hero) sub_408530(&object_0017D55C); //Starnut
+	else if (a1 == &Fruit_Dark) sub_408530(&object_0017DA88); //Hastnut
+	else if (a1 == &Fruit_Heart) sub_408530(&object_0017F384); //Lifenut
+	else { njSetTexture(&AL_OBJECT_TEXLIST); njCnkDrawObject(a1); } //Other fruits
+}
+
+void RenderSA1ChaoFruits_Model(NJS_CNK_MODEL *a1)
+{
+	njSetTexture(&CHAO_OBJECT_TEXLIST);
+	njScale(0, 0.7f, 0.7f, 0.7f);
+	if (a1 == Fruit_Chao.chunkmodel) sub_408530(&object_0017D068); //Chaonut
+	else if (a1 == Fruit_Hero.chunkmodel) sub_408530(&object_0017D55C); //Starnut
+	else if (a1 == Fruit_Dark.chunkmodel) sub_408530(&object_0017DA88); //Hastnut
+	else if (a1 == Fruit_Heart.chunkmodel) sub_408530(&object_0017F384); //Lifenut
+	else { njSetTexture(&AL_OBJECT_TEXLIST); DrawCnkModel(a1); } //Other fruits
+}
+
 //Garden load functions
 void __cdecl LoadSSGardenX()
 {
 	PrintDebug("ChaoStgGarden00SS Prolog begin\n");
 	LoadPVM("OBJ_SS", (NJS_TEXLIST*)0x02AA4BF8);
-	LoadPVM("GARDEN00_OBJECT", &texlist_garden00object);
 	SSGardenStartPoint.Position.x = BK_SSGardenStartPoint.Position.x;
 	SSGardenStartPoint.Position.y = BK_SSGardenStartPoint.Position.y;
 	SSGardenStartPoint.Position.z = BK_SSGardenStartPoint.Position.z;
@@ -4241,8 +4302,6 @@ void __cdecl LoadECGardenX()
 
 void __cdecl LoadMRGardenX()
 {
-	DataPointer(LandTable*, LandTable_ChaoGardenMR, 0x03CA6E88);
-	DataArray(void*, ModuleDestructors, 0x03CA6E70, 4);
 	int v0; // eax@1
 	int v1; // eax@2
 	PrintDebug("ChaoStgGarden02MR Prolog\n");
@@ -4306,8 +4365,6 @@ void __cdecl LoadChaoRaceDoorX(ObjectMaster *a1)
 //Elevator
 void __cdecl sub_4145D0(unsigned __int8 a1, unsigned __int8 a2)
 {
-	DataPointer(int, CutsceneMode, 0x03B22E1C);
-	DataPointer(int, NextAct, 0x03B22E18);
 	if (CurrentChaoStage == 4)
 	{
 		SetLevelEntrance(4);
@@ -4336,20 +4393,25 @@ void __cdecl SetElevatorTexlist()
 //Function to set texture/texlist for garden transporters
 void SetTransporterTexture()
 {
-	DataPointer(PVMEntry *, ADV01C_TEXLISTS, 0x038F6EC8);
 	HMODULE handle = GetModuleHandle(L"ADV01CMODELS");
 	NJS_MODEL_SADX **ADV01C_MODELS = (NJS_MODEL_SADX **)GetProcAddress(handle, "___ADV01C_MODELS");
 	ADV01C_MODELS[32]->mats[0].diffuse.color = 0xFFFFFFFF;
-	if (CurrentLevel != 32) njSetTexture((NJS_TEXLIST*)0x033A0788); //CHAO_OBJECT
-	else njSetTexture(ADV01C_TEXLISTS[6].TexList);
-	if (CurrentLevel != 32) ADV01C_MODELS[32]->mats[0].attr_texId = 68;
-	else ADV01C_MODELS[32]->mats[0].attr_texId = 1;
+	if (CurrentLevel != 32)
+	{
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		ADV01C_MODELS[32]->mats[0].attr_texId = 68;
+	}
+	else
+	{
+		njSetTexture(ADV01C_TEXLISTS[6].TexList);
+		ADV01C_MODELS[32]->mats[0].attr_texId = 1;
+	}
 }
 
 //Name machine
 void cdecl NameMachineTexlist()
 {
-	njSetTexture((NJS_TEXLIST*)0x033A0788); //CHAO_OBJECT
+	njSetTexture(&CHAO_OBJECT_TEXLIST);
 }
 
 void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
@@ -4404,12 +4466,6 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	__int16 v3; // ax@5
 	int v4; // ecx@6
 	__int16 v5; // ax@8
-	DataArray(int, off_389D780, 0x389D780, 4);
-	DataArray(int, off_389D7B8, 0x389D7B8, 4);
-	DataArray(int, dword_389D7B8, 0x389D7B8, 6);
-	DataPointer(D3DMATRIX, stru_389D7E8, 0x0389D7E8);
-	DataArray(NJS_TEXLIST, ChaoTexLists, 0x033A1038, 7);
-	DataArray(int, dword_389D828, 0x389D828, 13);
 	if (a2 == SADXEggColour_Black_TwoTone || a2 == SADXEggColour_BlackShiny_TwoTone)
 	{
 		WriteData<1>((char*)0x03601516, 0x8F);
@@ -4538,10 +4594,11 @@ void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
 	}
 }
 
-void ScaleFruit()
+void RenderChaoNormalFruitWithScale()
 {
 	njScale(0, 0.7f, 0.7f, 0.7f);
-	sub_408530(&ChaoNormalFruit);
+	njSetTexture(&CHAO_OBJECT_TEXLIST);
+	sub_408530(&objectCHAO_0017C0BC_4);
 }
 
 //Chao Race Entry stuff
@@ -4564,11 +4621,6 @@ int __cdecl sub_72C2E0X()
 
 void __cdecl ChaoStgEntrance_MainX(ObjectMaster *a1)
 {
-	DataPointer(int, TextLanguage, 0x03B0F0E8);
-	DataPointer(int, dword_3CA6EB8, 0x3CA6EB8);
-	DataPointer(NJS_TEXLIST, AL_TEX_ENT_COMMON_TEXLIST, 0x034232E8);
-	DataPointer(NJS_TEXLIST, AL_ENT_CHAR_X_TEX_TEXLIST, 0x034232F0);
-	DataPointer(NJS_TEXLIST, AL_ENT_TITLE_X_TEX_TEXLIST, 0x034232F8);
 	const char *v1; // [sp-24h] [bp-24h]@5
 	NJS_TEXLIST *v2; // [sp-20h] [bp-20h]@5
 	unsigned __int16 v3; // [sp-1Ch] [bp-1Ch]@5
@@ -4585,7 +4637,6 @@ void __cdecl ChaoStgEntrance_MainX(ObjectMaster *a1)
 	sub_72C2E0X();
 	InitializeSoundManager();
 	PlayMusic(MusicIDs_ChaoRaceEntrance_OLD);
-	DataPointer(DrawDistance, LevelDrawDistance, 0x03ABDC70);
 	LevelDrawDistance.Minimum = -1.0f;
 	LevelDrawDistance.Maximum = -12000.0f;
 }
@@ -4746,10 +4797,149 @@ bool letteranims[][8] = {
 	{ false, false, false, false, false, false, false, false },
 };
 
+void SetChaoObjectTexlist()
+{
+	njSetTexture(&CHAO_OBJECT_TEXLIST);
+}
+
+DataArray(int, dword_33B87E0, 0x33B87E0, 4);
+DataArray(int, dword_33B87B4, 0x33B87E0, 11);
+
+void __cdecl RenderChaoTreeWithFruit(ChaoTreeEntityData1 *a1, NJS_OBJECT *a2)
+{
+	NJS_OBJECT *v2; // edi
+	unsigned __int64 v3; // rax
+	int v4; // ecx
+	float *v5; // ebx
+	double v6; // st7
+	NJS_VECTOR v; // [esp+Ch] [ebp-Ch]
+	float sx; // [esp+20h] [ebp+8h]
+
+	v2 = a2;
+	do
+	{
+		njPushMatrixEx();
+		njTranslateV(0, (NJS_VECTOR *)v2->pos);
+		njRotateXYZ(0, v2->ang[0], v2->ang[1], v2->ang[2]);
+		if (!v2->model)
+		{
+			v4 = *(_DWORD *)&a1->gap4C[140];
+			v5 = (float *)&a1->gap4C[32 * *(_DWORD *)&a1->gap4C[140] + 8];
+			v.x = 0.0;
+			v.y = -1.8;
+			v.z = 0.0;
+			sx = *v5;
+			if (*v5 <= 1.0)
+			{
+				if (sx <= 0.0)
+				{
+				LABEL_18:
+					++*(_DWORD *)&a1->gap4C[140];
+					goto LABEL_19;
+				}
+			}
+			else
+			{
+				sx = 1.0;
+			}
+			if (*v5 <= 0.89999998)
+			{
+				if (!(unsigned int)(unsigned __int64)(njSin(*(_DWORD *)&a1->gap4C[132] + dword_33B87E0[v4])
+					* *(float *)&a1->gap4C[136]
+					* 0.2
+					* 65536.0
+					* 0.002777777777777778))
+				{
+					goto LABEL_15;
+				}
+				v6 = njSin(*(_DWORD *)&a1->gap4C[132] + dword_33B87E0[*(_DWORD *)&a1->gap4C[140]])
+					* *(float *)&a1->gap4C[136]
+					* 0.2;
+			}
+			else
+			{
+				njPushMatrixEx();
+				njGetTranslation(0, (NJS_VECTOR *)v5 + 1);
+				njPopMatrixEx();
+				if (!(unsigned int)(unsigned __int64)(njSin(*(_DWORD *)&a1->gap4C[132] + dword_33B87E0[*(_DWORD *)&a1->gap4C[140]])
+					* *(float *)&a1->gap4C[136]
+					* 65536.0
+					* 0.002777777777777778))
+				{
+					goto LABEL_15;
+				}
+				v6 = njSin(*(_DWORD *)&a1->gap4C[132] + dword_33B87E0[*(_DWORD *)&a1->gap4C[140]]) * *(float *)&a1->gap4C[136];
+			}
+			njRotateX(0, (unsigned __int16)(unsigned __int64)(v6 * 65536.0 * 0.002777777777777778));
+		LABEL_15:
+			njScale(0, sx, sx, sx);
+			njTranslateEx(&v);
+			njSetTexture(&CHAO_OBJECT_TEXLIST);
+			if (sx < 0.5f) sub_408530(&objectCHAO_0017C0BC_1);
+			if (sx >= 0.5f && sx < 0.75f) sub_408530(&objectCHAO_0017C0BC_2);
+			if (sx >= 0.75f  && sx < 1.0f) sub_408530(&objectCHAO_0017C0BC_3);
+			if (sx >= 1.0f) sub_408530(&objectCHAO_0017C0BC_4);
+			goto LABEL_18;
+		}
+		if ((unsigned int)(unsigned __int64)(njSin(*(_DWORD *)&a1->gap4C[120] + dword_33B87B4[*(_DWORD *)&a1->gap4C[128]])
+			* *(float *)&a1->gap4C[124]
+			* 65536.0
+			* 0.002777777777777778))
+		{
+			v3 = (unsigned __int64)(njSin(*(_DWORD *)&a1->gap4C[120] + dword_33B87B4[*(_DWORD *)&a1->gap4C[128]])
+				* *(float *)&a1->gap4C[124]
+				* 65536.0
+				* 0.002777777777777778);
+			njRotateX(0, (unsigned __int16)v3);
+		}
+		DrawModel(v2->basicdxmodel);
+		++*(_DWORD *)&a1->gap4C[128];
+	LABEL_19:
+		if (v2->child)
+		{
+			RenderChaoTreeWithFruit(a1, v2->child);
+		}
+		njPopMatrixEx();
+		v2 = v2->sibling;
+	} while (v2);
+}
+
+void RenderChaoNormalFruit_Whatever(NJS_MODEL_SADX *a1)
+{
+	njSetTexture(&CHAO_OBJECT_TEXLIST);
+	DrawModel(objectCHAO_0017C0BC_4.basicdxmodel);
+}
+
+void RenderChaoTransporterLabel_Fix(NJS_OBJECT *a1)
+{
+	DrawQueueDepthBias = 1000.0f;
+	ProcessModelNode(a1, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	DrawQueueDepthBias = 0;
+}
+
+void RenderChaoTransporterEffect_Fix(NJS_MODEL_SADX *a1)
+{
+	DrawQueueDepthBias = 2000.0f;
+	DrawModel_Queue(a1, QueuedModelFlagsB_SomeTextureThing);
+	DrawQueueDepthBias = 0;
+}
+
+void RenderChaoRaceLetters_Fix(NJS_OBJECT *a1)
+{
+	DrawQueueDepthBias = 2000.0f;
+	ProcessModelNode(a1, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+	DrawQueueDepthBias = 0;
+}
+
+void RenderChaoBall()
+{
+	njSetTexture(&CHAO_TEXLIST);
+	ProcessModelNode_AB_Wrapper(&object_0014B2C0, 1.0f);
+}
+
 void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVM("AL_BODY");
-	ReplacePVM("AL_DX_OBJ_CMN");
 	ReplacePVM("CHAO");
 	ReplacePVM("CHAO_OBJECT");
 	ReplacePVM("CHAO_HYOUJI");
@@ -4767,19 +4957,35 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	EnableLobby = config->getBool("Chao Gardens", "EnableChaoRaceLobby", true);
 
 	//Garden transporters stuff
-	*(NJS_OBJECT*)0x036065B4 = objectCHAO_00134808; //EC garden to EC transporter
-	*(NJS_OBJECT*)0x03604540 = objectCHAO_00180454; //All other transporters
+	WriteData((NJS_TEXLIST**)0x07290FB, &CHAO_OBJECT_TEXLIST);
+	*(NJS_OBJECT*)0x036065B4 = object_00182198; //EC garden to EC transporter
+	*(NJS_OBJECT*)0x03604540 = object_00180454; //All other transporters
+	WriteData((NJS_OBJECT**)0x007295A9, &object_00181010); //MR green label
+	WriteData((NJS_OBJECT**)0x007295B0, &object_00181178); //MR green
+	WriteData((NJS_OBJECT**)0x007295B9, &object_00181010_ec); //EC red label
+	WriteData((NJS_OBJECT**)0x007295C0, &object_00181178_ec); //EC red 
+	WriteData((NJS_OBJECT**)0x007295C9, &object_00181010_ss); //SS blue label
+	WriteData((NJS_OBJECT**)0x007295D0, &object_00181178_ss); //SS blue 
+	WriteCall((void*)0x007291E0, RenderChaoTransporterLabel_Fix); //Label transparency fix
+	WriteCall((void*)0x00729217, RenderChaoTransporterLabel_Fix); //Label transparency fix
 	WriteData<1>((char*)0x00729576, 0x90); //Collision struct pointer
 	WriteData<1>((char*)0x00729577, 0x8B); //Collision struct pointer
 	WriteData<1>((char*)0x00729578, 0x7F); //Collision struct pointer
 	WriteData<1>((char*)0x00729574, 0x04); //Collision parameter for InitCollision
 	WriteCall((void*)0x005262DE, SetTransporterTexture);// Garden transporter texture/texlist
-	WriteJump((void*)0x729260, (void*)0x5262B0);// Garden transporter effects
+	WriteJump((void*)0x00729260, (void*)0x005262B0);// Garden transporter effects
+	WriteCall((void*)0x526369, RenderChaoTransporterEffect_Fix); //Transporter effect fix
 	//Fruits
-	*(NJS_OBJECT*)0x3606D00 = objectCHAO_0017C0BC; //Coconut
-	*(NJS_OBJECT*)0x3606958 = objectCHAO_0017C0BC_green; //Coconut (unripe)
-	WriteCall((void*)0x00722D59, ScaleFruit); //Scale normal fruit
+	WriteCall((void*)0x00722D3B, RenderSA1ChaoFruits_Object);
+	WriteCall((void*)0x00726106, RenderSA1ChaoFruits_Model);
+	WriteCall((void*)0x00726138, RenderSA1ChaoFruits_Model);
+	WriteCall((void*)0x00727722, RenderSA1ChaoFruits_Model);
+	WriteCall((void*)0x007260D9, RenderChaoNormalFruit_Whatever);
+	WriteJump((void*)0x720DF0, RenderChaoTreeWithFruit);
+	WriteCall((void*)0x00722D59, RenderChaoNormalFruitWithScale); //Scale normal fruit in garden
 	//Trees
+	WriteCall((void*)0x0072110F, SetChaoObjectTexlist);
+	WriteCall((void*)0x0072109C, SetChaoObjectTexlist);
 	*(NJS_MODEL_SADX*)0x036087C0 = attachCHAO_0017BAF8; //Tree trunk
 	*(NJS_MODEL_SADX*)0x03608064 = attachCHAO_0017B768; //Tree leaves 1
 	*(NJS_MODEL_SADX*)0x036076E4 = attachCHAO_0017B034; //Tree leaves 2
@@ -4787,7 +4993,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	WriteJump((void*)0x0078AC80, sub_78AC80X); //Eggs
 	WriteData<1>((char*)0x007151D3, 0x1A); //The secret EC egg is a two-tone black egg
 	ResizeTextureList(&ChaoTexLists[0], 144); //AL_BODY
-	ResizeTextureList((NJS_TEXLIST*)0x033A1338, 31); //AL_DX_OBJ_CMN
+	ResizeTextureList(&GARDEN00_OBJECT_TEXLIST, 15);
 	//Name Machine stuff
 	ECGardenStartPoint.Position.y = 71.0f; //Prevent endless jumping in EC garden with the DC model for the Name Machine
 	MRGardenReturnPoint.Position.x = 219; //Same for MR garden
@@ -4826,6 +5032,9 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 		WriteData<5>((void*)0x0071CEC2, 0x90); //Don't mess with entry button
 	}
 	//Chao Race stuff
+	WriteCall((void*)0x75A550, RenderChaoBall); //Chao Race ball model
+	WriteCall((void*)0x76DA03, RenderChaoRaceLetters_Fix); //Chao Race letters fix
+	WriteData((NJS_OBJECT**)0x883E68, &object_000459E4); //Start Mark in Chao Race
 	WriteJump((void*)0x00719DB0, LoadChaoRaceX);
 	WriteData((float*)0x00719D74, -16000.0f); //Draw distance
 	ReplacePVM("AL_RACE02");
@@ -4844,7 +5053,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 		WriteData<5>((void*)0x0071957E, 0x90); //Disable the Sonic Team homepage prompt
 		WriteJump((void*)0x4145D0, sub_4145D0); //Elevator function
 		WriteJump((void*)0x0072AB80, LoadChaoRaceDoorX);
-		WriteData((NJS_TEXLIST**)0x0072A963, &texlist_garden00object); //Chao Race door texlist
+		WriteData((NJS_TEXLIST**)0x0072A963, &GARDEN00_OBJECT_TEXLIST); //Chao Race door texlist
 		WriteCall((void*)0x00638DD7, SetElevatorTexlist);
 		WriteData<5>((void*)0x007195A3, 0x90); //SADX SS Garden Exit
 		*(NJS_OBJECT*)0x0340C5A4 = objectCHAO_00012A2C; //race door wall part
