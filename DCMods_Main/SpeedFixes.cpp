@@ -1,6 +1,9 @@
 #include "stdafx.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(NJS_POINT3COL, stru_9894C0, 0x9894C0);
+DataPointer(NJS_VECTOR, FuseLine1, 0x3C5C484);
+DataPointer(NJS_VECTOR, FuseLine2, 0x3C5C490);
 FunctionPointer(void, OHae_Display, (ObjectMaster *a1), 0x5C8A20);
 FunctionPointer(void, Fishies_Display, (ObjectMaster *a1), 0x4FC770);
 
@@ -107,6 +110,122 @@ static void __cdecl OWsr2_Main_r(ObjectMaster *a1)
 	else original(a1);
 }
 
+void __cdecl Fuse_Fixed(ObjectMaster *a1)
+{
+	EntityData1 *v1; // edi
+	unsigned __int16 v2; // ax
+	NJS_VECTOR *v3; // esi
+	float *v4; // eax
+	double v5; // st7
+	double v6; // st6
+	float v7; // ST34_4
+	float v8; // edx
+	float *v9; // eax
+	float v10; // ST34_4
+	float v11; // ST38_4
+	float v12; // ST28_4
+	double v13; // st7
+	float v14; // ST34_4
+	double v15; // st7
+	double v16; // st6
+	double v17; // st5
+	double v18; // st4
+	double v19; // st6
+	float v20; // ST38_4
+	float v21; // [esp+18h] [ebp+4h]
+	float v22; // [esp+18h] [ebp+4h]
+	float v23; // [esp+18h] [ebp+4h]
+	float v24; // [esp+18h] [ebp+4h]
+
+	v1 = a1->Data1;
+	v2 = v1->InvulnerableTime;
+	if (FrameCounter % 2 == 0)
+	{
+		v1->InvulnerableTime = v2 + 2;
+		if (v2 <= 0xFu)
+		{
+			v3 = &v1->Position;
+			if (IsVisible(&v1->Position, 5.0))
+			{
+				v4 = &v1->Scale.y;
+				v21 = v1->Scale.x * 0.97500002;
+				v5 = v1->Scale.y * 0.97500002 - 0.085000001;
+				v6 = v1->Scale.z * 0.97500002;
+				v4[1] = v6;
+				*v4 = v5;
+				*(v4 - 1) = v21;
+				v7 = v3->x;
+				v8 = v1->Position.y;
+				v1->Position.z = v6 + v1->Position.z;
+				v9 = &v1->Position.y;
+				*v9 = v8 + v5;
+				*(v9 - 1) = v7 + v21;
+				v22 = v1->Scale.z;
+				v10 = v1->Scale.y;
+				v11 = v1->Scale.x;
+				v12 = v22 * v22 + v10 * v10 + v11 * v11;
+				v13 = 1.0 / squareroot(v12);
+				v14 = v13 * v10;
+				v23 = v13 * v22;
+				v15 = v11 * v13 * 0.30000001;
+				v16 = v14 * 0.30000001;
+				v24 = v23 * 0.30000001;
+				v17 = v3->x;
+				v18 = v1->Position.y;
+				FuseLine1.z = v1->Position.z + v24;
+				FuseLine1.y = v18 + v16;
+				FuseLine1.x = v17 + v15;
+				v19 = v1->Position.y - v16;
+				v20 = v3->x;
+				FuseLine2.z = v1->Position.z - v24;
+				FuseLine2.y = v19;
+				FuseLine2.x = v20 - v15;
+				njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+				njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+				DrawLineList(&stru_9894C0, 1, 0);
+				njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+				njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+			}
+		}
+		else
+		{
+			CheckThingButThenDeleteObject(a1);
+		}
+	}
+	else
+	{
+			if (IsVisible(&v1->Position, 5.0))
+			{
+				v3 = &v1->Position;
+				v22 = v1->Scale.z;
+				v10 = v1->Scale.y;
+				v11 = v1->Scale.x;
+				v12 = v22 * v22 + v10 * v10 + v11 * v11;
+				v13 = 1.0f / squareroot(v12);
+				v14 = v13 * v10;
+				v23 = v13 * v22;
+				v15 = v11 * v13 * 0.30000001f;
+				v16 = v14 * 0.30000001f;
+				v24 = v23 * 0.30000001f;
+				v17 = v3->x;
+				v18 = v1->Position.y;
+				FuseLine1.z = v1->Position.z + v24;
+				FuseLine1.y = v18 + v16;
+				FuseLine1.x = v17 + v15;
+				v19 = v1->Position.y - v16;
+				v20 = v3->x;
+				FuseLine2.z = v1->Position.z - v24;
+				FuseLine2.y = v19;
+				FuseLine2.x = v20 - v15;
+				njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+				njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+				DrawLineList(&stru_9894C0, 1, 0);
+				njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+				njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+			}
+	}
+}
+
 static void __cdecl Fishies_Main_r(ObjectMaster *a1);
 static Trampoline Fishies_Main_t(0x4FC9C0, 0x4FC9C8, Fishies_Main_r);
 static void __cdecl Fishies_Main_r(ObjectMaster *a1)
@@ -120,6 +239,14 @@ static void __cdecl Fishies_Main_r(ObjectMaster *a1)
 	else original(a1);
 }
 
+static void __cdecl Fuse_r(ObjectMaster *a1);
+static Trampoline Fuse_t(0x4CE830, 0x4CE837, Fuse_r);
+static void __cdecl Fuse_r(ObjectMaster *a1)
+{
+	auto original = reinterpret_cast<decltype(Fuse_r)*>(Fuse_t.Target());
+	if (EnableSpeedFixes) Fuse_Fixed(a1);
+	else original(a1);
+}
 
 static void __cdecl PBJackPot_Main_r(ObjectMaster *a1);
 static Trampoline PBJackPot_Main_t(0x5E12C0, 0x5E12C7, PBJackPot_Main_r);
