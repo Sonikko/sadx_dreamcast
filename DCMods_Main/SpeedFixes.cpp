@@ -265,6 +265,33 @@ static void __cdecl PBJackPot_Main_r(ObjectMaster *a1)
 	else original(a1);
 }
 
+FunctionPointer(void, FireSprite, (ObjectMaster *a1), 0x5E81E0);
+
+static void __cdecl OFire_r(ObjectMaster *a1);
+static Trampoline OFire_t(0x5E82F0, 0x5E82F5, OFire_r);
+static void __cdecl OFire_r(ObjectMaster *a1)
+{
+	auto original = reinterpret_cast<decltype(OFire_r)*>(OFire_t.Target());
+	if (EnableSpeedFixes)
+	{
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1);
+		else FireSprite(a1);
+	}
+	else original(a1);
+}
+
+static void __cdecl FireParticle_r(NJS_VECTOR *a1, NJS_VECTOR *a2, float a3);
+static Trampoline FireParticle_t(0x4CB060, 0x4CB066, FireParticle_r);
+static void __cdecl FireParticle_r(NJS_VECTOR *a1, NJS_VECTOR *a2, float a3)
+{
+	auto original = reinterpret_cast<decltype(FireParticle_r)*>(FireParticle_t.Target());
+	if (EnableSpeedFixes)
+	{
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1,a2,a3);
+	}
+	else original(a1,a2,a3);
+}
+
 void SpeedFixes_Init()
 {
 	//Animals
