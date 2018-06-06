@@ -1,6 +1,7 @@
 #include "stdafx.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
+FunctionPointer(void, OHae_Display, (ObjectMaster *a1), 0x5C8A20);
 
 static int FramerateSettingOld = 0;
 static bool FixesApplied = false;
@@ -73,7 +74,36 @@ static Trampoline AmyHammerEffect_t(0x4C5BC0, 0x4C5BC9, AmyHammerEffect_r);
 static void __cdecl AmyHammerEffect_r(ObjectMaster *a1)
 {
 	auto original = reinterpret_cast<decltype(AmyHammerEffect_r)*>(AmyHammerEffect_t.Target());
-	if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1);
+	if (EnableSpeedFixes)
+	{
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1);
+	}
+	else original(a1);
+}
+
+static void __cdecl OHae_Main_r(ObjectMaster *a1);
+static Trampoline OHae_Main_t(0x5C8B40, 0x5C8B48, OHae_Main_r);
+static void __cdecl OHae_Main_r(ObjectMaster *a1)
+{
+	auto original = reinterpret_cast<decltype(OHae_Main_r)*>(OHae_Main_t.Target());
+	if (EnableSpeedFixes)
+	{
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1);
+		else OHae_Display(a1);
+	}
+	else original(a1);
+}
+
+static void __cdecl OWsr2_Main_r(ObjectMaster *a1);
+static Trampoline OWsr2_Main_t(0x5C93F0, 0x5C93F9, OWsr2_Main_r);
+static void __cdecl OWsr2_Main_r(ObjectMaster *a1)
+{
+	auto original = reinterpret_cast<decltype(OWsr2_Main_r)*>(OWsr2_Main_t.Target());
+	if (EnableSpeedFixes)
+	{
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1);
+	}
+	else original(a1);
 }
 
 void SpeedFixes_Init()
