@@ -6,6 +6,8 @@ DataPointer(NJS_VECTOR, FuseLine1, 0x3C5C484);
 DataPointer(NJS_VECTOR, FuseLine2, 0x3C5C490);
 FunctionPointer(void, OHae_Display, (ObjectMaster *a1), 0x5C8A20);
 FunctionPointer(void, Fishies_Display, (ObjectMaster *a1), 0x4FC770);
+FunctionPointer(void, CreateFireParticle, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4CB060);
+FunctionPointer(void, FireSprite, (ObjectMaster *a1), 0x5E81E0);
 
 static int FramerateSettingOld = 0;
 static bool FixesApplied = false;
@@ -265,8 +267,6 @@ static void __cdecl PBJackPot_Main_r(ObjectMaster *a1)
 	else original(a1);
 }
 
-FunctionPointer(void, FireSprite, (ObjectMaster *a1), 0x5E81E0);
-
 static void __cdecl OFire_r(ObjectMaster *a1);
 static Trampoline OFire_t(0x5E82F0, 0x5E82F5, OFire_r);
 static void __cdecl OFire_r(ObjectMaster *a1)
@@ -280,20 +280,20 @@ static void __cdecl OFire_r(ObjectMaster *a1)
 	else original(a1);
 }
 
-static void __cdecl FireParticle_r(NJS_VECTOR *a1, NJS_VECTOR *a2, float a3);
-static Trampoline FireParticle_t(0x4CB060, 0x4CB066, FireParticle_r);
-static void __cdecl FireParticle_r(NJS_VECTOR *a1, NJS_VECTOR *a2, float a3)
+void FixBoaBoa(NJS_VECTOR *a1, NJS_VECTOR *a2, float a3)
 {
-	auto original = reinterpret_cast<decltype(FireParticle_r)*>(FireParticle_t.Target());
 	if (EnableSpeedFixes)
 	{
-		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1,a2,a3);
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) CreateFireParticle(a1, a2, a3);
 	}
-	else original(a1,a2,a3);
+	else CreateFireParticle(a1, a2, a3);
 }
 
 void SpeedFixes_Init()
 {
+	//Fire stuff
+	WriteCall((void*)0x79FC42, FixBoaBoa);
+	WriteCall((void*)0x79FCA9, FixBoaBoa);
 	//Animals
 	//sub_4D72B0
 	WriteData((float**)0x004D73FB, &BubbleMovementSpeed);
