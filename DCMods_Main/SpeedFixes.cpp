@@ -2,6 +2,7 @@
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 FunctionPointer(void, OHae_Display, (ObjectMaster *a1), 0x5C8A20);
+FunctionPointer(void, Fishies_Display, (ObjectMaster *a1), 0x4FC770);
 
 static int FramerateSettingOld = 0;
 static bool FixesApplied = false;
@@ -106,8 +107,6 @@ static void __cdecl OWsr2_Main_r(ObjectMaster *a1)
 	else original(a1);
 }
 
-FunctionPointer(void, Fishies_Display, (ObjectMaster *a1), 0x4FC770);
-
 static void __cdecl Fishies_Main_r(ObjectMaster *a1);
 static Trampoline Fishies_Main_t(0x4FC9C0, 0x4FC9C8, Fishies_Main_r);
 static void __cdecl Fishies_Main_r(ObjectMaster *a1)
@@ -117,6 +116,24 @@ static void __cdecl Fishies_Main_r(ObjectMaster *a1)
 	{
 		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1);
 		else Fishies_Display(a1);
+	}
+	else original(a1);
+}
+
+
+static void __cdecl PBJackPot_Main_r(ObjectMaster *a1);
+static Trampoline PBJackPot_Main_t(0x5E12C0, 0x5E12C7, PBJackPot_Main_r);
+static void __cdecl PBJackPot_Main_r(ObjectMaster *a1)
+{
+	auto original = reinterpret_cast<decltype(PBJackPot_Main_r)*>(PBJackPot_Main_t.Target());
+	if (EnableSpeedFixes)
+	{
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1);
+		else
+		{
+			RunObjectChildren(a1);
+			PinballJackpot_Display(a1);
+		}
 	}
 	else original(a1);
 }

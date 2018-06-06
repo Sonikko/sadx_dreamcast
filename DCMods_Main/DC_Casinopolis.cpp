@@ -44,6 +44,8 @@ FunctionPointer(void, sub_405490, (NJS_ACTION *a1, float a2, int a3, int a4), 0x
 FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 NJS_VECTOR Cowgirl1{ 457.6972f, 45.06788f, 390 };
 NJS_VECTOR Cowgirl2{ 340.3949f, 51.20071f, 480 };
+DataArray(NJS_VECTOR, stru_1E79588, 0x1E79588, 66);
+DataArray(NJS_SPRITE*, SonicJackpotSpritesX, 0x1E79570, 6);
 DataArray(CollisionData, stru_1E763B8, 0x1E763B8, 3);
 DataArray(NJS_TEX, uvSTG09_01A4BD38, 0x01E4BD38, LengthOfArray(uvSTG09_001C8C9C));
 DataArray(NJS_TEX, uvSTG09_01A4BD98, 0x01E4BD98, LengthOfArray(uvSTG09_001C8CFC));
@@ -680,6 +682,82 @@ void RenderNeonK(NJS_MODEL_SADX *model, float scale)
 	DrawQueueDepthBias = 0;
 }
 
+void JackPotFix1(NJS_MODEL_SADX *a1)
+{
+	DrawQueueDepthBias = 10000.0f;
+	DrawModel_Queue(a1, QueuedModelFlagsB_SomeTextureThing);
+	DrawQueueDepthBias = 0;
+}
+
+void JackPotFix2(NJS_MODEL_SADX *a1)
+{
+	DrawQueueDepthBias = 20000.0f;
+	DrawModel_Queue(a1, QueuedModelFlagsB_SomeTextureThing);
+	DrawQueueDepthBias = 0;
+}
+
+
+void __cdecl PinballJackpot_Sprite_MainX(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi
+	__int16 v2; // ax
+	char v3; // edi
+	char v4 = 0; // al
+	v1 = a1->Data1;
+	if (FrameCounter % 2 == 0)
+	{
+		v2 = v1->InvulnerableTime;
+		if (v2)
+		{
+			v1->InvulnerableTime = v2 - 1;
+		}
+		else
+		{
+			v3 = a1->Parent->Data1->Action;
+			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+			SonicJackpotSpritesX[v3]->p.x = (stru_1E79588[11 * v3 + v1->Action].x * 2.8f + 320.0f) * HorizontalStretch;
+			SonicJackpotSpritesX[v3]->p.y = (240.0f - stru_1E79588[11 * v3 + v1->Action].y * 2.8f) * VerticalStretch;
+			SonicJackpotSpritesX[v3]->sy = (stru_1E79588[11 * v3 + v1->Action].z)*VerticalStretch;
+			SonicJackpotSpritesX[v3]->sx = SonicJackpotSpritesX[v3]->sy;
+			DrawQueueDepthBias = 10000.0f;
+			njDrawSprite2D_Queue(SonicJackpotSpritesX[v3], (unsigned __int8)v1->Index, 22047.0f, NJD_SPRITE_ALPHA, QueuedModelFlagsB_AlwaysShow);
+			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+			DrawQueueDepthBias = 0;
+			v4 = v1->Index + 1;
+			v1->Index = v4;
+			if (v4 == 8)
+			{
+				CheckThingButThenDeleteObject(a1);
+			}
+			if (v1->Index == 3)
+			{
+				++a1->Parent->Data1->NextAction;
+			}
+		}
+	}
+	else
+	{
+		v2 = v1->InvulnerableTime;
+		if (!v2)
+		{
+			v3 = a1->Parent->Data1->Action;
+			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+			SonicJackpotSpritesX[v3]->p.x = (stru_1E79588[11 * v3 + v1->Action].x * 2.8f + 320.0f) * HorizontalStretch;
+			SonicJackpotSpritesX[v3]->p.y = (240.0f - stru_1E79588[11 * v3 + v1->Action].y * 2.8f) * VerticalStretch;
+			SonicJackpotSpritesX[v3]->sy = (stru_1E79588[11 * v3 + v1->Action].z)*VerticalStretch;
+			SonicJackpotSpritesX[v3]->sx = SonicJackpotSpritesX[v3]->sy;
+			DrawQueueDepthBias = 10000.0f;
+			njDrawSprite2D_Queue(SonicJackpotSpritesX[v3], (unsigned __int8)v1->Index, 22047.0f, NJD_SPRITE_ALPHA, QueuedModelFlagsB_AlwaysShow);
+			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+			DrawQueueDepthBias = 0;
+		}
+	}
+}
+
 void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0900K");
@@ -738,6 +816,10 @@ void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFuncti
 		material_register(ObjectSpecular_Casino, LengthOfArray(ObjectSpecular_Casino), &ForceDiffuse0Specular1);
 		material_register(WhiteDiffuse_Casino, LengthOfArray(WhiteDiffuse_Casino), &ForceWhiteDiffuse1);
 	}
+	//Jackpot fixes
+	WriteCall((void*)0x05E1144, JackPotFix1);
+	WriteCall((void*)0x05E1187, JackPotFix2);
+	WriteJump(PinballJackpot_Sprite_Main, PinballJackpot_Sprite_MainX);
 	//MizuA
 	((NJS_OBJECT*)0x01E47B1C)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 	((NJS_OBJECT*)0x01E47B1C)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
