@@ -4983,7 +4983,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 		WriteCall((void*)0x00726138, RenderSA1ChaoFruits_Model);
 		WriteCall((void*)0x00727722, RenderSA1ChaoFruits_Model);
 	}
-	if (ReplaceFruits == 1)
+	if (ReplaceFruits <= 1)
 	{
 		WriteCall((void*)0x007260D9, RenderChaoNormalFruit_Whatever);
 		WriteJump((void*)0x720DF0, RenderChaoTreeWithFruit);
