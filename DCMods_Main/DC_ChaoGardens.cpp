@@ -23,6 +23,7 @@ static bool EnableSSGarden = true;
 static bool EnableMRGarden = true;
 static bool EnableECGarden = true;
 static bool EnableLobby = true;
+static int ReplaceFruits = 0;
 static int chaoracewater = 55;
 static int ssgardenwater = 0;
 static int ecgardensand = 64;
@@ -4949,13 +4950,12 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ReplacePVM("CHAO_HYOUJI_S");
 	ReplacePVM("EC_ALIFE");
 	LoadChaoGardenHintMessages();
-
-	// Load configuration settings.
+	// Load configuration settings
 	EnableSSGarden = config->getBool("Chao Gardens", "EnableStationSquareGarden", true);
 	EnableMRGarden = config->getBool("Chao Gardens", "EnableMysticRuinsGarden", true);
 	EnableECGarden = config->getBool("Chao Gardens", "EnableEggCarrierGarden", true);
 	EnableLobby = config->getBool("Chao Gardens", "EnableChaoRaceLobby", true);
-
+	ReplaceFruits = config->getInt("Chao Gardens", "ReplaceFruits", 0);
 	//Garden transporters stuff
 	WriteData((NJS_TEXLIST**)0x07290FB, &CHAO_OBJECT_TEXLIST);
 	*(NJS_OBJECT*)0x036065B4 = object_00182198; //EC garden to EC transporter
@@ -4976,13 +4976,19 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	WriteJump((void*)0x00729260, (void*)0x005262B0);// Garden transporter effects
 	WriteCall((void*)0x526369, RenderChaoTransporterEffect_Fix); //Transporter effect fix
 	//Fruits
-	WriteCall((void*)0x00722D3B, RenderSA1ChaoFruits_Object);
-	WriteCall((void*)0x00726106, RenderSA1ChaoFruits_Model);
-	WriteCall((void*)0x00726138, RenderSA1ChaoFruits_Model);
-	WriteCall((void*)0x00727722, RenderSA1ChaoFruits_Model);
-	WriteCall((void*)0x007260D9, RenderChaoNormalFruit_Whatever);
-	WriteJump((void*)0x720DF0, RenderChaoTreeWithFruit);
-	WriteCall((void*)0x00722D59, RenderChaoNormalFruitWithScale); //Scale normal fruit in garden
+	if (ReplaceFruits == 0)
+	{
+		WriteCall((void*)0x00722D3B, RenderSA1ChaoFruits_Object);
+		WriteCall((void*)0x00726106, RenderSA1ChaoFruits_Model);
+		WriteCall((void*)0x00726138, RenderSA1ChaoFruits_Model);
+		WriteCall((void*)0x00727722, RenderSA1ChaoFruits_Model);
+	}
+	if (ReplaceFruits == 1)
+	{
+		WriteCall((void*)0x007260D9, RenderChaoNormalFruit_Whatever);
+		WriteJump((void*)0x720DF0, RenderChaoTreeWithFruit);
+		WriteCall((void*)0x00722D59, RenderChaoNormalFruitWithScale); //Scale normal fruit in garden
+	}
 	//Trees
 	WriteCall((void*)0x0072110F, SetChaoObjectTexlist);
 	WriteCall((void*)0x0072109C, SetChaoObjectTexlist);
