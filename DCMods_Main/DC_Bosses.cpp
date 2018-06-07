@@ -1149,6 +1149,7 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	}
 	if (EnableEggViper == true)
 	{
+		((NJS_MATERIAL*)0x016737F0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Dust effect at the bottom of the room
 		ReplaceBIN("PL_M0B", "PL_M0X");
 		ReplaceBIN_DC("SETEGM3S");
 		ReplacePVM("EGM3CHIKEI");
