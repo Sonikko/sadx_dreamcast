@@ -286,15 +286,6 @@ static void __cdecl OFire_r(ObjectMaster *a1)
 	else original(a1);
 }
 
-void FixBoaBoa(NJS_VECTOR *a1, NJS_VECTOR *a2, float a3)
-{
-	if (EnableSpeedFixes)
-	{
-		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) CreateFireParticle(a1, a2, a3);
-	}
-	else CreateFireParticle(a1, a2, a3);
-}
-
 int GetFrameCounter_Half()
 {
 	if (FramerateSetting == 1) return FrameCounter_Half;
@@ -392,9 +383,6 @@ void SpeedFixes_Init()
 	WriteData((float**)0x004D7EF6, &AnimalMultiplier2);
 	WriteData((float**)0x004D7F02, &AnimalMultiplier2);
 	WriteData((float**)0x004D7F0E, &AnimalMultiplier2);
-	//Fire stuff
-	WriteCall((void*)0x79FC42, FixBoaBoa);
-	WriteCall((void*)0x79FCA9, FixBoaBoa);
 	//General
 	WriteData((float**)0x007A441B, &DashPanelAnimationSpeedOverride);
 	WriteData((short*)0x4AFB90, SpinnerYAnimationSpeedOverride);
