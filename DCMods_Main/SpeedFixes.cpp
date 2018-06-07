@@ -8,8 +8,10 @@ FunctionPointer(void, OHae_Display, (ObjectMaster *a1), 0x5C8A20);
 FunctionPointer(void, Fishies_Display, (ObjectMaster *a1), 0x4FC770);
 FunctionPointer(void, CreateFireParticle, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4CB060);
 FunctionPointer(void, FireSprite, (ObjectMaster *a1), 0x5E81E0);
+FunctionPointer(void, DrawSparkSprite, (ObjectMaster *a1), 0x4BAE50);
 
 static int FramerateSettingOld = 0;
+static int FrameCounter_Half = 0;
 static bool FixesApplied = false;
 
 //General
@@ -293,8 +295,60 @@ void FixBoaBoa(NJS_VECTOR *a1, NJS_VECTOR *a2, float a3)
 	else CreateFireParticle(a1, a2, a3);
 }
 
+int GetFrameCounter_Half()
+{
+	if (FramerateSetting == 1) return FrameCounter_Half;
+	else return FrameCounter;
+}
+
+static void __cdecl UpgradeSparks_r(ObjectMaster *a1);
+static Trampoline UpgradeSparks_t(0x4BAF10, 0x4BAF15, UpgradeSparks_r);
+static void __cdecl UpgradeSparks_r(ObjectMaster *a1)
+{
+	EntityData1 *v1; // eax
+	double v2; // st7
+	v1 = a1->Data1;
+	v2 = v1->Scale.z;
+	auto original = reinterpret_cast<decltype(UpgradeSparks_r)*>(UpgradeSparks_t.Target());
+	if (EnableSpeedFixes)
+	{
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1);
+		else
+		{
+			if (v2 < 7)
+			{
+				DrawSparkSprite(a1);
+			}
+		}
+	}
+	else original(a1);
+}
+
+void RenderUpgradeSparks(NJS_SPRITE *sp, Int n, NJD_SPRITE attr, QueuedModelFlagsB zfunc_type)
+{
+	DrawQueueDepthBias = 2000.0f;
+	SetMaterialAndSpriteColor_Float(1.0f, 1.0f, 1.0f, 1.0f);
+	njDrawSprite3D_Queue(sp, n, attr, QueuedModelFlagsB_3);
+	DrawQueueDepthBias = 0;
+}
+
+void RenderMainUpgradeModel(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
+{
+	DrawQueueDepthBias = 1000.0f;
+	ProcessModelNode(a1, a2, a3);
+	DrawQueueDepthBias = 0;
+}
+
 void SpeedFixes_Init()
 {
+	//Character upgrades
+	WriteCall((void*)0x4BEA22, RenderMainUpgradeModel);
+	WriteCall((void*)0x4BEA33, RenderMainUpgradeModel);
+	WriteCall((void*)0x4BAEED, RenderUpgradeSparks);
+	WriteCall((void*)0x4BECBD, GetFrameCounter_Half);
+	WriteCall((void*)0x4BEBD4, GetFrameCounter_Half);
+	WriteCall((void*)0x4BEBC3, GetFrameCounter_Half);
+	WriteCall((void*)0x4BF088, GetFrameCounter_Half);
 	//Animals
 	//sub_4D72B0 (Bubble)
 	WriteData((float**)0x004D73FB, &BubbleMovementSpeed);
@@ -418,6 +472,8 @@ void SpeedFixes_Init()
 
 void SpeedFixes_OnFrame()
 {
+	//Half frame counter
+	if (FrameCounter % 2 == 0) FrameCounter_Half++;
 	if (FramerateSettingOld != FramerateSetting)
 	{
 		//Original values for 30 FPS
