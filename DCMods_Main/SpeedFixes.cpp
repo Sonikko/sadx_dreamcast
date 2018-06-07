@@ -432,6 +432,10 @@ void SpeedFixes_OnFrame()
 			AnimalMultiplier2 = 0.89999998f;
 			AnimalGravity = 0.28095001f;
 			AnimalPositionMultiplier = 0.25f;
+			DistanceMultiplier_3 = 1.5f;
+			DistanceMultiplier_1 = 0.5f;
+			DistanceMultiplier_4 = 2.0f;
+			DistanceMultiplier_8 = 4.0f;
 			//General
 			DashPanelAnimationSpeedOverride = 1.0f;
 			SpinnerYAnimationSpeedOverride = 768;
@@ -489,6 +493,10 @@ void SpeedFixes_OnFrame()
 			AnimalMultiplier2 = 0.44999999f;
 			AnimalGravity = 0.140475005f;
 			AnimalPositionMultiplier = 0.125f;
+			DistanceMultiplier_3 = 3.0f;
+			DistanceMultiplier_1 = 1.0f;
+			DistanceMultiplier_4 = 4.0f;
+			DistanceMultiplier_8 = 8.0f;
 			//General
 			DashPanelAnimationSpeedOverride = 0.25f;
 			SpinnerYAnimationSpeedOverride = 384;
