@@ -704,7 +704,7 @@ void __cdecl PinballJackpot_Sprite_MainX(ObjectMaster *a1)
 	char v3; // edi
 	char v4 = 0; // al
 	v1 = a1->Data1;
-	if (FrameCounter % 2 == 0)
+	if ((FramerateSetting == 1 && FrameCounter % 2 == 0) || FramerateSetting >= 2)
 	{
 		v2 = v1->InvulnerableTime;
 		if (v2)

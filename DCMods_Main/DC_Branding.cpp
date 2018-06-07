@@ -2368,7 +2368,6 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		ReplacePVR("SONIC_EMBLM04");
 		ReplacePVR("SONIC_EMBLM05");
 		ReplacePVR("STAFFROLL_TXT");
-		ReplacePVR("STX_ICE0");
 		ReplacePVR("ST_016S_HPBAR");
 		ReplacePVR("ST_064S_SCORE");
 		ReplacePVR("ST_128S_HPGEJI");

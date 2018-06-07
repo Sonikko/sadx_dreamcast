@@ -753,6 +753,7 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVR("TM32KURAGE");
 	ReplacePVR("SEA");
 	ReplacePVR("SKY_H_BAL01");
+	ReplacePVR("STX_ICE0");
 	ReplacePVR("MRASC_016S_HIRUUMI");
 	ReplacePVR("MRASC_256S_HIRUSORAA");
 	ReplacePVR("WATERCOLUMN01");

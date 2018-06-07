@@ -289,11 +289,20 @@ void FixBoaBoa(NJS_VECTOR *a1, NJS_VECTOR *a2, float a3)
 	else CreateFireParticle(a1, a2, a3);
 }
 
+static void __cdecl HoppingAnimals_r(int a1, int a2);
+static Trampoline HoppingAnimals_t(0x4D7D90, 0x4D7D98, HoppingAnimals_r);
+static void __cdecl HoppingAnimals_r(int a1, int a2)
+{
+	auto original = reinterpret_cast<decltype(HoppingAnimals_r)*>(HoppingAnimals_t.Target());
+	if (EnableSpeedFixes)
+	{
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1, a2);
+	}
+	else original(a1, a2);
+}
+
 void SpeedFixes_Init()
 {
-	//Fire stuff
-	WriteCall((void*)0x79FC42, FixBoaBoa);
-	WriteCall((void*)0x79FCA9, FixBoaBoa);
 	//Animals
 	//sub_4D72B0
 	WriteData((float**)0x004D73FB, &BubbleMovementSpeed);
@@ -319,12 +328,6 @@ void SpeedFixes_Init()
 	WriteData((float**)0x004D7D69, &AnimalMultiplier2);
 	WriteData((float**)0x004D7D75, &AnimalMultiplier2);
 	WriteData((float**)0x004D7D81, &AnimalMultiplier2);
-	//sub_4D7D90 (hopping)
-	WriteData((float**)0x004D7DBC, &AnimalGravity);
-	WriteData((float**)0x004D7E56, &BubbleMovementSpeed);
-	WriteData((float**)0x004D7EF6, &AnimalMultiplier2);
-	WriteData((float**)0x004D7F02, &AnimalMultiplier2);
-	WriteData((float**)0x004D7F0E, &AnimalMultiplier2);
 	//sub_4D72B0
 	WriteData((float**)0x004D72F3, &BubbleRotationSpeed);
 	WriteData((float**)0x004D7395, &BubbleMovementSpeed3);
@@ -334,6 +337,9 @@ void SpeedFixes_Init()
 	WriteData((float**)0x004D73C4, &BubbleMovementSpeed2);
 	WriteData((float**)0x004D73CE, &BubbleMovementSpeed2);
 	WriteData((float**)0x004D73D8, &BubbleMovementSpeed2);
+	//Fire stuff
+	WriteCall((void*)0x79FC42, FixBoaBoa);
+	WriteCall((void*)0x79FCA9, FixBoaBoa);
 	//General
 	WriteData((float**)0x007A441B, &DashPanelAnimationSpeedOverride);
 	WriteData((short*)0x4AFB90, SpinnerYAnimationSpeedOverride);
