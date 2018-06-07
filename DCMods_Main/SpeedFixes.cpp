@@ -414,8 +414,7 @@ void SpeedFixes_Init()
 	WriteData((char*)0x005E78E1, LostWorldDoorFix);
 	WriteData((char*)0x005E7C63, LostWorldDoorFix1);
 	WriteData((char*)0x005E7841, LostWorldDoorFix1);
-
-	}
+}
 
 void SpeedFixes_OnFrame()
 {
