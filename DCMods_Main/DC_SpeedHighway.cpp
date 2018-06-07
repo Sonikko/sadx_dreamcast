@@ -111,6 +111,11 @@ void AntennaSprite(NJS_ARGB *a1)
 	SetMaterialAndSpriteColor(&q1);
 }
 
+void SetCopSpeederEffectAlpha(float a, float r, float g, float b)
+{
+	SetMaterialAndSpriteColor_Float(a-0.1f, 1.0f, 1.0f, 0.95f);
+}
+
 void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN("PL_40B", "PL_40X");
@@ -171,6 +176,8 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 	WriteData((NJS_TEXNAME**)0x26B2960, (NJS_TEXNAME*)0x2670554); //OJamer texture list 2
 	*(NJS_OBJECT*)0x026919C0 = objectSTG04_022919C0; //Antenna model
 	WriteCall((void*)0x00615D60, AntennaModel);
+	WriteData<1>((char*)0x004B19E2, 0x08); //Cop speeder effect blending
+	WriteCall((void*)0x4B1C6F, SetCopSpeederEffectAlpha);
 	//Fix light sprites in various objects
 	WriteData<1>((char*)0x00615DBB, 0x8); //Antenna sprite blending SA_SRC
 	WriteData((float**)0x00615DA0, (float*)0x7DCB10); //Antenna sprite maximum brightness 1.0 instead of 0.5
