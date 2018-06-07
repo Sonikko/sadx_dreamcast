@@ -74,6 +74,10 @@ float BubbleRotationSpeed = 91.022225f; //182.04445 at 60
 float AnimalMultiplier2 = 0.44999999f; //0.89999998 at 60
 float AnimalGravity = 0.140475005f; //0.28095001 at 60
 float AnimalPositionMultiplier = 0.125f; //0.25 at 60
+float DistanceMultiplier_3 = 1.5f;
+float DistanceMultiplier_1 = 0.5f;
+float DistanceMultiplier_4 = 2.0f;
+float DistanceMultiplier_8 = 4.0f;
 
 static void __cdecl AmyHammerEffect_r(ObjectMaster *a1);
 static Trampoline AmyHammerEffect_t(0x4C5BC0, 0x4C5BC9, AmyHammerEffect_r);
@@ -289,54 +293,51 @@ void FixBoaBoa(NJS_VECTOR *a1, NJS_VECTOR *a2, float a3)
 	else CreateFireParticle(a1, a2, a3);
 }
 
-static void __cdecl HoppingAnimals_r(int a1, int a2);
-static Trampoline HoppingAnimals_t(0x4D7D90, 0x4D7D98, HoppingAnimals_r);
-static void __cdecl HoppingAnimals_r(int a1, int a2)
-{
-	auto original = reinterpret_cast<decltype(HoppingAnimals_r)*>(HoppingAnimals_t.Target());
-	if (EnableSpeedFixes)
-	{
-		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1, a2);
-	}
-	else original(a1, a2);
-}
-
 void SpeedFixes_Init()
 {
 	//Animals
-	//sub_4D72B0
-	WriteData((float**)0x004D73FB, &BubbleMovementSpeed);
-	WriteData((float**)0x004D7405, &BubbleMovementSpeed);
-	WriteData((float**)0x004D740F, &BubbleMovementSpeed);
-	WriteData((float**)0x004D73C5, &BubbleMovementSpeed2);
-	WriteData((float**)0x004D73CE, &BubbleMovementSpeed2);
-	WriteData((float**)0x004D73D8, &BubbleMovementSpeed2);
-	WriteData((float**)0x004D7393, &BubbleMovementSpeed3);
-	WriteData((float**)0x004D72F3, &BubbleRotationSpeed);
-	//sub_4D7A40
-	WriteData((float**)0x004D7ACB, &BubbleRotationSpeed);
-	WriteData((float**)0x004D7B61, &AnimalGravity);
-	WriteData((float**)0x004D7B44, &AnimalPositionMultiplier);
-	WriteData((float**)0x004D7B54, &AnimalPositionMultiplier);
-	//sub_4D7C30
-	WriteData((float**)0x004D7C56, &BubbleMovementSpeed);
-	WriteData((float**)0x004D7C69, &BubbleMovementSpeed);
-	WriteData((float**)0x004D7C78, &AnimalGravity);
-	//sub_4D7B70
-	WriteData((float**)0x004D7BB2, &BubbleRotationSpeed);
-	//sub_4D7C90
-	WriteData((float**)0x004D7D69, &AnimalMultiplier2);
-	WriteData((float**)0x004D7D75, &AnimalMultiplier2);
-	WriteData((float**)0x004D7D81, &AnimalMultiplier2);
-	//sub_4D72B0
-	WriteData((float**)0x004D72F3, &BubbleRotationSpeed);
-	WriteData((float**)0x004D7395, &BubbleMovementSpeed3);
+	//sub_4D72B0 (Bubble)
 	WriteData((float**)0x004D73FB, &BubbleMovementSpeed);
 	WriteData((float**)0x004D7405, &BubbleMovementSpeed);
 	WriteData((float**)0x004D740F, &BubbleMovementSpeed);
 	WriteData((float**)0x004D73C4, &BubbleMovementSpeed2);
 	WriteData((float**)0x004D73CE, &BubbleMovementSpeed2);
 	WriteData((float**)0x004D73D8, &BubbleMovementSpeed2);
+	WriteData((float**)0x004D7395, &BubbleMovementSpeed3);
+	WriteData((float**)0x004D72F3, &BubbleRotationSpeed);
+	//sub_4D8A10 (Distance calculation)
+	WriteData((float**)0x4D8B01, &DistanceMultiplier_3);
+	WriteData((float**)0x4D8AE0, &DistanceMultiplier_3);
+	WriteData((float**)0x4D8B07, &DistanceMultiplier_1);
+	WriteData((float**)0x4D8AE6, &DistanceMultiplier_4);
+	WriteData((float**)0x4D8B63, &DistanceMultiplier_3);
+	WriteData((float**)0x4D8B69, &DistanceMultiplier_1);
+	WriteData((float**)0x4D8B36, &DistanceMultiplier_3);
+	WriteData((float**)0x4D8B3C, &DistanceMultiplier_4);
+	WriteData((float**)0x4D8C4A, &DistanceMultiplier_8);
+	WriteData((float**)0x4D8C58, &DistanceMultiplier_8);
+	WriteData((float**)0x4D8C66, &DistanceMultiplier_8);
+	//sub_4D7A40 (Goma, Rako, Gori, Zou, Mogu, Koar)
+	WriteData((float**)0x004D7ACB, &BubbleRotationSpeed);
+	WriteData((float**)0x004D7B61, &AnimalGravity);
+	WriteData((float**)0x004D7B44, &AnimalPositionMultiplier);
+	WriteData((float**)0x004D7B54, &AnimalPositionMultiplier);
+	//sub_4D7C30 (Pen, Suka)
+	WriteData((float**)0x004D7C56, &BubbleMovementSpeed);
+	WriteData((float**)0x004D7C69, &BubbleMovementSpeed);
+	WriteData((float**)0x004D7C78, &AnimalGravity);
+	//sub_4D7B70 (Called by functions used by Pen and Usa)
+	WriteData((float**)0x004D7BB2, &BubbleRotationSpeed);
+	//sub_4D7C90 (Banb, Lion)
+	WriteData((float**)0x004D7D69, &AnimalMultiplier2);
+	WriteData((float**)0x004D7D75, &AnimalMultiplier2);
+	WriteData((float**)0x004D7D81, &AnimalMultiplier2);
+	//sub_4D7D90 (hopping)
+	WriteData((float**)0x004D7DBC, &AnimalGravity);
+	WriteData((float**)0x004D7E56, &BubbleMovementSpeed);
+	WriteData((float**)0x004D7EF6, &AnimalMultiplier2);
+	WriteData((float**)0x004D7F02, &AnimalMultiplier2);
+	WriteData((float**)0x004D7F0E, &AnimalMultiplier2);
 	//Fire stuff
 	WriteCall((void*)0x79FC42, FixBoaBoa);
 	WriteCall((void*)0x79FCA9, FixBoaBoa);
