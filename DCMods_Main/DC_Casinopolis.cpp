@@ -42,6 +42,7 @@ FunctionPointer(int, sub_5D4300, (int result, float a2), 0x5D4300);
 FunctionPointer(void, sub_407870, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x407870);
 FunctionPointer(void, sub_405490, (NJS_ACTION *a1, float a2, int a3, int a4), 0x405490);
 FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
+FunctionPointer(void, sub_4053A0, (void *a1, int a2, float a3, int a4, int a5), 0x4053A0);
 NJS_VECTOR Cowgirl1{ 457.6972f, 45.06788f, 390 };
 NJS_VECTOR Cowgirl2{ 340.3949f, 51.20071f, 480 };
 DataArray(NJS_VECTOR, stru_1E79588, 0x1E79588, 66);
@@ -521,8 +522,8 @@ void __cdecl OLhtr_Display(ObjectMaster *a1)
 			njRotateY(0, (unsigned __int16)v4);
 		}
 		ProcessModelNode_AB_Wrapper(&objectSTG09_01A5E7BC, 1.0f);
-		if (v1->Action == 0) ProcessModelNode_A_Wrapper(&objectSTG09_01A5E7BC_light, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		else ProcessModelNode_A_Wrapper(&objectSTG09_01A5E7BC_dark, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		if (v1->Action == 0) ProcessModelNode_A_Wrapper(&objectSTG09_01A5E7BC_dark, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		else ProcessModelNode_A_Wrapper(&objectSTG09_01A5E7BC_light, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 		njPopMatrix(1u);
 		sub_5DD920((int)&off_1E75DE0, 2);
 	}
@@ -696,7 +697,6 @@ void JackPotFix2(NJS_MODEL_SADX *a1)
 	DrawQueueDepthBias = 0;
 }
 
-
 void __cdecl PinballJackpot_Sprite_MainX(ObjectMaster *a1)
 {
 	EntityData1 *v1; // esi
@@ -758,6 +758,13 @@ void __cdecl PinballJackpot_Sprite_MainX(ObjectMaster *a1)
 	}
 }
 
+void IdeyaCapFix(void *a1, int a2, float a3, int a4, int a5)
+{
+	DrawQueueDepthBias = 1000.0f;
+	sub_4053A0(a1, a2, a3, a4, a5);
+	DrawQueueDepthBias = 0;
+}
+
 void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0900K");
@@ -773,7 +780,6 @@ void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ReplaceBIN_DC("SET0902S");
 	ReplaceBIN_DC("SET0903S");
 	ReplaceBIN_DC("SETMI0900K");
-
 	switch (EnableSETFixes)
 	{
 		case SETFixes_Normal:
@@ -795,7 +801,6 @@ void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFuncti
 		default:
 			break;
 	}
-
 	ReplacePVM("CASINO01");
 	ReplacePVM("CASINO02");
 	ReplacePVM("CASINO03");
@@ -816,6 +821,8 @@ void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFuncti
 		material_register(ObjectSpecular_Casino, LengthOfArray(ObjectSpecular_Casino), &ForceDiffuse0Specular1);
 		material_register(WhiteDiffuse_Casino, LengthOfArray(WhiteDiffuse_Casino), &ForceWhiteDiffuse1);
 	}
+	//Ideya cap fix
+	WriteCall((void*)0x5D79A9, IdeyaCapFix);
 	//Jackpot fixes
 	WriteCall((void*)0x05E1144, JackPotFix1);
 	WriteCall((void*)0x05E1187, JackPotFix2);
