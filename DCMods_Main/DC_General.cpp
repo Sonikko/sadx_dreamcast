@@ -396,7 +396,7 @@ void __cdecl SpawnRipplesX(unsigned __int8 a1, NJS_VECTOR *a2)
 	{
 		if (njScalor(&v3->Speed) == 0.0f)
 		{
-			v4 = (double)rand() * 0.000030517578;
+			v4 = (double)rand() * 0.000030517578f;
 			v5 = v4 < 0.9f;
 			v6 = v4 == 0.9f;
 		}
