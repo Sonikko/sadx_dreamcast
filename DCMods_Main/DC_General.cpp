@@ -1251,15 +1251,7 @@ void General_OnFrame()
 		EnvMap3 = 0.5f;
 		EnvMap4 = 0.5f;
 	}
-	if (EnvMapMode == 1 && CurrentLevel != 20)
-	{
-		EnvMapMode = 0;
-		EnvMap1 = 0.5f;
-		EnvMap2 = 0.5f;
-		EnvMap3 = 0.5f;
-		EnvMap4 = 0.5f;
-	}
-	if (EnvMapMode == 1 && MetalSonicFlag)
+	if (EnvMapMode == 1 && (!CurrentLevel == 20 || MetalSonicFlag))
 	{
 		EnvMapMode = 0;
 		EnvMap1 = 0.5f;
