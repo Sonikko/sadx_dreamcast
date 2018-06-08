@@ -886,7 +886,6 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	NJS_ACTION **___BOSSCHAOS0_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___BOSSCHAOS0_ACTIONS");
 	NJS_OBJECT **___BOSSCHAOS0_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___BOSSCHAOS0_OBJECTS");
 	NJS_TEXLIST **___BOSSCHAOS0_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___BOSSCHAOS0_TEXLISTS");
-
 	// Load configuration settings.
 	//SADX water
 	SADXStyleWater_EggHornet = config->getBool("SADX Style Water", "MysticRuins", false);
@@ -902,7 +901,11 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	EnableEggViper = config->getBool("Bosses", "EnableEggViper", true);
 	EnableE101 = config->getBool("Bosses", "EnableE101", true);
 	EnableZeroE101R = config->getBool("Bosses", "EnableZeroE101R", true);
-
+	//Generic fixes for Chaos materials
+	for (unsigned int i = 0; i < LengthOfArray(ChaosMaterials); i++)
+	{
+		RemoveMaterialColors(ChaosMaterials[i]);
+	}
 	if (EnableChaos0 == true)
 	{
 		ReplaceBIN("PL_G0B", "PL_G0X");
@@ -1063,7 +1066,6 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		((NJS_OBJECT*)0x01191764)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
 		((NJS_OBJECT*)0x011913AC)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
 		((NJS_OBJECT*)0x01191018)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
-
 	}
 	if (EnableChaos6 == true)
 	{
