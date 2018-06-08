@@ -31,6 +31,7 @@ NJS_TEXLIST texlist_gtitle = { arrayptrandlength(textures_gtitle) };
 
 FunctionPointer(ObjectMaster*, sub_510390, (int a1), 0x510390);
 FunctionPointer(void, sub_505B40, (int a1), 0x505B40);
+FunctionPointer(void, sub_432EA0, (), 0x432EA0);
 DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(CreditsList, MainCredits, 0x2BC2FD0);
 DataArray(PVMEntry, GUITextures_Japanese, 0x007EECF0, 30);
@@ -1479,10 +1480,20 @@ void GreenRect_Wrapper(float x, float y, float z, float width, float height)
 	njTextureShadingMode(2);
 }
 
-void BossHUDHack(int that_cant_be_right, float x, float y, float z)
+void __cdecl BossHUDHack(void *a1)
 {
-	if (!DLLLoaded_HDGUI) DrawBG(that_cant_be_right, x, y, z, 2.25f, 2.25f);
-	else DisplayScreenTexture(that_cant_be_right, x, y, z);
+	float x; // ST0C_4
+	float y; // ST10_4
+	float scale;
+	sub_432EA0();
+	njSetTexture(&Hud_RingTimeLife_TEXLIST);
+	njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+	x = (HorizontalResolution_float/640.0f) * *(float *)a1;
+	y = (*((float *)a1 + 1) - 20.0f) * (VerticalResolution_float / 480.0f);
+	scale = (VerticalResolution_float / 480.0f); //1x for original PVM
+	if (DLLLoaded_HDGUI) scale = scale / 4.0f;
+	DrawBG(*((_DWORD *)a1 + 3), x, y, *((float *)a1 + 2), scale, scale);
 }
 
 void Branding_SetUpVariables()
@@ -1508,7 +1519,7 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	SA1LogoMode = config->getInt("Branding", "SA1LogoMode", 0);
 	LogoScaleXT = LogoScaleX;
 	LogoScaleYT = LogoScaleY;
-
+	WriteJump((void*)0x4B62B0, BossHUDHack); //HUD hack for Knuckles/Gamma boss fight
 	Branding_SetUpVariables();
 	//Credits
 	WriteData((float*)0x006415DA, 1.5f); //EngBG X scale
@@ -1582,7 +1593,6 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		WriteData((float*)0x0050AEE5, 1.125f); //sub_50AE30
 		WriteData((float*)0x0050AF5A, 1.125f); //sub_50AF30
 		WriteData((float*)0x0050AF5F, 1.125f); //sub_50AF30
-		WriteCall((void*)0x4B6302, BossHUDHack);
 		WriteCall((void*)0x64393E, GreenRect_Wrapper); //Fix alpha rejection on green rectangle in tutorials
 		//Tutorial stuff
 		//PVMs
