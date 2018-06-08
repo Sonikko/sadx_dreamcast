@@ -1,9 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <Trampoline.h>
-#include "stdlib.h"
-#include <math.h> 
-#include <lanternapi.h>
 #include "Animals.h"
 #include "EmeraldGlow.h"
 #include "TornadoCrash.h"
@@ -11,8 +6,6 @@
 #include "CharacterEffects.h"
 #include "Ripple.h"
 #include "CommonObjects.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 HMODULE CHRMODELS3 = GetModuleHandle(L"CHRMODELS_orig");
 HMODULE ADV01MODELS2 = GetModuleHandle(L"ADV01MODELS");
@@ -34,6 +27,7 @@ DataPointer(float, EnvMap1, 0x038A5DD0);
 DataPointer(float, EnvMap2, 0x038A5DE4);
 DataPointer(float, EnvMap3, 0x038A5E00);
 DataPointer(float, EnvMap4, 0x038A5E04);
+DataPointer(NJS_MATRIX, nj_unit_matrix_, 0x389D650);
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
 FunctionPointer(EntityData1*, sub_4B9430, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4B9430);
@@ -42,11 +36,15 @@ FunctionPointer(void, sub_40EFE0, (), 0x40EFE0);
 FunctionPointer(double, sub_49EAD0, (float a1, float a2, float a3, int a4), 0x49EAD0);
 FunctionPointer(float, sub_49E920, (float x, float y, float z, Rotation3 *rotation), 0x49E920);
 FunctionPointer(SubtitleThing *, sub_6424A0, (int a1, int a2, float a3, float a4, float a5, float a6, float a7, float a8), 0x6424A0);
+FunctionPointer(void, sub_4014B0, (), 0x4014B0);
 
 static bool EnableCutsceneFix = true;
+int CutsceneSkipMode = 0;
 static std::string EnableImpressFont = "Off";
 static bool ColorizeFont = true;
 static bool DisableFontSmoothing = true;
+static bool EnableLSDFix = false;
+static bool FPSLock = false;
 static int EnvMapMode = 0;
 static int AlphaRejectionMode = 0;
 static int EmeraldGlowAlpha = 255;
@@ -55,6 +53,10 @@ static bool EnableDCRipple = true;
 static float heat_float1 = 1.0f; //1
 static float heat_float2 = 0.2f; //0.5
 static float alphathing = 1.0f;
+static float LSDFix = 16.0f;
+static int CutsceneFadeValue = 0;
+static int CutsceneFadeMode = 0;
+static bool SkipPressed_Cutscene = false;
 
 NJS_MATERIAL* FirstCharacterSpecular_General[] = {
 	//Hedgehog Hammer targets (possibly SL objects?)
@@ -194,7 +196,7 @@ void RenderEmeraldWithGlow(NJS_OBJECT *a1, int scale)
 	ProcessModelNode_D_Wrapper(a1, scale);
 	if (EmeraldGlowAlpha >= 255) EmeraldGlowDirection = false;
 	if (EmeraldGlowAlpha <= 128) EmeraldGlowDirection = true;
-	if (EmeraldGlowDirection == true) EmeraldGlowAlpha = EmeraldGlowAlpha + 2; else EmeraldGlowAlpha = EmeraldGlowAlpha - 2;
+	if (EmeraldGlowDirection) EmeraldGlowAlpha = EmeraldGlowAlpha + 2; else EmeraldGlowAlpha = EmeraldGlowAlpha - 2;
 	if (CurrentLevel == 2) EmeraldGlowTexanim.texid = 3;
 	if (CurrentLevel == 9) EmeraldGlowTexanim.texid = 4;
 	if (CurrentLevel == 8) EmeraldGlowTexanim.texid = 5;
@@ -511,7 +513,7 @@ void __cdecl ItemBox_Display_Destroyed_Rotate(ObjectMaster* _this)
 	njTranslateV(nullptr, &v1->Position);
 
 	// Rotate
-	if (EnableSETFixes != 0)
+	if (EnableSETFixes != SETFixes_Off)
 	{
 		njRotateEx((Angle*)&v1->Rotation, 0);
 	}
@@ -538,7 +540,7 @@ void __cdecl ItemBox_Display_Unknown_Rotate(ObjectMaster* _this)
 				njTranslateEx(&v1->Position);
 
 				// Rotate
-				if (EnableSETFixes != 0)
+				if (EnableSETFixes != SETFixes_Off)
 				{
 					njRotateEx((Angle*)&v1->Rotation, 0);
 				}
@@ -592,7 +594,7 @@ void __cdecl ItemBox_Display_Rotate(ObjectMaster* _this)
 			njTranslateV(nullptr, &v1->Position);
 
 			// Rotate
-			if (EnableSETFixes != 0)
+			if (EnableSETFixes != SETFixes_Off)
 			{
 				njRotateEx((Angle*)&v1->Rotation, 0);
 			}
@@ -642,23 +644,102 @@ void ColorizeRecapText(int a1, int a2, float a3, float a4, float a5, float a6, f
 	sub_6424A0(a1, 0xFFF8F8F8, a3, a4, a5, a6, a7, a8);
 }
 
-//Spike balls slowdown
-
-static void __cdecl SwingSpikeBall_Load_r(ObjectMaster *a1);
-static Trampoline SwingSpikeBall_Load_t(0x7A4260, 0x7A4266, SwingSpikeBall_Load_r);
-static void __cdecl SwingSpikeBall_Load_r(ObjectMaster *a1)
+void InputHookForCutscenes()
 {
-	auto original = reinterpret_cast<decltype(SwingSpikeBall_Load_r)*>(SwingSpikeBall_Load_t.Target());
-	if (FramerateSetting < 2)
-	{
-		a1->Data1->Scale.z = a1->Data1->Scale.z / 2;
-	}
-	original(a1);
+	sub_4014B0();
+	if (CutsceneFadeMode == 1) ControllerPointers[0]->PressedButtons |= Buttons_C;
 }
 
-void General_Init(const char *path, const HelperFunctions &helperFunctions)
+void DrawUnderwaterOverlay(NJS_MATRIX_PTR m)
 {
-	char pathbuf[MAX_PATH];
+	NJS_COLOR WaterOverlay_Colors;
+	njPushMatrix(m);
+	njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+	WaterOverlay_Colors.color = 0x1E0008FF;
+	DrawRect_Queue(0.0, 0.0, HorizontalResolution, VerticalResolution, 22041.496f, WaterOverlay_Colors.argb.b | ((WaterOverlay_Colors.argb.g | (*(unsigned __int16 *)&WaterOverlay_Colors.argb.r << 8)) << 8), QueuedModelFlagsB_EnableZWrite);
+	njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+}
+
+void FPSLockHook(int a1)
+{
+	if (a1 == 1 && CurrentLevel != LevelIDs_TwinkleCircuit) a1 = 2;
+	DeltaTime_Multiplier(a1);
+}
+
+void __cdecl sub_4B9CE0(EntityData1 *a1, EntityData1 *a2)
+{
+	EntityData1 *v2; // edi
+	float v3; // eax
+	Angle v4; // eax
+	Angle v5; // eax
+	NJS_VECTOR a2a; // [esp+4h] [ebp-Ch]
+	v2 = a1;
+	v3 = a2->Scale.x;
+	a2a.z = 0.0;
+	a2a.y = 0.0;
+	a2a.x = 0.0;
+	v2->Scale.x = v3;
+	v2->Scale.y = GetCharObj2(0)->PhysicsData.CollisionSize * v2->Scale.x * 0.60000002;
+	njPushMatrix(nj_unit_matrix_);
+	njTranslateV(0, &a2->Position);
+	v4 = a2->Rotation.z;
+	if (v4)
+	{
+		njRotateZ(0, (unsigned __int16)v4);
+	}
+	v5 = a2->Rotation.x;
+	if (v5)
+	{
+		njRotateX(0, (unsigned __int16)v5);
+	}
+	njTranslate(0, 0.0f, v2->Scale.y, 0.0f);
+	njCalcPoint(0, &a2a, &v2->Position);
+	njPopMatrix(1u);
+}
+
+FunctionPointer(void, BarrierChild, (ObjectMaster *a1), 0x4BA1E0);
+
+void __cdecl Barrier_MainX(ObjectMaster *a1)
+{
+	EntityData1 *v1; // edi
+	EntityData1 *v2; // esi
+	ObjectMaster *v3; // eax
+	ObjectMaster *v4; // esi
+	EntityData1 *v5; // edi
+	v1 = a1->Data1;
+	v2 = EntityData1Ptrs[*(Uint8 *)&v1->CharIndex];
+	if (v2 && GetCharObj2(0)->Powerups & Powerups_Barrier)
+	{
+		sub_4B9CE0(v1, v2);
+		if ((double)rand() * 0.000030517578f > 0.85f)
+		{
+			v3 = LoadChildObject(LoadObj_Data1, BarrierChild, a1);
+			v4 = v3;
+			if (v3)
+			{
+				v5 = v3->Data1;
+				v5->Rotation.x = (unsigned __int64)((double)rand() * 0.000030517578f * 65536.0f);
+				v5->Rotation.y = (unsigned __int64)((double)rand() * 0.000030517578f * 65536.0f);
+				v4->DisplaySub = Barrier_Display;
+			}
+		}
+		RunObjectChildren(a1);
+	}
+	else
+	{
+		CheckThingButThenDeleteObject(a1);
+	}
+}
+
+void EmeraldShardLighting(NJD_FLAG lol1, NJD_FLAG lol2)
+{
+	AddConstantAttr(0, NJD_FLAG_IGNORE_LIGHT);
+}
+
+void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
+{
 	ReplacePVR("AL_BARRIA");
 	ReplacePVR("AM_SEA124_8");
 	ReplacePVR("BELT2");
@@ -896,32 +977,50 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_MODEL_SADX*)0x008C6624 = attach_001A7820; //Spring H
 	*(NJS_MODEL_SADX*)0x008BFEC8 = attach_001A127C; //Rocket platform
 	*(NJS_MODEL_SADX*)0x008BE168 = attach_0019F5CC; //Balloon
-	//Config stuff
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+	// Load configuration settings
+	FPSLock = config->getBool("General", "FPSLock", false);
 	EnableDCRipple = config->getBool("General", "EnableDreamcastWaterRipple", true);
 	EnableCutsceneFix = config->getBool("General", "EnableCutsceneFix", true);
 	EnableImpressFont = config->getString("General", "EnableImpressFont", "Impress");
+	CutsceneSkipMode = config->getInt("General", "CutsceneSkipMode", 0);
 	ColorizeFont = config->getBool("General", "ColorizeFont", true);
 	DisableFontSmoothing = config->getBool("General", "DisableFontSmoothing", true);
-	delete config;
-	//Enable Impress font
-	if (DisableFontSmoothing == true)
+	EnableLSDFix = config->getBool("Miscellaneous", "EnableLSDFix", false);
+	//FPS lock
+	if (FPSLock) WriteCall((void*)0x411E79, FPSLockHook);
+	//Cancel cutscenes with C button
+	if (CutsceneSkipMode != 3)
+	{
+		WriteData<1>((char*)0x00431520, 0x01);
+		if (CutsceneSkipMode != 2) WriteCall((void*)0x4314F9, InputHookForCutscenes);
+	}
+	//Light Speed Dash distance fix
+	if (EnableLSDFix)
+	{
+		WriteData<1>((char*)0x0049306C, 0x80); //Initial speed 16 instead of 8
+		WriteData<1>((char*)0x00492FED, 0x80); //Initial speed 16 instead of 8
+		WriteData<1>((char*)0x00492CC1, 0x80); //Set speed to 16 if below minimum
+		WriteData((float**)0x00492CB0, &LSDFix); //16 is the minimum speed
+	}
+	// Disable font smoothing
+	if (DisableFontSmoothing)
 	{
 		//Probably better than making the whole texture ARGB1555
 		WriteData<1>((char*)0x0040DA0B, 0x00);
 		WriteData<1>((char*)0x0040DA0C, 0x00);
 		WriteData<1>((char*)0x0040DA12, 0x00);
 	}
+	// Enable Impress font
 	if (EnableImpressFont == "Impress")
 	{
 		ReplaceBIN("FONTDATA1", "FONTDATA1_I");
 	}
-	//Enable Comic Sans font (experimental)
-	if (EnableImpressFont == "ComicSans")
+	// Enable Comic Sans font (experimental)
+	else if (EnableImpressFont == "ComicSans")
 	{
 		ReplaceBIN("FONTDATA1", "FONTDATA1_C");
 	}
-	if (ColorizeFont == true)
+	if (ColorizeFont)
 	{
 		//Subtitles (ARGB from 0 to F: CEEF)
 		WriteData<1>((char*)0x0040E28D, 0xEF);
@@ -935,13 +1034,13 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteCall((void*)0x006428AD, ColorizeRecapText);
 	}
 	//Fix for cutscene transitions
-	if (EnableCutsceneFix == true)
+	if (EnableCutsceneFix)
 	{
 		WriteData<5>((void*)0x43131D, 0x90u);
 		WriteData<5>((void*)0x4311E3, 0x90u);
 	}
 	//Ripples
-	if (EnableDCRipple == true)
+	if (EnableDCRipple)
 	{
 		*(NJS_OBJECT*)0x8B22F4 = object_00193A44;
 		WriteJump((void*)0x4B9290, FixedRipple_Normal);
@@ -950,6 +1049,17 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 	//Water splash particle
 	WriteCall((void*)0x0049F1C0, FixWaterSplash);
+	//Emerald shard, hopefully someday
+	/*((NJS_MATERIAL*)0x8BA30C)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
+	((NJS_MATERIAL*)0x8BA30C)->diffuse.color = 0xCC000000;
+	WriteData((float*)0x004A2CFA, 0.1f);
+	WriteData((float*)0x004A2CFF, 0.1f);
+	WriteData((float*)0x004A2D04, 0.1f);
+	WriteData((float*)0x004A2D09, 0.25f);
+	WriteCall((void*)0x4A2CDE, EmeraldShardLighting);
+	WriteData<1>((char*)0x004A2D9A, 0x87); //IGNORE_LIGHT*/
+	//Underwater overlay
+	WriteCall((void*)0x43708D, DrawUnderwaterOverlay);
 	//Gamma's chest patch lol
 	HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 	((NJS_MATERIAL*)((size_t)CHRMODELS + 0x00200DE8))->attrflags &= ~NJD_FLAG_USE_ALPHA; //Unnecessary alpha in Gamma's model
@@ -1017,6 +1127,9 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Casino
 	WriteCall((void*)0x005DCFB0, RenderEmeraldWithGlow);
 	WriteCall((void*)0x005DCF7D, RotateEmerald);
+	//Shield
+	WriteJump(Barrier_Main, Barrier_MainX); //Barrier
+	WriteData<1>((char*)0x004B9DA9, 0x08); //Magnetic barrier blending mode
 	if (DLLLoaded_Lantern == true)
 	{
 		allow_landtable_specular(true);
@@ -1067,13 +1180,67 @@ void General_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void General_OnFrame()
 {
-	//Fix broken welds after playing as Metal Sonic
-	if (DLLLoaded_SADXFE == false)
+	//Cutscene skip
+	if (CutsceneSkipMode <= 1 && SkipPressed_Cutscene)
 	{
-		if (GameMode == GameModes_CharSel && MetalSonicFlag == true) MetalSonicFlag = false;
+		if (CutsceneSkipMode == 0)
+		{
+			if (CutsceneFadeMode == 0)
+			{
+				CutsceneFadeValue += 8;
+				if (CutsceneFadeValue >= 255)
+				{
+					CutsceneFadeValue = 255;
+					CutsceneFadeMode = 1;
+				}
+			}
+			if (CutsceneFadeMode == 1)
+			{
+				if (EV_MainThread_ptr != nullptr)
+				{
+					PrintDebug("Trying to skip the cutscene...\n");
+				}
+				else
+				{
+					CutsceneFadeMode = 2;
+					PrintDebug("Cutscene skipped!\n");
+				}
+			}
+			if (CutsceneFadeMode == 2)
+			{
+				CutsceneFadeValue -= 8;
+				if (CutsceneFadeValue <= 0)
+				{
+					CutsceneFadeValue = 0;
+					CutsceneFadeMode = 0;
+					SkipPressed_Cutscene = false;
+				}
+			}
+			DisplayVideoFadeout(CutsceneFadeValue, 1);
+		}
+		if (CutsceneSkipMode == 1)
+		{
+			if (EV_MainThread_ptr != nullptr)
+			{
+				CutsceneFadeMode = 1;
+				PrintDebug("Trying to skip the cutscene...\n");
+			}
+			else
+			{
+				CutsceneFadeMode = 0;
+				CutsceneFadeValue = 0;
+				SkipPressed_Cutscene = false;
+				PrintDebug("Cutscene skipped!\n");
+			}
+		}
+	}
+	//Fix broken welds after playing as Metal Sonic
+	if (!DLLLoaded_SADXFE)
+	{
+		if (GameMode == GameModes_CharSel && MetalSonicFlag) MetalSonicFlag = false;
 	}
 	//Alpha rejection
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		if (AlphaRejectionMode == 0 && CurrentLevel != 25 && GameMode != GameModes_CharSel && GameMode != GameModes_Menu && CurrentChaoStage != 2)
 		{
@@ -1087,7 +1254,7 @@ void General_OnFrame()
 		}
 	}
 	//Environment maps
-	if (EnvMapMode == 0 && CurrentLevel == 20 && MetalSonicFlag == 0)
+	if (EnvMapMode == 0 && CurrentLevel == 20 && !MetalSonicFlag)
 	{
 		EnvMapMode = 1;
 		EnvMap1 = 2.0f;
@@ -1103,7 +1270,7 @@ void General_OnFrame()
 		EnvMap3 = 0.5f;
 		EnvMap4 = 0.5f;
 	}
-	if (EnvMapMode == 1 && MetalSonicFlag != 0)
+	if (EnvMapMode == 1 && MetalSonicFlag)
 	{
 		EnvMapMode = 0;
 		EnvMap1 = 0.5f;
@@ -1114,4 +1281,15 @@ void General_OnFrame()
 	//Chaos 1 puddle
 	if (CurrentLevel == 33 && CutsceneID != 57) ((NJS_MATERIAL*)0x02D64FD8)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 	else ((NJS_MATERIAL*)0x02D64FD8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT;	
+}
+
+void General_OnInput()
+{
+	//Input hook for cutscenes
+	if (CutsceneSkipMode < 2 && !SkipPressed_Cutscene && !DemoPlaying)
+		if (EV_MainThread_ptr != 0 && ControllerPointers[0]->PressedButtons & Buttons_Start)
+		{
+			PrintDebug("Cutscene skip pressed!\n");
+			SkipPressed_Cutscene = true;
+		}
 }

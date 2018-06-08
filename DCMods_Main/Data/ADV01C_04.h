@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistADV01_00085194[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -15707,3 +15711,5 @@ NJS_TEXNAME textures_ec34[42];
 NJS_TEXLIST texlist_ec34 = { arrayptrandlength(textures_ec34) };
 
 LandTable landtable_0000F7A8 = { LengthOfArray(collist_0000EDDC), LengthOfArray(animlist_0000F748), 9, 0, collist_0000EDDC, animlist_0000F748, "ADV_EC34", (NJS_TEXLIST *)&texlist_ec34, 0, 0 };
+
+#pragma warning(pop)

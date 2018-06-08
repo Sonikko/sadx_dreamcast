@@ -1,13 +1,9 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "EmeraldCoast1_PC.h"
 #include "EmeraldCoast1.h"
 #include "EmeraldCoast2.h"
 #include "EmeraldCoast3.h"
 #include "EmeraldCoast_Objects.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 static int anim1 = 82;
 static int anim2 = 67;
@@ -17,8 +13,8 @@ static int anim5 = 50;
 static int anim6 = 65;
 static int anim7 = 57;
 static int anim8 = 80;
-static float float1 = 0.02;
-static float float2 = 66.0;
+static float float1 = 0.02f;
+static float float2 = 66.0f;
 static int SkyboxHidden = 0;
 static int beachsea_water = 0;
 static int animframe = 0;
@@ -199,7 +195,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			{
 				u2_add = int(255 * (v1->Position.x - oldpos.x) / unitsize_u_small) % 255;
 				if (SADXStyleWater == true) u2_add = roundfloat(1.5f * u2_add);
-				for (int u_step = 0; u_step < LengthOfArray(uvSTG01_00CBB000_d); u_step++)
+				for (unsigned int u_step = 0; u_step < LengthOfArray(uvSTG01_00CBB000_d); u_step++)
 				{
 					uvSTG01_00CBB000_data[u_step].u = uvSTG01_00CBB000_data[u_step].u - u2_add;
 					u2_delta = uvSTG01_00CBB000_data[u_step].u - uvSTG01_00CBB000_d[u_step].u;
@@ -211,7 +207,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			{
 				v2_add = int(255 * (v1->Position.z - oldpos.z) / unitsize_v_small) % 255;
 				if (SADXStyleWater == true) v2_add = roundfloat(0.5f * v2_add);
-				for (int v_step = 0; v_step < LengthOfArray(uvSTG01_00CBB000_d); v_step++)
+				for (unsigned int v_step = 0; v_step < LengthOfArray(uvSTG01_00CBB000_d); v_step++)
 				{
 					uvSTG01_00CBB000_data[v_step].v = uvSTG01_00CBB000_data[v_step].v - v2_add;
 					v2_delta = uvSTG01_00CBB000_data[v_step].v - uvSTG01_00CBB000_d[v_step].v;
@@ -442,43 +438,48 @@ void WhaleSplash(NJS_OBJECT *a1)
 	ProcessModelNode(a1, (QueuedModelFlagsB)0, 1.0f);
 }
 
-void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
+void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SET0100E");
 	ReplaceBIN_DC("SET0100S");
 	ReplaceBIN_DC("SET0101M");
 	ReplaceBIN_DC("SET0101S");
 	ReplaceBIN_DC("SET0102B");
 	ReplaceBIN_DC("SET0102S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0100S");
-		AddSETFix("SET0100E");
-		AddSETFix("SET0101S");
+		case SETFixes_Normal:
+			AddSETFix("SET0100S");
+			AddSETFix("SET0100E");
+			AddSETFix("SET0101S");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SET0100S");
+			AddSETFix_Extra("SET0100E");
+			AddSETFix_Extra("SET0101S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0100S");
-		AddSETFix_Extra("SET0100E");
-		AddSETFix_Extra("SET0101S");
-	}
+
 	ReplacePVM("BEACH01");
 	ReplacePVM("BEACH02");
 	ReplacePVM("BEACH03");
 	ReplacePVM("BG_BEACH");
 	ReplacePVM("OBJ_BEACH");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "EmeraldCoast", false);
 	IamStupidAndIWantFuckedUpOcean = config->getBool("Miscellaneous", "RevertEmeraldCoastDrawDistance", false);
-	delete config;
+
 	//Landtables
 	WriteData((LandTable**)0x97DA28, &landtable_00081554); //Act 1
 	WriteData((LandTable**)0x97DA2C, &landtable_000DEB60); //Act 2
 	WriteData((LandTable**)0x97DA30, &landtable_0011DD58); //Act 3
 	WriteCall((void*)0x00502F8F, WhaleSplash);
 	WriteCall((void*)0x00502F9A, WhaleSplash);
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(LevelSpecular_STG01, LengthOfArray(LevelSpecular_STG01), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_STG01, LengthOfArray(ObjectSpecular_STG01), &ForceDiffuse0Specular1);
@@ -487,7 +488,7 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData<2>((char*)0x004F7816, 0xFF); //Disable water animation in Act 2
 	WriteData<2>((char*)0x004F78E6, 0xFF); //Disable water animation in Act 3
 	((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.argb.a = 0x99; //Match dynamic ocean alpha with normal ocean
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("BEACH_SEA");
 		ResizeTextureList((NJS_TEXLIST*)0x010C0508, 32); //BEACH_SEA
@@ -531,7 +532,7 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 4].Flags = 0x80000402;
 		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 5].Flags = 0x80000402;
 		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 6].Flags = 0x80000402;
-		for (int rq = 0; rq < LengthOfArray(uvSTG01_00CBB000_d); rq++)
+		for (unsigned int rq = 0; rq < LengthOfArray(uvSTG01_00CBB000_d); rq++)
 		{
 			uvSTG01_00CBB000_d[rq].u = round(0.5 * uvSTG01_00CBB000_d[rq].u);
 			uvSTG01_00CBB000_d[rq].v = round(0.5 * uvSTG01_00CBB000_d[rq].v);
@@ -581,6 +582,7 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteJump((void*)0x00501130, Obj_EC1Water_DisplayX); //Act 1
 	WriteJump((void*)0x004F76C0, Obj_EC23Water_DisplayX); //Act 2
 	WriteJump((void*)0x004F7760, Obj_EC23Water_DisplayX); //Act 3
+
 	DataArray(DrawDistance, DrawDist_EmeraldCoast1, 0x00E99D94, 3);
 	DataArray(DrawDistance, DrawDist_EmeraldCoast2, 0x00E99DAC, 3);
 	DataArray(DrawDistance, DrawDist_EmeraldCoast3, 0x00E99DC4, 3);
@@ -590,7 +592,7 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 	DataArray(FogData, EmeraldCoast1Fog, 0x00E99DDC, 3);
 	DataArray(FogData, EmeraldCoast2Fog, 0x00E99E0C, 3);
 	DataArray(FogData, EmeraldCoast3Fog, 0x00E99E3C, 3);
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		DrawDist_EmeraldCoast3[i].Maximum = -4000.0f;
 		EmeraldCoast3Fog[i].Toggle = 0;
@@ -598,9 +600,10 @@ void EmeraldCoast_Init(const char *path, const HelperFunctions &helperFunctions)
 		EmeraldCoast3Fog[i].Distance = -3000.0f;
 		EmeraldCoast3Fog[i].Color = 0xFFFFFFFF;
 	}
-	if (IamStupidAndIWantFuckedUpOcean == false)
+
+	if (!IamStupidAndIWantFuckedUpOcean)
 	{
-		for (int i = 0; i < 3; i++)
+		for (unsigned int i = 0; i < 3; i++)
 		{
 			ReplaceBIN_DC("CAM0100E");
 			ReplaceBIN_DC("CAM0100S");
@@ -638,7 +641,7 @@ void EmeraldCoast_OnFrame()
 {
 	DataArray(NJS_TEX, uvSTG01_00CC0530, 0x10C0530, 4);
 	//Hide skybox bottom in Act 3
-	if (IamStupidAndIWantFuckedUpOcean == false)
+	if (IamStupidAndIWantFuckedUpOcean)
 	{
 		if (CurrentLevel == 1 && CurrentAct == 2 && Camera_Data1 != nullptr)
 		{
@@ -660,12 +663,12 @@ void EmeraldCoast_OnFrame()
 		//Restore ocean UVs on level exit/restart
 		if (GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21)
 		{
-			for (int r = 0; r < LengthOfArray(uvSTG01_00CC0530_d); r++)
+			for (unsigned int r = 0; r < LengthOfArray(uvSTG01_00CC0530_d); r++)
 			{
 				uvSTG01_00CC0530[r].u = uvSTG01_00CC0530_d[r].u;
 				uvSTG01_00CC0530[r].v = uvSTG01_00CC0530_d[r].v;
 			}
-			for (int r2 = 0; r2 < LengthOfArray(uvSTG01_00CBB000_d); r2++)
+			for (unsigned int r2 = 0; r2 < LengthOfArray(uvSTG01_00CBB000_d); r2++)
 			{
 				uvSTG01_00CBB000_data[r2].u = uvSTG01_00CBB000_d[r2].u;
 				uvSTG01_00CBB000_data[r2].v = uvSTG01_00CBB000_d[r2].v;

@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistSTG06_0007B1CC[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 7, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_U | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -25385,3 +25388,5 @@ NJS_TEXNAME textures_skydeck2[58];
 NJS_TEXLIST texlist_skydeck2 = { arrayptrandlength(textures_skydeck2) };
 
 LandTable landtable_00021094 = { LengthOfArray(collist_0001F03C), 0, 0xC, 1400, collist_0001F03C, NULL, "SKYDECK02", (NJS_TEXLIST *)&texlist_skydeck2, 0, 0 };
+
+#pragma warning(pop)

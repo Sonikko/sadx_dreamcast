@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 HMODULE Chaos0 = GetModuleHandle(L"BOSSCHAOS0MODELS");
 
 NJS_MATERIAL* PerfectChaosCars[] = {
@@ -365,3 +369,5 @@ NJS_MATERIAL* Chaos6ObjectMaterials[] = {
 	&matlist_00056E10[1],
 	&matlist_00056E10[2],
 };
+
+#pragma warning(pop)

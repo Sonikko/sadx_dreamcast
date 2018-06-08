@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlist_0008DAE0[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 5, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFC8C6B9 },{ 0xFFFFFFFF }, 11, 6, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -9485,3 +9489,4 @@ NJS_TEXLIST texlist_twinkle3 = { arrayptrandlength(textures_twinkle3) };
 
 LandTable landtable_00019F5C = { LengthOfArray(collist_00019368), 0, 0xC, 600, collist_00019368, NULL, "TWINKLE03", (NJS_TEXLIST *)&texlist_twinkle3, 0, 0 };
 
+#pragma warning(pop)

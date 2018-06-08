@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 Sint16 polyADV01_0006A310[] = {
 	6, 7, 8, 0, 9, 11, 10,
 	8, 0, 1, 7, 2, 6, 3, 5, 4
@@ -13819,3 +13823,5 @@ NJS_TEXNAME textures_ec33[20];
 NJS_TEXLIST texlist_ec33 = { arrayptrandlength(textures_ec33) };
 
 LandTable landtable_0000EDB8 = { LengthOfArray(collist_0000E1F4), LengthOfArray(animlist_0000EDA0), 9, 0, collist_0000E1F4, animlist_0000EDA0, "ADV_EC33", (NJS_TEXLIST *)&texlist_ec33, 0, 0 };
+
+#pragma warning(pop)

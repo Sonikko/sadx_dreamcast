@@ -1,7 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <IniFile.hpp>
-#include <lanternapi.h>
 #include "ChaoObjects.h"
 #include "Fountain.h"
 #include "SSGarden.h"
@@ -10,8 +7,6 @@
 #include "ChaoRaceEntry.h"
 #include "ECGarden_DC.h"
 #include "HintMessages.h"
-#include <stdlib.h>  
-#include "DC_Levels.h"
 
 static bool EnableSSGarden = true;
 static bool EnableMRGarden = true;
@@ -23,7 +18,7 @@ static int ecgardensand = 64;
 static int ecgardenwater = 54;
 static int mrgardenwater = 36;
 static int vmuframe = 0;
-static int SkipSA1Entry = 0;
+static bool SkipSA1Entry = false;
 static float OpenDoorThing = 0;
 static bool c1 = false;
 static bool h1 = false;
@@ -3726,7 +3721,7 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 	}
 	if (CurrentChaoStage == 5)
 	{
-		if (EnableECGarden == true)
+		if (EnableECGarden)
 		{
 			ent->Position.x = 131.67f;
 			ent->Position.y = 2.6f;
@@ -3980,7 +3975,7 @@ void LoadChaoGardenHintMessages()
 
 void __cdecl LoadRaceEntryX()
 {
-	if (SkipSA1Entry == 1)
+	if (SkipSA1Entry)
 	{
 		LoadPVM("CHAO_ENTRANCE", (NJS_TEXLIST*)0x340E934);
 		SSGardenStartPoint.Position.x = BK_SSGardenStartPoint.Position.x;
@@ -3991,7 +3986,7 @@ void __cdecl LoadRaceEntryX()
 		LoadObject(LoadObj_Data1, 5, ChaoStgEntrance_Main);
 		SetChaoLandTable((LandTable*)0x03423700); //PC
 		PrintDebug("ChaoStgEntrance _prolog end.\n");
-		SkipSA1Entry = 0;
+		SkipSA1Entry = false;
 	}
 	else
 	{
@@ -4010,13 +4005,13 @@ void __cdecl LoadRaceEntryX()
 void LoadSADXEntry()
 {
 	sub_79E400(2, 0, 0); //Play sound
-	SkipSA1Entry = 1;
+	SkipSA1Entry = true;
 	sub_715700(2);
 }
 
 void ExitRaceEntry()
 {
-	SkipSA1Entry = 0;
+	SkipSA1Entry = false;
 	sub_715700(2);
 }
 
@@ -4024,7 +4019,7 @@ void ExitRaceEntry()
 
 void __cdecl LoadChaoRaceX()
 {
-	SkipSA1Entry = 0;
+	SkipSA1Entry = false;
 	PrintDebug("ChaoStgRace _prolog begin.\n");
 	LoadObject(LoadObj_Data1, 2, ChaoStgRace_Init);
 	LoadObjects_Race();
@@ -4110,9 +4105,8 @@ void LoadSSGardenObjectPVM(const char *filename, NJS_TEXLIST *texlist)
 	LoadPVM("GARDEN00SSOBJ", &Garden00SSObj_TEXLIST);
 }
 
-void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
+void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplacePVM("AL_BODY");
 	ReplacePVM("AL_DX_OBJ_CMN");
 	ReplacePVM("AL_RACE01");
@@ -4128,13 +4122,13 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("OBJ_AL_RACE");
 	ReplacePVM("OBJ_AL_RACE_E");
 	LoadChaoGardenHintMessages();
-	//Config stuff
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	// Load configuration settings.
 	EnableSSGarden = config->getBool("Chao Gardens", "EnableStationSquareGarden", true);
 	EnableMRGarden = config->getBool("Chao Gardens", "EnableMysticRuinsGarden", true);
 	EnableECGarden = config->getBool("Chao Gardens", "EnableEggCarrierGarden", true);
 	EnableLobby = config->getBool("Chao Gardens", "EnableChaoRaceLobby", true);
-	delete config;
+
 	//Garden transporters stuff
 	*(NJS_OBJECT*)0x036065B4 = objectCHAO_00134808; //EC garden to EC transporter
 	*(NJS_OBJECT*)0x03604540 = objectCHAO_00180454; //All other transporters
@@ -4178,7 +4172,7 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 		stru_33D0B50[i].scale.z = 0;
 	}
 	//Chao Race Entry
-	if (EnableLobby == true)
+	if (EnableLobby)
 	{
 		WriteCall((void*)0x0071C0CF, BowChaoThing);
 		BK_SSGardenStartPoint.Position.x = SSGardenStartPoint.Position.x;
@@ -4199,7 +4193,7 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SETAL_RACE00S");
 	ReplaceBIN_DC("SETAL_RACE01S");
 	//Station Square garden stuff
-	if (EnableSSGarden == true)
+	if (EnableSSGarden)
 	{
 		ReplaceBIN_DC("SETMI3900M");
 		WriteCall((void*)0x00719597, LoadSSGardenObjectPVM);
@@ -4269,7 +4263,7 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteData((float*)0x00719496, -1000.0f); //Kill hintbox
 	}
 	//Mystic Ruins garden stuff
-	if (EnableMRGarden == true)
+	if (EnableMRGarden)
 	{
 		WriteData<5>((void*)0x00718E20, 0x90); //Don't load SADX button prompts in MR garden
 		WriteJump((void*)0x00718E90, LoadMRGardenX);
@@ -4314,7 +4308,7 @@ void ChaoGardens_Init(const char *path, const HelperFunctions &helperFunctions)
 		ChaoTreeSpawns[2].e.z = -47.53315f;  //Palm tree 5
 	}
 	//Egg Carrier garden stuff
-	if (EnableECGarden == true)
+	if (EnableECGarden)
 	{
 		WriteData<5>((void*)0x00719181, 0x90); //Don't load SADX button prompts in EC garden
 		WriteCall((void*)0x00729289, NameMachineTexlist);
@@ -4377,7 +4371,7 @@ void ChaoGardens_OnFrame()
 		}
 	}
 	//Station Square garden
-	if (CurrentChaoStage == 4 && GameState != 16 && EnableSSGarden == true)
+	if (CurrentChaoStage == 4 && GameState != 16 && EnableSSGarden)
 	{
 		auto entity = EntityData1Ptrs[0];
 		if (entity != nullptr)
@@ -4390,13 +4384,13 @@ void ChaoGardens_OnFrame()
 		if (ssgardenwater > 9) ssgardenwater = 0;
 		matlistCHAO_00011388[0].attr_texId = ssgardenwater;
 		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ssgardenwater++;
-		for (int q = 0; q < LengthOfArray(uvCHAO_000144F0); q++)
+		for (unsigned int q = 0; q < LengthOfArray(uvCHAO_000144F0); q++)
 		{
 			uvCHAO_000144F0[q].v = uvCHAO_000144F0[q].v - 2;
 		}
 		if (uvCHAO_000144F0[0].v < 0)
 		{
-			for (int q2 = 0; q2 < LengthOfArray(uvCHAO_000144F0); q2++)
+			for (unsigned int q2 = 0; q2 < LengthOfArray(uvCHAO_000144F0); q2++)
 			{
 				uvCHAO_000144F0[q2].v = uvCHAO_000144F0R[q2].v;
 			}
@@ -4404,7 +4398,7 @@ void ChaoGardens_OnFrame()
 
 	}
 	//Egg Carrier garden
-	if (CurrentChaoStage == 5 && GameState != 16 && EnableECGarden == true)
+	if (CurrentChaoStage == 5 && GameState != 16 && EnableECGarden)
 	{
 		if (ecgardenwater > 63) ecgardenwater = 54;
 		if (ecgardensand > 78) ecgardensand = 64;
@@ -4419,12 +4413,12 @@ void ChaoGardens_OnFrame()
 		}
 	}
 	//Mystic Ruins garden
-	if (CurrentChaoStage == 6 && GameState != 16 && EnableMRGarden == true)
+	if (CurrentChaoStage == 6 && GameState != 16 && EnableMRGarden)
 	{
-		for (int q3 = 0; q3 < LengthOfArray(uvCHAO_0000F184); q3++) { uvCHAO_0000F184[q3].v--; }
+		for (unsigned int q3 = 0; q3 < LengthOfArray(uvCHAO_0000F184); q3++) { uvCHAO_0000F184[q3].v--; }
 		if (uvCHAO_0000F184[2].v <= -255)
 		{
-			for (int r5 = 0; r5 < LengthOfArray(uvCHAO_0000F184); r5++)
+			for (unsigned int r5 = 0; r5 < LengthOfArray(uvCHAO_0000F184); r5++)
 			{
 				uvCHAO_0000F184[r5].v = uvCHAO_0000F184_R[r5].v;
 			}
@@ -4446,10 +4440,10 @@ void ChaoGardens_OnFrame()
 		}
 	}
 	//Chao Race Entry
-	if (CurrentChaoStage == 2 && GameState != 16 && EnableLobby == true)
+	if (CurrentChaoStage == 2 && GameState != 16 && EnableLobby)
 	{
 
-		if (SkipSA1Entry == true)
+		if (SkipSA1Entry)
 		{
 			((NJS_MATERIAL*)0x033AEB70)->attrflags |= NJD_FLAG_IGNORE_LIGHT;
 			((NJS_MATERIAL*)0x033AEB70)->diffuse.color = 0xFFFFFFFF;
@@ -4485,14 +4479,14 @@ void ChaoGardens_OnFrame()
 		auto entity = EntityData1Ptrs[0];
 		if (entity != nullptr)
 		{
-			if (entity->Position.x > 2110 && SkipSA1Entry == 0)
+			if (entity->Position.x > 2110 && !SkipSA1Entry)
 			{
 				sub_715700(4);
 			}
 		}
-		if (SkipSA1Entry == 0 && IsPlayerInsideSphere(&racebutton, 5.0f))
+		if (!SkipSA1Entry && IsPlayerInsideSphere(&racebutton, 5.0f))
 		{
-			SkipSA1Entry = 1;
+			SkipSA1Entry = true;
 			sub_715700(2);
 		}
 		//Door
@@ -4530,13 +4524,13 @@ void ChaoGardens_OnFrame()
 		matlistCHAO_0003EFB0[0].attr_texId = chaoracewater;
 		matlistCHAO_0003F2DC[0].attr_texId = chaoracewater;
 		if (FramerateSetting < 2 && FrameCounter % 3 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) chaoracewater++;
-		for (int w = 0; w < LengthOfArray(uvCHAO_00045AF4); w++)
+		for (unsigned int w = 0; w < LengthOfArray(uvCHAO_00045AF4); w++)
 		{
 			uvCHAO_00045AF4[w].v = uvCHAO_00045AF4[w].v - 6;
 		}
 		if (uvCHAO_00045AF4[0].v < -253)
 		{
-			for (int w2 = 0; w2 < LengthOfArray(uvCHAO_00045AF4); w2++)
+			for (unsigned int w2 = 0; w2 < LengthOfArray(uvCHAO_00045AF4); w2++)
 			{
 				uvCHAO_00045AF4[w2].v = uvCHAO_00045AF4R[w2].v;
 			}

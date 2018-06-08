@@ -1,12 +1,9 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "TwinklePark_objects.h"
 #include "Twinkle1.h"
 #include "Twinkle2.h"
 #include "Twinkle3.h"
 #include "Buyon.h"
-#include "DC_Levels.h"
 
 struct __declspec(align(2)) ObjectThingC
 {
@@ -403,9 +400,8 @@ void RenderCatapult(NJS_ACTION *a1, float frame, float scale)
 	DrawQueueDepthBias = 0.0f;
 }
 
-void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
+void TwinklePark_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAM0300S");
 	ReplaceBIN_DC("CAM0301A");
 	ReplaceBIN_DC("CAM0301B");
@@ -418,20 +414,25 @@ void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0301S");
 	ReplaceBIN_DC("SET0302A");
 	ReplaceBIN_DC("SET0302S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0301A");
-		AddSETFix("SET0301B");
-		AddSETFix("SET0301S");
-		AddSETFix("SET0302A");
+		case SETFixes_Normal:
+			AddSETFix("SET0301A");
+			AddSETFix("SET0301B");
+			AddSETFix("SET0301S");
+			AddSETFix("SET0302A");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SET0301A");
+			AddSETFix_Extra("SET0301B");
+			AddSETFix_Extra("SET0301S");
+			AddSETFix_Extra("SET0302A");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0301A");
-		AddSETFix_Extra("SET0301B");
-		AddSETFix_Extra("SET0301S");
-		AddSETFix_Extra("SET0302A");
-	}
+
 	ReplacePVM("BG_SHAREOBJ");
 	ReplacePVM("OBJ_SHAREOBJ");
 	ReplacePVM("OBJ_TWINKLE");
@@ -454,7 +455,7 @@ void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Cart fixes
 	WriteCall((void*)0x00796F0C, CartFunction);
 	*(NJS_MODEL_SADX*)0x038B907C = attachSTG03_034B907C_2; //Cart (Sonic)
-	for (int c = 0; c < LengthOfArray(CartMaterials); c++)
+	for (unsigned int c = 0; c < LengthOfArray(CartMaterials); c++)
 	{
 		CartMaterials[c]->diffuse.argb.r = 178;
 		CartMaterials[c]->diffuse.argb.g = 178;
@@ -472,7 +473,7 @@ void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 		___AMY_OBJECTS[1]->child->child->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 	}
 	((NJS_OBJECT*)0x008BF3A0)->basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT; //shadow blob
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(LevelSpecular_Twinkle, LengthOfArray(LevelSpecular_Twinkle), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_Twinkle, LengthOfArray(ObjectSpecular_Twinkle), &ForceDiffuse0Specular1);
@@ -544,11 +545,12 @@ void TwinklePark_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0x027B972C = objectSTG03_000B5EE8; // pink flower pot
 	*(NJS_OBJECT*)0x027BAC54 = objectSTG03_000B6CF8; // yellow flower bed
 	*(NJS_OBJECT*)0x027BC1C4 = objectSTG03_000B6CF8_2; // pink flower bed
+
 	DataArray(FogData, TwinklePark1Fog, 0x026B339C, 3);
 	DataArray(FogData, TwinklePark2Fog, 0x026B33CC, 3);
 	DataArray(FogData, TwinklePark3Fog, 0x026B33FC, 3);
 	DataArray(FogData, TwinklePark4Fog, 0x026B342C, 3);
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		TwinklePark1Fog[i].Layer = 1500.0f;
 		TwinklePark2Fog[i].Layer = -1400.0f;

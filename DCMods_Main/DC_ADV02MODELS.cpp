@@ -1,6 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include "math.h"
 #include "button.h"
 #include "MasterEmerald.h"
 #include "ADV_MR00(StationArea).h"
@@ -17,10 +15,6 @@
 #include "Grass.h"
 #include "MR_Objects.h"
 #include "MR_Palms.h"
-#include <lanternapi.h>
-#include <string>
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 HMODULE ADV02MODELS = GetModuleHandle(L"ADV02MODELS");
 NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV02MODELS, "___ADV02_TEXLISTS");
@@ -51,7 +45,7 @@ static int anim2 = 140;
 static int anim3 = 76;
 static int anim_sadx = 156;
 static int uvADV02_anim = 1;
-static int SADXStyleWater = false;
+static bool SADXStyleWater = false;
 NJS_TEXNAME textures_mrtrain[31];
 NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
 
@@ -217,9 +211,8 @@ void FixMRBase(ObjectMaster *a1)
 	Direct3D_SetNearFarPlanes(LevelDrawDistance.Minimum, LevelDrawDistance.Maximum);
 }
 
-void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions)
+void FixMRBase_Apply(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplacePVM("MR_FINALEGG");
 	//MR Base stuff
 	objectADV02_0020454C.evalflags |= NJD_EVAL_HIDE;
@@ -234,13 +227,13 @@ void FixMRBase_Apply(const char *path, const HelperFunctions &helperFunctions)
 	___ADV02_ACTIONS[0]->object = &objectADV02_0020C3B0; //OFinalEgg
 	___ADV02_ACTIONS[0]->motion = &animation_000862E8; //OFinalEgg animation
 	___ADV02_ACTIONS[30]->object = &objectADV02_0020DC78; //OFinalWay
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		MR3DrawDist[i].Maximum = -32000.0f;
 	}
 }
 
-void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
+void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	HMODULE handle = GetModuleHandle(L"ADV02MODELS");
 	NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___ADV02_TEXLISTS");
@@ -249,7 +242,6 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
 	LandTable **___LANDTABLEMR = (LandTable **)GetProcAddress(handle, "___LANDTABLEMR");
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SETMR00A");
 	ReplaceBIN_DC("SETMR00B");
 	ReplaceBIN_DC("SETMR00E");
@@ -270,44 +262,49 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAMMR01S");
 	ReplaceBIN_DC("CAMMR02S");
 	ReplaceBIN_DC("CAMMR03S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SETMR00A");
-		AddSETFix("SETMR00B");
-		AddSETFix("SETMR00E");
-		AddSETFix("SETMR00K");
-		AddSETFix("SETMR00L");
-		AddSETFix("SETMR00M");
-		AddSETFix("SETMR00S");
-		AddSETFix("SETMR01A");
-		AddSETFix("SETMR01B");
-		AddSETFix("SETMR01E");
-		AddSETFix("SETMR01K");
-		AddSETFix("SETMR01L");
-		AddSETFix("SETMR01M");
-		AddSETFix("SETMR01S");
-		AddSETFix("SETMR02S");
-		AddSETFix("SETMR03S");
+		case SETFixes_Normal:
+			AddSETFix("SETMR00A");
+			AddSETFix("SETMR00B");
+			AddSETFix("SETMR00E");
+			AddSETFix("SETMR00K");
+			AddSETFix("SETMR00L");
+			AddSETFix("SETMR00M");
+			AddSETFix("SETMR00S");
+			AddSETFix("SETMR01A");
+			AddSETFix("SETMR01B");
+			AddSETFix("SETMR01E");
+			AddSETFix("SETMR01K");
+			AddSETFix("SETMR01L");
+			AddSETFix("SETMR01M");
+			AddSETFix("SETMR01S");
+			AddSETFix("SETMR02S");
+			AddSETFix("SETMR03S");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SETMR00A");
+			AddSETFix_Extra("SETMR00B");
+			AddSETFix_Extra("SETMR00E");
+			AddSETFix_Extra("SETMR00K");
+			AddSETFix_Extra("SETMR00L");
+			AddSETFix_Extra("SETMR00M");
+			AddSETFix_Extra("SETMR00S");
+			AddSETFix_Extra("SETMR01A");
+			AddSETFix_Extra("SETMR01B");
+			AddSETFix_Extra("SETMR01E");
+			AddSETFix_Extra("SETMR01K");
+			AddSETFix_Extra("SETMR01L");
+			AddSETFix_Extra("SETMR01M");
+			AddSETFix_Extra("SETMR01S");
+			AddSETFix_Extra("SETMR02S");
+			AddSETFix_Extra("SETMR03S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SETMR00A");
-		AddSETFix_Extra("SETMR00B");
-		AddSETFix_Extra("SETMR00E");
-		AddSETFix_Extra("SETMR00K");
-		AddSETFix_Extra("SETMR00L");
-		AddSETFix_Extra("SETMR00M");
-		AddSETFix_Extra("SETMR00S");
-		AddSETFix_Extra("SETMR01A");
-		AddSETFix_Extra("SETMR01B");
-		AddSETFix_Extra("SETMR01E");
-		AddSETFix_Extra("SETMR01K");
-		AddSETFix_Extra("SETMR01L");
-		AddSETFix_Extra("SETMR01M");
-		AddSETFix_Extra("SETMR01S");
-		AddSETFix_Extra("SETMR02S");
-		AddSETFix_Extra("SETMR03S");
-	}
+
 	ReplacePVM("ADV_MR01");
 	ReplacePVM("ADV_MR02");
 	ReplacePVM("ADV_MR03");
@@ -323,10 +320,10 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("MR_EGG");
 	ReplacePVM("MR_PYRAMID");
 	ReplacePVM("MR_TORNADO2");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
-	delete config;
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("ADV_MR00");
 	}
@@ -334,6 +331,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	{
 		ReplacePVM("ADV_MR00");
 	}
+
 	WriteData<1>((char*)0x006F4DA0, 0x04); //Emerald shard (cutscene) glow blending mode
 	WriteData<1>((char*)0x006F4BF1, 0x04); //Emerald shard (cutscene) glow blending mode	
 	//Cutscene after Lost World
@@ -346,7 +344,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN("SL_X0B", "SL_X0X");
 	ReplaceBIN("SL_X1B", "SL_X1X");
 	ReplaceBIN("SL_X2B", "SL_X2X");
-	if (handle != nullptr && DLLLoaded_Lantern == true)
+	if (handle != nullptr && DLLLoaded_Lantern)
 	{
 		material_register(ObjectSpecular, LengthOfArray(ObjectSpecular), &ForceDiffuse0Specular1);
 		material_register(LevelSpecular, LengthOfArray(LevelSpecular), &ForceDiffuse0Specular0);
@@ -356,7 +354,7 @@ void ADV02_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0x110CF34 = object2_00229334; //TANKEN 2
 	*(NJS_OBJECT*)0x11112CC = object_0022DDA4; //TANKEN 3
 	WriteCall((void*)0x0053CD37, SetColor); //Master Emerald glow
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		WriteCall((void*)0x00532551, DisableSADXWaterFog);
 		WriteCall((void*)0x005325C9, SetWaterTexture);
@@ -503,12 +501,19 @@ void ADV02_OnFrame()
 	if (GameState != 16 && CurrentLevel == 33 && CurrentAct == 0)
 	{
 		if (GameMode == GameModes_Mission && CurrentCharacter == 5) collist_00015E60[LengthOfArray(collist_00015E60) - 1].Flags = 0x00000001; else collist_00015E60[LengthOfArray(collist_00015E60) - 1].Flags = 0x00000000;
-		for (int q = 0; q < LengthOfArray(uvADV02_00075EC0); q++) uvADV02_00075EC0[q].v = uvADV02_00075EC0_0[q].v + uvADV02_anim;
-		for (int q2 = 0; q2 < LengthOfArray(uvADV02_000755A4); q2++)	uvADV02_000755A4[q2].v = uvADV02_000755A4_0[q2].v - uvADV02_anim;
+		for (unsigned int q = 0; q < LengthOfArray(uvADV02_00075EC0); q++)
+		{
+			uvADV02_00075EC0[q].v = uvADV02_00075EC0_0[q].v + uvADV02_anim;
+		}
+		for (unsigned int q2 = 0; q2 < LengthOfArray(uvADV02_000755A4); q2++)
+		{
+			uvADV02_000755A4[q2].v = uvADV02_000755A4_0[q2].v - uvADV02_anim;
+		}
 		if (anim1 > 139) anim1 = 130;
 		if (anim2 > 154) anim2 = 140;
 		if (anim_sadx > 170) anim_sadx = 156;
-		if (SADXStyleWater == true) WriteData((int*)0x00532611, anim_sadx);
+		if (SADXStyleWater)
+			WriteData((int*)0x00532611, anim_sadx);
 		matlistADV02_0007523C[0].attr_texId = anim1;
 		matlistADV02_00057F04[0].attr_texId = anim1;
 		matlistADV02_00053510[0].attr_texId = anim2;
@@ -580,10 +585,25 @@ void ADV02_OnFrame()
 			}
 		}
 
-		for (int q6 = 0; q6 < LengthOfArray(uvADV02_00162054); q6++) { uvADV02_00162054[q6].v = uvADV02_00162054_0[q6].v + uvADV02_anim; }
-		for (int q7 = 0; q7 < LengthOfArray(uvADV02_001622D8); q7++) { uvADV02_001622D8[q7].v = uvADV02_001622D8_0[q7].v + uvADV02_anim; }
-		for (int q3 = 0; q3 < LengthOfArray(uvADV02_00160D9C); q3++) { uvADV02_00160D9C[q3].v = uvADV02_00160D9C_0[q3].v - uvADV02_anim; }
-		for (int q4 = 0; q4 < LengthOfArray(uvADV02_0016166C); q4++) { uvADV02_0016166C[q4].v = uvADV02_0016166C_0[q4].v + uvADV02_anim; }
-		for (int q5 = 0; q5 < LengthOfArray(uvADV02_00161C18); q5++) { uvADV02_00161C18[q5].v = uvADV02_00161C18_0[q5].v + uvADV02_anim; }
+		for (unsigned int q6 = 0; q6 < LengthOfArray(uvADV02_00162054); q6++)
+		{
+			uvADV02_00162054[q6].v = uvADV02_00162054_0[q6].v + uvADV02_anim;
+		}
+		for (unsigned int q7 = 0; q7 < LengthOfArray(uvADV02_001622D8); q7++)
+		{
+			uvADV02_001622D8[q7].v = uvADV02_001622D8_0[q7].v + uvADV02_anim;
+		}
+		for (unsigned int q3 = 0; q3 < LengthOfArray(uvADV02_00160D9C); q3++)
+		{
+			uvADV02_00160D9C[q3].v = uvADV02_00160D9C_0[q3].v - uvADV02_anim;
+		}
+		for (unsigned int q4 = 0; q4 < LengthOfArray(uvADV02_0016166C); q4++)
+		{
+			uvADV02_0016166C[q4].v = uvADV02_0016166C_0[q4].v + uvADV02_anim;
+		}
+		for (unsigned int q5 = 0; q5 < LengthOfArray(uvADV02_00161C18); q5++)
+		{
+			uvADV02_00161C18[q5].v = uvADV02_00161C18_0[q5].v + uvADV02_anim;
+		}
 	}
 }

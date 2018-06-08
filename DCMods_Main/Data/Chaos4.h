@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlist_00046B18[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 3, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_TEXTURE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -7750,3 +7754,5 @@ NJS_TEXLIST texlist_chaos4dc = { arrayptrandlength(textures_chaos4dc) };
 LandTable landtable_00000238 = { LengthOfArray(collist_00045098), LengthOfArray(animlist_00045AB8), 0xD, 20000, collist_00045098, animlist_00045AB8, "CHAOS4_TIKEI", (NJS_TEXLIST *)&texlist_chaos4dc, 0, 0 };
 //LandTable landtable_00000238 = { LengthOfArray(collist_00045098), NULL, 0xC, 20000, collist_00045098, NULL, "CHAOS4_TIKEI", (NJS_TEXLIST *)&texlist_chaos4dc, 0, 0 };
 //LandTable landtable_00000238 = { LengthOfArray(collist_00045098), LengthOfArray(animlist_00045AB8), 0xD, 20000, collist_00045098, animlist_00045AB8, "CHAOS4_TIKEI", (NJS_TEXLIST *)0xC945090, 0, 0 };
+
+#pragma warning(pop)

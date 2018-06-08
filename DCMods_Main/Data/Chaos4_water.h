@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum CHAOS4_OBJECTTexName
 {
 	CHAOS4_OBJECTTexName_c4_128s_kankyo,
@@ -1893,3 +1897,5 @@ NJS_VECTOR normal_00043DF0[] = {
 NJS_MODEL_SADX attach_00044744 = { vertex_0004349C, normal_00043DF0, LengthOfArray(vertex_0004349C), meshlist_00043484, matlist_000429E8, LengthOfArray(meshlist_00043484), LengthOfArray(matlist_000429E8),{ -0.748192f, -18.30846f, 110.7432f }, 506.5435f, NULL };
 
 NJS_OBJECT object_0004476C = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00044744, 0, 0, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

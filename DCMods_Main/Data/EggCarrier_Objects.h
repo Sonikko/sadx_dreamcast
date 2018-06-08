@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum EC_TARAITexName
 {
 	EC_TARAITexName_edc_k_jmedama,
@@ -25422,3 +25425,5 @@ NJS_VECTOR normalADV01_0017FBA0[] = {
 NJS_MODEL_SADX attachADV01_0017FD8C = { vertexADV01_0017F9B4, normalADV01_0017FBA0, LengthOfArray<Sint32>(vertexADV01_0017F9B4), meshlistADV01_0017F954, matlistADV01_0017F674, LengthOfArray<Uint16>(meshlistADV01_0017F954), LengthOfArray<Uint16>(matlistADV01_0017F674),{ 0, 10.1264f, 0 }, 24.36165f, NULL };
 
 NJS_OBJECT objectADV01_0017FDB4 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attachADV01_0017FD8C, 0, 0, 0, 0, 0, 0, 1, 1, 1, &objectADV01_0017F640, NULL };
+
+#pragma warning(pop)

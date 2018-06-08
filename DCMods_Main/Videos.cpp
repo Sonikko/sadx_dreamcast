@@ -1,8 +1,5 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <IniFile.hpp>
 #include "FileSystem.h"
-#include "DC_Levels.h"
 
 //Ini stuff
 static bool ColorizeVideos = true;
@@ -116,7 +113,7 @@ void InputHookForVideos()
 	sub_40EFE0();
 }
 
-void DisplayVideoFadeout(int fadeout)
+void DisplayVideoFadeout(int fadeout, int mode)
 {
 	NJS_POINT2COL VideoFadeoutFrame;
 	VideoFadeout_Colors[0].argb.a = fadeout;
@@ -130,7 +127,8 @@ void DisplayVideoFadeout(int fadeout)
 	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 	Direct3D_SetZFunc(7u);
 	Direct3D_EnableZWrite(0);
-	njDrawTriangle2D_SomeOtherVersion((NJS_POINT2COL*)&VideoFadeoutFrame, 4, -1000.0f, NJD_TRANSPARENT | NJD_FILL);
+	if (mode == 0) njDrawTriangle2D_SomeOtherVersion((NJS_POINT2COL*)&VideoFadeoutFrame, 4, -1000.0f, NJD_TRANSPARENT | NJD_FILL);
+	else DrawRect_Queue(0.0, 0.0, HorizontalResolution, VerticalResolution, 22048.0f, fadeout << 24, QueuedModelFlagsB_EnableZWrite);
 	Direct3D_EnableZWrite(1);
 	Direct3D_SetZFunc(3u);
 }
@@ -176,24 +174,26 @@ void DrawVideoWithSpecular(int width, int height)
 		if (VideoFadeValue < 255) VideoFadeValue = VideoFadeValue + 6;
 		if (VideoFadeValue > 255) VideoFadeValue = 255;
 	}
-	if (VideoFadeMode != 0) DisplayVideoFadeout(VideoFadeValue);
+	if (VideoFadeMode != 0) DisplayVideoFadeout(VideoFadeValue, 0);
 	if (VideoFadeMode < 2 && SkipPressed == true) VideoFadeMode = 2;
 	if (VideoFadeMode == 2 && VideoFadeValue >= 254 && SkipPressed == true) VideoPlayMode = 3;
 }
 
-void Videos_Init(const char *path, const HelperFunctions &helperFunctions)
+void Videos_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	//Set up settings
-	const IniFile *settings = new IniFile(std::string(path) + "\\config.ini");
-	ColorizeVideos = settings->getBool("Videos", "ColorizeVideos", true);
-	SA1Intro = settings->getBool("Videos", "EnableSA1Intro", true);
+	// Load configuration settings.
+	ColorizeVideos = config->getBool("Videos", "ColorizeVideos", true);
+	SA1Intro = config->getBool("Videos", "EnableSA1Intro", true);
+
 	//Set Sonic Team logo mode
-	std::string SonicTeamLogo_String = "Animated";
-	SonicTeamLogo_String = settings->getString("Videos", "SonicTeamLogoMode", "Animated");
-	if (SonicTeamLogo_String == "Animated") SonicTeamLogoMode = 0;
-	if (SonicTeamLogo_String == "Static") SonicTeamLogoMode = 1;
-	if (SonicTeamLogo_String == "Off") SonicTeamLogoMode = 2;
-	delete settings;
+	const std::string SonicTeamLogo_String = config->getString("Videos", "SonicTeamLogoMode", "Animated");
+	if (SonicTeamLogo_String == "Animated")
+		SonicTeamLogoMode = 0;
+	else if (SonicTeamLogo_String == "Static")
+		SonicTeamLogoMode = 1;
+	else if (SonicTeamLogo_String == "Off")
+		SonicTeamLogoMode = 2;
+
 	//Video stuff
 	InitVideoFrameStuff();
 	WriteCall((void*)0x00513A88, AdjustVideoFrame); //Center video frame vertically if playing Sonic Team logo/SA1 intro
@@ -317,7 +317,7 @@ void Videos_OnInput()
 	{
 		if (SkipPressed == false && ControllerPointers[0]->PressedButtons & (Buttons_Start | Buttons_A))
 		{
-			PrintDebug("Skip pressed!\n");
+			//PrintDebug("Skip video pressed!\n");
 			SkipPressed = true;
 		}
 	}

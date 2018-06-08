@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlist_0X[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 0, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -31537,7 +31541,7 @@ NJS_OBJECT object_00063CFC = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_0003F
 
 NJS_OBJECT object_00063D30 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00040500, -398, -58.62873f, 185, 0, 0xFFFFCB69, 0, 1, 1, 1, NULL, NULL };
 
-NJS_OBJECT object_00063D64 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00040500, 515, 0.2, -643.8934f, 0, 0xFFFFCB01, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT object_00063D64 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00040500, 515, 0.2f, -643.8934f, 0, 0xFFFFCB01, 0, 1, 1, 1, NULL, NULL };
 
 NJS_OBJECT object_00063D98 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00040924, -398, -58.62873f, 185, 0, 0xFFFFCB69, 0, 1, 1, 1, NULL, NULL };
 
@@ -32135,3 +32139,5 @@ NJS_TEXNAME textures_chaos7[168];
 NJS_TEXLIST texlist_chaos7 = { arrayptrandlength(textures_chaos7) };
 
 LandTable landtable_00001214 = { LengthOfArray(collist_000200BC), 0, 0xC, 3000, collist_000200BC, NULL, "LM_CHAOS7_0", (NJS_TEXLIST *)&texlist_chaos7, 0, 0 };
+
+#pragma warning(pop)

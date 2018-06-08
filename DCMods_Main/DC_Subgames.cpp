@@ -1,22 +1,17 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
 #include "SandHill.h"
-#include <lanternapi.h>
-#include <math.h>
 #include "TwinkleCircuit.h"
 #include "SkyChaseModels.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 DataArray(FogData, FogData_SandHill, 0x0173BB74, 3);
 DataArray(FogData, FogData_HedgehogHammer, 0x027C69C4, 3);
 DataArray(SkyboxScale, SkyboxScale_SkyChase1, 0x027D6CE0, 3);
 DataArray(DrawDistance, DrawDist_SkyChase1, 0x027D6D58, 3);
 
-static int EnableTwinkleCircuit = true;
-static int EnableSandHill = true;
-static int EnableSkyChaseFixes = true;
-static int EnableSkyChaseEnemyModels = true;
+static bool EnableTwinkleCircuit = true;
+static bool EnableSandHill = true;
+static bool EnableSkyChaseFixes = true;
+static bool EnableSkyChaseEnemyModels = true;
 
 NJS_MATERIAL* LevelSpecular_Subgames[] = {
 	//Tornado 2 transformation cutscene
@@ -697,17 +692,18 @@ void FixSkybox(NJS_OBJECT *a1, float scale)
 	}
 }
 
-void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
+void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SET0000A");
 	ReplaceBIN_DC("SET0000S");
 	ReplaceBIN_DC("SET0001S");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	// Load configuration settings.
 	EnableTwinkleCircuit = config->getBool("Miscellaneous", "EnableTwinkleCircuit", true);
+	// FIXME: Typo in the config entry name...
 	EnableSandHill = config->getBool("Miscellaneous", "EnableSandHil", true);
-	delete config;
-	if (EnableSandHill == true)
+
+	if (EnableSandHill)
 	{ 
 		ReplaceBIN_DC("CAMSBOARD00S");
 		ReplaceBIN_DC("CAMSBOARD01S");
@@ -721,7 +717,8 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		WriteData((LandTable**)0x7D2051, &landtable_00002DEC); //Sand Hill
 		*(NJS_OBJECT *)0x017424DC = objectSBOARD_0006EA40; //Sand Hill ramp
 	}
-	if (EnableTwinkleCircuit == true)
+
+	if (EnableTwinkleCircuit)
 	{
 		ReplaceBIN_DC("SETMCART00S");
 		ReplaceBIN_DC("SETMCART01S");
@@ -735,24 +732,28 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplaceBIN_DC("CAMMCART03S");
 		ReplaceBIN_DC("CAMMCART04S");
 		ReplaceBIN_DC("CAMMCART05S");
-		if (EnableSETFixes == 1)
+
+		switch (EnableSETFixes)
 		{
-			AddSETFix("SETMCART00S");
-			AddSETFix("SETMCART01S");
-			ReplaceBIN_DC("SETMCART02S");
-			ReplaceBIN_DC("SETMCART03S");
-			ReplaceBIN_DC("SETMCART04S");
-			ReplaceBIN_DC("SETMCART05S");
+			case SETFixes_Normal:
+				AddSETFix("SETMCART00S");
+				AddSETFix("SETMCART01S");
+				ReplaceBIN_DC("SETMCART02S");
+				ReplaceBIN_DC("SETMCART03S");
+				ReplaceBIN_DC("SETMCART04S");
+				ReplaceBIN_DC("SETMCART05S");
+				break;
+			case SETFixes_Extra:
+				AddSETFix_Extra("SETMCART00S");
+				AddSETFix_Extra("SETMCART01S");
+				ReplaceBIN_DC("SETMCART02S");
+				ReplaceBIN_DC("SETMCART03S");
+				ReplaceBIN_DC("SETMCART04S");
+				ReplaceBIN_DC("SETMCART05S");
+			default:
+				break;
 		}
-		if (EnableSETFixes == 2)
-		{
-			AddSETFix_Extra("SETMCART00S");
-			AddSETFix_Extra("SETMCART01S");
-			ReplaceBIN_DC("SETMCART02S");
-			ReplaceBIN_DC("SETMCART03S");
-			ReplaceBIN_DC("SETMCART04S");
-			ReplaceBIN_DC("SETMCART05S");
-		}
+
 		ReplacePVM("MINI_CART01");
 		ReplacePVM("MINI_CART02");
 		ReplacePVM("MINI_CART03");
@@ -762,6 +763,7 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		if (DLLLoaded_HDGUI == false) ReplacePVM("OBJ_MINI_CART");
 		WriteData((LandTable**)0x7D205B, &landtable_00001A3C); //Twinkle Circuit
 	}
+
 		ReplaceBIN_DC("SETSHT1S");
 		ReplaceBIN_DC("SETSHT2S");
 		ReplaceBIN_DC("CAMSHT1S");
@@ -788,14 +790,16 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		((NJS_OBJECT*)0x02917F34)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		WriteData((char*)0x0062751B, 0x00, 1); //Force Tornado light type
 		WriteData((char*)0x0062AC1F, 0x00, 1); //Force Tornado light type (transformation cutscene)
-	if (EnableSkyChaseEnemyModels == true)
+
+	// FIXME: EnableSkyChaseEnemyModels isn't loaded from the configuration.
+	if (EnableSkyChaseEnemyModels)
 	{
-		if (DLLLoaded_SA1Chars == false)
+		if (!DLLLoaded_SA1Chars)
 		{
 			ReplacePVM("SHOOTING1");
 			ReplacePVM("SHOOTING2");
 		}
-		if (DLLLoaded_HDGUI == false)
+		if (!DLLLoaded_HDGUI)
 		{
 			ReplacePVM("SHOOTING0");
 		}
@@ -807,19 +811,23 @@ void Subgames_Init(const char *path, const HelperFunctions &helperFunctions)
 		*(NJS_OBJECT *)0x028E2C88 = objectSHOOTING_0009153C; //Beam in Act 1
 		*(NJS_OBJECT *)0x0298E7D0 = objectSHOOTING_0004AEE0; //Beam in Act 2
 	}
+
 	//Lighting stuff
 	ReplaceBIN("PL_Z0B", "PL_Z0X");
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(ObjectBaseAndSpecular_Subgames, LengthOfArray(ObjectBaseAndSpecular_Subgames), &ForceDiffuse0Specular1);
 		material_register(LevelSpecular_Subgames, LengthOfArray(LevelSpecular_Subgames), &ForceDiffuse0Specular0);
 		material_register(WhiteDiffuse_Subgames, LengthOfArray(WhiteDiffuse_Subgames), &ForceWhiteDiffuse3);
 	}
+
 	//Fog and draw distance tweaks
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
-		if (EnableSkyChaseFixes == true) DrawDist_SkyChase1[i].Maximum = -60000.0f;
-		if (EnableSandHill==true) FogData_SandHill[i].Color = 0xFFAAAA8C;
+		if (EnableSkyChaseFixes)
+			DrawDist_SkyChase1[i].Maximum = -60000.0f;
+		if (EnableSandHill)
+			FogData_SandHill[i].Color = 0xFFAAAA8C;
 		FogData_HedgehogHammer[i].Distance = 16000.0f;
 		FogData_HedgehogHammer[i].Layer = 5000.0f;
 	}

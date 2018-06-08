@@ -1,7 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
-#include <string>
 #include "ADV01_0_animlist.h"
 #include "ADV01_0.h"
 #include "ADV01_1.h"
@@ -18,8 +15,6 @@
 #include "ADV01C_05.h"
 #include "EC_Tornado.h"
 #include "EC_Transform.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 FunctionPointer(void, sub_409FB0, (NJS_ACTION *a1, float frameNumber), 0x409FB0);
 FunctionPointer(void, sub_6F4570, (ObjectMaster *a1), 0x6F4570);
@@ -31,7 +26,7 @@ DataArray(PVMEntry, stru_10F34A8, 0x10F34A8, 6);
 DataArray(PVMEntry, stru_1101360, 0x1101360, 2);
 static int ocean_dc = 4;
 static int ocean_sadx = 4;
-static int SADXStyleWater = false;
+static bool SADXStyleWater = false;
 DataArray(DrawDistance, EggCarrierOutsideDrawDist1, 0x010F2264, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist2, 0x010F227C, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist3, 0x010F2294, 3);
@@ -371,7 +366,10 @@ void EggCarrierSea()
 
 void SetECOceanTexlist()
 {
-	if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ocean_sadx++;
+	if (GameState != 16)
+	{
+		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ocean_sadx++;
+	}
 	if (ocean_sadx > 18) ocean_sadx = 4;
 	njSetTexture(&EC_SEA_TEXLIST);
 }
@@ -381,9 +379,8 @@ void SetECOceanTexture()
 	njSetTextureNum(ocean_sadx);
 }
 
-void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
+void ADV01_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SETEC00S");
 	ReplaceBIN_DC("SETEC00M");
 	ReplaceBIN_DC("SETEC00K");
@@ -431,36 +428,41 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAMEC33S");
 	ReplaceBIN_DC("CAMEC34S");
 	ReplaceBIN_DC("CAMEC35S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SETEC00S");
-		AddSETFix("SETEC01S");
-		AddSETFix("SETEC02S");
-		AddSETFix("SETEC03S");
-		AddSETFix("SETEC04S");
-		AddSETFix("SETEC05S");
-		AddSETFix("SETEC30S");
-		AddSETFix("SETEC31S");
-		AddSETFix("SETEC32S");
-		AddSETFix("SETEC33S");
-		AddSETFix("SETEC34S");
-		AddSETFix("SETEC35S");
+		case SETFixes_Normal:
+			AddSETFix("SETEC00S");
+			AddSETFix("SETEC01S");
+			AddSETFix("SETEC02S");
+			AddSETFix("SETEC03S");
+			AddSETFix("SETEC04S");
+			AddSETFix("SETEC05S");
+			AddSETFix("SETEC30S");
+			AddSETFix("SETEC31S");
+			AddSETFix("SETEC32S");
+			AddSETFix("SETEC33S");
+			AddSETFix("SETEC34S");
+			AddSETFix("SETEC35S");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SETEC00S");
+			AddSETFix_Extra("SETEC01S");
+			AddSETFix_Extra("SETEC02S");
+			AddSETFix_Extra("SETEC03S");
+			AddSETFix_Extra("SETEC04S");
+			AddSETFix_Extra("SETEC05S");
+			AddSETFix_Extra("SETEC30S");
+			AddSETFix_Extra("SETEC31S");
+			AddSETFix_Extra("SETEC32S");
+			AddSETFix_Extra("SETEC33S");
+			AddSETFix_Extra("SETEC34S");
+			AddSETFix_Extra("SETEC35S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SETEC00S");
-		AddSETFix_Extra("SETEC01S");
-		AddSETFix_Extra("SETEC02S");
-		AddSETFix_Extra("SETEC03S");
-		AddSETFix_Extra("SETEC04S");
-		AddSETFix_Extra("SETEC05S");
-		AddSETFix_Extra("SETEC30S");
-		AddSETFix_Extra("SETEC31S");
-		AddSETFix_Extra("SETEC32S");
-		AddSETFix_Extra("SETEC33S");
-		AddSETFix_Extra("SETEC34S");
-		AddSETFix_Extra("SETEC35S");
-	}
+
 	ReplacePVM("ADV_EC03");
 	ReplacePVM("ADV_EC04");
 	ReplacePVM("ADV_EC05");
@@ -495,10 +497,10 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("ADV_EC00");
 	ReplacePVM("ADV_EC01");
 	ReplacePVM("ADV_EC02");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "EggCarrier", false);
-	delete config;
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("EC_SEA");
 		ResizeTextureList(&EC_SEA_TEXLIST, 21);
@@ -516,6 +518,7 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("EC_SEA");
 		WriteJump((void*)0x0051C440, EggCarrierSea);
 	}
+
 	//Door barrier fixes (Gamma's story)
 	WriteJump((void*)0x52B2E0, ECDoorBarrier1X); 
 	WriteJump((void*)0x52B250, ECDoorBarrier2_asm);
@@ -538,7 +541,7 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x00678CC1, 80.25f); //Z2
 	HMODULE Lantern = GetModuleHandle(L"sadx-dc-lighting");
 	ReplaceBIN("PL_W1B", "PL_W1X");
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(ObjectSpecularADV01, LengthOfArray(ObjectSpecularADV01), &ForceDiffuse0Specular1);
 		//material_register(LevelSpecularADV01, LengthOfArray(LevelSpecularADV01), &ForceDiffuse0Specular0);
@@ -621,7 +624,8 @@ void ADV01_Init(const char *path, const HelperFunctions &helperFunctions)
 	___ADV01C_ACTIONS[6]->object = &objectADV01_000BAF48; //Door
 	___ADV01C_MODELS[27]->mats[0].diffuse.color = 0xFFFFFFFF;
 	WriteData<5>((void*)0x005244D6, 0x90); //Disable light flickering
-	for (int i = 0; i < 3; i++)
+
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		SkyboxScale_EggCarrier4[i].x = 1.0f;
 		SkyboxScale_EggCarrier4[i].y = 1.0f;
@@ -668,7 +672,7 @@ void ADV01_OnFrame()
 {
 	if (CurrentLevel == 32 && GameState != 16)
 	{
-		if (DLLLoaded_Lantern == true && dword_3C85138 == 0)
+		if (DLLLoaded_Lantern && dword_3C85138 == 0)
 		{
 			set_blend_factor(0.0f);
 			set_shader_flags(ShaderFlags_Blend, false);

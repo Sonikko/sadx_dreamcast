@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistSTG05_0001E5A0[] = {
 	{ { 0xFFB2B2B2 }, { 0xFFFFFFFF }, 11, 24, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_TEXTURE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -66776,3 +66780,5 @@ NJS_TEXNAME textures_mountain1[45];
 NJS_TEXLIST texlist_mountain1 = { arrayptrandlength(textures_mountain1) };
 
 LandTable landtable_00018CB8 = { LengthOfArray(collist_00013780), 0, 0xC, 900, collist_00013780, NULL, "MOUNTAIN01", (NJS_TEXLIST *)&texlist_mountain1, 0, 0 };
+
+#pragma warning(pop)

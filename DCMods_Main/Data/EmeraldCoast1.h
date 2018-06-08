@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 //Water thing 2
 
 NJS_MATERIAL matlistSTG01_001A1360[] = {
@@ -52415,3 +52419,5 @@ NJS_TEXNAME textures_ecoast1[97];
 NJS_TEXLIST texlist_ecoast1 = { arrayptrandlength(textures_ecoast1) };
 
 LandTable landtable_00081554 = { LengthOfArray(collist_0007D6C0), 0, 0xC, 1800, collist_0007D6C0, NULL, "BEACH01", (NJS_TEXLIST *)&texlist_ecoast1, 0, 0 };
+
+#pragma warning(pop)

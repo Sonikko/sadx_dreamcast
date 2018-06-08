@@ -1,15 +1,10 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "Casino_objects.h"
 #include "Casino1.h"
 #include "Casino2.h"
 #include "Casino3.h"
 #include "Casino4.h"
-#include "stdlib.h"
 #include "Cowgirl.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 static short CurrentPlayer = -1;
 static float distance_float;
@@ -48,7 +43,7 @@ FunctionPointer(void, sub_407870, (NJS_MODEL_SADX *model, char blend, float radi
 FunctionPointer(void, sub_405490, (NJS_ACTION *a1, float a2, int a3, int a4), 0x405490);
 FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 NJS_VECTOR Cowgirl1{ 457.6972f, 45.06788f, 390 };
-NJS_VECTOR Cowgirl2{ 340.3949, 51.20071, 480 };
+NJS_VECTOR Cowgirl2{ 340.3949f, 51.20071f, 480 };
 DataArray(CollisionData, stru_1E763B8, 0x1E763B8, 3);
 DataArray(NJS_TEX, uvSTG09_01A4BD38, 0x01E4BD38, LengthOfArray(uvSTG09_001C8C9C));
 DataArray(NJS_TEX, uvSTG09_01A4BD98, 0x01E4BD98, LengthOfArray(uvSTG09_001C8CFC));
@@ -685,9 +680,8 @@ void RenderNeonK(NJS_MODEL_SADX *model, float scale)
 	DrawQueueDepthBias = 0;
 }
 
-void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
+void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAM0900K");
 	ReplaceBIN_DC("CAM0900S");
 	ReplaceBIN_DC("CAM0901M");
@@ -701,24 +695,29 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0902S");
 	ReplaceBIN_DC("SET0903S");
 	ReplaceBIN_DC("SETMI0900K");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0900K");
-		AddSETFix("SET0900S");
-		AddSETFix("SET0901M");
-		AddSETFix("SET0901S");
-		AddSETFix("SET0902S");
-		AddSETFix("SET0903S");
+		case SETFixes_Normal:
+			AddSETFix("SET0900K");
+			AddSETFix("SET0900S");
+			AddSETFix("SET0901M");
+			AddSETFix("SET0901S");
+			AddSETFix("SET0902S");
+			AddSETFix("SET0903S");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SET0900K");
+			AddSETFix_Extra("SET0900S");
+			AddSETFix_Extra("SET0901M");
+			AddSETFix_Extra("SET0901S");
+			AddSETFix_Extra("SET0902S");
+			AddSETFix_Extra("SET0903S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0900K");
-		AddSETFix_Extra("SET0900S");
-		AddSETFix_Extra("SET0901M");
-		AddSETFix_Extra("SET0901S");
-		AddSETFix_Extra("SET0902S");
-		AddSETFix_Extra("SET0903S");
-	}
+
 	ReplacePVM("CASINO01");
 	ReplacePVM("CASINO02");
 	ReplacePVM("CASINO03");
@@ -733,7 +732,7 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((LandTable**)0x97DB34, &landtable_000D8440);
 	//Lantern stuff
 	ReplaceBIN("PL_90B", "PL_90X");
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(LevelSpecular_Casino, LengthOfArray(LevelSpecular_Casino), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_Casino, LengthOfArray(ObjectSpecular_Casino), &ForceDiffuse0Specular1);
@@ -772,11 +771,11 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteJump((void*)0x5D44A0, TutuB_Display); //OTutuB display
 	WriteJump((void*)0x5D4550, TutuC_Display); //OTutuC display
 	WriteData((int*)0x1E77E58, 128); //Gear rotation speed
-									 //Config stuff
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	// Load configuration settings.
 	CowgirlOn = config->getBool("Miscellaneous", "EnableCasinopolisCowgirl", true);
-	delete config;
-	if (CowgirlOn == true)
+
+	if (CowgirlOn)
 	{
 		stru_1E763B8[0].scale.y = stru_1E763B8[0].scale.y * 4;
 		stru_1E763B8[1].scale.y = stru_1E763B8[1].scale.y * 4;
@@ -836,27 +835,27 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	//Bumper1 fixes
 	((NJS_MODEL_SADX*)0x01D98CE8)->mats[0].attrflags |= NJD_FLAG_FLIP_U;
 	((NJS_MODEL_SADX*)0x01D99790)->mats[0].attrflags |= NJD_FLAG_FLIP_U;
-	for (int uvSTG09_bill1 = 0; uvSTG09_bill1 < LengthOfArray(uvSTG09_001E9ABC); uvSTG09_bill1++)
+	for (unsigned int uvSTG09_bill1 = 0; uvSTG09_bill1 < LengthOfArray(uvSTG09_001E9ABC); uvSTG09_bill1++)
 	{
 		bill1[uvSTG09_bill1].u = uvSTG09_001E9ABC[uvSTG09_bill1].u;
 		bill1[uvSTG09_bill1].v = uvSTG09_001E9ABC[uvSTG09_bill1].v;
 	}
-	for (int uvSTG09_bill2 = 0; uvSTG09_bill2 < LengthOfArray(uvSTG09_001E9BF4); uvSTG09_bill2++)
+	for (unsigned int uvSTG09_bill2 = 0; uvSTG09_bill2 < LengthOfArray(uvSTG09_001E9BF4); uvSTG09_bill2++)
 	{
 		bill2[uvSTG09_bill2].u = uvSTG09_001E9BF4[uvSTG09_bill2].u;
 		bill2[uvSTG09_bill2].v = uvSTG09_001E9BF4[uvSTG09_bill2].v;
 	}
-	for (int uvSTG09_bump = 0; uvSTG09_bump < LengthOfArray(uvSTG09_01998418); uvSTG09_bump++)
+	for (unsigned int uvSTG09_bump = 0; uvSTG09_bump < LengthOfArray(uvSTG09_01998418); uvSTG09_bump++)
 	{
 		bumpertex[uvSTG09_bump].u = uvSTG09_01998418[uvSTG09_bump].u;
 		bumpertex[uvSTG09_bump].v = uvSTG09_01998418[uvSTG09_bump].v;
 	}
-	for (int uvSTG09_bump = 0; uvSTG09_bump < LengthOfArray(uvSTG09_01998418); uvSTG09_bump++)
+	for (unsigned int uvSTG09_bump = 0; uvSTG09_bump < LengthOfArray(uvSTG09_01998418); uvSTG09_bump++)
 	{
 		bumpertex[uvSTG09_bump].u = uvSTG09_01998418[uvSTG09_bump].u;
 		bumpertex[uvSTG09_bump].v = uvSTG09_01998418[uvSTG09_bump].v;
 	}
-	for (int uvSTG09_bump2 = 0; uvSTG09_bump2 < LengthOfArray(uvSTG09_0011B8B4); uvSTG09_bump2++)
+	for (unsigned int uvSTG09_bump2 = 0; uvSTG09_bump2 < LengthOfArray(uvSTG09_0011B8B4); uvSTG09_bump2++)
 	{
 		bumpertex2[uvSTG09_bump2].u = uvSTG09_01998418[uvSTG09_bump2].u;
 		bumpertex2[uvSTG09_bump2].v = uvSTG09_01998418[uvSTG09_bump2].v;
@@ -874,7 +873,8 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_MODEL_SADX*)0x01E74A68 = attachSTG09_01A74A68; //NeonK
 	WriteCall((void*)0x5CAB34, RenderNeonK);
 	*(NJS_MODEL_SADX*)0x01E46F30 = attachSTG09_001C4DCC; //OCfa rotating thing
-	for (int i = 0; i < 3; i++)
+
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		Casino1Fog[i].Color = 0xFF000000;
 		Casino1Fog[i].Layer = 600.0f;
@@ -889,10 +889,10 @@ void Casinopolis_Init(const char *path, const HelperFunctions &helperFunctions)
 }
 void Casinopolis_OnFrame()
 {
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		//Failsafe stuff for palette blending
-		if (WhiteSonic == true && (InsideMachine == 0 || CurrentLevel != 9 || CurrentAct != 0 || GameMode == GameModes_Menu || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21))
+		if (WhiteSonic && (InsideMachine == 0 || CurrentLevel != 9 || CurrentAct != 0 || GameMode == GameModes_Menu || GameState == 3 || GameState == 4 || GameState == 7 || GameState == 21))
 		{
 			WhiteSonic = false;
 			set_blend_factor(0.0f);
@@ -904,7 +904,7 @@ void Casinopolis_OnFrame()
 		if (CurrentLevel == 9 && CurrentAct == 0 && GameState != 16)
 		{
 			//Make Sonic white
-			if (WhiteSonic == false && InsideMachine != 0)
+			if (!WhiteSonic && InsideMachine != 0)
 			{
 				WhiteSonic = true;
 				set_shader_flags(ShaderFlags_Blend, true);
@@ -912,7 +912,7 @@ void Casinopolis_OnFrame()
 				set_specular_blend(3, 4);
 			}
 			//Make Sonic normal
-			if (WhiteSonic == true && SonicWhiteness <= 0.75f)
+			if (WhiteSonic && SonicWhiteness <= 0.75f)
 			{
 				set_blend_factor(SonicWhiteness);
 				SonicWhiteness += (0.01f * FramerateSetting);
@@ -933,7 +933,7 @@ void Casinopolis_OnFrame()
 		RotationAngle2 = (RotationAngle2 - 128) % 65536;
 	}
 	//Cowgirl
-	if (CurrentLevel == 9 && CurrentCharacter == 3 && CowgirlOn == true && GameState != 16)
+	if (CurrentLevel == 9 && CurrentCharacter == 3 && CowgirlOn && GameState != 16)
 	{
 		if (cowgirlframe > 30) cowgirlframe = 0;
 		cowgirlframe = cowgirlframe + 0.08f;
@@ -943,59 +943,59 @@ void Casinopolis_OnFrame()
 			cowgirl_shift1 = (cowgirl_shift1 + 65) % 255;
 			cowgirl_shift2 = (cowgirl_shift2 + 100) % 510;
 
-			for (int slot_cow1 = 0; slot_cow1 < LengthOfArray(uvSTG09_001CF84C); slot_cow1++)
+			for (unsigned int slot_cow1 = 0; slot_cow1 < LengthOfArray(uvSTG09_001CF84C); slot_cow1++)
 			{
 				uvSTG09_001CF84C[slot_cow1].u = uvSTG09_001CF84C_0[slot_cow1].u + cowgirl_shift1;
 			}
-			for (int slot_cow2 = 0; slot_cow2 < LengthOfArray(uvSTG09_001D6728); slot_cow2++)
+			for (unsigned int slot_cow2 = 0; slot_cow2 < LengthOfArray(uvSTG09_001D6728); slot_cow2++)
 			{
 				uvSTG09_001D6728[slot_cow2].u = uvSTG09_001D6728_0[slot_cow2].u + cowgirl_shift2;
 			}
-			for (int slot_cow3 = 0; slot_cow3 < LengthOfArray(uvSTG09_001D6040); slot_cow3++)
+			for (unsigned int slot_cow3 = 0; slot_cow3 < LengthOfArray(uvSTG09_001D6040); slot_cow3++)
 			{
 				uvSTG09_001D6040[slot_cow3].u = uvSTG09_001D6040_0[slot_cow3].u + cowgirl_shift2;
 			}
-			for (int slot_cow4 = 0; slot_cow4 < LengthOfArray(uvSTG09_001D6794); slot_cow4++)
+			for (unsigned int slot_cow4 = 0; slot_cow4 < LengthOfArray(uvSTG09_001D6794); slot_cow4++)
 			{
 				uvSTG09_001D6794[slot_cow4].u = uvSTG09_001D6794_0[slot_cow4].u + cowgirl_shift2;
 			}
-			for (int slot_cow5 = 0; slot_cow5 < LengthOfArray(uvSTG09_001D67BC); slot_cow5++)
+			for (unsigned int slot_cow5 = 0; slot_cow5 < LengthOfArray(uvSTG09_001D67BC); slot_cow5++)
 			{
 				uvSTG09_001D67BC[slot_cow5].u = uvSTG09_001D67BC_0[slot_cow5].u + cowgirl_shift2;
 			}
-			for (int slot_cow6 = 0; slot_cow6 < LengthOfArray(uvSTG09_001D2F74); slot_cow6++)
+			for (unsigned int slot_cow6 = 0; slot_cow6 < LengthOfArray(uvSTG09_001D2F74); slot_cow6++)
 			{
 				uvSTG09_001D2F74[slot_cow6].u = uvSTG09_001D2F74_0[slot_cow6].u + cowgirl_shift2;
 			}
-			for (int slot_cow7 = 0; slot_cow7 < LengthOfArray(uvSTG09_001D308C); slot_cow7++)
+			for (unsigned int slot_cow7 = 0; slot_cow7 < LengthOfArray(uvSTG09_001D308C); slot_cow7++)
 			{
 				uvSTG09_001D308C[slot_cow7].u = uvSTG09_001D308C_0[slot_cow7].u + cowgirl_shift2;
 			}
-			for (int slot_cow8 = 0; slot_cow8 < LengthOfArray(uvSTG09_001D333C); slot_cow8++)
+			for (unsigned int slot_cow8 = 0; slot_cow8 < LengthOfArray(uvSTG09_001D333C); slot_cow8++)
 			{
 				uvSTG09_001D333C[slot_cow8].u = uvSTG09_001D333C_0[slot_cow8].u + cowgirl_shift2;
 			}
-			for (int slot_cow9 = 0; slot_cow9 < LengthOfArray(uvSTG09_001D4868); slot_cow9++)
+			for (unsigned int slot_cow9 = 0; slot_cow9 < LengthOfArray(uvSTG09_001D4868); slot_cow9++)
 			{
 				uvSTG09_001D4868[slot_cow9].u = uvSTG09_001D4868_0[slot_cow9].u + cowgirl_shift2;
 			}
-			for (int slot_cow10 = 0; slot_cow10 < LengthOfArray(uvSTG09_001D16E4); slot_cow10++)
+			for (unsigned int slot_cow10 = 0; slot_cow10 < LengthOfArray(uvSTG09_001D16E4); slot_cow10++)
 			{
 				uvSTG09_001D16E4[slot_cow10].u = uvSTG09_001D16E4_0[slot_cow10].u + cowgirl_shift2;
 			}
-			for (int slot_cow11 = 0; slot_cow11 < LengthOfArray(uvSTG09_001D02D0); slot_cow11++)
+			for (unsigned int slot_cow11 = 0; slot_cow11 < LengthOfArray(uvSTG09_001D02D0); slot_cow11++)
 			{
 				uvSTG09_001D02D0[slot_cow11].u = uvSTG09_001D02D0_0[slot_cow11].u + cowgirl_shift2;
 			}
-			for (int slot_cow12 = 0; slot_cow12 < LengthOfArray(uvSTG09_001D043C); slot_cow12++)
+			for (unsigned int slot_cow12 = 0; slot_cow12 < LengthOfArray(uvSTG09_001D043C); slot_cow12++)
 			{
 				uvSTG09_001D043C[slot_cow12].u = uvSTG09_001D043C_0[slot_cow12].u + cowgirl_shift2;
 			}
-			for (int slot_cow13 = 0; slot_cow13 < LengthOfArray(uvSTG09_001D1F60); slot_cow13++)
+			for (unsigned int slot_cow13 = 0; slot_cow13 < LengthOfArray(uvSTG09_001D1F60); slot_cow13++)
 			{
 				uvSTG09_001D1F60[slot_cow13].u = uvSTG09_001D1F60_0[slot_cow13].u + cowgirl_shift2;
 			}
-			for (int slot_cow14 = 0; slot_cow14 < LengthOfArray(uvSTG09_001D1F78); slot_cow14++)
+			for (unsigned int slot_cow14 = 0; slot_cow14 < LengthOfArray(uvSTG09_001D1F78); slot_cow14++)
 			{
 				uvSTG09_001D1F78[slot_cow14].u = uvSTG09_001D1F78_0[slot_cow14].u + cowgirl_shift2;
 			}
@@ -1058,68 +1058,68 @@ void Casinopolis_OnFrame()
 		{
 			shift3 = (shift3 + 127) % 255;
 		}
-		for (int xz2 = 0; xz2 < LengthOfArray(uv_lion); xz2++)
+		for (unsigned int xz2 = 0; xz2 < LengthOfArray(uv_lion); xz2++)
 		{
 			uv_lion[xz2].u = (uv_lion_0[xz2].u - shift3);
 		}
 		if (FrameCounter % 12 == 0)
 		{
 			shift1 = (shift1 + 65) % 255;
-			for (int slot_uv1 = 0; slot_uv1 < LengthOfArray(uvSTG09_001C7570); slot_uv1++)
+			for (unsigned int slot_uv1 = 0; slot_uv1 < LengthOfArray(uvSTG09_001C7570); slot_uv1++)
 			{
 				uvSTG09_001C7570[slot_uv1].u = uvSTG09_001C7570_0[slot_uv1].u + shift1;
 			}
-			for (int slot_uv2 = 0; slot_uv2 < LengthOfArray(uvSTG09_001C75E0); slot_uv2++)
+			for (unsigned int slot_uv2 = 0; slot_uv2 < LengthOfArray(uvSTG09_001C75E0); slot_uv2++)
 			{
 				uvSTG09_001C75E0[slot_uv2].u = uvSTG09_001C75E0_0[slot_uv2].u + shift1;
 			}
-			for (int slot_uv3 = 0; slot_uv3 < LengthOfArray(uvSTG09_001C7748); slot_uv3++)
+			for (unsigned int slot_uv3 = 0; slot_uv3 < LengthOfArray(uvSTG09_001C7748); slot_uv3++)
 			{
 				uvSTG09_001C7748[slot_uv3].u = uvSTG09_001C7748_0[slot_uv3].u + shift1;
 			}
-			for (int slotmachine1 = 0; slotmachine1 < LengthOfArray(uvSTG09_001767D8); slotmachine1++)
+			for (unsigned int slotmachine1 = 0; slotmachine1 < LengthOfArray(uvSTG09_001767D8); slotmachine1++)
 			{
 				uvSTG09_001767D8[slotmachine1].u = uvSTG09_001767D8_0[slotmachine1].u + shift1;
 			}
-			for (int slotmachine2 = 0; slotmachine2 < LengthOfArray(uvSTG09_00175494); slotmachine2++)
+			for (unsigned int slotmachine2 = 0; slotmachine2 < LengthOfArray(uvSTG09_00175494); slotmachine2++)
 			{
 				uvSTG09_00175494[slotmachine2].u = uvSTG09_00175494_0[slotmachine2].u + shift1;
 			}
 
-			for (int card_uv1 = 0; card_uv1 < LengthOfArray(uvSTG09_001C6200); card_uv1++)
+			for (unsigned int card_uv1 = 0; card_uv1 < LengthOfArray(uvSTG09_001C6200); card_uv1++)
 			{
 				uvSTG09_001C6200[card_uv1].u = uvSTG09_001C6200_0[card_uv1].u + shift1;
 			}
-			for (int card_uv1 = 0; card_uv1 < LengthOfArray(uvSTG09_001C6200); card_uv1++)
+			for (unsigned int card_uv1 = 0; card_uv1 < LengthOfArray(uvSTG09_001C6200); card_uv1++)
 			{
 				uvSTG09_001C6200[card_uv1].u = uvSTG09_001C6200_0[card_uv1].u + shift1;
 			}
-			for (int card_uv2 = 0; card_uv2 < LengthOfArray(uvSTG09_001C63EC); card_uv2++)
+			for (unsigned int card_uv2 = 0; card_uv2 < LengthOfArray(uvSTG09_001C63EC); card_uv2++)
 			{
 				uvSTG09_001C63EC[card_uv2].u = uvSTG09_001C63EC_0[card_uv2].u + shift1;
 			}
-			for (int card_uv3 = 0; card_uv3 < LengthOfArray(uvSTG09_001C646C); card_uv3++)
+			for (unsigned int card_uv3 = 0; card_uv3 < LengthOfArray(uvSTG09_001C646C); card_uv3++)
 			{
 				uvSTG09_001C646C[card_uv3].u = uvSTG09_001C646C_0[card_uv3].u + shift1;
 			}
-			for (int xz = 0; xz < LengthOfArray(uvSTG09_01A48AD8); xz++)
+			for (unsigned int xz = 0; xz < LengthOfArray(uvSTG09_01A48AD8); xz++)
 			{
 				uvSTG09_01A48AD8[xz].u = (uvSTG09_01A48AD8_0[xz].u + shift1);
 			}
 		}
 		//Waterfalls
 		shift2 = (shift2 - 10) % 255;
-		for (int q = 0; q < LengthOfArray(uvSTG09_01A47B78); q++)
+		for (unsigned int q = 0; q < LengthOfArray(uvSTG09_01A47B78); q++)
 		{
 			uvSTG09_01A47B78[q].v = uvSTG09_01A47B78_0[q].v + shift2;
 		}
 
-		for (int q2 = 0; q2 < LengthOfArray(uvSTG09_01A47468); q2++)
+		for (unsigned int q2 = 0; q2 < LengthOfArray(uvSTG09_01A47468); q2++)
 		{
 			uvSTG09_01A47468[q2].v = uvSTG09_01A47468_0[q2].v + shift2;
 		}
 
-		for (int q3 = 0; q3 < LengthOfArray(uvSTG09_01A474F8); q3++)
+		for (unsigned int q3 = 0; q3 < LengthOfArray(uvSTG09_01A474F8); q3++)
 		{
 			uvSTG09_01A474F8[q3].v = uvSTG09_01A474F8_0[q3].v + shift2;
 		}
@@ -1149,7 +1149,7 @@ void Casinopolis_OnFrame()
 	if (CurrentLevel == 9 && CurrentAct == 3 && GameState != 16)
 	{
 		carduvSTG09_reala = (carduvSTG09_reala + 4) % 255;
-		for (int rl = 0; rl < LengthOfArray(uvSTG09_00160A9C); rl++)
+		for (unsigned int rl = 0; rl < LengthOfArray(uvSTG09_00160A9C); rl++)
 		{
 			uvSTG09_00160A9C[rl].v = uvSTG09_00160A9C_0[rl].v + carduvSTG09_reala;
 		}

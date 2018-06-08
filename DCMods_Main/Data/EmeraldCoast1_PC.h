@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistSTG01_00B81B40[] = {
 	{ { 0xFFFFFFFF },{ 0x00000000 }, 0, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -102701,3 +102705,5 @@ COL collist_00A95938[] = {
 };
 
 LandTable landtable_00A99CB8 = { LengthOfArray(collist_00A95938), 0, 0xC, 3000, collist_00A95938, NULL, NULL, (NJS_TEXLIST *)0xF812AC, 0, 0 };
+
+#pragma warning(pop)

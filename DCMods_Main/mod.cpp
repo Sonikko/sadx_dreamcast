@@ -1,27 +1,23 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include "stdlib.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
-static bool EnableDCBranding = true;
-static bool EnableEmeraldCoast = true;
-static bool EnableWindyValley = true;
-static bool EnableTwinklePark = true;
-static bool EnableSpeedHighway = true;
-static bool EnableRedMountain = true;
-static bool EnableSkyDeck = true;
-static bool EnableLostWorld = true; 
-static bool EnableIceCap = true;
-static bool EnableCasinopolis = true;
-static bool EnableFinalEgg = true;
-static bool EnableHotShelter = true;
-static bool EnableStationSquare = true;
-static bool EnableMysticRuins = true;
-static bool EnableEggCarrier = true;
-static bool EnablePast = true;
-static bool DisableAllVideoStuff = true;
-static bool EnableSpeedFixes = true;
+bool EnableWindowTitle = true;
+bool EnableDCBranding = true;
+bool EnableEmeraldCoast = true;
+bool EnableWindyValley = true;
+bool EnableTwinklePark = true;
+bool EnableSpeedHighway = true;
+bool EnableRedMountain = true;
+bool EnableSkyDeck = true;
+bool EnableLostWorld = true; 
+bool EnableIceCap = true;
+bool EnableCasinopolis = true;
+bool EnableFinalEgg = true;
+bool EnableHotShelter = true;
+bool EnableStationSquare = true;
+bool EnableMysticRuins = true;
+bool EnableEggCarrier = true;
+bool EnablePast = true;
+bool DisableAllVideoStuff = true;
 
 static bool SADXWater_EmeraldCoast = false;
 static bool SADXWater_StationSquare = false;
@@ -31,45 +27,105 @@ static bool SADXWater_Past = false;
 static bool SADXWater_EggHornet = false;
 static bool SADXWater_ZeroE101R = false;
 
-int EnableSETFixes = 1;
+SETFixes_e EnableSETFixes = SETFixes_Normal;
 
 bool DLLLoaded_SA1Chars = false;
 bool DLLLoaded_Lantern = false;
 bool DLLLoaded_HDGUI = false;
 bool DLLLoaded_DLCs = false;
 bool DLLLoaded_SADXFE = false;
+bool EnableSpeedFixes = true;
+
+static const wchar_t *const OldModDLLs[] = {
+	L"DC_Bosses",
+	L"DC_Branding",
+	L"DC_ChaoGardens",
+	L"DC_Casinopolis",
+	L"DC_ADV00MODELS",
+	L"DC_ADV01MODELS",
+	L"DC_ADV02MODELS",
+	L"DC_ADV03MODELS",
+	L"DC_EmeraldCoast",
+	L"DC_EnvMaps",
+	L"DC_FinalEgg",
+	L"DC_General",
+	L"DC_HotShelter",
+	L"DC_IceCap",
+	L"DC_LostWorld",
+	L"DC_RedMountain",
+	L"DC_SkyDeck",
+	L"DC_SpeedHighway",
+	L"DC_TwinklePark",
+	L"DC_WindyValley",
+	L"DC_SubGames",
+	L"DC_TornadoModels",
+	L"DisableSA1TitleScreen",
+	L"KillCream",
+	L"RevertECDrawDistance",
+	L"SADXStyleWater",
+	L"MRFinalEggFix"
+};
 
 extern "C"
 {
 	__declspec(dllexport) void __cdecl Init(const char *path, const HelperFunctions &helperFunctions)
 	{
-		//Check which DLLs are loaded
-		if (GetModuleHandle(TEXT("HD_GUI.dll")) != nullptr) DLLLoaded_HDGUI = true;
-		if (GetModuleHandle(TEXT("SA1_Chars.dll")) != nullptr) DLLLoaded_SA1Chars = true;
-		if (GetModuleHandle(TEXT("sadx-dc-lighting.dll")) != nullptr) DLLLoaded_Lantern = true;
-		if (GetModuleHandle(TEXT("DLCs_Main.dll")) != nullptr) DLLLoaded_DLCs = true;
-		if (GetModuleHandle(TEXT("sadx-fixed-edition.dll")) != nullptr) DLLLoaded_SADXFE = true;
-		HMODULE MRFinalEggFix = GetModuleHandle(L"MRFinalEggFix");
+		// Check which DLLs are loaded.
+		DLLLoaded_HDGUI    = (GetModuleHandle(L"HD_GUI.dll") != nullptr);
+		DLLLoaded_SA1Chars = (GetModuleHandle(L"SA1_Chars.dll") != nullptr);
+		DLLLoaded_Lantern  = (GetModuleHandle(L"sadx-dc-lighting.dll") != nullptr);
+		DLLLoaded_DLCs     = (GetModuleHandle(L"DLCs_Main.dll") != nullptr);
+		DLLLoaded_SADXFE   = (GetModuleHandle(L"sadx-fixed-edition.dll") != nullptr);
 		HMODULE WaterEffect = GetModuleHandle(L"WaterEffect");
+
 		//Error messages
-		if (helperFunctions.Version < 6)
+		if (helperFunctions.Version < 7)
 		{
-			MessageBoxA(WindowHandle, "Mod Loader out of date. Dreamcast Conversion requires API version 6 or newer.",
-				"DC Conversion error: Mod loader out of date", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle,
+				L"Please update SADX Mod Loader. Dreamcast Conversion requires API version 7 or newer.",
+				L"DC Conversion error: Mod loader out of date", MB_OK | MB_ICONERROR);
 			return;
 		}
-		if (MRFinalEggFix != nullptr)
+
+		// Check for old mod DLLs.
+		std::wstring OldModsMessage = L"Old/incompatible mods detected!\n\n"
+			L"The following mods are outdated and will cause "
+			L"problems if you leave them enabled. These mods are "
+			L"no longer needed because they are built into the "
+			L"main Dreamcast Conversion mod.\n\n"
+			L"Please uninstall the following mods in the Mod Manager:\n\n";
+
+		bool OldModsFound = false;
+		for (unsigned int i = 0; i < LengthOfArray(OldModDLLs); i++)
 		{
-			MessageBoxA(WindowHandle, "You seem to be using a very old version of the Mystic Ruins Base Fix mod. Please update or remove it for DC Conversion to work properly. A newer fix is integrated into DC Conversion.",
-				"DC Conversion error: incompatible mod detected", MB_OK | MB_ICONERROR);
+			if (GetModuleHandle(OldModDLLs[i]) != nullptr)
+			{
+				// Found a known incompatible mod.
+				OldModsMessage += OldModDLLs[i];
+				OldModsMessage += '\n';
+				OldModsFound = true;
+			}
 		}
+
+		if (OldModsFound)
+		{
+			MessageBox(WindowHandle, OldModsMessage.c_str(),
+				L"DC Conversion error: incompatible mods detected",
+				MB_OK | MB_ICONERROR);
+			return;
+		}
+
 		//If there is no config.ini, make one
-		CopyFileA((std::string(path) + "\\default.ini").c_str(), (std::string(path) + "\\config.ini").c_str(), true);
+		const std::string s_path(path);
+		const std::string s_config_ini(s_path + "\\config.ini");
+		CopyFileA((s_path + "\\default.ini").c_str(), s_config_ini.c_str(), true);
+
 		//Config stuff
-		const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+		const IniFile *const config = new IniFile(s_config_ini);
 		//Read config stuff for levels and branding
 		EnableDCBranding = config->getBool("General", "EnableDreamcastBranding", true);
 		EnableSpeedFixes = config->getBool("General", "EnableSpeedFixes", true);
+		EnableWindowTitle = config->getBool("General", "EnableWindowTitle", true);
 		EnableEmeraldCoast = config->getBool("Levels", "EnableEmeraldCoast", true);
 		EnableWindyValley = config->getBool("Levels", "EnableWindyValley", true);
 		EnableTwinklePark = config->getBool("Levels", "EnableTwinklePark", true);
@@ -86,76 +142,92 @@ extern "C"
 		EnableEggCarrier = config->getBool("Levels", "EnableEggCarrier", true);
 		EnablePast = config->getBool("Levels", "EnablePast", true);
 		DisableAllVideoStuff = config->getBool("Videos", "DisableAllVideoStuff", false);
-		std::string EnableSETFixes_String = "Normal";
-		EnableSETFixes_String = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
-		if (EnableSETFixes_String == "Off") EnableSETFixes = 0;
-		if (EnableSETFixes_String == "Normal") EnableSETFixes = 1;
-		if (EnableSETFixes_String == "Extra") EnableSETFixes = 2;
-		delete config;
+
+		const std::string EnableSETFixes_String = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
+		if (EnableSETFixes_String == "Off")
+			EnableSETFixes = SETFixes_Off;
+		else if (EnableSETFixes_String == "Normal")
+			EnableSETFixes = SETFixes_Normal;
+		else if (EnableSETFixes_String == "Extra")
+			EnableSETFixes = SETFixes_Extra;
+
+		//Set window title
+		if (EnableWindowTitle) helperFunctions.SetWindowTitle("Sonic Adventure");
 		//Another error message
-		if (EnableEmeraldCoast == true && WaterEffect != nullptr)
+		if (EnableEmeraldCoast && WaterEffect != nullptr)
 		{
-			MessageBoxA(WindowHandle, "The Enhanced Emerald Coast mod is not compatible with DC Emerald Coast. Please disable Enhanced Emerald Coast for the Dreamcast level to work. To get SADX-like water in DC Emerald Coast, enable SADX Style Water in Dreamcast Conversion's config.",
-				"DC Conversion error: incompatible mod detected", MB_OK | MB_ICONERROR);
+			MessageBox(WindowHandle,
+				L"The Enhanced Emerald Coast mod is not "
+				L"compatible with DC Emerald Coast. Please "
+				L"disable Enhanced Emerald Coast for the "
+				L"Dreamcast level to work. To get SADX-like "
+				L"water in DC Emerald Coast, enable SADX "
+				L"Style Water in Dreamcast Conversion's config.",
+				L"DC Conversion error: incompatible mod detected",
+				MB_OK | MB_ICONERROR);
 		}
 		//Init functions
-		if (EnableDCBranding == true) Branding_Init(path, helperFunctions);
-		if (EnableStationSquare == true) ADV00_Init(path, helperFunctions);
-		if (EnableEggCarrier == true) ADV01_Init(path, helperFunctions);
-		FixMRBase_Apply(path, helperFunctions);
-		if (EnableMysticRuins == true) ADV02_Init(path, helperFunctions);
-		if (EnablePast == true) ADV03_Init(path, helperFunctions);
-		Bosses_Init(path, helperFunctions);
-		if (WaterEffect == nullptr && EnableEmeraldCoast == true) EmeraldCoast_Init(path, helperFunctions);
-		if (EnableWindyValley == true) WindyValley_Init(path, helperFunctions);
-		if (EnableTwinklePark == true) TwinklePark_Init(path, helperFunctions);
-		if (EnableSpeedHighway == true) SpeedHighway_Init(path, helperFunctions);
-		if (EnableRedMountain == true) RedMountain_Init(path, helperFunctions);
-		if (EnableSkyDeck == true) SkyDeck_Init(path, helperFunctions);
-		if (EnableLostWorld == true) LostWorld_Init(path, helperFunctions);
-		if (EnableIceCap == true) IceCap_Init(path, helperFunctions);
-		if (EnableCasinopolis == true) Casinopolis_Init(path, helperFunctions);
-		if (EnableFinalEgg == true) FinalEgg_Init(path, helperFunctions);
-		if (EnableHotShelter == true) HotShelter_Init(path, helperFunctions);
+		if (EnableDCBranding) Branding_Init(config, helperFunctions);
+		if (EnableStationSquare) ADV00_Init(config, helperFunctions);
+		if (EnableEggCarrier) ADV01_Init(config, helperFunctions);
+		FixMRBase_Apply(config, helperFunctions);
+		if (EnableMysticRuins) ADV02_Init(config, helperFunctions);
+		if (EnablePast) ADV03_Init(config, helperFunctions);
+		Bosses_Init(config, helperFunctions);
+		if (!WaterEffect && EnableEmeraldCoast) EmeraldCoast_Init(config, helperFunctions);
+		if (EnableWindyValley) WindyValley_Init(config, helperFunctions);
+		if (EnableTwinklePark) TwinklePark_Init(config, helperFunctions);
+		if (EnableSpeedHighway) SpeedHighway_Init(config, helperFunctions);
+		if (EnableRedMountain) RedMountain_Init(config, helperFunctions);
+		if (EnableSkyDeck) SkyDeck_Init(config, helperFunctions);
+		if (EnableLostWorld) LostWorld_Init(config, helperFunctions);
+		if (EnableIceCap) IceCap_Init(config, helperFunctions);
+		if (EnableCasinopolis) Casinopolis_Init(config, helperFunctions);
+		if (EnableFinalEgg) FinalEgg_Init(config, helperFunctions);
+		if (EnableHotShelter) HotShelter_Init(config, helperFunctions);
 		SkyChaseFix_Init();
-		Subgames_Init(path, helperFunctions);
-		ChaoGardens_Init(path, helperFunctions);
-		General_Init(path, helperFunctions);
-		if (DisableAllVideoStuff == false) Videos_Init(path, helperFunctions);
-		if (EnableSpeedFixes == true) SpeedFixes_Init();
+		Subgames_Init(config, helperFunctions);
+		ChaoGardens_Init(config, helperFunctions);
+		General_Init(config, helperFunctions);
+		if (!DisableAllVideoStuff) Videos_Init(config, helperFunctions);
+		if (EnableSpeedFixes) SpeedFixes_Init();
+
+		delete config;
 	}
 	__declspec(dllexport) void __cdecl OnFrame()
 	{
-		if (EnableDCBranding == true) Branding_OnFrame();
-		if (EnableStationSquare == true) ADV00_OnFrame();
-		if (EnableEggCarrier == true) ADV01_OnFrame();
-		if (EnableMysticRuins == true) ADV02_OnFrame();
-		//if (EnablePast == true) ADV03_OnFrame();
+		if (EnableDCBranding) Branding_OnFrame();
+		if (EnableStationSquare) ADV00_OnFrame();
+		if (EnableEggCarrier) ADV01_OnFrame();
+		if (EnableMysticRuins) ADV02_OnFrame();
+		//if (EnablePast) ADV03_OnFrame();
 		Bosses_OnFrame();
-		if (EnableEmeraldCoast == true) EmeraldCoast_OnFrame();
-		if (EnableWindyValley == true) WindyValley_OnFrame();
-		if (EnableTwinklePark == true) TwinklePark_OnFrame();
-		if (EnableSpeedHighway == true) SpeedHighway_OnFrame();
-		if (EnableRedMountain == true) RedMountain_OnFrame();
-		if (EnableSkyDeck == true) SkyDeck_OnFrame();
-		if (EnableLostWorld == true) LostWorld_OnFrame();
-		if (EnableIceCap == true) IceCap_OnFrame();
-		if (EnableCasinopolis == true) Casinopolis_OnFrame();
-		if (EnableFinalEgg == true) FinalEgg_OnFrame();
-		if (EnableHotShelter == true) HotShelter_OnFrame();
+		if (EnableEmeraldCoast) EmeraldCoast_OnFrame();
+		if (EnableWindyValley) WindyValley_OnFrame();
+		if (EnableTwinklePark) TwinklePark_OnFrame();
+		if (EnableSpeedHighway) SpeedHighway_OnFrame();
+		if (EnableRedMountain) RedMountain_OnFrame();
+		if (EnableSkyDeck) SkyDeck_OnFrame();
+		if (EnableLostWorld) LostWorld_OnFrame();
+		if (EnableIceCap) IceCap_OnFrame();
+		if (EnableCasinopolis) Casinopolis_OnFrame();
+		if (EnableFinalEgg) FinalEgg_OnFrame();
+		if (EnableHotShelter) HotShelter_OnFrame();
 		//Subgames_OnFrame();
 		ChaoGardens_OnFrame();
 		General_OnFrame();
-		if (DisableAllVideoStuff == false) Videos_OnFrame();
-		if (EnableSpeedFixes == true) SpeedFixes_OnFrame();
+		if (!DisableAllVideoStuff) Videos_OnFrame();
+		if (EnableSpeedFixes) SpeedFixes_OnFrame();
 	}
 	__declspec(dllexport) void __cdecl OnInput()
 	{
-		if (DisableAllVideoStuff == false) Videos_OnInput();
+		if (!DisableAllVideoStuff) Videos_OnInput();
+		if (CutsceneSkipMode != 3) General_OnInput();
 	}
 	_declspec(dllexport) void __cdecl OnRenderDeviceReset()
 	{
 		SkyChaseFix_UpdateBounds();
+		Branding_SetUpVariables();
 	}
 	__declspec(dllexport) ModInfo SADXModInfo = { ModLoaderVer };
 }

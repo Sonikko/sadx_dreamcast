@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistADV00_00191E98[] = {
 	{ { 0x00B2B2B2 },{ 0x00FFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -2514,4 +2517,4 @@ NJS_MODEL_SADX attachADV00_001C49D0 = { vertexADV00_001C3B90, normalADV00_001C42
 
 NJS_OBJECT objectADV00_001C49FC = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachADV00_001C49D0, -420, 14, 1730, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
-
+#pragma warning(pop)

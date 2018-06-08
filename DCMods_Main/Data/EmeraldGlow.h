@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum KAOS_EMETexName
 {
 	KAOS_EMETexName_mr_064s_emebl,
@@ -46,3 +49,5 @@ NJS_VECTOR normal_0007C360[] = {
 NJS_MODEL_SADX attach_0007C3B8 = { vertex_0007C388, normal_0007C360, LengthOfArray<Sint32>(vertex_0007C388), meshlist_0007C36C, matlist_0007C334, LengthOfArray<Uint16>(meshlist_0007C36C), LengthOfArray<Uint16>(matlist_0007C334),{ 0 }, 14.14214f, NULL };
 
 NJS_OBJECT EmeraldGlow = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK | NJD_EVAL_SKIP | NJD_EVAL_SHAPE_SKIP, &attach_0007C3B8, 0, 5, 0, 0, 0, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

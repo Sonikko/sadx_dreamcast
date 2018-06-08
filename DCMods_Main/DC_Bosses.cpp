@@ -1,8 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <Trampoline.h>
-#include <lanternapi.h>
-#include <string>
 #include "EggHornet.h"
 #include "EggWalker.h"
 #include "EggViper.h"
@@ -22,9 +18,6 @@
 #include "E101Kai_Model.h"
 #include "LightingArrays.h"
 #include "ERobo.h"
-#include <IniFile.hpp>
-#include "DC_Levels.h"
-#include <IniFile.hpp>
 
 //Chaos 6 material arrays
 DataArray(NJS_MATERIAL, matlist_00F975B0, 0x013975B0, 3);
@@ -828,7 +821,10 @@ static Trampoline E101R_OceanDraw_t(0x56CC30, 0x56CC38, E101R_OceanDraw_r);
 static void __cdecl E101R_OceanDraw_r(OceanData *a1)
 {
 	auto original = reinterpret_cast<decltype(E101R_OceanDraw_r)*>(E101R_OceanDraw_t.Target());
-	if (SADXStyleWater_ZeroE101R == false) RenderBossECOcean();
+	if (EnableZeroE101R == true && SADXStyleWater_ZeroE101R == false)
+	{
+		RenderBossECOcean();
+	}
 	else original(a1);
 }
 
@@ -837,7 +833,10 @@ static Trampoline Zero_OceanDraw_t(0x587E10, 0x587E18, Zero_OceanDraw_r);
 static void __cdecl Zero_OceanDraw_r(OceanData *a1)
 {
 	auto original = reinterpret_cast<decltype(Zero_OceanDraw_r)*>(Zero_OceanDraw_t.Target());
-	if (SADXStyleWater_ZeroE101R == false) RenderBossECOcean();
+	if (EnableZeroE101R == true && SADXStyleWater_ZeroE101R == false)
+	{
+		RenderBossECOcean();
+	}
 	else original(a1);
 }
 
@@ -852,9 +851,8 @@ void LoadBossECOceanTexlist()
 	njSetTexture(&EC_SEA_TEXLIST);
 }
 
-void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
+void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplacePVM("CHAOS1");
 	ReplacePVM("CHAOS_BRAINFRAME");
 	ReplacePVM("CHAOS_EFFECT");
@@ -877,7 +875,8 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	NJS_ACTION **___BOSSCHAOS0_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___BOSSCHAOS0_ACTIONS");
 	NJS_OBJECT **___BOSSCHAOS0_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___BOSSCHAOS0_OBJECTS");
 	NJS_TEXLIST **___BOSSCHAOS0_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___BOSSCHAOS0_TEXLISTS");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	// Load configuration settings.
 	//SADX water
 	SADXStyleWater_EggHornet = config->getBool("SADX Style Water", "MysticRuins", false);
 	SADXStyleWater_ZeroE101R = config->getBool("SADX Style Water", "EggCarrier", false);
@@ -892,7 +891,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	EnableEggViper = config->getBool("Bosses", "EnableEggViper", true);
 	EnableE101 = config->getBool("Bosses", "EnableE101", true);
 	EnableZeroE101R = config->getBool("Bosses", "EnableZeroE101R", true);
-	delete config;
+
 	if (EnableChaos0 == true)
 	{
 		ReplaceBIN("PL_G0B", "PL_G0X");
@@ -901,6 +900,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("CHAOS0");
 		ReplacePVM("CHAOS0_EFFECT");
 		ReplacePVM("CHAOS0_OBJECT");
+		WriteData<1>((char*)0x54932B, 0x08); //Police car lights blending mode
 		___LANDTABLEBOSSCHAOS0[0] = &landtable_000001D8;
 		___BOSSCHAOS0_TEXLISTS[2] = &texlist_chaos0;
 		___BOSSCHAOS0_TEXLISTS[3] = &chaos0_object;
@@ -1263,7 +1263,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		matlist_00F98C98[3].diffuse.color = 0xFFB2B2B2;
 		matlist_00F98C98[4].diffuse.color = 0xFFB2B2B2;
 		matlist_00F98C98[5].diffuse.color = 0xFFB2B2B2;
-		for (int p = 0; p < LengthOfArray(PerfectChaosCars); p++)
+		for (unsigned int p = 0; p < LengthOfArray(PerfectChaosCars); p++)
 		{
 			PerfectChaosCars[p]->diffuse.argb.r = 0xB2;
 			PerfectChaosCars[p]->diffuse.argb.g = 0xB2;
@@ -1271,13 +1271,13 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		}
 	}
 	//Lighting stuff
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(Chaos6ObjectMaterials, LengthOfArray(Chaos6ObjectMaterials), &ForceDiffuse0Specular0or1);
 		material_register(WhiteDiffuse_Boss, LengthOfArray(WhiteDiffuse_Boss), &ForceWhiteDiffuse3Specular1);
 	}
 	//SADX style water
-	if (EnableEggHornet == true && SADXStyleWater_EggHornet == true)
+	if (EnableEggHornet && SADXStyleWater_EggHornet)
 	{
 		ReplacePVMX_SADXStyleWater("EGM1LAND");
 		ResizeTextureList((NJS_TEXLIST*)0x1557064, 160); //Egg Hornet level texlist
@@ -1290,7 +1290,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		collist_0001E294[LengthOfArray(collist_0001E294) - 4].Flags = 0x81000000;
 		collist_0001E294[LengthOfArray(collist_0001E294) - 5].Flags = 0x00000000;
 	}
-	if (EnableEggHornet == true && SADXStyleWater_EggHornet == false)
+	if (EnableEggHornet && !SADXStyleWater_EggHornet)
 	{
 		ReplacePVM("EGM1LAND");
 		ResizeTextureList((NJS_TEXLIST*)0x1557064, 143);  //Egg Hornet level texlist
@@ -1301,7 +1301,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 		collist_0001E294[LengthOfArray(collist_0001E294) - 4].Flags = 0x00000000;
 		collist_0001E294[LengthOfArray(collist_0001E294) - 5].Flags = 0x80040400;
 	}
-	if (EnableZeroE101R == true && SADXStyleWater_ZeroE101R == true)
+	if (EnableZeroE101R && SADXStyleWater_ZeroE101R)
 	{
 		ReplacePVMX_SADXStyleWater("EC_SEA");
 		ResizeTextureList(&EC_SEA_TEXLIST, 21);
@@ -1312,23 +1312,23 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 	}
 
 	//Fog and draw distance
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
-		if (EnableChaos2 == true)
+		if (EnableChaos2)
 		{
 			Chaos2Fog[i].Color = 0xFF000000;
 			Chaos2Fog[i].Layer = 700.0f;
 			Chaos2Fog[i].Distance = 1700.0f;
 			Chaos2Fog[i].Toggle = 0;
 		}
-		if (EnableChaos4 == true)
+		if (EnableChaos4)
 		{
 			Chaos4Fog[i].Color = 0xFF000000;
 			Chaos4Fog[i].Layer = 1.0f;
 			Chaos4Fog[i].Distance = 2000.0f;
 			Chaos4Fog[i].Toggle = 0;
 		}
-		if (EnableChaos6 == true)
+		if (EnableChaos6)
 		{
 			Chaos6SFog[i].Distance = 12000.0f;
 			Chaos6KFog[i].Distance = 12000.0f;
@@ -1341,14 +1341,14 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 			DrawDist_Chaso6S[i].Maximum = -18000.0f;
 			DrawDist_Chaso6K[i].Maximum = -18000.0f;
 		}
-		if (EnablePerfectChaos == true)
+		if (EnablePerfectChaos)
 		{
 			Chaos7Fog[i].Layer = -4000.0f;
 			Chaos7Fog[i].Distance = 11000.0f;
 			Chaos7Fog[i].Toggle = 1;
 			DrawDist_Chaos7[i].Maximum = -6500.0;
 		}
-		if (EnableEggHornet == true)
+		if (EnableEggHornet)
 		{
 			DrawDist_EggHornet[i].Maximum = -12500.0;
 			EggHornetFog[i].Distance = -9000.0f;
@@ -1356,9 +1356,9 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 			EggHornetFog[i].Toggle = 1;
 			EggHornetFog[i].Color = 0xFF646464;
 		}
-		if (EnableEggWalker == true) EggWalkerFog[i].Toggle = 0;
-		if (EnableEggViper == true) EggViperFog[i].Toggle = 0;
-		if (EnableZeroE101R == true)
+		if (EnableEggWalker) EggWalkerFog[i].Toggle = 0;
+		if (EnableEggViper) EggViperFog[i].Toggle = 0;
+		if (EnableZeroE101R)
 		{
 			Fog_Zero[i].Toggle = 0;
 			Fog_E101R[i].Toggle = 0;
@@ -1371,7 +1371,7 @@ void Bosses_Init(const char *path, const HelperFunctions &helperFunctions)
 void Bosses_OnFrame()
 {
 	//Egg Viper effect
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 
 		//Hopefully disable all this before it gets ugly

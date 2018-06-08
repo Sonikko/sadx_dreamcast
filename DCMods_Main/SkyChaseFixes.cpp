@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
 
 DataArray(SkyboxScale, SkyboxScale_SkyChase1, 0x027D6CE0, 3);
 DataArray(DrawDistance, DrawDist_SkyChase1, 0x027D6D58, 3);
@@ -102,7 +101,7 @@ void SkyChaseFix_Init()
 	WriteData(reinterpret_cast<char*>(0x0062751B), nullptr, 1); // Force Tornado light type
 	WriteData(reinterpret_cast<char*>(0x0062AC1F), nullptr, 1); // Force Tornado light type (transformation cutscene)
 
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		DrawDist_SkyChase1[i].Maximum = -60000.0f;
 	}

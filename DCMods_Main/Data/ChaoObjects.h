@@ -1,5 +1,9 @@
 #pragma once
-# include <SADXModLoader.h>
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
+#include "SADXModLoader.h"
 
 enum GARDEN00SSOBJTexName
 {
@@ -2908,3 +2912,5 @@ NJS_OBJECT objectCHAO_00048224 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachCH
 NJS_OBJECT objectCHAO_00048224_2 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachCHAO_000481FC, 2004, 35.81644f, 0, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
 
 NJS_OBJECT objectCHAO_00048224_3 = { NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachCHAO_000481FC, 2008, 35.81644f, 0, 0, 0x8000, 0, 1, 1, 1, NULL, NULL };
+
+#pragma warning(pop)

@@ -1,5 +1,8 @@
 #pragma once
 
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum EGM1TexName
 {
 	EGM1TexName_eg_neji,
@@ -4546,3 +4549,5 @@ NJS_VECTOR normal_0000F98C[] = {
 NJS_MODEL_SADX attach_000104C0 = { vertex_0000EE58, normal_0000F98C, LengthOfArray(vertex_0000EE58), meshlist_0000EBA0, matlist_0000D8A8, LengthOfArray(meshlist_0000EBA0), LengthOfArray(matlist_0000D8A8),{ -0.00003f, 6.479789f, 0.40254f }, 17.99401f, NULL };
 
 NJS_OBJECT object_000104E8 = { NJD_EVAL_UNIT_POS | NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attach_000104C0, 0, 0, 0, 0, 0, 0, 1, 1, 1, &object_0000D874, NULL };
+
+#pragma warning(pop)

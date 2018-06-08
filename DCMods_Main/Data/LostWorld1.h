@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 Sint16 polySTG07_0000D858[] = {
 	17, 7, 6, 4, 5, 99, 105, 52, 107, 55, 106, 57, 56, 68, 98, 8, 104, 105,
 	8, 11, 3, 10, 0, 58, 49, 59, 50,
@@ -42017,3 +42021,5 @@ NJS_TEXNAME textures_lw1[58];
 NJS_TEXLIST texlist_lw1 = { arrayptrandlength(textures_lw1) };
 
 LandTable landtable_0000D560 = { LengthOfArray(collist_0000C708), 0, 0xC, 450, collist_0000C708, NULL, "RUIN01", (NJS_TEXLIST *)&texlist_lw1, 0, 0 };
+
+#pragma warning(pop)

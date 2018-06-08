@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 enum MR_FINALEGGTexName
 {
 	MR_FINALEGGTexName_eca_s_mado,
@@ -12380,3 +12384,5 @@ NJS_VECTOR normalADV02_0020D890[] = {
 NJS_MODEL_SADX attachADV02_0020DC50 = { vertexADV02_0020D4D0, normalADV02_0020D890, LengthOfArray(vertexADV02_0020D4D0), meshlistADV02_0020D410, matlistADV02_0020CEA8, LengthOfArray(meshlistADV02_0020D410), LengthOfArray(matlistADV02_0020CEA8),{ 39.34761f, 102.5415f, -1453.381f }, 1474.924f, NULL };
 
 NJS_OBJECT objectADV02_0020DC78 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL, &attachADV02_0020DC50, 0, 849.6653f, 3015.934f, 0, 0, 0, 1, 1, 1, &objectADV02_0020CE74, NULL };
+
+#pragma warning(pop)

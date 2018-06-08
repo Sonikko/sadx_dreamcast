@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlist_0001F53C[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 53, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_FLAG_DOUBLE_SIDE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 46, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ENV | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -36753,3 +36757,5 @@ NJS_TEXNAME textures_egm1land[143];
 NJS_TEXLIST texlist_egm1land = { arrayptrandlength(textures_egm1land) };
 
 LandTable landtable_00000128 = { LengthOfArray(collist_0001E294), LengthOfArray(animlist_0001F524), 0xD, 10000, collist_0001E294, animlist_0001F524, "EGM1LAND", (NJS_TEXLIST *)0x1557064, 0, 0 };
+
+#pragma warning(pop)

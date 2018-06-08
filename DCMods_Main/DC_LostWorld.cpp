@@ -1,11 +1,8 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "LostWorld1.h"
 #include "LostWorld2.h"
 #include "LostWorld3.h"
 #include "LostWorld_objects.h"
-#include "DC_Levels.h"
 
 DataPointer(float, CurrentDrawDist, 0x03ABDC74);
 
@@ -37,9 +34,8 @@ void RenderLWPlatformLight(NJS_MODEL_SADX *model, QueuedModelFlagsB blend, float
 	DrawQueueDepthBias = 0.0f;
 }
 
-void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
+void LostWorld_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAM0700S");
 	ReplaceBIN_DC("CAM0701K");
 	ReplaceBIN_DC("CAM0701S");
@@ -48,20 +44,25 @@ void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0701K");
 	ReplaceBIN_DC("SET0701S");
 	ReplaceBIN_DC("SET0702S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0700S");
-		AddSETFix("SET0701K");
-		AddSETFix("SET0701S");
-		AddSETFix("SET0702S");
+		case SETFixes_Normal:
+			AddSETFix("SET0700S");
+			AddSETFix("SET0701K");
+			AddSETFix("SET0701S");
+			AddSETFix("SET0702S");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SET0700S");
+			AddSETFix_Extra("SET0701K");
+			AddSETFix_Extra("SET0701S");
+			AddSETFix_Extra("SET0702S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0700S");
-		AddSETFix_Extra("SET0701K");
-		AddSETFix_Extra("SET0701S");
-		AddSETFix_Extra("SET0702S");
-	}
+
 	ReplacePVM("BG_RUIN");
 	ReplacePVM("RUIN01");
 	ReplacePVM("RUIN02");
@@ -71,7 +72,7 @@ void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((LandTable**)0x97DAE8, &landtable_0000D560);
 	WriteData((LandTable**)0x97DAEC, &landtable_00063A6C);
 	WriteData((LandTable**)0x97DAF0, &landtable_000F928C);
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(ObjectSpecular_LostWorld, LengthOfArray(ObjectSpecular_LostWorld), &ForceDiffuse0Specular1);
 	}
@@ -82,7 +83,7 @@ void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 	Hasira1Model.mats[0].diffuse.color = 0x99B2B2B2;
 	*(NJS_OBJECT*)0x20144CC = objectSTG07_0013BB70; //Kusa02 type 1
 	*(NJS_OBJECT*)0x2015968 = objectSTG07_0013CA2C; //Kusa02 type 2
-	*(NJS_MODEL_SADX*)0x0202FF74 = attachSTG07_00151E30; //Aokiswitch
+	//*(NJS_MODEL_SADX*)0x0202FF74 = attachSTG07_00151E30; //Aokiswitch
 	*(NJS_OBJECT*)0x201AF8C = objectSTG07_00140C64; //Box part 1 object
 	*(NJS_OBJECT*)0x201B1C4 = objectSTG07_00140E84; //Box part 2 object
 	*(NJS_OBJECT*)0x201B40C = objectSTG07_001410B4; //Box part 3 object
@@ -134,11 +135,12 @@ void LostWorld_Init(const char *path, const HelperFunctions &helperFunctions)
 	ResizeTextureList((NJS_TEXLIST*)0x1F6F02C, textures_lw1);
 	ResizeTextureList((NJS_TEXLIST*)0x1E9B9AC, textures_lw2);
 	ResizeTextureList((NJS_TEXLIST*)0x1E79D80, textures_lw3);
+
 	DataArray(FogData, LostWorld1Fog, 0x01E79AAC, 3);
 	DataArray(FogData, LostWorld2Fog, 0x01E79ADC, 3);
 	DataArray(FogData, LostWorld3Fog, 0x01E79B0C, 3);
 	DataArray(DrawDistance, DrawDist_LostWorld2, 0x01E79A7C, 3);
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		LostWorld1Fog[i].Color = 0xFFFFFFFF;
 		LostWorld1Fog[i].Layer = 1.0f;

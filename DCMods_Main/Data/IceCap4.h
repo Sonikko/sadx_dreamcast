@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistSTG08_Q000A9418[] = {
 	{ { 0x7FB2B2B2 },{ 0xFFFFFFFF }, 11, 16, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
@@ -55678,3 +55682,5 @@ COL collist_000180D8[] = {
 };
 
 LandTable landtable_00019950 = { LengthOfArray(collist_000180D8), 0, 8, 0, collist_000180D8, NULL, "ICECAP02", (NJS_TEXLIST *)&texlist_icecap2, 0, 0 };
+
+#pragma warning(pop)

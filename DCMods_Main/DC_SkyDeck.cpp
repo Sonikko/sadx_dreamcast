@@ -1,13 +1,9 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <lanternapi.h>
 #include "SkyDeck3_Fixes.h"
 #include "SkyDeck1.h"
 #include "SkyDeck2.h"
 #include "SkyDeck3.h"
 #include "SkyDeck_objects.h"
-#include "math.h"
-#include "DC_Levels.h"
 
 static int UVShift1 = 0;
 static int UVShift2 = 0;
@@ -608,9 +604,8 @@ void __cdecl Talap0Display_FixedRotation(ObjectMaster *a2)
 	}
 }
 
-void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
+void SkyDeck_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("SET0600M");
 	ReplaceBIN_DC("SET0600S");
 	ReplaceBIN_DC("SET0601M");
@@ -623,22 +618,27 @@ void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAM0601S");
 	ReplaceBIN_DC("CAM0602K");
 	ReplaceBIN_DC("CAM0602S");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0600M");
-		AddSETFix("SET0600S");
-		AddSETFix("SET0601S");
-		AddSETFix("SET0602K");
-		AddSETFix("SET0602S");
+		case SETFixes_Normal:
+			AddSETFix("SET0600M");
+			AddSETFix("SET0600S");
+			AddSETFix("SET0601S");
+			AddSETFix("SET0602K");
+			AddSETFix("SET0602S");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SET0600M");
+			AddSETFix_Extra("SET0600S");
+			AddSETFix_Extra("SET0601S");
+			AddSETFix_Extra("SET0602K");
+			AddSETFix_Extra("SET0602S");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0600M");
-		AddSETFix_Extra("SET0600S");
-		AddSETFix_Extra("SET0601S");
-		AddSETFix_Extra("SET0602K");
-		AddSETFix_Extra("SET0602S");
-	}
+
 	ReplacePVM("E_AIRCRAFT");
 	ReplacePVM("OBJ_SKYDECK");
 	ReplacePVM("SKYDECK01");
@@ -676,7 +676,7 @@ void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteJump((void*)0x5FAD60, Connect0Display_FixedRotation);
 	WriteJump((void*)0x5FB4C0, Talap0Display_FixedRotation);
 	//Lantern stuff
-	if (DLLLoaded_Lantern == true)
+	if (DLLLoaded_Lantern)
 	{
 		material_register(WhiteDiffuse_SkyDeck, LengthOfArray(WhiteDiffuse_SkyDeck), &ForceWhiteDiffuse1);
 		material_register(ObjectSpecular_SkyDeck, LengthOfArray(ObjectSpecular_SkyDeck), &ForceDiffuse0Specular1);
@@ -761,6 +761,7 @@ void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 	ResizeTextureList((NJS_TEXLIST*)0x20E0BB0, textures_skydeck1);
 	ResizeTextureList((NJS_TEXLIST*)0x20AA63C, textures_skydeck2);
 	ResizeTextureList((NJS_TEXLIST*)0x203ACE0, textures_skydeck3);
+
 	DataArray(FogData, SkyDeck1Fog, 0x0203A094, 3);
 	DataArray(FogData, SkyDeck2Fog, 0x0203A0C4, 3);
 	DataArray(FogData, SkyDeck3Fog, 0x0203A0F4, 3);
@@ -768,7 +769,7 @@ void SkyDeck_Init(const char *path, const HelperFunctions &helperFunctions)
 	DataArray(DrawDistance, SkyDeck1DrawDist, 0x0203A04C, 3);
 	DataArray(DrawDistance, SkyDeck2DrawDist, 0x0203A064, 3);
 	DataArray(DrawDistance, SkyDeck3DrawDist, 0x0203A07C, 3);
-	for (int i = 0; i < 3; i++)
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		SkyDeck1Fog[i].Layer = 4000.0f;
 		SkyDeck1Fog[i].Distance = 12000.0f;
@@ -808,7 +809,7 @@ void SkyDeck_OnFrame()
 	{
 		UVShift1 = (UVShift1 - 4 * FramerateSetting) % 255;
 		UVShift2 = (UVShift2 - 2 * FramerateSetting) % 255;
-		for (int q = 0; q < LengthOfArray(uvSTG06_01D4BE68); q++)
+		for (unsigned int q = 0; q < LengthOfArray(uvSTG06_01D4BE68); q++)
 		{
 			uvSTG06_01D4BE68[q].u = uvSTG06_01D4BE68_0[q].u + UVShift2;
 			uvSTG06_01D4E2F4[q].u = uvSTG06_01D4E2F4_0[q].u + UVShift2;

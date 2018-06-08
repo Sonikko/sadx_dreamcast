@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_TEXNAME textures_advss01[266];
 NJS_TEXLIST texlist_advss01 = { arrayptrandlength(textures_advss01) };
 
@@ -18604,7 +18608,7 @@ NJS_VECTOR normalADV00_00098F20[] = {
 
 NJS_MODEL_SADX attachADV00_00098F50 = { vertexADV00_00098EF0, normalADV00_00098F20, LengthOfArray(vertexADV00_00098EF0), meshlistADV00_00098ED8, matlistADV00_00098EA8, LengthOfArray(meshlistADV00_00098ED8), LengthOfArray(matlistADV00_00098EA8),{ 0.000008f, 21.49983f, -0.000202f }, 55.65276f, NULL };
 
-NJS_OBJECT objectADV00_00098F78 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachADV00_00098F50, -310, 30, 1354.9, 0, 0, 0, 1, 1, 1, NULL, NULL };
+NJS_OBJECT objectADV00_00098F78 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attachADV00_00098F50, -310, 30, 1354.9f, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_MATERIAL matlistADV00_00098FAC[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 172, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
@@ -39145,3 +39149,5 @@ COL collist_0006FE50[] = {
 };
 
 LandTable landtable_000738F4 = { LengthOfArray(collist_0006FE50), 0, 0xC, 1500, collist_0006FE50, NULL, "ADVSS01", (NJS_TEXLIST *)&texlist_advss01 , 0, 0 };
+
+#pragma warning(pop)

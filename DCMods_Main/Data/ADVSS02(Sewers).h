@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_TEXNAME textures_advss02[56];
 NJS_TEXLIST texlist_advss02 = { arrayptrandlength(textures_advss02) };
 
@@ -12099,3 +12103,5 @@ COL collist_000C10C8[] = {
 };
 
 LandTable landtable_000C21F0 = { LengthOfArray(collist_000C10C8), 0, 0xC, 1700, collist_000C10C8, NULL, "ADVSS02", (NJS_TEXLIST *)&texlist_advss02 , 0, 0 };
+
+#pragma warning(pop)

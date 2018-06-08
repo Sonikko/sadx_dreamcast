@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistSTG02_000567BC[] = {
 	{ { 0xFFB2B2B2 }, { 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 }, { 0xFFFFFFFF }, 11, 1, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -39496,3 +39500,4 @@ NJS_TEXLIST texlist_windy3 = { arrayptrandlength(textures_windy3) };
 
 LandTable landtable_0000F274 = { LengthOfArray(collist_0000DB64), 0, 0xC, 1600, collist_0000DB64, NULL, "WINDY03", (NJS_TEXLIST *)&texlist_windy3, 0, 0 };
 
+#pragma warning(pop)

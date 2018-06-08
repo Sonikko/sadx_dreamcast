@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
 #include "textures.h"
 #include "Icicle.h"
 #include "IceCap1.h"
@@ -7,7 +6,6 @@
 #include "IceCap3.h"
 #include "IceCap4_PC.h"
 #include "IceCap4.h"
-#include "DC_Levels.h"
 
 DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
@@ -110,9 +108,39 @@ void CrystalParticle(NJS_VECTOR *a1, NJS_VECTOR *a2, int a3, signed int a4)
 	ParticleDepthOverride = 0;
 }
 
-void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
+void __cdecl FixedAvalanche(ObjectMaster *a1)
 {
-	char pathbuf[MAX_PATH];
+	EntityData1 *v1; // esi
+	EntityData1 *v2; // eax
+	Angle v3; // ecx
+	Angle v4; // ecx
+
+	v1 = a1->Data1;
+	if (!MissedFrames)
+	{
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		v2 = Camera_Data1;
+		v3 = Camera_Data1->Rotation.y;
+		if (v3)
+		{
+			njRotateY(0, (unsigned __int16)v3);
+			v2 = Camera_Data1;
+		}
+		v4 = v2->Rotation.x;
+		if (v4)
+		{
+			njRotateX(0, (unsigned __int16)v4);
+		}
+		njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		njDrawSprite3D_Queue((NJS_SPRITE*)0xE94658, *(Sint32*)&v1->Object / 2, NJD_SPRITE_ALPHA, QueuedModelFlagsB_SomeTextureThing);
+		njPopMatrix(1u);
+	}
+}
+
+void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
+{
 	ReplaceBIN_DC("CAM0800S");
 	ReplaceBIN_DC("CAM0801S");
 	ReplaceBIN_DC("CAM0802S");
@@ -122,31 +150,36 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0802M");
 	ReplaceBIN_DC("SET0802S");
 	ReplaceBIN_DC("SET0803B");
-	if (EnableSETFixes == 1)
+
+	switch (EnableSETFixes)
 	{
-		AddSETFix("SET0800S");
-		AddSETFix("SET0801S");
-		AddSETFix("SET0802M");
-		AddSETFix("SET0802S");
-		AddSETFix("SET0803B");
+		case SETFixes_Normal:
+			AddSETFix("SET0800S");
+			AddSETFix("SET0801S");
+			AddSETFix("SET0802M");
+			AddSETFix("SET0802S");
+			AddSETFix("SET0803B");
+			break;
+		case SETFixes_Extra:
+			AddSETFix_Extra("SET0800S");
+			AddSETFix_Extra("SET0801S");
+			AddSETFix_Extra("SET0802M");
+			AddSETFix_Extra("SET0802S");
+			AddSETFix_Extra("SET0803B");
+			break;
+		default:
+			break;
 	}
-	if (EnableSETFixes == 2)
-	{
-		AddSETFix_Extra("SET0800S");
-		AddSETFix_Extra("SET0801S");
-		AddSETFix_Extra("SET0802M");
-		AddSETFix_Extra("SET0802S");
-		AddSETFix_Extra("SET0803B");
-	}
+
 	ReplacePVM("BG_ICECAP");
 	ReplacePVM("ICECAP01");
 	ReplacePVM("ICECAP02");
 	ReplacePVM("ICECAP03");
 	ReplacePVM("OBJ_ICECAP");
 	ReplacePVM("OBJ_ICECAP2");
-	ReplacePVR("MIW_B001")
-	ReplacePVR("MTX_BOARD0")
-	ReplacePVR("SB_BOARD1")
+	ReplacePVR("MIW_B001");
+	ReplacePVR("MTX_BOARD0");
+	ReplacePVR("SB_BOARD1");
 	WriteData((LandTable**)0x97DB08, &landtable_00014B44);
 	WriteData((LandTable**)0x97DB0C, &landtable_00015714);
 	WriteData((LandTable**)0x97DB10, &landtable_000180B4);
@@ -158,6 +191,7 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 	//WriteJump((void*)0x4EF5A0, sub_4EF5A0X);
 	WriteCall((void*)0x004EFEF7, RenderIcicleSpriteThing);
 	WriteCall((void*)0x004EFE10, RenderSmallIcicles);
+	WriteJump((void*)0x4EB770, FixedAvalanche);
 	*(NJS_OBJECT*)0x00E6FECC = objectSTG08_00A6FECC; // Giant icicle
 	//Snowboard fix
 	HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
@@ -181,15 +215,15 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 	LandTable *lt = (LandTable *)0x0E3E024; COL *tmp = new COL[171 + LengthOfArray(collist_000180D8)];
 	memcpy(tmp, lt->Col, sizeof(COL) * lt->COLCount);
 	lt->Col = tmp; lt->COLCount = 171 + LengthOfArray(collist_000180D8);
-	for (int inv = 0; inv < 171; inv++)
+	for (unsigned int inv = 0; inv < 171; inv++)
 	{
 		((LandTable *)0x0E3E024)->Col[inv].Flags &= ~ColFlags_Visible;
 	}
-	for (int c = 171; c < LengthOfArray(collist_000180D8) + 171; c++)
+	for (unsigned int c = 171; c < LengthOfArray(collist_000180D8) + 171; c++)
 	{
 		((LandTable *)0x0E3E024)->Col[c] = collist_000180D8[c - 171];
 	}
-	for (int inv2 = 171; inv2 < 171 + LengthOfArray(collist_000180D8); inv2++)
+	for (unsigned int inv2 = 171; inv2 < 171 + LengthOfArray(collist_000180D8); inv2++)
 	{
 		((LandTable *)0x0E3E024)->Col[inv2].Flags &= ~ColFlags_Solid;
 	}
@@ -197,7 +231,8 @@ void IceCap_Init(const char *path, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0xE6E0E0 = objectSTG08_0017BD64; //MizuIwa B
 	*(NJS_OBJECT*)0xE6E694 = objectSTG08_0017C308; //MizuIwa C
 	*(NJS_OBJECT*)0xE52FCC = objectSTG08_00161838; //OIceJmp
-	for (int i = 0; i < 3; i++)
+
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		IceCap1Fog[i].Color = 0xFFFFFFFF;
 		IceCap1Fog[i].Layer = 1500.0f;

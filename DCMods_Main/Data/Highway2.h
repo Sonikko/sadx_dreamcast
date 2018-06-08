@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_MATERIAL matlistSTG04_0009D56C[] = {
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 1, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_CLAMP_V | NJD_FLAG_CLAMP_U | NJD_FLAG_IGNORE_SPECULAR | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC },
 	{ { 0xFFB2B2B2 },{ 0xFFFFFFFF }, 11, 2, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_FLIP_V | NJD_FLAG_USE_TEXTURE | NJD_FLAG_IGNORE_LIGHT | NJD_DA_INV_SRC | NJD_SA_SRC },
@@ -6187,3 +6191,5 @@ NJS_TEXNAME textures_highway2[32];
 NJS_TEXLIST texlist_hw2 = { arrayptrandlength(textures_highway2) };
 
 LandTable landtable_00019178 = { LengthOfArray(collist_00018560), 0, 0xC, 2000, collist_00018560, NULL, "HIGHWAY02", (NJS_TEXLIST *)&texlist_hw2, 0, 0 };
+
+#pragma warning(pop)

@@ -1,4 +1,8 @@
 #pragma once
+
+#pragma warning(push)
+#pragma warning(disable: 4267 4838)
+
 NJS_TEXNAME textures_twinklecircuit[12];
 
 NJS_TEXLIST texlist_twinklecircuit = { arrayptrandlength(textures_twinklecircuit) };
@@ -7842,3 +7846,5 @@ COL collist_00000230[] = {
 };
 
 LandTable landtable_00001A3C = { LengthOfArray(collist_00000230), 0, 0xC, 3000, collist_00000230, NULL, "MINI_CART01", (NJS_TEXLIST *)&texlist_twinklecircuit, 0, 0 };
+
+#pragma warning(pop)

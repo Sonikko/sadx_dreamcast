@@ -1,15 +1,10 @@
 #include "stdafx.h"
-#include <SADXModLoader.h>
-#include <Trampoline.h>
 #include "Palm.h"
 #include "ADV03_00_PC.h"
 #include "ADV03_00.h"
 #include "ADV03_01.h"
 #include "ADV03_02.h"
 #include "Past_objects.h"
-#include <lanternapi.h>
-#include <IniFile.hpp>
-#include "DC_Levels.h"
 
 HMODULE Past = GetModuleHandle(L"ADV03MODELS");
 
@@ -83,59 +78,65 @@ static Trampoline Past_OceanDraw_t(0x542850, 0x542858, Past_OceanDraw_r);
 static void __cdecl Past_OceanDraw_r(OceanData *a1)
 {
 	auto original = reinterpret_cast<decltype(Past_OceanDraw_r)*>(Past_OceanDraw_t.Target());
-	if (CurrentAct == 1)
+	if (EnablePast == true)
 	{
-		if (GameState != 16)
+		if (CurrentAct == 1)
 		{
-			if (ocean_act1 > 82) ocean_act1 = 73;
-			if (water_act1 > 72) water_act1 = 59;
-			if (ocean_act1_sadx > 97) ocean_act1_sadx = 83;
-			matlistADV03_0006DBD0[0].attr_texId = ocean_act1;
-			matlistADV03_00095CF8[0].attr_texId = water_act1;
-			matlistADV03_000950C4[0].attr_texId = water_act1;
-			matlistADV03_0009542C[0].attr_texId = water_act1;
-			WriteData<1>((char*)0x0054287B, ocean_act1_sadx);
-			if ((FramerateSetting < 2 && FrameCounter % 4 == 0) || (FramerateSetting == 2 && FrameCounter % 2 == 0) || FramerateSetting > 2)
+			if (GameState != 16)
 			{
-				ocean_act1++;
-				water_act1++;
-				ocean_act1_sadx++;
+				if (ocean_act1 > 82) ocean_act1 = 73;
+				if (water_act1 > 72) water_act1 = 59;
+				if (ocean_act1_sadx > 97) ocean_act1_sadx = 83;
+				matlistADV03_0006DBD0[0].attr_texId = ocean_act1;
+				matlistADV03_00095CF8[0].attr_texId = water_act1;
+				matlistADV03_000950C4[0].attr_texId = water_act1;
+				matlistADV03_0009542C[0].attr_texId = water_act1;
+				WriteData<1>((char*)0x0054287B, ocean_act1_sadx);
+				if ((FramerateSetting < 2 && FrameCounter % 4 == 0) || (FramerateSetting == 2 && FrameCounter % 2 == 0) || FramerateSetting > 2)
+				{
+					ocean_act1++;
+					water_act1++;
+					ocean_act1_sadx++;
+				}
 			}
+			//Reflections act 1
+			njSetTexture(&texlist_past01);
+			DrawQueueDepthBias = 1000.0f;
+			ProcessModelNode(&objectADV03_0008B2E0Z, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+			DrawQueueDepthBias = 2500.0f;
+			ProcessModelNode(&objectADV03_0009609C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+			DrawQueueDepthBias = 0;
 		}
-		njSetTexture(&texlist_past01);
-		DrawQueueDepthBias = 1000.0f;
-		ProcessModelNode(&objectADV03_0008B2E0Z, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		DrawQueueDepthBias = 2500.0f;
-		ProcessModelNode(&objectADV03_0009609C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		DrawQueueDepthBias = 0;
-	}
-	if (CurrentAct == 2)
-	{
-		if (GameState != 16)
+		if (CurrentAct == 2)
 		{
-			if (water_act2 > 74) water_act2 = 61;
-			if (ocean_act2 > 84) ocean_act2 = 75;
-			if (ocean_act2_sadx > 99) ocean_act2_sadx = 85;
-			//matlistADV03_000C7840[0].attr_texId = water_act2; //Apparently SADX does it on its own
-			//matlistADV03_000C6C0C[0].attr_texId = water_act2; //Apparently SADX does it on its own
-			//matlistADV03_000C6F74[0].attr_texId = water_act2; //Apparently SADX does it on its own
-			matlistADV03_0009DEBC[0].attr_texId = ocean_act2;			
-			WriteData<1>((char*)0x005428A0, ocean_act2_sadx);
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+			if (GameState != 16)
 			{
-				ocean_act2++;
-				water_act2++;
-				ocean_act2_sadx++;
+				if (water_act2 > 74) water_act2 = 61;
+				if (ocean_act2 > 84) ocean_act2 = 75;
+				if (ocean_act2_sadx > 99) ocean_act2_sadx = 85;
+				//matlistADV03_000C7840[0].attr_texId = water_act2; //Apparently SADX does it on its own
+				//matlistADV03_000C6C0C[0].attr_texId = water_act2; //Apparently SADX does it on its own
+				//matlistADV03_000C6F74[0].attr_texId = water_act2; //Apparently SADX does it on its own
+				matlistADV03_0009DEBC[0].attr_texId = ocean_act2;
+				WriteData<1>((char*)0x005428A0, ocean_act2_sadx);
+				if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+				{
+					ocean_act2++;
+					water_act2++;
+					ocean_act2_sadx++;
+				}
 			}
+			//Reflections act 2
+			njSetTexture(&texlist_past02);
+			DrawQueueDepthBias = 1000.0f;
+			ProcessModelNode(&objectADV03_000BCC28Z, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+			DrawQueueDepthBias = 2500.0f;
+			ProcessModelNode(&objectADV03_000C7BE4, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+			DrawQueueDepthBias = 0;
 		}
-		njSetTexture(&texlist_past02);
-		DrawQueueDepthBias = 1000.0f;
-		ProcessModelNode(&objectADV03_000BCC28Z, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		DrawQueueDepthBias = 2500.0f;
-		ProcessModelNode(&objectADV03_000C7BE4, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		DrawQueueDepthBias = 0;
+		if (SADXStyleWater) original(a1);
 	}
-	if (SADXStyleWater == true) original(a1);
+	else original(a1);
 }
 
 void RenderPalm2(NJS_ACTION *a1, float a2, int a3, float a4)
@@ -154,9 +155,8 @@ void RenderPalm1(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 	DrawQueueDepthBias = 0.0f;
 }
 
-void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
+void ADV03_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	char pathbuf[MAX_PATH];
 	ReplaceBIN_DC("CAMPAST00S");
 	ReplaceBIN_DC("CAMPAST01S");
 	ReplaceBIN_DC("CAMPAST02S");
@@ -169,10 +169,10 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 	ReplacePVM("OBJ_PAST");
 	ReplacePVM("PAST00");
 	ReplacePVM("PAST_KN_FAM");
-	const IniFile *config = new IniFile(std::string(path) + "\\config.ini");
+
+	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "Past", false);
-	delete config;
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		ReplacePVMX_SADXStyleWater("PAST01");
 		ReplacePVMX_SADXStyleWater("PAST02");
@@ -182,6 +182,7 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 		ReplacePVM("PAST01");
 		ReplacePVM("PAST02");
 	}
+
 	//Palm fixes
 	ADV03_ACTIONS[10]->object->model = &attach_00122F04;
 	WriteCall((void*)0x545C1A, RenderPalm1);
@@ -197,13 +198,13 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x0068BA8F, 86.0f); //Ripple 3 Y
 	WriteData((float*)0x0068BA8A, 52.42f); //Ripple 3 Z
 	HMODULE handle = GetModuleHandle(L"ADV03MODELS");
-	if (handle != nullptr && DLLLoaded_Lantern == true)
+	if (handle != nullptr && DLLLoaded_Lantern)
 	{
 		material_register(SecondCharacterSpecular, LengthOfArray(SecondCharacterSpecular), &ForceDiffuse2Specular3);
 		material_register(FirstCharacterSpecular, LengthOfArray(FirstCharacterSpecular), &ForceDiffuse2Specular2);
 		material_register(Past_ObjectSpecular, LengthOfArray(Past_ObjectSpecular), &ForceDiffuse0Specular1);
 	}
-	if (SADXStyleWater == true)
+	if (SADXStyleWater)
 	{
 		ResizeTextureList(&texlist_past01, 100);
 		ResizeTextureList(&texlist_past02, 102);
@@ -219,7 +220,8 @@ void ADV03_Init(const char *path, const HelperFunctions &helperFunctions)
 		collist_0006735C[0].Flags = 0x80000020;
 		collist_000976C0[0].Flags = 0x80000020;
 	}
-	for (int i = 0; i < 3; i++)
+
+	for (unsigned int i = 0; i < 3; i++)
 	{
 		FogData_Past1[i].Layer = -12000.0f;
 		FogData_Past1[i].Distance = -12000.0f;
