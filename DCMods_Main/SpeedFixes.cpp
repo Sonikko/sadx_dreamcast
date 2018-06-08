@@ -9,6 +9,7 @@ FunctionPointer(void, Fishies_Display, (ObjectMaster *a1), 0x4FC770);
 FunctionPointer(void, CreateFireParticle, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4CB060);
 FunctionPointer(void, FireSprite, (ObjectMaster *a1), 0x5E81E0);
 FunctionPointer(void, DrawSparkSprite, (ObjectMaster *a1), 0x4BAE50);
+FunctionPointer(void, Chaos0_Raindrop_Display, (ObjectMaster *a1), 0x546090);
 
 static int FramerateSettingOld = 0;
 static int FrameCounter_Half = 0;
@@ -331,6 +332,43 @@ void RenderMainUpgradeModel(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 	DrawQueueDepthBias = 1000.0f;
 	ProcessModelNode(a1, a2, a3);
 	DrawQueueDepthBias = 0;
+}
+
+static void __cdecl Chaos0RainThing_r(ObjectMaster *a1);
+static Trampoline Chaos0RainThing_t(0x546140, 0x546146, Chaos0RainThing_r);
+static void __cdecl Chaos0RainThing_r(ObjectMaster *a1)
+{
+	EntityData1 *v2; // esi
+	double v3; // st7
+	v2 = a1->Data1;
+	auto original = reinterpret_cast<decltype(Chaos0RainThing_r)*>(Chaos0RainThing_t.Target());
+	if (EnableSpeedFixes)
+	{
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1);
+		else 
+		{
+			v3 = *(float*)&v2->CharIndex - 0.033333335f;
+			*(float*)&v2->CharIndex = v3;
+			if (v3 >= 0.0f)
+			{
+				Chaos0_Raindrop_Display(a1);
+			}
+		}
+	}
+	else original(a1);
+}
+
+static int __fastcall EggHornetJetThing_r(int a1);
+static Trampoline EggHornetJetThing_t(0x572620, 0x572628, EggHornetJetThing_r);
+static int __fastcall EggHornetJetThing_r(int a1)
+{
+	auto original = reinterpret_cast<decltype(EggHornetJetThing_r)*>(EggHornetJetThing_t.Target());
+	if (EnableSpeedFixes)
+	{
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) return original(a1);
+		else return a1;
+	}
+	else return original(a1);
 }
 
 void SpeedFixes_Init()
