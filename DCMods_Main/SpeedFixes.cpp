@@ -62,6 +62,9 @@ float TankhSpeedOverride = 0.25f;
 double OKaizAnimationSpeedOverride = 0.001388885f;
 int OCrystalAnimationSpeedOverride = 168;
 
+//Ice Cap
+float AvalancheMultiplier = 12.5f;
+
 //Lost World
 float OTPanel1SpeedOverride = 0.0084745765f;
 char OTPanelTimer = 120;
@@ -332,6 +335,9 @@ void RenderMainUpgradeModel(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 
 void SpeedFixes_Init()
 {
+	//Ice Cap avalanche snow sprites
+	WriteData((float**)0x4EB391, &AvalancheMultiplier);
+	WriteData((float**)0x4EB3B6, &AvalancheMultiplier);
 	//Character upgrades
 	WriteCall((void*)0x4BEA22, RenderMainUpgradeModel);
 	WriteCall((void*)0x4BEA33, RenderMainUpgradeModel);
@@ -467,6 +473,8 @@ void SpeedFixes_OnFrame()
 		//Original values for 30 FPS
 		if (FramerateSetting >= 2)
 		{
+			//Ice Cap avalanche
+			AvalancheMultiplier = 25.0f;
 			//Animals
 			BubbleMovementSpeed = 0.0099999998f;
 			BubbleMovementSpeed2 = 0.04999999f;
@@ -528,6 +536,8 @@ void SpeedFixes_OnFrame()
 		//60 FPS values
 		else
 		{
+			//Ice Cap avalanche
+			AvalancheMultiplier = 12.5f;
 			//Animals
 			BubbleMovementSpeed = 0.0049999999f;
 			BubbleMovementSpeed2 = 0.0249999985f;

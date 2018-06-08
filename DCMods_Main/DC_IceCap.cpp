@@ -174,6 +174,13 @@ void __cdecl FixedAvalanche(ObjectMaster *a1)
 	}
 }
 
+void FixSnowflake(NJS_SPRITE *sp, Int n, NJD_SPRITE attr, QueuedModelFlagsB zfunc_type)
+{
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+	njDrawSprite3D_Queue(sp, n, attr, zfunc_type);
+}
+
 void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0800S");
@@ -185,7 +192,6 @@ void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0802M");
 	ReplaceBIN_DC("SET0802S");
 	ReplaceBIN_DC("SET0803B");
-
 	switch (EnableSETFixes)
 	{
 		case SETFixes_Normal:
@@ -205,7 +211,6 @@ void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		default:
 			break;
 	}
-
 	ReplacePVM("BG_ICECAP");
 	ReplacePVM("ICECAP01");
 	ReplacePVM("ICECAP02");
@@ -248,6 +253,9 @@ void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ResizeTextureList((NJS_TEXLIST*)0xDE3A74, textures_icecap1);
 	ResizeTextureList((NJS_TEXLIST*)0xD39744, textures_icecap2);
 	ResizeTextureList((NJS_TEXLIST*)0xC68408, textures_icecap3);
+	WriteCall((void*)0x4F5B6F, FixSnowflake); //Snowflake brightness
+	((NJS_SPRITE*)0xE956E4)->tlist = &OBJ_ICECAP_TEXLIST; //Snow effect texlist
+	((NJS_TEXANIM*)0xE956D0)->texid = 96; //Snow effect texture ID
 	ResizeTextureList(&OBJ_ICECAP_TEXLIST, 100);
 	LandTable *lt = (LandTable *)0x0E3E024; COL *tmp = new COL[171 + LengthOfArray(collist_000180D8)];
 	memcpy(tmp, lt->Col, sizeof(COL) * lt->COLCount);
