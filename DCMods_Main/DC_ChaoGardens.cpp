@@ -142,6 +142,15 @@ ObjectFunc(OF_SS19, 0xC902DD2); // CAM COLLI
 ObjectFunc(OF_SS20, 0x004D4850); // WALL  
 ObjectFunc(OF_SS21, 0x007A9C60); // HINT BOX
 
+//Chao Race double shadow fix
+static void __cdecl ChaoShadowFix_r(ObjectMaster *a1, float a2, float a3, float a4);
+static Trampoline ChaoShadowFix_t(0x73F010, 0x73F017, ChaoShadowFix_r);
+static void __cdecl ChaoShadowFix_r(ObjectMaster *a1, float a2, float a3, float a4)
+{
+	auto original = reinterpret_cast<decltype(ChaoShadowFix_r)*>(ChaoShadowFix_t.Target());
+	if (CurrentChaoStage != SADXChaoStage_Race) original(a1, a2, a3, a4);
+}
+
 //MR
 
 void MRGardenSkybox_Display(ObjectMaster *a1)
@@ -500,10 +509,10 @@ void ChaoRaceCracker_Display(ObjectMaster *a1)
 	njSetTexture(&OBJ_AL_RACE_TEXLIST);
 	njPushMatrix(0);
 	njTranslateV(0, &v1->Position);
-	njRotateXYZ(0, v1->Rotation.x, v1->Rotation.y, v1->Rotation.z);
+	njRotateZYX(0, v1->Rotation.x, v1->Rotation.y, v1->Rotation.z);
 	njScale(0, 1.0f, 1.0f, 1.0f);
 	DrawQueueDepthBias = -37000;
-	ProcessModelNode(&cracker_sadx, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	ProcessModelNode(&object_00046364, QueuedModelFlagsB_EnableZWrite, 1.0f);
 	njPopMatrix(1u);
 	DrawQueueDepthBias = 0;
 }
@@ -518,7 +527,6 @@ void ChaoRaceCracker_Load(ObjectMaster *a1)
 	a1->MainSub = (void(__cdecl *)(ObjectMaster *))ChaoRaceCracker_Main;
 	a1->DisplaySub = (void(__cdecl *)(ObjectMaster *))ChaoRaceCracker_Display;
 	a1->DeleteSub = (void(__cdecl *)(ObjectMaster *))CheckThingButThenDeleteObject;
-	a1->Data1->CharIndex = 0;
 }
 
 ObjectFunc(OF0, 0x450370); // RING   
@@ -1782,48 +1790,55 @@ void LoadObjects_Race()
 	if (obj)
 	{
 		ent = obj->Data1;
-		ent->Position.x = -65.59506f;
-		ent->Position.y = 9.999999f;
-		ent->Position.z = 335.2233f;
-		ent->Rotation.x = 0x1555;
-		ent->Rotation.y = 0;
-		ent->Rotation.z = 0x11C7;
+		ent->Position.x = -103.82f;
+		ent->Position.y = 10;
+		ent->Position.z = 370.34f;
+		ent->Rotation.y = 0x1000;
+		ent->Rotation.z = 0x3000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF21);
 	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
-		ent->Position.x = -54.14839f;
-		ent->Position.y = 9.999999f;
-		ent->Position.z = 386.5659f;
-		ent->Rotation.x = 0xFFFFEAAB;
-		ent->Rotation.y = 0;
-		ent->Rotation.z = 0x11C7;
+		ent->Position.x = -86.57f;
+		ent->Position.y = 10;
+		ent->Position.z = 392.97f;
+		ent->Rotation.y = 0x4000;
+		ent->Rotation.z = 0x3000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF21);
 	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
-		ent->Position.x = -84.39774f;
-		ent->Position.y = 9.999999f;
-		ent->Position.z = 393.2881f;
-		ent->Rotation.x = 0xFFFFEAAB;
-		ent->Rotation.y = 0;
-		ent->Rotation.z = 0xFFFFF8E4;
+		ent->Position.x = -52.01f;
+		ent->Position.y = 10;
+		ent->Position.z = 384.09f;
+		ent->Rotation.y = 0x7000;
+		ent->Rotation.z = 0x3000;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF21);
 	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
-		ent->Position.x = -94.60615f;
-		ent->Position.y = 9.999999f;
-		ent->Position.z = 342.6531f;
-		ent->Rotation.x = 0xAAA;
-		ent->Rotation.y = 0;
-		ent->Rotation.z = 0xFFFFEAAB;
+		ent->Position.x = -67.99f;
+		ent->Position.y = 10;
+		ent->Position.z = 337.77f;
+		ent->Rotation.y = 0xD000;
+		ent->Rotation.z = 0x3000;
+	}
+	obj = LoadObject((LoadObj)2, 3, OF21);
+	obj->SETData.SETData = &setdata_race;
+	if (obj)
+	{
+		ent = obj->Data1;
+		ent->Position.x = -97.47f;
+		ent->Position.y = 10;
+		ent->Position.z = 343.87f;
+		ent->Rotation.y = 0xE000;
+		ent->Rotation.z = 0x3000;
 	}
 	//Skybox
 	obj = LoadObject((LoadObj)2, 3, OF20);
@@ -2491,67 +2506,63 @@ void LoadObjects_Race()
 		ent->Rotation.y = 0xB0D7;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
-	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
 		ent->Position.x = -103.82f;
 		ent->Position.y = 10;
 		ent->Position.z = 370.34f;
-		ent->Rotation.y = 0x1000;
-		ent->Rotation.z = 0x3000;
+		ent->Rotation.x = 0xFFFFFFEE;
+		ent->Rotation.z = 0xFFFFF33D;
 		ent->Scale.x = 1.5f;
 		ent->Scale.y = 15;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
-	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
 		ent->Position.x = -86.57f;
 		ent->Position.y = 10;
 		ent->Position.z = 392.97f;
-		ent->Rotation.y = 0x4000;
-		ent->Rotation.z = 0x3000;
+		ent->Rotation.x = 0xFFFFEAAB;
+		ent->Rotation.z = 0xFFFFF8E4;
 		ent->Scale.x = 1.5f;
 		ent->Scale.y = 10.8f;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
-	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
 		ent->Position.x = -52.01f;
 		ent->Position.y = 10;
 		ent->Position.z = 384.09f;
-		ent->Rotation.y = 0x7000;
-		ent->Rotation.z = 0x3000;
+		ent->Rotation.x = 0xFFFFF3F8;
+		ent->Rotation.z = 0x11C7;
 		ent->Scale.x = 1.6f;
 		ent->Scale.y = 20.8f;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
-	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
 		ent->Position.x = -67.99f;
 		ent->Position.y = 10;
 		ent->Position.z = 337.77f;
-		ent->Rotation.y = 0xD000;
-		ent->Rotation.z = 0x3000;
+		ent->Rotation.x = 0xD77;
+		ent->Rotation.z = 0x11C7;
 		ent->Scale.x = 1.6f;
 		ent->Scale.y = 20.8f;
 	}
 	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
-	obj->SETData.SETData = &setdata_race;
 	if (obj)
 	{
 		ent = obj->Data1;
 		ent->Position.x = -97.47f;
 		ent->Position.y = 10;
 		ent->Position.z = 343.87f;
-		ent->Rotation.y = 0xE000;
-		ent->Rotation.z = 0x3000;
+		ent->Rotation.x = 0x180E;
+		ent->Rotation.y = 0x180E;
+		ent->Rotation.z = 0xFFFFF404;
 		ent->Scale.x = 1.5f;
 		ent->Scale.y = 10.8f;
 	}
@@ -4940,6 +4951,7 @@ void RenderChaoBall()
 
 void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
+	WriteData<1>((char*)0x71BF20, 0xC3u); //Kill SADX crackers
 	ReplacePVM("AL_BODY");
 	ReplacePVM("CHAO");
 	ReplacePVM("CHAO_OBJECT");
