@@ -49,6 +49,41 @@ static bool SADXStyleWater = false;
 NJS_TEXNAME textures_mrtrain[31];
 NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
 
+void AdjustMRLightDirection()
+{
+	if (CurrentAct == 3)
+	{
+		//Light direction condition check 1
+		WriteData<1>((char*)0x412536, 0x0F);
+		WriteData<1>((char*)0x412537, 0x85);
+		WriteData<1>((char*)0x412538, 0x9C);
+		WriteData<1>((char*)0x412539, 0i8);
+		WriteData<1>((char*)0x41253A, 0i8);
+		WriteData<1>((char*)0x41253B, 0i8);
+		//Light direction condition check 2
+		WriteData<1>((char*)0x412544, 0x0F);
+		WriteData<1>((char*)0x412545, 0x85);
+		WriteData<1>((char*)0x412546, 0x8E);
+		WriteData<1>((char*)0x412547, 0i8);
+		WriteData<1>((char*)0x412548, 0i8);
+		WriteData<1>((char*)0x412549, 0i8);
+	}
+	else
+	{
+		WriteData<6>((char*)0x412536, 0x90);
+		WriteData<6>((char*)0x412544, 0x90);
+	}
+}
+
+static void __cdecl MRLightingHook_r(ObjectMaster *a1);
+static Trampoline MRLightingHook_t(0x530670, 0x530676, MRLightingHook_r);
+static void __cdecl MRLightingHook_r(ObjectMaster *a1)
+{
+	auto original = reinterpret_cast<decltype(MRLightingHook_r)*>(MRLightingHook_t.Target());
+	AdjustMRLightDirection();
+	original(a1);
+}
+
 void __cdecl SetWaterTexture()
 {
 	njSetTextureNum(155);
@@ -305,7 +340,6 @@ void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		default:
 			break;
 	}
-
 	ReplacePVM("ADV_MR01");
 	ReplacePVM("ADV_MR02");
 	ReplacePVM("ADV_MR03");
@@ -321,7 +355,6 @@ void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("MR_EGG");
 	ReplacePVM("MR_PYRAMID");
 	ReplacePVM("MR_TORNADO2");
-
 	// Load configuration settings.
 	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
 	if (SADXStyleWater)
@@ -339,9 +372,8 @@ void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	WriteData((float*)0x006D2537, 16.0f); //Y1
 	WriteData((float*)0x006D2507, 16.0f); //Y2
 	WriteData((float*)0x006D1CF6, 14.52f); //Y after cutscene
-	WriteData((int*)0x006D1D13, 0); //
-	WriteData((int*)0x006D1D18, 0); //
-	WriteData((int*)0x006D1D1D, 0); //
+	WriteData((int*)0x006D1D13, 0); //X rotation after cutscene
+	WriteData((int*)0x006D1D1D, 0); //Z rotation after cutscene
 	ReplaceBIN("SL_X0B", "SL_X0X");
 	ReplaceBIN("SL_X1B", "SL_X1X");
 	ReplaceBIN("SL_X2B", "SL_X2X");
