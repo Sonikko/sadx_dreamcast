@@ -150,8 +150,8 @@ void LostWorld_Init(const IniFile *config, const HelperFunctions &helperFunction
 		LostWorld2Fog[i].Layer = 150.0f;
 		LostWorld2Fog[i].Distance = 3200.0f;
 		LostWorld2Fog[i].Toggle = 1;
-		LostWorld3Fog[i].Layer = 500.0f;
-		LostWorld3Fog[i].Distance = 2500.0f;
+		LostWorld3Fog[i].Layer = 1.0f;
+		LostWorld3Fog[i].Distance = 3400.0f;
 		LostWorld3Fog[i].Color = 0xFFFFFFFF;
 		DrawDist_LostWorld2[i].Maximum = -2700.0;
 	}
