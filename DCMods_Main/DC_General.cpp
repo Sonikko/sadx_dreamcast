@@ -651,6 +651,18 @@ void InputHookForCutscenes()
 	if (CutsceneFadeMode == 1) ControllerPointers[0]->PressedButtons |= Buttons_C;
 }
 
+static Sint32 DisplayTitleCard_r();
+static Trampoline DisplayTitleCard_t(0x47E170, 0x47E175, DisplayTitleCard_r);
+static Sint32 __cdecl DisplayTitleCard_r()
+{
+	auto original = reinterpret_cast<decltype(DisplayTitleCard_r)*>(DisplayTitleCard_t.Target());
+	CutsceneSkipMode = 0;
+	CutsceneFadeMode = 0;
+	CutsceneFadeValue = 0;
+	SkipPressed_Cutscene = false;
+	return original();
+}
+
 void DrawUnderwaterOverlay(NJS_MATRIX_PTR m)
 {
 	NJS_COLOR WaterOverlay_Colors;
