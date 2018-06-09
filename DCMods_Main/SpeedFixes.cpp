@@ -371,6 +371,15 @@ static int __fastcall EggHornetJetThing_r(int a1)
 	else return original(a1);
 }
 
+void UnidusFix(NJS_VECTOR *a1, NJS_VECTOR *a2, float a3)
+{
+	if (EnableSpeedFixes)
+	{
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) CreateFireParticle(a1, a2, a3);
+	}
+	else CreateFireParticle(a1, a2, a3);
+}
+
 void SpeedFixes_Init()
 {
 	//Ice Cap avalanche snow sprites
@@ -428,6 +437,7 @@ void SpeedFixes_Init()
 	WriteData((float**)0x004D7F02, &AnimalMultiplier2);
 	WriteData((float**)0x004D7F0E, &AnimalMultiplier2);
 	//General
+	WriteCall((void*)0x4ADEF9, UnidusFix);
 	WriteData((float**)0x007A441B, &DashPanelAnimationSpeedOverride);
 	WriteData((short*)0x4AFB90, SpinnerYAnimationSpeedOverride);
 	WriteData((short*)0x4AFB8A, SpinnerXAnimationSpeedOverride);
