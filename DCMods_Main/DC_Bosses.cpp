@@ -47,6 +47,10 @@ DataArray(DrawDistance, DrawDist_Zero, 0x016B4D98, 3);
 DataArray(PVMEntry, EGGVIPER_TEXLISTS, 0x165D498, 11);
 DataArray(PVMEntry, CHAOS4_OBJECT_TEXLISTS, 0x118FDB0, 18);
 DataPointer(PVMEntry, PVMEntry_CHAOS0EFFECT, 0x1120180);
+DataPointer(float, EnvMap1, 0x038A5DD0);
+DataPointer(float, EnvMap2, 0x038A5DE4);
+DataPointer(float, EnvMap3, 0x038A5E00);
+DataPointer(float, EnvMap4, 0x038A5E04);
 DataPointer(unsigned char, byte_3C5A7EF, 0x3C5A7EF);
 DataPointer(unsigned char, byte_3C5A7ED, 0x3C5A7ED);
 DataPointer(unsigned char, byte_03C6C944, 0x03C6C944);
@@ -66,6 +70,7 @@ DataPointer(NJS_SPRITE, stru_1494030, 0x1494030);
 DataPointer(NJS_SPRITE, stru_1494064, 0x1494064);
 DataPointer(NJS_ARGB, stru_1494114, 0x1494114);
 DataPointer(NJS_ARGB, stru_1494124, 0x1494124);
+DataPointer(ObjectMaster*, dword_3C84628, 0x3C84628);
 DataPointer(float, Chaos4NumaTransparency, 0x3C688D4);
 DataPointer(char, EggViperByteThing, 0x03C6E178);
 DataPointer(int, DroppedFrames, 0x03B1117C);
@@ -80,6 +85,8 @@ FunctionPointer(void, sub_56FC30, (int a1, int a2, float a3), 0x56FC30);
 FunctionPointer(void, sub_568EC0, (EntityData1 *a1), 0x568EC0);
 FunctionPointer(void, sub_4CACF0, (NJS_VECTOR *a1, float a2), 0x4CACF0);
 FunctionPointer(void, sub_77E940, (FVFStruct_H_B *a1, signed int count, int a3), 0x77E940);
+FunctionPointer(void, sub_40A280, (NJS_OBJECT *a1), 0x40A280);
+FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 
 static bool SADXStyleWater_EggHornet = false;
 static bool SADXStyleWater_ZeroE101R = false;
@@ -103,6 +110,8 @@ static int E101REffectMode = 1;
 static float e101rframe = 0;
 static int e101rsea_dc = 4;
 static int e101rsea_sadx = 4;
+static int Chaos0PuddleTransparency = 255;
+static bool Chaos0TransUp = false;
 static bool EnableChaos0 = true;
 static bool EnableChaos2 = true;
 static bool EnableChaos4 = true;
@@ -861,6 +870,48 @@ void E101R_ArmsHook(NJS_OBJECT *a1, QueuedModelFlagsB a2)
 	DrawQueueDepthBias = 0;
 }
 
+void __cdecl ComeOneYaBigDrip()
+{
+	EntityData1 *v0; // esi
+	v0 = dword_3C84628->Data1;
+	char Chaos0PuddleTransparency_object = *(char*)(*(Sint32*)&v0->LoopData + 28);
+	if (Chaos0PuddleTransparency >= 255 && Chaos0TransUp == true) Chaos0TransUp = false;
+	if (Chaos0PuddleTransparency <= 178 && !Chaos0TransUp) Chaos0TransUp = true;
+	if (Chaos0TransUp) Chaos0PuddleTransparency+=4; else Chaos0PuddleTransparency-=4;
+	PrintDebug("Calc:%d\n", Chaos0PuddleTransparency);
+	PrintDebug("Obj:%d\n", Chaos0PuddleTransparency_object);
+	if (Chaos0PuddleTransparency_object != -103) Chaos_Puddle_Model.basicdxmodel->mats->diffuse.argb.a = Chaos0PuddleTransparency_object;
+	else Chaos_Puddle_Model.basicdxmodel->mats->diffuse.argb.a = Chaos0PuddleTransparency;
+	njSetTexture(&CHAOS_SURFACE_TEXLIST);
+	njPushMatrix(0);
+	njTranslateV(0, &v0->Position);
+	njScaleV(0, &v0->Scale);
+	ProcessModelNode_A_WrapperB(&Chaos_Puddle_Model, QueuedModelFlagsB_EnableZWrite);
+	njPopMatrix(1u);
+}
+
+void ComeOnChaosTimeToEat(NJS_OBJECT *a1)
+{
+	//This isn't entirely accurate to SA1 but I don't have the patience to find values that would replicate it 100%. 
+	//Also this ugly camera workaround is necessary because SADX would be struggling with transparency otherwise.
+	if ((Camera_Data1->Position.y > 155 && Camera_Data1->Position.y < 158) || (Camera_Data1->Position.y > 127 && Camera_Data1->Position.y < 130 && Camera_Data1->Position.x > 970 && Camera_Data1->Position.x < 972))
+	{
+		EnvMap1 = 2.0f;
+		EnvMap2 = 1;
+		EnvMap3 = 0.5f;
+		EnvMap4 = 1.0f;
+		sub_407A00((NJS_MODEL_SADX*)0x2D69600, 1.0f);
+		EnvMap1 = 0.5f;
+		EnvMap2 = 0.5f;
+		EnvMap3 = 0.5f;
+		EnvMap4 = 0.5f;
+	}
+	else
+	{
+		sub_40A280(a1);
+	}
+}
+
 void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVM("CHAOS1");
@@ -880,6 +931,12 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("EV_E105_FUN");
 	ReplacePVM("ICM0001_3");
 	ReplacePVM("ICM0001_5");
+	//Various Chaos puddle things
+	WriteCall((void*)0x6EE43F, ComeOnChaosTimeToEat); //Environment mapping effect on Chaos' puddle before Chaos 0 emerges
+	WriteJump((void*)0x6E9B00, ComeOneYaBigDrip); //Alterating transparency in the cutscene after Chaos 0
+	((NJS_MATERIAL*)0x02D64FD8)->exponent = 11; //Chaos 1/4 puddle
+	((NJS_MATERIAL*)0x038D936C)->attrflags &= ~NJD_FLAG_USE_ENV; //Chaos 0/2/6 puddle
+	((NJS_MATERIAL*)0x038D936C)->exponent = 11; //Chaos 0/2/6 puddle
 	ICM0001_3_TEXLISTS[0].Name = "ICM0001_5"; //Higher quality background in Sonic story
 	HMODULE handle = GetModuleHandle(L"BOSSCHAOS0MODELS");
 	LandTable **___LANDTABLEBOSSCHAOS0 = (LandTable **)GetProcAddress(handle, "___LANDTABLEBOSSCHAOS0");
@@ -1596,13 +1653,18 @@ void Bosses_OnFrame()
 		{
 			EggHornetTrigger = byte_03C6C944;
 			((NJS_OBJECT *)0x01561A70)->ang[1] = NJM_DEG_ANG(0); //Main model
-			((NJS_OBJECT *)0x015658E0)->ang[1] = NJM_DEG_ANG(90); //Eggman
+			((NJS_OBJECT *)0x015658E0)->pos[1] = NJM_DEG_ANG(90); //Eggman
 			((NJS_SPRITE *)0x3C6C884)->ang = NJM_DEG_ANG(0); //Main model
 			((NJS_OBJECT *)0x01567BCC)->ang[1] = NJM_DEG_ANG(0); //Jet
 			((NJS_OBJECT *)0x01567E64)->ang[1] = NJM_DEG_ANG(0); //Jet
 			((NJS_OBJECT *)0x015685CC)->ang[1] = NJM_DEG_ANG(0); //Jet
 			((NJS_OBJECT *)0x015680CC)->ang[1] = NJM_DEG_ANG(0); //Jet
-			((NJS_OBJECT *)0x01568334)->ang[2] = NJM_DEG_ANG(0); //Jet
+			((NJS_OBJECT *)0x01568334)->ang[1] = NJM_DEG_ANG(180); //Jet
+			((NJS_OBJECT *)0x015688C4)->ang[1] = NJM_DEG_ANG(0); //Jet 2
+			((NJS_OBJECT *)0x01568B5C)->ang[1] = NJM_DEG_ANG(0); //Jet 2
+			((NJS_OBJECT *)0x01568DC4)->ang[1] = NJM_DEG_ANG(0); //Jet 2
+			((NJS_OBJECT *)0x0156902C)->ang[1] = NJM_DEG_ANG(0); //Jet 2
+			((NJS_OBJECT *)0x015692C4)->ang[1] = NJM_DEG_ANG(0); //Jet 2
 		}
 		if (dword_3C6C930 == 1 && byte_03C6C944 != EggHornetTrigger)
 		{
@@ -1618,11 +1680,22 @@ void Bosses_OnFrame()
 			((NJS_OBJECT *)0x015685CC)->evalflags &= ~NJD_EVAL_UNIT_ANG;
 			((NJS_OBJECT *)0x015680CC)->evalflags &= ~NJD_EVAL_UNIT_ANG;
 			((NJS_OBJECT *)0x01568334)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+			((NJS_OBJECT *)0x01567BCC)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+			((NJS_OBJECT *)0x015688C4)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+			((NJS_OBJECT *)0x01568B5C)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+			((NJS_OBJECT *)0x01568DC4)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+			((NJS_OBJECT *)0x0156902C)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+			((NJS_OBJECT *)0x015692C4)->evalflags &= ~NJD_EVAL_UNIT_ANG;
 			((NJS_OBJECT *)0x01567BCC)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet
 			((NJS_OBJECT *)0x01567E64)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet
 			((NJS_OBJECT *)0x015685CC)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet
 			((NJS_OBJECT *)0x015680CC)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet
 			((NJS_OBJECT *)0x01568334)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation + 180); //Jet
+			((NJS_OBJECT *)0x015688C4)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet 2
+			((NJS_OBJECT *)0x01568B5C)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet 2
+			((NJS_OBJECT *)0x01568DC4)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet 2
+			((NJS_OBJECT *)0x0156902C)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet 2
+			((NJS_OBJECT *)0x015692C4)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet 2
 		}
 	}
 	//water animation

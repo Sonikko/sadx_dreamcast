@@ -145,7 +145,8 @@ NJS_MATERIAL* ChaosMaterials[] = {
 	((NJS_MATERIAL*)0x03022804),
 	((NJS_MATERIAL*)0x030223D0),
 	//Chaos puddle
-	((NJS_MATERIAL*)0x02D64FD8),
+	((NJS_MATERIAL*)0x02D64FD8), //Chaos 2
+	((NJS_MATERIAL*)0x038D936C), //Chaos 0
 };
 
 NJS_MATERIAL* PerfectChaosCars[] = {
