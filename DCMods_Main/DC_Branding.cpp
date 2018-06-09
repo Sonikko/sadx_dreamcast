@@ -144,6 +144,7 @@ static bool EnableTransition = true;
 static bool DisableSA1TitleScreen = false;
 static bool DrawOverlay = true;
 static bool RemoveCream = true;
+static bool HUDTweak = true;
 static int SA1LogoMode = 0;
 //Tutorial stuff
 float PadManuXOffset_F = 175.0f;
@@ -156,6 +157,9 @@ float PadManuYMultiplier = 1.0f;
 float sphe_cursol_scale = 1.0f;
 float wins_scaleXmultiplier = 3.96900012f;
 float wins_scaleYmultiplier = 1.0f;
+//HUD
+static float HUDYOffset1 = 80.0f;
+static float HUDYOffset2 = 0.0f;
 
 CreditsEntry SA1Credits[] = {
 	{ 1, 0, 0, 0, "SONIC ADVENTURE STAFF" },
@@ -1516,6 +1520,7 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	DisableSA1TitleScreen = config->getBool("Branding", "DisableSA1TitleScreen", false);
 	DrawOverlay = config->getBool("Branding", "DrawOverlay", true);
 	RemoveCream = config->getBool("Branding", "RemoveCream", true);
+	HUDTweak = config->getBool("Branding", "HUDTweak", true);
 	SA1LogoMode = config->getInt("Branding", "SA1LogoMode", 0);
 	LogoScaleXT = LogoScaleX;
 	LogoScaleYT = LogoScaleY;
@@ -1529,6 +1534,13 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	MainCredits.Entries = (CreditsEntry*)&SA1Credits;
 	f480_Fixed = 1.0f + VerticalResolution;
 	f640_Fixed = 1.0f + HorizontalResolution;
+	//HUD position
+	if (HUDTweak)
+	{
+		WriteData((float**)0x425E51, &HUDYOffset1);
+		WriteData((float**)0x425EA4, &HUDYOffset2);
+		((NJS_SPRITE*)0x91312C)->p.y = 49.0f;
+	}
 	//Set PVM names
 	ReplacePVM("GG_TEXLIST_US");
 	ReplacePVM("ENDBG_LAST_AMY");
