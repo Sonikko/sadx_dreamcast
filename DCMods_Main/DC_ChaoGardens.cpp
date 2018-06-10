@@ -7,6 +7,7 @@
 #include "ChaoRaceEntry.h"
 #include "ECGarden.h"
 #include "ChaoFruits.h"
+#include "ChaoEggs.h"
 #include "HintMessages.h"
 
 DataPointer(NJS_CNK_OBJECT, Fruit_Strong, 0x33B9064);
@@ -18,11 +19,17 @@ DataPointer(NJS_CNK_OBJECT, Fruit_Triangular, 0x33BB514);
 DataPointer(NJS_CNK_OBJECT, Fruit_Square, 0x33BBFF4);
 DataPointer(NJS_CNK_OBJECT, Fruit_Heart, 0x33BC574);
 DataPointer(NJS_CNK_OBJECT, Fruit_Chao, 0x33BCBC4);
+DataPointer(NJS_CNK_OBJECT, SADXChaoEgg, 0x3601B94);
+DataPointer(NJS_CNK_OBJECT, SADXChaoEggBroken, 0x36014D0);
+DataPointer(NJS_CNK_OBJECT, SADXChaoEggBottom, 0x3600F0C);
+DataPointer(NJS_CNK_OBJECT, SADXHatEyes, 0x35E2BBC);
+DataPointer(NJS_CNK_MODEL, SADXChaoEggTop_Model, 0x3601484);
 
 static bool EnableSSGarden = true;
 static bool EnableMRGarden = true;
 static bool EnableECGarden = true;
 static bool EnableLobby = true;
+static bool ReplaceEggs = true;
 static int ReplaceFruits = 0;
 static int chaoracewater = 55;
 static int ssgardenwater = 0;
@@ -63,6 +70,10 @@ struct ChaoTreeEntityData1
 
 NJS_VECTOR racebutton{ 2020, 0, -0.68f };
 
+FunctionPointer(void, sub_78AC80, (NJS_CNK_MODEL *a1, int a2), 0x78AC80);
+FunctionPointer(void, sub_78ABB0, (NJS_CNK_OBJECT *a1, int *a2, float a3), 0x78ABB0);
+FunctionPointer(void, RenderSADXChaoEgg, (NJS_CNK_OBJECT *a1, int a2, int *a3, float a4), 0x78AF80);
+FunctionPointer(void, RenderSADXChaoEgg_2, (NJS_CNK_OBJECT *a1, int a2), 0x78AF40);
 FunctionPointer(char, sub_436210, (int(__cdecl *a1)(int), char a2, char a3), 0x436210);
 FunctionPointer(int, sub_72A6C0, (int a1), 0x72A6C0);
 FunctionPointer(void, SetChaoLandTableX, (LandTable *geo), 0x43A4C0);
@@ -4233,11 +4244,23 @@ void RenderSA1ChaoFruits_Object(NJS_CNK_OBJECT *a1)
 void RenderSA1ChaoFruits_Model(NJS_CNK_MODEL *a1)
 {
 	njSetTexture(&CHAO_OBJECT_TEXLIST);
-	njScale(0, 0.7f, 0.7f, 0.7f);
-	if (a1 == Fruit_Chao.chunkmodel) sub_408530(&object_0017D068); //Chaonut
-	else if (a1 == Fruit_Hero.chunkmodel) sub_408530(&object_0017D55C); //Starnut
+	njScale(0, 0.5f, 0.5f, 0.5f);
+	if (a1 == Fruit_Chao.chunkmodel)
+	{
+		njTranslate(0, 0, -0.7f, 0);
+		sub_408530(&object_0017D068); //Chaonut
+	}
+	else if (a1 == Fruit_Hero.chunkmodel)
+	{
+		njTranslate(0, 0, 0.8f, 0);
+		sub_408530(&object_0017D55C); //Starnut
+	}
 	else if (a1 == Fruit_Dark.chunkmodel) sub_408530(&object_0017DA88); //Hastnut
-	else if (a1 == Fruit_Heart.chunkmodel) sub_408530(&object_0017F384); //Lifenut
+	else if (a1 == Fruit_Heart.chunkmodel)
+	{
+		njTranslate(0, 0, -0.3f, 0);
+		sub_408530(&object_0017F384); //Lifenut
+	}
 	else { njSetTexture(&AL_OBJECT_TEXLIST); DrawCnkModel(a1); } //Other fruits
 }
 
@@ -4465,142 +4488,6 @@ void __cdecl LoadChaoNameMachineX(NJS_VECTOR *position, int yrotation)
 		ent->Rotation.x = 0xFFDC;
 		ent->Rotation.y = 0xC1A8;
 		ent->Rotation.z = 0xFFF2;
-	}
-}
-
-//Chao egg coloring function
-
-void __cdecl sub_78AC80X(NJS_CNK_MODEL *a1, int a2)
-{
-	__int16 v2; // ax@4
-	__int16 v3; // ax@5
-	int v4; // ecx@6
-	__int16 v5; // ax@8
-	if (a2 == SADXEggColour_Black_TwoTone || a2 == SADXEggColour_BlackShiny_TwoTone)
-	{
-		WriteData<1>((char*)0x03601516, 0x8F);
-		WriteData<1>((char*)0x036009B6, 0x8F);
-		WriteData<1>((char*)0x03600F4E, 0x8F);
-	}
-	else
-	{
-		WriteData<1>((char*)0x03601516, 0x3D);
-		WriteData<1>((char*)0x036009B6, 0x3D);
-		WriteData<1>((char*)0x03600F4E, 0x3D);
-	}
-	switch (a2)
-	{
-	case SADXEggColour_Black_TwoTone:
-	case SADXEggColour_Normal:
-		DisableChunkMaterialFlags();
-		break;
-	case SADXEggColour_Yellow_MonoTone:
-	case SADXEggColour_White_MonoTone:
-	case SADXEggColour_Brown_MonoTone:
-	case SADXEggColour_Aqua_MonoTone:
-	case SADXEggColour_Pink_MonoTone:
-	case SADXEggColour_Blue_MonoTone:
-	case SADXEggColour_Grey_MonoTone:
-	case SADXEggColour_Green_MonoTone:
-	case SADXEggColour_Red_MonoTone:
-	case SADXEggColour_LightGreen_MonoTone:
-	case SADXEggColour_Purple_MonoTone:
-	case SADXEggColour_Orange_MonoTone:
-	case SADXEggColour_Black_MonoTone:
-		EnableChunkMaterialFlags();
-		SetChunkMaterialFlags(9u);
-		sub_78A320(dword_389D828[a2 - SADXEggColour_Yellow_MonoTone]);
-		break;
-	case SADXEggColour_Yellow_TwoTone:
-	case SADXEggColour_White_TwoTone:
-	case SADXEggColour_Brown_TwoTone:
-	case SADXEggColour_Aqua_TwoTone:
-	case SADXEggColour_Pink_TwoTone:
-	case SADXEggColour_Blue_TwoTone:
-	case SADXEggColour_Green_TwoTone:
-	case SADXEggColour_Red_TwoTone:
-	case SADXEggColour_LightGreen_TwoTone:
-	case SADXEggColour_Purple_TwoTone:
-	case SADXEggColour_Orange_TwoTone:
-	case SADXEggColour_Grey_TwoTone:
-		EnableChunkMaterialFlags();
-		SetChunkMaterialFlags(8u);
-		v2 = GetChunkTextureIndex(a1);
-		SetChunkTextureIndexA((unsigned __int16)v2);
-		sub_78A320(dword_389D828[a2 - SADXEggColour_Yellow_TwoTone]);
-		break;
-	case SADXEggColour_NormalShiny:
-		EnableChunkMaterialFlags();
-		SetChunkMaterialFlags(6u);
-		Direct3D_SetTexList(ChaoTexLists);
-		v3 = GetChunkTextureIndex(a1);
-		SetChunkTextureIndexA((unsigned __int16)v3);
-		SetChunkTextureIndexB(0x22u);
-		break;
-	case SADXEggColour_YellowShiny_MonoTone:
-	case SADXEggColour_WhiteShiny_MonoTone:
-	case SADXEggColour_BrownShiny_MonoTone:
-	case SADXEggColour_AquaShiny_MonoTone:
-	case SADXEggColour_PinkShiny_MonoTone:
-	case SADXEggColour_BlueShiny_MonoTone:
-	case SADXEggColour_GreyShiny_MonoTone:
-	case SADXEggColour_GreenShiny_MonoTone:
-	case SADXEggColour_RedShiny_MonoTone:
-	case SADXEggColour_LightGreenShiny_MonoTone:
-	case SADXEggColour_PurpleShiny_MonoTone:
-	case SADXEggColour_OrangeShiny_MonoTone:
-	case SADXEggColour_BlackShiny_MonoTone:
-		EnableChunkMaterialFlags();
-		SetChunkMaterialFlags(15u);
-		Direct3D_SetTexList(ChaoTexLists);
-		v4 = dword_389D828[a2 - SADXEggColour_YellowShiny_MonoTone];
-		goto LABEL_8;
-	case SADXEggColour_YellowShiny_TwoTone:
-	case SADXEggColour_WhiteShiny_TwoTone:
-	case SADXEggColour_BrownShiny_TwoTone:
-	case SADXEggColour_AquaShiny_TwoTone:
-	case SADXEggColour_PinkShiny_TwoTone:
-	case SADXEggColour_BlueShiny_TwoTone:
-	case SADXEggColour_GreyShiny_TwoTone:
-	case SADXEggColour_GreenShiny_TwoTone:
-	case SADXEggColour_RedShiny_TwoTone:
-	case SADXEggColour_LightGreenShiny_TwoTone:
-	case SADXEggColour_PurpleShiny_TwoTone:
-	case SADXEggColour_OrangeShiny_TwoTone:
-	case SADXEggColour_BlackShiny_TwoTone:
-		EnableChunkMaterialFlags();
-		SetChunkMaterialFlags(0xEu);
-		Direct3D_SetTexList(ChaoTexLists);
-		v4 = off_389D780[a2 + 1];
-	LABEL_8:
-		sub_78A320((int)v4);
-		v5 = GetChunkTextureIndex(a1);
-		SetChunkTextureIndexA((unsigned __int16)v5);
-		SetChunkTextureIndexB(0x22u);
-		break;
-	case SADXEggColour_YellowJewel:
-	case SADXEggColour_WhiteJewel:
-	case SADXEggColour_PinkJewel:
-	case SADXEggColour_BlueJewel:
-	case SADXEggColour_GreenJewel:
-	case SADXEggColour_PurpleJewel:
-	case SADXEggColour_AquaJewel:
-	case SADXEggColour_RedJewel:
-	case SADXEggColour_BlackJewel:
-	case SADXEggColour_LightGreenJewel:
-	case SADXEggColour_OrangeJewel:
-	case SADXEggColour_Pearl:
-	case SADXEggColour_Metal1:
-	case SADXEggColour_Metal2:
-	case SADXEggColour_Glass:
-		EnableChunkMaterialFlags();
-		SetChunkMaterialFlags(4u);
-		Direct3D_SetTexList(ChaoTexLists);
-		sub_78A320(-1);
-		SetChunkTextureIndexA(a2 - 36);
-		break;
-	default:
-		return;
 	}
 }
 
@@ -4947,9 +4834,351 @@ void RenderChaoBall()
 	ProcessModelNode_AB_Wrapper(&object_0014B2C0, 1.0f);
 }
 
+
+void ChaoEggHook_BlackMarket(NJS_CNK_MODEL *a1, int a2)
+{
+	//Black/Chakron
+	if (a2 == SADXEggColour_Black_TwoTone)
+	{
+		njSetTexture(&CHAO_TEXLIST);
+		ProcessModelNode(&object_00149CB8, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	}
+	//Generic egg
+	else if (a2 == SADXEggColour_Normal)
+	{
+		njSetTexture(&CHAO_TEXLIST);
+		ProcessModelNode(&object_00146E90, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	}
+	//Gold egg
+	else if (a2 == SADXEggColour_YellowJewel)
+	{
+		njSetTexture(&CHAO_TEXLIST);
+		ProcessModelNode(&object_00147E18, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	}
+	//Silver egg
+	else if (a2 == SADXEggColour_WhiteJewel)
+	{
+		njSetTexture(&CHAO_TEXLIST);
+		ProcessModelNode(&object_00148D60, QueuedModelFlagsB_EnableZWrite, 1.0f);
+	}
+	else GetChaoHatModel(a1, a2);
+}
+
+void __cdecl RenderChaoEgg_DC_1(NJS_CNK_OBJECT *a1, int a2)
+{
+	NJS_CNK_MODEL *v2; // eax
+	if (a1 == &SADXChaoEgg)
+	{
+		//Black/Chakron
+		if (a2 == SADXEggColour_Black_TwoTone)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00149CB8, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Generic egg
+		else if (a2 == SADXEggColour_Normal)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00146E90, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Gold egg
+		else if (a2 == SADXEggColour_YellowJewel)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00147E18, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Silver egg
+		else if (a2 == SADXEggColour_WhiteJewel)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00148D60, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		else goto SADXShit;
+	}
+	if (a1 == &SADXChaoEggBroken)
+	{
+		//Black/Chakron
+		if (a2 == SADXEggColour_Black_TwoTone)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_0014A540, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Generic egg
+		else if (a2 == SADXEggColour_Normal)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00147718, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Gold egg
+		else if (a2 == SADXEggColour_YellowJewel)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00148660, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Silver egg
+		else if (a2 == SADXEggColour_WhiteJewel)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_001495A8, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		else goto SADXShit;
+	}
+	if (a1 == &SADXChaoEggBottom)
+	{
+		//Black/Chakron
+		if (a2 == SADXEggColour_Black_TwoTone)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_0014A0FC, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Generic egg
+		else if (a2 == SADXEggColour_Normal)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_001472D4, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Gold egg
+		else if (a2 == SADXEggColour_YellowJewel)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_0014823C, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Silver egg
+		else if (a2 == SADXEggColour_WhiteJewel)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00149184, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		else goto SADXShit;
+	}
+SADXShit:
+	v2 = a1->chunkmodel;
+	if (v2)
+	{
+		sub_78AC80(v2, a2);
+		njCnkDrawObject(a1);
+		SetChunkMaterialFlags(0);
+		DisableChunkMaterialFlags();
+	}
+	else
+	{
+		njCnkDrawObject(a1);
+	}
+}
+
+void __cdecl RenderChaoEgg_DC_2(NJS_CNK_OBJECT *a1, int a2, int *a3, float a4)
+{
+	NJS_CNK_MODEL *v4; // eax
+	NJS_CNK_OBJECT *v5; // eax
+
+	if (a1 == &SADXChaoEgg)
+	{
+		//Black/Chakron
+		if (a2 == SADXEggColour_Black_TwoTone)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00149CB8, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Generic egg
+		else if (a2 == SADXEggColour_Normal)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00146E90, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Gold egg
+		else if (a2 == SADXEggColour_YellowJewel)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00147E18, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Silver egg
+		else if (a2 == SADXEggColour_WhiteJewel)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00148D60, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		else goto SADXShit;
+	}
+	if (a1 == &SADXChaoEggBroken)
+	{
+		//Black/Chakron
+		if (a2 == SADXEggColour_Black_TwoTone)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_0014A540, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Generic egg
+		else if (a2 == SADXEggColour_Normal)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00147718, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Gold egg
+		else if (a2 == SADXEggColour_YellowJewel)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00148660, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Silver egg
+		else if (a2 == SADXEggColour_WhiteJewel)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_001495A8, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		else goto SADXShit;
+	}
+	if (a1 == &SADXChaoEggBottom)
+	{
+		//Black/Chakron
+		if (a2 == SADXEggColour_Black_TwoTone)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_0014A0FC, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Generic egg
+		else if (a2 == SADXEggColour_Normal)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_001472D4, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Gold egg
+		else if (a2 == SADXEggColour_YellowJewel)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_0014823C, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		//Silver egg
+		else if (a2 == SADXEggColour_WhiteJewel)
+		{
+			njScale(0, 0.9f, 0.9f, 0.9f);
+			njSetTexture(&CHAO_TEXLIST);
+			ProcessModelNode(&object_00149184, QueuedModelFlagsB_EnableZWrite, 1.0f);
+			return;
+		}
+		else goto SADXShit;
+	}
+	SADXShit:
+	v4 = a1->chunkmodel;
+	if (v4 || (v5 = a1->child) != 0 && (v4 = v5->chunkmodel) != 0)
+	{
+		sub_78AC80(v4, a2);
+		sub_78ABB0(a1, a3, a4);
+		SetChunkMaterialFlags(0);
+		DisableChunkMaterialFlags();
+	}
+	else
+	{
+		sub_78ABB0(a1, a3, a4);
+	}
+}
+
+void RenderChaoHatEyes(NJS_CNK_OBJECT *a1)
+{
+	njTranslate(0, 0, 0, 0.5f);
+	njCnkDrawObject(a1);
+	njTranslate(0, 0, 0, -0.5f);
+}
+
+void ChaoEggshellHatHook(NJS_CNK_MODEL *a1, int a2)
+{
+	//Black/Chakron
+	if (a2 == SADXEggColour_Black_TwoTone)
+	{
+		njTranslate(0, 0, -2.5f, 0);
+		njScale(0, 0.9f, 0.9f, 0.9f);
+		njSetTexture(&CHAO_TEXLIST);
+		DrawModel(&attach_0014A518);
+		njSetTexture(ChaoTexLists);
+	}
+	//Generic egg
+	else if (a2 == SADXEggColour_Normal)
+	{
+		njTranslate(0, 0, -2.5f, 0);
+		njScale(0, 0.9f, 0.9f, 0.9f);
+		njSetTexture(&CHAO_TEXLIST);
+		DrawModel(&attach_001476F0);
+		njSetTexture(ChaoTexLists);
+	}
+	//Gold egg
+	else if (a2 == SADXEggColour_YellowJewel)
+	{
+		njTranslate(0, 0, -2.5f, 0);
+		njScale(0, 0.9f, 0.9f, 0.9f);
+		njSetTexture(&CHAO_TEXLIST);
+		DrawModel(&attach_00148638);
+		njSetTexture(ChaoTexLists);
+	}
+	//Silver egg
+	else if (a2 == SADXEggColour_WhiteJewel)
+	{
+		njTranslate(0, 0, -2.5f, 0);
+		njScale(0, 0.9f, 0.9f, 0.9f);
+		njSetTexture(&CHAO_TEXLIST);
+		DrawModel(&attach_00149580);
+		njSetTexture(ChaoTexLists);
+	}
+	else
+	{
+		GetChaoHatModel(a1, a2);
+	}
+}
+
+void ChaoEggshellHatHook_Empty(NJS_CNK_MODEL *a1, int a2)
+{
+	if (a2 != SADXEggColour_Black_TwoTone && a2 != SADXEggColour_Normal && a2 == SADXEggColour_YellowJewel && a2 == SADXEggColour_WhiteJewel)
+	{
+		GetChaoHatModel(a1, a2);
+	}
+}
+
 void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	ReplacePVM("AL_BODY");
 	ReplacePVM("CHAO");
 	ReplacePVM("CHAO_OBJECT");
 	ReplacePVM("CHAO_HYOUJI");
@@ -4965,6 +5194,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	EnableECGarden = config->getBool("Chao Gardens", "EnableEggCarrierGarden", true);
 	EnableLobby = config->getBool("Chao Gardens", "EnableChaoRaceLobby", true);
 	ReplaceFruits = config->getInt("Chao Gardens", "ReplaceFruits", 0);
+	ReplaceEggs = config->getBool("Chao Gardens", "ReplaceEggs", true);
 	//Garden transporters stuff
 	WriteData((NJS_TEXLIST**)0x07290FB, &CHAO_OBJECT_TEXLIST);
 	*(NJS_OBJECT*)0x036065B4 = object_00182198; //EC garden to EC transporter
@@ -4989,14 +5219,27 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	{
 		WriteCall((void*)0x00722D3B, RenderSA1ChaoFruits_Object);
 		WriteCall((void*)0x00726106, RenderSA1ChaoFruits_Model);
-		WriteCall((void*)0x00726138, RenderSA1ChaoFruits_Model);
-		WriteCall((void*)0x00727722, RenderSA1ChaoFruits_Model);
+		WriteCall((void*)0x00726138, RenderSA1ChaoFruits_Model); //Black Market preview
+		WriteCall((void*)0x00727722, RenderSA1ChaoFruits_Model); //Black Market item list
 	}
 	if (ReplaceFruits <= 1)
 	{
 		WriteCall((void*)0x007260D9, RenderChaoNormalFruit_Whatever);
 		WriteJump((void*)0x720DF0, RenderChaoTreeWithFruit);
 		WriteCall((void*)0x00722D59, RenderChaoNormalFruitWithScale); //Scale normal fruit in garden
+	}
+	//Chao eggs
+	if (ReplaceEggs)
+	{
+		WriteCall((void*)0x73EA48, RenderChaoHatEyes);
+		WriteCall((void*)0x7264C3, ChaoEggshellHatHook_Empty); //Black Market 1
+		WriteCall((void*)0x7264D7, ChaoEggshellHatHook); //Black Market 2
+		WriteCall((void*)0x73EA2F, ChaoEggshellHatHook); //In DrawChao
+		WriteCall((void*)0x7235D9, ChaoEggshellHatHook); //In the garden
+		WriteJump((void*)0x78AF40, RenderChaoEgg_DC_1);
+		WriteJump((void*)0x78AF80, RenderChaoEgg_DC_2);
+		WriteCall((void*)0x7277C9, ChaoEggHook_BlackMarket);
+		WriteCall((void*)0x725EAE, ChaoEggHook_BlackMarket);
 	}
 	//Trees
 	WriteCall((void*)0x0072110F, SetChaoObjectTexlist);
@@ -5005,9 +5248,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	*(NJS_MODEL_SADX*)0x03608064 = attachCHAO_0017B768; //Tree leaves 1
 	*(NJS_MODEL_SADX*)0x036076E4 = attachCHAO_0017B034; //Tree leaves 2
 	//Misc
-	WriteJump((void*)0x0078AC80, sub_78AC80X); //Eggs
 	WriteData<1>((char*)0x007151D3, 0x1A); //The secret EC egg is a two-tone black egg
-	ResizeTextureList(&ChaoTexLists[0], 144); //AL_BODY
 	ResizeTextureList(&GARDEN00_OBJECT_TEXLIST, 15);
 	//Name Machine stuff
 	ECGardenStartPoint.Position.y = 71.0f; //Prevent endless jumping in EC garden with the DC model for the Name Machine

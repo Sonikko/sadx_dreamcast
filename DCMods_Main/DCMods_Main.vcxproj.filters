@@ -647,5 +647,8 @@
     <ClInclude Include="BigBeach.h">
       <Filter>Header Files\Levels\EmeraldCoast</Filter>
     </ClInclude>
+    <ClInclude Include="ChaoEggs.h">
+      <Filter>Header Files\Levels\Chao</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
