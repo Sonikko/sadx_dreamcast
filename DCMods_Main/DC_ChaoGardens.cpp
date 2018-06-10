@@ -4232,36 +4232,113 @@ void __cdecl sub_72A8B0()
 
 void RenderSA1ChaoFruits_Object(NJS_CNK_OBJECT *a1)
 {
-	njSetTexture(&CHAO_OBJECT_TEXLIST);
-	njScale(0, 0.7f, 0.7f, 0.7f);
-	if (a1 == &Fruit_Chao) sub_408530(&object_0017D068); //Chaonut
-	else if (a1 == &Fruit_Hero) sub_408530(&object_0017D55C); //Starnut
-	else if (a1 == &Fruit_Dark) sub_408530(&object_0017DA88); //Hastnut
-	else if (a1 == &Fruit_Heart) sub_408530(&object_0017F384); //Lifenut
-	else { njSetTexture(&AL_OBJECT_TEXLIST); njCnkDrawObject(a1); } //Other fruits
+	if (a1 == &Fruit_Chao)
+	{
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		njTranslate(0, 0, 0, 0);
+		njScale(0, 0.7f, 0.7f, 0.7f);
+		sub_408530(&object_0017D068); //Chaonut
+	}
+	else if (a1 == &Fruit_Hero)
+	{
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		njTranslate(0, 0, 1.0f, 0);
+		njScale(0, 0.7f, 0.7f, 0.7f);
+		sub_408530(&object_0017D55C); //Starnut
+	}
+	else if (a1 == &Fruit_Dark)
+	{
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		njTranslate(0, 0, 0, 0);
+		njScale(0, 0.7f, 0.7f, 0.7f);
+		sub_408530(&object_0017DA88); //Hastnut
+	}
+	else if (a1 == &Fruit_Heart)
+	{
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		njTranslate(0, 0, 0, 0);
+		njScale(0, 0.7f, 0.7f, 0.7f);
+		sub_408530(&object_0017F384); //Lifenut
+	}
+	else
+	{
+		njSetTexture(&AL_OBJECT_TEXLIST);
+		njCnkDrawObject(a1);
+	}
 }
 
 void RenderSA1ChaoFruits_Model(NJS_CNK_MODEL *a1)
 {
-	njSetTexture(&CHAO_OBJECT_TEXLIST);
-	njScale(0, 0.5f, 0.5f, 0.5f);
 	if (a1 == Fruit_Chao.chunkmodel)
 	{
-		njTranslate(0, 0, -0.7f, 0);
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		njTranslate(0, 0, 0, 0);
+		njScale(0, 0.5f, 0.5f, 0.5f);
 		sub_408530(&object_0017D068); //Chaonut
 	}
 	else if (a1 == Fruit_Hero.chunkmodel)
 	{
-		njTranslate(0, 0, 0.8f, 0);
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		njTranslate(0, 0, 0, 0);
+		njScale(0, 0.5f, 0.5f, 0.5f);
 		sub_408530(&object_0017D55C); //Starnut
 	}
-	else if (a1 == Fruit_Dark.chunkmodel) sub_408530(&object_0017DA88); //Hastnut
+	else if (a1 == Fruit_Dark.chunkmodel)
+	{
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		njTranslate(0, 0, 0, 0);
+		njScale(0, 0.5f, 0.5f, 0.5f);
+		sub_408530(&object_0017DA88); //Hastnut
+	}
 	else if (a1 == Fruit_Heart.chunkmodel)
 	{
-		njTranslate(0, 0, -0.3f, 0);
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		njTranslate(0, 0, 0, 0);
+		njScale(0, 0.5f, 0.5f, 0.5f);
 		sub_408530(&object_0017F384); //Lifenut
 	}
-	else { njSetTexture(&AL_OBJECT_TEXLIST); DrawCnkModel(a1); } //Other fruits
+	else
+	{
+		njSetTexture(&AL_OBJECT_TEXLIST);
+		DrawCnkModel(a1);
+	}
+}
+
+void RenderSA1ChaoFruits_Model_BlackMarket(NJS_CNK_MODEL *a1)
+{
+	if (a1 == Fruit_Chao.chunkmodel)
+	{
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		njTranslate(0, 0, -0.7f, 0);
+		njScale(0, 0.5f, 0.5f, 0.5f);
+		sub_408530(&object_0017D068); //Chaonut
+	}
+	else if (a1 == Fruit_Hero.chunkmodel)
+	{
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		njTranslate(0, 0, 0.8f, 0);
+		njScale(0, 0.5f, 0.5f, 0.5f);
+		sub_408530(&object_0017D55C); //Starnut
+	}
+	else if (a1 == Fruit_Dark.chunkmodel)
+	{
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		njTranslate(0, 0, 0, 0);
+		njScale(0, 0.5f, 0.5f, 0.5f);
+		sub_408530(&object_0017DA88); //Hastnut
+	}
+	else if (a1 == Fruit_Heart.chunkmodel)
+	{
+		njSetTexture(&CHAO_OBJECT_TEXLIST);
+		njTranslate(0, 0, -0.3f, 0);
+		njScale(0, 0.5f, 0.5f, 0.5f);
+		sub_408530(&object_0017F384); //Lifenut
+	}
+	else 
+	{ 
+		njSetTexture(&AL_OBJECT_TEXLIST); 
+		DrawCnkModel(a1); 
+	}
 }
 
 //Garden load functions
@@ -5219,8 +5296,8 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	{
 		WriteCall((void*)0x00722D3B, RenderSA1ChaoFruits_Object);
 		WriteCall((void*)0x00726106, RenderSA1ChaoFruits_Model);
-		WriteCall((void*)0x00726138, RenderSA1ChaoFruits_Model); //Black Market preview
-		WriteCall((void*)0x00727722, RenderSA1ChaoFruits_Model); //Black Market item list
+		WriteCall((void*)0x00726138, RenderSA1ChaoFruits_Model_BlackMarket); //Black Market preview
+		WriteCall((void*)0x00727722, RenderSA1ChaoFruits_Model_BlackMarket); //Black Market item list
 	}
 	if (ReplaceFruits <= 1)
 	{
