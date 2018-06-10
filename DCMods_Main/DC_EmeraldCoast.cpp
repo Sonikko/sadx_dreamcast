@@ -21,7 +21,6 @@ static int beachsea_water = 0;
 static int inside_secret_area = 0;
 static int water_anim = 17;
 static bool lilocean = false;
-static bool SADXStyleWater = false;
 static bool IamStupidAndIWantFuckedUpOcean = false;
 static NJS_VECTOR oldpos{ 0,0,0 };
 
@@ -51,7 +50,7 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 	double z; // st6
 	v1 = a1->Data1;
 	int OceanUVShift1;
-	if (!SADXStyleWater)
+	if (!SADXWater_EmeraldCoast)
 	{
 		//Acts 2 and 3
 		if (!DroppedFrames && (inside_secret_area == 0 || EV_MainThread_ptr != nullptr))
@@ -169,7 +168,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	}
 	if (!lilocean)
 	{
-		if (!SADXStyleWater)
+		if (!SADXWater_EmeraldCoast)
 		{
 			WriteData((float**)0x00501824, &float1);
 			WriteData((float**)0x00501849, &float1);
@@ -214,12 +213,12 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	{
 		if (!DroppedFrames)
 		{
-			if (SADXStyleWater) njSetTexture(&texlist_sadxwtr_beach);
+			if (SADXWater_EmeraldCoast) njSetTexture(&texlist_sadxwtr_beach);
 			else njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
 			if (oldpos.x != v1->Position.x)
 			{
 				u2_add = int(255 * (v1->Position.x - oldpos.x) / unitsize_u_small) % 255;
-				if (SADXStyleWater == true) u2_add = roundfloat(1.5f * u2_add);
+				if (SADXWater_EmeraldCoast == true) u2_add = roundfloat(1.5f * u2_add);
 				for (unsigned int u_step = 0; u_step < LengthOfArray(uvSTG01_00CBB000_d); u_step++)
 				{
 					uvSTG01_00CBB000_data[u_step].u = uvSTG01_00CBB000_data[u_step].u - u2_add;
@@ -231,7 +230,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			if (oldpos.z != v1->Position.z)
 			{
 				v2_add = int(255 * (v1->Position.z - oldpos.z) / unitsize_v_small) % 255;
-				if (SADXStyleWater == true) v2_add = roundfloat(0.5f * v2_add);
+				if (SADXWater_EmeraldCoast == true) v2_add = roundfloat(0.5f * v2_add);
 				for (unsigned int v_step = 0; v_step < LengthOfArray(uvSTG01_00CBB000_d); v_step++)
 				{
 					uvSTG01_00CBB000_data[v_step].v = uvSTG01_00CBB000_data[v_step].v - v2_add;
@@ -487,8 +486,7 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 	ReplacePVM("BG_BEACH");
 	ReplacePVM("OBJ_BEACH");
 	ReplacePVM("BEACH_SEA");
-	// Load configuration settings.
-	SADXStyleWater = config->getBool("SADX Style Water", "EmeraldCoast", false);
+	// Load configuration settings
 	IamStupidAndIWantFuckedUpOcean = config->getBool("Miscellaneous", "RevertEmeraldCoastDrawDistance", false);
 	//Landtables
 	WriteData((LandTable**)0x97DA28, &landtable_00081554); //Act 1
@@ -505,7 +503,7 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 	WriteData<2>((char*)0x004F7816, 0xFF); //Disable water animation in Act 2
 	WriteData<2>((char*)0x004F78E6, 0xFF); //Disable water animation in Act 3
 	((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.argb.a = 0x99; //Match dynamic ocean alpha with normal ocean
-	if (SADXStyleWater)
+	if (SADXWater_EmeraldCoast)
 	{
 		WriteData((float*)0x004F8D2F, -2153.0f); //Remove gap in Act 2 small pool
 		//Act 1
@@ -607,7 +605,7 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 	WriteData((float**)0x004F798B, &float2);
 	WriteData((float**)0x004F7998, &float2);
 	//Kill SADX shit
-	if (SADXStyleWater == false) WriteData<1>((void*)0x4F8A30, 0xC3u);
+	if (SADXWater_EmeraldCoast == false) WriteData<1>((void*)0x4F8A30, 0xC3u);
 	//Write water rendering functions
 	WriteJump((void*)0x00501130, Obj_EC1Water_DisplayX); //Act 1
 	WriteJump((void*)0x004F76C0, Obj_EC23Water_DisplayX); //Act 2
@@ -695,7 +693,7 @@ void EmeraldCoast_OnFrame()
 				uvSTG01_00CBB000[r2].v = uvSTG01_00CBB000_d[r2].v;
 			}
 		}
-		if (SADXStyleWater)
+		if (SADXWater_EmeraldCoast)
 		{
 			((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attr_texId = SADXWaveAnimation;
 			((NJS_OBJECT*)0x010C05E8)->basicdxmodel->mats[0].attr_texId = SADXWaveAnimation;
@@ -707,7 +705,7 @@ void EmeraldCoast_OnFrame()
 			((NJS_OBJECT*)0x010C05E8)->basicdxmodel->mats[0].attr_texId = beachsea_water;
 			matlistSTG01_00CBA58C[0].attr_texId = beachsea_water;
 		}
-		if (GameState != 16 && !SADXStyleWater)
+		if (GameState != 16 && !SADXWater_EmeraldCoast)
 		{
 			if ((FramerateSetting < 2 && FrameCounter % 4 == 0) || (FramerateSetting == 2 && FrameCounter % 2 == 0) || FramerateSetting > 2)
 			{
@@ -816,7 +814,7 @@ void EmeraldCoast_OnFrame()
 		{
 			inside_secret_area = 0;
 			CurrentFogToggle = 0;
-			if (SADXStyleWater == true)
+			if (SADXWater_EmeraldCoast == true)
 			{
 				WriteData<1>((void*)0x004F777E, 0xE8); //Restore the ocean
 				WriteData<1>((void*)0x004F777F, 0xBD); //Restore the ocean
@@ -830,7 +828,7 @@ void EmeraldCoast_OnFrame()
 			inside_secret_area = 1;
 			CurrentFogToggle = 1;
 			if (CurrentFogLayer < -21) CurrentFogLayer = CurrentFogLayer + 20;
-			if (SADXStyleWater == true) WriteData<5>((void*)0x004F777E, 0x90); //Kill the ocean temporarily
+			if (SADXWater_EmeraldCoast == true) WriteData<5>((void*)0x004F777E, 0x90); //Kill the ocean temporarily
 		}
 		else
 		{
@@ -839,7 +837,7 @@ void EmeraldCoast_OnFrame()
 			{
 				inside_secret_area = 0;
 				CurrentFogToggle = 0;
-				if (SADXStyleWater == true)
+				if (SADXWater_EmeraldCoast == true)
 				{
 					WriteData<1>((void*)0x004F777E, 0xE8); //Restore the ocean
 					WriteData<1>((void*)0x004F777F, 0xBD); //Restore the ocean

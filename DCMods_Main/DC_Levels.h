@@ -54,8 +54,6 @@ extern bool SADXWater_StationSquare;
 extern bool SADXWater_MysticRuins;
 extern bool SADXWater_EggCarrier;
 extern bool SADXWater_Past;
-extern bool SADXWater_EggHornet;
-extern bool SADXWater_ZeroE101R;
 extern NJS_TEXLIST texlist_sadxwtr_beach;
 extern NJS_TEXLIST texlist_sadxwtr_sewers;
 extern NJS_TEXLIST texlist_sadxwtr_waves;

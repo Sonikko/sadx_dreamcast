@@ -24,8 +24,6 @@ bool SADXWater_StationSquare = false;
 bool SADXWater_MysticRuins = false;
 bool SADXWater_EggCarrier = false;
 bool SADXWater_Past = false;
-bool SADXWater_EggHornet = false;
-bool SADXWater_ZeroE101R = false;
 
 SETFixes_e EnableSETFixes = SETFixes_Normal;
 
@@ -115,10 +113,8 @@ extern "C"
 			return;
 		}
 
-		//If there is no config.ini, make one
 		const std::string s_path(path);
 		const std::string s_config_ini(s_path + "\\config.ini");
-		CopyFileA((s_path + "\\default.ini").c_str(), s_config_ini.c_str(), true);
 
 		//Config stuff
 		const IniFile *const config = new IniFile(s_config_ini);
@@ -142,7 +138,11 @@ extern "C"
 		EnableEggCarrier = config->getBool("Levels", "EnableEggCarrier", true);
 		EnablePast = config->getBool("Levels", "EnablePast", true);
 		DisableAllVideoStuff = config->getBool("Videos", "DisableAllVideoStuff", false);
-
+		SADXWater_EmeraldCoast = config->getBool("SADX Style Water", "EmeraldCoast", false);
+		SADXWater_StationSquare = config->getBool("SADX Style Water", "StationSquare", false);
+		SADXWater_MysticRuins = config->getBool("SADX Style Water", "MysticRuins", false);
+		SADXWater_EggCarrier = config->getBool("SADX Style Water", "EggCarrier", false);
+		SADXWater_Past = config->getBool("SADX Style Water", "Past", false);
 		const std::string EnableSETFixes_String = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
 		if (EnableSETFixes_String == "Off")
 			EnableSETFixes = SETFixes_Off;
