@@ -156,6 +156,9 @@
     <ClCompile Include="SpeedFixes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SADXStyleWater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data\textures.h">
@@ -640,6 +643,9 @@
     </ClInclude>
     <ClInclude Include="ChaoFruits.h">
       <Filter>Header Files\Levels\Chao</Filter>
+    </ClInclude>
+    <ClInclude Include="BigBeach.h">
+      <Filter>Header Files\Levels\EmeraldCoast</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

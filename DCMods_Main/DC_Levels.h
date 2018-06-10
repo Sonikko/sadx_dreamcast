@@ -7,6 +7,13 @@
 class IniFile;
 
 DataPointer(int, FramerateSetting_Config, 0x0089295C);
+DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataPointer(int, DroppedFrames, 0x03B1117C);
+DataPointer(int, CutsceneID, 0x3B2C570);
+DataPointer(float, EnvMap1, 0x038A5DD0);
+DataPointer(float, EnvMap2, 0x038A5DE4);
+DataPointer(float, EnvMap3, 0x038A5E00);
+DataPointer(float, EnvMap4, 0x038A5E04);
 
 typedef enum
 {
@@ -14,8 +21,10 @@ typedef enum
 	SETFixes_Normal	= 1,
 	SETFixes_Extra	= 2,
 } SETFixes_e;
+
 extern SETFixes_e EnableSETFixes;
 
+extern int SADXWaveAnimation;
 extern int CutsceneSkipMode;
 extern bool EnableSpeedFixes;
 extern bool DLLLoaded_DLCs;
@@ -40,6 +49,16 @@ extern bool EnableMysticRuins;
 extern bool EnableEggCarrier;
 extern bool EnablePast;
 extern bool DisableAllVideoStuff;
+extern bool SADXWater_EmeraldCoast;
+extern bool SADXWater_StationSquare;
+extern bool SADXWater_MysticRuins;
+extern bool SADXWater_EggCarrier;
+extern bool SADXWater_Past;
+extern bool SADXWater_EggHornet;
+extern bool SADXWater_ZeroE101R;
+extern NJS_TEXLIST texlist_sadxwtr_beach;
+extern NJS_TEXLIST texlist_sadxwtr_sewers;
+extern NJS_TEXLIST texlist_sadxwtr_waves;
 
 void FixMRBase_Apply(const IniFile *config, const HelperFunctions &helperFunctions);
 void DisableSADXWaterFog();
@@ -92,6 +111,12 @@ void SkyChaseFix_UpdateBounds();
 void Branding_SetUpVariables();
 void SpeedFixes_Init();
 void SpeedFixes_OnFrame();
+void SADXStyleWater_Init(const IniFile *config, const HelperFunctions &helperFunctions);
+void SADXStyleWater_OnFrame();
+void __cdecl EmeraldCoast_OceanDraw_SADXStyle(OceanData *o);
+void __cdecl MysticRuins_OceanDraw_SADXStyle(OceanData *o);
+void __cdecl EggCarrier_OceanDraw_SADXStyle(OceanData *o);
+void __cdecl Past_OceanDraw_SADXStyle(OceanData *o);
 
 bool ForceWhiteDiffuse1(NJS_MATERIAL* material, Uint32 flags);
 bool ForceWhiteDiffuse3(NJS_MATERIAL* material, Uint32 flags);

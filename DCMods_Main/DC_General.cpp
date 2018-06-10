@@ -23,13 +23,7 @@ NJS_SPRITE Heat1Sprite = { { 0, 0, 0 }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x0091BD28,
 NJS_SPRITE Heat2Sprite = { { 0, 0, 0 }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x0091BD28, &Heat2Texanim };
 
 DataPointer(NJS_OBJECT, stru_8B22F4, 0x8B22F4);
-DataPointer(int, CutsceneID, 0x3B2C570);
-DataPointer(float, EnvMap1, 0x038A5DD0);
-DataPointer(float, EnvMap2, 0x038A5DE4);
-DataPointer(float, EnvMap3, 0x038A5E00);
-DataPointer(float, EnvMap4, 0x038A5E04);
 DataPointer(NJS_MATRIX, nj_unit_matrix_, 0x389D650);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
 FunctionPointer(EntityData1*, sub_4B9430, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4B9430);
 FunctionPointer(void, sub_436550, (), 0x436550);

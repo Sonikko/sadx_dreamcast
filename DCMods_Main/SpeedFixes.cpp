@@ -1,6 +1,5 @@
 #include "stdafx.h"
 
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(NJS_POINT3COL, stru_9894C0, 0x9894C0);
 DataPointer(NJS_VECTOR, FuseLine1, 0x3C5C484);
 DataPointer(NJS_VECTOR, FuseLine2, 0x3C5C490);

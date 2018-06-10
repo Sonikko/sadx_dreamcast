@@ -7,12 +7,7 @@
 
 NJS_TEXNAME textures_cylinder[257];
 NJS_TEXLIST texlist_cylinder = { arrayptrandlength(textures_cylinder) };
-DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(float, EnvMap1, 0x038A5DD0);
-DataPointer(float, EnvMap2, 0x038A5DE4);
-DataPointer(float, EnvMap3, 0x038A5E00);
-DataPointer(float, EnvMap4, 0x038A5E04);
+
 DataPointer(NJS_ACTION, off_1A1F944, 0x1A1F944);
 DataArray(FogData, FinalEgg1Fog, 0x019C8FF0, 3);
 DataArray(FogData, FinalEgg2Fog, 0x019C9020, 3);

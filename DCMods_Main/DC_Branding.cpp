@@ -32,7 +32,6 @@ NJS_TEXLIST texlist_gtitle = { arrayptrandlength(textures_gtitle) };
 FunctionPointer(ObjectMaster*, sub_510390, (int a1), 0x510390);
 FunctionPointer(void, sub_505B40, (int a1), 0x505B40);
 FunctionPointer(void, sub_432EA0, (), 0x432EA0);
-DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(CreditsList, MainCredits, 0x2BC2FD0);
 DataArray(PVMEntry, GUITextures_Japanese, 0x007EECF0, 30);
 DataArray(PVMEntry, GUITextures_English, 0x007EEDE0, 30);

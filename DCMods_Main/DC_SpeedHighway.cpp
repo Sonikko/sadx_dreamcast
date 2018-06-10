@@ -14,8 +14,6 @@
 #include "Highway_objects.h"
 #include "HW_Jammer.h"
 
-DataPointer(int, FramerateSetting, 0x0389D7DC);
-
 FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *a1, int a2, float a3), 0x409E70);
 FunctionPointer(long double, sub_49CC70, (float a1, float a2, float a3), 0x49CC70);
 FunctionPointer(void, sub_408530, (NJS_OBJECT *obj), 0x408530);

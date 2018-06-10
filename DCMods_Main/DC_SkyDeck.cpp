@@ -13,7 +13,6 @@ DataPointer(float, SkyDeckAltitude, 0x03C80610); //0 to 700
 DataPointer(float, CurrentSkyBoxScaleX, 0x03ABDC94);
 DataPointer(float, CurrentSkyBoxScaleY, 0x03ABDC98);
 DataPointer(float, CurrentSkyBoxScaleZ, 0x03ABDC9C);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(float, CurrentFogDistance, 0x03ABDC64);
 DataPointer(int, dword_3C7F030, 0x3C7F030);

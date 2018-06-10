@@ -19,13 +19,13 @@ bool EnableEggCarrier = true;
 bool EnablePast = true;
 bool DisableAllVideoStuff = true;
 
-static bool SADXWater_EmeraldCoast = false;
-static bool SADXWater_StationSquare = false;
-static bool SADXWater_MysticRuins = false;
-static bool SADXWater_EggCarrier = false;
-static bool SADXWater_Past = false;
-static bool SADXWater_EggHornet = false;
-static bool SADXWater_ZeroE101R = false;
+bool SADXWater_EmeraldCoast = false;
+bool SADXWater_StationSquare = false;
+bool SADXWater_MysticRuins = false;
+bool SADXWater_EggCarrier = false;
+bool SADXWater_Past = false;
+bool SADXWater_EggHornet = false;
+bool SADXWater_ZeroE101R = false;
 
 SETFixes_e EnableSETFixes = SETFixes_Normal;
 
@@ -167,6 +167,7 @@ extern "C"
 				MB_OK | MB_ICONERROR);
 		}
 		//Init functions
+		SADXStyleWater_Init(config, helperFunctions);
 		if (EnableDCBranding) Branding_Init(config, helperFunctions);
 		if (EnableStationSquare) ADV00_Init(config, helperFunctions);
 		if (EnableEggCarrier) ADV01_Init(config, helperFunctions);
@@ -218,6 +219,7 @@ extern "C"
 		General_OnFrame();
 		if (!DisableAllVideoStuff) Videos_OnFrame();
 		if (EnableSpeedFixes) SpeedFixes_OnFrame();
+		SADXStyleWater_OnFrame();
 	}
 	__declspec(dllexport) void __cdecl OnInput()
 	{

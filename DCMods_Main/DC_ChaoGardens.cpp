@@ -96,8 +96,6 @@ FunctionPointer(ObjectMaster *, sub_72C3A0, (), 0x72C3A0);
 FunctionPointer(ObjectMaster *, sub_72C2E0, (), 0x72C2E0);
 FunctionPointer(void, sub_7153F0, (), 0x7153F0);
 FunctionPointer(NJS_OBJECT*, sub_49D6C0, (NJS_OBJECT *a1, ObjectMaster *a2, ColFlags surfaceFlags), 0x49D6C0);
-DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(SecondaryEntrance, ECGardenStartPoint, 0x0339F8E8);
 DataPointer(SecondaryEntrance, MRGardenReturnPoint, 0x0339F928);
 DataPointer(SecondaryEntrance, SSGardenStartPoint, 0x0339F888);
@@ -4951,7 +4949,6 @@ void RenderChaoBall()
 
 void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	WriteData<1>((char*)0x71BF20, 0xC3u); //Kill SADX crackers
 	ReplacePVM("AL_BODY");
 	ReplacePVM("CHAO");
 	ReplacePVM("CHAO_OBJECT");
@@ -5050,6 +5047,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 		WriteData<5>((void*)0x0071CEC2, 0x90); //Don't mess with entry button
 	}
 	//Chao Race stuff
+	WriteData<1>((char*)0x71BF20, 0xC3u); //Kill SADX crackers
 	WriteCall((void*)0x75A550, RenderChaoBall); //Chao Race ball model
 	WriteCall((void*)0x76DA03, RenderChaoRaceLetters_Fix); //Chao Race letters fix
 	WriteData((NJS_OBJECT**)0x883E68, &object_000459E4); //Start Mark in Chao Race

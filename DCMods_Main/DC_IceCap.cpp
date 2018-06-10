@@ -7,7 +7,6 @@
 #include "IceCap4_PC.h"
 #include "IceCap4.h"
 
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(NJS_ACTION, stru_E758E4, 0xE758E4);

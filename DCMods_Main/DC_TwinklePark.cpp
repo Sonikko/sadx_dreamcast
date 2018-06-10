@@ -11,8 +11,7 @@ struct __declspec(align(2)) ObjectThingC
 	void(__cdecl *function)(NJS_OBJECT *);
 };
 
-DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+
 
 FunctionPointer(void, sub_61D4E0, (ObjectMaster *a1), 0x61D4E0);
 FunctionPointer(void, sub_61D1F0, (ObjectMaster *a1), 0x61D1F0);

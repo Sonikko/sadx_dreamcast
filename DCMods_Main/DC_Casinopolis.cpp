@@ -80,7 +80,6 @@ DataPointer(NJS_OBJECT, stru_1E5EC4C, 0x01E5EC4C);
 DataPointer(NJS_OBJECT, stru_1E5E7BC, 0x01E5E7BC);
 DataPointer(NJS_OBJECT*, unk_1E04CDC, 0x1E04CDC);
 DataPointer(CollisionData, stru_1E775A4, 0x1E775A4);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, dword_1E77568, 0x1E77568);
 DataPointer(int, InsideMachine, 0x3C7507C);
 DataPointer(NJS_OBJECT*, unk_1E05954, 0x1E05954);

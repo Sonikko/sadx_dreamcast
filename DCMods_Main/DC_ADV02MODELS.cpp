@@ -20,11 +20,8 @@ HMODULE ADV02MODELS = GetModuleHandle(L"ADV02MODELS");
 NJS_TEXLIST **___ADV02_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV02MODELS, "___ADV02_TEXLISTS");
 NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(ADV02MODELS, "___ADV02_ACTIONS");
 DataPointer(float, dword_111DB90, 0x111DB90);
-DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(int, DroppedFrames, 0x03B1117C);
 DataArray(FogData, MR1FogDay, 0x01103448, 3);
 DataArray(FogData, MR2FogDay, 0x01103478, 3);
 DataArray(FogData, MR3FogDay, 0x011034A8, 3);
@@ -40,12 +37,10 @@ DataArray(DrawDistance, MR4DrawDist, 0x01103430, 3);
 FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x405450);
 FunctionPointer(void, sub_409450, (NJS_MODEL_SADX *a1, char a2), 0x409450);
 static bool InsideTemple = 0;
-static int anim1 = 130;
-static int anim2 = 140;
-static int anim3 = 76;
-static int anim_sadx = 156;
+static int MRSeaAnimation1 = 130;
+static int MRSeaAnimation2 = 140;
+static int IceCapCaveWaterAnimation = 76;
 static int uvADV02_anim = 1;
-static bool SADXStyleWater = false;
 NJS_TEXNAME textures_mrtrain[31];
 NJS_TEXLIST texlist_mrtrain = { arrayptrandlength(textures_mrtrain) };
 
@@ -84,18 +79,7 @@ static void __cdecl MRLightingHook_r(ObjectMaster *a1)
 	original(a1);
 }
 
-void __cdecl SetWaterTexture()
-{
-	njSetTextureNum(155);
-}
-
-void DisableSADXWaterFog()
-{
-	SetOceanAlphaModeAndFVF(1);
-	DisableFog();
-}
-
-void __cdecl MRWater()
+void __cdecl MRWater(OceanData *x)
 {
 	if (CurrentAct == 0)
 	{
@@ -277,7 +261,6 @@ void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	NJS_OBJECT **___ADV02MR02_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___ADV02MR02_OBJECTS");
 	NJS_ACTION **___ADV02_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___ADV02_ACTIONS");
 	LandTable **___LANDTABLEMR = (LandTable **)GetProcAddress(handle, "___LANDTABLEMR");
-	
 	ReplaceBIN_DC("SETMR00A");
 	ReplaceBIN_DC("SETMR00B");
 	ReplaceBIN_DC("SETMR00E");
@@ -298,7 +281,6 @@ void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAMMR01S");
 	ReplaceBIN_DC("CAMMR02S");
 	ReplaceBIN_DC("CAMMR03S");
-
 	switch (EnableSETFixes)
 	{
 		case SETFixes_Normal:
@@ -340,6 +322,7 @@ void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		default:
 			break;
 	}
+	ReplacePVM("ADV_MR00");
 	ReplacePVM("ADV_MR01");
 	ReplacePVM("ADV_MR02");
 	ReplacePVM("ADV_MR03");
@@ -355,17 +338,6 @@ void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("MR_EGG");
 	ReplacePVM("MR_PYRAMID");
 	ReplacePVM("MR_TORNADO2");
-	// Load configuration settings.
-	SADXStyleWater = config->getBool("SADX Style Water", "MysticRuins", false);
-	if (SADXStyleWater)
-	{
-		ReplacePVMX_SADXStyleWater("ADV_MR00");
-	}
-	else
-	{
-		ReplacePVM("ADV_MR00");
-	}
-
 	WriteData<1>((char*)0x006F4DA0, 0x04); //Emerald shard (cutscene) glow blending mode
 	WriteData<1>((char*)0x006F4BF1, 0x04); //Emerald shard (cutscene) glow blending mode	
 	//Cutscene after Lost World
@@ -387,12 +359,8 @@ void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	*(NJS_OBJECT*)0x110CF34 = object2_00229334; //TANKEN 2
 	*(NJS_OBJECT*)0x11112CC = object_0022DDA4; //TANKEN 3
 	WriteCall((void*)0x0053CD37, SetColor); //Master Emerald glow
-	if (SADXStyleWater)
+	if (SADXWater_MysticRuins)
 	{
-		WriteCall((void*)0x00532551, DisableSADXWaterFog);
-		WriteCall((void*)0x005325C9, SetWaterTexture);
-		WriteData((int*)0x00532611, 156);
-		ResizeTextureList(&texlist_mr00, 171);
 		collist_00015E60[LengthOfArray(collist_00015E60) - 2].Flags = 0x81000000;
 		collist_00015E60[LengthOfArray(collist_00015E60) - 3].Flags = 0x81000000;
 		collist_00015E60[LengthOfArray(collist_00015E60) - 4].Flags = 0x81000000;
@@ -400,7 +368,7 @@ void ADV02_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	}
 	else
 	{
-		WriteJump((void*)0x532500, MRWater);
+		WriteJump(MysticRuins_OceanDraw, MRWater);
 	}
 	for (int i = 0; i < 3; i++)
 	{
@@ -544,34 +512,30 @@ void ADV02_OnFrame()
 		{
 			uvADV02_000755A4[q2].v = uvADV02_000755A4_0[q2].v - uvADV02_anim;
 		}
-		if (anim1 > 139) anim1 = 130;
-		if (anim2 > 154) anim2 = 140;
-		if (anim_sadx > 170) anim_sadx = 156;
-		if (SADXStyleWater)
-			WriteData((int*)0x00532611, anim_sadx);
-		matlistADV02_0007523C[0].attr_texId = anim1;
-		matlistADV02_00057F04[0].attr_texId = anim1;
-		matlistADV02_00053510[0].attr_texId = anim2;
-		matlistADV02_00053010[0].attr_texId = anim2;
-		matlistADV02_00059768[0].attr_texId = anim2;
-		matlistADV02_000594C0[0].attr_texId = anim2;
+		if (MRSeaAnimation1 > 139) MRSeaAnimation1 = 130;
+		if (MRSeaAnimation2 > 154) MRSeaAnimation2 = 140;
+		matlistADV02_0007523C[0].attr_texId = MRSeaAnimation1;
+		matlistADV02_00057F04[0].attr_texId = MRSeaAnimation1;
+		matlistADV02_00053510[0].attr_texId = MRSeaAnimation2;
+		matlistADV02_00053010[0].attr_texId = MRSeaAnimation2;
+		matlistADV02_00059768[0].attr_texId = MRSeaAnimation2;
+		matlistADV02_000594C0[0].attr_texId = MRSeaAnimation2;
 		if (FramerateSetting < 2 && FrameCounter % 5 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 		{
-			anim1++;
-			anim2++;
-			anim_sadx++;
+			MRSeaAnimation1++;
+			MRSeaAnimation2++;
 		}
 	}
 	if (GameState != 16 && CurrentLevel == 33 && CurrentAct == 1)
 	{
-		if (anim3 > 89) anim3 = 76;
-		matlistADV02_000A3884[0].attr_texId = anim3;
-		matlistADV02_000A6CF8[1].attr_texId = anim3;
-		matlistADV02_000A6CF8[2].attr_texId = anim3;
-		matlistADV02_000A6CF8[3].attr_texId = anim3;
+		if (IceCapCaveWaterAnimation > 89) IceCapCaveWaterAnimation = 76;
+		matlistADV02_000A3884[0].attr_texId = IceCapCaveWaterAnimation;
+		matlistADV02_000A6CF8[1].attr_texId = IceCapCaveWaterAnimation;
+		matlistADV02_000A6CF8[2].attr_texId = IceCapCaveWaterAnimation;
+		matlistADV02_000A6CF8[3].attr_texId = IceCapCaveWaterAnimation;
 		if (FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2)
 		{
-			anim3++;
+			IceCapCaveWaterAnimation++;
 		}
 	}
 	if (GameState != 16 && CurrentLevel == 33 && CurrentAct == 2)
