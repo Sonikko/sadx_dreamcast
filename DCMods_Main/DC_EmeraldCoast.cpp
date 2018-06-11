@@ -99,7 +99,7 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 			njPopMatrix(1u);
 		}
 		//Draw main water
-		if (inside_secret_area == 0)
+		if (inside_secret_area == 0 || EV_MainThread_ptr != nullptr)
 		{
 			DisableFog();
 			if (CurrentAct == 2)
