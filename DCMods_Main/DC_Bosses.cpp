@@ -1136,7 +1136,8 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		ReplacePVM("CHAOS2_OBJECT");
 		((NJS_MATERIAL*)0x0117E8A0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Top light in Chaos 2
 		WriteCall((void*)0x0054AC30, FixChaos2Columns);
-		WriteData((LandTable**)0x7D1CC0, &landtable_00D2136C); //Chaos 2 PC
+		*(NJS_MODEL_SADX*)0x11863C0 = attach_00D863C0; //Chaos 2 column model
+		WriteData((LandTable**)0x7D1CC0, &landtable_00D2136C); //Chaos 2
 		ResizeTextureList((NJS_TEXLIST*)0x117C76C, textures_chaos2);
 		//Chaos 2
 		((NJS_MATERIAL*)0x011835E8)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Chaos2 table
