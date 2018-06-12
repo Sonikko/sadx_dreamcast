@@ -12,6 +12,7 @@ FunctionPointer(void, Chaos0_Raindrop_Display, (ObjectMaster *a1), 0x546090);
 
 static int FramerateSettingOld = 0;
 static int FrameCounter_Half = 0;
+static int MissedFrames_Half = 1;
 static bool FixesApplied = false;
 
 //General
@@ -381,6 +382,8 @@ void UnidusFix(NJS_VECTOR *a1, NJS_VECTOR *a2, float a3)
 
 void SpeedFixes_Init()
 {
+	WriteData((int**)0x004A26B3, &MissedFrames_Half);
+	//Character bubbles
 	//Ice Cap avalanche snow sprites
 	WriteData((float**)0x4EB391, &AvalancheMultiplier);
 	WriteData((float**)0x4EB3B6, &AvalancheMultiplier);
@@ -515,6 +518,7 @@ void SpeedFixes_OnFrame()
 {
 	//Half frame counter
 	if (FrameCounter % 2 == 0) FrameCounter_Half++;
+	if (!MissedFrames && ((FramerateSetting < 2 && FrameCounter % 2 == 0 || FramerateSetting >= 2))) MissedFrames_Half = 0; else MissedFrames_Half = 1;
 	if (FramerateSettingOld != FramerateSetting)
 	{
 		//Original values for 30 FPS

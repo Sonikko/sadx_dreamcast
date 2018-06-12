@@ -1184,9 +1184,10 @@ void General_OnFrame()
 	//Frame counter for cutscenes
 	if (EV_MainThread_ptr != nullptr)
 	{
-		CutsceneFrameCounter++; else CutsceneFrameCounter = 0;
+		CutsceneFrameCounter++;
 		//PrintDebug("Cutscene timer: %d\n", CutsceneFrameCounter);
 	}
+	else CutsceneFrameCounter = 0;
 	//Cutscene skip
 	if (CutsceneSkipMode <= 1 && SkipPressed_Cutscene)
 	{
