@@ -153,7 +153,7 @@ ObjectFunc(OF_SS21, 0x007A9C60); // HINT BOX
 
 //Chao Race double shadow fix
 static void __cdecl ChaoShadowFix_r(ObjectMaster *a1, float a2, float a3, float a4);
-static Trampoline ChaoShadowFix_t(0x73F010, 0x73F017, ChaoShadowFix_r);
+static Trampoline ChaoShadowFix_t(0x73EF60, 0x73EF65, ChaoShadowFix_r);
 static void __cdecl ChaoShadowFix_r(ObjectMaster *a1, float a2, float a3, float a4)
 {
 	auto original = reinterpret_cast<decltype(ChaoShadowFix_r)*>(ChaoShadowFix_t.Target());
@@ -2514,67 +2514,6 @@ void LoadObjects_Race()
 		ent->Position.z = 107.87f;
 		ent->Rotation.y = 0xB0D7;
 	}
-	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
-	if (obj)
-	{
-		ent = obj->Data1;
-		ent->Position.x = -103.82f;
-		ent->Position.y = 10;
-		ent->Position.z = 370.34f;
-		ent->Rotation.x = 0xFFFFFFEE;
-		ent->Rotation.z = 0xFFFFF33D;
-		ent->Scale.x = 1.5f;
-		ent->Scale.y = 15;
-	}
-	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
-	if (obj)
-	{
-		ent = obj->Data1;
-		ent->Position.x = -86.57f;
-		ent->Position.y = 10;
-		ent->Position.z = 392.97f;
-		ent->Rotation.x = 0xFFFFEAAB;
-		ent->Rotation.z = 0xFFFFF8E4;
-		ent->Scale.x = 1.5f;
-		ent->Scale.y = 10.8f;
-	}
-	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
-	if (obj)
-	{
-		ent = obj->Data1;
-		ent->Position.x = -52.01f;
-		ent->Position.y = 10;
-		ent->Position.z = 384.09f;
-		ent->Rotation.x = 0xFFFFF3F8;
-		ent->Rotation.z = 0x11C7;
-		ent->Scale.x = 1.6f;
-		ent->Scale.y = 20.8f;
-	}
-	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
-	if (obj)
-	{
-		ent = obj->Data1;
-		ent->Position.x = -67.99f;
-		ent->Position.y = 10;
-		ent->Position.z = 337.77f;
-		ent->Rotation.x = 0xD77;
-		ent->Rotation.z = 0x11C7;
-		ent->Scale.x = 1.6f;
-		ent->Scale.y = 20.8f;
-	}
-	obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
-	if (obj)
-	{
-		ent = obj->Data1;
-		ent->Position.x = -97.47f;
-		ent->Position.y = 10;
-		ent->Position.z = 343.87f;
-		ent->Rotation.x = 0x180E;
-		ent->Rotation.y = 0x180E;
-		ent->Rotation.z = 0xFFFFF404;
-		ent->Scale.x = 1.5f;
-		ent->Scale.y = 10.8f;
-	}
 	obj = LoadObject((LoadObj)2, 3, OF5); // FLAG
 	obj->SETData.SETData = &setdata_race;
 	if (obj)
@@ -4346,6 +4285,7 @@ void __cdecl LoadSSGardenX()
 {
 	PrintDebug("ChaoStgGarden00SS Prolog begin\n");
 	LoadPVM("OBJ_SS", (NJS_TEXLIST*)0x02AA4BF8);
+	LoadPVM("GARDEN00_OBJECT", &GARDEN00_OBJECT_TEXLIST);
 	SSGardenStartPoint.Position.x = BK_SSGardenStartPoint.Position.x;
 	SSGardenStartPoint.Position.y = BK_SSGardenStartPoint.Position.y;
 	SSGardenStartPoint.Position.z = BK_SSGardenStartPoint.Position.z;
@@ -5254,6 +5194,128 @@ void ChaoEggshellHatHook_Empty(NJS_CNK_MODEL *a1, int a2)
 	}
 }
 
+DataPointer(int, dword_3CD7714, 0x3CD7714);
+DataPointer(NJS_OBJECT, stru_3455450, 0x3455450);
+DataPointer(NJS_OBJECT, stru_34B367C, 0x34B367C);
+DataPointer(NJS_OBJECT, stru_34B36B0, 0x34B36B0);
+DataPointer(NJS_OBJECT, stru_34B36E4, 0x34B36E4);
+
+ObjectMaster *__cdecl LoadChaoRaceCrackers()
+{
+	int v0;
+	ObjectMaster *obj;
+	EntityData1 *ent;
+	
+	dword_3CD7714 = 0;
+	v0 = 0;
+	do
+	{
+		obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
+		obj->SETData.SETData = &setdata_race;
+		if (v0 == 0 && obj)
+		{
+			ent = obj->Data1;
+			ent->Position.x = -103.82f;
+			ent->Position.y = 10;
+			ent->Position.z = 370.34f;
+			ent->Rotation.x = 0xFFFFFFEE;
+			ent->Rotation.z = 0xFFFFF33D;
+			ent->Scale.x = 1.5f;
+			ent->Scale.y = 15;
+		}
+		obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
+		if (v0 == 1 && obj)
+		{
+			ent = obj->Data1;
+			ent->Position.x = -86.57f;
+			ent->Position.y = 10;
+			ent->Position.z = 392.97f;
+			ent->Rotation.x = 0xFFFFEAAB;
+			ent->Rotation.z = 0xFFFFF8E4;
+			ent->Scale.x = 1.5f;
+			ent->Scale.y = 10.8f;
+		}
+		obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
+		if (v0 == 2 && obj)
+		{
+			ent = obj->Data1;
+			ent->Position.x = -52.01f;
+			ent->Position.y = 10;
+			ent->Position.z = 384.09f;
+			ent->Rotation.x = 0xFFFFF3F8;
+			ent->Rotation.z = 0x11C7;
+			ent->Scale.x = 1.6f;
+			ent->Scale.y = 20.8f;
+		}
+		obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
+		if (v0 == 3 && obj)
+		{
+			ent = obj->Data1;
+			ent->Position.x = -67.99f;
+			ent->Position.y = 10;
+			ent->Position.z = 337.77f;
+			ent->Rotation.x = 0xD77;
+			ent->Rotation.z = 0x11C7;
+			ent->Scale.x = 1.6f;
+			ent->Scale.y = 20.8f;
+		}
+		obj = LoadObject((LoadObj)2, 3, OF17); // CRACKER
+		if (v0 == 4 && obj)
+		{
+			ent = obj->Data1;
+			ent->Position.x = -97.47f;
+			ent->Position.y = 10;
+			ent->Position.z = 343.87f;
+			ent->Rotation.x = 0x180E;
+			ent->Rotation.y = 0x180E;
+			ent->Rotation.z = 0xFFFFF404;
+			ent->Scale.x = 1.5f;
+			ent->Scale.y = 10.8f;
+		}
+		v0++;
+	} 
+	while (v0 < 5);
+	return obj;
+}
+
+ObjectMaster *__cdecl sub_71BF20()
+{
+	unsigned int v0; // edi
+	int v1; // esi
+	ObjectMaster *result; // eax
+	NJS_OBJECT *v3; // [esp+8h] [ebp-10h]
+	NJS_OBJECT *v4; // [esp+Ch] [ebp-Ch]
+	NJS_OBJECT *v5; // [esp+10h] [ebp-8h]
+	NJS_OBJECT *v6; // [esp+14h] [ebp-4h]
+
+	dword_3CD7714 = 0;
+	v3 = &stru_3455450;
+	v4 = &stru_34B367C;
+	v5 = &stru_34B36B0;
+	v6 = &stru_34B36E4;
+	v0 = 0;
+	do
+	{
+		v1 = (int)*(&v3 + v0);
+		result = LoadObject(LoadObj_Data1, 4, Cracker);
+		if (result)
+		{
+			result = (ObjectMaster *)result->Data1;
+			result->Data1 = *(EntityData1 **)(v1 + 8);
+			result->Data2 = *(EntityData2 **)(v1 + 12);
+			result->UnknownA_ptr = *(void **)(v1 + 16);
+			result->DisplaySub = *(void(__cdecl **)(ObjectMaster *))(v1 + 20);
+			result->DeleteSub = *(void(__cdecl **)(ObjectMaster *))(v1 + 24);
+			result->SETData.SETData = *(SETObjData **)(v1 + 28);
+			result->UnknownB_ptr = (void *)0x3FC00000;
+			result->field_30 = 0x41700000;
+			result[1].Next = 0;
+		}
+		++v0;
+	} while (v0 < 4);
+	return result;
+}
+
 void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVM("CHAO");
@@ -5265,7 +5327,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ReplacePVM("CHAO_HYOUJI_S");
 	ReplacePVM("EC_ALIFE");
 	LoadChaoGardenHintMessages();
-	// Load configuration settings
+	//Load configuration settings
 	EnableSSGarden = config->getBool("Chao Gardens", "EnableStationSquareGarden", true);
 	EnableMRGarden = config->getBool("Chao Gardens", "EnableMysticRuinsGarden", true);
 	EnableECGarden = config->getBool("Chao Gardens", "EnableEggCarrierGarden", true);
@@ -5326,7 +5388,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	*(NJS_MODEL_SADX*)0x036076E4 = attachCHAO_0017B034; //Tree leaves 2
 	//Misc
 	WriteData<1>((char*)0x007151D3, 0x1A); //The secret EC egg is a two-tone black egg
-	ResizeTextureList(&GARDEN00_OBJECT_TEXLIST, 15);
+	ResizeTextureList(&GARDEN00_OBJECT_TEXLIST, 16);
 	//Name Machine stuff
 	ECGardenStartPoint.Position.y = 71.0f; //Prevent endless jumping in EC garden with the DC model for the Name Machine
 	MRGardenReturnPoint.Position.x = 219; //Same for MR garden
@@ -5365,7 +5427,7 @@ void ChaoGardens_Init(const IniFile *config, const HelperFunctions &helperFuncti
 		WriteData<5>((void*)0x0071CEC2, 0x90); //Don't mess with entry button
 	}
 	//Chao Race stuff
-	WriteData<1>((char*)0x71BF20, 0xC3u); //Kill SADX crackers
+	WriteJump((void*)0x71BF20, LoadChaoRaceCrackers); //Load crackers
 	WriteCall((void*)0x75A550, RenderChaoBall); //Chao Race ball model
 	WriteCall((void*)0x76DA03, RenderChaoRaceLetters_Fix); //Chao Race letters fix
 	WriteData((NJS_OBJECT**)0x883E68, &object_000459E4); //Start Mark in Chao Race
