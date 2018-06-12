@@ -179,12 +179,16 @@ void DrawVideoWithSpecular(int width, int height)
 	if (VideoFadeMode == 2 && VideoFadeValue >= 254 && SkipPressed == true) VideoPlayMode = 3;
 }
 
+void LoadSegalogoPVM(const char *filename, NJS_TEXLIST *texlist)
+{
+	LoadPVM("SEGALOGO", texlist);
+}
+
 void Videos_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
-	// Load configuration settings.
+	//Load configuration settings
 	ColorizeVideos = config->getBool("Videos", "ColorizeVideos", true);
 	SA1Intro = config->getBool("Videos", "EnableSA1Intro", true);
-
 	//Set Sonic Team logo mode
 	const std::string SonicTeamLogo_String = config->getString("Videos", "SonicTeamLogoMode", "Animated");
 	if (SonicTeamLogo_String == "Animated")
@@ -193,7 +197,8 @@ void Videos_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		//Use original DC PVM if possible
 		if (!DLLLoaded_HDGUI)
 		{
-			ReplacePVM("SEGALOGO_E");
+			ReplacePVM("SEGALOGO");
+			WriteCall((void*)0x42C756, LoadSegalogoPVM);
 			ResizeTextureList(&SEGALOGO_E_TEXLIST, 6);
 		}
 	}
@@ -201,7 +206,6 @@ void Videos_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		SonicTeamLogoMode = 1;
 	else if (SonicTeamLogo_String == "Off")
 		SonicTeamLogoMode = 2;
-
 	//Video stuff
 	InitVideoFrameStuff();
 	WriteCall((void*)0x00513A88, AdjustVideoFrame); //Center video frame vertically if playing Sonic Team logo/SA1 intro
@@ -318,6 +322,7 @@ void Videos_OnFrame()
 		VideoFadeValue = 255;
 	}
 }
+
 void Videos_OnInput()
 {
 	//Input hook for videos

@@ -650,5 +650,8 @@
     <ClInclude Include="ChaoEggs.h">
       <Filter>Header Files\Levels\Chao</Filter>
     </ClInclude>
+    <ClInclude Include="Chaos2_Column.h">
+      <Filter>Header Files\Levels\Bosses</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>

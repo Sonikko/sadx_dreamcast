@@ -119,6 +119,7 @@
     <ClInclude Include="BigBeach.h" />
     <ClInclude Include="ChaoEggs.h" />
     <ClInclude Include="ChaoFruits.h" />
+    <ClInclude Include="Chaos2_Column.h" />
     <ClInclude Include="Data\ADV01C_00.h" />
     <ClInclude Include="Data\ADV01C_01.h" />
     <ClInclude Include="Data\ADV01C_02.h" />
