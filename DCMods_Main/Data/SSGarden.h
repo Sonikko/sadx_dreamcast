@@ -10244,10 +10244,9 @@ COL collist_000115F4[] = {
 	{ { 0.00001099f, 20, 240 }, 36.05551f, 0, 0, &objectCHAO_00011198, 0, 0xE0000001 },
 	{ { -150, 1.5f, -104 }, 65.63363f, 0, 0, &objectCHAO_00011354, 0, 0xC0000002 },
 	{ { -125, -0.6f, -5 }, 167.7051f, 0, 0, &objectCHAO_000115C0, 0, 0xA0000002 },
-	{ { -150.0f, -1.5f, -104.0f }, 200, 0, 0, &objectCHAO_00014990, 0, 0x84040000 }, //Fountain
 };
 
-NJS_TEXNAME textures_ssgarden[34];
+NJS_TEXNAME textures_ssgarden[33];
 NJS_TEXLIST texlist_ssgarden = { arrayptrandlength(textures_ssgarden) };
 
 LandTable landtable_00011DD4 = { LengthOfArray(collist_000115F4), 0, 0xC, 1700, collist_000115F4, NULL, "GARDEN00", (NJS_TEXLIST *)&texlist_ssgarden, 0, 0 };

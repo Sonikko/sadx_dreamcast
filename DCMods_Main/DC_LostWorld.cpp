@@ -8,7 +8,6 @@ DataPointer(float, CurrentDrawDist, 0x03ABDC74);
 
 static int animw1 = 44;
 static int animw2 = 81;
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(NJS_MODEL_SADX, Hasira1Model, 0x2004E80);
 
 NJS_MATERIAL* ObjectSpecular_LostWorld[] = {
@@ -135,7 +134,7 @@ void LostWorld_Init(const IniFile *config, const HelperFunctions &helperFunction
 	ResizeTextureList((NJS_TEXLIST*)0x1F6F02C, textures_lw1);
 	ResizeTextureList((NJS_TEXLIST*)0x1E9B9AC, textures_lw2);
 	ResizeTextureList((NJS_TEXLIST*)0x1E79D80, textures_lw3);
-
+	ResizeTextureList(&OBJ_RUIN_TEXLIST, 127);
 	DataArray(FogData, LostWorld1Fog, 0x01E79AAC, 3);
 	DataArray(FogData, LostWorld2Fog, 0x01E79ADC, 3);
 	DataArray(FogData, LostWorld3Fog, 0x01E79B0C, 3);
@@ -150,8 +149,8 @@ void LostWorld_Init(const IniFile *config, const HelperFunctions &helperFunction
 		LostWorld2Fog[i].Layer = 150.0f;
 		LostWorld2Fog[i].Distance = 3200.0f;
 		LostWorld2Fog[i].Toggle = 1;
-		LostWorld3Fog[i].Layer = 500.0f;
-		LostWorld3Fog[i].Distance = 2500.0f;
+		LostWorld3Fog[i].Layer = 1.0f;
+		LostWorld3Fog[i].Distance = 3400.0f;
 		LostWorld3Fog[i].Color = 0xFFFFFFFF;
 		DrawDist_LostWorld2[i].Maximum = -2700.0;
 	}

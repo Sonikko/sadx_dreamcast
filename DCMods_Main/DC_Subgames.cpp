@@ -697,12 +697,17 @@ void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	ReplaceBIN_DC("SET0000A");
 	ReplaceBIN_DC("SET0000S");
 	ReplaceBIN_DC("SET0001S");
-
+	if (!DLLLoaded_HDGUI)
+	{
+		ReplacePVR("ST_064S_LOCKA");
+		ReplacePVR("ST_064S_LOCKB");
+		ReplacePVR("ST_064S_LOCKC");
+		ReplacePVR("STG_S_LOCKMK");
+	}
 	// Load configuration settings.
 	EnableTwinkleCircuit = config->getBool("Miscellaneous", "EnableTwinkleCircuit", true);
-	// FIXME: Typo in the config entry name...
-	EnableSandHill = config->getBool("Miscellaneous", "EnableSandHil", true);
-
+	EnableSandHill = config->getBool("Miscellaneous", "EnableSandHill", true);
+	EnableSkyChaseEnemyModels = config->getBool("Miscellaneous", "EnableSkyChaseEnemyModels", true);
 	if (EnableSandHill)
 	{ 
 		ReplaceBIN_DC("CAMSBOARD00S");
@@ -717,7 +722,6 @@ void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		WriteData((LandTable**)0x7D2051, &landtable_00002DEC); //Sand Hill
 		*(NJS_OBJECT *)0x017424DC = objectSBOARD_0006EA40; //Sand Hill ramp
 	}
-
 	if (EnableTwinkleCircuit)
 	{
 		ReplaceBIN_DC("SETMCART00S");
@@ -732,7 +736,6 @@ void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		ReplaceBIN_DC("CAMMCART03S");
 		ReplaceBIN_DC("CAMMCART04S");
 		ReplaceBIN_DC("CAMMCART05S");
-
 		switch (EnableSETFixes)
 		{
 			case SETFixes_Normal:
@@ -753,7 +756,6 @@ void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions
 			default:
 				break;
 		}
-
 		ReplacePVM("MINI_CART01");
 		ReplacePVM("MINI_CART02");
 		ReplacePVM("MINI_CART03");
@@ -763,7 +765,6 @@ void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		if (DLLLoaded_HDGUI == false) ReplacePVM("OBJ_MINI_CART");
 		WriteData((LandTable**)0x7D205B, &landtable_00001A3C); //Twinkle Circuit
 	}
-
 		ReplaceBIN_DC("SETSHT1S");
 		ReplaceBIN_DC("SETSHT2S");
 		ReplaceBIN_DC("CAMSHT1S");
@@ -790,8 +791,6 @@ void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		((NJS_OBJECT*)0x02917F34)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_SPECULAR;
 		WriteData((char*)0x0062751B, 0x00, 1); //Force Tornado light type
 		WriteData((char*)0x0062AC1F, 0x00, 1); //Force Tornado light type (transformation cutscene)
-
-	// FIXME: EnableSkyChaseEnemyModels isn't loaded from the configuration.
 	if (EnableSkyChaseEnemyModels)
 	{
 		if (!DLLLoaded_SA1Chars)
@@ -802,6 +801,7 @@ void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		if (!DLLLoaded_HDGUI)
 		{
 			ReplacePVM("SHOOTING0");
+
 		}
 		*(NJS_OBJECT *)0x02982F44 = objectSHOOTING_0003FA40; //Egg Carrier model
 		*(NJS_OBJECT *)0x298A894 = objectSHOOTING_00047110; //Hodai
@@ -811,7 +811,6 @@ void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		*(NJS_OBJECT *)0x028E2C88 = objectSHOOTING_0009153C; //Beam in Act 1
 		*(NJS_OBJECT *)0x0298E7D0 = objectSHOOTING_0004AEE0; //Beam in Act 2
 	}
-
 	//Lighting stuff
 	ReplaceBIN("PL_Z0B", "PL_Z0X");
 	if (DLLLoaded_Lantern)
@@ -820,7 +819,6 @@ void Subgames_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		material_register(LevelSpecular_Subgames, LengthOfArray(LevelSpecular_Subgames), &ForceDiffuse0Specular0);
 		material_register(WhiteDiffuse_Subgames, LengthOfArray(WhiteDiffuse_Subgames), &ForceWhiteDiffuse3);
 	}
-
 	//Fog and draw distance tweaks
 	for (unsigned int i = 0; i < 3; i++)
 	{

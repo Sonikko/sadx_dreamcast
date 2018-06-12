@@ -29334,7 +29334,7 @@ NJS_MODEL_SADX attach_00057EA8 = { vertex_00057AE8, normal_00057CC8, LengthOfArr
 NJS_OBJECT object_00057ED0 = { NJD_EVAL_UNIT_ANG | NJD_EVAL_UNIT_SCL | NJD_EVAL_BREAK, &attach_00057EA8, 513.2979f, 157.8985f, 478.8509f, 0, 0, 0, 1, 1, 1, NULL, NULL };
 
 NJS_MATERIAL matlist_00057F04[] = {
-	{ { 0x65B2B2B2 },{ 0xFFFFFFFF }, 11, 55, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
+	{ { 0x65B2B2B2 },{ 0xFFFFFFFF }, 11, 0, NJD_D_100 | NJD_FILTER_BILINEAR | NJD_FLAG_USE_ALPHA | NJD_FLAG_USE_TEXTURE | NJD_DA_INV_SRC | NJD_SA_SRC }
 };
 
 Sint16 poly_00057F18[] = {
@@ -36739,7 +36739,6 @@ COL collist_0001E294[] = {
 	{ { 233.4255f, 72.19841f, 533.7913f }, 126.2519f, 0, 0, &object_00060750, 0, 0x80000000 },
 	{ { 404.3542f, 70.54925f, 441.2472f }, 126.2519f, 0, 0, &object_00060784, 0, 0x80000000 },
 	{ { 1420.612f, 211.859f, 862.9596f }, 20.19383f, 0, 0, &object_000607B8, 0, 0xC0000041 },
-	{ { 711.6917f, -420.8741f, 3703.044f }, 7883.168f, 0, 0, &object_00057FD4, 0, 0x80040400 }, //SA1 water
 	{ { 1187.889f, -413.2884f, 673.5183f }, 903.1257f, 0, 0, &object_00048F9C, 0, 0x81000000 }, //waves1
 	{ { -63.33233f, -411.4669f, 1024.211f }, 635.5662f, 0, 0, &object_00049370, 0, 0x81000000 }, //waves2
 	{ { 725.0441f, -415.7866f, 2063.492f }, 379.9257f, 0, 0, &object_0004EB6C, 0, 0x81000000 }, //waves3
@@ -36753,7 +36752,7 @@ GeoAnimData animlist_0001F524[] = {
 NJS_TEXNAME textures_hornet[10];
 NJS_TEXLIST texlist_hornet = { arrayptrandlength(textures_hornet) };
 
-NJS_TEXNAME textures_egm1land[143];
+NJS_TEXNAME textures_egm1land[118];
 NJS_TEXLIST texlist_egm1land = { arrayptrandlength(textures_egm1land) };
 
 LandTable landtable_00000128 = { LengthOfArray(collist_0001E294), LengthOfArray(animlist_0001F524), 0xD, 10000, collist_0001E294, animlist_0001F524, "EGM1LAND", (NJS_TEXLIST *)0x1557064, 0, 0 };

@@ -156,6 +156,9 @@
     <ClCompile Include="SpeedFixes.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SADXStyleWater.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Data\textures.h">
@@ -364,12 +367,6 @@
     </ClInclude>
     <ClInclude Include="Data\EggCarrier_Objects.h">
       <Filter>Header Files\Levels\ADV01MODELS</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ECGarden.h">
-      <Filter>Header Files\Levels\Chao</Filter>
-    </ClInclude>
-    <ClInclude Include="Data\ECGarden_DC.h">
-      <Filter>Header Files\Levels\Chao</Filter>
     </ClInclude>
     <ClInclude Include="Data\EggHornet.h">
       <Filter>Header Files\Levels\Bosses</Filter>
@@ -635,11 +632,23 @@
     <ClInclude Include="Data\TornadoCrash.h">
       <Filter>Header Files\Levels\ADV02MODELS</Filter>
     </ClInclude>
-    <ClInclude Include="Data\ChaoFruitModels.h">
-      <Filter>Header Files\Levels\Chao</Filter>
-    </ClInclude>
     <ClInclude Include="OStandLight.h">
       <Filter>Header Files\Levels\FinalEgg</Filter>
+    </ClInclude>
+    <ClInclude Include="Data\ECGarden.h">
+      <Filter>Header Files\Levels\Chao</Filter>
+    </ClInclude>
+    <ClInclude Include="Frogs.h">
+      <Filter>Header Files\Levels\General</Filter>
+    </ClInclude>
+    <ClInclude Include="ChaoFruits.h">
+      <Filter>Header Files\Levels\Chao</Filter>
+    </ClInclude>
+    <ClInclude Include="BigBeach.h">
+      <Filter>Header Files\Levels\EmeraldCoast</Filter>
+    </ClInclude>
+    <ClInclude Include="ChaoEggs.h">
+      <Filter>Header Files\Levels\Chao</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

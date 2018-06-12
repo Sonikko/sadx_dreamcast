@@ -5,7 +5,6 @@
 #include "HotShelter3.h"
 
 FunctionPointer(void, sub_405370, (NJS_OBJECT *a1, NJS_MOTION *a2, float a3, float a4), 0x405370);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(float, E105HitCounter, 0x03C58158);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);

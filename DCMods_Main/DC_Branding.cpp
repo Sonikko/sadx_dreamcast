@@ -31,7 +31,7 @@ NJS_TEXLIST texlist_gtitle = { arrayptrandlength(textures_gtitle) };
 
 FunctionPointer(ObjectMaster*, sub_510390, (int a1), 0x510390);
 FunctionPointer(void, sub_505B40, (int a1), 0x505B40);
-DataPointer(int, DroppedFrames, 0x03B1117C);
+FunctionPointer(void, sub_432EA0, (), 0x432EA0);
 DataPointer(CreditsList, MainCredits, 0x2BC2FD0);
 DataArray(PVMEntry, GUITextures_Japanese, 0x007EECF0, 30);
 DataArray(PVMEntry, GUITextures_English, 0x007EEDE0, 30);
@@ -143,6 +143,7 @@ static bool EnableTransition = true;
 static bool DisableSA1TitleScreen = false;
 static bool DrawOverlay = true;
 static bool RemoveCream = true;
+static bool HUDTweak = true;
 static int SA1LogoMode = 0;
 //Tutorial stuff
 float PadManuXOffset_F = 175.0f;
@@ -151,6 +152,13 @@ float PadManuXOffset_J = 200.0f;
 float PadManuYOffset = 136.0f;
 float PadManuYOffset2 = 105.0f;
 float PadManuYMultiplier = 1.0f;
+//PVM accuracy stuff
+float sphe_cursol_scale = 1.0f;
+float wins_scaleXmultiplier = 3.96900012f;
+float wins_scaleYmultiplier = 1.0f;
+//HUD
+static float HUDYOffset1 = 80.0f;
+static float HUDYOffset2 = 0.0f;
 
 CreditsEntry SA1Credits[] = {
 	{ 1, 0, 0, 0, "SONIC ADVENTURE STAFF" },
@@ -1129,6 +1137,19 @@ void DrawShadow_Hook(int texnum, float x, float y, float z, float scaleX, float 
 	njTextureShadingMode(2);
 }
 
+void DrawMainMenuShadow_Hook(int texnum, float x, float y, float z, float scaleX, float scaleY)
+{
+	if (DLLLoaded_HDGUI == false)
+	{
+		//This is for original shadow texture
+		scaleX = scaleX * 4.0f;
+		scaleY = scaleY * 4.0f;
+	}
+	njTextureShadingMode(1);
+	DrawBG(texnum, x, y, z, scaleX, scaleY);
+	njTextureShadingMode(2);
+}
+
 void DrawTexture_Hook(int that_cant_be_right, float x, float y, float z)
 {
 	njTextureShadingMode(1);
@@ -1462,6 +1483,22 @@ void GreenRect_Wrapper(float x, float y, float z, float width, float height)
 	njTextureShadingMode(2);
 }
 
+void __cdecl BossHUDHack(void *a1)
+{
+	float x; // ST0C_4
+	float y; // ST10_4
+	float scale;
+	sub_432EA0();
+	njSetTexture(&Hud_RingTimeLife_TEXLIST);
+	njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+	x = (HorizontalResolution_float/640.0f) * *(float *)a1;
+	y = (*((float *)a1 + 1) - 20.0f) * (VerticalResolution_float / 480.0f);
+	scale = (VerticalResolution_float / 480.0f); //1x for original PVM
+	if (DLLLoaded_HDGUI) scale = scale / 4.0f;
+	DrawBG(*((_DWORD *)a1 + 3), x, y, *((float *)a1 + 2), scale, scale);
+}
+
 void Branding_SetUpVariables()
 {
 	//Set up variables
@@ -1482,10 +1519,11 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	DisableSA1TitleScreen = config->getBool("Branding", "DisableSA1TitleScreen", false);
 	DrawOverlay = config->getBool("Branding", "DrawOverlay", true);
 	RemoveCream = config->getBool("Branding", "RemoveCream", true);
+	HUDTweak = config->getBool("Branding", "HUDTweak", true);
 	SA1LogoMode = config->getInt("Branding", "SA1LogoMode", 0);
 	LogoScaleXT = LogoScaleX;
 	LogoScaleYT = LogoScaleY;
-
+	WriteJump((void*)0x4B62B0, BossHUDHack); //HUD hack for Knuckles/Gamma boss fight
 	Branding_SetUpVariables();
 	//Credits
 	WriteData((float*)0x006415DA, 1.5f); //EngBG X scale
@@ -1495,6 +1533,13 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	MainCredits.Entries = (CreditsEntry*)&SA1Credits;
 	f480_Fixed = 1.0f + VerticalResolution;
 	f640_Fixed = 1.0f + HorizontalResolution;
+	//HUD position
+	if (HUDTweak)
+	{
+		WriteData((float**)0x425E51, &HUDYOffset1);
+		WriteData((float**)0x425EA4, &HUDYOffset2);
+		((NJS_SPRITE*)0x91312C)->p.y = 49.0f;
+	}
 	//Set PVM names
 	ReplacePVM("GG_TEXLIST_US");
 	ReplacePVM("ENDBG_LAST_AMY");
@@ -1510,9 +1555,55 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	ReplacePVM("TUTOBG_KNUCKLES");
 	ReplacePVM("TUTOBG_SONIC");
 	ReplacePVM("TUTOBG_TAILS");
-	ReplacePVM("AVA_FSCMN_E");
 	if (DLLLoaded_HDGUI == false)
 	{
+		WriteData((float**)0x00431B46, &sphe_cursol_scale); //AVA_CSR
+		WriteData((float**)0x00431B57, &sphe_cursol_scale); //AVA_CSR
+		//AVA_NEW16NO fixes
+		WriteData((float*)0x005079F7, 1.125f); //sub_5079E0
+		WriteData((float*)0x005079FC, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507A1F, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507A24, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507A4A, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507A4F, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507A82, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507A87, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507AE2, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507AE7, 1.125f); //sub_5079E0
+		WriteData((float*)0x00507897, 1.125f); //sub_507880
+		WriteData((float*)0x0050789C, 1.125f); //sub_507880
+		WriteData((float*)0x005078BF, 1.125f); //sub_507880
+		WriteData((float*)0x005078C4, 1.125f); //sub_507880
+		WriteData((float*)0x005078EA, 1.125f); //sub_507880
+		WriteData((float*)0x005078EF, 1.125f); //sub_507880
+		WriteData((float*)0x00507935, 1.125f); //sub_507880
+		WriteData((float*)0x0050793A, 1.125f); //sub_507880
+		WriteData((float*)0x00507989, 1.125f); //sub_507880
+		WriteData((float*)0x0050798E, 1.125f); //sub_507880
+		WriteData((float*)0x0050AEA1, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AEA6, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AEE0, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AEE5, 1.125f); //sub_50AE30
+		WriteData((float*)0x00510DE9, 1.75f); //Sound test
+		WriteData((float*)0x00510DEE, 1.375f); //Sound test
+		WriteData((float*)0x00510E0B, 1.75f); //Sound test
+		WriteData((float*)0x00510E10, 1.375f); //Sound test
+		WriteData((float*)0x00510E32, 1.75f); //Sound test
+		WriteData((float*)0x00510E37, 1.375f); //Sound test
+		WriteData((float*)0x00510E5C, 1.75f); //Sound test
+		WriteData((float*)0x00510E61, 1.375f); //Sound test
+		WriteData((float*)0x00510E79, 1.75f); //Sound test
+		WriteData((float*)0x00510E7E, 1.375f); //Sound test
+		WriteData((float*)0x0050A058, 1.125f); //sub_50A010
+		WriteData((float*)0x0050A06A, 1.125f); //sub_50A010
+		WriteData((float*)0x0050AE0A, 1.125f); //sub_50ADE0
+		WriteData((float*)0x0050AE0F, 1.125f); //sub_50ADE0
+		WriteData((float*)0x0050AEA1, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AEA6, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AEE0, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AEE5, 1.125f); //sub_50AE30
+		WriteData((float*)0x0050AF5A, 1.125f); //sub_50AF30
+		WriteData((float*)0x0050AF5F, 1.125f); //sub_50AF30
 		WriteCall((void*)0x64393E, GreenRect_Wrapper); //Fix alpha rejection on green rectangle in tutorials
 		//Tutorial stuff
 		//PVMs
@@ -1835,6 +1926,10 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		TutoScreenGamma_S[0].BoxScaleY = 144;
 		TutoScreenGamma_S[0].BoxX = 230;
 		TutoScreenGamma_S[4].BoxScaleY = 192;	
+		ReplacePVM("CHAOS_LIFEGAUGE");
+		ReplacePVM("E102TIME");
+		ReplacePVM("EXTRA");
+		ReplacePVM("FISHING");
 		ReplacePVM("ENDBG_AMY_0");
 		ReplacePVM("ENDBG_AMY_1");
 		ReplacePVM("ENDBG_AMY_2");
@@ -1863,26 +1958,58 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		ReplacePVM("CON_REGULAR_E");
 		ReplacePVM("PRESSSTART");
 		ReplacePVM("AVA_BACK");
+		ReplacePVM("AVA_CHSEL");
 		ReplacePVM("AVA_CHSEL_E");
 		ReplacePVM("AVA_CSR");
+		ReplacePVM("AVA_DLG");
 		ReplacePVM("AVA_DLG_E");
+		ResizeTextureList(&ava_dlg_e_TEXLIST, 10);
+		ReplacePVM("AVA_EMBLEM");
+		ReplacePVM("AVA_EMBLEMVIEW");
 		ReplacePVM("AVA_EMBLEMVIEW_E");
+		ReplacePVM("AVA_FILESEL");
 		ReplacePVM("AVA_FILESEL_E");
+		ReplacePVM("AVA_FSCMN");
+		ReplacePVM("AVA_FSCMN_E");
+		ReplacePVM("AVA_FSDLG");
 		ReplacePVM("AVA_FSDLG_E");
+		ReplacePVM("AVA_OPTION");
 		ReplacePVM("AVA_OPTION_E");
 		ReplacePVM("AVA_SAN");
 		ReplacePVM("ADV_WINDOW");
+		ReplacePVM("AVA_SNDTEST");
 		ReplacePVM("AVA_SNDTEST_E");
 		ReplacePVM("AVA_SQUARE");
+		ReplacePVM("AVA_STNAM");
 		ReplacePVM("AVA_STNAM_E");
 		ReplacePVM("AVA_SUUJI");
+		ReplacePVM("AVA_TITLE");
 		ReplacePVM("AVA_TITLE_E");
+		ReplacePVM("AVA_TRIALACTSEL");
 		ReplacePVM("AVA_TRIALACTSEL_E");
+		ReplacePVM("GAMEOVER");
 		ReplacePVM("GAMEOVER_E");
+		ReplacePVM("BOARD_SCORE");
+		ReplacePVM("B_CHNAM");
 		ReplacePVM("B_CHNAM_E");
 		ReplacePVM("M_CHNAM");
+		ReplacePVM("MILESRACE");
 		ReplacePVM("PRESSSTART");
-		ReplacePVM("SEGALOGO_E");
+		ReplacePVM("SCORE_BACK");
+		ReplacePVM("SCORE_ACT");
+		ReplacePVM("SCORE_ACT_E");
+		ReplacePVM("SCORE_BOARD");
+		ReplacePVM("SCORE_BOARD_E");
+		ReplacePVM("SCORE_BOSS");
+		ReplacePVM("SCORE_BOSS_E");
+		ReplacePVM("SCORE_CART");
+		ReplacePVM("SCORE_CART_E");
+		ReplacePVM("SCORE_MOLE");
+		ReplacePVM("SCORE_MOLE_E");
+		ReplacePVM("SCORE_RESULT");
+		ReplacePVM("SCORE_RESULT_E");
+		ReplacePVM("SCORE_SHOOT");
+		ReplacePVM("SCORE_SHOOT_E");
 		ReplacePVM("SMRYBG_AMY");
 		ReplacePVM("SMRYBG_BIG");
 		ReplacePVM("SMRYBG_E102");
@@ -1890,112 +2017,416 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		ReplacePVM("SMRYBG_SONIC");
 		ReplacePVM("SMRYBG_SUPERSONIC");
 		ReplacePVM("SMRYBG_TAILS");
+		ReplacePVM("TX_CHNAM");
+		ReplacePVM("TX_CHNAM_E");
 		ReplacePVR("ABC_TXT");
+		ReplacePVR("ACTION_0");
+		ReplacePVR("ACTION_1");
+		ReplacePVR("ACTION_10");
+		ReplacePVR("ACTION_11");
+		ReplacePVR("ACTION_12");
+		ReplacePVR("ACTION_13");
+		ReplacePVR("ACTION_15");
+		ReplacePVR("ACTION_16");
+		ReplacePVR("ACTION_2");
+		ReplacePVR("ACTION_3");
+		ReplacePVR("ACTION_4");
+		ReplacePVR("ACTION_5");
+		ReplacePVR("ACTION_6");
+		ReplacePVR("ACTION_7");
+		ReplacePVR("ACTION_8");
+		ReplacePVR("ACTION_9");
+		ReplacePVR("A_STAGE01");
 		ReplacePVR("A_STAGE01_E");
+		ReplacePVR("A_STAGE02");
 		ReplacePVR("A_STAGE02_E");
+		ReplacePVR("A_STAGE03");
 		ReplacePVR("A_STAGE03_E");
 		ReplacePVR("B32ASCII");
+		ReplacePVR("B32ASCII_J");
+		ReplacePVR("BOSS_0");
+		ReplacePVR("BOSS_1");
+		ReplacePVR("BOSS_2");
+		ReplacePVR("BOSS_3");
+		ReplacePVR("BOSS_4");
+		ReplacePVR("BOSS__0");
+		ReplacePVR("BOSS__1");
+		ReplacePVR("BOSS__2");
+		ReplacePVR("BOSS__3");
+		ReplacePVR("BOSS__4");
+		ReplacePVR("B_STAGE01");
 		ReplacePVR("B_STAGE01_E");
+		ReplacePVR("B_STAGE02");
 		ReplacePVR("B_STAGE02_E");
+		ReplacePVR("B_STAGE03");
 		ReplacePVR("B_STAGE03_E");
+		ReplacePVR("B_STAGE04");
 		ReplacePVR("B_STAGE04_E");
+		ReplacePVR("E_STAGE01");
 		ReplacePVR("E_STAGE01_E");
+		ReplacePVR("E_STAGE02");
 		ReplacePVR("E_STAGE02_E");
+		ReplacePVR("E_STAGE03");
 		ReplacePVR("E_STAGE03_E");
+		ReplacePVR("E_STAGE04");
 		ReplacePVR("E_STAGE04_E");
+		ReplacePVR("E_STAGE05");
 		ReplacePVR("E_STAGE05_E");
+		ReplacePVR("HYOJI_BALLS_E");
+		ReplacePVR("HYOJI_EMBLEM0");
+		ReplacePVR("HYOJI_EMBLEM1");
+		ReplacePVR("K_STAGE01");
 		ReplacePVR("K_STAGE01_E");
+		ReplacePVR("K_STAGE02");
 		ReplacePVR("K_STAGE02_E");
+		ReplacePVR("K_STAGE03");
 		ReplacePVR("K_STAGE03_E");
+		ReplacePVR("K_STAGE04");
 		ReplacePVR("K_STAGE04_E");
+		ReplacePVR("K_STAGE05");
 		ReplacePVR("K_STAGE05_E");
+		ReplacePVR("M128_SEA001");
+		ReplacePVR("MINIGAME_0");
+		ReplacePVR("MINIGAME_1");
+		ReplacePVR("MINIGAME_2");
+		ReplacePVR("MINIGAME_3");
+		ReplacePVR("MINIGAME_4");
+		ReplacePVR("MINIGAME_5");
+		ReplacePVR("MINIGAME_6");
+		ReplacePVR("MINIGAME_7");
+		ReplacePVR("MINIGAME_8");
+		ReplacePVR("MINIPRF01");
+		ReplacePVR("MINIPRF02");
+		ReplacePVR("MINIPRF03");
+		ReplacePVR("MINIPRF04");
+		ReplacePVR("MINIPRF05");
+		ReplacePVR("MINIPRF06");
+		ReplacePVR("MINIPRF07");
+		ReplacePVR("MINIPRF08");
+		ReplacePVR("MINIPRF09");
+		ReplacePVR("MISSION_A_AFIN");
+		ReplacePVR("MISSION_A_AHOT");
+		ReplacePVR("MISSION_A_ATWI");
+		ReplacePVR("MISSION_A_BALMIN");
+		ReplacePVR("MISSION_A_BALRING");
 		ReplacePVR("MISSION_A_BALRING_E");
+		ReplacePVR("MISSION_A_BALRING_F");
+		ReplacePVR("MISSION_A_BALRING_G");
+		ReplacePVR("MISSION_A_BALRING_S");
+		ReplacePVR("MISSION_A_BALZERO");
 		ReplacePVR("MISSION_A_BALZERO_E");
+		ReplacePVR("MISSION_A_BALZERO_F");
+		ReplacePVR("MISSION_A_BALZERO_G");
+		ReplacePVR("MISSION_A_BALZERO_S");
 		ReplacePVR("MISSION_A_FIN_E");
+		ReplacePVR("MISSION_A_FIN_F");
+		ReplacePVR("MISSION_A_FIN_G");
+		ReplacePVR("MISSION_A_FIN_S");
 		ReplacePVR("MISSION_A_HOT_E");
+		ReplacePVR("MISSION_A_HOT_F");
+		ReplacePVR("MISSION_A_HOT_G");
+		ReplacePVR("MISSION_A_HOT_S");
 		ReplacePVR("MISSION_A_TWIN_E");
+		ReplacePVR("MISSION_A_TWIN_F");
+		ReplacePVR("MISSION_A_TWIN_G");
+		ReplacePVR("MISSION_A_TWIN_S");
+		ReplacePVR("MISSION_BIG_1K");
 		ReplacePVR("MISSION_BIG_1K_E");
+		ReplacePVR("MISSION_BIG_1K_F");
+		ReplacePVR("MISSION_BIG_1K_G");
+		ReplacePVR("MISSION_BIG_1K_S");
+		ReplacePVR("MISSION_BIG_2K");
 		ReplacePVR("MISSION_BIG_2K_E");
+		ReplacePVR("MISSION_BIG_2K_F");
+		ReplacePVR("MISSION_BIG_2K_G");
+		ReplacePVR("MISSION_BIG_2K_S");
+		ReplacePVR("MISSION_BIG_FROG");
 		ReplacePVR("MISSION_BIG_FROG_E");
+		ReplacePVR("MISSION_BIG_FROG_F");
+		ReplacePVR("MISSION_BIG_FROG_G");
+		ReplacePVR("MISSION_BIG_FROG_S");
+		ReplacePVR("MISSION_G_103");
+		ReplacePVR("MISSION_G_103RING");
 		ReplacePVR("MISSION_G_103RING_E");
+		ReplacePVR("MISSION_G_103RING_F");
+		ReplacePVR("MISSION_G_103RING_G");
+		ReplacePVR("MISSION_G_103RING_S");
+		ReplacePVR("MISSION_G_103SEC");
 		ReplacePVR("MISSION_G_103_E");
+		ReplacePVR("MISSION_G_103_F");
+		ReplacePVR("MISSION_G_103_G");
+		ReplacePVR("MISSION_G_103_S");
+		ReplacePVR("MISSION_G_104");
+		ReplacePVR("MISSION_G_104RING");
 		ReplacePVR("MISSION_G_104RING_E");
+		ReplacePVR("MISSION_G_104RING_F");
+		ReplacePVR("MISSION_G_104RING_G");
+		ReplacePVR("MISSION_G_104RING_S");
+		ReplacePVR("MISSION_G_104SEC");
 		ReplacePVR("MISSION_G_104_E");
+		ReplacePVR("MISSION_G_104_F");
+		ReplacePVR("MISSION_G_104_G");
+		ReplacePVR("MISSION_G_104_S");
+		ReplacePVR("MISSION_G_105");
+		ReplacePVR("MISSION_G_105RING");
 		ReplacePVR("MISSION_G_105RING_E");
+		ReplacePVR("MISSION_G_105RING_F");
+		ReplacePVR("MISSION_G_105RING_G");
+		ReplacePVR("MISSION_G_105RING_S");
+		ReplacePVR("MISSION_G_105SEC");
 		ReplacePVR("MISSION_G_105_E");
+		ReplacePVR("MISSION_G_105_F");
+		ReplacePVR("MISSION_G_105_G");
+		ReplacePVR("MISSION_G_105_S");
+		ReplacePVR("MISSION_G_AEME");
+		ReplacePVR("MISSION_G_AFIN");
+		ReplacePVR("MISSION_G_AHOT");
+		ReplacePVR("MISSION_G_ARED");
+		ReplacePVR("MISSION_G_AWIN");
+		ReplacePVR("MISSION_G_BEME");
+		ReplacePVR("MISSION_G_BFIN");
+		ReplacePVR("MISSION_G_BHOT");
+		ReplacePVR("MISSION_G_BRED");
+		ReplacePVR("MISSION_G_BWIN");
 		ReplacePVR("MISSION_G_EME_E");
+		ReplacePVR("MISSION_G_EME_F");
+		ReplacePVR("MISSION_G_EME_G");
+		ReplacePVR("MISSION_G_EME_S");
 		ReplacePVR("MISSION_G_FIN_E");
+		ReplacePVR("MISSION_G_FIN_F");
+		ReplacePVR("MISSION_G_FIN_G");
+		ReplacePVR("MISSION_G_FIN_S");
+		ReplacePVR("MISSION_G_FROG");
+		ReplacePVR("MISSION_G_FROGRING");
 		ReplacePVR("MISSION_G_FROGRING_E");
+		ReplacePVR("MISSION_G_FROGRING_F");
+		ReplacePVR("MISSION_G_FROGRING_G");
+		ReplacePVR("MISSION_G_FROGRING_S");
+		ReplacePVR("MISSION_G_FROGSEC");
 		ReplacePVR("MISSION_G_FROG_E");
+		ReplacePVR("MISSION_G_FROG_F");
+		ReplacePVR("MISSION_G_FROG_G");
+		ReplacePVR("MISSION_G_FROG_S");
 		ReplacePVR("MISSION_G_HOT_E");
+		ReplacePVR("MISSION_G_HOT_F");
+		ReplacePVR("MISSION_G_HOT_G");
+		ReplacePVR("MISSION_G_HOT_S");
 		ReplacePVR("MISSION_G_RED_E");
+		ReplacePVR("MISSION_G_RED_F");
+		ReplacePVR("MISSION_G_RED_G");
+		ReplacePVR("MISSION_G_RED_S");
+		ReplacePVR("MISSION_G_SONICD");
+		ReplacePVR("MISSION_G_SONICDRING");
 		ReplacePVR("MISSION_G_SONICDRING_E");
+		ReplacePVR("MISSION_G_SONICDRING_F");
+		ReplacePVR("MISSION_G_SONICDRING_G");
+		ReplacePVR("MISSION_G_SONICDRING_S");
+		ReplacePVR("MISSION_G_SONICDSEC");
 		ReplacePVR("MISSION_G_SONICD_E");
+		ReplacePVR("MISSION_G_SONICD_F");
+		ReplacePVR("MISSION_G_SONICD_G");
+		ReplacePVR("MISSION_G_SONICD_S");
 		ReplacePVR("MISSION_G_WIN_E");
+		ReplacePVR("MISSION_G_WIN_F");
+		ReplacePVR("MISSION_G_WIN_G");
+		ReplacePVR("MISSION_G_WIN_S");
+		ReplacePVR("MISSION_K_1MIN");
 		ReplacePVR("MISSION_K_1MIN_E");
+		ReplacePVR("MISSION_K_1MIN_F");
+		ReplacePVR("MISSION_K_1MIN_G");
+		ReplacePVR("MISSION_K_1MIN_S");
+		ReplacePVR("MISSION_K_2MIN");
 		ReplacePVR("MISSION_K_2MIN_E");
+		ReplacePVR("MISSION_K_2MIN_F");
+		ReplacePVR("MISSION_K_2MIN_G");
+		ReplacePVR("MISSION_K_2MIN_S");
+		ReplacePVR("MISSION_K_3EME");
 		ReplacePVR("MISSION_K_3EME_E");
+		ReplacePVR("MISSION_K_3EME_F");
+		ReplacePVR("MISSION_K_3EME_G");
+		ReplacePVR("MISSION_K_3EME_S");
+		ReplacePVR("MISSION_K_NOHINT");
 		ReplacePVR("MISSION_K_NOHINT_E");
+		ReplacePVR("MISSION_K_NOHINT_F");
+		ReplacePVR("MISSION_K_NOHINT_G");
+		ReplacePVR("MISSION_K_NOHINT_S");
+		ReplacePVR("MISSION_S_2MIN");
+		ReplacePVR("MISSION_S_2MINH");
+		ReplacePVR("MISSION_S_3MIN");
+		ReplacePVR("MISSION_S_4MIN");
+		ReplacePVR("MISSION_S_4MINH");
+		ReplacePVR("MISSION_S_5MIN");
+		ReplacePVR("MISSION_S_BOX");
 		ReplacePVR("MISSION_S_BOX25MIN_E");
+		ReplacePVR("MISSION_S_BOX25MIN_F");
+		ReplacePVR("MISSION_S_BOX25MIN_G");
+		ReplacePVR("MISSION_S_BOX25MIN_S");
 		ReplacePVR("MISSION_S_BOX2MIN_E");
+		ReplacePVR("MISSION_S_BOX2MIN_F");
+		ReplacePVR("MISSION_S_BOX2MIN_G");
+		ReplacePVR("MISSION_S_BOX2MIN_S");
 		ReplacePVR("MISSION_S_BOX3MIN_E");
+		ReplacePVR("MISSION_S_BOX3MIN_F");
+		ReplacePVR("MISSION_S_BOX3MIN_G");
+		ReplacePVR("MISSION_S_BOX3MIN_S");
 		ReplacePVR("MISSION_S_BOX45MIN_E");
+		ReplacePVR("MISSION_S_BOX45MIN_F");
+		ReplacePVR("MISSION_S_BOX45MIN_G");
+		ReplacePVR("MISSION_S_BOX45MIN_S");
 		ReplacePVR("MISSION_S_BOX4MIN_E");
+		ReplacePVR("MISSION_S_BOX4MIN_F");
+		ReplacePVR("MISSION_S_BOX4MIN_G");
+		ReplacePVR("MISSION_S_BOX4MIN_S");
 		ReplacePVR("MISSION_S_BOX5MIN_E");
+		ReplacePVR("MISSION_S_BOX5MIN_F");
+		ReplacePVR("MISSION_S_BOX5MIN_G");
+		ReplacePVR("MISSION_S_BOX5MIN_S");
+		ReplacePVR("MISSION_S_BOXMIN");
 		ReplacePVR("MISSION_S_BOX_E");
+		ReplacePVR("MISSION_S_BOX_F");
+		ReplacePVR("MISSION_S_BOX_G");
+		ReplacePVR("MISSION_S_BOX_S");
+		ReplacePVR("MISSION_S_EGGC");
 		ReplacePVR("MISSION_S_EGGC_E");
+		ReplacePVR("MISSION_S_EGGC_F");
+		ReplacePVR("MISSION_S_EGGC_G");
+		ReplacePVR("MISSION_S_EGGC_S");
+		ReplacePVR("MISSION_S_EMECASINO");
 		ReplacePVR("MISSION_S_EMECASINO_E");
+		ReplacePVR("MISSION_S_EMECASINO_F");
+		ReplacePVR("MISSION_S_EMECASINO_G");
+		ReplacePVR("MISSION_S_EMECASINO_S");
+		ReplacePVR("MISSION_S_EMESNOW");
 		ReplacePVR("MISSION_S_EMESNOW_E");
+		ReplacePVR("MISSION_S_EMESNOW_F");
+		ReplacePVR("MISSION_S_EMESNOW_G");
+		ReplacePVR("MISSION_S_EMESNOW_S");
+		ReplacePVR("MISSION_S_EMEWIND");
 		ReplacePVR("MISSION_S_EMEWIND_E");
+		ReplacePVR("MISSION_S_EMEWIND_F");
+		ReplacePVR("MISSION_S_EMEWIND_G");
+		ReplacePVR("MISSION_S_EMEWIND_S");
+		ReplacePVR("MISSION_S_FEGG");
 		ReplacePVR("MISSION_S_FEGG_E");
+		ReplacePVR("MISSION_S_FEGG_F");
+		ReplacePVR("MISSION_S_FEGG_G");
+		ReplacePVR("MISSION_S_FEGG_S");
+		ReplacePVR("MISSION_S_ISEKI");
 		ReplacePVR("MISSION_S_ISEKI_E");
+		ReplacePVR("MISSION_S_ISEKI_F");
+		ReplacePVR("MISSION_S_ISEKI_G");
+		ReplacePVR("MISSION_S_ISEKI_S");
+		ReplacePVR("MISSION_S_RINGBOX");
 		ReplacePVR("MISSION_S_RINGBOX_E");
+		ReplacePVR("MISSION_S_RINGBOX_F");
+		ReplacePVR("MISSION_S_RINGBOX_G");
+		ReplacePVR("MISSION_S_RINGBOX_S");
+		ReplacePVR("MISSION_S_TAILS");
 		ReplacePVR("MISSION_S_TAILS_E");
+		ReplacePVR("MISSION_S_TAILS_F");
+		ReplacePVR("MISSION_S_TAILS_G");
+		ReplacePVR("MISSION_S_TAILS_S");
+		ReplacePVR("MISSION_T_BOX");
 		ReplacePVR("MISSION_T_BOX_E");
+		ReplacePVR("MISSION_T_BOX_F");
+		ReplacePVR("MISSION_T_BOX_G");
+		ReplacePVR("MISSION_T_BOX_S");
+		ReplacePVR("MISSION_T_EMECASINO");
 		ReplacePVR("MISSION_T_EMECASINO_E");
+		ReplacePVR("MISSION_T_EMECASINO_F");
+		ReplacePVR("MISSION_T_EMECASINO_G");
+		ReplacePVR("MISSION_T_EMECASINO_S");
+		ReplacePVR("MISSION_T_EMESNOW");
 		ReplacePVR("MISSION_T_EMESNOW_E");
+		ReplacePVR("MISSION_T_EMESNOW_F");
+		ReplacePVR("MISSION_T_EMESNOW_G");
+		ReplacePVR("MISSION_T_EMESNOW_S");
+		ReplacePVR("MISSION_T_EMEWIND");
 		ReplacePVR("MISSION_T_EMEWIND_E");
+		ReplacePVR("MISSION_T_EMEWIND_F");
+		ReplacePVR("MISSION_T_EMEWIND_G");
+		ReplacePVR("MISSION_T_EMEWIND_S");
+		ReplacePVR("MISSION_T_FASTEGG");
 		ReplacePVR("MISSION_T_FASTEGG_E");
+		ReplacePVR("MISSION_T_FASTEGG_F");
+		ReplacePVR("MISSION_T_FASTEGG_G");
+		ReplacePVR("MISSION_T_FASTEGG_S");
+		ReplacePVR("MISSION_T_FASTSONIC");
 		ReplacePVR("MISSION_T_FASTSONIC_E");
+		ReplacePVR("MISSION_T_FASTSONIC_F");
+		ReplacePVR("MISSION_T_FASTSONIC_G");
+		ReplacePVR("MISSION_T_FASTSONIC_S");
+		ReplacePVR("MISSION_T_MISS");
 		ReplacePVR("MISSION_T_MISS_E");
+		ReplacePVR("MISSION_T_MISS_F");
+		ReplacePVR("MISSION_T_MISS_G");
+		ReplacePVR("MISSION_T_MISS_S");
+		ReplacePVR("MISSION_T_RINGEGG");
 		ReplacePVR("MISSION_T_RINGEGG_E");
+		ReplacePVR("MISSION_T_RINGEGG_F");
+		ReplacePVR("MISSION_T_RINGEGG_G");
+		ReplacePVR("MISSION_T_RINGEGG_S");
+		ReplacePVR("MISSION_T_RINGSONIC");
 		ReplacePVR("MISSION_T_RINGSONIC_E");
+		ReplacePVR("MISSION_T_RINGSONIC_F");
+		ReplacePVR("MISSION_T_RINGSONIC_G");
+		ReplacePVR("MISSION_T_RINGSONIC_S");
+		ReplacePVR("M_STAGE01");
 		ReplacePVR("M_STAGE01_E");
+		ReplacePVR("M_STAGE02");
 		ReplacePVR("M_STAGE02_E");
+		ReplacePVR("M_STAGE03");
 		ReplacePVR("M_STAGE03_E");
+		ReplacePVR("M_STAGE04");
 		ReplacePVR("M_STAGE04_E");
+		ReplacePVR("M_STAGE05");
 		ReplacePVR("M_STAGE05_E");
-		ReplacePVR("SKY_H_BAL01");
+		ReplacePVR("SCORE_BACK");
+		ReplacePVR("SCORE_BACK0");
+		ReplacePVR("SCORE_BACK1");
 		ReplacePVR("SONIC_EMBLM01");
 		ReplacePVR("SONIC_EMBLM03");
 		ReplacePVR("SONIC_EMBLM04");
 		ReplacePVR("SONIC_EMBLM05");
-		ReplacePVR("SSTX_BODY");
 		ReplacePVR("STAFFROLL_TXT");
-		ReplacePVR("STG_S_LOCKMK");
 		ReplacePVR("ST_016S_HPBAR");
-		ReplacePVR("ST_064S_LOCKA");
-		ReplacePVR("ST_064S_LOCKB");
-		ReplacePVR("ST_064S_LOCKC");
 		ReplacePVR("ST_064S_SCORE");
 		ReplacePVR("ST_128S_HPGEJI");
+		ReplacePVR("ST_STAGE01");
 		ReplacePVR("ST_STAGE01_E");
+		ReplacePVR("ST_STAGE02");
 		ReplacePVR("ST_STAGE02_E");
+		ReplacePVR("ST_STAGE03");
 		ReplacePVR("ST_STAGE03_E");
+		ReplacePVR("ST_STAGE04");
 		ReplacePVR("ST_STAGE04_E");
+		ReplacePVR("ST_STAGE05");
 		ReplacePVR("ST_STAGE05_E");
+		ReplacePVR("S_STAGE01");
 		ReplacePVR("S_STAGE01_E");
+		ReplacePVR("S_STAGE02");
 		ReplacePVR("S_STAGE02_E");
+		ReplacePVR("S_STAGE03");
 		ReplacePVR("S_STAGE03_E");
+		ReplacePVR("S_STAGE04");
 		ReplacePVR("S_STAGE04_E");
+		ReplacePVR("S_STAGE05");
 		ReplacePVR("S_STAGE05_E");
+		ReplacePVR("S_STAGE06");
 		ReplacePVR("S_STAGE06_E");
+		ReplacePVR("S_STAGE07");
 		ReplacePVR("S_STAGE07_E");
+		ReplacePVR("S_STAGE08");
 		ReplacePVR("S_STAGE08_E");
+		ReplacePVR("S_STAGE09");
 		ReplacePVR("S_STAGE09_E");
+		ReplacePVR("S_STAGE10");
 		ReplacePVR("S_STAGE10_E");
+		ReplacePVR("T_EGGCARRIER");
 		ReplacePVR("T_EGGCARRIER_E");
+		ReplacePVR("T_MISTICRUIN");
 		ReplacePVR("T_MISTICRUIN_E");
+		ReplacePVR("T_STATIONSQUARE");
 		ReplacePVR("T_STATIONSQUARE_E");
 	}
 	//File icon
@@ -2022,11 +2453,11 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		WriteData<5>((void*)0x00511C18, 0x90); //Disable ZFunc stuff to prevent character model overlap issues
 		//Shadow blending fixes
 		WriteCall((void*)0x00457F2F, DrawSprite_Hook);
-		WriteCall((void*)0x0050B584, DrawShadow_Hook);
 		WriteCall((void*)0x00431D37, DrawShadow_Hook);
 		WriteCall((void*)0x00506EFF, DrawShadow_Hook);
 		WriteCall((void*)0x0050D8B3, DrawShadow_Hook);
-		WriteCall((void*)0x0050B61A, DrawShadow_Hook); //Main menu (trial) shadow
+		WriteCall((void*)0x0050B584, DrawMainMenuShadow_Hook);  //Main menu shadow
+		WriteCall((void*)0x0050B61A, DrawMainMenuShadow_Hook); //Main menu (trial) shadow
 		WriteCall((void*)0x00508FFD, DrawTexture_Hook); //Sound test icon
 		WriteCall((void*)0x00509130, DrawTexture_Hook); //Sonic icon background
 		WriteCall((void*)0x00509191, DrawTexture_Hook); //Sonic icon

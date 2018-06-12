@@ -26,6 +26,7 @@ DataArray(NJS_MATERIAL, matlist_01270910, 0x01270910, 4);
 DataArray(NJS_MATERIAL, matlist_0126C51C, 0x0126C51C, 2);
 DataArray(NJS_MATERIAL, matlist_01271BCC, 0x01271BCC, 2);
 
+DataArray(PVMEntry, EggHornetObjectTextures, 0x156F6B0, 15);
 DataArray(FogData, Chaos2Fog, 0x01120638, 3);
 DataArray(FogData, Chaos6SFog, 0x011EF0E8, 3);
 DataArray(FogData, Chaos6KFog, 0x011EF118, 3);
@@ -55,9 +56,7 @@ DataPointer(unsigned char, byte_03C5A7EF, 0x03C5A7EF);
 DataPointer(float, dword_3C6A998, 0x3C6A998);
 DataPointer(NJS_OBJECT, stru_13A6E8C, 0x13A6E8C);
 DataPointer(NJS_ARGB, nj_constant_material_temp, 0x03B18220);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, EVEffect, 0x3C6E1EC);
-DataPointer(int, CutsceneID, 0x3B2C570);
 DataPointer(NJS_OBJECT, stru_11EDF38, 0x11EDF38);
 DataPointer(NJS_OBJECT, stru_11EEED8, 0x11EEED8);
 DataPointer(NJS_TEXANIM, stru_149401C, 0x149401C);
@@ -66,9 +65,9 @@ DataPointer(NJS_SPRITE, stru_1494030, 0x1494030);
 DataPointer(NJS_SPRITE, stru_1494064, 0x1494064);
 DataPointer(NJS_ARGB, stru_1494114, 0x1494114);
 DataPointer(NJS_ARGB, stru_1494124, 0x1494124);
+DataPointer(ObjectMaster*, dword_3C84628, 0x3C84628);
 DataPointer(float, Chaos4NumaTransparency, 0x3C688D4);
 DataPointer(char, EggViperByteThing, 0x03C6E178);
-DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(float, EggViperHitCount, 0x03C58158);
 FunctionPointer(void, sub_5632F0, (ObjectMaster *a1), 0x5632F0);
 FunctionPointer(void, sub_563370, (ObjectMaster *a1), 0x563370);
@@ -79,11 +78,10 @@ FunctionPointer(void, sub_407BB0, (NJS_MODEL_SADX *a1, QueuedModelFlagsB queueFl
 FunctionPointer(void, sub_56FC30, (int a1, int a2, float a3), 0x56FC30);
 FunctionPointer(void, sub_568EC0, (EntityData1 *a1), 0x568EC0);
 FunctionPointer(void, sub_4CACF0, (NJS_VECTOR *a1, float a2), 0x4CACF0);
-FunctionPointer(void, sub_4CC540, (NJS_VECTOR *a1, int a2, int a3, int a4), 0x4CC540);
 FunctionPointer(void, sub_77E940, (FVFStruct_H_B *a1, signed int count, int a3), 0x77E940);
+FunctionPointer(void, sub_40A280, (NJS_OBJECT *a1), 0x40A280);
+FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
 
-static bool SADXStyleWater_EggHornet = false;
-static bool SADXStyleWater_ZeroE101R = false;
 static float EggViper_blendfactor = 0.0f;
 static int EggViper_blenddirection = 1;
 static int EggViper_EffectMode = 0;
@@ -95,19 +93,14 @@ static float TornadoAlpha = 1.0f;
 static int TornadoTrigger = 0;
 static int Chaos4Water = 0;
 static float EggViperHitCount_Old = 0.0f;
-static int EggHornetWater1 = 118;
-static int EggHornetWater2 = 128;
+static int EggHornetOceanAnimationSA1 = 0;
 static int EggHornet_Rotation = 0;
 static int EggHornet_RotationDirection = 1;
-static int egghornetwater_sadx = 143;
 static int E101REffectMode = 1;
 static float e101rframe = 0;
-static NJS_VECTOR E101R_ParticleVector = { 0,0,0 };
-static int E101R_ParticleA = 0;
-static int E101R_ParticleB = 0;
-static int E101R_ParticleC = 0;
 static int e101rsea_dc = 4;
-static int e101rsea_sadx = 4;
+static int Chaos0PuddleTransparency = 255;
+static bool Chaos0TransUp = false;
 static bool EnableChaos0 = true;
 static bool EnableChaos2 = true;
 static bool EnableChaos4 = true;
@@ -123,6 +116,15 @@ void __cdecl EggHornetWaterFunc()
 {
 	if (!DroppedFrames)
 	{
+		if (EnableEggHornet == true && !SADXWater_MysticRuins && CurrentLevel == 20 && GameState != 16)
+		{
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+			{
+				EggHornetOceanAnimationSA1++;
+			}
+			if (EggHornetOceanAnimationSA1 > 9) EggHornetOceanAnimationSA1 = 0;
+			matlist_00057F04[0].attr_texId = EggHornetOceanAnimationSA1;
+		}
 		DisableFog();
 		njSetTexture((NJS_TEXLIST *)0x1557064);
 		njPushMatrix(0);
@@ -141,6 +143,14 @@ void __cdecl EggHornetWaterFunc()
 		njTranslate(0, 0, 0, 0);
 		ProcessModelNode_A_Wrapper(&object_0004EE14, QueuedModelFlagsB_3, 1.0f);
 		njPopMatrix(1u);
+		njSetTexture(&BEACH_SEA_TEXLIST);
+		njPushMatrix(0);
+		njTranslate(0, Camera_Data1->Position.x, 0, Camera_Data1->Position.z);
+		njScale(0, 1.0f, 1.0f, 1.0f);
+		DrawQueueDepthBias = -47000;
+		ProcessModelNode(&object_00057FD4, QueuedModelFlagsB_EnableZWrite, 1.0f);
+		njPopMatrix(1u);
+		DrawQueueDepthBias = 0;
 	}
 }
 
@@ -388,28 +398,6 @@ void __cdecl Chaos7Damage_DisplayX(ObjectMaster *a1)
 	}
 }
 
-void WaterTexture_BossOcean()
-{
-	if (CurrentLevel == 20) njSetTextureNum(158);
-	if (CurrentLevel == 23 || CurrentLevel == 25) njSetTextureNum(19);
-}
-
-void WaterTexture_BossWaves()
-{
-	if (egghornetwater_sadx > 157) egghornetwater_sadx = 143;
-	if (e101rsea_sadx > 18) e101rsea_sadx = 4;
-	if (CurrentLevel == 20) njSetTextureNum(egghornetwater_sadx);
-	if (CurrentLevel == 23 || CurrentLevel == 25) njSetTextureNum(e101rsea_sadx);
-	if (GameState != 16)
-	{
-		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
-		{
-			egghornetwater_sadx++;
-			e101rsea_sadx++;
-		}
-	}
-}
-
 void FixChaos0Car(NJS_ACTION *a1, float frame, float scale)
 {
 	NJS_ACTION a4;
@@ -580,8 +568,8 @@ void PerfectChaosWaterfallHook(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 
 void E101RRenderAfterEffect(float a, float r, float g, float b)
 {
-	if (E101REffectMode == 0) SetMaterialAndSpriteColor_Float(min(1.0f, a + 0.2f), min(1.0f, a + 0.2f), a, a);
-	else SetMaterialAndSpriteColor_Float(min(1.0f, a + 0.2f), a, a, min(1.0f, a + 0.2f));
+	if (E101REffectMode == 0) SetMaterialAndSpriteColor_Float(1.0f, a*1.5f, a*0.75f, a*0.5f);
+	else SetMaterialAndSpriteColor_Float(1.0f, a*0.75f, a*0.5f, a*1.5f);
 }
 
 void E101REffect_Orange(int a1, int a2)
@@ -604,11 +592,28 @@ void E101REffect_Blue(int a1, int a2)
 	E101REffectMode = 1;
 }
 
+void E101R_FVFShit(FVFStruct_H_B *a1, signed int count, int a3)
+{
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+	Direct3D_DrawFVF_H(a1, count);
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+}
+
+void Zero_FVFShit(FVFStruct_H_B *a1, signed int count, int a3)
+{
+	SetOceanAlphaModeAndFVF(a3);
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+	Direct3D_DrawFVF_H(a1, count);
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+}
 
 void E101R_AfterImageConstantAttr(Uint32 and_attr, Uint32 or_attr)
 {
-	//njSetConstantAttr(0x9999999u, 0x24100000u);
-	AddConstantAttr(0, NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ALPHA | NJD_FLAG_IGNORE_LIGHT);
+	AddConstantAttr(0, NJD_FLAG_USE_TEXTURE | NJD_FLAG_USE_ALPHA | NJD_FLAG_IGNORE_LIGHT | NJD_FLAG_USE_TEXTURE);
 	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
 	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
 }
@@ -663,26 +668,10 @@ void E101R_RenderParticle(FVFStruct_H_B *a1, signed int count, int a3)//(NJS_VEC
 	Direct3D_EnableZWrite(1);
 }
 
-void E101R_SwapParticleOrder(int a1, int a2, float a3)
-{
-	sub_56FC30(a1, a2, a3);
-	sub_4CC540(&E101R_ParticleVector, E101R_ParticleA, E101R_ParticleB, E101R_ParticleC);
-}
-
-void E101R_RetrieveParticleStuff(NJS_VECTOR *a1, int a2, int a3, int a4)
-{
-	E101R_ParticleVector.x = a1->x;
-	E101R_ParticleVector.y = a1->y;
-	E101R_ParticleVector.z = a1->z;
-	E101R_ParticleA = a2;
-	E101R_ParticleB = a3;
-	E101R_ParticleC = a4;
-}
-
 void E101R_AfterImageArmConstantAttr(Uint32 and_attr, Uint32 or_attr)
 {
 	njSetConstantAttr(0x9999999u, 0x24100000u);
-	AddConstantAttr(0, NJD_FLAG_IGNORE_LIGHT);
+	AddConstantAttr(0, NJD_FLAG_IGNORE_LIGHT | NJD_FLAG_USE_TEXTURE);
 }
 
 void Spotlight_Display(ObjectMaster *a1)
@@ -816,39 +805,204 @@ void RenderBossECOcean()
 	}
 }
 
-static void __cdecl E101R_OceanDraw_r(OceanData *a1);
-static Trampoline E101R_OceanDraw_t(0x56CC30, 0x56CC38, E101R_OceanDraw_r);
-static void __cdecl E101R_OceanDraw_r(OceanData *a1)
+static void __cdecl ZeroE101R_OceanDraw_r(OceanData *a1)
 {
-	auto original = reinterpret_cast<decltype(E101R_OceanDraw_r)*>(E101R_OceanDraw_t.Target());
-	if (EnableZeroE101R == true && SADXStyleWater_ZeroE101R == false)
+	if (!SADXWater_EggCarrier)
 	{
 		RenderBossECOcean();
 	}
-	else original(a1);
-}
-
-static void __cdecl Zero_OceanDraw_r(OceanData *a1);
-static Trampoline Zero_OceanDraw_t(0x587E10, 0x587E18, Zero_OceanDraw_r);
-static void __cdecl Zero_OceanDraw_r(OceanData *a1)
-{
-	auto original = reinterpret_cast<decltype(Zero_OceanDraw_r)*>(Zero_OceanDraw_t.Target());
-	if (EnableZeroE101R == true && SADXStyleWater_ZeroE101R == false)
-	{
-		RenderBossECOcean();
-	}
-	else original(a1);
+	else EggCarrier_OceanDraw_SADXStyle(a1);
 }
 
 void LoadBossECOceanPVM(const char *filename, NJS_TEXLIST *texlist)
 {
 	LoadPVM(filename, texlist);
-	LoadPVM("EC_SEA", &EC_SEA_TEXLIST);
+	if (SADXWater_EggCarrier) LoadPVM("SADXWTR_WAVES", &texlist_sadxwtr_waves);
+	else LoadPVM("EC_SEA", &EC_SEA_TEXLIST);
 }
 
 void LoadBossECOceanTexlist()
 {
 	njSetTexture(&EC_SEA_TEXLIST);
+}
+
+void E101R_AfterImageQueue(NJS_ACTION *anim, float a2, int a3)
+{
+	DrawQueueDepthBias = 2000.0f;
+	njAction_Queue(anim, a2, (QueuedModelFlagsB)a3);
+	DrawQueueDepthBias = 0;
+}
+
+void E101R_ArmsHook(NJS_OBJECT *a1, QueuedModelFlagsB a2)
+{
+	DrawQueueDepthBias = 2000.0f;
+	ProcessModelNode(a1, a2, GlobalModelNodeScale);
+	DrawQueueDepthBias = 0;
+}
+
+void __cdecl ComeOneYaBigDrip()
+{
+	EntityData1 *v0; // esi
+	v0 = dword_3C84628->Data1;
+	char Chaos0PuddleTransparency_object = *(char*)(*(Sint32*)&v0->LoopData + 28);
+	if (Chaos0PuddleTransparency >= 255 && Chaos0TransUp == true) Chaos0TransUp = false;
+	if (Chaos0PuddleTransparency <= 178 && !Chaos0TransUp) Chaos0TransUp = true;
+	if (Chaos0TransUp) Chaos0PuddleTransparency+=4; else Chaos0PuddleTransparency-=4;
+	PrintDebug("Calc:%d\n", Chaos0PuddleTransparency);
+	PrintDebug("Obj:%d\n", Chaos0PuddleTransparency_object);
+	if (Chaos0PuddleTransparency_object != -103) Chaos_Puddle_Model.basicdxmodel->mats->diffuse.argb.a = Chaos0PuddleTransparency_object;
+	else Chaos_Puddle_Model.basicdxmodel->mats->diffuse.argb.a = Chaos0PuddleTransparency;
+	njSetTexture(&CHAOS_SURFACE_TEXLIST);
+	njPushMatrix(0);
+	njTranslateV(0, &v0->Position);
+	njScaleV(0, &v0->Scale);
+	ProcessModelNode_A_WrapperB(&Chaos_Puddle_Model, QueuedModelFlagsB_EnableZWrite);
+	njPopMatrix(1u);
+}
+
+void ComeOnChaosTimeToEat(NJS_OBJECT *a1)
+{
+	//This isn't entirely accurate to SA1 but I don't have the patience to find values that would replicate it 100%. 
+	//Also this ugly camera workaround is necessary because SADX would be struggling with transparency otherwise.
+	if ((Camera_Data1->Position.y > 155 && Camera_Data1->Position.y < 158) || (Camera_Data1->Position.y > 127 && Camera_Data1->Position.y < 130 && Camera_Data1->Position.x > 970 && Camera_Data1->Position.x < 972))
+	{
+		EnvMap1 = 2.0f;
+		EnvMap2 = 1;
+		EnvMap3 = 0.5f;
+		EnvMap4 = 1.0f;
+		sub_407A00((NJS_MODEL_SADX*)0x2D69600, 1.0f);
+		EnvMap1 = 0.5f;
+		EnvMap2 = 0.5f;
+		EnvMap3 = 0.5f;
+		EnvMap4 = 0.5f;
+	}
+	else
+	{
+		sub_40A280(a1);
+	}
+}
+
+void __cdecl PerfectChaosBreathWaterfall_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi
+	double v2; // st7
+	NJS_TEXLIST *v3; // ST08_4
+	NJS_ARGB a1a; // [esp+4h] [ebp-10h]
+
+	v1 = a1->Data1;
+	a1a.a = 1.0f;
+	v2 = v1->Scale.z;
+	a1a.b = v2;
+	a1a.g = v2;
+	a1a.r = v2;
+	if (!MissedFrames)
+	{
+		v3 = (NJS_TEXLIST *)(8 * (unsigned __int8)v1->Index + 0x14D5C3C);
+		*(Sint32*)&v1->LoopData = (Sint32)v3;
+		njSetTexture(v3);
+		njPushMatrix(0);
+		njTranslateV(0, &v1->Position);
+		njScale(0, 1.0, v1->Scale.x, 1.0);
+		DrawQueueDepthBias = 1200.0f;
+		ProcessModelNode((NJS_OBJECT*)0x11C785C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		njScale(0, 1.0, v1->Scale.x, 1.0);
+		DrawQueueDepthBias = 1800.0f;
+		ProcessModelNode((NJS_OBJECT*)0x11C7B44, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		DrawQueueDepthBias = 0;
+		njPopMatrix(1u);
+		njPopMatrix(1u);
+		ClampGlobalColorThing_Thing();
+	}
+}
+
+void __cdecl PerfectChaosBreathWaterfall_Main(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi
+	unsigned int v2; // eax
+	double v3; // st7
+	double v4; // st7
+	char v5; // al
+	double v6; // st7
+	double v7; // st7
+
+	v1 = a1->Data1;
+	if (!ClipObject(a1, 25100100.0f))
+	{
+		v2 = v1->Action;
+		if (v2 <= 4)
+		{
+			switch (v2)
+			{
+			case 0u:
+				v1->Action = 1;
+				v1->NextAction = 0;
+				v1->Scale.y = 0.0f;
+				v1->Scale.x = 0.0f;
+				v1->Scale.z = -1.0f;
+				a1->DisplaySub = PerfectChaosBreathWaterfall_Display;
+				a1->DeleteSub = DeleteObject_;
+				break;
+			case 1u:
+				v3 = v1->Scale.x + 0.05f;
+				v1->Scale.x = v3;
+				if (v3 > 1.0f)
+				{
+					v1->Action = 2;
+				}
+				goto LABEL_11;
+			case 2u:
+				if (++v1->InvulnerableTime > 0x3Cu)
+				{
+					v1->Action = 3;
+					v1->NextAction = 1;
+				}
+				goto LABEL_11;
+			case 3u:
+				v4 = v1->Scale.x - 0.05f;
+				v1->Scale.x = v4;
+				if (v4 <= 0.0f)
+				{
+					v1->Action = 4;
+				}
+			LABEL_11:
+				if ((FramerateSetting < 2 && FrameCounter % 2 == 0) || FramerateSetting >= 2) v5 = v1->Index + 1; else v5 = v1->Index;
+				v1->Index = v5;
+				if ((unsigned __int8)v5 >= 5u)
+				{
+					v1->Index = 0;
+				}
+				goto LABEL_13;
+			case 4u:
+			LABEL_13:
+				PerfectChaosBreathWaterfall_Display(a1);
+				break;
+			default:
+				break;
+			}
+		}
+		switch (v1->NextAction)
+		{
+		case 1:
+			v7 = v1->Scale.y + 0.05f;
+			v1->Scale.y = v7;
+			if (v7 > 1.0f)
+			{
+				v1->NextAction = 3;
+			}
+			break;
+		case 3:
+			v6 = v1->Scale.y - 0.05f;
+			v1->Scale.y = v6;
+			if (v6 <= 0.0f)
+			{
+				v1->NextAction = 4;
+			}
+			break;
+		case 4:
+			CheckThingButThenDeleteObject(a1);
+			break;
+		}
+	}
 }
 
 void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
@@ -870,16 +1024,19 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("EV_E105_FUN");
 	ReplacePVM("ICM0001_3");
 	ReplacePVM("ICM0001_5");
+	//Various Chaos puddle things
+	WriteCall((void*)0x6EE43F, ComeOnChaosTimeToEat); //Environment mapping effect on Chaos' puddle before Chaos 0 emerges
+	WriteJump((void*)0x6E9B00, ComeOneYaBigDrip); //Alterating transparency in the cutscene after Chaos 0
+	((NJS_MATERIAL*)0x02D64FD8)->exponent = 11; //Chaos 1/4 puddle
+	((NJS_MATERIAL*)0x038D936C)->attrflags &= ~NJD_FLAG_USE_ENV; //Chaos 0/2/6 puddle
+	((NJS_MATERIAL*)0x038D936C)->exponent = 11; //Chaos 0/2/6 puddle
+	ICM0001_3_TEXLISTS[0].Name = "ICM0001_5"; //Higher quality background in Sonic story
 	HMODULE handle = GetModuleHandle(L"BOSSCHAOS0MODELS");
 	LandTable **___LANDTABLEBOSSCHAOS0 = (LandTable **)GetProcAddress(handle, "___LANDTABLEBOSSCHAOS0");
 	NJS_ACTION **___BOSSCHAOS0_ACTIONS = (NJS_ACTION **)GetProcAddress(handle, "___BOSSCHAOS0_ACTIONS");
 	NJS_OBJECT **___BOSSCHAOS0_OBJECTS = (NJS_OBJECT **)GetProcAddress(handle, "___BOSSCHAOS0_OBJECTS");
 	NJS_TEXLIST **___BOSSCHAOS0_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(handle, "___BOSSCHAOS0_TEXLISTS");
-
 	// Load configuration settings.
-	//SADX water
-	SADXStyleWater_EggHornet = config->getBool("SADX Style Water", "MysticRuins", false);
-	SADXStyleWater_ZeroE101R = config->getBool("SADX Style Water", "EggCarrier", false);
 	//Levels
 	EnableChaos0 = config->getBool("Bosses", "EnableChaos0", true);
 	EnableChaos2 = config->getBool("Bosses", "EnableChaos2", true);
@@ -891,7 +1048,11 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	EnableEggViper = config->getBool("Bosses", "EnableEggViper", true);
 	EnableE101 = config->getBool("Bosses", "EnableE101", true);
 	EnableZeroE101R = config->getBool("Bosses", "EnableZeroE101R", true);
-
+	//Generic fixes for Chaos materials
+	for (unsigned int i = 0; i < LengthOfArray(ChaosMaterials); i++)
+	{
+		RemoveMaterialColors(ChaosMaterials[i]);
+	}
 	if (EnableChaos0 == true)
 	{
 		ReplaceBIN("PL_G0B", "PL_G0X");
@@ -1025,6 +1186,7 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		ReplacePVM("CHAOS4_SHIBUKI");
 		ReplacePVM("CHAOS4_TIKEI");
 		ReplacePVM("CHAOS4_WAVE");
+		ResizeTextureList(&CHAOS4_OBJECT_TEXLIST, 6);
 		*(NJS_OBJECT*)0x11C4B90 = object_000425F8; // Chaos4 swamp water
 		WriteData<1>((char*)0x00555B3F, 0x08); //Chaos 4 bubble blending mode SA_SRC instead of SA_ONE
 		ResizeTextureList((NJS_TEXLIST*)0x118FF08, textures_chaos4dc);
@@ -1051,7 +1213,6 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		((NJS_OBJECT*)0x01191764)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
 		((NJS_OBJECT*)0x011913AC)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
 		((NJS_OBJECT*)0x01191018)->basicdxmodel->mats[0].diffuse.color = 0x65B2B2B2; //Chaos4
-
 	}
 	if (EnableChaos6 == true)
 	{
@@ -1090,8 +1251,10 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	}
 	if (EnableEggHornet == true)
 	{
+		ResizeTextureList((NJS_TEXLIST*)0x1557064, 118); //Egg Hornet level texlist
 		ReplaceBIN_DC("SETEGM1S");
 		ReplacePVM("EGM1");
+		ReplacePVM("EGM1LAND");
 		ReplacePVM("EGM1BARRIER");
 		ReplacePVM("EGM1EGGMAN");
 		ReplacePVM("EGM1JET");
@@ -1137,6 +1300,7 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	}
 	if (EnableEggViper == true)
 	{
+		((NJS_MATERIAL*)0x016737F0)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //Dust effect at the bottom of the room
 		ReplaceBIN("PL_M0B", "PL_M0X");
 		ReplaceBIN_DC("SETEGM3S");
 		ReplacePVM("EGM3CHIKEI");
@@ -1184,32 +1348,32 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		ReplaceBIN_DC("SETE101RE");
 		ReplaceBIN_DC("SETZEROA");
 		ReplaceBIN_DC("SETZEROS");
-		ReplacePVM("E101R");
+		ReplacePVM("E101R"); 
+		ReplacePVM("EROBO");
 		ReplacePVM("E101R_BG");
 		ReplacePVM("E101R_TIKEI");
+		ReplaceGeneric("EROBO_GC.NB", "EROBO_DC.NB");
+		WriteData((float*)0x58752C, 0.8f); //Zero constant material alpha
 		*(NJS_OBJECT*)0x00991268 = object_00591268; //Zero main and cutscene model
 		*(NJS_OBJECT *)0x02DA8664 = object_029A8664; //E101R model in cutscenes
 		ResizeTextureList((NJS_TEXLIST*)0x16B460C, 76); //Zero/E101R texlist
 		WriteData((LandTable**)0x7D1D64, &landtable_00000110); //Zero
 		WriteData((LandTable**)0x7D1DD1, &landtable_00000180); //E101R
 		//E-101R fixes
-		WriteCall((void*)0x587E88, LoadBossECOceanTexlist);
-		WriteCall((void*)0x56CCA8, LoadBossECOceanTexlist);
-		WriteCall((void*)0x569078, LoadBossECOceanPVM);
-		WriteCall((void*)0x585448, LoadBossECOceanPVM);
 		ShadowBlob_Model.basicdxmodel->mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		WriteCall((void*)0x0056FF4A, E101R_RetrieveParticleStuff);
-		WriteCall((void*)0x0056FF61, E101R_SwapParticleOrder);
+		WriteCall((void*)0x0058BC56, Zero_FVFShit);
 		WriteCall((void*)0x004CC82E, E101R_RenderParticle);
-		WriteCall((void*)0x0056FD59, E101R_RenderParticle);
+		WriteCall((void*)0x0056FD59, E101R_FVFShit);
 		WriteCall((void*)0x00568F59, E101R_DrawSkybox);
 		WriteCall((void*)0x00571581, E101R_DrawExplosion);
 		WriteCall((void*)0x005715AE, E101R_DrawExplosion);
 		WriteCall((void*)0x0056909F, E101R_SkyboxHook);
 		WriteCall((void*)0x00569008, E101R_SkyboxHook);
+		WriteCall((void*)0x005709CA, E101R_ArmsHook);
 		WriteData<1>((char*)0x00568D20, 0xC3u); //E101R clip function
 		WriteCall((void*)0x0057069D, E101R_AfterImageMaterial); //E10R afterimage
 		WriteCall((void*)0x00570784, E101R_AfterImageConstantAttr); //E10R afterimage
+		WriteCall((void*)0x0057072A, E101R_AfterImageQueue);
 		WriteCall((void*)0x0056B07D, E101REffect_Orange); //Set arm effect to orange and render
 		WriteCall((void*)0x0056B096, E101REffect_Blue); //Set arm effect to blue and render
 		WriteCall((void*)0x0057098A, E101RRenderAfterEffect); //After effect on E101R's arms
@@ -1232,6 +1396,10 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		ResizeTextureList((NJS_TEXLIST*)0x1494FBC, textures_chaos7);
 		WriteData((LandTable**)0x7D1D06, &landtable_00001214); //Perfect Chaos DC
 		WriteCall((void*)0x56463B, PerfectChaosWaterfallHook);
+		//Perfect Chaos breath fixes
+		((NJS_OBJECT*)0x11C785C)->basicdxmodel->mats[0].diffuse.color = 0xFFA9A9A9;
+		((NJS_OBJECT*)0x11C7B44)->basicdxmodel->mats[0].diffuse.color = 0xFFA9A9A9;
+		WriteJump((void*)0x5669C0, PerfectChaosBreathWaterfall_Main);
 		//Egg Carrier 2 crash in Perfect Chaos cutscene
 		WriteData((float*)0x0065D8D1, 837.418f); //X1
 		WriteData((float*)0x0065D8CC, 412.38f); //Y1
@@ -1277,40 +1445,33 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		material_register(WhiteDiffuse_Boss, LengthOfArray(WhiteDiffuse_Boss), &ForceWhiteDiffuse3Specular1);
 	}
 	//SADX style water
-	if (EnableEggHornet && SADXStyleWater_EggHornet)
+	if (EnableEggHornet && SADXWater_MysticRuins)
 	{
-		ReplacePVMX_SADXStyleWater("EGM1LAND");
-		ResizeTextureList((NJS_TEXLIST*)0x1557064, 160); //Egg Hornet level texlist
-		WriteCall((void*)0x00572310, WaterTexture_BossWaves); //Egg Hornet ocean
-		WriteCall((void*)0x0057236D, WaterTexture_BossOcean); //Egg Hornet ocean
-		WriteCall((void*)0x005722A3, DisableSADXWaterFog); //Egg Hornet ocean
+		EggHornetObjectTextures[0].TexList = &texlist_sadxwtr_waves;
+		EggHornetObjectTextures[0].Name = "SADXWTR_WAVES";
+		WriteJump(EggHornet_OceanDraw, MysticRuins_OceanDraw_SADXStyle); //Egg Hornet ocean
 		collist_0001E294[LengthOfArray(collist_0001E294) - 1].Flags = 0x81000000;
 		collist_0001E294[LengthOfArray(collist_0001E294) - 2].Flags = 0x81000000;
 		collist_0001E294[LengthOfArray(collist_0001E294) - 3].Flags = 0x81000000;
 		collist_0001E294[LengthOfArray(collist_0001E294) - 4].Flags = 0x81000000;
-		collist_0001E294[LengthOfArray(collist_0001E294) - 5].Flags = 0x00000000;
 	}
-	if (EnableEggHornet && !SADXStyleWater_EggHornet)
+	if (EnableEggHornet && !SADXWater_MysticRuins)
 	{
-		ReplacePVM("EGM1LAND");
-		ResizeTextureList((NJS_TEXLIST*)0x1557064, 143);  //Egg Hornet level texlist
-		WriteCall((void*)0x0057192A, EggHornetWaterFunc); //Egg Hornet water
+		EggHornetObjectTextures[0].TexList = &BEACH_SEA_TEXLIST;
+		EggHornetObjectTextures[0].Name = "BEACH_SEA";
+		WriteJump(EggHornet_OceanDraw, EggHornetWaterFunc); //Egg Hornet water
 		collist_0001E294[LengthOfArray(collist_0001E294) - 1].Flags = 0x00000000;
 		collist_0001E294[LengthOfArray(collist_0001E294) - 2].Flags = 0x00000000;
 		collist_0001E294[LengthOfArray(collist_0001E294) - 3].Flags = 0x00000000;
 		collist_0001E294[LengthOfArray(collist_0001E294) - 4].Flags = 0x00000000;
-		collist_0001E294[LengthOfArray(collist_0001E294) - 5].Flags = 0x80040400;
 	}
-	if (EnableZeroE101R && SADXStyleWater_ZeroE101R)
+	if (EnableZeroE101R)
 	{
-		ReplacePVMX_SADXStyleWater("EC_SEA");
-		ResizeTextureList(&EC_SEA_TEXLIST, 21);
-		WriteCall((void*)0x0056CD15, WaterTexture_BossWaves); //E101R ocean
-		WriteCall((void*)0x0056CD7B, WaterTexture_BossOcean); //E101R ocean
-		WriteCall((void*)0x00587EF5, WaterTexture_BossWaves); //Zero ocean
-		WriteCall((void*)0x00587F5B, WaterTexture_BossOcean); //Zero ocean
+		WriteJump(Zero_OceanDraw, ZeroE101R_OceanDraw_r);
+		WriteJump(E101Mk2_OceanDraw, ZeroE101R_OceanDraw_r);
+		WriteCall((void*)0x569078, LoadBossECOceanPVM);
+		WriteCall((void*)0x585448, LoadBossECOceanPVM);
 	}
-
 	//Fog and draw distance
 	for (unsigned int i = 0; i < 3; i++)
 	{
@@ -1577,13 +1738,18 @@ void Bosses_OnFrame()
 		{
 			EggHornetTrigger = byte_03C6C944;
 			((NJS_OBJECT *)0x01561A70)->ang[1] = NJM_DEG_ANG(0); //Main model
-			((NJS_OBJECT *)0x015658E0)->ang[1] = NJM_DEG_ANG(90); //Eggman
+			((NJS_OBJECT *)0x015658E0)->pos[1] = NJM_DEG_ANG(90); //Eggman
 			((NJS_SPRITE *)0x3C6C884)->ang = NJM_DEG_ANG(0); //Main model
 			((NJS_OBJECT *)0x01567BCC)->ang[1] = NJM_DEG_ANG(0); //Jet
 			((NJS_OBJECT *)0x01567E64)->ang[1] = NJM_DEG_ANG(0); //Jet
 			((NJS_OBJECT *)0x015685CC)->ang[1] = NJM_DEG_ANG(0); //Jet
 			((NJS_OBJECT *)0x015680CC)->ang[1] = NJM_DEG_ANG(0); //Jet
-			((NJS_OBJECT *)0x01568334)->ang[2] = NJM_DEG_ANG(0); //Jet
+			((NJS_OBJECT *)0x01568334)->ang[1] = NJM_DEG_ANG(180); //Jet
+			((NJS_OBJECT *)0x015688C4)->ang[1] = NJM_DEG_ANG(0); //Jet 2
+			((NJS_OBJECT *)0x01568B5C)->ang[1] = NJM_DEG_ANG(0); //Jet 2
+			((NJS_OBJECT *)0x01568DC4)->ang[1] = NJM_DEG_ANG(0); //Jet 2
+			((NJS_OBJECT *)0x0156902C)->ang[1] = NJM_DEG_ANG(0); //Jet 2
+			((NJS_OBJECT *)0x015692C4)->ang[1] = NJM_DEG_ANG(0); //Jet 2
 		}
 		if (dword_3C6C930 == 1 && byte_03C6C944 != EggHornetTrigger)
 		{
@@ -1599,27 +1765,22 @@ void Bosses_OnFrame()
 			((NJS_OBJECT *)0x015685CC)->evalflags &= ~NJD_EVAL_UNIT_ANG;
 			((NJS_OBJECT *)0x015680CC)->evalflags &= ~NJD_EVAL_UNIT_ANG;
 			((NJS_OBJECT *)0x01568334)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+			((NJS_OBJECT *)0x01567BCC)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+			((NJS_OBJECT *)0x015688C4)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+			((NJS_OBJECT *)0x01568B5C)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+			((NJS_OBJECT *)0x01568DC4)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+			((NJS_OBJECT *)0x0156902C)->evalflags &= ~NJD_EVAL_UNIT_ANG;
+			((NJS_OBJECT *)0x015692C4)->evalflags &= ~NJD_EVAL_UNIT_ANG;
 			((NJS_OBJECT *)0x01567BCC)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet
 			((NJS_OBJECT *)0x01567E64)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet
 			((NJS_OBJECT *)0x015685CC)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet
 			((NJS_OBJECT *)0x015680CC)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet
 			((NJS_OBJECT *)0x01568334)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation + 180); //Jet
-		}
-	}
-	//water animation
-	if (EnableEggHornet == true && CurrentLevel == 20 && GameState != 16)
-	{
-		if (EggHornetWater1 > 127) EggHornetWater1 = 118;
-		if (EggHornetWater2 > 142) EggHornetWater2 = 128;
-		matlist_00057F04[0].attr_texId = EggHornetWater1;
-		matlist_00048AD0[0].attr_texId = EggHornetWater2;
-		matlist_00048FD0[0].attr_texId = EggHornetWater2;
-		matlist_0004E8F8[0].attr_texId = EggHornetWater2;
-		matlist_0004EBA0[0].attr_texId = EggHornetWater2;
-		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
-		{
-			EggHornetWater1++;
-			EggHornetWater2++;
+			((NJS_OBJECT *)0x015688C4)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet 2
+			((NJS_OBJECT *)0x01568B5C)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet 2
+			((NJS_OBJECT *)0x01568DC4)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet 2
+			((NJS_OBJECT *)0x0156902C)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet 2
+			((NJS_OBJECT *)0x015692C4)->ang[1] = NJM_DEG_ANG(EggHornet_Rotation); //Jet 2
 		}
 	}
 }

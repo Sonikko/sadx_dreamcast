@@ -42,8 +42,12 @@
     <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
   </ImportGroup>
   <PropertyGroup Label="UserMacros" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
-  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <OutDir>$(SolutionDir)bin</OutDir>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <OutDir>$(SolutionDir)bin</OutDir>
+  </PropertyGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
     <ClCompile>
       <WarningLevel>Level3</WarningLevel>
@@ -102,6 +106,7 @@
     <ClCompile Include="DC_WindyValley.cpp" />
     <ClCompile Include="Lighting.cpp" />
     <ClCompile Include="mod.cpp" />
+    <ClCompile Include="SADXStyleWater.cpp" />
     <ClCompile Include="SkyChaseFixes.cpp" />
     <ClCompile Include="stdafx.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -111,6 +116,9 @@
     <ClCompile Include="SpeedFixes.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BigBeach.h" />
+    <ClInclude Include="ChaoEggs.h" />
+    <ClInclude Include="ChaoFruits.h" />
     <ClInclude Include="Data\ADV01C_00.h" />
     <ClInclude Include="Data\ADV01C_01.h" />
     <ClInclude Include="Data\ADV01C_02.h" />
@@ -149,7 +157,6 @@
     <ClInclude Include="Data\Casino3.h" />
     <ClInclude Include="Data\Casino4.h" />
     <ClInclude Include="Data\Casino_objects.h" />
-    <ClInclude Include="Data\ChaoFruitModels.h" />
     <ClInclude Include="Data\ChaoObjects.h" />
     <ClInclude Include="Data\ChaoRace.h" />
     <ClInclude Include="Data\ChaoRaceEntry.h" />
@@ -175,7 +182,6 @@
     <ClInclude Include="Data\E101Kai_Model.h" />
     <ClInclude Include="Data\E101R.h" />
     <ClInclude Include="Data\ECGarden.h" />
-    <ClInclude Include="Data\ECGarden_DC.h" />
     <ClInclude Include="Data\EC_Tornado.h" />
     <ClInclude Include="Data\EC_Transform.h" />
     <ClInclude Include="Data\EggCarrier_Objects.h" />
@@ -269,6 +275,7 @@
     <ClInclude Include="Data\windy3.h" />
     <ClInclude Include="Data\Zero.h" />
     <ClInclude Include="DC_Levels.h" />
+    <ClInclude Include="Frogs.h" />
     <ClInclude Include="OStandLight.h" />
     <ClInclude Include="stdafx.h" />
     <ClInclude Include="targetver.h" />

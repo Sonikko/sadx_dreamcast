@@ -1,11 +1,10 @@
 #include "stdafx.h"
 
-bool RemoveMaterialColors(NJS_MATERIAL* material, Uint32 flags)
+void RemoveMaterialColors(NJS_MATERIAL* material)
 {
 	material->diffuse.argb.r = 178;
 	material->diffuse.argb.g = 178;
 	material->diffuse.argb.b = 178;
-	return true;
 }
 
 bool ForceWhiteDiffuse1(NJS_MATERIAL* material, Uint32 flags)
@@ -37,8 +36,6 @@ bool ForceWhiteDiffuse3Specular1(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-
-
 bool ForceDiffuse2Specular2(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_diffuse(2, false);
@@ -51,7 +48,6 @@ bool ForceDiffuse2Specular3(NJS_MATERIAL* material, Uint32 flags)
 {
 	set_diffuse(2, false);
 	set_specular(3, false);
-	use_default_diffuse(true);
 	return true;
 }
 
