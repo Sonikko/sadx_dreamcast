@@ -219,6 +219,9 @@ void ADV03_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("PAST01");
 	ReplacePVM("PAST02");
 	ReplacePVM("PAST_KN_FAM");
+	ReplacePVM("KNUCKLES_NORMAL");
+	ReplacePVM("KNUCKLES_DEBU");
+	ReplacePVM("KNUCKLES_LONG");
 	WriteJump((void*)0x542850, Past_OceanDraw_r);
 	//Material fixes for Pacman
 	for (unsigned int i = 0; i < LengthOfArray(PatyaMaterials); i++)
