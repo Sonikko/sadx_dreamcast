@@ -1992,6 +1992,7 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		ReplacePVM("BOARD_SCORE");
 		ReplacePVM("B_CHNAM");
 		ReplacePVM("B_CHNAM_E");
+		ReplacePVM("EMBLEM");
 		ReplacePVM("M_CHNAM");
 		ReplacePVM("MILESRACE");
 		ReplacePVM("PRESSSTART");
