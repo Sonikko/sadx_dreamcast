@@ -206,6 +206,13 @@ void Videos_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		SonicTeamLogoMode = 1;
 	else if (SonicTeamLogo_String == "Off")
 		SonicTeamLogoMode = 2;
+		//Use original DC PVM if possible
+		if (!DLLLoaded_HDGUI)
+		{
+			ReplacePVM("SEGALOGO");
+			WriteCall((void*)0x42C756, LoadSegalogoPVM);
+			ResizeTextureList(&SEGALOGO_E_TEXLIST, 6);
+		}
 	//Video stuff
 	InitVideoFrameStuff();
 	WriteCall((void*)0x00513A88, AdjustVideoFrame); //Center video frame vertically if playing Sonic Team logo/SA1 intro
