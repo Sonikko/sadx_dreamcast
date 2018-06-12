@@ -13,11 +13,6 @@ platform: x86
 configuration: Release
 clone_depth: 1
 
-cache:
-- C:\DreamcastConversion\system
-- C:\DreamcastConversion\textures
-- C:\mod-manifest-gen.exe
-
 init:
 - ps: mkdir C:\DreamcastConversion
 - ps: Set-Content -Value "Name=Dreamcast Conversion`r`nDescription=Brings back levels, textures, object models, special effects, branding etc. from the Dreamcast version of SA1. Fixes various SADX bugs.`r`nAuthor=PkR`r`nVersion=$env:APPVEYOR_BUILD_VERSION`r`nDLLFile=DCMods_Main.dll`r`nUpdateUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/DreamcastConversion/`r`nChangelogUrl=http://dcmods.unreliable.network/owncloud/data/PiKeyAr/files/Changelog.txt" -Path C:\DreamcastConversion\mod.ini
