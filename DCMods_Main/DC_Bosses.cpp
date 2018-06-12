@@ -882,129 +882,6 @@ void ComeOnChaosTimeToEat(NJS_OBJECT *a1)
 	}
 }
 
-void __cdecl PerfectChaosBreathWaterfall_Display(ObjectMaster *a1)
-{
-	EntityData1 *v1; // esi
-	double v2; // st7
-	NJS_TEXLIST *v3; // ST08_4
-	NJS_ARGB a1a; // [esp+4h] [ebp-10h]
-
-	v1 = a1->Data1;
-	a1a.a = 1.0f;
-	v2 = v1->Scale.z;
-	a1a.b = v2;
-	a1a.g = v2;
-	a1a.r = v2;
-	if (!MissedFrames)
-	{
-		v3 = (NJS_TEXLIST *)(8 * (unsigned __int8)v1->Index + 0x14D5C3C);
-		*(Sint32*)&v1->LoopData = (Sint32)v3;
-		njSetTexture(v3);
-		njPushMatrix(0);
-		njTranslateV(0, &v1->Position);
-		njScale(0, 1.0, v1->Scale.x, 1.0);
-		DrawQueueDepthBias = 1200.0f;
-		ProcessModelNode((NJS_OBJECT*)0x11C785C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		njScale(0, 1.0, v1->Scale.x, 1.0);
-		DrawQueueDepthBias = 1800.0f;
-		ProcessModelNode((NJS_OBJECT*)0x11C7B44, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		DrawQueueDepthBias = 0;
-		njPopMatrix(1u);
-		njPopMatrix(1u);
-		ClampGlobalColorThing_Thing();
-	}
-}
-
-void __cdecl PerfectChaosBreathWaterfall_Main(ObjectMaster *a1)
-{
-	EntityData1 *v1; // esi
-	unsigned int v2; // eax
-	double v3; // st7
-	double v4; // st7
-	char v5; // al
-	double v6; // st7
-	double v7; // st7
-
-	v1 = a1->Data1;
-	if (!ClipObject(a1, 25100100.0f))
-	{
-		v2 = v1->Action;
-		if (v2 <= 4)
-		{
-			switch (v2)
-			{
-			case 0u:
-				v1->Action = 1;
-				v1->NextAction = 0;
-				v1->Scale.y = 0.0f;
-				v1->Scale.x = 0.0f;
-				v1->Scale.z = -1.0f;
-				a1->DisplaySub = PerfectChaosBreathWaterfall_Display;
-				a1->DeleteSub = DeleteObject_;
-				break;
-			case 1u:
-				v3 = v1->Scale.x + 0.05f;
-				v1->Scale.x = v3;
-				if (v3 > 1.0f)
-				{
-					v1->Action = 2;
-				}
-				goto LABEL_11;
-			case 2u:
-				if (++v1->InvulnerableTime > 0x3Cu)
-				{
-					v1->Action = 3;
-					v1->NextAction = 1;
-				}
-				goto LABEL_11;
-			case 3u:
-				v4 = v1->Scale.x - 0.05f;
-				v1->Scale.x = v4;
-				if (v4 <= 0.0f)
-				{
-					v1->Action = 4;
-				}
-			LABEL_11:
-				if ((FramerateSetting < 2 && FrameCounter % 2 == 0) || FramerateSetting >= 2) v5 = v1->Index + 1; else v5 = v1->Index;
-				v1->Index = v5;
-				if ((unsigned __int8)v5 >= 5u)
-				{
-					v1->Index = 0;
-				}
-				goto LABEL_13;
-			case 4u:
-			LABEL_13:
-				PerfectChaosBreathWaterfall_Display(a1);
-				break;
-			default:
-				break;
-			}
-		}
-		switch (v1->NextAction)
-		{
-		case 1:
-			v7 = v1->Scale.y + 0.05f;
-			v1->Scale.y = v7;
-			if (v7 > 1.0f)
-			{
-				v1->NextAction = 3;
-			}
-			break;
-		case 3:
-			v6 = v1->Scale.y - 0.05f;
-			v1->Scale.y = v6;
-			if (v6 <= 0.0f)
-			{
-				v1->NextAction = 4;
-			}
-			break;
-		case 4:
-			CheckThingButThenDeleteObject(a1);
-			break;
-		}
-	}
-}
-
 void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVM("CHAOS1");
@@ -1397,10 +1274,8 @@ void Bosses_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		ResizeTextureList((NJS_TEXLIST*)0x1494FBC, textures_chaos7);
 		WriteData((LandTable**)0x7D1D06, &landtable_00001214); //Perfect Chaos DC
 		WriteCall((void*)0x56463B, PerfectChaosWaterfallHook);
-		//Perfect Chaos breath fixes
-		((NJS_OBJECT*)0x11C785C)->basicdxmodel->mats[0].diffuse.color = 0xFFA9A9A9;
-		((NJS_OBJECT*)0x11C7B44)->basicdxmodel->mats[0].diffuse.color = 0xFFA9A9A9;
-		WriteJump((void*)0x5669C0, PerfectChaosBreathWaterfall_Main);
+		//Perfect Chaos breath fix
+		WriteData((float*)0x00566A03, 1.0f);
 		//Egg Carrier 2 crash in Perfect Chaos cutscene
 		WriteData((float*)0x0065D8D1, 837.418f); //X1
 		WriteData((float*)0x0065D8CC, 412.38f); //Y1
