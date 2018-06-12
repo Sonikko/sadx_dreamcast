@@ -64915,7 +64915,7 @@ GeoAnimData animlist_00017918[] = {
 	{ 0, 0.6f, 60, &objectADV02_00078464, &action_animation_00084E28, (NJS_TEXLIST *)0 }
 };
 
-NJS_TEXNAME textures_mr00[155];
+NJS_TEXNAME textures_mr00[153];
 NJS_TEXLIST texlist_mr00 = { arrayptrandlength(textures_mr00) };
 
 NJS_TEXNAME textures_mrobj[207];
