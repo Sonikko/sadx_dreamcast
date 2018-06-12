@@ -34,11 +34,11 @@ build:
   project: DCMods_Main.sln
   
 after_build:
-- cmd: copy C:\projects\sadx-dreamcast\Release\DCMods_Main.dll C:\DreamcastConversion\DCMods_Main.dll
+- cmd: copy C:\projects\sadx-dreamcast\bin\DCMods_Main.dll C:\DreamcastConversion\DCMods_Main.dll
 - ps: $MyProcess = Start-Process "C:\mod-manifest-gen.exe" -Wait -PassThru -ArgumentList "C:\DreamcastConversion"
 - cmd: cd C:\DreamcastConversion
 - cmd: 7z a DreamcastConversion.7z *
-- cmd: move DreamcastConversion.7z C:\projects\sadx-dreamcast\Release\DreamcastConversion.7z
+- cmd: move DreamcastConversion.7z C:\projects\sadx-dreamcast\bin\DreamcastConversion.7z
 
 artifacts:
-- path: Release\DreamcastConversion.7z
+- path: bin\DreamcastConversion.7z
