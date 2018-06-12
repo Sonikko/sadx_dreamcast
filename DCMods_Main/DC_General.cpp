@@ -35,6 +35,7 @@ FunctionPointer(void, sub_4014B0, (), 0x4014B0);
 
 static bool EnableCutsceneFix = true;
 int CutsceneSkipMode = 0;
+int CutsceneFrameCounter = 0;
 static std::string EnableImpressFont = "Off";
 static bool ColorizeFont = true;
 static bool DisableFontSmoothing = true;
@@ -745,6 +746,11 @@ void EmeraldShardLighting(NJD_FLAG lol1, NJD_FLAG lol2)
 	AddConstantAttr(0, NJD_FLAG_IGNORE_LIGHT);
 }
 
+void FixCutsceneTransition()
+{
+	if (CutsceneID == 134) sub_436550(); //Knuckles back in Station Square after meeting Pacman
+}
+
 void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVR("AL_BARRIA");
@@ -1037,8 +1043,8 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	//Fix for cutscene transitions
 	if (EnableCutsceneFix)
 	{
-		WriteData<5>((void*)0x43131D, 0x90u);
-		WriteData<5>((void*)0x4311E3, 0x90u);
+		WriteCall((void*)0x4311E3, FixCutsceneTransition); //Main thread
+		WriteData<5>((void*)0x43131D, 0x90u); //Skipping cutscenes
 	}
 	//Ripples
 	if (EnableDCRipple)
@@ -1175,6 +1181,12 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 
 void General_OnFrame()
 {
+	//Frame counter for cutscenes
+	if (EV_MainThread_ptr != nullptr)
+	{
+		CutsceneFrameCounter++; else CutsceneFrameCounter = 0;
+		//PrintDebug("Cutscene timer: %d\n", CutsceneFrameCounter);
+	}
 	//Cutscene skip
 	if (CutsceneSkipMode <= 1 && SkipPressed_Cutscene)
 	{
@@ -1258,6 +1270,38 @@ void General_OnFrame()
 		EnvMap4 = 0.5f;
 	}
 	if (EnvMapMode == 1 && (CurrentLevel != 20 || MetalSonicFlag))
+	{
+		EnvMapMode = 0;
+		EnvMap1 = 0.5f;
+		EnvMap2 = 0.5f;
+		EnvMap3 = 0.5f;
+		EnvMap4 = 0.5f;
+	}
+	if (EnvMapMode == 0 && CutsceneID == 208 && CutsceneFrameCounter > 800 && CutsceneFrameCounter < 1200) //Big's intro
+	{
+		EnvMapMode = 2;
+		EnvMap1 = 2.0f;
+		EnvMap2 = 1.0f;
+		EnvMap3 = 0.5f;
+		EnvMap4 = 1.0f;
+	}
+	if (EnvMapMode == 2 && CutsceneID == 208 && (CutsceneFrameCounter <= 800 || CutsceneFrameCounter >= 1200))
+	{
+		EnvMapMode = 0;
+		EnvMap1 = 0.5f;
+		EnvMap2 = 0.5f;
+		EnvMap3 = 0.5f;
+		EnvMap4 = 0.5f;
+	}
+	if (EnvMapMode == 0 && CutsceneID == 128 && CutsceneFrameCounter > 1700 && CutsceneFrameCounter < 2230) //Knuckles' intro
+	{
+		EnvMapMode = 2;
+		EnvMap1 = 2.0f;
+		EnvMap2 = 1.0f;
+		EnvMap3 = 0.5f;
+		EnvMap4 = 1.0f;
+	}
+	if (EnvMapMode == 2 && CutsceneID == 128 && (CutsceneFrameCounter <= 1700 || CutsceneFrameCounter >= 2230))
 	{
 		EnvMapMode = 0;
 		EnvMap1 = 0.5f;
