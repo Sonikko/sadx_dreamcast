@@ -485,20 +485,20 @@ void SpeedFixes_Init()
 	WriteData((float**)0x004E44FF, &LeafPathPositionOverride);
 	WriteData((float**)0x004E4507, &LeafPathPositionOverride);
 	//Rotation 1024
-	WriteData((float**)0x004E478D, &LeafPathRotxyOverride);//Windpath Rx 
-	WriteData((float**)0x004E47A6, &LeafPathRotxyOverride);//Windpath Ry
+	WriteData((float**)0x004E478D, &LeafPathRotxyOverride); //Windpath Rx 
+	WriteData((float**)0x004E47A6, &LeafPathRotxyOverride); //Windpath Ry
 	WriteData((float**)0x004E422B, &WCWindSpeedOverride);
 	//Twinkle Park
-	WriteData((float**)0x6201FD, &Flag1AnimationSpeedOverride);//Flag1
-	WriteData((float**)0x62028D, &Flag1AnimationSpeedOverride);//Flag2
-	WriteData((float**)0x62059D, &Flag1AnimationSpeedOverride);//OFlagWLamp
+	WriteData((float**)0x6201FD, &Flag1AnimationSpeedOverride); //Flag1
+	WriteData((float**)0x62028D, &Flag1AnimationSpeedOverride); //Flag2
+	WriteData((float**)0x62059D, &Flag1AnimationSpeedOverride); //OFlagWLamp
 	//Red Mountain
-	WriteData((float**)0x0060C885, &OGLSpeedOverride);	//OGL Speed Tweak
-	WriteData((float**)0x0060B361, &OGLSpeedOverride);	//O Gear Speed Tweak
+	WriteData((float**)0x0060C885, &OGLSpeedOverride); //OGL Speed Tweak
+	WriteData((float**)0x0060B361, &OGLSpeedOverride); //O Gear Speed Tweak
 	WriteData((float**)0x00606676, &OLampSpeedOverride);
 	//Sky Deck
-	WriteData((float**)0x005F4146, &OMekaSpeedOverride);//OMeka OTutu	
-	WriteData((float**)0x005EE248, &TankhSpeedOverride);//Tank h	
+	WriteData((float**)0x005F4146, &OMekaSpeedOverride); //OMeka OTutu	
+	WriteData((float**)0x005EE248, &TankhSpeedOverride); //Tank h	
 	//Casinopolis
 	WriteData((double**)0x5C802C, &OKaizAnimationSpeedOverride); //OKaiza Animation Speed Tweak
 	WriteData((double**)0x5C747C, &OKaizAnimationSpeedOverride); //OKaizb Animation Speed Tweak
