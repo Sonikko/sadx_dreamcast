@@ -380,10 +380,69 @@ void UnidusFix(NJS_VECTOR *a1, NJS_VECTOR *a2, float a3)
 	else CreateFireParticle(a1, a2, a3);
 }
 
+void Bubbles_Display(ObjectMaster *a1)
+{
+	EntityData1 *v1; // edi
+	float a2; // ST14_4
+	void *v3; // esi
+	int v4; // edi
+	double v5; // st7
+	float v6; // eax
+
+	v1 = a1->Data1;
+	if (!MissedFrames)
+	{
+		a2 = (v1->Scale.x + 410.0f) * (v1->Scale.x + 410.0f);
+		if (!ClipObject(a1, a2))
+		{
+			v3 = (void *)v1->LoopData;
+			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+			SetMaterialAndSpriteColor((NJS_ARGB*)0x38CD514);
+			v4 = v1->InvulnerableTime;
+			if (v4 > 0)
+			{
+				do
+				{
+					v5 = *(float *)(*(Sint32*)&v3 + 12) * 0.03125f;
+					((NJS_SPRITE*)0x38CD540)->p.x = *(float *)&v3;
+					((NJS_SPRITE*)0x38CD540)->p.y = *(float *)(*(Sint32*)&v3 + 4);
+					v6 = *(float *)(*(Sint32*)&v3 + 8);
+					((NJS_SPRITE*)0x38CD540)->sx = v5;
+					((NJS_SPRITE*)0x38CD540)->sy = v5;
+					((NJS_SPRITE*)0x38CD540)->p.z = v6;
+					njDrawSprite3D((NJS_SPRITE*)0x38CD540, 0, NJD_SPRITE_ALPHA | NJD_SPRITE_SCALE | NJD_SPRITE_COLOR);
+					v3 = *(void **)(*(Sint32*)&v3 + 48);
+					--v4;
+				} while (v4);
+			}
+			ClampGlobalColorThing_Thing();
+			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+		}
+	}
+}
+
+static void __cdecl Bubbles_r(ObjectMaster *a1);
+static Trampoline Bubbles_t(0x7A88B0, 0x7A88B5, Bubbles_r);
+static void __cdecl Bubbles_r(ObjectMaster *a1)
+{
+	EntityData1 *v2; // esi
+	double v3; // st7
+	v2 = a1->Data1;
+	auto original = reinterpret_cast<decltype(Bubbles_r)*>(Bubbles_t.Target());
+	if (EnableSpeedFixes)
+	{
+		if (FramerateSetting >= 2 || FrameCounter % 2 == 0) original(a1);
+		Bubbles_Display(a1);
+	}
+	else original(a1);
+}
+
 void SpeedFixes_Init()
 {
-	WriteData((int**)0x004A26B3, &MissedFrames_Half);
 	//Character bubbles
+	WriteData((int**)0x004A26B3, &MissedFrames_Half);
 	//Ice Cap avalanche snow sprites
 	WriteData((float**)0x4EB391, &AvalancheMultiplier);
 	WriteData((float**)0x4EB3B6, &AvalancheMultiplier);
