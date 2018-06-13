@@ -1987,6 +1987,8 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		ReplacePVM("AVA_TITLE_E");
 		ReplacePVM("AVA_TRIALACTSEL");
 		ReplacePVM("AVA_TRIALACTSEL_E");
+		ReplacePVM("AVA_VMSSEL");
+		ReplacePVM("AVA_VMSSEL_E");
 		ReplacePVM("GAMEOVER");
 		ReplacePVM("GAMEOVER_E");
 		ReplacePVM("BOARD_SCORE");
