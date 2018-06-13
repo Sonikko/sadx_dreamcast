@@ -201,43 +201,10 @@ void AmyHatchFix(ObjectMaster *obj, CollisionData *collisionArray, int count, un
 	if (CurrentCharacter != 5) Collision_Init(obj, collisionArray, count, list);
 }
 
-void __cdecl RenderSuimen(ObjectMaster *a1)
+void __cdecl RenderSuimen(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
 {
-	EntityData1 *v1; // esi
-	Angle v2; // eax
-	Angle v3; // eax
-
-	v1 = a1->Data1;
-	if (!MissedFrames)
-	{
-		njSetTexture(&SHELTER_SUIMEN_TEXLIST);
-		njControl3D_Backup();
-		njControl3D_Add(NJD_CONTROL_3D_CONSTANT_ATTR);
-		BackupConstantAttr();
-		AddConstantAttr(0, NJD_FLAG_USE_ALPHA);
-		njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
-		njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
-		njPushMatrix(0);
-		njTranslateV(0, &v1->Position);
-		njTranslate(0, 0.0, *(Float *)&v1->LoopData, 0.0f);
-		v2 = v1->Rotation.z;
-		if (v2)
-		{
-			njRotateZ(0, (unsigned __int16)v2);
-		}
-		v3 = v1->Rotation.x;
-		if (v3)
-		{
-			njRotateX(0, (unsigned __int16)v3);
-		}
-		DrawQueueDepthBias = -17952.0f;
-		ProcessModelNode_A_Wrapper(SuimenArray[v1->NextAction], (QueuedModelFlagsB)0, 1.0f);
-		DrawQueueDepthBias = 0.0f;
-		ClampGlobalColorThing_Thing();
-		RestoreConstantAttr();
-		njControl3D_Restore();
-		njPopMatrix(1u);
-	}
+	SetMaterialAndSpriteColor_Float(0.0f, 0.5f, 0.5f, 0.5f);
+	ProcessModelNode_A_Wrapper(a1, a2, a3);
 }
 
 void RenderOHikari(NJS_OBJECT *a1, QueuedModelFlagsB a2, float a3)
@@ -287,7 +254,6 @@ void HotShelter_Init(const IniFile *config, const HelperFunctions &helperFunctio
 	ReplaceBIN_DC("CAM1202E");
 	ReplaceBIN_DC("CAM1202S");
 	ReplaceBIN_DC("CAM1203S");
-
 	switch (EnableSETFixes)
 	{
 		case SETFixes_Normal:
@@ -305,7 +271,6 @@ void HotShelter_Init(const IniFile *config, const HelperFunctions &helperFunctio
 		default:
 			break;
 	}
-
 	ReplacePVM("HOTSHELTER0");
 	ReplacePVM("HOTSHELTER1");
 	ReplacePVM("HOTSHELTER2");
@@ -338,11 +303,11 @@ void HotShelter_Init(const IniFile *config, const HelperFunctions &helperFunctio
 	((NJS_MATERIAL*)0x0180FBE8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
 	((NJS_MATERIAL*)0x0180FCF4)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
 	((NJS_MATERIAL*)0x0180EED8)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
-	(*(NJS_OBJECT*)0x1810690).basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
+	((NJS_MATERIAL*)0x0180F824)->attrflags &= ~NJD_FLAG_IGNORE_LIGHT; //Water surface
 	((NJS_MATERIAL*)0x0182E080)->attrflags |= NJD_FLAG_IGNORE_LIGHT; //KaitenMeter
 	((NJS_MATERIAL*)0x0182E080)->diffuse.color = 0x00000000; //KaitenMeter
 	//Object replacements
-	WriteJump((void*)0x5A8F60, RenderSuimen); //Fix Suimen flickering?
+	WriteCall((void*)0x5A8FE1, RenderSuimen); //Fix Suimen flickering
 	WriteCall((void*)0x59D444, RenderOHikari); //Add back OHikari green light
 	*(NJS_OBJECT*)0x180391C = objectSTG12_0016F268; //Colored cube 1
 	*(NJS_OBJECT*)0x1804CD4 = objectSTG12_00170054; //Colored cube 2
