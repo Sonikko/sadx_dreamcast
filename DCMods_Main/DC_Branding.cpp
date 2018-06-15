@@ -1541,7 +1541,6 @@ void Branding_Init(const IniFile *config, const HelperFunctions &helperFunctions
 		((NJS_SPRITE*)0x91312C)->p.y = 49.0f;
 	}
 	//Set PVM names
-	ReplacePVM("GG_TEXLIST_US");
 	ReplacePVM("ENDBG_LAST_AMY");
 	ReplacePVM("ENDBG_LAST_BIG");
 	ReplacePVM("ENDBG_LAST_E102");
