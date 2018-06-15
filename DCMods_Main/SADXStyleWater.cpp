@@ -533,7 +533,7 @@ void SADXStyleWater_Init(const IniFile *config, const HelperFunctions &helperFun
 		TexLists_Level[0]->PVMList = (PVMEntry*)&EmeraldCoast1Textures_list;
 		TexLists_Level[0]->NumTextures = LengthOfArray(EmeraldCoast1Textures_list);
 		TexLists_Level[1]->PVMList = (PVMEntry*)&EmeraldCoast2Textures_list;
-		TexLists_Level[1]->NumTextures = LengthOfArray(EmeraldCoast3Textures_list);
+		TexLists_Level[1]->NumTextures = LengthOfArray(EmeraldCoast2Textures_list);
 		TexLists_Level[2]->PVMList = (PVMEntry*)&EmeraldCoast3Textures_list;
 		TexLists_Level[2]->NumTextures = LengthOfArray(EmeraldCoast3Textures_list);
 	}
