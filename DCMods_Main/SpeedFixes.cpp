@@ -16,6 +16,7 @@ static int MissedFrames_Half = 1;
 static bool FixesApplied = false;
 
 //General
+short RingCountFlashSpeed = 512;
 float InvincibilitySpeed = 0.84f;
 float DashPanelAnimationSpeedOverride = 0.25f;
 short SpinnerYAnimationSpeedOverride = 384;
@@ -442,6 +443,8 @@ static void __cdecl Bubbles_r(ObjectMaster *a1)
 
 void SpeedFixes_Init()
 {
+	//Ring count when red
+	WriteData((short*)0x00425DBB, RingCountFlashSpeed);
 	//Invincibility
 	WriteData((float**)0x004BA4A7, &InvincibilitySpeed);
 	//Character bubbles
@@ -586,6 +589,8 @@ void SpeedFixes_OnFrame()
 		//Original values for 30 FPS
 		if (FramerateSetting >= 2)
 		{
+			//Ring count
+			RingCountFlashSpeed = 1024;
 			//Invincibility
 			InvincibilitySpeed = 0.7f;
 			//Ice Cap avalanche
@@ -651,6 +656,8 @@ void SpeedFixes_OnFrame()
 		//60 FPS values
 		else
 		{
+			//Ring count
+			RingCountFlashSpeed = 512;
 			//Invincibility
 			InvincibilitySpeed = 0.84f;
 			//Ice Cap avalanche
