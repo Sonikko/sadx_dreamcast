@@ -21,12 +21,9 @@ FunctionPointer(void, sub_6F4570, (ObjectMaster *a1), 0x6F4570);
 DataPointer(ObjectMaster*, dword_3C85138, 0x3C85138);
 HMODULE ADV01MODELS = GetModuleHandle(L"ADV01MODELS");
 HMODULE ADV01CMODELS = GetModuleHandle(L"ADV01CMODELS");
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataArray(PVMEntry, stru_10F34A8, 0x10F34A8, 6);
 DataArray(PVMEntry, stru_1101360, 0x1101360, 2);
 static int ocean_dc = 4;
-static int ocean_sadx = 4;
-static bool SADXStyleWater = false;
 DataArray(DrawDistance, EggCarrierOutsideDrawDist1, 0x010F2264, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist2, 0x010F227C, 3);
 DataArray(DrawDistance, EggCarrierOutsideDrawDist3, 0x010F2294, 3);
@@ -46,7 +43,6 @@ DataArray(FogData, EggCarrierInside5Fog, 0x01100CD8, 3);
 DataArray(FogData, EggCarrierInside6Fog, 0x01100D08, 3);
 DataArray(NJS_VECTOR, SkyboxScale_EggCarrier4, 0x010F212C, 3);
 DataArray(PVMEntry, EggCarrierObjectTexlist_Sea, 0x010F34A8, 6);
-DataPointer(int, DroppedFrames, 0x03B1117C);
 HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
 NJS_OBJECT **___MILES_OBJECTS = (NJS_OBJECT **)GetProcAddress(CHRMODELS, "___MILES_OBJECTS");
 NJS_TEXLIST **___ADV01_TEXLISTS = (NJS_TEXLIST **)GetProcAddress(ADV01MODELS, "___ADV01_TEXLISTS");
@@ -364,21 +360,6 @@ void EggCarrierSea()
 	}
 }
 
-void SetECOceanTexlist()
-{
-	if (GameState != 16)
-	{
-		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) ocean_sadx++;
-	}
-	if (ocean_sadx > 18) ocean_sadx = 4;
-	njSetTexture(&EC_SEA_TEXLIST);
-}
-
-void SetECOceanTexture()
-{
-	njSetTextureNum(ocean_sadx);
-}
-
 void ADV01_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("SETEC00S");
@@ -428,7 +409,6 @@ void ADV01_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("CAMEC33S");
 	ReplaceBIN_DC("CAMEC34S");
 	ReplaceBIN_DC("CAMEC35S");
-
 	switch (EnableSETFixes)
 	{
 		case SETFixes_Normal:
@@ -462,7 +442,6 @@ void ADV01_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		default:
 			break;
 	}
-
 	ReplacePVM("ADV_EC03");
 	ReplacePVM("ADV_EC04");
 	ReplacePVM("ADV_EC05");
@@ -483,42 +462,20 @@ void ADV01_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("EC_IKADA");
 	ReplacePVM("EC_LIGHT");
 	ReplacePVM("EC_SKY");
-	ReplacePVM("EC_STATION");
 	ReplacePVM("EC_TARAI");
 	ReplacePVM("EC_TORNADO");
 	ReplacePVM("EC_TRANSFORM");
 	ReplacePVM("EC_WATER");
 	ReplacePVM("EV_ECCLOUD");
-	ReplacePVM("MONORAIL");
-	ReplacePVM("MONOSTATION");
 	ReplacePVM("OBJ_EC00");
 	ReplacePVM("OBJ_EC30");
 	ReplacePVM("PVME101FACTORY");
 	ReplacePVM("ADV_EC00");
 	ReplacePVM("ADV_EC01");
 	ReplacePVM("ADV_EC02");
-
-	// Load configuration settings.
-	SADXStyleWater = config->getBool("SADX Style Water", "EggCarrier", false);
-	if (SADXStyleWater)
-	{
-		ReplacePVMX_SADXStyleWater("EC_SEA");
-		ResizeTextureList(&EC_SEA_TEXLIST, 21);
-		WriteCall((void*)0x0051C4FD, SetECOceanTexlist);
-		WriteCall((void*)0x0051C51B, SetECOceanTexlist);
-		WriteCall((void*)0x0051C4DA, SetECOceanTexlist);
-		WriteCall((void*)0x51C5B3, SetECOceanTexture);
-		WriteData<1>((char*)0x0051C4E8, 0x13); //act 1 water
-		WriteData<1>((char*)0x0051C50B, 0x13); //act 2 water
-		WriteData<1>((char*)0x0051C529, 0x13); //act 3 water
-		WriteData((float*)0x0051C5EC, 2.5f); //Z fighting fix
-	}
-	else
-	{
-		ReplacePVM("EC_SEA");
-		WriteJump((void*)0x0051C440, EggCarrierSea);
-	}
-
+	ReplacePVM("EC_SEA");
+	ResizeTextureList(&OBJ_EC00_TEXLIST, 206);
+	if (!SADXWater_EggCarrier) WriteJump((void*)0x0051C440, EggCarrierSea);
 	//Door barrier fixes (Gamma's story)
 	WriteJump((void*)0x52B2E0, ECDoorBarrier1X); 
 	WriteJump((void*)0x52B250, ECDoorBarrier2_asm);
@@ -584,6 +541,7 @@ void ADV01_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	___ADV01C_OBJECTS[8] = &objectADV01_000D243C; //tarai
 	___ADV01_ACTIONS[2]->object = &objectADV01_0019795C; //OEggChair
 	___ADV01_ACTIONS[2]->motion = &_197dbc; //OEggChair
+	___ADV01_ACTIONS[6]->object = &object_0016991C; //OSkyDeck
 	___ADV01_MODELS[13]->mats[1].diffuse.color = 0xFFFFFFFF; //Slot machine
 	___ADV01_OBJECTS[21] = &objectADV01_001972E4;
 	___ADV01_OBJECTS[22] = &objectADV01_0018C098;

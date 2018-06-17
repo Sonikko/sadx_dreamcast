@@ -10,20 +10,14 @@
 #include "ADVSS04(Hotel).h"
 #include "ADVSS05(TwinkleParkEntrance).h"
 
-static int anim1 = 46;
-static int anim2 = 183;
-static int anim3 = 29;
-static int anim4 = 59;
-static int anim5 = 60;
-static int anim6 = 219;
-static int anim7 = 120;
-static int anim_sadx = 268;
-static int anim_sadx2 = 123;
-static bool SADXStyleWater = false;
+static int WaterAnimation_Sewers = 46;
+static int SandwaveAnimation = 183;
+static int SeashoreAnimation = 29;
+static int SeashoreAnimation_Pool = 59;
+static int SandwaveAnimation_Pool = 60;
+static int SewerMainAnimation = 219;
+static int PoolWaterAnimation = 120;
 
-DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(int, CutsceneID, 0x3B2C570);
 DataArray(FogData, StationSquare1Fog, 0x02AA3D10, 3);
 DataArray(FogData, StationSquare2Fog, 0x02AA3D40, 3);
 DataArray(FogData, StationSquare3Fog, 0x02AA3D70, 3);
@@ -36,14 +30,6 @@ FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x
 FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *model, int blend, float scale), 0x409E70);
 HMODULE ADV00MODELS = GetModuleHandle(L"ADV00MODELS");
 
-void __cdecl WaterTexture()
-{
-	if (CurrentAct == 4 && GetTimeOfDay() != 1) njSetTextureNum(119);
-	if (CurrentAct == 4 && GetTimeOfDay() == 1) njSetTextureNum(122);
-	if (CurrentAct == 3 && GetTimeOfDay() == 1) njSetTextureNum(267);
-	if (CurrentAct == 3 && GetTimeOfDay() != 1) njSetTextureNum(266);
-}
-
 int __cdecl CheckIfCameraIsInHotel_Lol()
 {
 	int result; // eax@3
@@ -52,7 +38,7 @@ int __cdecl CheckIfCameraIsInHotel_Lol()
 	return result;
 }
 
-void __cdecl SSWater()
+void __cdecl SSMainAreaWater(OceanData *x)
 {
 	if (CurrentAct == 3)
 	{
@@ -842,11 +828,10 @@ void RenderPoolChair(NJS_MODEL_SADX *a1, int a2, float a3)
 	DrawQueueDepthBias = 0.0f;
 }
 
-void NPCModelsFunction(NJS_MATERIAL* material)
+void RenderStreetLight(NJS_MODEL_SADX *model, QueuedModelFlagsB blend, float scale)
 {
-	material->diffuse.argb.r = 178;
-	material->diffuse.argb.g = 178;
-	material->diffuse.argb.b = 178;
+	if (GetTimeOfDay() == 0) blend = QueuedModelFlagsB_EnableZWrite; else blend = (QueuedModelFlagsB)0x05;
+	DrawModel_QueueVisible(model, blend, scale);
 }
 
 void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
@@ -882,7 +867,6 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SETSS04M");
 	ReplaceBIN_DC("SETSS04S");
 	ReplaceBIN_DC("SETSS05S");
-
 	switch (EnableSETFixes)
 	{
 		case SETFixes_Normal:
@@ -952,7 +936,6 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		default:
 			break;
 	}
-
 	if (!DLLLoaded_DLCs)
 	{
 		ReplaceBIN_DC("CAMSS00S");
@@ -962,9 +945,11 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		ReplaceBIN_DC("CAMSS04S");
 		ReplaceBIN_DC("CAMSS05S");
 	}
-
 	ReplacePVM("ADVSS00");
 	ReplacePVM("ADVSS01");
+	ReplacePVM("ADVSS02");
+	ReplacePVM("ADVSS03");
+	ReplacePVM("ADVSS04");
 	ReplacePVM("ADVSS05");
 	ReplacePVM("OBJ_SS");
 	ReplacePVM("SS_BG");
@@ -984,21 +969,8 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVR("SS_NIGHTSKY");
 	ReplacePVR("SS_NIGHTSKYB");
 	ReplacePVR("SS_YUSKAY_MINI");
-
-	// Load configuration settings.
-	SADXStyleWater = config->getBool("SADX Style Water", "StationSquare", false);
-	if (SADXStyleWater)
-	{
-		ReplacePVMX_SADXStyleWater("ADVSS02");
-		ReplacePVMX_SADXStyleWater("ADVSS03");
-		ReplacePVMX_SADXStyleWater("ADVSS04");
-	}
-	else
-	{
-		ReplacePVM("ADVSS02");
-		ReplacePVM("ADVSS03");
-		ReplacePVM("ADVSS04");
-	}
+	ResizeTextureList((NJS_TEXLIST*)0x2AEE920, 22); //SSCAR 
+	WriteData<1>((char*)0x02BBE9EC, 0x0B); //Texture ID for extra car type
 	WriteCall((void*)0x00636DE9, RenderOfficeDoor);
 	WriteCall((void*)0x00636E99, RenderOfficeDoor);
 	WriteCall((void*)0x00636F0B, RenderOfficeDoor);
@@ -1009,6 +981,8 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x00638B2E, RenderPoliceCarBarricade);
 	WriteCall((void*)0x00638B50, RenderPoliceCarBarricade);
 	WriteCall((void*)0x00632773, FixPoliceCar);
+	//Street light blending
+	WriteCall((void*)0x63A908, RenderStreetLight);
 	//Fix camera in Light Speed Shoes cutscene
 	WriteData((float*)0x00652F74, 800.0f); //X1
 	WriteData((float*)0x00652F79, -92.6f); //Y1
@@ -1018,9 +992,8 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	//Fix NPC materials
 	for (unsigned int i = 0; i < LengthOfArray(NPCMaterials); i++)
 	{
-		NPCModelsFunction(NPCMaterials[i]);
+		RemoveMaterialColors(NPCMaterials[i]);
 	}
-
 	if (DLLLoaded_Lantern)
 	{
 		material_register(CharacterStuff, LengthOfArray(CharacterStuff), &ForceDiffuse2Specular2);
@@ -1029,14 +1002,14 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		material_register(WhiteDiffuseADV00, LengthOfArray(WhiteDiffuseADV00), &ForceWhiteDiffuse1);
 		material_register(WhiteDiffuseADV00_Night, LengthOfArray(WhiteDiffuseADV00_Night), &ForceWhiteDiffuse3_Night);
 	}
-
-	if (SADXStyleWater)
+	if (SADXWater_StationSquare)
 	{
-		WriteCall((void*)0x006312BB, WaterTexture);
 		matlistADV00_00123C24[0].attrflags |= NJD_FLAG_USE_ALPHA;
 		matlistADV00_00122894_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
 		matlistADV00_00133D3C[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 		collist_000DA99C[LengthOfArray(collist_000DA99C) - 11].Flags = 0x80000000; //SADX sea bottom
+		matlistADV00_00114D80[0].diffuse.argb.a = 178; //SADX sea bottom
+		matlistADV00_00114D80[0].attrflags |= NJD_FLAG_USE_ALPHA; //SADX sea bottom
 		meshlistADV00_00114DB0[0].vertcolor = vcolor_0015EFF0; //SADX sea bottom
 		meshlistADV00_00151E84[0].vertcolor = vcolor_001B6370; //SADX sea bottom (hotel)
 		collist_000DA99C[LengthOfArray(collist_000DA99C) - 3].Flags = 0x00000002; //Sewers water
@@ -1048,15 +1021,11 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		matlistADV00_00151E54[0].attrflags &= ~NJD_FLAG_USE_ALPHA;
 		matlistADV00_001566E4[0].diffuse.argb.a = 0;
 		objectADV00_00151F24.pos[1] = -29.5f;
-		ResizeTextureList(&texlist_advss03, 283);
-		ResizeTextureList(&texlist_advss04, 138);
-		WriteData((int*)0x006311BB, 268);
-		WriteData((int*)0x006311D9, 266);
-		WriteData((int*)0x006311D2, 267);
+		objectADV00_00151F24.pos[1] = -29.5f;
 	}
 	else
 	{
-		WriteJump((void*)0x631140, SSWater);
+		WriteJump((void*)0x631140, SSMainAreaWater);
 		matlistADV00_00123C24[0].attrflags |= NJD_FLAG_USE_ALPHA;
 		matlistADV00_00122894_2[0].attrflags |= NJD_FLAG_USE_ALPHA;
 		matlistADV00_00133D3C[0].attrflags |= NJD_FLAG_USE_ALPHA;
@@ -1070,10 +1039,9 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		matlistADV00_00151E54[0].attr_texId = 78;
 		matlistADV00_001566E4[0].attr_texId = 78;
 		matlistADV00_00151E54[0].attrflags |= NJD_FLAG_USE_ALPHA;
-		matlistADV00_001566E4[0].diffuse.argb.a = 0xB2;
+		matlistADV00_001566E4[0].diffuse.argb.a = 178;
 		objectADV00_00151F24.pos[1] = -13;
 	}
-
 	WriteData<4>((void*)0x00630AE0, 0x90); //Hotel door fix
 	WriteJump((void*)0x0062EA30, CheckIfCameraIsInHotel_Lol); //Hotel lighting
 	ResizeTextureList((NJS_TEXLIST*)0x2AD9F58, 31); //SS_TRAIN
@@ -1119,7 +1087,7 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	___ADV00_TEXLISTS[3] = &texlist_advss03;
 	___ADV00_TEXLISTS[4] = &texlist_advss04;
 	___ADV00_TEXLISTS[5] = &texlist_advss05;
-
+	ResizeTextureList(&OBJ_SS_TEXLIST, 177);
 	//Fog data
 	for (unsigned int i = 0; i < 3; i++)
 	{
@@ -1148,11 +1116,10 @@ void ADV00_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 void ADV00_OnFrame()
 {
 	auto CharObj1PtrsThing = EntityData1Ptrs[0];
-	if (CurrentLevel == 26 && GetTimeOfDay() == 0) WriteData<1>((void*)0x0063A906, 0x01); else WriteData<1>((void*)0x0063A906, 0x05);
 	//Act 2 (Sewers)
 	if (CurrentLevel == 26 && CurrentAct == 2)
 	{
-		//Fix Sonic's rotation in the Light Speed Shoes cutscene
+		//Fix Sonic's rotation after the Light Speed Shoes cutscene
 		if (CharObj1PtrsThing != nullptr && EV_MainThread_ptr != nullptr && CutsceneID == 358)
 		{
 			CharObj1PtrsThing->Rotation.x = 0;
@@ -1162,10 +1129,10 @@ void ADV00_OnFrame()
 		//Water animation
 		if (GameState != 16)
 		{
-			if (anim1 > 55) anim1 = 46;
-			matlistADV00_000D9890[0].attr_texId = anim1;
-			matlistADV00_000C24BC[0].attr_texId = anim1;
-			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) anim1++;
+			if (WaterAnimation_Sewers > 55) WaterAnimation_Sewers = 46;
+			matlistADV00_000D9890[0].attr_texId = WaterAnimation_Sewers;
+			matlistADV00_000C24BC[0].attr_texId = WaterAnimation_Sewers;
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2) WaterAnimation_Sewers++;
 		}
 	}
 	//Night reflections Act 0
@@ -1184,7 +1151,7 @@ void ADV00_OnFrame()
 		matlistADV00_00066CF0[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		matlistADV00_00066CF0[1].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		matlistADV00_00066CF0[2].attrflags |= NJD_FLAG_IGNORE_LIGHT;
-		attachADV00_0017D7A8.mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
+		matlistADV00_0017D59C[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		matlistADV00_00031C48[3].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		matlistADV00_00030274[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 		matlistADV00_00022CC0[5].attrflags |= NJD_FLAG_IGNORE_LIGHT;
@@ -1236,7 +1203,6 @@ void ADV00_OnFrame()
 		matlistADV00_00021684[0].attr_texId = 217;
 		matlistADV00_000631AC[1].attr_texId = 219;
 	}
-
 	//Evening reflections Act 0
 	if (CurrentLevel == 26 && CurrentAct == 0 && GetTimeOfDay() == 1)
 	{
@@ -1304,7 +1270,6 @@ void ADV00_OnFrame()
 		matlistADV00_00021684[0].attr_texId = 216;
 		matlistADV00_000631AC[1].attr_texId = 218;
 	}
-
 	//Day reflections Act 0
 	if (CurrentLevel == 26 && CurrentAct == 0 && GetTimeOfDay() == 0)
 	{
@@ -1372,12 +1337,10 @@ void ADV00_OnFrame()
 		matlistADV00_00021684[0].attr_texId = 39;
 		matlistADV00_000631AC[1].attr_texId = 185;
 	}
-
 	//Day, Night & Evening textures for Act 1 (Casino)
 	if (CurrentLevel == 26 && CurrentAct == 1 && GetTimeOfDay() == 2) matlistADV00_000B59E0[0].attr_texId = 265;
 	if (CurrentLevel == 26 && CurrentAct == 1 && GetTimeOfDay() == 1) matlistADV00_000B59E0[0].attr_texId = 264;
 	if (CurrentLevel == 26 && CurrentAct == 1 && GetTimeOfDay() == 0) matlistADV00_000B59E0[0].attr_texId = 240;
-
 	//Day, Night & Evening textures for Act 4 (Hotel)
 	if (CurrentLevel == 26 && CurrentAct == 4 && GetTimeOfDay() == 2) matlistADV00_00151F58[0].attr_texId = 118;
 	if (CurrentLevel == 26 && CurrentAct == 4 && GetTimeOfDay() == 2) matlistADV00_00152110[0].attr_texId = 117;
@@ -1385,7 +1348,6 @@ void ADV00_OnFrame()
 	if (CurrentLevel == 26 && CurrentAct == 4 && GetTimeOfDay() == 1) matlistADV00_00152110[0].attr_texId = 115;
 	if (CurrentLevel == 26 && CurrentAct == 4 && GetTimeOfDay() == 0) matlistADV00_00151F58[0].attr_texId = 69;
 	if (CurrentLevel == 26 && CurrentAct == 4 && GetTimeOfDay() == 0) matlistADV00_00152110[0].attr_texId = 70;
-
 	//Night reflections Act 3 (Main area)
 	if (CurrentLevel == 26 && GetTimeOfDay() == 2) attachADV00_0017D7A8.mats[0].attrflags |= NJD_FLAG_IGNORE_LIGHT;
 	if (CurrentLevel == 26 && GetTimeOfDay() != 2) attachADV00_0017D7A8.mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -1448,7 +1410,6 @@ void ADV00_OnFrame()
 		matlistADV00_000FBD0C[0].attr_texId = 261;
 		matlistADV00_0011BE68[2].attr_texId = 257;
 	}
-
 	//Evening reflections Act 3 (Main area)
 	if (CurrentLevel == 26 && CurrentAct == 3 && GetTimeOfDay() == 1)
 	{
@@ -1509,7 +1470,6 @@ void ADV00_OnFrame()
 		matlistADV00_000FBD0C[0].attr_texId = 260;
 		matlistADV00_0011BE68[2].attr_texId = 256;
 	}
-
 	//Day reflections Act 3 (Main area)
 	if (CurrentLevel == 26 && CurrentAct == 3 && GetTimeOfDay() == 0)
 	{
@@ -1570,61 +1530,64 @@ void ADV00_OnFrame()
 		matlistADV00_000FBD0C[0].attr_texId = 94;
 		matlistADV00_0011BE68[2].attr_texId = 165;
 	}
-
 	//Sea animations Act 3 (Main area)
 	if (CurrentLevel == 26 && CurrentAct == 3 && GameState != 16)
 	{
-		if (anim_sadx > 282) anim_sadx = 268;
-		if (SADXStyleWater == true) WriteData((int*)0x006311BB, anim_sadx);
-		if (anim6 > 227) anim6 = 219;
-		if (anim2 > 255) anim2 = 183;
-		if (anim2 > 183 && anim2 < 242) anim2 = 242;
-		if (anim3 > 241) anim3 = 29;
-		if (anim3 > 29 && anim3 < 228) anim3 = 228;
-		matlistADV00_0012231C[0].attr_texId = anim2;
-		matlistADV00_00123620[0].attr_texId = anim2;
-		matlistADV00_000E7180[1].attr_texId = anim3;
-		matlistADV00_00122894[2].attr_texId = anim3;
-		if (SADXStyleWater == true) matlistADV00_00114D80[0].attr_texId = anim3;
-		if (SADXStyleWater == true) matlistADV00_00114D80[0].diffuse.argb.a = 0xB2;
-		if (SADXStyleWater == true)matlistADV00_00114D80[0].attrflags |= NJD_FLAG_USE_ALPHA;
-		if (SADXStyleWater == false) matlistADV00_00133D3C[0].attr_texId = anim6;
-		if (SADXStyleWater == false) matlistADV00_00114D80Z[0].attr_texId = anim6;
+		if (SewerMainAnimation > 227) SewerMainAnimation = 219;
+		if (SandwaveAnimation > 255) SandwaveAnimation = 183;
+		if (SandwaveAnimation > 183 && SandwaveAnimation < 242) SandwaveAnimation = 242;
+		if (SeashoreAnimation > 241) SeashoreAnimation = 29;
+		if (SeashoreAnimation > 29 && SeashoreAnimation < 228) SeashoreAnimation = 228;
+		//Sand waves
+		matlistADV00_0012231C[0].attr_texId = SandwaveAnimation;
+		matlistADV00_00123620[0].attr_texId = SandwaveAnimation;
+		//Seashore
+		matlistADV00_000E7180[1].attr_texId = SeashoreAnimation;
+		matlistADV00_00122894[2].attr_texId = SeashoreAnimation;
+		//Sea bottom
+		if (SADXWater_StationSquare)
+		{
+			matlistADV00_00114D80[0].attr_texId = SeashoreAnimation;
+		}
+		//Sewers water
+		else 
+		{
+			matlistADV00_00133D3C[0].attr_texId = SewerMainAnimation;
+			matlistADV00_00114D80Z[0].attr_texId = SewerMainAnimation;
+		}
 		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 		{
-			anim2++;
-			anim3++;
-			anim6++;
-			anim_sadx++;
+			SandwaveAnimation++;
+			SeashoreAnimation++;
+			SewerMainAnimation++;
 		}
 	}
-
 	//Sea animations Act 4 (Hotel)
 	if (CurrentLevel == 26 && CurrentAct == 4 && GameState != 16)
 	{
-		if (anim_sadx2 > 137) anim_sadx2 = 123;
-		if (anim7 > 86) anim7 = 65;
-		if (anim7 > 65 && anim7 < 78) anim7 = 78;
-		if (anim4 > 100) anim4 = 59;
-		if (anim4 > 59 && anim4 < 87) anim4 = 87;
-		if (anim5 > 114) anim5 = 60;
-		if (anim5 > 60 && anim5 < 101) anim5 = 101;
-		matlistADV00_00147958[2].attr_texId = anim4;
-		matlistADV00_00150A50[1].attr_texId = anim4;
-		matlistADV00_00150A50[3].attr_texId = anim5;
-		if (SADXStyleWater == true) matlistADV00_00151E54[0].attr_texId = anim4;
-		if (SADXStyleWater == true) WriteData((int*)0x006311E0, anim_sadx2);
-		matlistADV00_00148688[0].attr_texId = anim5;
-		if (SADXStyleWater == false) matlistADV00_00151E54[0].attr_texId = anim7;
-		if (SADXStyleWater == false) matlistADV00_001566E4[0].attr_texId = anim7;
-		if (SADXStyleWater == false) matlistADV00_0014B314[0].attr_texId = anim7;
-		if (SADXStyleWater == false) matlistADV00_0014BED8[0].attr_texId = anim7;
+		if (PoolWaterAnimation > 86) PoolWaterAnimation = 65;
+		if (PoolWaterAnimation > 65 && PoolWaterAnimation < 78) PoolWaterAnimation = 78;
+		if (SeashoreAnimation_Pool > 100) SeashoreAnimation_Pool = 59;
+		if (SeashoreAnimation_Pool > 59 && SeashoreAnimation_Pool < 87) SeashoreAnimation_Pool = 87;
+		if (SandwaveAnimation_Pool > 114) SandwaveAnimation_Pool = 60;
+		if (SandwaveAnimation_Pool > 60 && SandwaveAnimation_Pool < 101) SandwaveAnimation_Pool = 101;
+		matlistADV00_00147958[2].attr_texId = SeashoreAnimation_Pool;
+		matlistADV00_00150A50[1].attr_texId = SeashoreAnimation_Pool;
+		matlistADV00_00150A50[3].attr_texId = SandwaveAnimation_Pool;
+		matlistADV00_00148688[0].attr_texId = SandwaveAnimation_Pool;
+		if (SADXWater_StationSquare) matlistADV00_00151E54[0].attr_texId = SeashoreAnimation_Pool;
+		else
+		{
+			matlistADV00_00151E54[0].attr_texId = PoolWaterAnimation;
+			matlistADV00_001566E4[0].attr_texId = PoolWaterAnimation;
+			matlistADV00_0014B314[0].attr_texId = PoolWaterAnimation;
+			matlistADV00_0014BED8[0].attr_texId = PoolWaterAnimation;
+		}
 		if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
 		{
-			anim4++;
-			anim5++;
-			anim7++;
-			anim_sadx2++;
+			SeashoreAnimation_Pool++;
+			SandwaveAnimation_Pool++;
+			PoolWaterAnimation++;
 		}
 	}
 }

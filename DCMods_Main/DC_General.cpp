@@ -5,6 +5,7 @@
 #include "EggmobileNPC.h"
 #include "CharacterEffects.h"
 #include "Ripple.h"
+#include "Frogs.h"
 #include "CommonObjects.h"
 
 HMODULE CHRMODELS3 = GetModuleHandle(L"CHRMODELS_orig");
@@ -22,13 +23,7 @@ NJS_SPRITE Heat1Sprite = { { 0, 0, 0 }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x0091BD28,
 NJS_SPRITE Heat2Sprite = { { 0, 0, 0 }, 1.0f, 1.0f, 0, (NJS_TEXLIST*)0x0091BD28, &Heat2Texanim };
 
 DataPointer(NJS_OBJECT, stru_8B22F4, 0x8B22F4);
-DataPointer(int, CutsceneID, 0x3B2C570);
-DataPointer(float, EnvMap1, 0x038A5DD0);
-DataPointer(float, EnvMap2, 0x038A5DE4);
-DataPointer(float, EnvMap3, 0x038A5E00);
-DataPointer(float, EnvMap4, 0x038A5E04);
 DataPointer(NJS_MATRIX, nj_unit_matrix_, 0x389D650);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 FunctionPointer(void, sub_4083D0, (NJS_ACTION *a1, float a2, int a3), 0x4083D0);
 FunctionPointer(EntityData1*, sub_4B9430, (NJS_VECTOR *a1, NJS_VECTOR *a2, float a3), 0x4B9430);
 FunctionPointer(void, sub_436550, (), 0x436550);
@@ -40,6 +35,7 @@ FunctionPointer(void, sub_4014B0, (), 0x4014B0);
 
 static bool EnableCutsceneFix = true;
 int CutsceneSkipMode = 0;
+int CutsceneFrameCounter = 0;
 static std::string EnableImpressFont = "Off";
 static bool ColorizeFont = true;
 static bool DisableFontSmoothing = true;
@@ -395,7 +391,7 @@ void __cdecl SpawnRipplesX(unsigned __int8 a1, NJS_VECTOR *a2)
 	{
 		if (njScalor(&v3->Speed) == 0.0f)
 		{
-			v4 = (double)rand() * 0.000030517578;
+			v4 = (double)rand() * 0.000030517578f;
 			v5 = v4 < 0.9f;
 			v6 = v4 == 0.9f;
 		}
@@ -650,6 +646,18 @@ void InputHookForCutscenes()
 	if (CutsceneFadeMode == 1) ControllerPointers[0]->PressedButtons |= Buttons_C;
 }
 
+static Sint32 DisplayTitleCard_r();
+static Trampoline DisplayTitleCard_t(0x47E170, 0x47E175, DisplayTitleCard_r);
+static Sint32 __cdecl DisplayTitleCard_r()
+{
+	auto original = reinterpret_cast<decltype(DisplayTitleCard_r)*>(DisplayTitleCard_t.Target());
+	CutsceneSkipMode = 0;
+	CutsceneFadeMode = 0;
+	CutsceneFadeValue = 0;
+	SkipPressed_Cutscene = false;
+	return original();
+}
+
 void DrawUnderwaterOverlay(NJS_MATRIX_PTR m)
 {
 	NJS_COLOR WaterOverlay_Colors;
@@ -713,7 +721,7 @@ void __cdecl Barrier_MainX(ObjectMaster *a1)
 	if (v2 && GetCharObj2(0)->Powerups & Powerups_Barrier)
 	{
 		sub_4B9CE0(v1, v2);
-		if ((double)rand() * 0.000030517578f > 0.85f)
+		if ((double)rand() * 0.000030517578f > 0.84f)
 		{
 			v3 = LoadChildObject(LoadObj_Data1, BarrierChild, a1);
 			v4 = v3;
@@ -738,29 +746,28 @@ void EmeraldShardLighting(NJD_FLAG lol1, NJD_FLAG lol2)
 	AddConstantAttr(0, NJD_FLAG_IGNORE_LIGHT);
 }
 
+void FixCutsceneTransition()
+{
+	if (CutsceneID == 134) sub_436550(); //Knuckles back in Station Square after meeting Pacman
+}
+
 void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVR("AL_BARRIA");
 	ReplacePVR("AM_SEA124_8");
 	ReplacePVR("BELT2");
 	ReplacePVR("CAPTUREBEAM");
-	ReplacePVR("MRASC_016S_HIRUUMI");
-	ReplacePVR("MRASC_256S_HIRUSORAA");
-	ReplacePVR("SEA");
-	ReplacePVR("SKY_H_BAL01");
-	ReplacePVR("SONIC_EMBLM01");
-	ReplacePVR("SONIC_EMBLM03");
-	ReplacePVR("SONIC_EMBLM04");
-	ReplacePVR("SONIC_EMBLM05");
 	ReplacePVR("SORA60");
 	ReplacePVR("SSTX_BODY");
-	ReplacePVR("STG_S_LOCKMK");
-	ReplacePVR("STX_ICE0");
-	ReplacePVR("ST_016S_HPBAR");
 	ReplacePVR("SW_NBG2");
 	ReplacePVR("S_WT28");
 	ReplacePVR("S_WT32");
 	ReplacePVR("TM32KURAGE");
+	ReplacePVR("SEA");
+	ReplacePVR("SKY_H_BAL01");
+	ReplacePVR("STX_ICE0");
+	ReplacePVR("MRASC_016S_HIRUUMI");
+	ReplacePVR("MRASC_256S_HIRUSORAA");
 	ReplacePVR("WATERCOLUMN01");
 	ReplacePVR("WINDSEA001");
 	ReplacePVR("WINDY2_NBG1");
@@ -801,7 +808,7 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("ER_9000_EGGMANROBO");
 	ReplacePVM("EV_EGGMAN_BODY");
 	ReplacePVM("EV_EGGMOBILE1");
-	ReplacePVM("EV_EGGMOBLE0");
+	if (!DLLLoaded_SA1Chars) ReplacePVM("EV_EGGMOBLE0");
 	ReplacePVM("EV_EGGMOBLE0DM");
 	ReplacePVM("EV_EGGMOBLE1");
 	ReplacePVM("EV_EGGMOBLE2");
@@ -870,6 +877,7 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("M_EM_SKY");
 	ReplacePVM("M_EM_WHITE");
 	ReplacePVM("M_EM_YELLOW");
+	ReplacePVM("M_TR_S");
 	ReplacePVM("NEW_BB");
 	ReplacePVM("NISEPAT");
 	ReplacePVM("OL_10000");
@@ -885,14 +893,12 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("SEA_BASS");
 	ReplacePVM("SHAPE_FROG");
 	ReplacePVM("SHAPE_FROG_2");
-	ReplacePVM("SS_DENTOU");
 	ReplacePVM("SUKA");
 	ReplacePVM("SUPI_SUPI");
 	ReplacePVM("TAI");
 	ReplacePVM("TOGEBALL_TOGEBALL");
 	ReplacePVM("TR2CRASH");
 	ReplacePVM("TUBA");
-	ReplacePVM("TX_CHNAM_E");
 	ReplacePVM("UNAGI");
 	ReplacePVM("UNI_A_UNIBODY");
 	ReplacePVM("UNI_C_UNIBODY");
@@ -908,6 +914,10 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("WING_P");
 	ReplacePVM("WING_T");
 	ReplacePVM("ZOU");
+	//Fix frogs lol
+	*(NJS_OBJECT*)0x030CB4F8 = object_02CCB4F8;
+	*(NJS_OBJECT*)0x030CDB28 = object_02CCDB28;
+	*(NJS_OBJECT*)0x030D0160 = object_02CD0160;
 	//Fix for badniks not spawning
 	WriteCall((void*)0x007AA9F9, AmenboFix);
 	WriteCall((void*)0x0049EFE7, EggKeeperFix);
@@ -959,9 +969,6 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	if (DLLLoaded_HDGUI == false)
 	{
 		ReplacePVM("OBJ_REGULAR");
-		ReplacePVR("ST_064S_LOCKA");
-		ReplacePVR("ST_064S_LOCKB");
-		ReplacePVR("ST_064S_LOCKC");
 		ResizeTextureList(&OBJ_REGULAR_TEXLIST, 100); //Added DC ripple texture
 	}
 	WriteJump(ItemBox_Display_Destroyed, ItemBox_Display_Destroyed_Rotate);
@@ -1036,8 +1043,8 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	//Fix for cutscene transitions
 	if (EnableCutsceneFix)
 	{
-		WriteData<5>((void*)0x43131D, 0x90u);
-		WriteData<5>((void*)0x4311E3, 0x90u);
+		WriteCall((void*)0x4311E3, FixCutsceneTransition); //Main thread
+		WriteData<5>((void*)0x43131D, 0x90u); //Skipping cutscenes
 	}
 	//Ripples
 	if (EnableDCRipple)
@@ -1130,6 +1137,11 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	//Shield
 	WriteJump(Barrier_Main, Barrier_MainX); //Barrier
 	WriteData<1>((char*)0x004B9DA9, 0x08); //Magnetic barrier blending mode
+	//Material fixes
+	for (unsigned int i = 0; i < LengthOfArray(FirstCharacterSpecular_General); i++)
+	{
+		RemoveMaterialColors(FirstCharacterSpecular_General[i]);
+	}
 	if (DLLLoaded_Lantern == true)
 	{
 		allow_landtable_specular(true);
@@ -1147,39 +1159,35 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	WriteData<1>((char*)0x004D7712, 0x02u); //Animal bubble blending mode
 	*(NJS_OBJECT*)0x02F67B78 = object_0021BD90; //Tornado 2 crashed
 	ResizeTextureList((NJS_TEXLIST*)0x0092ACE4, 5); //GOMA texlist
-	((NJS_OBJECT*)0x929E1C)->model = &attach_001568D8; //Goma left whisker
-	((NJS_OBJECT*)0x929FD8)->model = &attach_00156758; //Goma right whisker
-	((NJS_OBJECT*)0x929760)->model = &attach_00157668; //Goma body
-	((NJS_OBJECT*)0x929AA4)->model = &attach_00156CA8; //Goma left front
-	((NJS_OBJECT*)0x9298B4)->model = &attach_00156E90; //Goma right front
-	((NJS_OBJECT*)0x92A1CC)->model = &attach_001565D8; //Goma left back
-	((NJS_OBJECT*)0x929C94)->model = &attach_00156AC0; //Goma right back
-	((NJS_OBJECT*)0x948ACC)->model = &attach_0017BE24; //Rako head
-	((NJS_OBJECT*)0x949068)->model = &attach_0017CCE8; //Rako body
-	((NJS_OBJECT*)0x9483B4)->model = &attach_0017C980; //Rako tail
-	((NJS_OBJECT*)0x948CE4)->model = &attach_0017B6C4; //Rako ear left
-	((NJS_OBJECT*)0x948BD8)->model = &attach_0017BAC8; //Rako ear right
-	((NJS_OBJECT*)0x948508)->model = &attach_0017B7A8; //Rako whisker left
-	((NJS_OBJECT*)0x9486C4)->model = &attach_0017B928; //Rako whisker right
-	((NJS_OBJECT*)0x947C78)->model = &attach_0017C2A4; //Rako hand left
-	((NJS_OBJECT*)0x947A58)->model = &attach_0017C064; //Rako hand right
-	((NJS_OBJECT*)0x947D98)->model = &attach_0017C388; //Rako clam shell
-	((NJS_OBJECT*)0x9481A8)->model = &attach_0017C7B0; //Rako foot left
-	((NJS_OBJECT*)0x947FB8)->model = &attach_0017C59C; //Rako foot right
-	((NJS_OBJECT*)0x942428)->model = &attach_00174864; //Lion face
-	((NJS_OBJECT*)0x9427A4)->model = &attach_001744CC; //Lion mane
-	((NJS_OBJECT*)0x942EF4)->model = &attach_001756A4; //Lion body
-	((NJS_OBJECT*)0x942B78)->model = &attach_00175178; //Lion tail part 1
-	((NJS_OBJECT*)0x942A34)->model = &attach_001752C8; //Lion tail part 2
-	((NJS_OBJECT*)0x941D08)->model = &attach_00174FD4; //Lion left front
-	((NJS_OBJECT*)0x941AF0)->model = &attach_00174DF8; //Lion right front
-	((NJS_OBJECT*)0x94190C)->model = &attach_00174C1C; //Lion left back
-	((NJS_OBJECT*)0x941728)->model = &attach_00174A40; //Lion right back
-	((NJS_OBJECT*)0x942024)->model = &attach_0017427C; //Lion left ear
-	((NJS_OBJECT*)0x941EB0)->model = &attach_001740DC; //Lion right ear
+	*(NJS_OBJECT*)0x944FD4 = object_00544FD4; //Gori
+	*(NJS_OBJECT*)0x934AE0 = object_00534AE0; //Koar
+	*(NJS_OBJECT*)0x92C40C = object_0052C40C; //Pen
+	*(NJS_OBJECT*)0x92A2D0 = object_0052A2D0; //Goma
+	*(NJS_OBJECT*)0x949104 = object_00549104; //Rako
+	*(NJS_OBJECT*)0x9308DC = object_005308DC; //Kuja
+	*(NJS_OBJECT*)0x92EA0C = object_0052EA0C; //Tuba
+	*(NJS_OBJECT*)0x932ADC = object_00532ADC; //Oum
+	*(NJS_OBJECT*)0x939B2C = object_00539B2C; //Banb
+	*(NJS_OBJECT*)0x93BFE4 = object_0053BFE4; //Usa
+	*(NJS_OBJECT*)0x93723C = object_0053723C; //Wara
+	*(NJS_OBJECT*)0x942F90 = object_00542F90; //Lion
+	*(NJS_OBJECT*)0x94043C = object_0054043C; //Zou
+	*(NJS_OBJECT*)0x93E2B8 = object_0053E2B8; //Mogu
+	*(NJS_OBJECT*)0x946D4C = object_00546D4C; //Suka blyat
+	*(NJS_ACTION*)0x94A00C = action__16EA18; //Usa animation in levels
+	*(NJS_ACTION*)0x949FFC = action__169078; //Wara animation in levels
+	*(NJS_ACTION*)0x949FF4 = action__165C70; //Koar animation in levels
 }
+
 void General_OnFrame()
 {
+	//Frame counter for cutscenes
+	if (EV_MainThread_ptr != nullptr)
+	{
+		CutsceneFrameCounter++;
+		//PrintDebug("Cutscene timer: %d\n", CutsceneFrameCounter);
+	}
+	else CutsceneFrameCounter = 0;
 	//Cutscene skip
 	if (CutsceneSkipMode <= 1 && SkipPressed_Cutscene)
 	{
@@ -1262,7 +1270,7 @@ void General_OnFrame()
 		EnvMap3 = 0.5f;
 		EnvMap4 = 0.5f;
 	}
-	if (EnvMapMode == 1 && CurrentLevel != 20)
+	if (EnvMapMode == 1 && (CurrentLevel != 20 || MetalSonicFlag))
 	{
 		EnvMapMode = 0;
 		EnvMap1 = 0.5f;
@@ -1270,7 +1278,31 @@ void General_OnFrame()
 		EnvMap3 = 0.5f;
 		EnvMap4 = 0.5f;
 	}
-	if (EnvMapMode == 1 && MetalSonicFlag)
+	if (EnvMapMode == 0 && CutsceneID == 208 && CutsceneFrameCounter > 800 && CutsceneFrameCounter < 1200) //Big's intro
+	{
+		EnvMapMode = 2;
+		EnvMap1 = 2.0f;
+		EnvMap2 = 1.0f;
+		EnvMap3 = 0.5f;
+		EnvMap4 = 1.0f;
+	}
+	if (EnvMapMode == 2 && CutsceneID == 208 && (CutsceneFrameCounter <= 800 || CutsceneFrameCounter >= 1200))
+	{
+		EnvMapMode = 0;
+		EnvMap1 = 0.5f;
+		EnvMap2 = 0.5f;
+		EnvMap3 = 0.5f;
+		EnvMap4 = 0.5f;
+	}
+	if (EnvMapMode == 0 && CutsceneID == 128 && CutsceneFrameCounter > 1700 && CutsceneFrameCounter < 2230) //Knuckles' intro
+	{
+		EnvMapMode = 2;
+		EnvMap1 = 2.0f;
+		EnvMap2 = 1.0f;
+		EnvMap3 = 0.5f;
+		EnvMap4 = 1.0f;
+	}
+	if (EnvMapMode == 2 && CutsceneID == 128 && (CutsceneFrameCounter <= 1700 || CutsceneFrameCounter >= 2230))
 	{
 		EnvMapMode = 0;
 		EnvMap1 = 0.5f;

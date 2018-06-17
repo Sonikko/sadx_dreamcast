@@ -9,7 +9,6 @@
 HMODULE Past = GetModuleHandle(L"ADV03MODELS");
 
 FunctionPointer(void, sub_408350, (NJS_ACTION *a1, float a2, int a3, float a4), 0x408350);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataArray(DrawDistance, DrawDist_Past1, 0x0111E540, 3);
 DataArray(DrawDistance, DrawDist_Past2, 0x0111E558, 3);
 DataArray(DrawDistance, DrawDist_Past3, 0x0111E570, 3);
@@ -20,9 +19,71 @@ static int ocean_act1 = 73;
 static int ocean_act2 = 59;
 static int water_act1 = 59;
 static int water_act2 = 59;
-static char ocean_act1_sadx = 83;
-static char ocean_act2_sadx = 85;
-static bool SADXStyleWater = false;
+
+NJS_MATERIAL* PatyaMaterials[] = {
+	(NJS_MATERIAL*)((size_t)Past + 0x0014714C),
+	(NJS_MATERIAL*)((size_t)Past + 0x00146D38),
+	(NJS_MATERIAL*)((size_t)Past + 0x00146A0C),
+	(NJS_MATERIAL*)((size_t)Past + 0x00146670),
+	(NJS_MATERIAL*)((size_t)Past + 0x00146370),
+	(NJS_MATERIAL*)((size_t)Past + 0x00143998),
+	(NJS_MATERIAL*)((size_t)Past + 0x001439AC),
+	(NJS_MATERIAL*)((size_t)Past + 0x001439C0),
+	(NJS_MATERIAL*)((size_t)Past + 0x001439D4),
+	(NJS_MATERIAL*)((size_t)Past + 0x001439E8),
+	(NJS_MATERIAL*)((size_t)Past + 0x001439FC),
+	(NJS_MATERIAL*)((size_t)Past + 0x00143A10),
+	(NJS_MATERIAL*)((size_t)Past + 0x00143A24),
+	(NJS_MATERIAL*)((size_t)Past + 0x00143374),
+	(NJS_MATERIAL*)((size_t)Past + 0x001431DC),
+	(NJS_MATERIAL*)((size_t)Past + 0x00143040),
+	(NJS_MATERIAL*)((size_t)Past + 0x00142884),
+	(NJS_MATERIAL*)((size_t)Past + 0x00142898),
+	(NJS_MATERIAL*)((size_t)Past + 0x0014207C),
+	(NJS_MATERIAL*)((size_t)Past + 0x00141DFC),
+	(NJS_MATERIAL*)((size_t)Past + 0x00141BA8),
+	(NJS_MATERIAL*)((size_t)Past + 0x00141834),
+	(NJS_MATERIAL*)((size_t)Past + 0x00141848),
+	(NJS_MATERIAL*)((size_t)Past + 0x00141720),
+	(NJS_MATERIAL*)((size_t)Past + 0x0014160C),
+	(NJS_MATERIAL*)((size_t)Past + 0x001413B8),
+	(NJS_MATERIAL*)((size_t)Past + 0x0014112C),
+	(NJS_MATERIAL*)((size_t)Past + 0x00141018),
+	(NJS_MATERIAL*)((size_t)Past + 0x00140F04),
+	(NJS_MATERIAL*)((size_t)Past + 0x001406FC),
+	(NJS_MATERIAL*)((size_t)Past + 0x00140478),
+	(NJS_MATERIAL*)((size_t)Past + 0x001401F8),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013FFCC),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013FE54),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013FD40),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013FC2C),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013FB18),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013FA04),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013F7B0),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013F43C),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013F450),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013F328),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013F214),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013EFC0),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013ED30),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013EC1C),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013EB08),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013E680),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013E694),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013E6A8),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013E334),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013E348),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013E134),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013DF00),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013DA78),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013DA8C),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013DAA0),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013D72C),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013D740),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013D52C),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013D2F8),
+	(NJS_MATERIAL*)((size_t)Past + 0x0013CF6C),
+};
 
 NJS_MATERIAL* SecondCharacterSpecular[] = {
 	//Chao
@@ -73,70 +134,57 @@ bool ForceFirstCharacterSpecular(NJS_MATERIAL* material, Uint32 flags)
 	return true;
 }
 
-static void __cdecl Past_OceanDraw_r(OceanData *a1);
-static Trampoline Past_OceanDraw_t(0x542850, 0x542858, Past_OceanDraw_r);
-static void __cdecl Past_OceanDraw_r(OceanData *a1)
+void __cdecl Past_OceanDraw_r(OceanData *a1)
 {
-	auto original = reinterpret_cast<decltype(Past_OceanDraw_r)*>(Past_OceanDraw_t.Target());
-	if (EnablePast == true)
+	if (CurrentAct == 1)
 	{
-		if (CurrentAct == 1)
+		if (GameState != 16)
 		{
-			if (GameState != 16)
+			if (ocean_act1 > 82) ocean_act1 = 73;
+			if (water_act1 > 72) water_act1 = 59;
+			matlistADV03_0006DBD0[0].attr_texId = ocean_act1;
+			matlistADV03_00095CF8[0].attr_texId = water_act1;
+			matlistADV03_000950C4[0].attr_texId = water_act1;
+			matlistADV03_0009542C[0].attr_texId = water_act1;
+			if ((FramerateSetting < 2 && FrameCounter % 4 == 0) || (FramerateSetting == 2 && FrameCounter % 2 == 0) || FramerateSetting > 2)
 			{
-				if (ocean_act1 > 82) ocean_act1 = 73;
-				if (water_act1 > 72) water_act1 = 59;
-				if (ocean_act1_sadx > 97) ocean_act1_sadx = 83;
-				matlistADV03_0006DBD0[0].attr_texId = ocean_act1;
-				matlistADV03_00095CF8[0].attr_texId = water_act1;
-				matlistADV03_000950C4[0].attr_texId = water_act1;
-				matlistADV03_0009542C[0].attr_texId = water_act1;
-				WriteData<1>((char*)0x0054287B, ocean_act1_sadx);
-				if ((FramerateSetting < 2 && FrameCounter % 4 == 0) || (FramerateSetting == 2 && FrameCounter % 2 == 0) || FramerateSetting > 2)
-				{
-					ocean_act1++;
-					water_act1++;
-					ocean_act1_sadx++;
-				}
+				ocean_act1++;
+				water_act1++;
 			}
-			//Reflections act 1
-			njSetTexture(&texlist_past01);
-			DrawQueueDepthBias = 1000.0f;
-			ProcessModelNode(&objectADV03_0008B2E0Z, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-			DrawQueueDepthBias = 2500.0f;
-			ProcessModelNode(&objectADV03_0009609C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-			DrawQueueDepthBias = 0;
 		}
-		if (CurrentAct == 2)
-		{
-			if (GameState != 16)
-			{
-				if (water_act2 > 74) water_act2 = 61;
-				if (ocean_act2 > 84) ocean_act2 = 75;
-				if (ocean_act2_sadx > 99) ocean_act2_sadx = 85;
-				//matlistADV03_000C7840[0].attr_texId = water_act2; //Apparently SADX does it on its own
-				//matlistADV03_000C6C0C[0].attr_texId = water_act2; //Apparently SADX does it on its own
-				//matlistADV03_000C6F74[0].attr_texId = water_act2; //Apparently SADX does it on its own
-				matlistADV03_0009DEBC[0].attr_texId = ocean_act2;
-				WriteData<1>((char*)0x005428A0, ocean_act2_sadx);
-				if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
-				{
-					ocean_act2++;
-					water_act2++;
-					ocean_act2_sadx++;
-				}
-			}
-			//Reflections act 2
-			njSetTexture(&texlist_past02);
-			DrawQueueDepthBias = 1000.0f;
-			ProcessModelNode(&objectADV03_000BCC28Z, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-			DrawQueueDepthBias = 2500.0f;
-			ProcessModelNode(&objectADV03_000C7BE4, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-			DrawQueueDepthBias = 0;
-		}
-		if (SADXStyleWater) original(a1);
+		//Reflections act 1
+		njSetTexture(&texlist_past01);
+		DrawQueueDepthBias = 1000.0f;
+		ProcessModelNode(&objectADV03_0008B2E0Z, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		DrawQueueDepthBias = 2500.0f;
+		ProcessModelNode(&objectADV03_0009609C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		DrawQueueDepthBias = 0;
 	}
-	else original(a1);
+	if (CurrentAct == 2)
+	{
+		if (GameState != 16)
+		{
+			if (water_act2 > 74) water_act2 = 61;
+			if (ocean_act2 > 84) ocean_act2 = 75;
+			//matlistADV03_000C7840[0].attr_texId = water_act2; //Apparently SADX does it on its own
+			//matlistADV03_000C6C0C[0].attr_texId = water_act2; //Apparently SADX does it on its own
+			//matlistADV03_000C6F74[0].attr_texId = water_act2; //Apparently SADX does it on its own
+			matlistADV03_0009DEBC[0].attr_texId = ocean_act2;
+			if (FramerateSetting < 2 && FrameCounter % 4 == 0 || FramerateSetting == 2 && FrameCounter % 2 == 0 || FramerateSetting > 2)
+			{
+				ocean_act2++;
+				water_act2++;
+			}
+		}
+		//Reflections act 2
+		njSetTexture(&texlist_past02);
+		DrawQueueDepthBias = 1000.0f;
+		ProcessModelNode(&objectADV03_000BCC28Z, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		DrawQueueDepthBias = 2500.0f;
+		ProcessModelNode(&objectADV03_000C7BE4, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		DrawQueueDepthBias = 0;
+	}
+	if (SADXWater_Past) Past_OceanDraw_SADXStyle(a1);
 }
 
 void RenderPalm2(NJS_ACTION *a1, float a2, int a3, float a4)
@@ -168,21 +216,18 @@ void ADV03_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplacePVM("K_PATYA");
 	ReplacePVM("OBJ_PAST");
 	ReplacePVM("PAST00");
+	ReplacePVM("PAST01");
+	ReplacePVM("PAST02");
 	ReplacePVM("PAST_KN_FAM");
-
-	// Load configuration settings.
-	SADXStyleWater = config->getBool("SADX Style Water", "Past", false);
-	if (SADXStyleWater)
+	ReplacePVM("KNUCKLES_NORMAL");
+	ReplacePVM("KNUCKLES_DEBU");
+	ReplacePVM("KNUCKLES_LONG");
+	WriteJump((void*)0x542850, Past_OceanDraw_r);
+	//Material fixes for Pacman
+	for (unsigned int i = 0; i < LengthOfArray(PatyaMaterials); i++)
 	{
-		ReplacePVMX_SADXStyleWater("PAST01");
-		ReplacePVMX_SADXStyleWater("PAST02");
+		RemoveMaterialColors(PatyaMaterials[i]);
 	}
-	else
-	{
-		ReplacePVM("PAST01");
-		ReplacePVM("PAST02");
-	}
-
 	//Palm fixes
 	ADV03_ACTIONS[10]->object->model = &attach_00122F04;
 	WriteCall((void*)0x545C1A, RenderPalm1);
@@ -204,14 +249,8 @@ void ADV03_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		material_register(FirstCharacterSpecular, LengthOfArray(FirstCharacterSpecular), &ForceDiffuse2Specular2);
 		material_register(Past_ObjectSpecular, LengthOfArray(Past_ObjectSpecular), &ForceDiffuse0Specular1);
 	}
-	if (SADXStyleWater)
+	if (SADXWater_Past)
 	{
-		ResizeTextureList(&texlist_past01, 100);
-		ResizeTextureList(&texlist_past02, 102);
-		WriteData<1>((char*)0x0054287B, 0x53); // wave texture ID act 2
-		WriteData<1>((char*)0x00542880, 0x62); // water texture ID act 2
-		WriteData<1>((char*)0x005428A0, 0x55); // wave texture ID act 3
-		WriteData<1>((char*)0x005428A5, 0x64); // water texture ID act 3
 		collist_0006735C[0].Flags = 0x00000020;
 		collist_000976C0[0].Flags = 0x00000020;
 	}
@@ -220,7 +259,7 @@ void ADV03_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		collist_0006735C[0].Flags = 0x80000020;
 		collist_000976C0[0].Flags = 0x80000020;
 	}
-
+	//Fog data
 	for (unsigned int i = 0; i < 3; i++)
 	{
 		FogData_Past1[i].Layer = -12000.0f;

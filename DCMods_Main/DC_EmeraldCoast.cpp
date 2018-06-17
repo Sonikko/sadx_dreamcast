@@ -4,6 +4,7 @@
 #include "EmeraldCoast2.h"
 #include "EmeraldCoast3.h"
 #include "EmeraldCoast_Objects.h"
+#include "BigBeach.h"
 
 static int anim1 = 82;
 static int anim2 = 67;
@@ -17,21 +18,20 @@ static float float1 = 0.02f;
 static float float2 = 66.0f;
 static int SkyboxHidden = 0;
 static int beachsea_water = 0;
-static int animframe = 0;
 static int inside_secret_area = 0;
 static int water_anim = 17;
 static bool lilocean = false;
-static bool SADXStyleWater = false;
 static bool IamStupidAndIWantFuckedUpOcean = false;
 static NJS_VECTOR oldpos{ 0,0,0 };
 
 DataArray(NJS_TEX, uvSTG01_00CBB000_data, 0x10BB000, LengthOfArray(uvSTG01_00CBB000));
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+DataArray(FogData, EmeraldCoast1Fog, 0x00E99DDC, 3);
+DataArray(FogData, EmeraldCoast2Fog, 0x00E99E0C, 3);
+DataArray(FogData, EmeraldCoast3Fog, 0x00E99E3C, 3);
 DataPointer(NJS_VECTOR, CurrentSkybox, 0x03ABDC94);
 DataPointer(int, CurrentFogToggle, 0x03ABDC6C);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(float, EC1OceanYShift, 0x010C85A8);
-DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(OceanData, OceanDataA, 0x03D0B8F0);
 DataPointer(OceanData, OceanDataB, 0x03D0B90C);
 FunctionPointer(void, DrawEmeraldCoastOcean, (OceanData *x), 0x004F8A30);
@@ -45,13 +45,14 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 {
 	DataArray(NJS_TEX, uvSTG01_00CC0530, 0x10C0530, 4);
 	EntityData1 *v1; // esi@1
+	float x; // ST14_4
+	double y; // st7
+	double z; // st6
 	v1 = a1->Data1;
 	int OceanUVShift1;
-	float z1; // ST14_4@1
-	double z2; // st7@1
-	double z3; // st6@1
-	if (SADXStyleWater == false)
+	if (!SADXWater_EmeraldCoast)
 	{
+		//Acts 2 and 3
 		if (!DroppedFrames && (inside_secret_area == 0 || EV_MainThread_ptr != nullptr))
 		{
 			njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
@@ -67,35 +68,58 @@ void __cdecl Obj_EC23Water_DisplayX(ObjectMaster *a1)
 			DrawQueueDepthBias = 0;
 			njPopMatrix(1u);
 		}
+		//Act 2 only
+		if (CurrentAct == 1)
+		{
+			njSetTexture((NJS_TEXLIST*)&texlist_ecoast2);
+			njPushMatrix(0);
+			njTranslate(0, 0, 0, 0);
+			DrawQueueDepthBias = 1000.0f;
+			ProcessModelNode_A_Wrapper(&objectSTG01_000DB618, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+			ProcessModelNode_A_Wrapper(&objectSTG01_000DB64C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+			ProcessModelNode_A_Wrapper(&objectSTG01_000DB680, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+			ProcessModelNode_A_Wrapper(&objectSTG01_000DB6B4, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+			ProcessModelNode_A_Wrapper(&objectSTG01_000DB6E8, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+			ProcessModelNode_A_Wrapper(&objectSTG01_000DB71C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+			DrawQueueDepthBias = 0;
+			njPopMatrix(1u);
+		}
 	}
 	else
 	{
-		if (inside_secret_area == 0)
+		//Draw decorations in Big's level
+		if (CurrentAct == 2)
+		{
+			njSetTexture((NJS_TEXLIST*)&texlist_sadxwtr_beach);
+			njPushMatrix(0);
+			njTranslate(0, 0, 0, 0);
+			ProcessModelNode_AB_Wrapper(&object_00ACA3EC, 1.0f);
+			ProcessModelNode_AB_Wrapper(&object_00AC97B4, 1.0f);
+			ProcessModelNode_AB_Wrapper(&object_00ACA028, 1.0f);
+			njPopMatrix(1u);
+		}
+		//Draw main water
+		if (inside_secret_area == 0 || EV_MainThread_ptr != nullptr)
 		{
 			DisableFog();
-			njSetTexture((NJS_TEXLIST*)0x010C0508);
 			if (CurrentAct == 2)
 			{
 				OceanDataA.Position.z = -800.0f;
 				OceanDataA.Position.x = 4000.0f;
 			}
-			DrawModelCallback_Queue((void(__cdecl *)(void *))EmeraldCoast_OceanDraw, &OceanDataA, -17952.0, (QueuedModelFlagsB)0);
+			DrawModelCallback_Queue((void(__cdecl *)(void *))EmeraldCoast_OceanDraw_SADXStyle, &OceanDataA, -17952.0, (QueuedModelFlagsB)0); //Main water
 		}
-	}
-	if (CurrentLevel == 1 && CurrentAct == 1)
-	{
-		njSetTexture((NJS_TEXLIST*)&texlist_ecoast2);
-		njPushMatrix(0);
-		njTranslate(0, 0, 0, 0);
-		DrawQueueDepthBias = 1000.0f;
-		ProcessModelNode_A_Wrapper(&objectSTG01_000DB618, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		ProcessModelNode_A_Wrapper(&objectSTG01_000DB64C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		ProcessModelNode_A_Wrapper(&objectSTG01_000DB680, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		ProcessModelNode_A_Wrapper(&objectSTG01_000DB6B4, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		ProcessModelNode_A_Wrapper(&objectSTG01_000DB6E8, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		ProcessModelNode_A_Wrapper(&objectSTG01_000DB71C, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		DrawQueueDepthBias = 0;
-		njPopMatrix(1u);
+		//Draw second pool (Act 2 only because Act 3 looks pretty awful without vertex colors)
+		if (CurrentAct == 1)
+		{
+			x = OceanDataArray[1].Position.x - Camera_Data1->Position.x;
+			y = OceanDataArray[1].Position.y - Camera_Data1->Position.y;
+			z = OceanDataArray[1].Position.z - Camera_Data1->Position.z;
+			if (z * z + y * y + x * x < 9000000.0)
+			{
+				DrawModelCallback_Queue((void(__cdecl *)(void *))EmeraldCoast_OceanDraw_SADXStyle, &OceanDataArray[1], -17952.0f, (QueuedModelFlagsB)0); //Second pool
+			}
+		}
 	}
 }
 
@@ -142,9 +166,9 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 		}
 		if (entity->Position.x < 1400) lilocean = false;
 	}
-	if (lilocean == false)
+	if (!lilocean)
 	{
-		if (SADXStyleWater == false)
+		if (!SADXWater_EmeraldCoast)
 		{
 			WriteData((float**)0x00501824, &float1);
 			WriteData((float**)0x00501849, &float1);
@@ -168,7 +192,6 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 		}
 		else
 		{
-			njSetTexture((NJS_TEXLIST*)0x010C0508);
 			if (v1->CharIndex)
 			{
 				v2 = njSin(FrameCounterUnpaused << 11) * 3.0f + 2.5f;
@@ -183,18 +206,19 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 				}
 				OceanDataA.Position.y = EC1OceanYShift;
 			}
-			DrawModelCallback_Queue((void(__cdecl *)(void *))DrawEmeraldCoastOcean, &OceanDataA, -17952.0f, (QueuedModelFlagsB)0);
+			DrawModelCallback_Queue((void(__cdecl *)(void *))EmeraldCoast_OceanDraw_SADXStyle, &OceanDataA, -17952.0f, (QueuedModelFlagsB)0);
 		}
 	}
 	else
 	{
 		if (!DroppedFrames)
 		{
-			njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
+			if (SADXWater_EmeraldCoast) njSetTexture(&texlist_sadxwtr_beach);
+			else njSetTexture((NJS_TEXLIST*)0x010C0508); //BEACH_SEA
 			if (oldpos.x != v1->Position.x)
 			{
 				u2_add = int(255 * (v1->Position.x - oldpos.x) / unitsize_u_small) % 255;
-				if (SADXStyleWater == true) u2_add = roundfloat(1.5f * u2_add);
+				if (SADXWater_EmeraldCoast == true) u2_add = roundfloat(1.5f * u2_add);
 				for (unsigned int u_step = 0; u_step < LengthOfArray(uvSTG01_00CBB000_d); u_step++)
 				{
 					uvSTG01_00CBB000_data[u_step].u = uvSTG01_00CBB000_data[u_step].u - u2_add;
@@ -206,7 +230,7 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 			if (oldpos.z != v1->Position.z)
 			{
 				v2_add = int(255 * (v1->Position.z - oldpos.z) / unitsize_v_small) % 255;
-				if (SADXStyleWater == true) v2_add = roundfloat(0.5f * v2_add);
+				if (SADXWater_EmeraldCoast == true) v2_add = roundfloat(0.5f * v2_add);
 				for (unsigned int v_step = 0; v_step < LengthOfArray(uvSTG01_00CBB000_d); v_step++)
 				{
 					uvSTG01_00CBB000_data[v_step].v = uvSTG01_00CBB000_data[v_step].v - v2_add;
@@ -329,11 +353,6 @@ void __cdecl Obj_EC1Water_DisplayX(ObjectMaster *a1)
 	}
 }
 
-void EC1WaterAnimation_SADX()
-{
-	if (SADXStyleWater == true && beachsea_water <= 14) njSetTextureNum(beachsea_water);
-}
-
 NJS_MATERIAL* ObjectSpecular_STG01[] = {
 	((NJS_MATERIAL*)0x010C0510),
 	((NJS_MATERIAL*)0x008BE2D0),
@@ -446,7 +465,6 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 	ReplaceBIN_DC("SET0101S");
 	ReplaceBIN_DC("SET0102B");
 	ReplaceBIN_DC("SET0102S");
-
 	switch (EnableSETFixes)
 	{
 		case SETFixes_Normal:
@@ -462,17 +480,14 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 		default:
 			break;
 	}
-
 	ReplacePVM("BEACH01");
 	ReplacePVM("BEACH02");
 	ReplacePVM("BEACH03");
 	ReplacePVM("BG_BEACH");
 	ReplacePVM("OBJ_BEACH");
-
-	// Load configuration settings.
-	SADXStyleWater = config->getBool("SADX Style Water", "EmeraldCoast", false);
+	ReplacePVM("BEACH_SEA");
+	// Load configuration settings
 	IamStupidAndIWantFuckedUpOcean = config->getBool("Miscellaneous", "RevertEmeraldCoastDrawDistance", false);
-
 	//Landtables
 	WriteData((LandTable**)0x97DA28, &landtable_00081554); //Act 1
 	WriteData((LandTable**)0x97DA2C, &landtable_000DEB60); //Act 2
@@ -488,10 +503,9 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 	WriteData<2>((char*)0x004F7816, 0xFF); //Disable water animation in Act 2
 	WriteData<2>((char*)0x004F78E6, 0xFF); //Disable water animation in Act 3
 	((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].diffuse.argb.a = 0x99; //Match dynamic ocean alpha with normal ocean
-	if (SADXStyleWater)
+	if (SADXWater_EmeraldCoast)
 	{
-		ReplacePVMX_SADXStyleWater("BEACH_SEA");
-		ResizeTextureList((NJS_TEXLIST*)0x010C0508, 32); //BEACH_SEA
+		WriteData((float*)0x004F8D2F, -2153.0f); //Remove gap in Act 2 small pool
 		//Act 1
 		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 1].Flags = 0x80000402;
 		collist_0007D6C0[LengthOfArray(collist_0007D6C0) - 2].Flags = 0x80000402;
@@ -525,6 +539,23 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 		collist_000DD600[LengthOfArray(collist_000DD600) - 12].Flags = 0x80000402;
 		collist_000DD600[LengthOfArray(collist_000DD600) - 13].Flags = 0x80000402;
 		collist_000DD600[LengthOfArray(collist_000DD600) - 14].Flags = 0x80000402;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 15].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 16].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 17].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 18].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 19].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 20].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 21].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 22].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 23].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 24].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 25].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 26].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 27].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 28].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 29].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 30].Flags = 0x00000002;
+		collist_000DD600[LengthOfArray(collist_000DD600) - 31].Flags = 0x00000002;
 		//Act 3
 		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 1].Flags = 0x80000402;
 		collist_0011C2A0[LengthOfArray(collist_0011C2A0) - 2].Flags = 0x80000402;
@@ -546,13 +577,10 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 		objectSTG01_00CC03FC.basicdxmodel->mats[0].attrflags &= ~NJD_DA_INV_SRC;
 		objectSTG01_00CC03FC.basicdxmodel->mats[0].attrflags |= NJD_DA_ONE;
 		objectSTG01_00CC03FC.basicdxmodel->mats[0].diffuse.color = 0xFFFFFFFF;
-		WriteData<5>((void*)0x004F7749, 0x90); //Kill second water in Act 2
-		WriteData<5>((void*)0x004F77E9, 0x90); //Kill second water in Act 3
 		WriteData<1>((void*)0x004F783A, 0x0F); //15 animation frames for water in Act 2
 		WriteData<1>((void*)0x004F790A, 0x0F); //15 animation frames for water in Act 3
-		WriteCall((void*)0x004F8B23, EC1WaterAnimation_SADX); //Sea animation in Acts 1/2
 	}
-	else ReplacePVM("BEACH_SEA");
+	ResizeTextureList((NJS_TEXLIST*)0x010C0508, 10); //BEACH_SEA
 	ResizeTextureList((NJS_TEXLIST*)0xF812AC, textures_ecoast1);
 	ResizeTextureList((NJS_TEXLIST*)0xEF553C, textures_ecoast2);
 	ResizeTextureList((NJS_TEXLIST*)0xE9A4CC, textures_ecoast3);
@@ -577,21 +605,11 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 	WriteData((float**)0x004F798B, &float2);
 	WriteData((float**)0x004F7998, &float2);
 	//Kill SADX shit
-	if (SADXStyleWater == false) WriteData<1>((void*)0x4F8A30, 0xC3u);
+	if (SADXWater_EmeraldCoast == false) WriteData<1>((void*)0x4F8A30, 0xC3u);
 	//Write water rendering functions
 	WriteJump((void*)0x00501130, Obj_EC1Water_DisplayX); //Act 1
 	WriteJump((void*)0x004F76C0, Obj_EC23Water_DisplayX); //Act 2
 	WriteJump((void*)0x004F7760, Obj_EC23Water_DisplayX); //Act 3
-
-	DataArray(DrawDistance, DrawDist_EmeraldCoast1, 0x00E99D94, 3);
-	DataArray(DrawDistance, DrawDist_EmeraldCoast2, 0x00E99DAC, 3);
-	DataArray(DrawDistance, DrawDist_EmeraldCoast3, 0x00E99DC4, 3);
-	DataArray(NJS_VECTOR, SkyboxScale_EmeraldCoast1, 0x00E99CE0, 3);
-	DataArray(NJS_VECTOR, SkyboxScale_EmeraldCoast2, 0x00E99D04, 3);
-	DataArray(NJS_VECTOR, SkyboxScale_EmeraldCoast3, 0x00E99D28, 3);
-	DataArray(FogData, EmeraldCoast1Fog, 0x00E99DDC, 3);
-	DataArray(FogData, EmeraldCoast2Fog, 0x00E99E0C, 3);
-	DataArray(FogData, EmeraldCoast3Fog, 0x00E99E3C, 3);
 	for (unsigned int i = 0; i < 3; i++)
 	{
 		DrawDist_EmeraldCoast3[i].Maximum = -4000.0f;
@@ -600,7 +618,6 @@ void EmeraldCoast_Init(const IniFile *config, const HelperFunctions &helperFunct
 		EmeraldCoast3Fog[i].Distance = -3000.0f;
 		EmeraldCoast3Fog[i].Color = 0xFFFFFFFF;
 	}
-
 	if (!IamStupidAndIWantFuckedUpOcean)
 	{
 		for (unsigned int i = 0; i < 3; i++)
@@ -641,7 +658,7 @@ void EmeraldCoast_OnFrame()
 {
 	DataArray(NJS_TEX, uvSTG01_00CC0530, 0x10C0530, 4);
 	//Hide skybox bottom in Act 3
-	if (IamStupidAndIWantFuckedUpOcean)
+	if (!IamStupidAndIWantFuckedUpOcean)
 	{
 		if (CurrentLevel == 1 && CurrentAct == 2 && Camera_Data1 != nullptr)
 		{
@@ -676,14 +693,11 @@ void EmeraldCoast_OnFrame()
 				uvSTG01_00CBB000[r2].v = uvSTG01_00CBB000_d[r2].v;
 			}
 		}
-		animframe++;
-		if (SADXStyleWater == false && beachsea_water > 9)beachsea_water = 0;
-		if (beachsea_water > 14) beachsea_water = 0;
-		if (SADXStyleWater == true)
+		if (SADXWater_EmeraldCoast)
 		{
-			((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attr_texId = 17 + beachsea_water;
-			((NJS_OBJECT*)0x010C05E8)->basicdxmodel->mats[0].attr_texId = 17 + beachsea_water;
-			matlistSTG01_00CBA58C[0].attr_texId = 17 + beachsea_water;
+			((NJS_OBJECT*)0x010C03FC)->basicdxmodel->mats[0].attr_texId = SADXWaveAnimation;
+			((NJS_OBJECT*)0x010C05E8)->basicdxmodel->mats[0].attr_texId = SADXWaveAnimation;
+			matlistSTG01_00CBA58C[0].attr_texId = SADXWaveAnimation;
 		}
 		else
 		{
@@ -691,7 +705,14 @@ void EmeraldCoast_OnFrame()
 			((NJS_OBJECT*)0x010C05E8)->basicdxmodel->mats[0].attr_texId = beachsea_water;
 			matlistSTG01_00CBA58C[0].attr_texId = beachsea_water;
 		}
-		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2) beachsea_water++;
+		if (GameState != 16 && !SADXWater_EmeraldCoast)
+		{
+			if ((FramerateSetting < 2 && FrameCounter % 4 == 0) || (FramerateSetting == 2 && FrameCounter % 2 == 0) || FramerateSetting > 2)
+			{
+				beachsea_water++;
+				if (beachsea_water > 9) beachsea_water = 0;
+			}
+		}
 	}
 	if (CurrentLevel == 1 && CurrentAct == 0 && GameState != 16)
 	{
@@ -728,13 +749,16 @@ void EmeraldCoast_OnFrame()
 		matlistSTG01_0001FFE0[2].attr_texId = anim2;
 		matlistSTG01_0001FFE0[4].attr_texId = anim2;
 		matlistSTG01_0001DC78[1].attr_texId = anim2;
-		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
+		if (GameState != 16)
 		{
-			anim1++;
-		}
-		if (FramerateSetting < 2 && animframe % 2 == 0 || FramerateSetting >= 2)
-		{
-			anim2++;
+			if ((FramerateSetting < 2 && FrameCounter % 4 == 0) || (FramerateSetting == 2 && FrameCounter % 2 == 0) || (FramerateSetting > 2))
+			{
+				anim1++;
+			}
+			if ((FramerateSetting < 2 && FrameCounter % 2 == 0) || FramerateSetting >= 2)
+			{
+				anim2++;
+			}
 		}
 	}
 	if (CurrentLevel == 1 && CurrentAct == 1 && GameState != 16)
@@ -771,14 +795,17 @@ void EmeraldCoast_OnFrame()
 		matlistSTG01_000D86A0[0].attr_texId = anim4;
 		matlistSTG01_000D8254[0].attr_texId = anim4;
 		matlistSTG01_000D7D64[0].attr_texId = anim4;
-		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
+		if (GameState != 16)
 		{
-			anim4++;
-		}
-		if (FramerateSetting < 2 && animframe % 2 == 0 || FramerateSetting >= 2)
-		{
-			anim3++;
-			anim7++;
+			if ((FramerateSetting < 2 && FrameCounter % 4 == 0) || (FramerateSetting == 2 && FrameCounter % 2 == 0) || FramerateSetting > 2)
+			{
+				anim4++;
+			}
+			if ((FramerateSetting < 2 && FrameCounter % 2 == 0) || FramerateSetting >= 2)
+			{
+				anim3++;
+				anim7++;
+			}
 		}
 	}
 	if (CurrentLevel == 1 && CurrentAct == 2 && GameState != 16)
@@ -787,7 +814,7 @@ void EmeraldCoast_OnFrame()
 		{
 			inside_secret_area = 0;
 			CurrentFogToggle = 0;
-			if (SADXStyleWater == true)
+			if (SADXWater_EmeraldCoast == true)
 			{
 				WriteData<1>((void*)0x004F777E, 0xE8); //Restore the ocean
 				WriteData<1>((void*)0x004F777F, 0xBD); //Restore the ocean
@@ -801,7 +828,7 @@ void EmeraldCoast_OnFrame()
 			inside_secret_area = 1;
 			CurrentFogToggle = 1;
 			if (CurrentFogLayer < -21) CurrentFogLayer = CurrentFogLayer + 20;
-			if (SADXStyleWater == true) WriteData<5>((void*)0x004F777E, 0x90); //Kill the ocean temporarily
+			if (SADXWater_EmeraldCoast == true) WriteData<5>((void*)0x004F777E, 0x90); //Kill the ocean temporarily
 		}
 		else
 		{
@@ -810,7 +837,7 @@ void EmeraldCoast_OnFrame()
 			{
 				inside_secret_area = 0;
 				CurrentFogToggle = 0;
-				if (SADXStyleWater == true)
+				if (SADXWater_EmeraldCoast == true)
 				{
 					WriteData<1>((void*)0x004F777E, 0xE8); //Restore the ocean
 					WriteData<1>((void*)0x004F777F, 0xBD); //Restore the ocean
@@ -867,14 +894,17 @@ void EmeraldCoast_OnFrame()
 		matlistSTG01_00110DFC[0].attr_texId = anim6;
 		matlistSTG01_0011B12C[0].attr_texId = anim6;
 		matlistSTG01_0011B12C[1].attr_texId = anim6;
-		if (FramerateSetting < 2 && animframe % 4 == 0 || FramerateSetting == 2 && animframe % 2 == 0 || FramerateSetting > 2)
+		if (GameState != 16)
 		{
-			anim5++;
-		}
-		if (FramerateSetting < 2 && animframe % 2 == 0 || FramerateSetting >= 2)
-		{
-			anim6++;
-			anim8++;
+			if ((FramerateSetting < 2 && FrameCounter % 4 == 0) || (FramerateSetting == 2 && FrameCounter % 2 == 0) || FramerateSetting > 2)
+			{
+				anim5++;
+			}
+			if ((FramerateSetting < 2 && FrameCounter % 2 == 0) || FramerateSetting >= 2)
+			{
+				anim6++;
+				anim8++;
+			}
 		}
 	}
 }

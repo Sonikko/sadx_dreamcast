@@ -42,8 +42,11 @@ FunctionPointer(int, sub_5D4300, (int result, float a2), 0x5D4300);
 FunctionPointer(void, sub_407870, (NJS_MODEL_SADX *model, char blend, float radius_scale), 0x407870);
 FunctionPointer(void, sub_405490, (NJS_ACTION *a1, float a2, int a3, int a4), 0x405490);
 FunctionPointer(void, sub_407A00, (NJS_MODEL_SADX *model, float a2), 0x407A00);
+FunctionPointer(void, sub_4053A0, (void *a1, int a2, float a3, int a4, int a5), 0x4053A0);
 NJS_VECTOR Cowgirl1{ 457.6972f, 45.06788f, 390 };
 NJS_VECTOR Cowgirl2{ 340.3949f, 51.20071f, 480 };
+DataArray(NJS_VECTOR, stru_1E79588, 0x1E79588, 66);
+DataArray(NJS_SPRITE*, SonicJackpotSpritesX, 0x1E79570, 6);
 DataArray(CollisionData, stru_1E763B8, 0x1E763B8, 3);
 DataArray(NJS_TEX, uvSTG09_01A4BD38, 0x01E4BD38, LengthOfArray(uvSTG09_001C8C9C));
 DataArray(NJS_TEX, uvSTG09_01A4BD98, 0x01E4BD98, LengthOfArray(uvSTG09_001C8CFC));
@@ -77,7 +80,6 @@ DataPointer(NJS_OBJECT, stru_1E5EC4C, 0x01E5EC4C);
 DataPointer(NJS_OBJECT, stru_1E5E7BC, 0x01E5E7BC);
 DataPointer(NJS_OBJECT*, unk_1E04CDC, 0x1E04CDC);
 DataPointer(CollisionData, stru_1E775A4, 0x1E775A4);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(int, dword_1E77568, 0x1E77568);
 DataPointer(int, InsideMachine, 0x3C7507C);
 DataPointer(NJS_OBJECT*, unk_1E05954, 0x1E05954);
@@ -519,8 +521,8 @@ void __cdecl OLhtr_Display(ObjectMaster *a1)
 			njRotateY(0, (unsigned __int16)v4);
 		}
 		ProcessModelNode_AB_Wrapper(&objectSTG09_01A5E7BC, 1.0f);
-		if (v1->Action == 0) ProcessModelNode_A_Wrapper(&objectSTG09_01A5E7BC_light, QueuedModelFlagsB_SomeTextureThing, 1.0f);
-		else ProcessModelNode_A_Wrapper(&objectSTG09_01A5E7BC_dark, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		if (v1->Action == 0) ProcessModelNode_A_Wrapper(&objectSTG09_01A5E7BC_dark, QueuedModelFlagsB_SomeTextureThing, 1.0f);
+		else ProcessModelNode_A_Wrapper(&objectSTG09_01A5E7BC_light, QueuedModelFlagsB_SomeTextureThing, 1.0f);
 		njPopMatrix(1u);
 		sub_5DD920((int)&off_1E75DE0, 2);
 	}
@@ -680,6 +682,88 @@ void RenderNeonK(NJS_MODEL_SADX *model, float scale)
 	DrawQueueDepthBias = 0;
 }
 
+void JackPotFix1(NJS_MODEL_SADX *a1)
+{
+	DrawQueueDepthBias = 10000.0f;
+	DrawModel_Queue(a1, QueuedModelFlagsB_SomeTextureThing);
+	DrawQueueDepthBias = 0;
+}
+
+void JackPotFix2(NJS_MODEL_SADX *a1)
+{
+	DrawQueueDepthBias = 20000.0f;
+	DrawModel_Queue(a1, QueuedModelFlagsB_SomeTextureThing);
+	DrawQueueDepthBias = 0;
+}
+
+void __cdecl PinballJackpot_Sprite_MainX(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi
+	__int16 v2; // ax
+	char v3; // edi
+	char v4 = 0; // al
+	v1 = a1->Data1;
+	if ((FramerateSetting == 1 && FrameCounter % 2 == 0) || FramerateSetting >= 2)
+	{
+		v2 = v1->InvulnerableTime;
+		if (v2)
+		{
+			v1->InvulnerableTime = v2 - 1;
+		}
+		else
+		{
+			v3 = a1->Parent->Data1->Action;
+			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+			SonicJackpotSpritesX[v3]->p.x = (stru_1E79588[11 * v3 + v1->Action].x * 2.8f + 320.0f) * HorizontalStretch;
+			SonicJackpotSpritesX[v3]->p.y = (240.0f - stru_1E79588[11 * v3 + v1->Action].y * 2.8f) * VerticalStretch;
+			SonicJackpotSpritesX[v3]->sy = (stru_1E79588[11 * v3 + v1->Action].z)*VerticalStretch;
+			SonicJackpotSpritesX[v3]->sx = SonicJackpotSpritesX[v3]->sy;
+			DrawQueueDepthBias = 10000.0f;
+			njDrawSprite2D_Queue(SonicJackpotSpritesX[v3], (unsigned __int8)v1->Index, 22047.0f, NJD_SPRITE_ALPHA, QueuedModelFlagsB_AlwaysShow);
+			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+			DrawQueueDepthBias = 0;
+			v4 = v1->Index + 1;
+			v1->Index = v4;
+			if (v4 == 8)
+			{
+				CheckThingButThenDeleteObject(a1);
+			}
+			if (v1->Index == 3)
+			{
+				++a1->Parent->Data1->NextAction;
+			}
+		}
+	}
+	else
+	{
+		v2 = v1->InvulnerableTime;
+		if (!v2)
+		{
+			v3 = a1->Parent->Data1->Action;
+			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_ONE);
+			SonicJackpotSpritesX[v3]->p.x = (stru_1E79588[11 * v3 + v1->Action].x * 2.8f + 320.0f) * HorizontalStretch;
+			SonicJackpotSpritesX[v3]->p.y = (240.0f - stru_1E79588[11 * v3 + v1->Action].y * 2.8f) * VerticalStretch;
+			SonicJackpotSpritesX[v3]->sy = (stru_1E79588[11 * v3 + v1->Action].z)*VerticalStretch;
+			SonicJackpotSpritesX[v3]->sx = SonicJackpotSpritesX[v3]->sy;
+			DrawQueueDepthBias = 10000.0f;
+			njDrawSprite2D_Queue(SonicJackpotSpritesX[v3], (unsigned __int8)v1->Index, 22047.0f, NJD_SPRITE_ALPHA, QueuedModelFlagsB_AlwaysShow);
+			njColorBlendingMode(0, NJD_COLOR_BLENDING_SRCALPHA);
+			njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+			DrawQueueDepthBias = 0;
+		}
+	}
+}
+
+void IdeyaCapFix(void *a1, int a2, float a3, int a4, int a5)
+{
+	DrawQueueDepthBias = 1000.0f;
+	sub_4053A0(a1, a2, a3, a4, a5);
+	DrawQueueDepthBias = 0;
+}
+
 void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0900K");
@@ -695,7 +779,6 @@ void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ReplaceBIN_DC("SET0902S");
 	ReplaceBIN_DC("SET0903S");
 	ReplaceBIN_DC("SETMI0900K");
-
 	switch (EnableSETFixes)
 	{
 		case SETFixes_Normal:
@@ -717,7 +800,6 @@ void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFuncti
 		default:
 			break;
 	}
-
 	ReplacePVM("CASINO01");
 	ReplacePVM("CASINO02");
 	ReplacePVM("CASINO03");
@@ -738,6 +820,12 @@ void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFuncti
 		material_register(ObjectSpecular_Casino, LengthOfArray(ObjectSpecular_Casino), &ForceDiffuse0Specular1);
 		material_register(WhiteDiffuse_Casino, LengthOfArray(WhiteDiffuse_Casino), &ForceWhiteDiffuse1);
 	}
+	//Ideya cap fix
+	WriteCall((void*)0x5D79A9, IdeyaCapFix);
+	//Jackpot fixes
+	WriteCall((void*)0x05E1144, JackPotFix1);
+	WriteCall((void*)0x05E1187, JackPotFix2);
+	WriteJump(PinballJackpot_Sprite_Main, PinballJackpot_Sprite_MainX);
 	//MizuA
 	((NJS_OBJECT*)0x01E47B1C)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
 	((NJS_OBJECT*)0x01E47B1C)->basicdxmodel->mats[1].attrflags &= ~NJD_FLAG_IGNORE_LIGHT;
@@ -870,6 +958,7 @@ void Casinopolis_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ResizeTextureList((NJS_TEXLIST*)0x1CBD1C4, textures_casino2);
 	ResizeTextureList((NJS_TEXLIST*)0x1C8AF04, textures_casino3);
 	ResizeTextureList((NJS_TEXLIST*)0x1C47004, textures_casino4);
+	ResizeTextureList(&OBJ_CASINO9_TEXLIST, 203);
 	*(NJS_MODEL_SADX*)0x01E74A68 = attachSTG09_01A74A68; //NeonK
 	WriteCall((void*)0x5CAB34, RenderNeonK);
 	*(NJS_MODEL_SADX*)0x01E46F30 = attachSTG09_001C4DCC; //OCfa rotating thing

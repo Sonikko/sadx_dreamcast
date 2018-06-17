@@ -4,8 +4,6 @@
 #include "Mountain3.h"
 #include "RM_Objects.h"
 
-DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(int, DroppedFrames, 0x03B1117C);
 DataPointer(float, CurrentDrawDistance, 0x03ABDC74);
 FunctionPointer(double, sub_789320, (float), 0x789320);
 FunctionPointer(void, sub_600BF0, (ObjectMaster *a1, NJS_OBJECT *a2), 0x600BF0);

@@ -7,7 +7,6 @@
 #include "IceCap4_PC.h"
 #include "IceCap4.h"
 
-DataPointer(int, FramerateSetting, 0x0389D7DC);
 DataPointer(float, CurrentFogDist, 0x03ABDC64);
 DataPointer(float, CurrentFogLayer, 0x03ABDC60);
 DataPointer(NJS_ACTION, stru_E758E4, 0xE758E4);
@@ -27,6 +26,41 @@ FunctionPointer(void, sub_405450, (NJS_ACTION *a1, float frame, float scale), 0x
 FunctionPointer(void, sub_4BAD80, (NJS_VECTOR *a1, NJS_VECTOR *a2, int a3, signed int a4), 0x4BAD80);
 
 static int animframe = 41;
+
+void RenderSnowboardEffect(ObjectMaster *a1)
+{
+	EntityData1 *v1; // esi
+	Angle v2; // eax
+	Angle v3; // eax
+	Angle v4; // eax
+	Float XScalea; // [esp+8h] [ebp+4h]
+
+	v1 = a1->Data1;
+	XScalea = *(float *)&*(Sint32*)&v1->LoopData;
+	njSetTexture(&OBJ_ICECAP_TEXLIST);
+	njPushMatrix(0);
+	njTranslateV(0, &v1->Position);
+	v2 = v1->Rotation.z;
+	if (v2)
+	{
+		njRotateZ(0, v2);
+	}
+	v3 = v1->Rotation.x;
+	if (v3)
+	{
+		njRotateX(0, v3);
+	}
+	v4 = v1->Rotation.y;
+	if (v4)
+	{
+		njRotateY(0, v4);
+	}
+	njScale(0, XScalea, XScalea, XScalea);
+	DrawQueueDepthBias = 2000.0f;
+	ProcessModelNode((NJS_OBJECT*)0xE43544, QueuedModelFlagsB_EnableZWrite, XScalea);
+	DrawQueueDepthBias = 0.0f;
+	njPopMatrix(1u);
+}
 
 void RenderSmallIcicles(NJS_OBJECT *a1, QueuedModelFlagsB blend_mode, float scale)
 {
@@ -139,6 +173,13 @@ void __cdecl FixedAvalanche(ObjectMaster *a1)
 	}
 }
 
+void FixSnowflake(NJS_SPRITE *sp, Int n, NJD_SPRITE attr, QueuedModelFlagsB zfunc_type)
+{
+	njColorBlendingMode(NJD_SOURCE_COLOR, NJD_COLOR_BLENDING_SRCALPHA);
+	njColorBlendingMode(NJD_DESTINATION_COLOR, NJD_COLOR_BLENDING_INVSRCALPHA);
+	njDrawSprite3D_Queue(sp, n, attr, zfunc_type);
+}
+
 void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN_DC("CAM0800S");
@@ -150,7 +191,6 @@ void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ReplaceBIN_DC("SET0802M");
 	ReplaceBIN_DC("SET0802S");
 	ReplaceBIN_DC("SET0803B");
-
 	switch (EnableSETFixes)
 	{
 		case SETFixes_Normal:
@@ -170,7 +210,6 @@ void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 		default:
 			break;
 	}
-
 	ReplacePVM("BG_ICECAP");
 	ReplacePVM("ICECAP01");
 	ReplacePVM("ICECAP02");
@@ -192,6 +231,8 @@ void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	WriteCall((void*)0x004EFEF7, RenderIcicleSpriteThing);
 	WriteCall((void*)0x004EFE10, RenderSmallIcicles);
 	WriteJump((void*)0x4EB770, FixedAvalanche);
+	WriteJump((void*)0x4EA3E0, RenderSnowboardEffect);
+	((NJS_OBJECT*)0xE43544)->basicdxmodel->mats[0].attr_texId = 58; //Snowboard effect
 	*(NJS_OBJECT*)0x00E6FECC = objectSTG08_00A6FECC; // Giant icicle
 	//Snowboard fix
 	HMODULE CHRMODELS = GetModuleHandle(L"CHRMODELS_orig");
@@ -211,7 +252,10 @@ void IceCap_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	ResizeTextureList((NJS_TEXLIST*)0xDE3A74, textures_icecap1);
 	ResizeTextureList((NJS_TEXLIST*)0xD39744, textures_icecap2);
 	ResizeTextureList((NJS_TEXLIST*)0xC68408, textures_icecap3);
-	//ResizeTextureList((NJS_TEXLIST*)0x00E48F30, 100);//OBJ_ICECAP - currently contains 3 extra textures
+	WriteCall((void*)0x4F5B6F, FixSnowflake); //Snowflake brightness
+	((NJS_SPRITE*)0xE956E4)->tlist = &OBJ_ICECAP_TEXLIST; //Snow effect texlist
+	((NJS_TEXANIM*)0xE956D0)->texid = 96; //Snow effect texture ID
+	ResizeTextureList(&OBJ_ICECAP_TEXLIST, 100);
 	LandTable *lt = (LandTable *)0x0E3E024; COL *tmp = new COL[171 + LengthOfArray(collist_000180D8)];
 	memcpy(tmp, lt->Col, sizeof(COL) * lt->COLCount);
 	lt->Col = tmp; lt->COLCount = 171 + LengthOfArray(collist_000180D8);

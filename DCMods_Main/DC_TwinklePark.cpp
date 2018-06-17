@@ -11,8 +11,7 @@ struct __declspec(align(2)) ObjectThingC
 	void(__cdecl *function)(NJS_OBJECT *);
 };
 
-DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+
 
 FunctionPointer(void, sub_61D4E0, (ObjectMaster *a1), 0x61D4E0);
 FunctionPointer(void, sub_61D1F0, (ObjectMaster *a1), 0x61D1F0);
@@ -439,6 +438,7 @@ void TwinklePark_Init(const IniFile *config, const HelperFunctions &helperFuncti
 	ReplacePVM("TWINKLE01");
 	ReplacePVM("TWINKLE02");
 	ReplacePVM("TWINKLE03");
+	ResizeTextureList(&OBJ_TWINKLE_TEXLIST, 96);
 	WriteData((LandTable**)0x97DA68, &landtable_0001788C);
 	WriteData((LandTable**)0x97DA6C, &landtable_00019344);
 	WriteData((LandTable**)0x97DA70, &landtable_00019F5C);

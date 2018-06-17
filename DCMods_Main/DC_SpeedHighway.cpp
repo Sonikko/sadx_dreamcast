@@ -12,8 +12,7 @@
 #include "SH_turnasi.h"
 #include "SH_glass.h"
 #include "Highway_objects.h"
-
-DataPointer(int, FramerateSetting, 0x0389D7DC);
+#include "HW_Jammer.h"
 
 FunctionPointer(void, sub_409E70, (NJS_MODEL_SADX *a1, int a2, float a3), 0x409E70);
 FunctionPointer(long double, sub_49CC70, (float a1, float a2, float a3), 0x49CC70);
@@ -22,7 +21,12 @@ FunctionPointer(void, sub_408530, (NJS_OBJECT *obj), 0x408530);
 static int RocketAlpha = 255;
 static int AntennaAlpha = 255;
 static int RocketAlphaDir = 4;
-static int shwwater = 106;
+static int shwwater = 0;
+
+PVMEntry SpeedHighway3Textures_list[] = {
+	{ "HIGHWAY03", (TexList *)&HIGHWAY03_TEXLIST },
+	{ "EC_WATER", (TexList *)0x10F30A0 },
+};
 
 void FountainPart1(NJS_MODEL_SADX *a1, int a2, float a3)
 {
@@ -110,6 +114,28 @@ void AntennaSprite(NJS_ARGB *a1)
 	SetMaterialAndSpriteColor(&q1);
 }
 
+void SetCopSpeederEffectAlpha(float a, float r, float g, float b)
+{
+	SetMaterialAndSpriteColor_Float(a-0.1f, 1.0f, 1.0f, 0.95f);
+}
+
+static void __cdecl FountainDisplay_r(ObjectMaster *a1);
+static Trampoline FountainDisplay_t(0x61BA10, 0x61BA15, FountainDisplay_r);
+static void __cdecl FountainDisplay_r(ObjectMaster *a1)
+{
+	auto original = reinterpret_cast<decltype(FountainDisplay_r)*>(FountainDisplay_t.Target());
+	if (!MissedFrames)
+	{
+		njSetTexture((NJS_TEXLIST*)0x10F30A0);
+		njPushMatrix(0);
+		DrawQueueDepthBias = -37952.0f;
+		ProcessModelNode(&objectSTG04_00133AD8, QueuedModelFlagsB_EnableZWrite, 1.0f);
+		DrawQueueDepthBias = 0;
+		njPopMatrix(1u);
+	}
+	original(a1);
+}
+
 void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplaceBIN("PL_40B", "PL_40X");
@@ -124,27 +150,25 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 	ReplaceBIN_DC("SET0401S");
 	ReplaceBIN_DC("SET0402K");
 	ReplaceBIN_DC("SET0402S");
-
 	switch (EnableSETFixes)
 	{
-		case SETFixes_Normal:
-			AddSETFix("SET0400M");
-			AddSETFix("SET0400S");
-			AddSETFix("SET0401S");
-			AddSETFix("SET0402K");
-			AddSETFix("SET0402S");
-			break;
-		case SETFixes_Extra:
-			AddSETFix_Extra("SET0400M");
-			AddSETFix_Extra("SET0400S");
-			AddSETFix_Extra("SET0401S");
-			AddSETFix_Extra("SET0402K");
-			AddSETFix_Extra("SET0402S");
-			break;
-		default:
-			break;
+	case SETFixes_Normal:
+		AddSETFix("SET0400M");
+		AddSETFix("SET0400S");
+		AddSETFix("SET0401S");
+		AddSETFix("SET0402K");
+		AddSETFix("SET0402S");
+		break;
+	case SETFixes_Extra:
+		AddSETFix_Extra("SET0400M");
+		AddSETFix_Extra("SET0400S");
+		AddSETFix_Extra("SET0401S");
+		AddSETFix_Extra("SET0402K");
+		AddSETFix_Extra("SET0402S");
+		break;
+	default:
+		break;
 	}
-
 	ReplacePVM("BG_HIGHWAY");
 	ReplacePVM("BG_HIGHWAY01");
 	ReplacePVM("BG_HIGHWAY02");
@@ -155,6 +179,7 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 	ReplacePVM("HIGHWAY_CAR");
 	ReplacePVM("OBJ_HIGHWAY");
 	ReplacePVM("OBJ_HIGHWAY2");
+	ResizeTextureList(&HIGHWAY_CAR_TEXLIST, 16);
 	WriteData((LandTable**)0x97DA88, &landtable_0001853C);
 	WriteData((LandTable**)0x97DA8C, &landtable_00019178);
 	WriteData((LandTable**)0x97DA90, &landtable_0001B08C);
@@ -164,8 +189,16 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 	WriteCall((void*)0x0061BB31, FountainPart3);
 	WriteData((NJS_OBJECT**)0x0061BC4C, &objectSTG04_00134B34); //Fountain bottom
 	WriteData((NJS_OBJECT**)0x026B3150, &objectSTG04_001350C8); //Fountain side
+	//Fountain animation enhancement
+	TexLists_Level[11]->PVMList = (PVMEntry*)&SpeedHighway3Textures_list;
+	TexLists_Level[11]->NumTextures = LengthOfArray(SpeedHighway3Textures_list);
+	*(NJS_OBJECT*)0x0266403C = object_00136320; //OJamer
+	WriteData((NJS_TEXNAME**)0x26B2968, (NJS_TEXNAME*)0x2670590); //OJamer texture list 1
+	WriteData((NJS_TEXNAME**)0x26B2960, (NJS_TEXNAME*)0x2670554); //OJamer texture list 2
 	*(NJS_OBJECT*)0x026919C0 = objectSTG04_022919C0; //Antenna model
 	WriteCall((void*)0x00615D60, AntennaModel);
+	WriteData<1>((char*)0x004B19E2, 0x08); //Cop speeder effect blending
+	WriteCall((void*)0x4B1C6F, SetCopSpeederEffectAlpha);
 	//Fix light sprites in various objects
 	WriteData<1>((char*)0x00615DBB, 0x8); //Antenna sprite blending SA_SRC
 	WriteData((float**)0x00615DA0, (float*)0x7DCB10); //Antenna sprite maximum brightness 1.0 instead of 0.5
@@ -241,9 +274,15 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 	WriteData<1>((void*)0x0061A8EA, 0); //blending mode for glass
 	WriteData<1>((void*)0x0061A8EA, 0); //blending mode for glass 2
 	WriteData<1>((void*)0x0061A951, 0); //blending mode for glass 3
+	((NJS_TEXLIST*)0x26B2B90)->textures = (NJS_TEXNAME*)0x26705CC; //Texlists for posters
+	((NJS_TEXLIST*)0x26B2B98)->textures = (NJS_TEXNAME*)0x26705F0; //Texlists for posters
+	((NJS_TEXLIST*)0x26B2BA0)->textures = (NJS_TEXNAME*)0x2670614; //Texlists for posters
+	((NJS_TEXLIST*)0x26B2BA8)->textures = (NJS_TEXNAME*)0x2670638; //Texlists for posters
+	((NJS_TEXLIST*)0x26B2BB0)->textures = (NJS_TEXNAME*)0x267065C; //Texlists for posters
 	ResizeTextureList((NJS_TEXLIST*)0x2592E8C, textures_highway1);
 	ResizeTextureList((NJS_TEXLIST*)0x2581310, textures_highway2);
 	ResizeTextureList((NJS_TEXLIST*)0x24CAC94, textures_highway3);
+	ResizeTextureList(&OBJ_HIGHWAY_TEXLIST, 118);
 	((NJS_OBJECT *)0x02671A20)->basicdxmodel->mats[0].attrflags &= ~NJD_FLAG_USE_ALPHA; //O Crane platform alpha fix
 	((NJS_OBJECT *)0x02671A20)->basicdxmodel->mats[2].attrflags |= NJD_FLAG_IGNORE_SPECULAR; //O Crane platform specular
 	memcpy((void*)0x267DC14, &objectSTG04_0227DC14, sizeof(objectSTG04_0227DC14)); // Turnasi part 1
@@ -301,7 +340,6 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 	*(NJS_OBJECT*)0x0267ADD0 = objectSTG04_001496F4;
 	*(NJS_OBJECT*)0x0267AF14 = objectSTG04_001497F8;
 	//*(NJS_OBJECT*)0x0267B06C =*/
-
 	DataArray(FogData, SpeedHighway1Fog, 0x024CA4E4, 3);
 	DataArray(FogData, SpeedHighway2Fog, 0x024CA514, 3);
 	DataArray(FogData, SpeedHighway3Fog, 0x024CA544, 3);
@@ -317,7 +355,7 @@ void SpeedHighway_Init(const IniFile *config, const HelperFunctions &helperFunct
 		SpeedHighway2Fog[i].Distance = 4800.0f;
 		SpeedHighway2Fog[i].Color = 0xFF300020;
 	}
-	}
+}
 
 void SpeedHighway_OnFrame()
 {
@@ -330,7 +368,7 @@ void SpeedHighway_OnFrame()
 		if (CurrentAct == 2 && GameState != 16)
 		{
 			if ((FramerateSetting < 2 && FrameCounterUnpaused % 4 == 0) || (FramerateSetting >= 2 && FrameCounterUnpaused % 2 == 0)) shwwater++;
-			if (shwwater > 119) shwwater = 106;
+			if (shwwater > 13) shwwater = 0;
 			matlistSTG04_001338A0[0].attr_texId = shwwater;
 		}
 	}

@@ -7,12 +7,7 @@
 
 NJS_TEXNAME textures_cylinder[257];
 NJS_TEXLIST texlist_cylinder = { arrayptrandlength(textures_cylinder) };
-DataPointer(int, FramerateSetting, 0x0389D7DC);
-DataPointer(int, DroppedFrames, 0x03B1117C);
-DataPointer(float, EnvMap1, 0x038A5DD0);
-DataPointer(float, EnvMap2, 0x038A5DE4);
-DataPointer(float, EnvMap3, 0x038A5E00);
-DataPointer(float, EnvMap4, 0x038A5E04);
+
 DataPointer(NJS_ACTION, off_1A1F944, 0x1A1F944);
 DataArray(FogData, FinalEgg1Fog, 0x019C8FF0, 3);
 DataArray(FogData, FinalEgg2Fog, 0x019C9020, 3);
@@ -679,12 +674,15 @@ void FinalEgg_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	WriteCall((void*)0x005AE060, FinalEggHook);
 	WriteData<1>((void*)0x005ADC40, 0xC3u); //Kill the SetClip function
 	WriteData((float**)0x005B7530, &OFunAnimationSpeedOverride);//Floating Fan Animation Speed Tweaks
+	for (unsigned int i = 0; i < LengthOfArray(NeutralMaterials); i++)
+	{
+		RemoveMaterialColors(NeutralMaterials[i]);
+	}
 	if (DLLLoaded_Lantern)
 	{
 		material_register(LevelSpecular_FinalEgg, LengthOfArray(LevelSpecular_FinalEgg), &ForceDiffuse0Specular0);
 		material_register(ObjectSpecular_FinalEgg, LengthOfArray(ObjectSpecular_FinalEgg), &ForceDiffuse0Specular1);
 		material_register(WhiteDiffuse_FinalEgg, LengthOfArray(WhiteDiffuse_FinalEgg), &ForceWhiteDiffuse1);
-		material_register(NeutralMaterials, LengthOfArray(NeutralMaterials), &RemoveMaterialColors);
 	}
 	//Environment maps thing
 	WriteCall((void*)0x005B3785, SetGachaponEnvMaps1);
@@ -739,7 +737,7 @@ void FinalEgg_Init(const IniFile *config, const HelperFunctions &helperFunctions
 	ResizeTextureList((NJS_TEXLIST*)0x1B98518, textures_finalegg1);
 	ResizeTextureList((NJS_TEXLIST*)0x1A60488, textures_finalegg2);
 	ResizeTextureList((NJS_TEXLIST*)0x1AC5780, textures_finalegg3);
-
+	ResizeTextureList(&OBJ_FINALEGG_TEXLIST, 169);
 	for (unsigned int i = 0; i < 3; i++)
 	{
 		FinalEgg1Fog[i].Color = 0xFF000000;

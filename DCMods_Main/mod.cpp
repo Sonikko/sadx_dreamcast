@@ -19,13 +19,11 @@ bool EnableEggCarrier = true;
 bool EnablePast = true;
 bool DisableAllVideoStuff = true;
 
-static bool SADXWater_EmeraldCoast = false;
-static bool SADXWater_StationSquare = false;
-static bool SADXWater_MysticRuins = false;
-static bool SADXWater_EggCarrier = false;
-static bool SADXWater_Past = false;
-static bool SADXWater_EggHornet = false;
-static bool SADXWater_ZeroE101R = false;
+bool SADXWater_EmeraldCoast = false;
+bool SADXWater_StationSquare = false;
+bool SADXWater_MysticRuins = false;
+bool SADXWater_EggCarrier = false;
+bool SADXWater_Past = false;
 
 SETFixes_e EnableSETFixes = SETFixes_Normal;
 
@@ -115,10 +113,8 @@ extern "C"
 			return;
 		}
 
-		//If there is no config.ini, make one
 		const std::string s_path(path);
 		const std::string s_config_ini(s_path + "\\config.ini");
-		CopyFileA((s_path + "\\default.ini").c_str(), s_config_ini.c_str(), true);
 
 		//Config stuff
 		const IniFile *const config = new IniFile(s_config_ini);
@@ -142,7 +138,11 @@ extern "C"
 		EnableEggCarrier = config->getBool("Levels", "EnableEggCarrier", true);
 		EnablePast = config->getBool("Levels", "EnablePast", true);
 		DisableAllVideoStuff = config->getBool("Videos", "DisableAllVideoStuff", false);
-
+		SADXWater_EmeraldCoast = config->getBool("SADX Style Water", "EmeraldCoast", false);
+		SADXWater_StationSquare = config->getBool("SADX Style Water", "StationSquare", false);
+		SADXWater_MysticRuins = config->getBool("SADX Style Water", "MysticRuins", false);
+		SADXWater_EggCarrier = config->getBool("SADX Style Water", "EggCarrier", false);
+		SADXWater_Past = config->getBool("SADX Style Water", "Past", false);
 		const std::string EnableSETFixes_String = config->getString("Miscellaneous", "EnableSETFixes", "Normal");
 		if (EnableSETFixes_String == "Off")
 			EnableSETFixes = SETFixes_Off;
@@ -167,6 +167,7 @@ extern "C"
 				MB_OK | MB_ICONERROR);
 		}
 		//Init functions
+		SADXStyleWater_Init(config, helperFunctions);
 		if (EnableDCBranding) Branding_Init(config, helperFunctions);
 		if (EnableStationSquare) ADV00_Init(config, helperFunctions);
 		if (EnableEggCarrier) ADV01_Init(config, helperFunctions);
@@ -218,6 +219,7 @@ extern "C"
 		General_OnFrame();
 		if (!DisableAllVideoStuff) Videos_OnFrame();
 		if (EnableSpeedFixes) SpeedFixes_OnFrame();
+		SADXStyleWater_OnFrame();
 	}
 	__declspec(dllexport) void __cdecl OnInput()
 	{
