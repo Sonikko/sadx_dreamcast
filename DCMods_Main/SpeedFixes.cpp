@@ -16,6 +16,7 @@ static int MissedFrames_Half = 1;
 static bool FixesApplied = false;
 
 //General
+float InvincibilitySpeed = 0.84f;
 float DashPanelAnimationSpeedOverride = 0.25f;
 short SpinnerYAnimationSpeedOverride = 384;
 short SpinnerXAnimationSpeedOverride = 288;
@@ -441,6 +442,8 @@ static void __cdecl Bubbles_r(ObjectMaster *a1)
 
 void SpeedFixes_Init()
 {
+	//Invincibility
+	WriteData((float**)0x004BA4A7, &InvincibilitySpeed);
 	//Character bubbles
 	WriteData((int**)0x004A26B3, &MissedFrames_Half);
 	//Ice Cap avalanche snow sprites
@@ -583,6 +586,8 @@ void SpeedFixes_OnFrame()
 		//Original values for 30 FPS
 		if (FramerateSetting >= 2)
 		{
+			//Invincibility
+			InvincibilitySpeed = 0.7f;
 			//Ice Cap avalanche
 			AvalancheMultiplier = 25.0f;
 			//Animals
@@ -646,6 +651,8 @@ void SpeedFixes_OnFrame()
 		//60 FPS values
 		else
 		{
+			//Invincibility
+			InvincibilitySpeed = 0.84f;
 			//Ice Cap avalanche
 			AvalancheMultiplier = 12.5f;
 			//Animals

@@ -751,6 +751,20 @@ void FixCutsceneTransition()
 	if (CutsceneID == 134) sub_436550(); //Knuckles back in Station Square after meeting Pacman
 }
 
+void __cdecl RenderInvincibilityLines(NJS_MODEL_SADX *a1)
+{
+	double v1; // st7
+
+	v1 = 20048.0f;
+	if ((CurrentAct | (CurrentLevel << 8)) >> 8 == 3 && CurrentAct == 2)
+	{
+		v1 = 0.0f;
+	}
+	DrawQueueDepthBias = v1;
+	DrawVisibleModel_Queue(a1, QueuedModelFlagsB_EnableZWrite);
+	DrawQueueDepthBias = 0.0f;
+}
+
 void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 {
 	ReplacePVR("AL_BARRIA");
@@ -1137,6 +1151,7 @@ void General_Init(const IniFile *config, const HelperFunctions &helperFunctions)
 	//Shield
 	WriteJump(Barrier_Main, Barrier_MainX); //Barrier
 	WriteData<1>((char*)0x004B9DA9, 0x08); //Magnetic barrier blending mode
+	WriteCall((void*)0x4BA0E4, RenderInvincibilityLines);
 	//Material fixes
 	for (unsigned int i = 0; i < LengthOfArray(FirstCharacterSpecular_General); i++)
 	{
