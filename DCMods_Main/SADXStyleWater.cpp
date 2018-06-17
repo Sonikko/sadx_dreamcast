@@ -151,6 +151,7 @@ void __cdecl StationSquare_OceanDraw_SADXStyle(OceanData *x)
 		ToggleStageFog();
 	}
 }
+
 void __cdecl EmeraldCoast_OceanDraw_SADXStyle(OceanData *o)
 {
 	OceanData *_o; // esi
@@ -163,7 +164,6 @@ void __cdecl EmeraldCoast_OceanDraw_SADXStyle(OceanData *o)
 	unsigned int v8; // edi
 	float _f; // [esp+18h] [ebp+4h]
 	float xb; // [esp+18h] [ebp+4h]
-
 	if (CurrentLevel == LevelIDs_EmeraldCoast)
 	{
 		DisableFog();
@@ -233,6 +233,7 @@ void __cdecl EmeraldCoast_OceanDraw_SADXStyle(OceanData *o)
 		ToggleStageFog();
 	}
 }
+
 void __cdecl MysticRuins_OceanDraw_SADXStyle(OceanData *x)
 {
 	OceanData *v1; // esi
@@ -243,7 +244,6 @@ void __cdecl MysticRuins_OceanDraw_SADXStyle(OceanData *x)
 	unsigned int v6; // edi
 	float xa; // [esp+18h] [ebp+4h]
 	float xb; // [esp+18h] [ebp+4h]
-
 	if ((CurrentLevel == LevelIDs_MysticRuins && !CurrentAct) || CurrentLevel == LevelIDs_EggHornet)
 	{
 		DisableFog();
@@ -292,6 +292,7 @@ void __cdecl MysticRuins_OceanDraw_SADXStyle(OceanData *x)
 		ToggleStageFog();
 	}
 }
+
 void __cdecl EggCarrier_OceanDraw_SADXStyle(OceanData *arg_0)
 {
 	Uint32 v1; // ebp
@@ -364,6 +365,7 @@ void __cdecl EggCarrier_OceanDraw_SADXStyle(OceanData *arg_0)
 		ToggleStageFog();
 	}
 }
+
 void __cdecl Past_OceanDraw_SADXStyle(OceanData *x)
 {
 	Uint32 v1; // edi
