@@ -848,8 +848,6 @@ void __cdecl ComeOneYaBigDrip()
 	if (Chaos0PuddleTransparency >= 255 && Chaos0TransUp == true) Chaos0TransUp = false;
 	if (Chaos0PuddleTransparency <= 178 && !Chaos0TransUp) Chaos0TransUp = true;
 	if (Chaos0TransUp) Chaos0PuddleTransparency+=4; else Chaos0PuddleTransparency-=4;
-	PrintDebug("Calc:%d\n", Chaos0PuddleTransparency);
-	PrintDebug("Obj:%d\n", Chaos0PuddleTransparency_object);
 	if (Chaos0PuddleTransparency_object != -103) Chaos_Puddle_Model.basicdxmodel->mats->diffuse.argb.a = Chaos0PuddleTransparency_object;
 	else Chaos_Puddle_Model.basicdxmodel->mats->diffuse.argb.a = Chaos0PuddleTransparency;
 	njSetTexture(&CHAOS_SURFACE_TEXLIST);
